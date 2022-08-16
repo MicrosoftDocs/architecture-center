@@ -40,6 +40,8 @@ Raw documents are not necessarily required.
 
 :::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
+
 Leisure and travel booking scenarios can generate large amounts of raw documents
 at a high frequency. However, you may not need to index the entire contents of
 these documents. For example, users may need to search by a known transaction
