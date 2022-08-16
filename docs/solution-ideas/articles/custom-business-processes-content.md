@@ -14,7 +14,7 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 
 ## Architecture
 
-:::image type="content" border="false" source="../media/custom-business-processes.png" alt-text="Architecture Diagram" lightbox="../media/custom-business-processes.png":::
+:::image type="content" border="false" source="../media/custom-business-processes.png" alt-text="Diagram that shows dataflow in airline system with Azure components." lightbox="../media/custom-business-processes.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/custom-business-processes.vsdx) of this architecture.*
 
