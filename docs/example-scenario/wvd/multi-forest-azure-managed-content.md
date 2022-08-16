@@ -22,7 +22,7 @@ The following steps show how the data flows in this architecture in the form of 
 1. The AVD session hosts join the Azure AD DS domain controllers.
 1. Host pools and app groups can be created in a separate subscription and spoke virtual network.
 1. Users are assigned to the app groups.
-1. Users sign in by using either a [Azure Virtual Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) instance or a [web client](/azure/virtual-desktop/connect-web), with a UPN in a format such as john@companyA.com, jane@companyB.com, or joe@newcompanyAB.com, depending on their configured UPN suffix.
+1. Users sign in by using either the [Azure Virtual Desktop application](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or the [web client](/azure/virtual-desktop/connect-web), with a UPN in a format such as john@companyA.com, jane@companyB.com, or joe@newcompanyAB.com, depending on their configured UPN suffix.
 1. Users are presented with their respective virtual desktops or apps. For example, john@companyA.com is presented with virtual desktops or apps in host pool A, jane@companyB is presented with virtual desktops or apps in host pool B, and joe@newcompanyAB is presented with virtual desktops or apps in host pool AB.
 1. The storage account (Azure Files is used for FSLogix) is joined to the managed domain AD DS. The FSLogix user profiles are created in Azure Files shares.
 
