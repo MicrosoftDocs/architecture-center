@@ -287,8 +287,42 @@ For the Bank Fraud architecture, security guidance specific to each of the solut
 |   **Authentication**  |         |   [Azure AD options](/azure/key-vault/general/security-features#key-vault-authentication-options)      |     [Azure AD, AAD security group recommended as assigned principal](/azure/storage/blobs/data-lake-storage-access-control-model#security-groups)    |[Azure AD, MFA, Managed Identity](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)|[Use Azure AD for Authentication](/azure/azure-sql/database/authentication-aad-overview)|Use [Managed Identity](/azure/azure-functions/security-concepts?tabs=v4#managed-identities) both user-assigned and system assigned are supported |
 |  **Logging and monitor**   |   [Monitor Event Hubs](/azure/event-hubs/monitor-event-hubs)      |  [Monitor Key Vault](/azure/key-vault/general/monitor-key-vault) and [Logging](/azure/key-vault/general/logging)       |  [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage)       |[Enable logging/ diagnostic settings](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor#diagnostic-settings)|[Monitoring, Logging, and Auditing](/azure/azure-sql/database/security-best-practice#monitoring-logging-and-auditing)|[Log and monitor](/azure/azure-functions/security-concepts?tabs=v4#log-and-monitor)|
 |   **Protection and detection**  |         |         |         ||||
-|  - Azure Security Baseline   |    [Event Hubs](/security/benchmark/azure/baselines/event-hubs-security-baseline)     |    [Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)     |        [Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline) ||||
-| - Recommended Security Practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       ||||
-|   - Monitor security posture and configuration with Defender for Cloud   |         |         |         ||||
-| - Advanced threat detection     |         |         |         ||||
+|  - Azure Security Baseline   |    [Event Hubs](/security/benchmark/azure/baselines/event-hubs-security-baseline)     |    [Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)     |        [Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline) |[Synapse Analytic Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)|[Azure SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline#identity-management)|[Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline)|
+| - Recommended Security Practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       |[Azure Synapse Analytics Security Whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction)|[Playbook for Common Security Requirements](/azure/azure-sql/database/security-best-practice#network-security)|[Securing Azure Functions](/azure/azure-functions/security-concepts)|
+|   - Monitor security posture and configuration with Defender for Cloud   |      Yes   |Yes         |Yes         |Yes|Yes|Yes|
+| - Advanced threat detection     | No native service. Customer option to forward logs to log analytics workspace/Sentinel.         |   [Defender for Key Vault](/azure/defender-for-cloud/defender-for-storage-introduction)      |    [Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)    |No native service. Customer option to forward logs to log analytics workspace/ Sentinel. |[Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql)|No native service. Customer option to forward logs to log analytics workspace/ Sentinel.|
 
+Table 4 Security Features and References
+
+For more information, see [Zero Trust Deployment Guides](/security/zero-trust).
+
+### Scalability
+
+Will the solution perform end-to-end through peak times? A streaming workflow to handle millions of continuously arriving events demands incredible throughput. Plan to build a test system to simulate the volume and concurrency to ensure the technology components are configured and tuned to meet the required latencies. Scalability testing was especially important for these components: 
+
+- Data ingestion to handle concurrent data streams. In this architecture, Event Hub was selected because multiple versions of it could be deployed and assigned to different consumer groups. A scale-out approach turned out to be a better option because scaling-up could cause locking. The scale-out approach also was a better fit with plans to expand fraud detection from mobile banking to include the internet banking channel.
+- A framework to manage and schedule the process flow. Azure Functions were used to orchestrate the workflow. With this scenario, the best throughput was found when messages were batched up in micro batches and processed through a single azure function rather than a configuration set up to process 1 message per function call.
+- A low-latency data process to handle parsing, pre-processing, aggregations, and storage. In this solution, the capabilities of in-memory optimized SQL functions met the scalability and concurrency requirements.
+- Model scoring to handle concurrent requests. With Azure Machine Learning Web Services there are two options for scaling; (1) select a production web tier to support the API concurrency workload, or (2) add multiple endpoints to a web service if there is a requirement to support more than 200 concurrent requests.
+
+### Technologies presented
+  
+The glossary is an index of terms, patterns, and technologies used in the article and relating to the scenario.
+- [Azure Functions](https://azure.microsoft.com/services/functions)
+- [Azure Event Hub](/azure/event-hubs/event-hubs-features)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure AutoML](/azure/machine-learning/concept-automated-ml)
+- [Azure SQL Database]()
+- [Azure Synapse Analytics]()
+
+## Additional Links
+
+- [A fast, serverless, big data pipeline powered by a single Azure Function](https://azure.microsoft.com/blog/a-fast-serverless-big-data-pipeline-powered-by-a-single-azure-function)
+- [Considering Azure Functions for a serverless data streaming scenario](https://azure.microsoft.com/blog/considering-azure-functions-for-a-serverless-data-streaming-scenario)
+- [Networking considerations - Azure App Service Environment](/azure/app-service/environment/network-info)
+
+## Related resources
+
+- [Performance and scale guidance for Event Hubs with Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
+- [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
