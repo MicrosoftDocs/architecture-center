@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process for Azure Databricks. This process defines a standardized way to move machine learning models and pipelines from development to production, with options to include automated and manual processes.
+This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. This process defines a standardized way to move machine learning models and pipelines from development to production, with options to include automated and manual processes.
 
 MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
@@ -44,7 +44,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 7. **Feature table refresh**: This pipeline reads data, computes features, and writes to [Feature Store](/azure/databricks/applications/machine-learning/feature-store) tables. It runs continuously in streaming mode, runs on a schedule, or is triggered.
 
-1. **Model training**: In production, the model training or retraining pipeline is triggered or scheduled to train a fresh model on the latest production data. Models are registered to the [MLflow Model Registry](/azure/databricks/applications/mlflow/model-registry).
+1. **Model training**: In production, the model training or retraining pipeline is either triggered or scheduled to train a fresh model on the latest production data. Models are registered to the [MLflow Model Registry](/azure/databricks/applications/mlflow/model-registry).
 
 1. **Continuous deployment**: Registering new model versions triggers the CD pipeline, which runs tests to ensure that the model will perform well in production. As the model passes tests, its progress is tracked in the Model Registry via model stage transitions. [Registry webhooks](/azure/databricks/applications/mlflow/model-registry-webhooks) can be used for automation. Tests can include compliance checks, A/B tests to compare the new model with the current production model, and infrastructure tests. Test results and metrics are recorded in Lakehouse tables. You can optionally require manual sign-offs before models are transitioned to production.
 
