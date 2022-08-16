@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea illustrates how to deploy Azure Virtual Desktop (AVD) rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of [Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea illustrates how to deploy Azure Virtual Desktop rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of [Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
 ## Potential use cases
 
@@ -19,7 +19,7 @@ The following steps show how the data flows in this architecture in the form of 
 1. Azure Active Directory (Azure AD) Connect syncs users from both *CompanyA.com* and *CompanyB.com* to the Azure AD tenant, *newcompanyAB.onmicrosoft.com*. The user account is represented only once in Azure AD, and private connectivity isn't used.
 1. Users then sync from Azure AD to the managed Azure AD DS as a one-way sync.
 1. A custom and *routable* Azure AD DS domain name, *aadds.newcompanyAB.com*, is created. The newcompanyAB.com domain is a registered domain that supports LDAP certificates. We generally recommend that you *not* use non-routable domain names, such as contoso.local, because it can cause issues with DNS resolution.
-1. The AVD session hosts join the Azure AD DS domain controllers.
+1. The Azure Virtual Desktop session hosts join the Azure AD DS domain controllers.
 1. Host pools and app groups can be created in a separate subscription and spoke virtual network.
 1. Users are assigned to the app groups.
 1. Users sign in by using either the [Azure Virtual Desktop application](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or the [web client](/azure/virtual-desktop/connect-web), with a UPN in a format such as john@companyA.com, jane@companyB.com, or joe@newcompanyAB.com, depending on their configured UPN suffix.
@@ -28,7 +28,7 @@ The following steps show how the data flows in this architecture in the form of 
 
 > [!NOTE]
 > * For Group Policy requirements in Azure AD DS, you can install [Group Policy Management tools](/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that's joined to Azure AD DS.
-> * To extend Group Policy infrastructure for AVD from the on-premises domain controllers, you need to manually export and import it to Azure AD DS.
+> * To extend Group Policy infrastructure for Azure Virtual Desktop from the on-premises domain controllers, you need to manually export and import it to Azure AD DS.
 
 ### Components
 
