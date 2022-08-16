@@ -2,7 +2,7 @@
 
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.
 
-![Diagram that shows Windows virtual machine in Azure](./images/single-vm-diagram.png)
+![Diagram that shows Windows virtual machine in Azure.](./images/single-vm-diagram.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
