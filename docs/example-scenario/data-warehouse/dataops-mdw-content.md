@@ -1,4 +1,55 @@
+This article describes how a fictional city planning office could use this solution. The solution provides an end-to-end data pipeline that follows the MDW architectural pattern, along with corresponding DevOps and DataOps processes, to assess parking use and make more informed business decisions.
 
+## Architecture
+
+The following diagram shows the overall architecture of the solution.
+
+[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram-new.png)](./media/architecture-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
+
+### Dataflow
+
+Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 stores the data:
+
+1. The Contoso city parking web service API is available to transfer data from the parking spots.
+
+1. There's an ADF copy job that transfers the data into the Landing schema.
+
+1. Next, Azure Databricks cleanses and standardizes the data. It takes the raw data and conditions it so data scientists can use it.
+
+1. If validation reveals any bad data, it gets dumped into the Malformed schema.
+
+    > [!IMPORTANT]
+    > People have asked why the data isn't validated before it's stored in ADLS. The reason is that the validation might introduce a bug that could corrupt the dataset. If you introduce a bug at this step, you can fix the bug and replay your pipeline. If you dumped the bad data before you added it to ADLS, then the corrupted data is useless because you can't replay your pipeline.
+
+1. There's a second Azure Databricks transform step that converts the data into a format that you can store in the data warehouse.
+
+1. Finally, the pipeline serves the data in two different ways:
+
+    1. Databricks makes the data available to the data scientist so they can train models.
+
+    1. Polybase moves the data from the data lake to Azure Synapse Analytics and Power BI accesses the data and presents it to the business user.
+
+### Components
+
+The solution uses these components:
+
+* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
+
+* [Azure Databricks](https://azure.microsoft.com/services/databricks)
+
+* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+
+* [Azure DevOps](https://azure.microsoft.com/services/devops)
+
+* [Power BI](https://powerbi.microsoft.com)
+
+## Scenario details
 
 A modern data warehouse (MDW) lets you easily bring all of your data together at any scale. It doesn't matter if it's  structured, unstructured, or semi-structured data. You can gain insights to an MDW through analytical dashboards, operational reports, or advanced analytics for all your users.
 
@@ -6,7 +57,7 @@ Setting up an MDW environment for both development (dev) and production (prod) e
 
 This article describes how a fictional city planning office could use this solution. The solution provides an end-to-end data pipeline that follows the MDW architectural pattern, along with corresponding DevOps and DataOps processes, to assess parking use and make more informed business decisions.
 
-## Solution requirements
+### Solution requirements
 
 * Ability to collect data from different sources or systems.
 
@@ -40,65 +91,20 @@ This article describes how a fictional city planning office could use this solut
 
 * Centralized configuration in a secure storage like Azure Key Vault.
 
-## Potential use cases
+### Potential use cases
 
 This article uses the fictional city of Contoso to describe the use case scenario. In the narrative, Contoso owns and manages parking sensors for the city. It also owns the APIs that connect to and get data from the sensors. They need a platform that will collect data from many different sources. The data then must be validated, cleansed, and transformed to a known schema. Contoso city planners can then explore and assess report data on parking use with data visualization tools, like Power BI, to determine whether they need more parking or related resources.
 
-![Street Parking Availability](./media/street-parking-availability.png)
+[![Street Parking Availability](./media/street-parking-availability.png)](./media/street-parking-availability.png#lightbox)
 
-## Architecture
-
-The following diagram shows the overall architecture of the solution.
-
-![Architecture Diagram](./media/architecture-diagram.png)
-
-Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 stores the data:
-
-1. The Contoso city parking web service API is available to transfer data from the parking spots.
-
-1. There's an ADF copy job that transfers the data into the Landing schema.
-
-1. Next, Azure Databricks cleanses and standardizes the data. It takes the raw data and conditions it so data scientists can use it.
-
-1. If validation reveals any bad data, it gets dumped into the Malformed schema.
-
-    > [!IMPORTANT]
-    > People have asked why the data isn't validated before it's stored in ADLS. The reason is that the validation might introduce a bug that could corrupt the dataset. If you introduce a bug at this step, you can fix the bug and replay your pipeline. If you dumped the bad data before you added it to ADLS, then the corrupted data is useless because you can't replay your pipeline.
-
-1. There's a second Azure Databricks transform step that converts the data into a format that you can store in the data warehouse.
-
-1. Finally, the pipeline serves the data in two different ways:
-
-    1. Databricks makes the data available to the data scientist so they can train models.
-
-    1. Polybase moves the data from the data lake to Azure Synapse Analytics and Power BI accesses the data and presents it to the business user.
-
-## Components
-
-The solution uses these components:
-
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/)
-
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/)
-
-* [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
-
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
-
-* [Power BI](https://powerbi.microsoft.com/)
-
-## Deploy the solution
+## Deploy this scenario
 
 The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample).
 
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and AAD service principals per environment. The script also deploys Azure DevOps pipelines, variable groups, and service connections.
+1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure pipelines, variable groups, and service connections.
 1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
@@ -113,7 +119,9 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-![Figure Process and Sequence for Build and Release](./media/ci-cd-process-diagram.png)
+[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived git branches. For example, `<developer_name>/<branch_name>`.
 
@@ -170,8 +178,6 @@ The following list summarizes key learnings and best practices demonstrated by t
 
 If you'd like to deploy the solution, follow the steps in the [How to use the sample](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample) section of the **DataOps - Parking Sensor Demo** README.
 
-## Related resources
-
 ### Solution code samples on GitHub
 
 * [Visit the project page on GitHub](https://github.com/Azure-Samples/modern-data-warehouse-dataops)
@@ -186,7 +192,7 @@ Azure Databricks
 Data Factory
 
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
-* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
+* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
 Synapse Analytics
 
@@ -218,6 +224,10 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Videos
+### Detailed walkthrough
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
+
+## Related resources
+
+* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)

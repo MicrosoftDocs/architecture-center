@@ -2,9 +2,9 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: jjfrost
-ms.author: jfrost
-ms.date: 08/30/2021
+author: bhbandam
+ms.author: bhbandam
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -12,6 +12,8 @@ ms.category:
   - hybrid
 products:
   - azure
+categories:
+  - management-and-governance
 ms.custom:
   - overview
   - fcp
@@ -50,7 +52,7 @@ Part of demystifying mainframes involves decoding various overlapping terms. For
 
 #### MIPS
 
-The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www-01.ibm.com/servers/resourcelink/lib03060.nsf/pages/lsprITRzOSv2r1?OpenDocument), which shows the relative capacity across different mainframes.
+The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www.ibm.com/docs/en/cma/2.1.1?topic=211-capacity-management-analytics-terminology), which shows the relative capacity across different mainframes.
 
 The table below shows typical MIPS thresholds across small, medium, and large enterprise organizations (SORGs, MORGs, and LORGs).
 
@@ -64,12 +66,12 @@ The table below shows typical MIPS thresholds across small, medium, and large en
 
 Mainframe data is stored and organized in a variety of ways, from relational and hierarchical databases to high throughput file systems. Some of the common data systems are z/OS Db2 for relational data and IMS DB for hierarchical data. For high throughput file storage, you might see VSAM (IBM Virtual Storage Access Method). The following table provides a mapping of some of the more common mainframe data systems, and their possible migration targets into Azure.
 
-| Data source	|Target platform in Azure|
+| Data source    |Target platform in Azure|
 |---------------|------------------------|
 |z/OS Db2 & Db2 LUW |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Database for PostgreSQL|
-|IMS DB	            |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
+|IMS DB                |Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
 |Virtual Storage Access Method (VSAM), Indexed Sequential Access Method (ISAM), other flat files | Azure SQL DB, SQL Server on Azure VMs, Db2 LUW on Azure VMs, Oracle on Azure VMs, Azure Cosmos DB|
-|Generation Date Groups (GDGs)	|Files on Azure using extensions in the naming conventions to provide similar functionality to GDGs|
+|Generation Date Groups (GDGs)    |Files on Azure using extensions in the naming conventions to provide similar functionality to GDGs|
 
 ### Midrange systems, Unix variants, and other legacy systems
 
@@ -208,7 +210,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](../framework/index.md).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ## Related resources
 
@@ -237,7 +239,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
 - [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
 - [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
-- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
+- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
 
 ### Blog posts
 

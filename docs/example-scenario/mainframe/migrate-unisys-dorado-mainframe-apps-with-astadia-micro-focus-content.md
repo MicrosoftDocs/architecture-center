@@ -19,13 +19,61 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
     - Azure SQL Database with its built-in high availability.
     - Azure Data Factory with its automated and serverless file routing and transformation.
 
-## Architecture
+## Legacy architecture
+
+This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
+
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
+:::image-end:::
+
+*Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
+
+### Workflow
+
+- On-premises users interact with the mainframe (**A**):
+
+  - Admin users interact through a Universal Terminal System (UTS) terminal emulator.
+  - Web interface users interact via a web browser over TLS 1.3 port 443.
+
+  Mainframes use communication standards such as:
+
+  - Internet Protocol version 4 (IPv4)
+  - Internet Protocol version 6 (IPv6)
+  - Secure Sockets Layer (SSL)/TLS
+  - Telnet
+  - File Transfer Protocol (FTP)
+  - Sockets
+
+  In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
+
+- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
+
+- Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use TIPs or High Volume TIPs (HVTIPs). In the new architecture:
+
+  - Server topologies handle batch and transaction workloads.
+  - An Azure load balancer routes traffic to the server sets.
+  - Site Recovery provides high availability (HA) and disaster recovery (DR) capabilities.
+
+- A dedicated server handles workload automation, scheduling, reporting, and system monitoring (**D**). These functions use the same platforms in Azure.
+
+- A printer subsystem manages on-premises printers.
+
+- Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to SQL Database, which provides DR and HA capabilities.
+
+- Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
+
+## Azure Architecture
+
+This architecture demonstrates the solution, after it was migrated to Azure:
 
 :::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
+### Workflow
 
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
@@ -65,48 +113,6 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 1. Data Factory version 2 (V2) provides data movement pipelines that events can trigger. After data from external sources lands in Azure Blob Storage, these pipelines move that data into Azure Files storage. Emulated COBOL programs then process the files.
 
 1. Azure Site Recovery provides disaster recovery capabilities. This service mirrors the VMs to a secondary Azure region. In the rare case of an Azure datacenter failure, the system then provides quick failover.
-
-### Legacy architecture
-
-This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
-
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
-   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
-:::image-end:::
-
-*Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
-
-- On-premises users interact with the mainframe (**A**):
-
-  - Admin users interact through a Universal Terminal System (UTS) terminal emulator.
-  - Web interface users interact via a web browser over TLS 1.3 port 443.
-
-  Mainframes use communication standards such as:
-
-  - Internet Protocol version 4 (IPv4)
-  - Internet Protocol version 6 (IPv6)
-  - Secure Sockets Layer (SSL)/TLS
-  - Telnet
-  - File Transfer Protocol (FTP)
-  - Sockets
-
-  In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
-
-- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
-
-- Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use TIPs or High Volume TIPs (HVTIPs). In the new architecture:
-
-  - Server topologies handle batch and transaction workloads.
-  - An Azure load balancer routes traffic to the server sets.
-  - Site Recovery provides high availability (HA) and disaster recovery (DR) capabilities.
-
-- A dedicated server handles workload automation, scheduling, reporting, and system monitoring (**D**). These functions use the same platforms in Azure.
-
-- A printer subsystem manages on-premises printers.
-
-- Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to SQL Database, which provides DR and HA capabilities.
-
-- Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
 ### Components
 
@@ -243,6 +249,23 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
+For more information about the services featured in this solution, see the following articles:
+- [Azure solid-state drive (SSD) managed disks][Introduction to Azure managed disks]
+- [Virtual Network][What is Azure Virtual Network?] 
+- [Virtual network interface cards][Create, change, or delete a network interface] 
+- [Azure Files][What is Azure Files?]
+- [Azure Storage][Introduction to the core Azure Storage services]
+- [Blob Storage][Introduction to Azure Blob storage]
+- [SQL Database][What is Azure SQL Database?]
+- [Data Factory][What is Azure Data Factory?]
+- [Load Balancer][What is Azure Load Balancer?]
+- [ExpressRoute][What is Azure ExpressRoute?]
+- [Azure Bastion][What is Azure Bastion?]
+- [Private Link][What is Azure Private Link?]
+- [Azure network security groups][Network security groups]
+- [Site Recovery][About Site Recovery]
+- An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
+
 ## Related resources
 
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
@@ -261,7 +284,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
 [Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Azure is the new mainframe]: /shows/Azure-Friday/Azure-is-the-new-mainframe
 [Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Azure Site Recovery pricing]: https://azure.microsoft.com/pricing/details/site-recovery/
 [Azure SQL Database pricing]: https://azure.microsoft.com/pricing/details/sql-database/single/
@@ -281,14 +304,14 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
-[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
-[Overview of the performance efficiency pillar]: ../../framework/scalability/overview.md
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
-[Optimize VM costs]: ../../framework/cost/optimize-vm.md
+[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx

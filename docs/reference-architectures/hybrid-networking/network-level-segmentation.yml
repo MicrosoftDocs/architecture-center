@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Network-level segmentation workloads
-  titleSuffix: Azure Reference Architectures
-  description: Learn how to use network level segmentation to secure virtual networks by using the wide and diverse set of segmentation options available in Microsoft Azure.
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use network-level segmentation to secure virtual networks by using the wide and diverse set of segmentation options available in Microsoft Azure.
   author: tremansdoerfer
-  ms.author: pnp
-  ms.date: 4/30/2020
+  ms.author: rimansdo
+  ms.date: 06/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -16,11 +16,11 @@ metadata:
     - networking
     - reference-architecture
     - e2e-hybrid
-name: Secure and govern workloads with network level segmentation
+name: Secure and govern workloads with network-level segmentation
 azureCategories:
   - hybrid
   - networking
-summary: Learn how to use network level segmentation to secure virtual networks.
+summary: Learn how to use network-level segmentation to secure virtual networks.
 products:
   - azure-firewall
   - azure-monitor

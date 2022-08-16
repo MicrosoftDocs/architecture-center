@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Serverless Functions code walkthrough
+  description: Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.
+  author: rogeriohc
+  ms.author: rogerioc
+  ms.date: 06/22/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+  - featured
+products:
+  - azure-event-hubs
+  - azure-functions
+name: "Code walkthrough: Serverless application with Functions"
+summary: Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-functions-architecture.png
+content: |
+  [!include[](code-content.md)]

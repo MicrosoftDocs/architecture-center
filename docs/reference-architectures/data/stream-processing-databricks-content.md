@@ -1,16 +1,24 @@
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
 
-This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.md) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.
+This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.yml) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
-![Reference architecture for stream processing with Azure Databricks](./images/stream-processing-databricks.png)
+## Potential use cases
 
 **Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and drop-off locations. A separate device accepts payments from customers and sends data about fares. To spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.
 
+This solution is optimized for the retail industry.
+
 ## Architecture
 
-The architecture consists of the following components.
+![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
+
+### Workflow
+
+The architecture consists of the following components:
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. The data sources in a real application would be devices installed in the taxi cabs.
 
@@ -40,7 +48,9 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh.png)
+![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-eh.vsdx)* of this architecture.
 
 In the data generator, the common data model for both record types has a `PartitionKey` property that is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
@@ -367,12 +377,12 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 <!-- links -->
 
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [databricks-monitoring]: ../../databricks-monitoring/index.md
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Cosmos-Calculator]: https://cosmos.azure.com/capacitycalculator
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator

@@ -2,22 +2,39 @@
 
 Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
+## Potential use cases
+
+This solution is for any organization that utilizes both web and mobile applications.
+
 ## Architecture
 
-![Architecture Diagram](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png)
-*Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture.*
+![Architecture diagram shows browser or mobile app requests to Azure App Services to Azure Database for My S Q L.](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png)
+_Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture._
+
+### Dataflow
+
+1. A browser or mobile app makes requests for resources from the API.
+1. The requests are transmitted using HTTPS with [TLS termination](/azure/app-service/configure-ssl-certificate), which is handled by Azure App Services.
+1. Azure App Services handles API requests, and it can be [scaled up](/azure/app-service/manage-scale-up) or [scaled out](/azure/azure-monitor/autoscale/autoscale-get-started) to handle the changing demand.
+1. Azure Database for MySQL provides a relational database service that's powered by the MySQL community edition. Use the [flexible server](/azure/mysql/flexible-server/overview) deployment mode to enable scaling your database within seconds.
 
 ### Components
 
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
 - [Azure App Services](https://azure.microsoft.com/services/app-service)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Andrew Harvey](https://www.linkedin.com/in/andrewharvey) | Principal Program Manager - Microsoft for Startups
 
 ## Next steps
 
 Learn more about the component technologies:
 
-- [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
 - [App Service overview](/azure/app-service/overview)
 - [What is Azure Database for MySQL?](/azure/mysql/overview)
 

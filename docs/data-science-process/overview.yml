@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: What is the Team Data Science Process?
+  description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
+  author: marktab
+  ms.author: matabl
+  ms.date: 11/17/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-machine-learning
+name: What is the Team Data Science Process?
+summary: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/tdsp-tasks-roles.png
+content: |
+  [!include[](overview-content.md)]

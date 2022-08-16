@@ -73,3 +73,21 @@ Assigning the appropriate logging level may not be straightforward. The followin
 |LogError| 4|Logs when the current flow of execution is stopped due to a failure. These logs should indicate failures in the current activity, not an application-wide failure.|
 |LogCritical| 5|Describes an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention.
 |LogNone| 6| Not used for writing log messages. Specifies that a logging category should not write any messages.|
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
+
+Microsoft Learn modules:
+
+- [Configure blob storage](/learn/modules/configure-blob-storage)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+
+## Related resources
+
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Gridwich project naming and namespaces](gridwich-project-names.yml)
+- [Gridwich request-response messages](gridwich-message-formats.yml)

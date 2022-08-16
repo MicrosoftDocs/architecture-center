@@ -2,13 +2,35 @@
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
-![Reference architecture for a web application with high availability](./images/multi-region-web-app-diagram.png)
+There are several general approaches to achieve high availability across regions:
 
-*Download a [Visio file][visio-download] of this architecture.*
+- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
+
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+
+- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
+
+### Potential use cases
+
+These use cases can benefit from a multi-region deployment:
+
+- Design a business continuity and disaster recovery plan for LoB applications
+
+- Deploy mission-critical applications running on Windows or Linux
+
+- Improve user experience by keeping applications available
 
 ## Architecture
 
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
+![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
+
+### Workflow
+
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability]. The main differences are:
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
 - **Front Door**. [Front Door](/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
@@ -16,13 +38,21 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
-There are several general approaches to achieving high availability across regions:
+### Components
 
-- Active/passive with hot standby. Traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-- Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
-- Active/active. Both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+Key technologies used to implement this architecture:
 
-This reference architecture focuses on active/passive with hot standby, using Front Door for failover.
+- [Azure Active Directory][Azure-Active-Directory]
+- [Azure DNS][Azure-DNS]
+- [Azure Content Delivery Network][Azure-Content-Delivery-Network]
+- [Azure Front Door][Azure-Front-Door]
+- [Azure AppService][Azure-AppService]
+- [Azure Function][Azure-Function]
+- [Azure Storage][Azure-Storage]
+- [Azure Redis Cache][Azure-Redis-Cache]
+- [Azure SQL Database][Azure-SQL-Database]
+- [Azure Cosmos DB][Azure-Cosmos-DB]
+- [Azure Search][Azure-Search]
 
 ## Recommendations
 
@@ -40,7 +70,7 @@ However, make sure that both regions support all of the Azure services needed fo
 
 ### Resource groups
 
-Consider placing the primary region, secondary region, and Traffic Manager into separate [resource groups][resource groups]. This lets you manage the resources deployed to each region as a single collection.
+Consider placing the primary region, secondary region, and Front Door into separate [resource groups][resource groups]. This lets you manage the resources deployed to each region as a single collection.
 
 ### Front Door configuration
 
@@ -48,7 +78,7 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 **Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the backend to be marked as healthy. If Front Door marks the backend as degraded, it fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
-As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
+As a best practice, create a health probe path in your application backend that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
 ### SQL Database
 
@@ -68,11 +98,15 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Availability considerations
+## Considerations
 
-Consider these points when designing for high availability across regions.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Azure Front Door
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Consider these points when designing for high availability across regions.
+
+#### Azure Front Door
 
 Azure Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
 
@@ -81,17 +115,19 @@ Azure Front Door automatically fails over if the primary region becomes unavaila
 
 Front Door is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
+Azure Front Door Standard and Premium tier combines capabilities of Azure Front Door(classic), Azure CDN Standard from Microsoft (classic), and Azure WAF into a single platform. Using the Azure Front Door Standard or Premium reduces the points of failure and enables enhanced control, monitoring, and security. For more information, see [Overview of Azure Front Door tier][front-door-tier].
+
 <!-- markdownlint-disable MD024 -->
 
-### SQL Database
+#### SQL Database
 
-The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
+The recovery point objective (RPO) and estimated recovery time objective (RTO) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
 
-### Cosmos DB
+#### Cosmos DB
 
 RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
-### Storage
+#### Storage
 
 RA-GRS storage provides durable storage, but it's important to understand what can happen during an outage:
 
@@ -107,15 +143,31 @@ RA-GRS storage provides durable storage, but it's important to understand what c
 
 For more information, see [What to do if an Azure Storage outage occurs][storage-outage].
 
-## Cost considerations
+#### Failover
+
+If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see the [Security considerations section][guidance-web-apps-scalability-security].
+
+When defining identities for the components in this architecture, use [system managed identities][system-managed-identities] where possible to reduce your need to manage credentials and the risks inherent to managing credentials. Where it is not possible to use system managed identities, ensure that every user managed identity exists in only one region and is never shared across region boundaries.
+
+When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that services only allow outbound connections as explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Network-hardened web application with private connectivity to PaaS datastores][hardened-web-app].
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [pricing calculator][pricing-calculator] to estimate costs. These recommendations in this section may help you to reduce cost.
 
-### Azure Front Door
+#### Azure Front Door
 
 Azure Front Door billing has three pricing tiers: outbound data transfers, inbound data transfers, and routing rules. For more info See [Azure Front Door Pricing][AFD-pricing]. The pricing chart does not include the cost of accessing data from the backend services and transferring to Front Door. Those costs are billed based on data transfer charges, described in [Bandwidth Pricing Details][bandwidth-pricing].
 
-### Azure Cosmos DB
+#### Azure Cosmos DB
 
 There are two factors that determine Azure Cosmos DB pricing:
 
@@ -125,26 +177,41 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
-## Manageability considerations
+### Operational excellence
 
-If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
-
-## DevOps considerations
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 This architecture follows the multi region deployment recommendation, described in the [DevOps section of the Azure Well Architected Framework][AAF-devops-deployment-multi-region].
 
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see the [DevOps considerations section][guidance-web-apps-scalability-devops].
+
+## Next steps
+
+- Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
+
+- Create health probes that report the overall health of the application based on [endpoint monitoring patterns][endpoint-monitoring]
+
+- Enable [Azure SQL auto-failover groups][sql-failover]
+
+- [Ensure business continuity and disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+
+## Related resources
+
+- [Multi-region N-tier application](../n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
+
+- [Design principles for Azure applications][Design-principles-for-Azure-Application]
 
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: ../../framework/devops/release-engineering-cd.md#consider-deploying-across-multiple-regions
+[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/release-engineering-cd#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.yml
-[guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops-considerations
+[guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops
+[guidance-web-apps-scalability-security]: ./scalable-web-app.yml#security
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
@@ -154,4 +221,22 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 [sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
-[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-multi-region-webapp.vsdx
+[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory/
+[Azure-DNS]: https://azure.microsoft.com/services/dns/#overview
+[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn/#overview
+[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor/#overview
+[Azure-AppService]: https://azure.microsoft.com/services/app-service/#overview 
+[Azure-Function]: https://azure.microsoft.com/services/functions/#overview
+[Azure-Storage]: https://azure.microsoft.com/product-categories/storage/
+[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache/#overview
+[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database/#overview
+[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db/#overview
+[Azure-Search]: https://azure.microsoft.com/services/search/#overview
+[front-door-routing]: /azure/frontdoor/front-door-routing-methods
+[front-door-tier]: /azure/frontdoor/standard-premium/tier-comparison
+[endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
+[Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles
+[private-link]: /azure/private-link/private-link-overview
+[hardened-web-app]: /azure/architecture/example-scenario/security/hardened-web-app

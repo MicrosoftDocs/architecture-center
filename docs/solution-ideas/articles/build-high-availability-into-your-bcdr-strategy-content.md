@@ -2,20 +2,27 @@
 
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 
+## Potential use cases
+
+This solution is ideal for the healthcare industry and the following scenarios:
+
+* Hospitals
+* Data centers
+
 ## Architecture
 
 ![Architecture Diagram](../media/build-high-availability-into-your-bcdr-strategy.png)
 *Download an [SVG](../media/build-high-availability-into-your-bcdr-strategy.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Create zone-redundant Load Balancer.
-1. Create front-end subnet.
-1. Create DB subnet.
-1. Create VMs in three Availability Zones.
-1. Configure zone-redundant SQL DB.
+1. Create a zone-redundant Load Balancer.
+1. Create a front-end subnet.
+1. Create a DB subnet.
+1. Create VMs in three availability zones.
+1. Configure a zone-redundant SQL DB.
 1. Add VMs to the load balancer's back-end pool.
-1. Deploy your application on VMs for redundancy and high availability.
+1. Deploy your application on VMs, for redundancy and high availability.
 
 ### Components
 

@@ -76,7 +76,7 @@ Keep the following points in mind when you use this solution:
 
 ### Recommended versions of NiFi
 
-When you run this solution on Azure, we recommend using version 1.13.2+ of NiFi. You can run other versions, but they may require different configurations from the ones in this guide.
+When you run this solution on Azure, we recommend using version 1.13.2+ of NiFi. You can run other versions, but they might require different configurations from the ones in this guide.
 
 To install NiFi on Azure VMs, it's best to download the convenience binaries from the [NiFi downloads page][Apache nifi Downloads]. You can also build the binaries from [source code][NiFi on GitHub].
 
@@ -166,7 +166,7 @@ The following table lists the relevant size and throughput numbers for each disk
 | **IOPS per disk** | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | 1,100 | 2,300 | 5,000 |
 | **Throughput per disk** | Up to 60 MBps | Up to 60 MBps | Up to 60 MBps | Up to 60 MBps | Up to 60 MBps | Up to 60 MBps | 125 MBps | 150 MBps | 200 MBps |
 
-If your system hits VM limits, adding more disks may not increase throughput:
+If your system hits VM limits, adding more disks might not increase throughput:
 
 - IOPS and throughput limits depend on the size of the disk.
 - The VM size that you choose places IOPS and throughput limits for the VM on all data disks.
@@ -297,7 +297,7 @@ It's possible to operate NiFi unsecured, without wire encryption, identity and a
 - Using a supported authentication and authorization mechanism
 - Encrypting data at rest
 
-Azure Storage provides server-side transparent data encryption. But starting with the 1.13.2 release, NiFi doesn't configure wire encryption or IAM by default. This behavior may change in future releases.
+Azure Storage provides server-side transparent data encryption. But starting with the 1.13.2 release, NiFi doesn't configure wire encryption or IAM by default. This behavior might change in future releases.
 
 The following sections show how to secure deployments in these ways:
 
@@ -392,7 +392,7 @@ To enable TLS for NiFi, use `$NIFI_HOME/conf/nifi.properties` to configure the p
 - `nifi.web.https.host` or `nifi.web.proxy.host`
 - The host certificate's designated name or subject alternative names
 
-Otherwise, a hostname verification failure or an HTTP HOST header verification failure may result, denying you access.
+Otherwise, a hostname verification failure or an HTTP HOST header verification failure might result, denying you access.
 
 | Property name | Description | Example values |
 | --- | --- | --- |
@@ -886,12 +886,20 @@ For improved fault tolerance, run ZooKeeper as a cluster. Take this approach eve
 
 Except for the clustering settings, use default values for your ZooKeeper configuration.
 
-If you have a large NiFi cluster, you may need to use a greater number of ZooKeeper servers. For smaller cluster sizes, smaller VM sizes and Standard SSD managed disks are sufficient.
+If you have a large NiFi cluster, you might need to use a greater number of ZooKeeper servers. For smaller cluster sizes, smaller VM sizes and Standard SSD managed disks are sufficient.
 
 ## Pricing
 
 - Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
 - For an estimate that includes all the services in this architecture except the custom alerting solution, see this [sample cost profile][Sample cost profile].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Muazma Zahid](https://www.linkedin.com/in/muazmazahid) | Principal PM Manager
 
 ## Next steps
 

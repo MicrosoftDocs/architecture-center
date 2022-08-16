@@ -5,8 +5,8 @@ author: EdPrice-MSFT
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 09/03/2021
-ms.author: pnp
+ms.date: 07/26/2022
+ms.author: architectures
 categories:
   - hybrid
   - management-and-governance
@@ -33,7 +33,7 @@ If you're new to Azure, the best place to start is with Microsoft Learn. Microso
 
 Explore some options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml):
 
-- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 - [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 
@@ -48,7 +48,7 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 - [Back up files](azure-stack-backup.yml)
 - [Manage workloads](hybrid-server-os-mgmt.yml)
 - [Monitor performance](hybrid-perf-monitoring.yml)
-- [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-dr.yml)
+- [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 
 ---
 

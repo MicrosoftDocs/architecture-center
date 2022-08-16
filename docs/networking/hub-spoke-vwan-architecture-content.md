@@ -26,6 +26,8 @@ Typical uses for this architecture include cases in which:
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-001.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-001.vsdx) of this architecture.* 
+
 The architecture consists of:
 
 -   **On-premises network**. A private local area network (LAN) running within an organization.
@@ -60,6 +62,8 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 ## Advantages
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
 
 This diagram illustrates a few of the advantages that this architecture can provide:
 * A full meshed hubs among Azure Virtual Networks
@@ -105,7 +109,7 @@ For more information about setting up the gateway, see the following reference a
 
 -   [Hybrid network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
--   [Hybrid network using a VPN Gateway](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
@@ -180,7 +184,7 @@ Learn more:
 
 -   [Firewall and Application Gateway for virtual networks](../example-scenario/gateway/firewall-application-gateway.yml)
 
--   [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 -   [Secure and govern workloads with network level segmentation](../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 

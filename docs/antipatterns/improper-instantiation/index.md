@@ -3,12 +3,20 @@ title: Improper Instantiation antipattern
 titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: EdPrice-MSFT
+categories: azure
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+azureCategories: 
+  - analytics 
+  - compute
+  - databases
+  - storage
+  - web
 products:
   - azure-cache-redis
+  - azure-cosmos-db
 ms.custom:
   - article
   - seo-aac-fy21q3

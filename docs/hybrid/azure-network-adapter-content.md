@@ -1,12 +1,14 @@
 This reference architecture shows how to connect an on-premises standalone server to Microsoft Azure virtual networks by using the Azure Network Adapter that you deploy through Windows Admin Center (WAC). Azure Network Adapter creates a secured virtual connection over the internet, which extends your on-premises network into Azure.
 
+## Architecture
+
 ![Use Azure VPN to connect a standalone server to an Azure virtual network by deploying an Azure Network Adapter using Windows Admin Center. You then can manage the Azure virtual machines (VMs) from the standalone server by using the VMs private IP address.][architectual-diagram]
 
 ![Deploy an Azure Network Adapter using Windows Admin Center to connect a standalone server via Azure VPN to a corporate network's Azure virtual network, a branch office, or another cloud provider's network. You then can use the standalone server to manage the Azure VMs via their private IP addresses, from any locations.][architectual-diagram-large]
 
 *Download a [Visio file][architectual-diagram-visio-source] of these architectures.*
 
-## Architecture
+### Workflow
 
 The architecture consists of the following components:
 
@@ -79,7 +81,9 @@ The Azure Network Adapter's installation interface might not meet your naming co
 > Make sure you select the correct VPN Gateway SKU, as not all of them support the VPN connection that comes with the Azure Network Adapter. The installation dialog offers you VpnGw1, VpnGw2, and VpnGw3. Currently, the adapter doesn't support the zone-redundant versions of the VPN Gateway.
 >
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 - VPN Gateway SKU:
   - The [VPN Gateway SKU][4] you're selecting determines how many connections it can take in parallel, and the bandwidth that's available to all of those connections. The number of concurrent connections varies from 250 to 1,000 when you're using the **P2S IKEv2/OpenVPN** option. IKE refers to *IPsec Key Exchange*. It's advisable to begin with VpnGw1 and scale out later if you need more connections. If you need to switch the VPN Gateway generation, you need to install a new gateway and deploy a new Azure Network Adapter to connect to it.
@@ -89,14 +93,13 @@ The Azure Network Adapter's installation interface might not meet your naming co
 - Azure Site-to-Site connection:
   - The Azure Network Adapter is a single installation on a single server. If you want to connect several servers, you could face a significant administrative effort. However, you can avoid this effort by connecting your on-premises systems using the [Azure Site-2-Site][7] connection (S2S) method, which connects an existing on-premises network to an Azure VNet and its subnets. At this connection's core is an Azure VPN Gateway through which you can connect a local, on-premises VPN gateway with the remote Azure VPN Gateway. This secure connection allows the two network segments to  communicate transparently with each other.
 
-## Availability considerations
+### Availability
 
 - The Azure Network Adapter only supports an active-passive configuration of the Azure VPN Gateway. During the adapter's configuration, you can point to an existing [active-active Azure VPN gateway][8]. The setup will reconfigure the gateway to the active-passive configuration. A manual gateway reconfiguration to the active-active state is possible, but the Azure Network Adapter won't connect to this gateway.
   > [!WARNING]
   > Configuring an Azure Network Adapter against an existing Azure VPN Gateway with an active-active configuration will reconfigure the gateway to active-passive. This will impact all existing VPN connections to this gateway. Changing from active-active configuration to active-standby configuration will cause a drop of one of the two IPsec VPN tunnels for each connection. *Do not proceed* without evaluating your overall connection requirements and consulting with your network administrators.
-  >
 
-## Manageability considerations
+### Manageability
 
 - Administrative account:
   - The WAC is the core tool that you use to deploy the Azure Network Adapter and configure account handling. For more information about the available options, see [User access options with Windows Admin Center][9]. You can configure an individual account per server connection.
@@ -108,7 +111,7 @@ The Azure Network Adapter's installation interface might not meet your naming co
 - Azure Recovery Vault integration:
   - When you install Azure Network Adapter on a standalone server, you then can consider that server a port for your business continuity. You can integrate that server into your back-up and disaster-recovery procedures by using Azure Recovery Vault services that you configure by selecting **Azure Backup** in the **Tools** section of the WAC. Azure Backup helps protect your Windows server from corruptions, attacks, or disasters by backing up your server directly to Microsoft Azure.
 
-## Security considerations
+### Security
 
 - Required network ports:
   - Network ports for PowerShell remoting must be open if you want to use the WAC to deploy the Azure Network Adapter.
@@ -125,12 +128,12 @@ The Azure Network Adapter's installation interface might not meet your naming co
 - Microsoft Defender for Cloud integration:
   - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Microsoft Defender for Cloud by selecting **Microsoft Defender for Cloud** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Microsoft Defender for Cloud. For more information, see [Microsoft Defender for Cloud pricing][16].
 
-## DevOps considerations
+### DevOps
 
 - Azure Automation:
   - The WAC gives you access to the PowerShell code that creates the Azure Network Adapter, and you can review it by selecting the **Network** tool, and then selecting the **View PowerShell scripts** icon at the top of the WAC page. The script's name is **Complete-P2SVPNConfiguration**, and it's implemented as a PowerShell function. The code is digitally signed and ready to be reused. You can integrate it into [Azure Automation][17] by configuring more services inside the Azure portal.
 
-## Cost considerations
+### Cost optimization
 
 - Azure Pricing Calculator:
   - Using the Azure Network Adapter doesn't actually cost anything, as it's a component that you deploy to an on-premises system. The Azure VPN Gateway, as part of the solution, does generate extra costs, as does the use of other services, such as Azure Recovery Vault or Microsoft Defender for Cloud. For more information about actual costs, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for more information about pricing.
@@ -149,11 +152,13 @@ Learn more about the component technologies:
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Windows Admin Center overview](/windows-server/manage/windows-admin-center/overview)
 
+## Related resources
+
 Explore related architectures:
 
 - [Manage hybrid Azure workloads using Windows Admin Center](./hybrid-server-os-mgmt.yml)
 - [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
-- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Design a hybrid Domain Name System solution with Azure](./hybrid-dns-infra.yml)
 
 [architectual-diagram]: ./images/azure-network-adapter.png

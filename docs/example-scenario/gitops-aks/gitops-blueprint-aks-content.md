@@ -18,7 +18,9 @@ This solution benefits any organization that wants the advantages of deploying a
 
 ## Architecture
 
-![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks.svg)
+![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks-new.png)
+
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks.vsdx) of this architecture.*
 
 This solution follows a strong GitOps approach.
 
@@ -152,7 +154,7 @@ Take the following steps to provision a GitOps setup for AKS:
    kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.4/deploy/gatekeeper.yaml
    ```
 
-1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/reference/policies).
+1. Install Gatekeeper by following the Gatekeeper [Installation guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://securitytower.syncier.com/docs/guide/policies).
 
 1. Install Syncier Security Tower to your repository from the [GitHub marketplace](https://github.com/marketplace/security-tower).
 
@@ -179,5 +181,6 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 - [Get this architecture running with our step-by-step guide](https://securitytower.syncier.com/docs/guide/step-by-step-guide)
 
 ## Related resources
+
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)

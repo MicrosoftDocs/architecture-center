@@ -19,13 +19,17 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 - The energy sector
 - Retail and e-commerce
 - Banking and finance
-- Medicine
+- Medicine and healthcare
 
 ## Architecture
 
 :::image type="complex" source="../media/azure-databricks-modern-analytics-architecture-diagram.png" alt-text="Architecture diagram showing how a modern data architecture collects, processes, analyzes, and visualizes data." border="false":::
    The diagram contains several gray rectangles. Labels on the rectangles read Ingest, Process, Serve, Store, and Monitor and govern. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks icon is at the center, along with the Data Lake Storage icon. Arrows point back and forth between icons. The arrows show how data flows through the system, as the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-databricks-modern-analytics-architecture.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
 1. Data Factory loads raw batch data into Data Lake Storage.
@@ -41,10 +45,10 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 1. The analytical platform ingests data from the disparate batch and streaming sources. Data scientists use this data for these tasks:
 
-   - Data preparation
-   - Data exploration
-   - Model preparation
-   - Model training
+   - Data preparation.
+   - Data exploration.
+   - Model preparation.
+   - Model training.
 
    MLflow manages parameter, metric, and model tracking in data science code runs. The coding possibilities are flexible:
 
@@ -63,7 +67,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - Uses integrated security that includes row-level and column-level permissions.
    - Uses a [Photon-powered Delta Engine to accelerate performance][Photon improves performance].
 
-1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
+1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses these features when working with Azure Databricks:
 
    - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
    - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
@@ -72,7 +76,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
-   - Azure Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
+   - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
    - Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
    - Azure Key Vault securely manages secrets, keys, and certificates.
    - Azure Active Directory (Azure AD) provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
@@ -82,11 +86,11 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provides financial governance services for Azure workloads.
+   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
 
 ### Components
 
-The solution uses the following components:
+The solution uses the following components.
 
 #### Core components
 
@@ -118,7 +122,7 @@ The solution uses the following components:
 
 - [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis.
 
-- [Azure Purview][What is Azure Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage.
+- [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage.
 
 - [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments for building, deploying, and collaborating on applications.
 
@@ -128,7 +132,7 @@ The solution uses the following components:
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Next steps
 
@@ -154,26 +158,26 @@ To learn about related solutions, see this information:
 - [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
 [AGL achieves machine learning at scale]: https://customers.microsoft.com/story/844796-agl-energy-azure
-[Azure Active Directory]: https://azure.microsoft.com/services/active-directory/
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management/
-[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
+[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
-[Azure Databricks]: https://azure.microsoft.com/services/databricks/
-[Azure Databricks SQL Analytics guide]: /azure/databricks/sql/
-[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
-[Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
+[Azure Databricks]: https://azure.microsoft.com/services/databricks
+[Azure Databricks SQL Analytics guide]: /azure/databricks/sql
+[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning
+[Azure Monitor]: https://azure.microsoft.com/services/monitor
+[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
 [Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../data-guide/technology-choices/data-science-and-machine-learning.md
-[Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
+[Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
-[Event Hubs]: https://azure.microsoft.com/services/event-hubs/
-[Key Vault]: https://azure.microsoft.com/services/key-vault/
+[Event Hubs]: https://azure.microsoft.com/services/event-hubs
+[Key Vault]: https://azure.microsoft.com/services/key-vault
 [Medallion model]: https://techcommunity.microsoft.com/t5/analytics-on-azure/how-to-reduce-infrastructure-costs-by-up-to-80-with-azure/ba-p/1820280
-[MLflow]: https://mlflow.org/
+[MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
@@ -183,6 +187,6 @@ To learn about related solutions, see this information:
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
-[DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops/
-[What is Azure Purview?]: /azure/purview/overview
+[DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
+[What is Microsoft Purview?]: /azure/purview/overview
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview

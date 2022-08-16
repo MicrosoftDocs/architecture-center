@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Add IP address spaces to peered virtual networks
+  description: Learn about automation of IP address space additions to peered vNets. You can add/remove address ranges and delete the peering, then re-create the peering.
+  author: randycampbell
+  ms.author: randycam
+  ms.date: 02/01/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-virtual-network
+name: Add IP address spaces to peered virtual networks
+summary: Learn about automation of IP address space additions to peered vNets. You can add/remove address ranges and delete the peering, then re-create the peering
+thumbnailUrl: /azure/architecture/browse/thumbs/single-subscription.png
+content: |
+  [!include[](add-ip-space-peered-vnet-content.md)]

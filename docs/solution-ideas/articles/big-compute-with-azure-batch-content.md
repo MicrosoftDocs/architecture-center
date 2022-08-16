@@ -1,34 +1,35 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Big compute and high performance computing (HPC) workloads are typically compute-intensive and can be run in parallel, taking advantage of the scale and flexibility of the cloud. The workloads are often run asynchronously using batch processing, with compute resources required to run the work and job scheduling required to specify the work. Examples of Big Compute and HPC workloads include financial risk Monte Carlo simulations, image rendering, media transcoding, file processing, and engineering or scientific simulations.
+Big compute and high performance computing (HPC) workloads are typically compute-intensive and can be run in parallel, taking advantage of the scale and flexibility of the cloud. The workloads are often run asynchronously using batch processing, with compute resources required to run the work and job scheduling required to specify the work.
 
 This solution implements a cloud-native application with Azure Batch, which provides compute resource allocation and management, application installation, resource autoscaling, and job scheduling as a platform service. Batch also offers higher-level workload accelerators specifically for running R in parallel, AI training, and rendering workloads.
 
 This solution is built on managed services including Virtual Machines, Storage, and Batch. These Azure services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
 
-The following links provide documentation on deploying and managing the Azure products listed in the solution architecture:
+## Potential use cases
 
-* [Batch documentation](/azure/batch)
+This solution is ideal for the finance, media, entertainment, energy, and environment industries. It's optimized for the following scenarios:
 
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-
-* [Azure Batch](https://azure.microsoft.com/services/batch)
-
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage)
+* Financial risk Monte Carlo simulations (finance and portfolio)
+* Image rendering
+* Media transcoding
+* File processing
+* Engineering or scientific simulations (energy and environment)
 
 ## Architecture
 
 ![Architecture Diagram](../media/big-compute-with-azure-batch.png)
+
 *Download an [SVG](../media/big-compute-with-azure-batch.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Upload input files and the applications to your Azure Storage account.
 1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.
 1. Batch downloads input files and applications.
-1. Batch monitors task execution.
-1. Batch uploads task output.
-1. Download output files.
+1. Batch monitors the task execution.
+1. Batch uploads the task output.
+1. Download the output files.
 
 ### Components
 
@@ -41,3 +42,13 @@ The following links provide documentation on deploying and managing the Azure pr
 
 * [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)
+
+The following links provide documentation on deploying and managing the Azure products listed in the solution architecture:
+
+* [Batch documentation](/azure/batch)
+
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+
+* [Azure Batch](https://azure.microsoft.com/services/batch)
+
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage)

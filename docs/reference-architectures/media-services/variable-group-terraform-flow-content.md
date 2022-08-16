@@ -134,3 +134,22 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
            done
            addSpnToEnvironment: true
    ```
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
+- [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
+
+## Related resources
+
+- [Gridwich CI/CD pipeline](gridwich-cicd.yml)
+- [Gridwich Media Services setup and scaling](media-services-setup-scale.yml)

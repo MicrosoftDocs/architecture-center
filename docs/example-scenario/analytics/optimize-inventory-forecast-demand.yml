@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimize inventory and forecast demand with Power Platform and Azure
+  titleSuffix: Azure Architecture Center
+  description: Optimize inventory and forecast demand by using Azure Machine Learning, Ray, and Power BI. Enable users to configure and run simulations in Power BI.
+  author: gallogiulia
+  ms.author: giuliagallo
+  ms.date: 07/29/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - integration
+  - storage
+products:
+  - azure-data-factory
+  - azure-machine-learning
+  - azure-data-lake-gen2
+  - azure-synapse-analytics
+  - power-platform
+name: Optimize inventory and forecast demand with Power Platform and Azure
+summary: Optimize inventory and forecast demand by using Azure Machine Learning, Ray, and Power BI. Enable users to configure and run simulations in Power BI.
+thumbnailUrl: /azure/architecture/browse/thumbs/optimize-inventory-forecast-demand-thumbnail.svg
+content: |
+  [!include[](optimize-inventory-forecast-demand-content.md)]

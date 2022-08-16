@@ -178,6 +178,26 @@ However, there will be issues if the registration changes to `Singleton`, one in
 
 For these reasons, don't change the Gridwich Storage Service, as is, to `Singleton` dependency injection registration. Gridwich follows this rule in [dependency injection registration][StorageServiceDI] and includes a unit test, [CheckThatStorageServiceIsNotASingleton][SSTest], to enforce it.
 
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+Microsoft Learn modules:
+
+- [Configure blob storage](/learn/modules/configure-blob-storage)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich project naming and namespaces](gridwich-project-names.yml)
+- [Logging in Gridwich](gridwich-logging.yml)
+
+
 [StorageService]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage
 [SCPC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
 [ResponseBaseDTO]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Responses/ResponseBaseDTO.cs "ResponseBaseDTO.cs"

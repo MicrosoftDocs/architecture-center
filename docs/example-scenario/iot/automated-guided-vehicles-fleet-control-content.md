@@ -26,7 +26,7 @@ This example architecture is divided into three operational areas:
 
 ## Potential use cases
 
-This solution applies to many areas where:
+This solution is ideal for the manufacturing, automotive, and transportation industries. It applies to the following scenarios:
 
 -   The customer is currently using AGVs in its manufacturing process.
 -   The customer experiences low availability with the AGVs, which impacts their
@@ -69,6 +69,10 @@ availability and disaster recovery can solve these issues.
 
 :::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-01-georedundancy.vsdx) of this architecture.*
+
+#### Workflow
+
 -   An instance of the back end, consisting of the following components, is
     deployed to two Azure regions: [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview),
     Ingestion, [RabbitMQ](https://www.rabbitmq.com/), Mission State, Vehicle
@@ -88,6 +92,8 @@ availability and disaster recovery can solve these issues.
 
 [ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-02-onpremises.vsdx) of this architecture.*
+
 In scenarios where the internet connection between a production plant and Azure
 is a limiting factor, our AGV control software can also be deployed to
 on-premises compute nodes. By using Kubernetes and RabbitMQ as platform-agnostic
@@ -98,7 +104,11 @@ deployed on an Azure IoT Edge device.
 
 [ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-03.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-03-vda5050spec.vsdx) of this architecture.*
+
 Thanks to compliance with the [VDA 5050 vehicle connector specification](https://en.vda.de/en/services/Publications/vda-5050-v-1.1.-agv-communication-interface.html), our AGV control software can communicate with all types of AGVs from different vendors that also comply with VDA 5050.
+
+#### Workflow
 
 In this architecture, you can see an overview of the different services and
 components used to run the back-end AGV fleet control solution in Azure:
@@ -255,42 +265,52 @@ and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?ser
 to estimate the costs for running AKS in Azure. To learn about other
 considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Gürcan Güleşir](https://de.linkedin.com/in/g%C3%BCrcan-g%C3%BCle%C5%9Fir-08792a7) | Senior Program Manager
+
 ## Next steps
-
-Azure Architecture Center overview articles:
-
--   [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
--   [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
--   [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
--   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
--   [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 
 Product documentation:
 
--   [Application Insights](/azure/azure-monitor/app/app-insights-overview)
--   [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
--   [Azure App Service](/azure/app-service/overview)
--   [Azure Container Instances](/azure/container-instances/container-instances-overview)
--   [Azure Container Registry](/azure/container-registry/container-registry-intro)
--   [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
--   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
--   [Azure Key Vault](/azure/key-vault/general/basic-concepts)
--   [Azure Monitor](/azure/azure-monitor/overview)
--   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
--   [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
--   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
--   [GitHub](https://docs.github.com/en/get-started)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure App Service](/azure/app-service/overview)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview)
+- [Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [GitHub](https://docs.github.com/en/get-started)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
--   [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
--   [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
--   [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
--   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+- [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
+- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+- [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
+- [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
+- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
 
 ## Related resources
 
--   [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
--   [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
--   [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+Azure Architecture Center overview articles:
+
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+- [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+
+Related architectures:
+
+- [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
+- [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)

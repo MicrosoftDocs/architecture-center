@@ -2,9 +2,10 @@
 metadata:
   title: Scalable and secure WordPress on Azure
   titleSuffix: Azure Example Scenarios
-  description: This example shows how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
+  description: Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: david-stanford
-  ms.date: 09/18/2018
+  ms.author: dastanfo
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -18,7 +19,7 @@ metadata:
 name: Scalable and secure WordPress on Azure
 azureCategories:
   - web
-summary: This example shows how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
+summary: Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
 products:
   - azure-cdn
   - azure-key-vault

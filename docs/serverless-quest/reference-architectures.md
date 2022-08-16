@@ -131,7 +131,7 @@ The [serverless microservices reference architecture](/samples/azure-samples/ser
 This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest device status.
 
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.md) walks you through the code and the design processes.
+- The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.yml) walks you through the code and the design processes.
 
 ### Event-based cloud automation
 
@@ -177,7 +177,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
 - [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [HIPPA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
+- [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Intelligent Experiences On Containers (AKS, Functions, Keda)](https://github.com/mohamedsaif/IntelligentExperiences.OnContainers)
 
 ### Data and analytics
@@ -193,7 +193,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.yml)
 - [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](/samples/azure-samples/iot-edge-complementary-code/complementary-code-pattern-for-azure-iot-edge-modules--cloud-applications/)
+- [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](https://github.com/Azure-Samples/iot-edge-complementary-code/blob/master/csharp/cloud/README.md)
 
 ### Gaming
 

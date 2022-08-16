@@ -2,7 +2,9 @@ This reference architecture details how to run multiple instances of an Azure Ku
 
 This architecture builds on the [AKS Baseline architecture](../aks/secure-baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
-[![Mutli-region deployment](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+[![Diagram showing mutli-region deployment.](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-baseline-multi-region).
 
@@ -19,11 +21,11 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 ## Design patterns
 
-This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.md), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.md) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.yml), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.yml) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
 
 #### Geographical Node pattern considerations
 
-When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on paired regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 Within each region, the nodes in the AKS node pools are spread across multiple availability zones to help prevent issues due to zonal failures. Availability zones are supported in a limited set of regions, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 
@@ -54,7 +56,7 @@ The cost of developing and maintaining infrastructure as code assets can be cost
 
 #### Cluster deployment
 
-Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefit of continuous integration-based deployment solutions include:
+Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefits of continuous integration-based deployment solutions include:
 
 - Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
@@ -153,9 +155,11 @@ Similar to the AKS Baseline Reference Architecture, this architecture uses a hub
 
 With the AKS Baseline Reference Architecture, workload traffic is routed directly to an Azure Application Gateway instance, then forwarded onto the backend load balancer / AKS ingress resources. When working with multiple clusters, client requests are routed through an Azure Front Door instance, which routes to the Azure Application Gateway instance.
 
-![Mutli-region deployment](images/aks-ingress-flow.svg)
+![Diagram showing workload traffic in mutli-region deployment.](images/aks-ingress-flow.svg)
 
-1. The user sends a request to a domain name (e.g. https://contoso-web.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
+*Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
+
+1. The user sends a request to a domain name (such as `https://contoso-web.azurefd.net`), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 
 2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the Front Door to backend `X-Azure-FDID` header to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see [Protocol support for HTTP headers in Azure Front Door](/azure/frontdoor/front-door-http-headers-protocol).
 
@@ -185,7 +189,7 @@ This configuration is defined in the cluster stamp ARM template so that each tim
 
 #### Log Analytics and Azure Monitor
 
-The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Baseline Reference Architecture](../aks/secure-baseline-aks.yml#monitor-and-collect-metrics) for more information.
+The Azure Monitor container insights feature is the recommended tool for monitoring and logging because you can view events in real time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Baseline Reference Architecture](../aks/secure-baseline-aks.yml#monitor-and-collect-metrics) for more information.
 
 When considering monitoring for a cross-region implementation such as this reference architecture, it is important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single log analytics workspace and connect each cluster to it.
 
@@ -229,4 +233,4 @@ If your workload utilizes a caching solution, ensure that it is architected so t
 
 ### Cost management
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in Microsoft Azure Well-Architected Framework.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in Microsoft Azure Well-Architected Framework.

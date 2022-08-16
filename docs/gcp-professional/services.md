@@ -3,11 +3,14 @@ title: Google Cloud to Azure services comparison
 description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
 author: EdPrice-MSFT
 ms.author: petuton
-ms.date: 10/25/2021
+ms.date: 08/08/2022
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+categories:
+  - containers
 products:
+  - azure-kubernetes-service
   - azure-machine-learning
 ms.custom:
   - fcp
@@ -162,7 +165,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Deep Learning Containers](https://cloud.google.com/ai-platform/deep-learning-containers) | [GPU support on Azure Kubernetes Service (AKS)](/azure/aks/gpu-cluster) | Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. |
 | [Data Labeling Service](https://cloud.google.com/ai-platform/data-labeling/docs) | [Azure ML - Data Labeling](/azure/machine-learning/how-to-create-labeling-projects) | A central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes. |
 | [AI Platform Training](https://cloud.google.com/ai-platform/training/docs/overview) | [Azure ML – Compute Targets](/azure/machine-learning/concept-compute-target) | Designated compute resource/environment where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Using compute targets make it easy for you to later change your compute environment without having to change your code. |
-| [AI Platform Predictions](https://cloud.google.com/ai-platform/prediction/docs/overview) | [Azure ML - Deployments](/azure/machine-learning/how-to-deploy-and-where) | Deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices. Leverage serverless Azure Functions for model inference for dynamic scale. |
+| [AI Platform Predictions](https://cloud.google.com/ai-platform/prediction/docs/overview) | [Azure ML - Deployments](/azure/machine-learning/how-to-deploy-managed-online-endpoints) | Deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices. Leverage serverless Azure Functions for model inference for dynamic scale. |
 | [Continuous Evaluation](https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation) | [Azure ML – Data Drift](/azure/machine-learning/how-to-monitor-datasets) | Monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected. |
 | [What-If Tool](https://cloud.google.com/blog/products/ai-machine-learning/introducing-the-what-if-tool-for-cloud-ai-platform-models) | [Azure ML – Model Interpretability](/azure/machine-learning/how-to-machine-learning-interpretability) | Ensure machine learning model compliance with company policies, industry standards, and government regulations. |
 | [Cloud TPU](https://cloud.google.com/tpu) | [Azure ML – FPGA (Field Programmable Gate Arrays)](/azure/machine-learning/how-to-deploy-fpga-web-service) | FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. |
@@ -207,7 +210,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
 | [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
 | [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Simplify cluster management and monitoring through automatic upgrades and a built-in operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
-| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
+| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor container insights is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. |
 
 #### Container architectures
@@ -277,7 +280,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
 | [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
-### IOT architectures
+### IoT architectures
 
 <ul class="grid">
 
@@ -341,7 +344,7 @@ Here are some architectures that use AKS as the orchestrator.
 | | [Cloud Armor](https://cloud.google.com/armor) | [Front door – Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) | Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. |
 | | [Cloud Armor](https://cloud.google.com/armor) | [CDN – Azure Web Application Firewall](/azure/web-application-firewall/cdn/cdn-overview) | Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. |
 | NAT Gateway | [Cloud NAT](https://cloud.google.com/nat) | [Azure Virtual Network NAT](/azure/virtual-network/nat-overview) | Virtual Network NAT (network address translation) provides outbound NAT translations for internet connectivity for virtual networks. |
-| Private Connectivity to PaaS | [VPC Service controls](https://cloud.google.com/vpc-service-controls) | [Azure Private Link](/azure/private-link/private-link-overview) | Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. |
+| Private Connectivity to PaaS | [Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect) | [Azure Private Link](/azure/private-link/private-link-overview) | Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. |
 | Telemetry | [VPC Flow logs](https://cloud.google.com/vpc/docs/using-flow-logs) | [NSG Flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) | Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. |
 | | [Firewall Rules Logging](https://cloud.google.com/vpc/docs/firewall-rules-logging) | [NSG Flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) | Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. |
 | | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](/azure/azure-monitor/overview) | Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Log queries help you maximize the value of the data collected in Azure Monitor Logs. |
@@ -479,6 +482,6 @@ Server assessment |  | [Movere](/azure/migrate/migrate-services-overview#movere)
 Database assessment |  | [Data Migration Assistant](/sql/dma/dma-overview) |  It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. |
 Web app assessment and migration |  | [Web app migration assistant](https://appmigration.microsoft.com) | Assess on-premises web apps and migrate them to Azure. |
 
-## More learning
+## Next steps
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).

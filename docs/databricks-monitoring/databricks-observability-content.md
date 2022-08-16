@@ -311,8 +311,8 @@ Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-t
 
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
-- [Best practices for monitoring cloud applications](../best-practices/monitoring.md)
+- [Best practices for monitoring cloud applications](../best-practices/monitoring.yml)
 - [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
 - [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
 - [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
-- [Retry pattern](../patterns/retry.md)
+- [Retry pattern](../patterns/retry.yml)

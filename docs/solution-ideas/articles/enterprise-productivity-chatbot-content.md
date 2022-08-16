@@ -2,17 +2,25 @@
 
 Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more. This solution idea shows how you can architect an enterprise bot for employees tasks.
 
+## Potential use cases
+
+This solution is ideal for the HR, sales, and manufacturing industries. Some organizations utilize chatbots in these areas:
+
+- Human Resources (recruitment, on-boarding, and training)
+- Sales and Marketing (schedule meetings and provide contextual responses)
+- Supply Chain (real-time shipping updates and simplify logging claims)
+
 ## Architecture
 
 ![Architecture diagram: enterprise bot working with Office 365 and Dynamics CRM to streamline common employee tasks.](../media/enterprise-productivity-chatbot.png)
 *Download an [SVG](../media/enterprise-productivity-chatbot.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. An employee accesses the enterprise bot.
 1. Azure Active Directory validates the employee's identity.
 1. The bot queries the employee's Microsoft 365 calendar via Microsoft Graph.
-1. Using data gathered from the calendar, the bot accesses case information in Dynamics CRM.
+1. By using data gathered from the calendar, the bot accesses case information in Dynamics CRM.
 1. Information is returned to the employee, who can filter the data without leaving the bot.
 1. Application Insights monitors the live application to diagnose issues and help understand how to improve bot performance and usability.
 
@@ -44,9 +52,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
+* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
+* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
 
 ## Related resources
 

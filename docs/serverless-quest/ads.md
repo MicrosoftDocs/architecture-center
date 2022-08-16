@@ -7,6 +7,10 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories: management-and-governance
+categories: management-and-governance
+products:
+  - azure-active-directory
 ms.custom:
   - fcp
   - guide

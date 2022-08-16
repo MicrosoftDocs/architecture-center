@@ -1,4 +1,4 @@
-The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
+The SAP on Azure Architecture Guide describes a set of guiding tenets that are used to help ensure the quality of SAP workloads running on Azure. This guide is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index), but the recommendations are specific to deployments of SAP solutions. A solid architectural foundation starts with five pillars of excellence: cost, DevOps, resiliency, scalability, and security.
 
 Microsoft and SAP work in [partnership](https://blogs.microsoft.com/blog/2019/05/09/microsoft-partners-with-sap-as-the-first-global-cloud-provider-to-launch-project-embrace/) to provide a clear roadmap for organizations that want to innovate in the cloud. Azure supports SAP applications on Linux and Windows across development, test, and production environments. Our customers run SAP deployments of all sizes on Azure—including SAP NetWeaver an all supported Database Management Systems, SAP S/4HANA, BW/4HANA,  BI, and HANA in scale-up and scale-out scenarios.
 
@@ -6,7 +6,7 @@ One way to get started is to run through the [Azure Well-Architected Review](/as
 
 ## Cost
 
-When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](../../framework/cost/index.yml). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
+When you move your workloads to the cloud, you have multiple aspects which can help to reduce costs of the overall solution. Many of them are covered in the Azure Well-Architected Framework under the [pillar of cost optimization](/azure/architecture/framework/cost/index). When you move SAP solutions to Azure, you have the additional opportunity to perform cost optimization. You can start a **rationalization** of your landscape or there is the chance to **rearchitecture** or substitute components, especially when moving from Business Suite to S/4HANA during your journey to the cloud. All these actions take place at the beginning of your journey to Azure and continues throughout.
 
 System rationalization answers cost-related questions. For example, do you need to move all SAP systems, or can you decommission those which are no longer used? Is it more cost-efficient to refactor certain workloads—or more timely to lift and shift? Do you really need a system as large as you sized it on premises?
 
@@ -127,11 +127,11 @@ For more information, see [General Azure Virtual Machines DBMS deployment for SA
 
 In addition to a resilient architecture, including high-availability and disaster-recovery capabilities, mission critical environments need to implement a backup solution as well.
 
-SAP HANA specifically offers a backup API called Backint, allowing backup solutions to backup directly on the database layer.
+SAP HANA specifically offers a backup API called Backint, allowing backup solutions to back up directly on the database layer.
 
 Several certified third-party backup solutions exist in the [Azure Marketplace](https://azuremarketplace.microsoft.com/), offering vendor- and SAP-certified backup capabilities.
 
-Storage solutions such as Azure NetApp Files can backup critical data through the capabilities of snapshots.
+Storage solutions such as Azure NetApp Files can back up critical data through the capabilities of snapshots.
 
 Azure Backup is Azure's native backup solution:
 
@@ -237,9 +237,9 @@ Cloud applications often use managed services that have access keys. It bears re
 
 Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone.
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users.
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to use this platform to maximize those advantages for their users.
 
-When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. More details at https://docs.microsoft.com/azure/storage/common/storage-redundancy
+When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs).  Azure Key Vault supports the SQL server from DBMS point of view. Many storage and database services support data encryption at rest, including [Azure Storage](/azure/storage/storage-service-encryption), [Azure SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](/azure/cosmos-db/database-security).
 
@@ -322,7 +322,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up-avset.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">

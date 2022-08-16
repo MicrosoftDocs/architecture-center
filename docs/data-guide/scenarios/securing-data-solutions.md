@@ -2,11 +2,25 @@
 title: Secure data solutions
 description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/20/2019
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - compute
+  - databases
+  - management and governance
+  - security
+  - storage
+products:
+  - azure-sql-database
+  - azure-encoding
+  - azure-firewall
+  - azure-monitor
+  - azure-security-center
 ms.custom:
   - guide
 ---
@@ -94,3 +108,11 @@ For more information, see [Azure network security](/azure/security/azure-network
 [Log Analytics](/azure/log-analytics/log-analytics-overview) provides centralized access to your logs and helps you analyze that data and create custom alerts.
 
 [Azure SQL Database Threat Detection](/azure/sql-database/sql-database-threat-detection) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Security officers or other designated administrators can receive an immediate notification about suspicious database activities as they occur. Each notification provides details of the suspicious activity and recommends how to further investigate and mitigate the threat.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

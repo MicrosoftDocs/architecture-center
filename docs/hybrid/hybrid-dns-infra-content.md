@@ -6,7 +6,9 @@ This reference architecture illustrates how to design a hybrid Domain Name Syste
 
 *Download a [Visio file][architectual-diagram-visio-source] of this architecture.*
 
-The architecture consists of the following components.
+### Workflow
+
+The architecture consists of the following components:
 
 - **On-premises network**. The on-premises network represents a single datacenter that's connected to Azure over an [Azure ExpressRoute][1] or [virtual private network (VPN)][2] connection. In this scenario, the following components make up the on-premises network:
   - **DNS** servers. These servers represent two servers with DNS service installed that are acting as resolver/forwarder. These DNS servers are used for all computers in the on-premises network as DNS servers. Records must be created on these servers for all endpoints in Azure and on-premises.
@@ -97,34 +99,36 @@ Linux VMs do **not** support secure dynamic updates. For on-premises Linux compu
 
 For [Linux VMs in Azure][16], use an automated process.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 - Per Azure region or on-premises datacenters, consider using at least two DNS servers each.
 - Notice how that's done in the previous scenario, with DNS servers on-premises and in the hub virtual network.
 
-## Availability considerations
+### Availability
 
 - Consider placement of DNS servers. As described in the scalability considerations section, DNS servers should be placed close to the users and systems that need access to them.
   - Per Azure region. Each Azure region has its own hub VNet or vWAN hub. This is where your DNS servers must be deployed.
   - Per on-premises datacenter. You should also have a pair of DNS servers per on-premises datacenter for users and systems in those locations.
   - For isolated (disconnected) workloads, host a private DNS zone and a public DNS zone for each subscription to manage split-brain DNS records.
 
-## Manageability considerations
+### Manageability
 
 - Consider the need for DNS records for platform as a service (PaaS) services.
 - You also must consider DNS resolution for PaaS services that use a private endpoint. Use a private DNS zone for that and use your DevOps pipeline to create records in the DNS servers.
 
-## Security considerations
+### Security
 
 - If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
 - For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
 
-## DevOps considerations
+### DevOps
 
 - Automate configuration of this architecture by combining Azure Resource Manager templates for configuration of all the resources. Both private and public DNS zones support full management from Azure CLI, PowerShell, .NET, and REST API.
 - If you're using a continuous integration and continuous development (CI/CD) pipeline to deploy and maintain workloads in Azure and on-premises, you can also configure autoregistration of DNS records.
 
-## Cost considerations
+### Cost optimization
 
 - Azure DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
 - Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained here.
@@ -139,6 +143,8 @@ Learn more about the component technologies:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Bastion?](/azure/bastion/bastion-overview)
+
+## Related resources
 
 Explore related architectures:
 

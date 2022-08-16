@@ -1,5 +1,3 @@
-
-
 Topologically, Azure Internet-of-Things (IoT) solutions are a collection of assets and components divided across *IoT devices*, the *IoT platform*, and *IoT applications*. [Events, insights, and actions](introduction-to-solutions.yml) are data flow and processing pipelines that occur across these structural parts.
 
 ![A diagram showing the relationship between devices, the IoT platform, and an application.](media/devices-platform-application.svg)
@@ -27,5 +25,14 @@ The IoT platform at least:
 - *Event* workflows to receive and process incoming device events.
 - *Action* workflows to send commands to devices or other processes.
 
-## See also
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Jason Wadsworth](https://www.linkedin.com/in/jason-wadsworth-23549b158) | Principal Software Engineer
+
+## Related resources
+
 - [IoT application-to-device commands](cloud-to-device.yml)

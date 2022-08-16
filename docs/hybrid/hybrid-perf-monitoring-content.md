@@ -1,12 +1,12 @@
 This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with third-party cloud providers.
 
+## Architecture
+
 ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-## Architecture explanation
-
-The architecture consists of the following components:
+### Workflow
 
 - **On-premises main office - VM 1**. This component is a web application with internet access and a public-facing webpage, and both log analytics and dependency agents installed. For information about agents, refer to [Log Analytics agent overview][agents-overview] and [Overview of Azure Monitor agents, Dependency agent][dependency-agent].
 - **On-premises main office - VM 2**. This business-logic environment doesn't have internet access. It does, however, have log analytics and dependency agents installed.
@@ -29,6 +29,16 @@ The architecture consists of the following components:
 - **Azure Monitor - Integrations**. Azure Monitor integrates with a range of partner and third-party tools and extensions. These tools and extensions enhance and build upon existing Azure Monitor functionality, such as Analysis and Visualizations.
 - **Azure Monitor - Actions - Alerts**. Variations in metric and log data can indicate the occurrence of events. Rules define the data variations that trigger alerts, provide notifications, and initiate remediation responses. In this architecture, when an alert is triggered, automation runbooks automatically remediate the on-premises VMs and Azure VMs. Webhook actions, Service Management integration, and other action types are also available. For more information, see [Create, view, and manage metric alerts using Azure Monitor][manage-metrics-alerts] and [Create, view, and manage log alerts using Azure Monitor][manage-log-alerts].
 - **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances as demand changes, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
+
+### Components
+
+The architecture consists of the following components:
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
+- [Azure Storage](https://azure.microsoft.com/product-categories/storage)
 
 ## Recommendations
 
@@ -83,7 +93,9 @@ Install agents automatically and at scale, rather than individually, by using au
 
 For critical applications, create an **Azure Dashboard** view. Share or make your dashboard available on a shared screen, in real time, to people who need critical application data.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 The following are considerations for scaling your environment.
 
@@ -93,7 +105,7 @@ The following are considerations for scaling your environment.
     - Transaction diagnostics experience. This experience is similar to a call stack with an added time dimension. The transaction diagnostics experience provides visibility into one single transaction/request. It's helpful for finding the root cause of reliability issues and performance bottlenecks on a per-request basis. For more information, see [What is Distributed Tracing?][distributed-tracing]
     - Application map experience. This aggregates many transactions to demonstrate how systems interact topologically, and provide average performance and error rates. For more information, see [Application Map: Triage Distributed Applications][triage-applications].
 
-## Availability considerations
+### Availability
 
 The following are considerations for ensuring availability in your environment.
 
@@ -102,7 +114,7 @@ The following are considerations for ensuring availability in your environment.
   - Custom track availability tests. Use the `TrackAvailability()` method to send test results to Application Insights.
 - Alerts. When you create an availability test in Application Insights, event alert notifications are enabled by default. You can edit the alert rules by specifying the notification type and details, from **Azure Monitor** > **Alerts**.
 
-## Manageability considerations
+### Manageability
 
 The following are considerations for making your environment more manageable.
 
@@ -112,7 +124,7 @@ The following are considerations for making your environment more manageable.
 - Send data to Azure Event Hub. For integrating Azure Monitor with visualization and external monitoring tools, refer to [Stream Azure monitoring data to an event hub or external partner][event-hub].
 - Log Analytics gateway. For smaller environments such as the branch office, use the agent to transfer data into the Log Analytics workspace, rather than into a gateway. For more information, see [Establish connectivity to Azure Log Analytics][connect-to-la].
 
-## Security considerations
+### Security
 
 The following items are considerations for making your environment more secure.
 
@@ -124,7 +136,7 @@ The following items are considerations for making your environment more secure.
 - Smart Detection. Use Smart Detection in Application Insights to analyze the telemetry generated by your application, and to detect security issues. For more information, see [Application security detection pack (preview)][detection-pack].
 - Integrate Azure Monitor with Security Information and Event Management (SIEM) tools. Route your monitoring data to an event hub with Azure Monitor to integrate external SIEM and monitoring tools. For more information, see [Stream Azure monitoring data to an event hub or external partner][event-hub].
 
-## DevOps considerations
+### DevOps
 
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
@@ -146,7 +158,7 @@ The following are considerations for integrating your environment with DevOps pr
     - Python
 - Use IT Service Management Connector (ITSMC) to connect to external IT Service Management (ITSM) tools. ITSMC connects Azure to supported ITSM products and services, where issue-related work items typically reside. For more information, see [Connect Azure to ITSM tools using IT Service Management Connector][itsm].
 
-## Cost considerations
+## Pricing
 
 The following items are considerations for controlling and managing costs in your environment.
 
@@ -169,6 +181,8 @@ Learn more about the component technologies:
 - [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 - [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
+
+## Related resources
 
 Explore related architectures:
 

@@ -1,34 +1,14 @@
-As more data is loaded into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows. Data that seemed adequate in the source system is often found to be deficient when shared. It may have missing or incomplete information, duplications and conflicts, and be of poor quality overall.
-
-Without high-quality data in your Azure data estate, the business value of Azure will be undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Working together, Azure Purview and Profisee master data management (MDM) form such a platform.
-
-![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
-
-**Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM).
-
-**Profisee MDM** is designed to accept master data from any source, then match, merge, standardize, verify, correct, and synchronize it across systems, ensuring data can be properly integrated and will meet the needs of downstream systems, such as business intelligence (BI), machine learning, and so on.
-
-**Better together**: Purview and Profisee MDM are integrated to streamline these tasks and ensure that all systems are working to enforce the same standards. Profisee publishes its master data model to Purview, where it can participate in governance. Purview then shares the output of governance, such as a data catalog and glossary information, so it can be reviewed and enforced by Profisee.
-
-For example, after cataloging enterprise data sources, it may be determined that there are multiple sources of customer data. To be effective, master data should be merged, validated, and corrected in Profisee, by using governance definitions, insights, and expertise that are detailed in Purview. In this way, Purview and Profisee form the foundation for governance and data management, and they maximize the business value of data in Azure.
-
-## Potential use cases
-
-You'll find a robust list of the use cases in the "MDM use cases" section, later in this article. Key master data management (MDM) use cases include the following retail and manufacturing examples:
-
-* Consolidating customer data for analytics.
-* Understanding the total catalog of your product data, in a consistent and accessible form, such as each product's name, description, and characteristics.
-* Establishing reference data to further consistently describe other sets of master data. For example, reference data includes lists of countries, currencies, colors, sizes, and units of measure.
-
-In addition, these MDM solutions help financial organizations that rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting.
+After cataloging enterprise data sources, it may be determined that there are multiple sources of customer data. To be effective, master data should be merged, validated, and corrected in Profisee, by using governance definitions, insights, and expertise that are detailed in Purview. In this way, Purview and Profisee form the foundation for governance and data management, and they maximize the business value of data in Azure.
 
 ## Architecture
 
-The flow illustrated next represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
+The following flow illustration represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
 
 ![Diagram of Purview microservice design architecture.](./images/purview-microservice-design-architecture.png)
 
-### Metadata and data flow
+*Download a [Visio file](https://arch-center.azureedge.net/purview-microservice-design-architecture.vsdx) of this architecture.*
+
+### Dataflow
 
 Metadata and data flow include these steps, shown in the preceding figure:
 
@@ -41,12 +21,12 @@ Metadata and data flow include these steps, shown in the preceding figure:
     - New record attributions that contain transformed data that originates from Profisee's data quality rules engine and/or data stewardship activities.
     - Process-oriented control attributes that support various stewardship, workflow, and data quality stage-gate behaviors.
 6. **Governance data enrichment**: As your master metadata details are published to Purview, your governance team can enhance it with enterprise-level details that help with usage and stewardship, such as glossary entries, supporting resources, data classification, sensitivity identification, ownership, and subject-matter expertise.
-7. **Data stewardship**: Enriched governance information is made available to data stewards through Profisee's FastApp Portal, which allows stewards to make good decisions, when faced with quality issues and/or matching conflict resolution challenges. Owners and experts can be quickly identified and reached via instant message (such as Teams chat), email, or phone, thus fostering collaboration between stewards, business users, and data owners.
-8. **Managed master data**: After quality checks and stewardship activities have been completed, high-quality master data can be applied by the business, through analytics supported by Azure Synapse. Like data ingress, real-time or near-real-time data feeds can be supported by Azure Data Factory pipelines to your analytics. And applying the ability to infer lineage from the pipeline metadata, you're able to trace lineage from your analytics back to the LOB applications that originated the data that you are presently analyzing.
+    - **Data stewardship**: Enriched governance information is made available to data stewards through Profisee's FastApp Portal, which allows stewards to make good decisions, when faced with quality issues and/or matching conflict resolution challenges. Owners and experts can be quickly identified and reached via instant message (such as Teams chat), email, or phone, thus fostering collaboration between stewards, business users, and data owners.
+7. **Managed master data**: After quality checks and stewardship activities have been completed, high-quality master data can be applied by the business, through analytics supported by Azure Synapse. Like data ingress, real-time or near-real-time data feeds can be supported by Azure Data Factory pipelines to your analytics. And applying the ability to infer lineage from the pipeline metadata, you're able to trace lineage from your analytics back to the LOB applications that originated the data that you are presently analyzing.
 
 ### Components
 
-- [Azure Purview](https://azure.microsoft.com/services/purview/) is a data governance solution that provides broad visibility of organizations' on-premises and cloud data estates. It offers a combination of data discovery and classification, lineage, metadata search and discovery, and usage insights, which help you manage and understand data across your enterprise data landscape.
+- [Microsoft Purview](https://azure.microsoft.com/services/purview/) is a data governance solution that provides broad visibility of organizations' on-premises and cloud data estates. It offers a combination of data discovery and classification, lineage, metadata search and discovery, and usage insights, which help you manage and understand data across your enterprise data landscape.
 
 - [Profisee](https://profisee.com/platform/) is a fast and scalable MDM platform that integrates seamlessly with Microsoft technologies and the Azure data management ecosystem.
 
@@ -56,23 +36,51 @@ Metadata and data flow include these steps, shown in the preceding figure:
 
 - [Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools that delivers insights throughout  your organization. Connect to hundreds of data sources, simplify data preparation, and drive improvised analysis. Produce beautiful reports, and then publish them for your organization to consume, on the web and across mobile devices.
 
-## Alternatives
+### Alternatives
 
-Absent a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
+In the absence of a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem:
 
 - **Data quality**: When loading to an analytics platform, data quality can be built into integration processes. For example, you can use hardcoded scripts to apply data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline.
 - **Data standardization and enrichment**: [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. The standardized data can be used in Azure Functions and/or Azure Data Factory. Standardization of other data may require you to develop hardcoded scripts.
 - **Duplicate data management**: Azure Data Factory can be used to [deduplicate rows](/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets), where sufficient identifiers are available for an exact match. In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
 - **Data stewardship**: [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations.
 
-## MDM integration with Azure Purview
+## Scenario details
 
-The following figure illustrates in more detail Profisee's Azure Purview integration. To support this integration, Profisee's **Governance** subsystem provides bidirectional integration with Purview, which consists of two distinct flows:
+As more data is loaded into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows. Data that seemed adequate in the source system is often found to be deficient when shared. It may have missing or incomplete information, duplications and conflicts, and be of poor quality overall.
+
+Without high-quality data in your Azure data estate, the business value of Azure will be undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Working together, Microsoft Purview and Profisee master data management (MDM) form such a platform.
+
+![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-purview-overview.vsdx) of this diagram.*
+
+**Microsoft Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM).
+
+**Profisee MDM** is designed to accept master data from any source, then match, merge, standardize, verify, correct, and synchronize it across systems, ensuring data can be properly integrated and will meet the needs of downstream systems, such as business intelligence (BI), machine learning, and so on.
+
+**Better together**: Purview and Profisee MDM are integrated to streamline these tasks and ensure that all systems are working to enforce the same standards. Profisee publishes its master data model to Purview, where it can participate in governance. Purview then shares the output of governance, such as a data catalog and glossary information, so it can be reviewed and enforced by Profisee.
+
+For example, after cataloging enterprise data sources, it may be determined that there are multiple sources of customer data. To be effective, master data should be merged, validated, and corrected in Profisee, by using governance definitions, insights, and expertise that are detailed in Purview. In this way, Purview and Profisee form the foundation for governance and data management, and they maximize the business value of data in Azure.
+
+### Potential use cases
+
+You'll find a robust list of the use cases in the "MDM use cases" section, later in this article. Key master data management (MDM) use cases include the following retail and manufacturing examples:
+
+* Consolidating customer data for analytics.
+* Understanding the total catalog of your product data, in a consistent and accessible form, such as each product's name, description, and characteristics.
+* Establishing reference data to further consistently describe other sets of master data. For example, reference data includes lists of countries, currencies, colors, sizes, and units of measure.
+
+In addition, these MDM solutions help financial organizations (in the finance industry) that rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting.
+
+## MDM integration with Microsoft Purview
+
+The following figure illustrates in more detail Profisee's Microsoft Purview integration. To support this integration, Profisee's **Governance** subsystem provides bidirectional integration with Purview, which consists of two distinct flows:
 
 - **Model metadata** publishing occurs when your data modelers make changes to your master data model. These changes are published to Purview as they occur, thus keeping your Purview metadata in synch with Profisee's definition of your master data model.
 - **Governance details** are returned and provided to data stewards and business users, as they view and remediate data quality issues in Profisee's FastApp Portal.
 
-![Diagram of detailed Profisee and Azure Purview integration.](./images/profisee-purview-integration-detail.png)
+![Diagram of detailed Profisee and Microsoft Purview integration.](./images/profisee-purview-integration-detail.png)
 
 ### Purview integration capabilities
 
@@ -92,7 +100,7 @@ As your master data modelers evolve the model, the modeling services within the 
 
 Large enterprises with correspondingly complex and expansive data estates can present challenges to data stewards, who are responsible for managing and remediating issues as they arise. Key data domains can be complex, with many obscure attributes that only tenured employees with significant institutional knowledge understand. Profisee's integration with Purview allows this institutional knowledge to be captured within Purview, and made available for use within Profisee. Thus, you're bringing this knowledge of corporate data closer to the point of need, when you're managing critical and time-sensitive information.
 
-The following figure illustrates the flow of information from Purview to the data stewards, who are working in Profisee's FastApp Portal. The Governance Data Service integrates with both Azure Purview and Azure Active Directory. It provides lookup services to portal users, which allows them to retrieve enriched governance data about the entities and the attributes that they are working with in the FastApp portal.
+The following figure illustrates the flow of information from Purview to the data stewards, who are working in Profisee's FastApp Portal. The Governance Data Service integrates with both Microsoft Purview and Azure Active Directory. It provides lookup services to portal users, which allows them to retrieve enriched governance data about the entities and the attributes that they are working with in the FastApp portal.
 
 ![Diagram of the Purview data flow to the Profisee portal.](./images/purview-data-flow-profisee-portal.png)
 
@@ -114,7 +122,7 @@ Summary information is available to the user, by hovering over the governance ic
 
 ![Screenshot of an example governance view.](./images/governance-summary-view.png)
 
-You can go to the full Azure Purview user experience by selecting the governance icon in the dialog header. Selecting the icon takes the user to Purview in the context of the asset currently being viewed. You are then free to navigate elsewhere in Purview, based on your discovery needs.
+You can go to the full Microsoft Purview user experience by selecting the governance icon in the dialog header. Selecting the icon takes the user to Purview in the context of the asset currently being viewed. You are then free to navigate elsewhere in Purview, based on your discovery needs.
 
 ## Master data management processing
 
@@ -221,18 +229,14 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Azure
 
 Profisee authenticates users, by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, which ensures that you can apply and enforce your enterprise policies for authentication.
 
-## Deploy the scenario
+## Deploy this scenario
 
-The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). There are two options, as the template applies to Purview integration:
+The Profisee platform can be deployed as a platform as a solution (PaaS) in Azure by using the [Profisee ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). For integration with Purview, select **Yes, configure using Purview**, and then fill in the following details:
 
-- If you already have an Azure Purview account and metadata populated, you can connect Profisee to the existing account. In this case, you must specify the following properties in the Profisee Azure Resource Manager template (ARM template):
-   - The **Atlas Endpoint URL** that's associated with your Purview account.
-   - An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned.
-- If you don't yet have an Azure Purview account, Profisee's ARM template can provision one for you, as part of the Profisee Platform installation. In this case, you must specify the following properties in the ARM template:
-   - The **Purview Account Name** that you want to assign to the newly provisioned Purview account.
-   - The **Platform Size**, which is indicated in capacity units. Purview currently supports two choices: 4 and 16. Refer to [Manage and increase quotas for resources with Azure Purview](/azure/purview/how-to-manage-quotas) for details on sizing your Purview account.
+* In the **Select Purview Account** dropdown, select **Purview account**.
+* Enter the App Registration **Client ID** and the **Client Secret** that has the **Purview Data Curator** role assigned.
 
-The following figure illustrates how these options are reflected in Profisee's ARM template:
+The following figure illustrates how these options are reflected in the Profisee ARM template:
 
 ![Diagram of the Profisee ARM template.](./images/profisee-azure-resource-manager-template.png)
 
@@ -251,9 +255,9 @@ Running costs consist of a software license and Azure consumption. For more info
 
 ### Architecture guides
 
-- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.md)
-- [Data warehousing](../../data-guide/relational-data/data-warehousing.md)
-- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
+- [Data warehousing](../../data-guide/relational-data/data-warehousing.yml)
+- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 ### Reference architectures

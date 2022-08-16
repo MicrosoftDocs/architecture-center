@@ -217,7 +217,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Email address for information on Azure Data Engineering Mainframe and Midrange Modernization]: mailto:datasqlninja@microsoft.com
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [ETL]: https://www.ibm.com/cloud/learn/etl
-[Five reasons a data-first strategy works]: https://resources.syniti.com/data-quality/5-reasons-a-data-first-strategy-works
+[Five reasons a data-first strategy works]: http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html
 [Flat files]: https://www.pcmag.com/encyclopedia/term/flat-file
 [Gateway considerations]: /data-integration/gateway/service-gateway-onprem#considerations
 [GDG]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm

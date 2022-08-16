@@ -2,8 +2,8 @@
 title: Use objects as parameters in an ARM template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 09/07/2021
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -147,7 +147,7 @@ Let's take a closer look at how we specify our property values in the `securityR
 
 An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
 
-```bash
+```azurecli
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>

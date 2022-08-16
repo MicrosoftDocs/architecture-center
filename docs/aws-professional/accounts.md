@@ -2,11 +2,24 @@
 title: AWS vs. Azure accounts and subscriptions
 description: Learn the differences in accounts and subscriptions between Azure and AWS. Understand the types of administrator accounts in Azure.
 author: bigkangji
-ms.author: pnp
-ms.date: 10/04/2021
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: 
+  - analytics 
+  - management and governance
+  - security
+  - storage
+  - web
+products:
+  - azure-blob-storage
+  - azure-storage-accounts
+  - azure-managed-applications
+ms.custom:
+  - article
 ---
 
 # Azure and AWS accounts and subscriptions

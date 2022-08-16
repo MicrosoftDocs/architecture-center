@@ -1,17 +1,19 @@
 <!-- cSpell:ignore KEDA deadletter -->
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows a variation of a serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and process a stream of data. Once de-batched and filtered, the results are written to a database for storage and future review.
+This solution idea shows a variation of a serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and process a stream of data. The results are written to a database for storage and future review once de-batched and filtered.
 
 To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
 
 ## Potential use cases
 
-A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub&#8211;triggered functions.
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
 ## Architecture
 
 ![Diagram showing the data flow and key processing points in the architecture described in this article](../media/serverless-event-processing-filtering-diagram.png)
+
+### Dataflow
 
 1. Events arrive at the Input Event Hub.
 1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting them to the Output Event Hub.
@@ -22,9 +24,17 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ### Components
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](/azure/cosmos-db/introduction).
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](/azure/cosmos-db/introduction).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728) | Senior Software Development Engineer
 
 ## Next steps
 
@@ -35,8 +45,8 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ## Related resources
 
-- [Azure Event Hubs documentation](/azure/event-hubs/)
+- [Azure Event Hubs documentation](/azure/event-hubs)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Azure Functions documentation](/azure/azure-functions/)
+- [Azure Functions documentation](/azure/azure-functions)
 - [Overview of Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Choose an API in Azure Cosmos DB](/azure/cosmos-db/choose-api)

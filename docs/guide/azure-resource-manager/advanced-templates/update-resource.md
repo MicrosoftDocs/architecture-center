@@ -1,8 +1,9 @@
 ---
 title: Update a resource in an ARM template
 description: Learn about how to extend the functionality of Azure Resource Manager templates to update a resource.
-author: PeterTaylor9999
-ms.date: 09/07/2021
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -136,7 +137,7 @@ Let's take a look at the resource object for our `firstVNet` resource first. Not
 
 An example template is available on [GitHub][github]. To deploy the template, run the following [Azure CLI][cli] commands:
 
-```bash
+```azurecli
 az group create --location <location> --name <resource-group-name>
 az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json

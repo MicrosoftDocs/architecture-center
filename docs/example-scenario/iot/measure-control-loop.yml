@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how an IoT measure and control loop keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process.
   author: hanuk
-  ms.date: 08/10/2020
+  ms.author: hanuk
+  ms.date: 07/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -6,7 +6,7 @@ It uses Azure IoT Central to receive data from IoT sensors and export it to Azur
 
 ## Potential use cases
 
-These other uses cases have similar design patterns:
+This solution is ideal for the manufacturing and automotive industries. These other use cases have similar design patterns:
 
 - **Management and inventory:** Track vehicles and assets.
 - **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
@@ -19,6 +19,8 @@ These other uses cases have similar design patterns:
 :::image type="content" source="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" lightbox="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" alt-text="The solution diagram shows devices sending data to IoT Central, which exports it to Event Hubs for use by various alerting and reporting services.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1839204-PR-3091-real-time-asset-tracking-mgmt-iot-central.vsdx) of this architecture.*
+
+### Workflow
 
 1. IoT sensors installed on vehicles and other assets send telemetry to cloud gateway devices.
 1. Gateway devices send telemetry and aggregated insights to Azure IoT Central.
@@ -33,23 +35,31 @@ These other uses cases have similar design patterns:
 
 ### Components
 
-- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a hosted and secure IoT application platform that connects IoT devices to the cloud quickly and easily.
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. A real-time analytics provider, batching adapter, or storage adapter can transform and store data that is sent to an event hub.
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) provides real-time, serverless stream processing that can run the same queries in the cloud and on the edge. Stream Analytics on Azure IoT Edge can filter or aggregate data locally and send it to the cloud for further processing or storage.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices.
-- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) pushes notifications to major platforms like iOS, Android, Windows, Kindle, and Baidu from any back end in the cloud or on-premises.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed relational database with built-in intelligence.
-- [Azure App Service](https://azure.microsoft.com/services/app-service/) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux.
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended, and which apps can access it. You can restrict access to your apps only, or make it available to third parties.
-- [Azure Maps](https://azure.microsoft.com/services/azure-maps/) has geospatial APIs for adding maps, spatial analytics, and mobility solutions to your apps. It's available to verify and standardize address data. Your apps can use real-time location intelligence powered by mobility technology partners TomTom, AccuWeather, and Moovit.
+- [Azure IoT Central](https://azure.microsoft.com/services/iot-central) is a hosted and secure IoT application platform that connects IoT devices to the cloud quickly and easily.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. A real-time analytics provider, batching adapter, or storage adapter can transform and store data that is sent to an event hub.
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides real-time, serverless stream processing that can run the same queries in the cloud and on the edge. Stream Analytics on Azure IoT Edge can filter or aggregate data locally and send it to the cloud for further processing or storage.
+- [Azure Functions](https://azure.microsoft.com/services/functions) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices.
+- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs) pushes notifications to major platforms like iOS, Android, Windows, Kindle, and Baidu from any back end in the cloud or on-premises.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational database with built-in intelligence.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
+- [Azure API Management](https://azure.microsoft.com/services/api-management) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended, and which apps can access it. You can restrict access to your apps only, or make it available to third parties.
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps) has geospatial APIs for adding maps, spatial analytics, and mobility solutions to your apps. It's available to verify and standardize address data. Your apps can use real-time location intelligence powered by mobility technology partners TomTom, AccuWeather, and Moovit.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. You can use it to produce beautiful reports and publish them on the web and across mobile devices.
-- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) puts Power BI into your applications, so that you can quickly and easily provide interactive reports, dashboards, and analytics in your applications, and brand them as your own.
+- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded) puts Power BI into your applications, so that you can quickly and easily provide interactive reports, dashboards, and analytics in your applications, and brand them as your own.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Priyanka Yalavarthy](https://www.linkedin.com/in/priyanka-yalavarty-9a384455) | Data and Analytics Cloud Solution Architect
 
 ## Next steps
 
 - [What is Azure IoT Central?](/azure/iot-central/core/overview-iot-central)
-- [Export IoT data to cloud destinations using data export](/azure/iot-central/core/howto-export-data?tabs=javascript)
+- [Export IoT data to cloud destinations using data export](/azure/iot-central/core/howto-export-to-blob-storage)
 - [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)

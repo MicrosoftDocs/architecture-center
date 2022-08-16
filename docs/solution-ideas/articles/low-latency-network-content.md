@@ -16,6 +16,8 @@ Use this approach for scenarios like:
 
 :::image type="content" source="../media/low-latency-network.png" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server. Azure Network Function Manager controls the private multi-access edge compute nodes on Azure Stack Edge." border="false":::
 
+### Dataflow
+
 1. Embedded 5G-enabled internet protocol (IP) modules connect warehouse robots to 5G Open Radio Access Network (ORAN) radio units. RAN is a common wireless network infrastructure for mobile networks.
 1. The 5G radio units connect over a wired switching network to the 5G distribution unit software, which runs on private multi-access edge compute (MEC) on Azure Stack Edge.
 1. The 5G distribution unit connects with the virtual router, 5G central unit, and 5G packet core, which run on a separate Azure private MEC instance on Azure Stack Edge.
@@ -29,6 +31,14 @@ This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Product Management Leader
 
 ## Next steps
 

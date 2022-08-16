@@ -2,10 +2,10 @@
 metadata:
   title: IoT device connectivity for healthcare facilities
   titleSuffix: Azure Solution Ideas
-  description: See how buildings and campuses can securely, reliably, and scalably connect their on-premises Internet of Things (IoT) devices to the cloud.
+  description: See how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
   author: niravi-msft
   ms.author: niravi
-  ms.date: 06/16/2021
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -20,7 +20,7 @@ products:
   - azure-sphere
   - azure-stack-edge
 name: IoT device connectivity for healthcare facilities
-summary: See how buildings and campuses can securely, reliably, and scalably connect their on-premises Internet of Things (IoT) devices to the cloud.
+summary: See how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/healthcare-architecture.png
 content: |
   [!include[](healthcare-network-content.md)]

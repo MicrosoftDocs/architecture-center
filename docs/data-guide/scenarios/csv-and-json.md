@@ -1,11 +1,20 @@
 ---
 title: Processing CSV and JSON files
 description: Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-sql-database
+  - azure-storage
 ms.custom:
   - guide
 ---
@@ -47,7 +56,7 @@ Azure provides several solutions for working with CSV and JSON files, depending 
 
 You can also query JSON files directly from Azure Blob Storage without importing them into Azure SQL. For a complete example of this approach, see [Work with JSON files with Azure SQL](https://medium.com/@mauridb/work-with-json-files-with-azure-sql-8946f066ddd4). Currently this option isn't available for CSV files.
 
-Depending on the scenario, you may perform [batch processing](../big-data/batch-processing.md) or [real-time processing](../big-data/real-time-processing.md) of the data.
+Depending on the scenario, you may perform [batch processing](../big-data/batch-processing.yml) or [real-time processing](../big-data/real-time-processing.yml) of the data.
 
 ## Challenges
 
@@ -58,3 +67,11 @@ There are some challenges to consider when working with these formats:
 - Using CSV and JSON files as your cold storage solution does not scale well when working with big data. In most cases, they cannot be split into partitions for parallel processing, and cannot be compressed as well as binary formats. This often leads to processing and storing this data into read-optimized formats such as Parquet and ORC (optimized row columnar), which also provide indexes and inline statistics about the data contained.
 
 - You may need to apply a schema on the semi-structured data to make it easier to query and analyze. Typically, this requires storing the data in another form that complies with your environment's data storage needs, such as within a database.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

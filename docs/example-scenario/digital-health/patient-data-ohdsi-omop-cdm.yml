@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Analyze observational patient data by using OHDSI with the OMOP CDM
+  titleSuffix: Azure Architecture Center
+  description: Deploy and operate a solution that uses OHDSI and the OMAP CDM to analyze observational patient data. 
+  author: plooploops
+  ms.author: angee
+  ms.date: 07/19/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - ai-machine-learning
+  - analytics
+products:
+  - azure-pipelines
+  - azure-sql-database
+  - azure-vm-scalesets
+  - azure-blob-storage
+  - azure-container-registry
+name: Analyze observational patient data by using OHDSI with the OMOP CDM
+summary: Deploy and operate a solution that uses OHDSI and the OMAP CDM to analyze observational patient data.
+thumbnailUrl: /azure/architecture/browse/thumbs/ohdsi-azure.png
+content: |
+  [!include[](patient-data-ohdsi-omop-cdm-content.md)]

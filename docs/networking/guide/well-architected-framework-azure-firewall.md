@@ -4,12 +4,13 @@ titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta
 ms.author: rosanto
-ms.date: 08/25/2021
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-firewall
+  - azure-firewall-manager
 categories:
   - networking
 ms.custom:
@@ -32,7 +33,7 @@ Properly size the number of Public IPs that your firewall needs. Validate whethe
 
 Use Azure Firewall Manager and its policies to reduce your operational costs, by increasing the efficiency and reducing your management overhead. Review your Firewall Manager policies, associations, and inheritance carefully. Policies are billed based on firewall associations. A policy with zero or one firewall association is free of charge. A policy with multiple firewall associations is billed at a fixed rate. See more details at [Pricing - Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager).
 
-Review the differences between the two Azure Firewall SKUs. The Standard option is usually enough for east-west traffic, where Premium comes with the necessary additional features for north-south traffic, as well as the forced tunneling feature and many other features. See more information at [Azure Firewall Premium Preview features](/azure/firewall/premium-features). Deploy mixed scenarios using the Standard and Premium options, according to your needs.
+Review the differences between the two Azure Firewall SKUs. The Standard option is usually enough for east-west traffic, whereas Premium comes with the necessary additional features for north-south traffic. See more information at [Azure Firewall Premium Preview features](/azure/firewall/premium-features). Deploy mixed scenarios using the Standard and Premium options, according to your needs.
 
 ## Operational excellence
 
@@ -110,11 +111,11 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 ### Auto scale and performance
 
-- Azure Firewall uses auto scale. It can go up to 20 instances that provide up to 20 Gbps.
+- Azure Firewall uses auto scale. It can go up to 30 Gbps.
 - Azure Firewall always starts with 2 instances. It scales up and down, based on CPU and the network throughput. After an auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
 - Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than five minutes.
 - Scaling down happens if the threshold for CPU or throughput are under 60%, for more than 30 minutes. The scale-down process happens gracefully (deleting instances). The active connections on the deprovisioned instances are disconnected and switched over to other instances. For the majority of applications, this process does not cause any downtime, but applications should have some type of auto-reconnect capability. (The majority already has this capability.)
-- If you're performing load tests, make sure to create initial traffic that is not part of your load tests, 20 minutes prior to the test. This is to allow the Azure Firewall instance to scale up its instances to the maximum. Use diagnostics settings to capture scale-up and scale-down events.
+- If you're performing load tests, make sure to create initial traffic that is not part of your load tests, 20 minutes prior to the test. This is to allow the Azure Firewall instance to scale up its instances to the maximum.
 - Do not exceed 10k network rules, and make sure you use IP Groups. When creating network rules, remember that for each rule, Azure actually multiples **Ports x IP Addresses**, so if you have one rule with four IP address ranges and five ports, you will be actually consuming 20 network rules. Always try to summarize IP ranges.
 - There are no restrictions for Application Rules.
 - Add the Allow rules first, and then add the Deny rules to the lowest priority levels.
@@ -162,13 +163,13 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
  ## Next steps
 
- - See the [Microsoft Azure Well-Architected Framework](../../framework/index.md).
+ - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources
 
  - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
- - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
+ - [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity)
  - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
  - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
  - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)

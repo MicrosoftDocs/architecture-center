@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.md) for data producers and data consumers to create and consume validated curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
+The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and data consumers to create and consume validated curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
 
 The service validating the data doesn't need to know about the payload, only whether it's valid against the schema that the producer provides. This flexibility means the service can accept new payload types without having to be redeployed. This solution also lets data consumers get historical data that was published before the consumer subscribed.
 
@@ -17,6 +17,8 @@ This model is especially useful in the following scenarios:
 ![Diagram of the Transit Hub publish-subscribe messaging system.](../media/transit-hub.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/transit-hub.vsdx) of this architecture.*
+
+### Dataflow
 
 1. The **Data Producer** app publishes data to Azure Event Hubs, which sends the data to the Azure Functions **Event Processing** function.
 1. The **Data Producer** also sends the JSON schema for storage in an Azure Storage container.
@@ -53,6 +55,14 @@ This model is especially useful in the following scenarios:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Rick Weyenberg](https://www.linkedin.com/in/rickweyenberg) | Principal Cloud Solution Architect
+
 ## Next steps
 
 - [Azure Web PubSub service documentation](/azure/azure-web-pubsub)
@@ -60,5 +70,5 @@ This model is especially useful in the following scenarios:
 - [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](/azure/azure-web-pubsub/tutorial-serverless-notification)
 ## Related resources
 
-- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md)
-- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
+- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
+- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.yml)

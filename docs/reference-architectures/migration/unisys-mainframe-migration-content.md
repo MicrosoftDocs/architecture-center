@@ -18,11 +18,13 @@ The AMT Framework supports several options to move client workloads to Azure:
 
 This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
 
-## Architecture
+## Legacy architecture
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
 
 ![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
+
+### Workflow
 
 - On-premises admin users interact with the mainframe through Terminal Emulator (MCP systems) or UTS Terminal Emulator (OS 1100/2200 systems) (**A**). On-premises web interface users can interact via a web browser over TLS 1.3 port 443 (**B**). Mainframes use communication standards like IPv4, IPv6, SSL/TLS, Telnet, FTP, and Sockets.
 
@@ -40,9 +42,13 @@ The following diagram shows the typical components of Unisys Burroughs MCP or Un
 
 - A printer subsystem (**H**) manages on-premises printers.
 
+## Azure Architecture
+
 The second diagram shows how the Unisys mainframe components can map and migrate to Azure capabilities.
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
+
+### Workflow
 
 1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
 
@@ -64,9 +70,9 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 9. The system can support printers (**H**) and other legacy system output devices if they have IP addresses connected to the Azure network.
 
-## Components
+### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
 
 - [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although an Azure Virtual Network is similar to a traditional network on premises, it offers the extra benefits of Azure's infrastructure, such as scalability, availability, and isolation.
 
@@ -110,7 +116,7 @@ You can scale out the server sets to provide more throughput. For more informati
 
 [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
-### Pricing
+### Cost optimization
 
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 

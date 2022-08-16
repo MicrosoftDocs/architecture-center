@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how an IoT monitor and manage loop is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
   author: hanuk
-  ms.date: 08/10/2020
+  ms.author: hanuk
+  ms.date: 07/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

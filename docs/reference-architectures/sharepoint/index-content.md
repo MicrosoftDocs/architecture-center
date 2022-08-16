@@ -1,12 +1,14 @@
 This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence.
 
+## Architecture
+
 ![Reference architecture for a highly available SharePoint Server 2016 farm in Azure](./images/sharepoint-ha.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
-
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
+
+### Workflow
 
 The architecture consists of the following components:
 
@@ -162,7 +164,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier].
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
@@ -189,18 +191,18 @@ For more information about the individual pieces of the solution architecture, s
 - [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
 - [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
-- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 
 ## Related resources
 
-- [windows-n-tier](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 - [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/management/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
@@ -211,7 +213,7 @@ For more information about the individual pieces of the solution architecture, s
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [hybrid-ra]: ../hybrid-networking/index.yml
-[hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
+[hybrid-vpn-ra]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
@@ -229,7 +231,7 @@ For more information about the individual pieces of the solution architecture, s
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
 [sharepoint-search]: /SharePoint/search/plan-enterprise-search-architecture
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
 [sql-server-capacity-planning]: /SharePoint/administration/storage-and-sql-server-capacity-planning-and-configuration
 [sql-quorum]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm

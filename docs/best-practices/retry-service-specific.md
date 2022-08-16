@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
 
 ### Retry usage guidance
 
@@ -69,7 +69,7 @@ Consider the following guidelines when using Azure Active Directory:
 
 ### More information
 
-- [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview)
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 
 ## Cosmos DB
 
@@ -77,51 +77,11 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions][cosmosClientOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
-
-### Policy configuration
-
-The following table shows the default settings for the `CosmosClientOptions` class.
-
-| Setting | Default value | Description |
-| --- | --- | --- |
-| MaxRetryAttemptsOnRateLimitedRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
-| MaxRetryWaitTimeOnRateLimitedRequests |30 |The maximum retry time in seconds for the Azure Cosmos DB service. |
-
-### Example
-
-```csharp
-CosmosClient cosmosClient = new CosmosClient("connection-string", new CosmosClientOptions()
-{
-    MaxRetryAttemptsOnRateLimitedRequests = 5,
-    MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(15)
-});
-
-```
+The Cosmos DB SDKs automatically retry on certain error conditions, and user applications are encouraged to have their own retry policies. See the [guide to designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/sql/conceptual-resilient-sdk-applications) for a complete list of error conditions and when to retry.
 
 ### Telemetry
 
-Retry attempts are logged as unstructured trace messages through a .NET **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log.
-
-For example, if you add the following to your App.config file, traces will be generated in a text file in the same location as the executable:
-
-```xml
-<configuration>
-  <system.diagnostics>
-    <switches>
-      <add name="SourceSwitch" value="Verbose"/>
-    </switches>
-    <sources>
-      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
-        <listeners>
-          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="CosmosDBTrace.txt"></add>
-        </listeners>
-      </source>
-    </sources>
-  </system.diagnostics>
-</configuration>
-```
+Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For more information, see the "Capture the diagnostics" section in [Cosmos DB C# SDK](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics) and [Cosmos DB Java SDK](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
 
 ## Event Hubs
 
@@ -1171,7 +1131,7 @@ The following are the typical types of retry strategy intervals:
 
 ### Transient fault handling with Polly
 
-[Polly](http://thepollyproject.org) is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.md) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
+[Polly](http://thepollyproject.org) is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.yml) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
 
 ### More information
 
@@ -1182,7 +1142,6 @@ The following are the typical types of retry strategy intervals:
 
 [msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true
