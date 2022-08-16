@@ -1,31 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
-Application deployment continuity, security, and reliability are essential to organizations and critical to development teams.
-
-Traditional apps often require refactored code to run in each target environment. For example, code written in a development environment must then be rewritten to work in a test environment and then rewritten again, before it lands in a production environment. The app must be updated, tested, and validated as it moves through each environment, which increases the cost and complexity of maintaining the app. The increased complexity and duplication also increase the risk of security issues and poor code quality.
-
 This solution enables you to build, test, and deploy an app that runs on multiple clouds. Code comes from a single location and deploys to multiple targets in development, test, and production environments in your local datacenter, private clouds, or the public cloud. Differences in environment require a change to a configuration file, rather than changes to the code.
-
-This DevOps solution is intended to ensure consistency across deployments, regardless of the target environment. However, capabilities vary across cloud and on-premises environments. Consider the following questions:
-
-- Are the functions, endpoints, services, and other resources in your deployment available in the target deployment locations?
-- Are the configuration artifacts stored in locations that are accessible across the clouds?
-- Will deployment parameters work in all the target environments?
-- Are resource-specific properties available in all the target clouds?
-
-## Potential use cases
-
-This solution shows how to deploy your application consistently across on-premises, private cloud, and public cloud environments, through the practice of continuous integration and continuous delivery. Apps and services deployed using this solution are interchangeable and can run in any of these locations, which take advantage of on-premises and public cloud features and capabilities.
-
-Use this solution if:
-
-- You can develop code in one environment that meets the needs of your developers, and deploy to an environment specific to your solution, where it's difficult to develop new code.
-- You can use the code and tools your developers would like, as long as they're able to follow the continuous integration and continuous delivery process in this solution.
-
-This solution isn't recommended:
-
-- If you're unable to automate infrastructure, provisioning resources, configuration, identity, and security tasks.
-- If teams don't have access to hybrid cloud resources to implement a Continuous Integration/Continuous Development (CI/CD) approach.
 
 ## Architecture
 
@@ -48,6 +21,33 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-continuous-int
 ### Alternatives
 
 [GitHub](https://github.com) can be used as source control repository, and [GitHub Actions](https://github.com/features/actions) can be used to automate builds and deployments.
+
+## Scenario details
+
+Application deployment continuity, security, and reliability are essential to organizations and critical to development teams.
+
+Traditional apps often require refactored code to run in each target environment. For example, code written in a development environment must then be rewritten to work in a test environment and then rewritten again, before it lands in a production environment. The app must be updated, tested, and validated as it moves through each environment, which increases the cost and complexity of maintaining the app. The increased complexity and duplication also increase the risk of security issues and poor code quality.
+
+This DevOps solution is intended to ensure consistency across deployments, regardless of the target environment. However, capabilities vary across cloud and on-premises environments. Consider the following questions:
+
+- Are the functions, endpoints, services, and other resources in your deployment available in the target deployment locations?
+- Are the configuration artifacts stored in locations that are accessible across the clouds?
+- Will deployment parameters work in all the target environments?
+- Are resource-specific properties available in all the target clouds?
+
+### Potential use cases
+
+This solution shows how to deploy your application consistently across on-premises, private cloud, and public cloud environments, through the practice of continuous integration and continuous delivery. Apps and services deployed using this solution are interchangeable and can run in any of these locations, which take advantage of on-premises and public cloud features and capabilities.
+
+Use this solution if:
+
+- You can develop code in one environment that meets the needs of your developers, and deploy to an environment specific to your solution, where it's difficult to develop new code.
+- You can use the code and tools your developers would like, as long as they're able to follow the continuous integration and continuous delivery process in this solution.
+
+This solution isn't recommended:
+
+- If you're unable to automate infrastructure, provisioning resources, configuration, identity, and security tasks.
+- If teams don't have access to hybrid cloud resources to implement a Continuous Integration/Continuous Development (CI/CD) approach.
 
 ## Considerations
 
