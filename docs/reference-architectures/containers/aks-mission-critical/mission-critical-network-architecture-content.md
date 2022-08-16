@@ -202,7 +202,7 @@ Instead of using private endpoints, an alternate approach is to use virtual netw
 
 Both the build agents (and optionally jump boxes) need to access PaaS services that are located globally and within the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to the necessary PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
 
-:::image type="content" source="./images//mission-critical-ops.png" alt-text="Diagram showing the management network flow." lightbox="./images/mission-critical-secure-network-ingress-operations-highres.png":::
+:::image type="content" source="./images/mission-critical-ops.png" alt-text="Diagram showing the management network flow." lightbox="./images/mission-critical-ops.png":::
 
 #### Management operations
 
