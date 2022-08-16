@@ -71,7 +71,7 @@ To decrypt and inspect TLS traffic, Azure Firewall Premium dynamically generates
 
 #### From Azure Firewall Premium to the web server
 
-Azure Firewall Premium establishes an TLS session with the destination web server. Azure Firewall Premium verifies that a well-known CA signs the web server TLS packets.
+Azure Firewall Premium establishes a TLS session with the destination web server. Azure Firewall Premium verifies that a well-known CA signs the web server TLS packets.
 
 ### Component roles
 
