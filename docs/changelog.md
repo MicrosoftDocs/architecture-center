@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 08/08/2022
+ms.date: 08/15/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,14 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Microsoft mixed reality overview](./guide/mixed-reality/mixed-reality-overview.md)
+- [Mobile architecture design](./guide/mobile/mobile-start-here.md)
+- [Apply the verify explicitly Zero Trust principle to your API implementation](./example-scenario/security/apps-zero-trust-identity.yml)
+- [Mission-critical baseline architecture with network controls](./reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml)
+- [Migration architecture design](./guide/migration/migration-start-here.md)
+- [Solutions for the aerospace industry](./industries/aerospace.md)
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)
+- [Deploy Autodesk VRED for HPC on Azure](./guide/hpc/hpc-autodesk-vred.md)
 - [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
 - [Continuous Validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
 - [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
@@ -34,6 +42,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#0b1e40af8](https://github.com/MicrosoftDocs/architecture-center/commit/0b1e40af8))
+- [Predict the length of stay in hospitals](./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)  ([#f389ec912](https://github.com/MicrosoftDocs/architecture-center/commit/f389ec912))
+- [SAS on Azure architecture](./guide/sas/sas-overview.yml)  ([#0ef237a56](https://github.com/MicrosoftDocs/architecture-center/commit/0ef237a56))
+- [Eventual consistency between multiple Power Apps instances](./reference-architectures/power-platform/eventual-consistency.yml)  ([#364740577](https://github.com/MicrosoftDocs/architecture-center/commit/364740577))
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
 - [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
 - [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
@@ -145,7 +158,7 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)
 - [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml)
-- [Highly reliable mission-critical workload on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)
 - [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)
