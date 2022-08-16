@@ -14,7 +14,7 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 
 ## Architecture
 
-![Architecture Diagram](../media/custom-business-processes.png)
+:::image type="content" border="false" source="../media/custom-business-processes.png" alt-text="Architecture Diagram" lightbox="../media/custom-business-processes.png":::
 
 ### Dataflow
 
