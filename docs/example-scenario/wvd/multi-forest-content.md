@@ -13,7 +13,7 @@ This article expands on the architecture that's described in the [Azure Virtual 
 In this architecture, the identity flow works as follows: 
 
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to an Azure AD tenant (NewCompanyAB.onmicrosoft.com).
-1. Host pools, workspaces, and app groups are created in each user's own subscription and spoke virtual network.
+1. Host pools, workspaces, and app groups are created in separate subscriptions and spoke virtual networks.
 1. Users are assigned to the app groups.
 1. Azure Virtual Desktop session hosts in the host pools join the domains CompanyA.com and CompanyB.com by using the domain controllers in Azure.
 1. Users sign in by using either the [Azure Virtual Desktop application](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or the [web client](/azure/virtual-desktop/connect-web) with a User Principal Name (UPN) in the following format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on their configured UPN suffix.
