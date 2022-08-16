@@ -55,11 +55,14 @@ Use filtering so that only necessary data is stored in Azure AD. For example, yo
 
 To implement high availability for the AD Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
 
+  > [!NOTE]
+  > **[Azure AD Connect cloud sync][azure-ad-connect-cloud-sync]** is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD. With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrated in Microsoft Online Services.
+
 ### Validate security configuration and policy
 
 **User password management**. The Azure AD Premium editions support password writeback, enabling your on-premises users to perform self-service password resets from within the Azure portal. This feature should be enabled only after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
 
-**Protect on-premises applications that can be accessed externally.** Use the Azure AD Application Proxy to provide controlled access to on-premises web applications for external users through Azure AD. Only users that have valid credentials in your Azure directory have permission to use the application. For more information, see the article [Enable Application Proxy in the Azure portal][aad-application-proxy].
+**Protect on-premises applications that can be accessed externally.** Use the Azure AD Application Proxy to provide controlled access to on-premises web applications to users from outside your network through Azure AD. Only users that have valid credentials in your Azure directory have permission to use the application. For more information, see the article [Enable Application Proxy in the Azure portal][aad-application-proxy].
 
 **Actively monitor Azure AD for signs of suspicious activity.** Consider using Azure AD Premium P2 edition, which includes Azure AD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially unusual activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Identity Protection uses this data to generate reports and alerts that enable you to investigate these risk events and take appropriate action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
 
@@ -211,7 +214,7 @@ Azure AD Connect installs the following tools to maintain Azure AD Connect sync 
 
 For more information and tips for managing Azure AD Connect, see [Azure AD Connect sync: Best practices for changing the default configuration][aad-sync-best-practices].
 
-#### DevOps 
+#### DevOps
 
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
 
@@ -227,6 +230,7 @@ For the Azure AD Connect sync server, determine how many objects you're likely t
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
+- There a no additional license requirements for using Azure AD Connect and is included in your Azure subscription.
 - Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 - For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
 
@@ -288,3 +292,4 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
 [security-compass-paw]: /security/compass/overview
 [security-compass]:/security/compass/compass
+[azure-ad-connect-cloud-sync]:/azure/active-directory/cloud-sync/what-is-cloud-sync
