@@ -2,7 +2,7 @@
 
 Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
 
-:::image type="content" source="./images/azure-ad.png" alt-text="Cloud identity architecture using Azure Active Directory" lightbox="./images/azure-ad.png" :::
+:::image type="content" source="./images/azure-ad.png" alt-text="Cloud identity architecture using Azure Active Directory" lightbox="./images/azure-ad.png" border="false" :::
 
 *Download a [Visio file][visio-download] of this architecture (see Visio tab "Azure AD").*
 
