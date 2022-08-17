@@ -56,33 +56,29 @@ The solution used an approach based on:
 
 ## High-level architecture
 
-There are three workstreams in this architecture:
-- An event-driven pipeline that ingests and processes log data, creates and maintains behavioral account profiles, incorporates a fraud classification model, and produces a predictive score
-- A model training workstream that combines on-premises historical fraud data and ingested log data
-- Functionality to integrate back-end business processes
-
-This diagram illustrates the placement of each of the significant technology components:
-
 diagram 
 
 alt text: Diagram that shows an architecture for detecting online bank fraud.
 
 download link 
 
-The solution integrates with the bank's on-premises environment by using an enterprise service bus (ESB) and a performant network connection.
+### Dataflow
 
-Most steps in the event processing pipeline start with an [Azure function](https://azure.microsoft.com/services/functions). Azure Functions are used because they're serverless, easily scaled out, and scheduled. The primary workload requires processing millions of incoming mobile transactions and assessing them for fraud in near real-time.
+There are three workstreams in this architecture:
 
-A second workload is batch-oriented and used for model training and re-training. Azure Data Factory orchestrates the processing steps, including:
+- An event-driven pipeline ingests and processes log data, creates and maintains behavioral account profiles, incorporates a fraud classification model, and produces a predictive score.
+Most steps in this pipeline start with an [Azure function](https://azure.microsoft.com/services/functions). Azure functions are used because they're serverless, easily scaled out, and scheduled. This workload requires processing millions of incoming mobile transactions and assessing them for fraud in near real-time.
+- A model training workstream combines on-premises historical fraud data and ingested log data. This workload is batch-oriented and used for model training and re-training. Azure Data Factory orchestrates the processing steps, including:
+   - Upload of labelled historical fraud data from on-premises sources.
+   - Archive of data feature sets and score history for all transactions.
+   - Extraction of events and messages into a structured format for feature engineering and model re-training and evaluation.
+   - Training and re-training of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
-- Upload of labelled historical fraud data from on-premises sources.
-- Archive of data feature sets and score history for all transactions.
-- Extraction of events and messages into a structured format for feature engineering and model re-training and evaluation.
-- Training and re-training of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
-
-Finally, the 3rd workstream involves integration to back-end business processes. You can use [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
+- The third workstream integrates to back-end business processes. You can use [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
 
 Central to this architecture is the data pipeline and AI model, which are discussed in more detail later in this article.
+
+The solution integrates with the bank's on-premises environment by using an enterprise service bus (ESB) and a performant network connection.
 
 ### Data pipeline and automation
 
@@ -103,7 +99,15 @@ Latency and response times are critical in a fraud detection solution. The infra
 
 Telemetry events from the bank's mobile and internet application gateways are formatted as JSON files with a loosely defined schema. These events are streamed as application telemetry to [Azure Event Hubs](/azure/event-hubs/event-hubs-about), where an Azure function in a dedicated App Service Environment orchestrates the processing.
 
-The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure. Those interactions include the following:
+The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure:
+
+image 
+
+link? 
+
+Alt text: Diagram that shows the event-processing infrastructure.
+
+#### Dataflow
 
 1. Ingest the raw JSON event payload from Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
 1. Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](/azure/architecture/data-guide/scenarios/data-lake) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
@@ -111,12 +115,6 @@ The following diagram illustrates the fundamental interactions for an Azure func
 1. Call an Azure Machine Learning endpoint to run a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for operational analytics.
 1. Connect Power BI to Data Lake via Azure Synapse Analytics for a real-time operational analytics dashboard.
 1. Post the scored results as an event to an on-premises system for further fraud investigation and management activity.
-
-image 
-
-link? 
-
-Alt text: Diagram that shows the event-processing infrastructure.
 
 ### Data pre-processing and JSON transformation
 
@@ -173,6 +171,16 @@ An account profile table contains attributes from the JSON transactions, like th
 ![Table that lists example features, including number of changed password messages in the past seven days and average withdrawal in the past day.](_images/example-features.png)
 
 After the account features are calculated and the profile is updated, an Azure function calls the machine learning model for scoring via a REST API to answer this question: *What's the probability that this account is in a state of fraud, based on the behavior we've seen?*
+
+## Components
+  
+- [Azure Functions](https://azure.microsoft.com/services/functions) provides event-driven serverless code functions and an end-to-end development experience. 
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service. You can use it to stream millions of events per second from any source.
+- [Key Vault](https://azure.microsoft.com/services/key-vault) encrypts cryptographic keys and other secrets used by cloud apps and services.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade service for the end-to-end machine learning lifecycle.
+- [AutoML](/azure/machine-learning/concept-automated-ml) is a process for automating the time-consuming, iterative tasks of machine learning model development.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 
 ## AutoML
 
@@ -333,17 +341,23 @@ The solution needs to perform end-to-end through peak times. A streaming workflo
   - Select a production web tier to support the API concurrency workload.
   - Add multiple endpoints to a web service if you need to support more than 200 concurrent requests.
 
-## Components
-  
-- [Azure Functions](https://azure.microsoft.com/services/functions) provides event-driven serverless code functions and an end-to-end development experience. 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service. You can use it to stream millions of events per second from any source.
-- [Key Vault](https://azure.microsoft.com/services/key-vault) encrypts cryptographic keys and other secrets used by cloud apps and services.
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade service for the end-to-end machine learning lifecycle.
-- [AutoML](/azure/machine-learning/concept-automated-ml) is a process for automating the time-consuming, iterative tasks of machine learning model development.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+
 
 ## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Kate Baroni](https://www.linkedin.com/in/katebaroni) | Principal Customer Engineer 
+- [Michael Hlobil](https://www.linkedin.com/in/michaelhlobil) |  Principal Customer Engineering Manager 
+- [Cedric Labuschagne](https://www.linkedin.com/in/cedza) | Technical Program Manager 
+- [Frank Garofalo](https://www.linkedin.com/in/frgarofalo) | Principal Customer Engineer 
+- [Shep Sheppard](https://www.linkedin.com/in/sqlshep) | Senior Service Engineer 
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 
 ## Next steps
 
