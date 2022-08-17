@@ -6,7 +6,7 @@ This article expands on the architecture that's described in the [Azure Virtual 
 
 :::image type="content" source="images/azure-virtual-desktop-multi-forest-adds.png" alt-text="Diagram that shows Azure Virtual Desktop integration with Active Directory Domain Services." lightbox="images/azure-virtual-desktop-multi-forest-adds.png":::
 
-*[Download a Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-multi-forest-adds.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-multi-forest-adds.vsdx) of this architecture.*
 
 ### Dataflow
 
