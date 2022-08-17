@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Sentiment analysis and face recognition
+  title: Sentiment Analysis and Face Recognition
   titleSuffix: Azure Example Scenarios
   description: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
   author: jmendezde
