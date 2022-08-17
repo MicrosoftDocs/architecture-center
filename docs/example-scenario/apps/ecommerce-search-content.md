@@ -4,6 +4,8 @@ This example scenario shows how using a dedicated search service can dramaticall
 
 ![Diagram showing an architecture overview of the Azure components involved in an intelligent product search engine for e-commerce.][architecture]
 
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-search.vsdx) of this architecture.*
+
 ### Workflow
 
 This scenario covers an e-commerce solution where customers can search through a product catalog.

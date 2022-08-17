@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 06/13/2022
   ms.topic: conceptual
   ms.service: architecture-center

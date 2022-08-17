@@ -10,7 +10,7 @@ This solution is ideal for the media and entertainment industry. The scenario is
 
 :::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hub, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
-*Download an [SVG](../media/real-time-analytics.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-analytics.vsdx) of this architecture.*
 
 ### Dataflow
 

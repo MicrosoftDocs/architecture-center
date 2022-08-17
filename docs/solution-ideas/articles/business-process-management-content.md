@@ -6,12 +6,12 @@ This solution demonstrates how to use [knowledge mining](https://azure.microsoft
 
 ## Potential use cases
 
-This solution is ideal for the finance industry. When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
+This solution is ideal for the finance industry. When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in scenarios where bidding competition is fierce or where you have to diagnosis problems quickly or in near real time. Examples include the following areas:
 
-* Sales
-* IT service management
-* Finances
-* Logistics
+- Sales
+- IT service management
+- Finances
+- Logistics
 
 ## Architecture
 
@@ -54,8 +54,14 @@ Key technologies used to implement tools for this technical content review and r
 ## Next steps
 
 * Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
-
 * Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-
 * Learn about using [extracting data from documents and forms using OCR and Form Recognizer](/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer)
 * Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+
+## Related resources
+
+- [Knowledge mining in auditing, risk, and compliance management](./auditing-and-risk-compliance.yml)
+- [Knowledge mining for content research](./content-research.yml)
+- [Knowledge mining in contract management](./contract-management.yml)
+- [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
+- [Knowledge mining in digital asset management](./digital-asset-management.yml)

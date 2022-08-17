@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 06/13/2022
   ms.topic: conceptual
   ms.service: architecture-center

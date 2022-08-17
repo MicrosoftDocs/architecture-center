@@ -171,7 +171,7 @@ More about Azure Automation:
 [12]: /azure/automation/how-to/region-mappings
 [13]: /azure/automation/source-control-integration
 [14]: https://azure.microsoft.com/pricing/calculator
-[15]:  https://azure.microsoft.com/pricing/details/automation
+[15]: https://azure.microsoft.com/pricing/details/automation
 [16]: https://azure.microsoft.com/pricing/details/monitor
 [17]: https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
 [18]: /azure/automation/automation-secure-asset-encryption
