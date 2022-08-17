@@ -1,6 +1,8 @@
-Azure offers several ways to host your application code in a hybrid environment, these solutions will allow you to extend Azure services to the on-premises, edge and in some cases even other cloud providers. The following flowchart will help you to choose a hybrid service for your application.
+Azure enables you to run your application code in a hybrid environment by offering several hybrid solutions. These services span from hardware to host your workloads, to being able to extend Azure PaaS services, security and operational tooling to your on-premises, edge and multicloud environment.
 
-## Choose a candidate service
+This article provides guidance so you can choose the hybrid service that better fits your business use case. To bring clarity to the  process of choosing a technology, the article maps the decision making process to two personas or perspectives: developer and systems administrator. Depending on your background, concerns and expertise you may approach these solutions starting from the application and workload requirements or starting from the hardware and hosting location constraints. Keep in mind that these perspectives are not specific to a role, however you might naturally lean more towards one approach than the other.
+
+## Concepts
 
 Before selecting a hybrid service to run your workloads it is important to establish certain criteria and concepts that will guide the decision-making process. First, it is important to understand the differences hybrid, multi-cloud and edge.
 
@@ -13,15 +15,17 @@ Besides the hosting location and the type of infrastructure that is being used, 
 - **Control Plane:**  the control plane is used and accessed every time you manage resources. In the case of Azure, these requests are handled by Azure Resource Manager (ARM). The control plane for example is used to create a Virtual Machine.
 - **Data Plane:** the data plane however is used to access capabilities exposed by the instance of a resource type you deployed via the control plane, for example once you access a Virtual Machine over RDP.
 
-## Decide based on Azure Services
+## Choose a candidate service
 
 Based on these previously described concepts you can see that there are different criteria or approaches you can use to select the hybrid solution that fits your needs, if you are a developer, you will very likely be looking into criteria like: mass deployments, restricted hardware or purpose built, whereas if you are DevOps or systems administrator, you will focus more on the hosting location, hardware and hypervisors being used, etc.
+
+### Developer - Decide based on Azure Services
 
 Use the following flowcharts to select a candidate hybrid service, you can choose depending on your background and selection criteria:
 
 ![Decision tree for Azure hybrid services](./images/hybrid-choices.png)
 
-## Decide based on hardware constraints
+### Systems Administrator - Decide based on hardware constraints
 
 In brown field scenarios existing hardware needs to be included and represented in modern hybrid workload approaches. The following decision matrix will guide you on selecting Azure services to include existing hardware.
 
