@@ -103,177 +103,183 @@ Latency and response times are critical in a fraud detection solution. The infra
 
 Telemetry events from the bank's mobile and internet application gateways are formatted as JSON files with a loosely defined schema. These events are streamed as application telemetry to [Azure Event Hubs](/azure/event-hubs/event-hubs-about), where an Azure function in a dedicated App Service Environment orchestrates the processing.
 
-The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure. Those interactions the following:
+The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure. Those interactions include the following:
 
-- Ingest the raw JSON event payload from Azure Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
-- Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-lake) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
-- Update and retrieve User account and device profiles from Azure SQL Database, and Azure Data Lake.  
-- Call out to Azure Machine Learning endpoint to execute a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for Operational Analytics
-- Power BI connects to data lake via Azure Synapse Analytics for a real-time operational analytics dashboard with Power BI.
-- Post the scored results as an event to an on-premises system for further fraud investigation and management activity.
+1. Ingest the raw JSON event payload from Azure Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
+1. Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](/azure/architecture/data-guide/scenarios/data-lake) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
+1. Update and retrieve user account and device profiles from SQL Database and Data Lake.  
+1. Call an Azure Machine Learning endpoint to run a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for operational analytics.
+1. Connect Power BI to Data Lake via Azure Synapse Analytics for a real-time operational analytics dashboard.
+1. Post the scored results as an event to an on-premises system for further fraud investigation and management activity.
 
 image 
 
 link? 
 
-Figure 2 Azure Function Processing Infrastructure
+Alt text: Diagram that shows the event-processing infrastructure.
 
-### Data Pre-Processing & JSON Transformation
+### Data pre-processing and JSON transformation
 
-Pre-processing the data was an integral step in formatting the data for development and training of the machine learning models. There were years of historic mobile and internet banking events including transaction data from the application gateway telemetry in JSON format. There were hundreds of thousands of files that contained multiple events that had to be deserialized and flattened and cleaned for the purpose of training the machine learning model.
+In the real-world scenario that this solution is based on, pre-processing the data was an integral step in formatting the data for the development and training of the machine learning models. There were years of historic mobile and internet banking events, including transaction data from the application gateway telemetry in JSON format. There were hundreds of thousands of files that contained multiple events that needed to be deserialized and flattened and cleaned for the purpose of training the machine learning model.
 
-Each of the application gateways produces telemetry from a user's interaction, capturing information like the OS, mobile device metadata, account data, and transaction requests and responses. A lot of variation existed between JSON files and attributes and data types were disparate and inconsistent. Another complication with the JSON files was that attributes and data types could change unexpectedly as application updates were pushed out to the gateways and features were removed, modified, or added. Data transformation challenges with the schemas include: 
+Each application gateway produces telemetry from a user's interaction, capturing information like the OS, mobile device metadata, account data, and transaction requests and responses. There was variation between JSON files and attributes, and data types were disparate and inconsistent. Another complication with the JSON files was that attributes and data types could change unexpectedly as application updates were pushed out to the gateways and features were removed, modified, or added. Data transformation challenges with the schemas include the following:
 
-- A JSON file may include one or more mobile phone interactions; each interaction needs to be extracted as a separate message
-- Fields may be named or represented differently
-- Characters like new lines or carriage returns are embedded inconsistently within messages
-- Attributes like email addresses may be missing or partially formatted, 
-- Complex, nested properties and values
+- A JSON file might include one or more mobile phone interactions. Each interaction needs to be extracted as a separate message.
+- Fields might be named or represented differently.
+- Characters like new lines or carriage returns are embedded inconsistently in messages.
+- Attributes like email addresses might be missing or partially formatted. 
+- There might be complex, nested properties and values.
 
-A Spark pool was used as part of the cold path to process historical JSON files, deserialize, flatten, and extract device and transaction attributes. Each JSON file was validated, parsed, and the transaction attributes extracted and persisted onto a data lake and partitioned based on the date of the transaction.  
+A Spark pool is used as part of the cold path to process historical JSON files, deserialize, flatten, and extract device and transaction attributes. Each JSON file is validated and parsed, and the transaction attributes extracted and persisted onto a data lake and partitioned based on the date of the transaction.  
 
-These attributes are used later to create features for the fraud classifier. The power of data in this solution is because the JSON data can be standardized, joined, and aggregated with historical data to create behavior profiles.
+These attributes are used later to create features for the fraud classifier. The power of this solution relies on JSON data's capability to be standardized, joined, and aggregated with historical data to create behavior profiles.
 
-### Near real-time data processing & featurization using Azure SQL DB
+### Near real-time data processing and featurization with SQL Database
 
-In this solution events are produced from multiple sources including authentication records, customer information and demographics, transaction records, and log and activity data from mobile devices. In For this solution Azure SQL Database was used to perform real-time data parsing, pre-processing, and featurization because SQL was the skill set most familiar to the bank developers. Within Azure SQL Database, the Hybrid Transaction/Analytical Processing (HTAP) capabilities were used including: 
+In this solution, events are produced from multiple sources, including authentication records, customer information and demographics, transaction records, and log and activity data from mobile devices. SQL Database is used to perform real-time data parsing, pre-processing, and featurization because SQL is familiar to many developers. 
 
-- [Memory-Optimized Tables]() were used to store the account profiles. Memory-optimized tables have advantages over traditional SQL tables because they are created and accessed in the main memory. The latencies and overhead of disk access are avoided. This requirement for this solution was to process 300 JSON messages/second and memory-optimized tables provided for this level of throughput.
-- Memory-optimized tables are most efficiently accessed from [natively compiled stored procedures](/sql/relational-databases/in-memory-oltp/natively-compiled-stored-procedures). Unlike interpreted stored procedures, natively compiled stored procedures are compiled when they are first created.
-- A [temporal table](/azure/sql-database/sql-database-temporal-tables) is a feature that automatically maintains change history in a table. A row is added or updated is versioned and written to the history table. In this solution, the account profiles were stored in a temporal table, created with a 7-day retention policy, so rows were automatically removed when they exceeded the retention period.
+HTAP functionality is necessary to retrieve user account behavior history for a particular device over the previous seven days to calculate features in near real-time with low latency. In SQL Database, these hybrid transaction/analytical processing (HTAP) capabilities are used: 
 
-HTAP functionality is a necessity when retrieving user account behavior history for a particular device over the last 7 days in order to calculate features in near real-time with low latency.
+- [Memory-optimized tables](/sql/relational-databases/in-memory-oltp/memory-optimized-tables) are used to store account profiles. Memory-optimized tables have advantages over traditional SQL tables because they're created and accessed in the main memory. The latencies and overhead of disk access are avoided. The requirement for this solution is to process 300 JSON messages/second. Memory-optimized tables provide for this level of throughput.
+- Memory-optimized tables are most efficiently accessed from [natively compiled stored procedures](/sql/relational-databases/in-memory-oltp/natively-compiled-stored-procedures). Unlike interpreted stored procedures, natively compiled stored procedures are compiled when they're first created.
+- A [temporal table](/azure/sql-database/sql-database-temporal-tables) is a table that automatically maintains change history. When a row is added or updated, it's versioned and written to the history table. In this solution, the account profiles are stored in a temporal table that has a 7-day retention policy, so rows are automatically removed after the retention period.
 
-This approach also provided the customer with the added benefits of:
-- Access to archived data for Operational Analytics and ML Model retraining and Fraud validation 
-- Simplified data archiving to long-term storage.
-- Scalability thru sharding data and using an elastic database.
+This approach also provides these benefits:
 
-### Event schema management 
+- Access to archived data for operational analytics, machine learning model retraining, and fraud validation
+- Simplified data archive to long-term storage
+- Scalability via sharding data and the use of an elastic database
 
-How can schema management be automated? JSON is a very flexible and portable file format and one of the reasons for this is that a schema is not stored with the data. When JSON files need to be parsed, deserialized, and processed a schema must be coded somewhere that represents the structure of the JSON to validate the data properties and datatypes. If the schema is not synchronized with the incoming JSON message, the JSON validation fails and data is not extracted.
+### Event schema management
 
-The challenge comes when the structure of JSON messages changes because of new application functionality. In the original solution, the bank deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out-of-sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
+The automation of schema management is another challenge that needed to be resolved for this solution. JSON is a flexible and portable file format, partly because a schema isn't stored with the data. When JSON files need to be parsed, deserialized, and processed, a schema that represents the structure of the JSON must be coded somewhere to validate the data properties and data types. If the schema isn't synchronized with the incoming JSON message, the JSON validation fails and data isn't extracted.
 
-The bank did not have any formal Schema defined for these events and the constant fluctuations in the structure of the JSON files created technical debt at each iteration of the solution. The recommendation to the customer was to establish a schema for these events and consider making use of Azure Schema Registry. [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) provides a central repository of schemas for events and provides flexibility for producers and consumer applications to **exchange data without having to manage and share the schema**. The simple governance framework it introduces for reusable schemas and the relationship it defines between schemas through the grouping constructs (schema groups) will eliminate a lot of the technical debt, enforce conformance, and provide backward compatibility across changing schemas.
+The challenge comes when the structure of JSON messages changes because of new application functionality. In its original solution, the bank that this solution is based on deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out-of-sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
 
-### Feature Engineering for Machine Learning
+The bank didn't have a formal schema defined for these events, and the constant fluctuations in the structure of the JSON files created technical debt at each iteration of the solution. This solution resolves that problem by establishing a schema for these events and using Azure Schema Registry. [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) provides a central repository of schemas for events and flexibility for producers and consumer applications to exchange data without needing to manage and share the schema. The simple governance framework it introduces for reusable schemas and the relationship it defines between schemas through the grouping constructs (schema groups) can eliminate significant technical debt, enforce conformance, and provide backward compatibility across changing schemas.
 
-Features are a way to profile account behavior by aggregating activity over different time scales. They are created from data in the application logs representing transactional, non-transactional, and device behavior. Transactional behavior includes monetary transaction activities like payments or withdrawals. Non-transactional behavior includes user actions like login attempts or password changes. Device behavior includes activities that involve a mobile device, like adding or removing a device. Features were constructed to represent current and past account behavior, including
+### Feature engineering for machine learning
 
-- New user registration attempts from a specific device
-- Successful/unsuccessful login attempts
-- Requests to add 3rd party payees or beneficiaries
-- Requests to increase account or credit card limits
-- Password changes
+Features are a way to profile account behavior by aggregating activity over different time scales. They're created from data in the application logs that represents transactional, non-transactional, and device behavior. Transactional behavior includes monetary transaction activities like payments and withdrawals. Non-transactional behavior includes user actions like sign-in attempts and password changes. Device behavior includes activities that involve a mobile device, like adding or removing a device. Features are used to represent current and past account behavior, including:
 
-An account profile table was created with attributes from the JSON transaction like Message-ID, Transaction Type, Payment Amount, day-of-week, hour-of-the-day. Activities were aggregated across multiple timeframes like an hour, day, 7-days and stored as a behavior history for each account. Each row in the table represented a single account. Examples of some of the features include:
+- New user registration attempts from a specific device.
+- Successful and unsuccessful sign-in attempts.
+- Requests to add third-party payees or beneficiaries.
+- Requests to increase account or credit card limits.
+- Password changes.
 
-image 
+An account profile table contains attributes from the JSON transactions, like the message ID, transaction type, payment amount, day of the week, and hour of the day. Activities are aggregated across multiple time frames, like an hour, a day, and seven days, and stored as a behavior history for each account. Each row in the table represents a single account. These are of some of the features:
 
-Table 2 Feature set
+![Table that lists example features, including number of changed password messages in the past seven days and average withdrawal in the past day.](_images/example-features.png)
 
-Once the account features are calculated and the profile updated, an Azure function makes a call to the machine learning model for scoring via a REST API to answer the question: *What is the probability this account is in a state of fraud based on the behavior we have seen up till now?*
+After the account features are calculated and the profile is updated, an Azure function calls the machine learning model for scoring via a REST API to answer this question: *What's the probability that this account is in a state of fraud, based on the behavior we've seen?*
 
 ## AutoML
 
-In this solution [Azure AutoML](/azure/machine-learning/concept-automated-ml) was chosen because of speed and ease of use. Azure AutoML can be a useful starting point for quick discovery and learning because it does not require specialized knowledge or setup. Azure AutoML automates the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
+[AutoML](/azure/machine-learning/concept-automated-ml) is used in the solution because it's fast and easy to use. AutoML can be a useful starting point for quick discovery and learning because it doesn't require specialized knowledge or setup. It automates the time-consuming, iterative tasks of machine learning model development. Data scientists, analysts, and developers can use it to build machine learning models with high scalability, efficiency, and productivity while sustaining model quality.
 
 AutoML can perform the following tasks in an ML process:
-- Split data into Train/Validation data sets
+- Split data into train and validation datasets
 - Optimize training based on a chosen metric
-- Perform Cross Validation
-- Feature generation
+- Perform cross validation
+- Generate features
 - Impute missing values
-- Perform one-hot encoding as well as a variety of scalers
+- Perform one-hot encoding and a variety of scalers
  
-### Data Imbalance
+### Data imbalance
 
-Fraud classification is challenging because of the severe class imbalance. In a fraud dataset there are many more non-fraud transactions than fraudulent transactions.  Typically, less than 1% of the data set contains fraud transactions. Unless it is addressed, this imbalance between fraud/non-fraud transactions can cause a credibility problem with the model because all transactions could end up classified as non-fraud. It means the model completely misses all the fraud transactions but still achieves a 99% accuracy rate. A highly accurate model that does not detect fraudulent transactions is unacceptable.
+Fraud classification is challenging because of the severe class imbalance. In a fraud dataset, there are many more non-fraudulent transactions than fraudulent transactions.  Typically, less than 1 percent of a dataset contains fraudulent transactions. If it's not addressed, this imbalance can cause a credibility problem in the model because all transactions could end up classified as non-fraud. The model could completely miss all fraudulent transactions and still achieve a 99 percent accuracy rate.
 
-To redistribute data and create a better balance between fraud and non-fraud transactions, Azure AutoML has built-in capabilities to help:  
+AutoML can help redistribute data and create a better balance between fraudulent and non-fraudulent transactions:  
 
-- AutoML supports a column of weights as input causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20% of the number of samples in the majority class.  Subsequently, AutoML will run an experiment with sub-sampled data to check if using class weights would remedy this problem and improve performance. If it ascertains a better performance through this experiment, then this remedy is applied.
-- Use a performance measurement metric that deals better with imbalanced data; for instance, if your model needs to be sensitive to false negatives use Recall, or when the model needs to be sensitive to false positives use Precision. An F1-Score can also be used which is the harmonic mean between precision and recall, thus not effected by a high number of true positives or true negatives.  Keep in mind some metrics may need to be calculated manually during your testing phase.
+- AutoML supports adding a column of weights as input, causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20 percent of the number of samples in the majority class. Subsequently, AutoML runs the experiment with sub-sampled data to check if using class weights will remedy this problem and improve performance. If it determines the performance is better because of the experiment, the remedy is applied.
+- You can use a performance-measurement metric that handles imbalanced data better. For example, if your model needs to be sensitive to false negatives, use `recall`. When the model needs to be sensitive to false positives, use `precision`. You can also use an F1 score. This score is the harmonic mean between `precision` and `recall`, so it's not affected by a high number of true positives or true negatives. You might need to calculate some metrics manually during your testing phase.
 
-Alternatively, to increase the number of fraud transactions, you can manually use a technique called Synthetic Minority Oversampling Technique (SMOTE) can be used. SMOTE is a statistical technique that uses bootstrapping and k-nearest neighbor (KNN) to produce instances of the minority class.
+Alternatively, to increase the number of transactions classified as fraudulent, you can manually use a technique called Synthetic Minority Oversampling Technique (SMOTE). SMOTE is a statistical technique that uses bootstrapping and k-nearest neighbor (KNN) to produce instances of the minority class.
 
-### Model Training
+### Model training
 
-For model training, the Python SDK expects data in either a pandas dataframe format or as an Azure Machine learning tabular dataset.  The value to predict needs to be in the dataset, and the y column is passed in as part of the parameters when creating the training job.  In the code (sample image below):
+For model training, the Python SDK expects data in either a pandas dataframe format or as an Azure Machine Learning tabular dataset. The value that you want to predict needs to be in the dataset. You pass the y column in as a parameter when you create the training job.
 
-1. Load the data set into an Azure tabular dataset or pandas dataframe
-1. Split the dataset into 70% training 30% validation
-1. Create a variable with the column we would like to predict
-1. Begin the AutoML parameters creation
-1. Configure AutoMLConfig
-   1. Task is the type of ML you would like to do, Classification or Regression, in our case classification
-   1. Debug_log is the location to write the debug information to
-   1. Training_data is the dataframe or tabular object of the training data was loaded into
-   1. Label_column_name is the column you would like to predict
-1. And lastly the actual execution of the ML job. 
+Here's a code sample, with comments:
 
-Comments are in line in the code:
+![Screenshot that shows a code sample for model training.](_images/automl-code.png)
 
-image 
+In the code:
 
-Figure 3 AzureML Code snippet
+1. Load the dataset into an Azure Machine Learning tabular dataset or pandas dataframe.
+1. Split the dataset into 70 percent training 30 percent validation.
+1. Create a variable for the column you want to predict.
+1. Start creating the AutoML parameters.
+1. Configure `AutoMLConfig`.
+   1. `task` is the type of machine learning you want to do, `classification` or `regression`. In this case, use `classification`.
+   1. `debug_log` is the location where debug information is written.
+   1. `training_data` is the dataframe or tabular object the training data is loaded into.
+   1. `label_column_name` is the column you want to predict.
+1. Run the machine learning job.
 
-### Model evaluation 
+### Model evaluation
 
-A ‘good’ model is one that produces realistic and actionable results and that is one of the challenges with a fraud detection model. Most fraud detection models produce a binary decision to answer the question: Is this a fraudulent transaction (Y/N)? The decision is based on two factors; (1) a probability score between 0-100 returned by the classification algorithm and, (2) a probability threshold pre-established by the business; above the threshold the transaction is considered fraudulent, below the threshold the transaction is considered non-fraudulent. While probability is a standard metric for any classification model, it is typically insufficient in a fraud scenario for a business to decide to block an account to prevent further losses.
+A good model produces realistic and actionable results. That's one of the challenges with a fraud detection model. Most fraud detection models produce a binary decision to determine whether a transaction is fraudulent. The decision is based on two factors:
+- A probability score between 0 and 100 that's returned by the classification algorithm 
+- A probability threshold that's established by the business. Above the threshold is considered fraudulent, and below the threshold is considered non-fraudulent. 
 
-For this solution, account level metrics were created and factored into the decision on whether the business should act to block an account. The account level metrics were defined based on industry standard metrics described in the table below:
+Probability is a standard metric for any classification model. But it's typically insufficient in a fraud scenario for decisions about whether to block an account to prevent further losses.
+
+In this solution, account-level metrics are created and factored into the decision of whether the business should act to block an account. The account-level metrics are defined based on these industry-standard metrics:
 
 
-|Fraud manager cares about…  |Metric  |Description  |
+|Fraud manager concern|Metric  |Description  |
 |---------|---------|---------|
-|Am I detecting fraud?     |    Fraud Account Detection Rate (ADR)     |   The percentage of detected fraud accounts in all fraud accounts.      |The percentage of monetary savings, assuming the current fraud transaction triggered a blocking action on subsequent transactions, over all fraud losses.
+|Am I detecting fraud?     |    Fraud Account Detection Rate (ADR)     |   The percentage of detected fraud accounts in all fraud accounts.      |The percentage of monetary savings, assuming the current fraud transaction triggers a blocking action on subsequent transactions, over all fraud losses.
 |How much money am I saving (loss prevention)? How much will a delay to react to an alert cost?     |      Value Detection Rate (VDR)   |  The percentage of monetary savings, assuming the current fraud transaction triggered a blocking action on subsequent transactions, over all fraud losses.  |
-|How many good customers am I inconveniencing?     |   Account False Positive Ratio (AFPR)      |      How many non-fraud accounts get flagged for every real fraud detected (per day)? The ratio of detected false positive accounts over detected fraud accounts.        |
+|How many good customers am I inconveniencing?     |   Account False Positive Ratio (AFPR)      |      The number of non-fraudulent accounts that get flagged for every real fraud detected (per day). The ratio of detected false positive accounts over detected fraudulent accounts.        |
 
-Table 3 Industry standard fraud detection metrics
-
-These metrics are valuable data points for a fraud manager and are used to get a more complete picture of the account risk and decide on remediation. 
+These metrics are valuable data points for a fraud manager. The manager uses them to get a more complete picture of the account risk and decide on remediation.
 
 ### Model operationalization and retraining
 
-Predictive models need to be updated periodically. Over time - and as new and different data becomes available - a predictive model will need to be re-trained to continue to be effective. This is especially true for fraud detection models where new patterns of criminal activity are frequent, requiring a model to be updated to learn the new patterns. It also becomes necessary when the telemetry from mobile application logs change due to modification pushed out to the application gateway. To provide for re-training in this solution, every transaction submitted for analysis and the corresponding model evaluation metrics were logged. Over time, the model performance was monitored; and when it appeared to degrade, a re-training workflow was triggered. In this solution, several different Azure services were introduced into the re-training workflow:
+Predictive models need to be updated periodically. Over time, and as new and different data becomes available, a predictive model needs to be re-trained. This is especially true for fraud detection models in which new patterns of criminal activity are frequent. It also becomes necessary when the telemetry from mobile application logs change because of modifications pushed out to the application gateway. To provide for re-training in this solution, every transaction submitted for analysis and the corresponding model evaluation metrics are logged. Over time, the model performance is monitored. When it appears to degrade, a re-training workflow is triggered. Several Azure services are used in the re-training workflow:
 
-- [Azure Synapse Analytics](/azure/architecture/data-guide/relational-data/data-warehousing) or Azure Data Lake can be used to store historical customer data and known fraudulent transactions uploaded from on-premises sources as well as data archived from the AML web service including transactions, predictions, and model evaluation metrics. The data needed for retraining is stored in this data store.
-- [Azure Data Factory](/azure/data-factory/introduction) or [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be used to orchestrate the data flow and process for retraining including the extraction of historical data and log files from on-premises systems, the JSON deserialization process, and data pre-processing logic.  A detailed reference for how to use Azure Data Factory for model re-training is available in [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/en-us/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory).
-- Blue Green deployments can be used in Azure Machine learning using "[Safe rollout for online endpoints](/azure/machine-learning/how-to-safely-rollout-managed-endpoints)" easing you rollout if a new model with minimal downtime.
+- You can use [Azure Synapse Analytics](/azure/architecture/data-guide/relational-data/data-warehousing) or Azure Data Lake to store historical customer data. You can use these services to store known fraudulent transactions uploaded from on-premises sources and data archived from the Azure Machine Learning web service, including transactions, predictions, and model evaluation metrics. The data needed for retraining is stored in this data store.
+- You can use [Data Factory](/azure/data-factory/introduction) or [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) to orchestrate the data flow and process for retraining, including: 
+  - The extraction of historical data and log files from on-premises systems.
+  -  The JSON deserialization process.
+  - Data pre-processing logic.  
 
-## Technical Considerations 
+  For a detailed information, see [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory).
+- You can use blue-green deployments in Azure Machine Learning. For information about deploying a new model with minimal downtime, see [Safe rollout for online endpoints](/azure/machine-learning/how-to-safely-rollout-managed-endpoints).
 
-Selecting the right technology components for a 24*7, cloud-based infrastructure for fraud detection depends on understanding current—and sometimes vague—requirements. The technology choices for this solution were based on considerations that may be helpful to guide similar decisions.
+## Technical considerations
 
-### Skill Sets
+Selecting the right technology components for a continuously operating cloud-based infrastructure for fraud detection depends on understanding current, and sometimes vague, requirements. The technology choices for this solution are based on considerations that might help you make similar decisions.
 
-What are the current technology skill sets for the teams designing, implementing, and maintaining the solution? Cloud and AI technologies expand the choices available for implementing a solution. For this project, the current skill set of the team was an important consideration and had a direct impact on the technology chosen for implementation. For example, the team had basic data science skills so the decision to use Azure Machine Learning was made for model creation and endpoint. Another decision influenced by team skills was the decision to use Event Hubs. Event Hubs is a managed service that is easy to set up and maintain. And while there were technical advantages for an alternative decision using Kafka, it would have required an investment in re-training.
+### Skill sets
 
-### Hybrid Operational Environment
+Consider the current technology skill sets of the teams designing, implementing, and maintaining the solution. Cloud and AI technologies expand the choices available for implementing a solution. For example, if your team has basic data science skills, Azure Machine Learning is a good choice for model creation and endpoint. The decision to use Azure Event Hubs is another example. Azure Event Hubs is a managed service that's easy to set up and maintain. There are technical advantages to using an alternative like Kafka, but that might require training.
 
-The deployment for this solution spanned the bank’s on-premises environment and the Azure environment. Services, networks, applications, and communication had to work effectively across both infrastructures to support the workload. The technology decisions included:
-- How will environments be integrated?
-- What are the network connectivity requirements between the Azure datacenter and the bank’s on-premises infrastructure? ExpressRoute was adopted because it provided dual lines, redundancy, and failover. Site-to-site VPN did not provide the security or Quality-of-Service (QoS) needed for the workload.
-- How will fraud detection scores integrate with the bank’s backend systems? Scoring responses should integrate with backend fraud workflows to automate verification of transactions with customers or other case management activities. Integration from Azure services to the on-premises bank systems can be done with either Azure Functions or Logic Apps.
+### Hybrid operational environment
+
+The deployment for this solution spans an on-premises environment and the Azure environment. Services, networks, applications, and communication have to work effectively across both infrastructures to support the workload. The technology decisions include:
+- How are environments integrated?
+- What are the network connectivity requirements between the Azure datacenter and the on-premises infrastructure? Azure ExpressRoute is used because it provides dual lines, redundancy, and failover. Site-to-site VPN doesn't provide the security or Quality-of-Service (QoS) that's needed for the workload.
+- How do fraud detection scores integrate with back-end systems? Scoring responses should integrate with back-end fraud workflows to automate the verification of transactions with customers or other case management activities. You can use either Azure Functions or Logic Apps to integrate Azure services with on-premises systems.
 
 ### Security
 
-Hosting a solution in the cloud brings with it new security responsibilities.  In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant and workload responsibilities vary depending on whether the workload being hosted is SaaS, PaaS, or an IaaS service.  The shared responsibility model is described here: [Shared Responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
+Hosting a solution in the cloud brings new security responsibilities. In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant. Workload responsibilities vary depending on whether the workload is a SaaS, PaaS, or IaaS service. For more information, see [Shared Responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
 
-Whether you are moving towards a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration.  In design and deployment, our recommendation is to adopt the security principles that are consistent with a Zero Trust approach.  Adopting principles like verify explicitly, use least privilege access, and assume breach will strengthen workload security. 
+Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration. For design and deployment, we recommend that you adopt security principles that are consistent with a Zero Trust approach. Adopting principles like verify explicitly, use least privilege access, and assume breach strengthen workload security.
 
-**Verify Explicitly** means to examine and assess many different aspects of an access request and includes considerations like:
+**Verify explicitly** is the process of examining and assessing various aspects of an access request. Here are some of the principles:
 - Use a strong identity platform like Azure Active Directory. 
-- Understand the security model for each of the cloud services and how data and access are secured
-- When possible, control access to cloud services using Managed Identity and Service Principles 
+- Understand the security model for each cloud service and how data and access are secured.
+- When possible, use managed identity and service principals to control access to cloud services.
 - Store keys, secrets, certificates, and application artifacts like database strings, REST endpoint URLs, and API keys in Key Vault.
 
-**Use Least Privilege Access** helps ensure permissions are granted only to meet specific business needs from an appropriate environment to an appropriate client and includes considerations like 
-- Compartmentalize the workload by limiting how much access a component or resource has through role assignments or network access,
-- Disallow public access to endpoints and services and use private endpoints to protect your services unless your service requires public access, 
+**Use least privilege access** helps ensure permissions are granted only to meet specific business needs from an appropriate environment to an appropriate client. Here are some of the principles: 
+- Compartmentalize workloads by limiting how much access a component or resource has through role assignments or network access.
+- Disallow public access to endpoints and services and use private endpoints to protect your services unless your service requires public access. 
 - Secure service endpoints through firewall rules or isolate to VNET(s).
  
 **Assume Breach** is a strategy to guide design and deployment decisions and assumes a solution has been compromised. It is an approach to build resilience into a workload by planning for detection, response to, and remediation of a security threat. For design and deployment decisions it implies (1) workload components are isolated and segmented so a compromise of one component minimizes impact to upstream or downstream components, (2) telemetry is captured and analyzed for proactively to identify anomalies and potential threats, and (3) automation is in place to detect, respond, and remediate a threat.  Examples of capabilities to consider:
