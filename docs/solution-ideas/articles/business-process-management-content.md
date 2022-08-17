@@ -31,7 +31,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 * **Enrich**
 
-  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding using [Azure's Applied AI Services suite](https://docs.microsoft.com/azure/applied-ai-services).
+  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding using [Azure's Applied AI Services suite](/azure/applied-ai-services).
 
   In this step, you can use optical character recognition (OCR) using Azure Computer Vision services and forms recognition over the documents using Azure Form Recognizer. There are even [pre-trained models](https://formrecognizer.appliedai.azure.com/studio) such as the Invoice Model, the ID Document Model, and the Receipt Model. Or, for more flexibility, you can build a custom model.
 
@@ -47,8 +47,8 @@ Key technologies used to implement tools for this technical content review and r
 
 * [Cognitive Services Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
 * [Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/#overview)
-* [Azure Cognitive Search](https://docs.microsoft.com/azure/search)
-* [Azure Form Recognizer](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/)
+* [Azure Cognitive Search](/azure/search)
+* [Azure Form Recognizer](/azure/applied-ai-services/form-recognizer/)
 * [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
@@ -57,5 +57,5 @@ Key technologies used to implement tools for this technical content review and r
 
 * Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-* Learn about using [extracting data from documents and forms using OCR and Form Recognizer](https://docs.microsoft.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer)
+* Learn about using [extracting data from documents and forms using OCR and Form Recognizer](/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer)
 * Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
