@@ -62,11 +62,11 @@ This reference architecture shows on-premises Data Warehouse as a source of ongo
 
 ## Data pipeline
 
-This reference architecture uses the [Adventure Works DW][adventureworksdw-sample-link] sample database as a data source. The [Incremental Data Load pattern](incremental-load) discussed above is implemented to ensure we only load data that was modified or added after the most recent pipeline run.
+This reference architecture uses the [Adventure Works DW][adventureworksdw-sample-link] sample database as a data source. The [Incremental Data Load pattern](/azure/data-factory/tutorial-incremental-copy-overview) discussed above is implemented to ensure we only load data that was modified or added after the most recent pipeline run.
 
 ### Metadata-driven copy tool
 
-This architecture uses the built in [metadata-driven copy tool](metadata-copy) within Synapse Pipelines to incrementally load all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines, and SQL scripts to generate the control table required to store data for the incremental loading process (e.g. High watermark value/column for each table). Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
+This architecture uses the built in [metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Synapse Pipelines to incrementally load all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines, and SQL scripts to generate the control table required to store data for the incremental loading process (e.g. High watermark value/column for each table). Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
 
 ![Metadata-driven Copy Tool Wizard in Synapse Analytics](./images/metadata-copy.png)
 
@@ -219,7 +219,7 @@ Azure Synapse Analytics serverless architecture allows you to scale your compute
 
 ### Azure Synapse Pipelines
 
-Pricing details for Synapse Pipelines can be found under 'Data Integration' tab on the [Synapse pricing page](az-synapse-pricing). There are three main components that influence the price of Synapse Pipeline:
+Pricing details for Synapse Pipelines can be found under 'Data Integration' tab on the [Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics). There are three main components that influence the price of Synapse Pipeline:
 
 1. Data Pipelines activities and integration runtime hours
 1. Data Flows cluster size and execution
@@ -262,12 +262,9 @@ This reference architecture leverages PBI Premium workspaces(/power-bi/admin/ser
 [e2e-analytics]: /azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [adventureworksdw-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
-[az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [enterprise-model]: /powerbi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
 [bi-model]: /powerbi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[incremental-load]: /azure/data-factory/tutorial-incremental-copy-overview
 [pbi-premium-capacities]: /powerbi/admin/service-premium-what-is#reserved-capacities
 [synapse-dedicated-pool]: /azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
 [pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
-[metadata-copy]: /azure/data-factory/copy-data-tool-metadata-driven
