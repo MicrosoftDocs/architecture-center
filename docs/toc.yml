@@ -386,6 +386,8 @@ items:
                 href: guide/multitenant/approaches/messaging.md
               - name: Identity
                 href: guide/multitenant/approaches/identity.md
+              - name: Integration
+                href: guide/multitenant/approaches/integration.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
