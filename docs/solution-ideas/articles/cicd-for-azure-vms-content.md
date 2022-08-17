@@ -4,9 +4,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 
 ## Architecture
 
-![Diagram showing continuous integration and continuous deployment pipeline for virtual machines.](../media/cicd-for-azure-vms.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/cicd-for-azure-vms.vsdx) of this architecture.*
+![Diagram showing continuous integration and continuous deployment pipeline for virtual machines.](../media/cicd-for-azure-vms.svg)
 
 ### Components
 
