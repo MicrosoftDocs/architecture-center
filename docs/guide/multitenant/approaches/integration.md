@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/13/2022
+ms.date: 08/17/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -45,12 +45,12 @@ In many systems, access to certain data is restricted to specific users. The dat
 
 For example, consider Microsoft Power BI, which is a multitenant service that provides reporting and business intelligence on top of customer-owned data stores. When you configure Power BI, you configure *data sources* to pull data from databases, APIs, and other data stores. You can configure data stores in two different ways:
 
-- **Import all the data from the underlying data store**. This approach requires that Power BI is provided with credentials for an identity that can access the complete data store. Then, Power BI administrators can separately configure permissions to the imported data after it's imported into Power BI, and Power BI enforces the permissions.
-- **Import a subset of data from the underlying data store based on a user's permissions.** When a user creates the data source, they use their credentials and the associated permissions. The exact subset of data that Power BI imports depends on the access level of the user who created the data source.
+- **Import all the data from the underlying data store**. This approach requires that Power BI is provided with credentials for an identity that can access the complete data store. Then, Power BI administrators can separately configure permissions to the imported data after it's imported into Power BI. Power BI enforces the permissions.
+- **Import a subset of data from the underlying data store, based on a user's permissions.** When a user creates the data source, they use their credentials and the associated permissions. The exact subset of data that Power BI imports depends on the access level of the user who created the data source.
 
 Both approaches have valid use cases, so it's important to clearly understand your tenants' requirements.
 
-If you work with full data sets, the source system effectively treats the destination system as a *trusted subsystem*. You also should consider using a *workload identity* instead of a user identity for this type of integration. A workload identity is a system identity that doesn't correspond to a single user. The workload identity is granted a high level of permission to the data in the source system.
+If you work with full data sets, the source system effectively treats the destination system as a *trusted subsystem*. For this type of integration, you should also consider using a *workload identity* instead of a user identity. A workload identity is a system identity that doesn't correspond to a single user. The workload identity is granted a high level of permission to the data in the source system.
 
 Alternatively, if you work with user-scoped data, then you might need to use an approach like *delegation* to access the correct subset of data from the data set. Then, the destination system effectively gets the same permission as a specific user. For more information on user delegation, see the [Delegated user access](#delegated-user-access) approach below. If you use delegation, consider how you'll handle scenarios where a user is deprovisioned or their permissions change.
 
