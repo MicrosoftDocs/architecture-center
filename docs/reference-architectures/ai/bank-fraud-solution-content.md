@@ -105,7 +105,7 @@ Telemetry events from the bank's mobile and internet application gateways are fo
 
 The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure. Those interactions include the following:
 
-1. Ingest the raw JSON event payload from Azure Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
+1. Ingest the raw JSON event payload from Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
 1. Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](/azure/architecture/data-guide/scenarios/data-lake) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 1. Update and retrieve user account and device profiles from SQL Database and Data Lake.  
 1. Call an Azure Machine Learning endpoint to run a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for operational analytics.
@@ -256,7 +256,7 @@ Selecting the right technology components for a continuously operating cloud-bas
 
 ### Skill sets
 
-Consider the current technology skill sets of the teams designing, implementing, and maintaining the solution. Cloud and AI technologies expand the choices available for implementing a solution. For example, if your team has basic data science skills, Azure Machine Learning is a good choice for model creation and endpoint. The decision to use Azure Event Hubs is another example. Azure Event Hubs is a managed service that's easy to set up and maintain. There are technical advantages to using an alternative like Kafka, but that might require training.
+Consider the current technology skill sets of the teams designing, implementing, and maintaining the solution. Cloud and AI technologies expand the choices available for implementing a solution. For example, if your team has basic data science skills, Azure Machine Learning is a good choice for model creation and endpoint. The decision to use Event Hubs is another example. Event Hubs is a managed service that's easy to set up and maintain. There are technical advantages to using an alternative like Kafka, but that might require training.
 
 ### Hybrid operational environment
 
@@ -272,78 +272,92 @@ Hosting a solution in the cloud brings new security responsibilities. In the clo
 Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration. For design and deployment, we recommend that you adopt security principles that are consistent with a Zero Trust approach. Adopting principles like verify explicitly, use least privilege access, and assume breach strengthen workload security.
 
 **Verify explicitly** is the process of examining and assessing various aspects of an access request. Here are some of the principles:
-- Use a strong identity platform like Azure Active Directory. 
+- Use a strong identity platform like Azure Active Directory (Azure AD). 
 - Understand the security model for each cloud service and how data and access are secured.
 - When possible, use managed identity and service principals to control access to cloud services.
 - Store keys, secrets, certificates, and application artifacts like database strings, REST endpoint URLs, and API keys in Key Vault.
 
-**Use least privilege access** helps ensure permissions are granted only to meet specific business needs from an appropriate environment to an appropriate client. Here are some of the principles: 
-- Compartmentalize workloads by limiting how much access a component or resource has through role assignments or network access.
-- Disallow public access to endpoints and services and use private endpoints to protect your services unless your service requires public access. 
-- Secure service endpoints through firewall rules or isolate to VNET(s).
+**Use least privilege access** helps ensure permissions are granted only to meet specific business needs from an appropriate environment to an appropriate client. Here are some of the principles:
+
+- Compartmentalize workloads by limiting how much access a component or resource has via role assignments or network access.
+- Disallow public access to endpoints and services. Use private endpoints to help protect your services, unless your service requires public access.
+- Use firewall rules to help secure service endpoints or isolate workloads by using virtual networks.
  
-**Assume Breach** is a strategy to guide design and deployment decisions and assumes a solution has been compromised. It is an approach to build resilience into a workload by planning for detection, response to, and remediation of a security threat. For design and deployment decisions it implies (1) workload components are isolated and segmented so a compromise of one component minimizes impact to upstream or downstream components, (2) telemetry is captured and analyzed for proactively to identify anomalies and potential threats, and (3) automation is in place to detect, respond, and remediate a threat.  Examples of capabilities to consider:
+**Assume breach** is a strategy for guiding design and deployment decisions. The strategy is to assume that a solution has been compromised. It's an approach to build resilience into a workload by planning for detection of, response to, and remediation of a security threat. For design and deployment decisions, it implies that:
 
-- Encrypt data at rest and in transit,
-- Enable auditing for services
-- Capture and centralize audit logs and telemetry into a single log workspace to facilitate analysis and correlation, 
-- Enable [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to scan for potentially vulnerable configurations and provide early warning to potential security issues.
+- Workload components are isolated and segmented so that a compromise of one component minimizes impact to upstream or downstream components. 
+- Telemetry is captured and analyzed proactively to identify anomalies and potential threats.
+- Automation is in place to detect, respond, and remediate a threat.  
 
-Networking is one of the most important roles in terms of security practices. By default, Synapse workspace endpoints are public endpoints which means they can be accessed from any public network, so it is strongly recommended to disable public access to the workspace. Consider deploying Synapse with the Managed VNet feature enabled to add a layer of isolation between the workspace and other Azure services.  More information about Managed VNet and other security protections are  here: [Azure Synapse Analytics security white paper: Network Security](/azure/synapse-analytics/guidance/security-white-paper-network-security).
+Here are some guidelines to consider:
+
+- Encrypt data at rest and in transit.
+- Enable auditing for services.
+- Capture and centralize audit logs and telemetry into a single log workspace to facilitate analysis and correlation. 
+- Enable [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to scan for potentially vulnerable configurations and provide early warning to potential security problems.
+
+Networking is one of the most important security factors. By default, Azure Synapse workspace endpoints are public endpoints. This means that they can be accessed from any public network, so we strongly recommend that you disable public access to the workspace. Consider deploying Azure Synapse with the Managed Virtual Network feature enabled to add a layer of isolation between your workspace and other Azure services.  For more information about Managed Virtual Network and other security factors, see [Azure Synapse Analytics security white paper: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security).
 
 image 
 
-Figure 4 Network considerations
+alt text Network considerations
 
-For the Bank Fraud architecture, security guidance specific to each of the solution components is included in the table below. For a good starting point, review the [Azure Security Benchmark](/security/benchmark/azure/introduction) which includes security baselines for each of the individual Azure services.  The security baseline recommendations will help in selecting the security configuration settings for each of the services.
+For the bank fraud solution, security guidance that's specific to each of the solution components is included in following table. For a good starting point, review the [Azure Security Benchmark](/security/benchmark/azure/introduction), which includes security baselines for each of the individual Azure services. The security baseline recommendations can help you select the security configuration settings for each service.
 
 
-|  |Event Hub Clusters  |Key Vault  |ADLS Gen2  |Azure Synapse Analytics Workspace: Spark Pools |Azure SQL|Azure Functions|
+|  |Event Hubs clusters  |Key Vault  |Azure Data Lake Storage Gen2  |Azure Synapse Analytics workspace: Spark pools |Azure SQL|Azure Functions|
 |---------|---------|---------|---------|---|---|---|
-|**Data Protection**     |         |         |         ||
+|**Data protection**     |         |         |         ||
 |  - [Encryption at rest](/azure/security/fundamentals/encryption-atrest)   |  Built-in       |     Built-in    |   Built-in      |Built-in|Built-in|Built-in|
-|   - [Encryption in transit](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)  |     TLS 1.2    |  TLS 1.2       |     TLS 1.2    |TLS 1.2|TLS 1.2, [Configure Clients to connect securely to SQL DB](/azure/azure-sql/database/security-best-practice#network-security)|[Enforce TLS 1.2](/azure/azure-functions/security-concepts?tabs=v4#require-https)|
-|  - Data classification   |         |         |  [Purview](/azure/purview/concept-classification)       ||[Purview](/azure/purview/concept-classification) or [SQL Data Discovery and Classification](/azure/azure-sql/database/data-discovery-and-classification-overview)||
-|  **Access Control**  |   [Azure AD RBAC, SAS](/azure/event-hubs/authorize-access-event-hubs)      |   [Azure AD RBAC](/azure/key-vault/general/security-features#access-model-overview), [Conditional access](/azure/key-vault/general/security-features#conditional-access)      |     [RBAC (coarse grained), ACL (fine grained), SAS, Shared Access Keys](/azure/storage/blobs/data-lake-storage-access-control-model)|[Synapse RBAC](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac)   |[SQL RBAC, Separation of Duties](/azure/azure-sql/database/security-best-practice#access-management)|[Azure RBAC](/azure/role-based-access-control/overview), [Function and Host Keys](/azure/azure-functions/security-concepts?tabs=v4#authorization-scopes-function-level), [Endpoints](/azure/azure-functions/security-concepts?tabs=v4#authenticationauthorization)|
-|   **Authentication**  |         |   [Azure AD options](/azure/key-vault/general/security-features#key-vault-authentication-options)      |     [Azure AD, AAD security group recommended as assigned principal](/azure/storage/blobs/data-lake-storage-access-control-model#security-groups)    |[Azure AD, MFA, Managed Identity](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)|[Use Azure AD for Authentication](/azure/azure-sql/database/authentication-aad-overview)|Use [Managed Identity](/azure/azure-functions/security-concepts?tabs=v4#managed-identities) both user-assigned and system assigned are supported |
-|  **Logging and monitor**   |   [Monitor Event Hubs](/azure/event-hubs/monitor-event-hubs)      |  [Monitor Key Vault](/azure/key-vault/general/monitor-key-vault) and [Logging](/azure/key-vault/general/logging)       |  [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage)       |[Enable logging/ diagnostic settings](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor#diagnostic-settings)|[Monitoring, Logging, and Auditing](/azure/azure-sql/database/security-best-practice#monitoring-logging-and-auditing)|[Log and monitor](/azure/azure-functions/security-concepts?tabs=v4#log-and-monitor)|
+|   - [Encryption in transit](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)  |     TLS 1.2    |  TLS 1.2       |     TLS 1.2    |TLS 1.2|TLS 1.2, [configure clients to connect securely to SQL Database](/azure/azure-sql/database/security-best-practice#network-security)|[Enforce TLS 1.2](/azure/azure-functions/security-concepts?tabs=v4#require-https)|
+|  - Data classification   |         |         |  [Purview](/azure/purview/concept-classification)       ||[Purview](/azure/purview/concept-classification) or [Azure SQL Data Discovery & Classification](/azure/azure-sql/database/data-discovery-and-classification-overview)||
+|  **Access control**  |   [Azure AD RBAC, shared access signatures](/azure/event-hubs/authorize-access-event-hubs)      |   [Azure AD RBAC](/azure/key-vault/general/security-features#access-model-overview), [Conditional Access](/azure/key-vault/general/security-features#conditional-access)      |     [RBAC (coarse grained), ACL (fine grained), shared access signatures, Shared Key authorization](/azure/storage/blobs/data-lake-storage-access-control-model)|[Azure Synapse RBAC](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac)   |[SQL RBAC, Separation of Duties](/azure/azure-sql/database/security-best-practice#access-management)|[Azure RBAC](/azure/role-based-access-control/overview), [function and host keys](/azure/azure-functions/security-concepts?tabs=v4#authorization-scopes-function-level), [endpoints](/azure/azure-functions/security-concepts?tabs=v4#authenticationauthorization)|
+|   **Authentication**  |         |   [Azure AD options](/azure/key-vault/general/security-features#key-vault-authentication-options)      |     [Azure AD, Azure AD security group recommended as assigned principal](/azure/storage/blobs/data-lake-storage-access-control-model#security-groups)    |[Azure AD, multifactor authentication, managed identity](/azure/synapse-analytics/guidance/security-white-paper-authentication)|[Azure AD](/azure/azure-sql/database/authentication-aad-overview)|[Managed identity](/azure/azure-functions/security-concepts?tabs=v4#managed-identities) (both user-assigned and system-assigned are supported) |
+|  **Logging and monitoring**   |   [Monitor Event Hubs](/azure/event-hubs/monitor-event-hubs)      |  [Monitor Key Vault](/azure/key-vault/general/monitor-key-vault), [logging](/azure/key-vault/general/logging)       |  [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage)       |[Enable logging, diagnostic settings](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor#diagnostic-settings)|[Monitoring, logging, and auditing](/azure/azure-sql/database/security-best-practice#monitoring-logging-and-auditing)|[Log and monitor](/azure/azure-functions/security-concepts?tabs=v4#log-and-monitor)|
 |   **Protection and detection**  |         |         |         ||||
-|  - Azure Security Baseline   |    [Event Hubs](/security/benchmark/azure/baselines/event-hubs-security-baseline)     |    [Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)     |        [Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline) |[Synapse Analytic Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)|[Azure SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline#identity-management)|[Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline)|
-| - Recommended Security Practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       |[Azure Synapse Analytics Security Whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction)|[Playbook for Common Security Requirements](/azure/azure-sql/database/security-best-practice#network-security)|[Securing Azure Functions](/azure/azure-functions/security-concepts)|
-|   - Monitor security posture and configuration with Defender for Cloud   |      Yes   |Yes         |Yes         |Yes|Yes|Yes|
-| - Advanced threat detection     | No native service. Customer option to forward logs to log analytics workspace/Sentinel.         |   [Defender for Key Vault](/azure/defender-for-cloud/defender-for-storage-introduction)      |    [Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)    |No native service. Customer option to forward logs to log analytics workspace/ Sentinel. |[Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql)|No native service. Customer option to forward logs to log analytics workspace/ Sentinel.|
+|  - Azure security baseline   |    [Event Hubs](/security/benchmark/azure/baselines/event-hubs-security-baseline)     |    [Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)     |        [Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline) |[Synapse Analytics Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)|[SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline#identity-management)|[Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline)|
+| - Recommended security practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       |[Azure Synapse Analytics security white paper](/azure/synapse-analytics/guidance/security-white-paper-introduction)|[Playbook for common security Requirements](/azure/azure-sql/database/security-best-practice#network-security)|[Securing Azure Functions](/azure/azure-functions/security-concepts)|
+|   - Monitor security posture and configuration by using Defender for Cloud   |      Yes   |Yes         |Yes         |Yes|Yes|Yes|
+| - Advanced threat detection     | No native service. Option to forward logs to Log Analytics Workspace / Sentinel.         |   [Defender for Key Vault](/azure/defender-for-cloud/defender-for-storage-introduction)      |    [Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)    |No native service. Option to forward logs to Log Analytics Workspace/ Sentinel. |[Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql)|No native service. Option to forward logs to Log Analytics Workspace / Sentinel.|
 
-Table 4 Security Features and References
-
-For more information, see [Zero Trust Deployment Guides](/security/zero-trust).
+For more information, see [Zero Trust Guidance Center](/security/zero-trust).
 
 ### Scalability
 
-Will the solution perform end-to-end through peak times? A streaming workflow to handle millions of continuously arriving events demands incredible throughput. Plan to build a test system to simulate the volume and concurrency to ensure the technology components are configured and tuned to meet the required latencies. Scalability testing was especially important for these components: 
+The solution needs to perform end-to-end through peak times. A streaming workflow for handling millions of continuously arriving events demands high throughput. Plan to build a test system that simulates the volume and concurrency to ensure the technology components are configured and tuned to meet required latencies. Scalability testing is especially important for these components: 
 
-- Data ingestion to handle concurrent data streams. In this architecture, Event Hub was selected because multiple versions of it could be deployed and assigned to different consumer groups. A scale-out approach turned out to be a better option because scaling-up could cause locking. The scale-out approach also was a better fit with plans to expand fraud detection from mobile banking to include the internet banking channel.
-- A framework to manage and schedule the process flow. Azure Functions were used to orchestrate the workflow. With this scenario, the best throughput was found when messages were batched up in micro batches and processed through a single azure function rather than a configuration set up to process 1 message per function call.
-- A low-latency data process to handle parsing, pre-processing, aggregations, and storage. In this solution, the capabilities of in-memory optimized SQL functions met the scalability and concurrency requirements.
-- Model scoring to handle concurrent requests. With Azure Machine Learning Web Services there are two options for scaling; (1) select a production web tier to support the API concurrency workload, or (2) add multiple endpoints to a web service if there is a requirement to support more than 200 concurrent requests.
+- Data ingestion to handle concurrent data streams. In this architecture, Event Hubs is used because multiple instances of it can be deployed and assigned to different consumer groups. A scale-out approach is a better option because scaling up can cause locking. In the real-world scenario, the scale-out approach also was a better fit with plans to expand fraud detection from mobile banking to include the internet banking channel.
+- A framework to manage and schedule the process flow. Azure Functions is used to orchestrate the workflow. For improved throughput, messages are batched in micro batches and processed through a single Azure function rather than processing one message per function call.
+- A low-latency data process to handle parsing, pre-processing, aggregations, and storage. In the real-world solution, the capabilities of in-memory optimized SQL functions meet the scalability and concurrency requirements.
+- Model scoring to handle concurrent requests. With Azure Machine Learning web services, you have two options for scaling: 
+  - Select a production web tier to support the API concurrency workload.
+  - Add multiple endpoints to a web service if you need to support more than 200 concurrent requests.
 
-### Technologies presented
+## Components
   
-The glossary is an index of terms, patterns, and technologies used in the article and relating to the scenario.
-- [Azure Functions](https://azure.microsoft.com/services/functions)
-- [Azure Event Hub](/azure/event-hubs/event-hubs-features)
-- [Azure Key Vault](/azure/key-vault/general/overview)
-- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [Azure AutoML](/azure/machine-learning/concept-automated-ml)
-- [Azure SQL Database]()
-- [Azure Synapse Analytics]()
+- [Azure Functions](https://azure.microsoft.com/services/functions) provides event-driven serverless code functions and an end-to-end development experience. 
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service. You can use it to stream millions of events per second from any source.
+- [Key Vault](https://azure.microsoft.com/services/key-vault) encrypts cryptographic keys and other secrets used by cloud apps and services.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade service for the end-to-end machine learning lifecycle.
+- [AutoML](/azure/machine-learning/concept-automated-ml) is a process for automating the time-consuming, iterative tasks of machine learning model development.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 
-## Additional Links
+## Contributors
 
-- [A fast, serverless, big data pipeline powered by a single Azure Function](https://azure.microsoft.com/blog/a-fast-serverless-big-data-pipeline-powered-by-a-single-azure-function)
+## Next steps
+
+- [A fast, serverless, big data pipeline powered by a single Azure function](https://azure.microsoft.com/blog/a-fast-serverless-big-data-pipeline-powered-by-a-single-azure-function)
 - [Considering Azure Functions for a serverless data streaming scenario](https://azure.microsoft.com/blog/considering-azure-functions-for-a-serverless-data-streaming-scenario)
-- [Networking considerations - Azure App Service Environment](/azure/app-service/environment/network-info)
+- [Networking considerations for App Service Environment](/azure/app-service/environment/network-info)
+- [Event Hubs](/azure/event-hubs/event-hubs-features)
+- [Key Vault](/azure/key-vault/general/overview)
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources
 
+- [AI architecture design](/azure/architecture/data-guide/big-data/ai-overview)
+- [Compare Microsoft machine learning products and technologies](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 - [Performance and scale guidance for Event Hubs with Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
+- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
