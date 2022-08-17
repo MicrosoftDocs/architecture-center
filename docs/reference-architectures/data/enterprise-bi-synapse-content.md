@@ -4,7 +4,7 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/aac-scoped-architecture-new-grayed.png)
 
-*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics] with relevant components highligted in blue*
+*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics] with relevant components highlighted in blue*
 
 ### Workflow
 
@@ -28,11 +28,10 @@ Data modeling approach in this use case is presented by composition of Enterpris
 
 ### Authentication
 
-**Azure Active Directory (Azure AD)** authenticates users who connect to Power BI dashboards and apps and we use SSO to connect to the data souce in Azure Synapse Provisioned Pool. Authorization happens on the source.  
+**Azure Active Directory (Azure AD)** authenticates users who connect to Power BI dashboards and apps and we use SSO to connect to the data source in Azure Synapse Provisioned Pool. Authorization happens on the source.  
 
 ### Architecture Diagram
 
-<!-- TODO: find better place for this -->
 ![Diagram of the enterprise BI pipeline](./images/enterprise-bi-small-architecture.png)
 
 ### Incremental loading
@@ -111,33 +110,36 @@ Power BI supports several options for connecting to data sources on Azure, in pa
 
 - Import. The data is imported into the Power BI model.
 - Direct Query. Data is pulled directly from relational storage.
-- [Composite model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models). Importing some tables and Direct Query others.
+- [Composite model](/power-bi/transform-model/desktop-composite-models). Importing some tables and Direct Query others.
 
-This use case is delivered with Direct Query dashboard, because the amount of data we use and model/dashboard complexity is not high, so we can deliver good user experience. Direct Query delegates the query to the powerful compute engine underneath and utilizes extensive security capabilities on the source. Also, using DirectQuery ensures that results are always consistent with the latest source data. 
+This use case is delivered with Direct Query dashboard, because the amount of data we use and model/dashboard complexity is not high, so we can deliver good user experience. Direct Query delegates the query to the powerful compute engine underneath and utilizes extensive security capabilities on the source. Also, using DirectQuery ensures that results are always consistent with the latest source data.
 
 ![PBI Dashboard](./images/AdventureWorksDWDashboard.png)
 
-Leveraging [Power BI Premium Gen2](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is) gives you ability to handle big models, paginated reports, PBI deployment pipelins and built-in Analysis Services endpoint, as well as to have dedicated [capacity](https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is#reserved-capacities) with unique value proposition. 
-When the BI Model grows or dashbord complexity increases, you may prefer to switch to composite models and start importing parts of look up tables and some pre-aggregated data. Enabling [Query Caching](https://docs.microsoft.com/en-us/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets is an options, as well as leveraging [Dual Tables](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode) for storage mode property. Within Composite model, datasets act as virtual pass through layer. When the user interacts with visualizations, Power BI generates SQL queries to Synapse SQL Pools Dual Storage: in memory or direct query depending on which one is more efficient, the engine decides when to switch from in-memory to direct query and pushes the logic to the Synapse SQL Pool. Depending on the context of the query tables can act as either cached (imported) or not cached Composite Models: pick and choose which table to cache into memory, combine data from one or more DirectQuery sources, and/or combine data from a mix of DirectQuery sources and imported data. 
+Leveraging [Power BI Premium Gen2](/power-bi/admin/service-premium-what-is) gives you ability to handle big models, paginated reports, PBI deployment pipelines and built-in Analysis Services endpoint, as well as to have dedicated [capacity](/power-bi/admin/service-premium-what-is#reserved-capacities) with unique value proposition.
+When the BI Model grows or dashboard complexity increases, you may prefer to switch to composite models and start importing parts of look up tables and some pre-aggregated data. Enabling [Query Caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets is an options, as well as leveraging [Dual Tables](/power-bi/transform-model/desktop-storage-mode) for storage mode property. Within Composite model, datasets act as virtual pass through layer. When the user interacts with visualizations, Power BI generates SQL queries to Synapse SQL Pools Dual Storage: in memory or direct query depending on which one is more efficient, the engine decides when to switch from in-memory to direct query and pushes the logic to the Synapse SQL Pool. Depending on the context of the query tables can act as either cached (imported) or not cached Composite Models: pick and choose which table to cache into memory, combine data from one or more DirectQuery sources, and/or combine data from a mix of DirectQuery sources and imported data.
 
 **Recommendations:**
-When using PBI Direct Query over Azure Synapse Analytics Provisioned Pool, consider 
- 1. using Azure Synapse [Result Set Caching](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching).
+When using PBI Direct Query over Azure Synapse Analytics Provisioned Pool, consider:
+
+1. Using Azure Synapse [Result Set Caching](/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching).
 It caches query results in the user database for repetitive use, improves query performance (down to milliseconds), reduces compute resource usage. Queries using cached results set do not use any concurrency slots in Azure Synapse Analytics and thus do not count against existing concurrency limits.
-2. using Azure Synapse [Materialized Views](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning)
+2. Using Azure Synapse [Materialized Views](/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning)
 The views do pre-compute, store, and maintain data in SQL DW just like a table. Queries that use all or a subset of the data in materialized views can get faster performance and they don't need to make a direct reference to the defined materialized view to use it.
 
 ## Scalability considerations
 
-This section provides details on the sizing decisions to accomodate this dataset as well as gives further guidance for you to pick the right size for workload.
-### Azure Synapse Provisioned Pool
-There is a range of [Data Warehouse configurations](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview) to choose from, raging from
+This section provides details on the sizing decisions to accommodate this dataset as well as gives further guidance for you to pick the right size for workload.
 
-|Data warehouse units	|# of compute nodes	 |# of distributions per node|
+### Azure Synapse Provisioned Pool
+
+There is a range of [Data Warehouse configurations](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview) to choose from, raging from
+
+|Data warehouse units |# of compute nodes  |# of distributions per node|
 |---------------------|:------------------:|:-------------------------:|
-|DW100c             	|1          	       |60                         |
-|                     | `-- TO --`           |                           |
-|DW30000c	            |60	                 |1                        |  
+|DW100c               |1                   |60                         |
+|                     | `-- TO --`         |                           |
+|DW30000c             |60                  |1                          |  
 
 To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your dedicated SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
 
@@ -149,37 +151,42 @@ Assume a linear scale, and determine how much you need to increase or decrease t
 Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 **Scaling**
-- [Scale compute for Synapse SQL pool with the Azure portal](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
-- [Scale compute for dedicated SQL pool with Azure PowerShell](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
-- [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
-- [Pausing, monitoring and automation](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
-### Azure Synapse Pipelines 
-For scalability and performance optimization features of Azure Synapse Pipelines please refer to this [guide](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance).
+- [Scale compute for Synapse SQL pool with the Azure portal](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
+- [Scale compute for dedicated SQL pool with Azure PowerShell](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
+- [Scale compute for dedicated SQL pool in Azure Synapse Analytics using T-SQL](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql)
+- [Pausing, monitoring and automation](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
+
+### Azure Synapse Pipelines
+
+For scalability and performance optimization features of Azure Synapse Pipelines please refer to this [guide](/azure/data-factory/copy-activity-performance).
 
 ### Power BI Premium 
-This article uses [Power BI Premiun Gen 2](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-architecture) to demonstrate BI capabilities of the solution. [Capacity SKUs for PBI Premium](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-gen2-what-is) range from P1 (8 v-cores) to P5 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-concepts), install Gen 2 [metrics app](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-install-gen2-app?tabs=1st) for ongoing monitoring and consider using [Autoscale with PBI Premium](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-auto-scale). 
+
+This article uses [Power BI Premiun Gen 2](/power-bi/enterprise/service-premium-architecture) to demonstrate BI capabilities of the solution. [Capacity SKUs for PBI Premium](/power-bi/enterprise/service-premium-gen2-what-is) range from P1 (8 v-cores) to P5 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](/power-bi/enterprise/service-premium-concepts), install Gen 2 [metrics app](/power-bi/enterprise/service-premium-install-gen2-app?tabs=1st) for ongoing monitoring and consider using [Autoscale with PBI Premium](/power-bi/enterprise/service-premium-auto-scale). 
 
 ## Security considerations
+
 Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. The enterprise customer requires a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
-The solution above addressess the most demanding security concerns by a combination of layered security controls: network, identity, privacy, autorization, etc 
-The bulk of the data is stored in Azure Synapse Provisioned Pool with PBI doing Direct Query using single sign on. AAD is used for Authentication and we are leveraging extensive security controls of Provisioned Pool for data autorization. 
+The solution above addresses the most demanding security concerns by a combination of layered security controls: network, identity, privacy, authorization, etc.
+The bulk of the data is stored in Azure Synapse Provisioned Pool with PBI doing Direct Query using single sign on. AAD is used for Authentication and we are leveraging extensive security controls of Provisioned Pool for data authorization.
 
 Some common security questions include:
+
 - How can I control who can see what data?
-  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. *[Data protection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-data-protection)*
+  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. *[Data protection](/azure/synapse-analytics/guidance/security-white-paper-data-protection)*
 - What are the options for verifying a user's identity?
-  - Azure Synapse supports a wide range of capabilities to control who can access what data *[Access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-access-control)* and *[Authentication](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-authentication)*
+  - Azure Synapse supports a wide range of capabilities to control who can access what data *[Access control](/azure/synapse-analytics/guidance/security-white-paper-access-control)* and *[Authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication)*
 - What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
-  -  To secure Azure Synapse, there are a range of network security options to consider *[Network security](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-network-security)*
+  - To secure Azure Synapse, there are a range of network security options to consider *[Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security)*
 - What are the tools that detect and notify me of threats?
-  - Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. *[Threat detection](https://docs.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-threat-protection)*
+  - Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. *[Threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection)*
 - What can I do to protect my data in my storage account?
-  - Azure Storage Accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input output (IOP) operations per second. Storage accounts contain all your Azure Storage data objects *[Storage security considerations](https://docs.microsoft.com/en-us/azure/architecture/framework/services/storage/storage-accounts/security)*  
+  - Azure Storage Accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input output (IOP) operations per second. Storage accounts contain all your Azure Storage data objects *[Storage security considerations](/azure/architecture/framework/services/storage/storage-accounts/security)*  
 
-## DevOps ##
+## DevOps
 
-#### General Recommendataions: ####
+### General Recommendations
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
@@ -200,17 +207,17 @@ Some common security questions include:
 
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-#### Quick start: ####
+### Quick start
 
 - Portal - [Azure Synapse Proof-of-Concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc) 
-- Azure CLI - [Create an Azure synapse workspace with Azure CLI](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace-cli)
+- Azure CLI - [Create an Azure synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 - Terraform - [Modern Data Warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
 ## Cost Considerations
 
-This section provides information on the pricing for different Services involved in this solution, as well as mentiones decisions made for this usecase with sample dataset. 
+This section provides information on the pricing for different Services involved in this solution, as well as mentions decisions made for this use case with sample dataset.
 
 ### Azure Synapse
 
@@ -218,35 +225,33 @@ This section provides information on the pricing for different Services involved
 
 ### Azure Synapse Pipelines
 
-Pricing details for Synapse Pipelines can be found under 'Data Integation' tab on Synapse pricing page above. There are three main componets that influence the price of Synapse Pipeline: 1. Data Pipelines activities and integration runtime hours, 2. Data Flows cluster size and execution, 3. Operation charges.
-Depending on the componets/activities you choose, frequency and number of Integration Runtime units, the price would vary.
+Pricing details for Synapse Pipelines can be found under 'Data Integration' tab on Synapse pricing page above. There are three main components that influence the price of Synapse Pipeline: 1. Data Pipelines activities and integration runtime hours, 2. Data Flows cluster size and execution, 3. Operation charges.
+Depending on the components/activities you choose, frequency and number of Integration Runtime units, the price would vary.
 
-For the sample dataset, we have picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the enteties (tables) in the source database. No dataflows. No operational costs, as we have less than one million opeations with Pipelines a month. 
+For the sample dataset, we have picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the entities (tables) in the source database. No dataflows. No operational costs, as we have less than one million operations with Pipelines a month.
 
 ### Azure Synapse Dedicated Pool and Storage
 
-Pricing details for Synapse Dedicated Pool can be found under 'Data Warehousing' tab on Synapse pricing page above. Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factors is data storage costs (size of your data at rest + snapshots + geo redundancy if any). 
+Pricing details for Synapse Dedicated Pool can be found under 'Data Warehousing' tab on Synapse pricing page above. Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factors is data storage costs (size of your data at rest + snapshots + geo redundancy if any).
 
 For the sample dataset, we have provisioned 500DWU, which guarantees good experience for Analytical load. We keep compute up and running over business hours of reporting.
-If taken into production, reserved DW capacity is an attractive options for cost management. Different techniques should be leveraged to maximize cost/performance metrics of your DW, which are covered in the sections above. 
+If taken into production, reserved DW capacity is an attractive options for cost management. Different techniques should be leveraged to maximize cost/performance metrics of your DW, which are covered in the sections above.
 
 ### Blob Storage
 
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
-There is no persistant storage in this usecase. 
+There is no persistent storage in this use case.
 
 ### Power BI Premium
 
-Power BI Premium pricing details can be found on the product pricing page (https://powerbi.microsoft.com/en-us/pricing/). 
+Power BI Premium pricing details can be found on the product pricing page (https://powerbi.microsoft.com/en-us/pricing/).
 
-This usecase leverages PBI Premium workspaces(https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is/) with a range of performance enhancements build in to accomodate demanding Analytical requirement.
+This usecase leverages PBI Premium workspaces(/power-bi/admin/service-premium-what-is/) with a range of performance enhancements build in to accommodate demanding Analytical requirement.
 
 ## Deploy this solution
 
-
 ## Next steps
-
 
 ## Related resources
 
