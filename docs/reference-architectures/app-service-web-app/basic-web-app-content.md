@@ -1,4 +1,4 @@
-This reference architecture shows best practices for creating a web application for a single environment. It includes an ARM template for easy deployment and reference. Most design decisions are for a production environment. The architecture provides a framework for any basic web application that you can customize to your needs.
+This reference architecture shows best practices for creating a web application for a single environment. The architecture provides a framework for any basic web application that you can customize to your needs.
 
 
 ![Diagram showing the reference architecture for a basic web application in Azure.](./images/basic-web-app.png)
@@ -118,7 +118,7 @@ An App Service app always has one deployment slot named `production`. The produc
 #### Configuration
 
 - Store configuration settings as [app settings](/azure/app-service-web/web-sites-configure). Define the app settings in your Resource Manager templates or using PowerShell. At runtime, app settings are available to the application as environment variables.
-- Never check passwords, access keys, or connection strings into source control. Instead, pass these as parameters to a deployment script that stores these values as app settings.
+- Never check passwords, access keys, or connection strings into source control. Instead, pass secrets as parameters to a deployment script that stores these values as app settings.
 - When you swap a deployment slot, the app settings are swapped by default. If you need different production and staging settings, you can create app settings that stick to a slot and don't get swapped.
 
 #### Diagnostics and monitoring
@@ -180,7 +180,7 @@ Some limitations of App Service authentication:
 
 ## Deploy the solution
 
-This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
+This architecture includes an Azure App Service plan and an empty application. It uses Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
 
 # [Azure CLI](#tab/cli)
 
