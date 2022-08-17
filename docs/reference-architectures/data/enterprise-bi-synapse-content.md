@@ -197,7 +197,7 @@ Some common security questions include:
   - An on-premises to cloud simulated scenario.
   
   Aim to have a separate deployment template for each of the workloads.
-- Consider staging your workloads where practical. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][cannary-releases]  strategies for updating live production environments.
+- Consider staging your workloads where practical. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues. Use [Blue-green deployment][blue-green-dep] and [Canary releases][canary-releases]  strategies for updating live production environments.
 - Have a good rollback strategy for handling failed deployments. For example, you can automatically redeploy an earlier, successful deployment from your deployment history. See the `--rollback-on-error` flag in Azure CLI.
 - [Azure Monitor][azure-monitor] is the recommended option for analyzing the performance of your data warehouse and the entire Azure analytics platform for an integrated monitoring experience. [Azure Synapse Analytics][synapse-analytics] provides a monitoring experience within the Azure portal to show insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
@@ -219,7 +219,7 @@ Azure Synapse Analytics serverless architecture allows you to scale your compute
 
 ### Azure Synapse Pipelines
 
-Pricing details for Synapse Pipelines can be found under 'Data Integration' tab on the [Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/). There are three main components that influence the price of Synapse Pipeline:
+Pricing details for Synapse Pipelines can be found under 'Data Integration' tab on the [Synapse pricing page](az-synapse-pricing). There are three main components that influence the price of Synapse Pipeline:
 
 1. Data Pipelines activities and integration runtime hours
 1. Data Flows cluster size and execution
@@ -256,27 +256,18 @@ This reference architecture leverages PBI Premium workspaces(/power-bi/admin/ser
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.md)
 
 [AAF-devops]: ../../framework/devops/overview
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
+[canary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
 [e2e-analytics]: ../../example-scenario/dataplate2e/data-platform-end-to-end-content
-[github-folder]: https://github.com/mspnp/azure-sqldw-enterprise-bi
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-[powerbi-embedded-pricing]: https://azure.microsoft.com/pricing/details/power-bi-embedded
-[powerbi-pro-purchase]: /power-bi/service-admin-purchasing-power-bi-pro
 [adventureworksdw-sample-link]: /sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
-[az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
-[aaf-cost]: ../../framework/cost/overview
-[enterprise-model]: powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
-[bi-model]:powerbi-docs/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
-[incremental-load]: azure/data-factory/tutorial-incremental-copy-overview
-[pbi-premium-capacities]: powerbi-docs/admin/service-premium-what-is#reserved-capacities
-[synapse-dedicated-pool]:azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
-[pbi-what-is-premium]: power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
-[metadata-copy]: azure/data-factory/copy-data-tool-metadata-driven
+[enterprise-model]: /powerbi/guidance/center-of-excellence-business-intelligence-solution-architecture#enterprise-models
+[bi-model]: /powerbi/guidance/center-of-excellence-business-intelligence-solution-architecture#bi-semantic-models
+[incremental-load]: /azure/data-factory/tutorial-incremental-copy-overview
+[pbi-premium-capacities]: /powerbi/admin/service-premium-what-is#reserved-capacities
+[synapse-dedicated-pool]: /azure/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is#synapse-sql-pool-in-azure-synapse
+[pbi-what-is-premium]: /power-bi/admin/service-premium-what-is#analysis-services-in-power-bi-premium
+[metadata-copy]: /azure/data-factory/copy-data-tool-metadata-driven
