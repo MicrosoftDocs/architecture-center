@@ -2,12 +2,76 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-08-08T14:20:03.295Z</updated>
+    <updated>2022-08-15T14:12:19.973Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Microsoft mixed reality overview]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/mixed-reality/mixed-reality-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/mixed-reality/mixed-reality-overview"/>
+        <updated>2022-08-14T07:49:43.000Z</updated>
+        <summary type="html"><![CDATA[See an overview of Microsoft mixed-reality concepts, training, best practices, and Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mobile architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/mobile/mobile-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/mobile/mobile-start-here"/>
+        <updated>2022-08-12T21:08:53.000Z</updated>
+        <summary type="html"><![CDATA[Review resources to help you learn about mobile development and back-end infrastructure on Azure. Includes solution ideas and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Apply the verify explicitly Zero Trust principle to your API implementation]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/security/apps-zero-trust-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/security/apps-zero-trust-identity"/>
+        <updated>2022-08-12T17:42:43.000Z</updated>
+        <summary type="html"><![CDATA[Use a Zero Trust approach to help ensure that your applications, and the data they contain, are protected.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-critical baseline architecture with network controls]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture"/>
+        <updated>2022-08-11T15:52:30.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migration architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/migration/migration-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/migration/migration-start-here"/>
+        <updated>2022-08-10T22:22:48.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure migration technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Solutions for the aerospace industry]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/aerospace</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/aerospace"/>
+        <updated>2022-08-10T15:41:32.000Z</updated>
+        <summary type="html"><![CDATA[See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the aerospace industry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application design considerations for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-design</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-design"/>
+        <updated>2022-08-09T21:24:17.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Design.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Autodesk VRED for HPC on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-vred</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-vred"/>
+        <updated>2022-08-08T16:25:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy Autodesk VRED on Azure. Review performance results on two Azure virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy ADS CFD Code Leo for HPC on a virtual machine]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/hpc/hpc-ads-cfd</id>
@@ -47,6 +111,46 @@
         <updated>2022-08-01T16:47:08.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-critical baseline architecture on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
+        <updated>2022-08-11T15:52:30.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Predict the length of stay in hospitals]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals"/>
+        <updated>2022-08-14T14:51:43.000Z</updated>
+        <summary type="html"><![CDATA[Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAS on Azure architecture]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview"/>
+        <updated>2022-08-12T22:08:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eventual consistency between multiple Power Apps instances]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/power-platform/eventual-consistency</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/power-platform/eventual-consistency"/>
+        <updated>2022-08-12T19:58:24.000Z</updated>
+        <summary type="html"><![CDATA[Handle dependent data in a resilient way in Power Apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI enrichment with image and text processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"/>
+        <updated>2022-08-08T17:35:50.000Z</updated>
+        <summary type="html"><![CDATA[Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[HPC cluster deployed in the cloud]]></title>
@@ -833,11 +937,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Highly reliable mission-critical workload on Azure]]></title>
+        <title type="html"><![CDATA[Mission-critical baseline architecture on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
         <updated>2022-06-16T22:43:49.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload that is accessed over a public endpoint and does not require private network connectivity to other company resources.]]></summary>
+        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -3141,7 +3245,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"/>
         <updated>2022-05-20T21:19:31.000Z</updated>
-        <summary type="html"><![CDATA[Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.]]></summary>
+        <summary type="html"><![CDATA[Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

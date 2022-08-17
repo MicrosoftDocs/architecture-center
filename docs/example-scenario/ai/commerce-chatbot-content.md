@@ -14,6 +14,8 @@ The following architecture is for designing a hotel booking bot.
 
 ![Architecture overview: conversational chatbot and the Azure components involved in a conversational chatbot][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Dataflow
 
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
@@ -145,3 +147,4 @@ Microsoft Learn modules:
 [qna-maker]: /azure/cognitive-services/QnAMaker/Overview/overview
 [speech-api]: /azure/cognitive-services/speech-service/overview
 [translator]: /azure/cognitive-services/translator/translator-info-overview
+[visio-download]: https://arch-center.azureedge.net/architecture-commerce-chatbot.vsdx
