@@ -7,46 +7,52 @@ Most mobile fraud occurs when a *SIM swap attack* is used to compromise a mobile
 Mobile fraud is hard to detect and expensive for consumers and banks. The first challenge is that it's rare. Fewer than 1 percent of all transactions are fraudulent, so it can take time for a fraud or case management team to sift through potentially fraudulent transactions to identify the fraudulent ones. A second challenge is that many fraud monitoring solutions today rely on rule-based engines. Traditionally, rule-based engines are effective at detecting established patterns of fraud-like transactions generated from risky IP addresses or multiple transactions generated within a brief period on a new account. But rule-based engines have a significant limitation: rules don't adapt quickly to new or evolving types of attacks. They're constrained in the following ways:
 
 - Detection isn't real-time, so fraud is detected after a financial loss occurs.
-- Rules are binary and limited; they cannot accommodate the complexity and combinations of input variables that can be evaluated. This results in high false positives. 
-- Rules are hardcoded into business logic. Curating the rules, incorporating new data sources, or adding new fraud patterns usually means application changes that impact a business process.  Propagating changes throughout a business process can be cumbersome and expensive.
+- Rules are binary and limited. They don't accommodate the complexity and combinations of input variables that can be evaluated. This limitation results in high false positives.
+- Rules are hardcoded into business logic. Curating the rules, incorporating new data sources, or adding new fraud patterns usually requires application changes that affect a business process. Propagating changes throughout a business process can be cumbersome and expensive.
 
-Artificial intelligence (AI) models can dramatically improve fraud detection rates and detection times, and banks are using them in combination with other approaches to reduce losses. The process described here is based on three factors:
-- an AI model that acts on a derived set of behavioral characteristics
-- a methodology for machine learning
-- a model evaluation process similar to the one used by a fraud manager to evaluate his / her portfolio
+AI models can dramatically improve fraud detection rates and detection times. Banks are using them together with other approaches to reduce losses. The process described here is based on three factors:
+- An AI model that acts on a derived set of behavioral characteristics
+- A methodology for machine learning
+- A model evaluation process that's similar to the one used by a fraud manager to evaluate a portfolio
 
 ## Operational context
 
-For this bank client, as customers were increasing their use of digital services, there was a spike in fraud across the mobile channel. It was time to re-think their fraud detection and prevention approach. This solution started with questions that would impact their fraud process and decisions:*Which activities or transactions are likely fraudulent?  Which accounts are compromised? Which activities need further investigation and case management?*
+For the bank that this solution is based on, as customers increased the use of digital services, there was a spike in fraud across the mobile channel. It was time for the bank to reconsider its approach to fraud detection and prevention. This solution started with questions that would affect their fraud process and decisions:
 
-For a solution to deliver value, there must be a clear understanding of how mobile bank fraud becomes evident in the operational environment: *What kinds of fraud are perpetuated on the platform? How is it being committed? What are the patterns in fraudulent activities and transactions?*
+- Which activities or transactions are likely fraudulent?  
+- Which accounts are compromised?
+- Which activities need further investigation and case management?
 
-The answers to these questions led to an understanding of the type of behavior that could signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud could then be profiled.
+For the solution to deliver value, there must be a clear understanding of how mobile bank fraud becomes evident in the operational environment:
 
-The table below identifies the types of compromise, data attributes that could signal fraud, and behaviors that were relevant for this bank:
+- What kinds of fraud are perpetuated on the platform?
+- How is it committed? 
+- What are the patterns in fraudulent activities and transactions?
+
+The answers to these questions led to an understanding of the type of behavior that could signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
+
+The following table identifies types of compromise, data attributes that might signal fraud, and behaviors that were relevant for the bank:
  
 |  |Credential compromises*  |Device compromises  |Financial compromises  |Non-Transactional compromises|
 |---------|---------|---------|---------|---|
-|What methods are used?     | Phishing, vishing        |   SIM swap, Vishing, Malware, Jail braking, Device emulators      |   Requires knowledge about account credentials, device, and user digital identifiers (email, address, etc.)      |Adding new users to account, bumping up card or account limits, changing account details and customer profile information, or password|
-|What data?     | Email ID/password, credit/debit card numbers, PINs (either customer-selected or one-time-pins)        |  Device ID, SIM card number, Geolocation, and IP       |   Transaction amounts, transfer/withdrawal/payment beneficiaries      |Account details|
-|What are some of the patterns?     | New digital customer (not previously registered) with an existing card and PIN. <br><br> Failed logins for users that do not exist or are unknown.<br><br>Logins during timeframes that are not usual for this account.<br><br> Multiple attempts to change login passwords |  Geographical irregularities (access from an unusual location).<br><br>Access from multiple devices in a short period of time.|There are patterns in the transactions. For instance, many small transactions are logged for the same account in a short time, sometimes followed by a large withdrawal, or payments, withdrawals, or transfers made for maximum allowable amounts.<br><br>Unusual frequency in transactions.|   There are patterns in the logins and sequence of activities. For instance, multiple logins within a short period, multiple attempts to change contact information, add devices within an unusual time frame. |
+|Methods used    | Phishing, vishing.        |   SIM swap, vishing, malware, jailbreaking, device emulators.      |   Use of account credentials, device and user digital identifiers (like email and physical addresses).      |Adding new users to account, increasing card or account limits, changing account details and customer profile information or password.|
+|Data     | Email or password, credit or debit card numbers, customer-selected or one-time PINs).        |  Device ID, SIM card number, geolocation and IP.       |   Transaction amounts, transfer, withdrawal, or payment beneficiaries.      |Account details.|
+|Patterns     | New digital customer (not previously registered) with an existing card and PIN. <br><br> Failed sign-ins for users that don't exist or are unknown.<br><br>Sign-ins during time frames that are unusual for the account.<br><br> Multiple attempts to change sign-in passwords. |  Geographical irregularities (access from an unusual location).<br><br>Access from multiple devices in a short period of time.|Patterns in transactions. For example, many small transactions logged for the same account in a short time, sometimes followed by a large withdrawal. Or payments, withdrawals, or transfers made for the maximum allowable amounts.<br><br>Unusual frequency of transactions.|   Patterns in the sign-ins and sequence of activities. For example, multiple sign-ins within a short period, multiple attempts to change contact information, or adding devices during an unusual time frame. |
 
-\* Most common indicator of compromise and precedes financial and non-financial compromises
+\* The most common indicator of compromise. It precedes financial and non-financial compromises.
 
-Table 1 Four pillars of compromise
+The behavioral dimension is critical for detecting mobile fraud. Behavioral-based profiles can help establish typical behavior patterns for an account. Analytics can point to an activity that appears to be outside of the norm. These are some examples of types of behavior that were profiled: 
+- How many accounts are associated with the device?
+- How many devices are associated with the account? How frequently are they dropped or added?
+- How frequently does the device or customer sign in?
+- How often does the customer change passwords?
+- What's the average monetary transfer or withdrawal amount from the account?
+- How often are withdrawals made from the account?
 
-The behavioral dimension is critical for detecting mobile fraud. Behavioral based profiles can help establish typical behavior patterns for an account, and the analytics can alert to an activity that appears to be out of the norm. Below are examples of types of behavior that were profiled: 
-- How many accounts are associated with this device?
-- How many devices are associated with this account? And how frequently are they dropped or added?
-- How frequently does this device or customer login?
-- How often does this customer change passwords?
-- What is the average monetary transfer or withdrawal amount from this account?
-- How often are withdrawals made from this account?
-
-This solution used an approach based on:
-- Feature engineering to create behavioral profiles for customers and accounts
-- Azure machine learning to create a fraud classification model for suspicious or inconsistent account behavior
-- Azure services for real-time event processing and end-to-end workflow
+The solution used an approach based on:
+- Feature engineering to create behavioral profiles for customers and accounts.
+- Azure machine learning to create a fraud classification model for suspicious or inconsistent account behavior.
+- Azure services for real-time event processing and end-to-end workflow.
 
 ## High-level architecture
 
@@ -55,42 +61,51 @@ There are three workstreams in this architecture:
 - A model training workstream that combines on-premises historical fraud data and ingested log data
 - Functionality to integrate back-end business processes
 
-The diagram below illustrates the placement for each of the significant technology components.
+This diagram illustrates the placement of each of the significant technology components:
 
 diagram 
 
-Figure 1 Conceptual Architecture for Online Bank Fraud Detection
+alt text: Diagram that shows an architecture for detecting online bank fraud.
 
 download link 
 
-The solution integrates with the bank's on-premises environment using an Enterprise Service Bus (ESB) and a performant network connection. 
+The solution integrates with the bank's on-premises environment by using an enterprise service bus (ESB) and a performant network connection.
 
-Most steps in the event processing pipeline start with an [Azure Function](https://azure.microsoft.com/services/functions). Azure Functions were selected because they are serverless, easily scaled out, and scheduled. The primary workload requires processing millions of incoming mobile transactions and assessing them for fraud in near real-time. 
+Most steps in the event processing pipeline start with an [Azure function](https://azure.microsoft.com/services/functions). Azure Functions are used because they're serverless, easily scaled out, and scheduled. The primary workload requires processing millions of incoming mobile transactions and assessing them for fraud in near real-time.
 
 A second workload is batch-oriented and used for model training and re-training. Azure Data Factory orchestrates the processing steps, including:
 
-- Upload of labelled historical fraud data from on-prem sources
-- Archival of data feature sets and score history for all transactions
-- Extraction of events and messages into a structured format for feature engineering, model re-training and evaluation, and 
-- Training and re-training of a fraud model using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
+- Upload of labelled historical fraud data from on-premises sources.
+- Archive of data feature sets and score history for all transactions.
+- Extraction of events and messages into a structured format for feature engineering and model re-training and evaluation.
+- Training and re-training of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
-And finally, the 3rd workstream involves integration to backend business processes. In the diagram, this is represented with [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps). Logic Apps can be used to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or to generate a phone contact.
+Finally, the 3rd workstream involves integration to back-end business processes. You can use [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
 
-Central to this architecture is the data pipeline and AI model, which are discussed in more detail below.
+Central to this architecture is the data pipeline and AI model, which are discussed in more detail later in this article.
 
-### Data pipeline and automation 
+### Data pipeline and automation
 
-Once a criminal has access to a bank account through a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction has occurred. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the less the financial loss.
+When a criminal has access to a bank account through a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction occurs. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the less the financial loss.
 
-Less than two seconds and – ideally - a lot less. That's the maximum amount of time between when a mobile banking activity gets forwarded for processing and when it needs to be assessed for fraud. Two seconds to collect a complex JSON event, validate, authenticate, parse, and transform the JSON, create account features from the data attributes, submit the transaction for an inferencing, retrieve the fraud score, and synchronize with a backend case management system. Latency and response times are critical in a fraud detection solution, and the infrastructure to support it must be fast and scalable.
+Less than two seconds, and ideally a lot less, is the maximum amount of time after a mobile banking activity is forwarded for processing that it needs to be assessed for fraud. This is what needs to happen during those two seconds:
+
+- Collect a complex JSON event.
+- Validate, authenticate, parse, and transform the JSON.
+- Create account features from the data attributes.
+- Submit the transaction for inferencing.
+- Retrieve the fraud score.
+- Synchronize with a back-end case management system.
+
+Latency and response times are critical in a fraud detection solution. The infrastructure to support it must be fast and scalable.
 
 ### Event processing
 
-Telemetry events from the bank's mobile and internet application gateways are formatted as JSON files with a loosely defined schema. These events are streamed as application telemetry to [Azure Event Hub](/azure/event-hubs/event-hubs-about) where an Azure Function in a dedicated App Services Environment (ASE) is used to orchestrate the processing.
+Telemetry events from the bank's mobile and internet application gateways are formatted as JSON files with a loosely defined schema. These events are streamed as application telemetry to [Azure Event Hubs](/azure/event-hubs/event-hubs-about), where an Azure function in a dedicated App Service Environment orchestrates the processing.
 
-The diagram below illustrates the fundamental interactions for an Azure Function within this infrastructure, which includes:
+The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure. Those interactions the following:
 
-- Ingest raw JSON events payload from Azure Event Hubs and authenticate using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
+- Ingest the raw JSON event payload from Azure Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](https://azure.microsoft.com/services/key-vault).
 - Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-lake) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 - Update and retrieve User account and device profiles from Azure SQL Database, and Azure Data Lake.  
 - Call out to Azure Machine Learning endpoint to execute a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for Operational Analytics
