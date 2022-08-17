@@ -43,8 +43,8 @@ The following diagram shows the workflow for the tasks the team lead completes t
 
 1. If required, create team data and analytics resources:
    - Add team-specific utilities to the **TeamUtilities** repository.
-   - Create **Azure file storage** to store data assets that can be useful for the entire team.
-   - Mount the Azure file storage to the team lead's **Data Science Virtual Machine** (DSVM) and add data assets to it.
+   - Create **Azure File Storage** to store data assets that can be useful for the entire team.
+   - Mount the Azure File Storage to the team lead's **Data Science Virtual Machine** (DSVM) and add data assets to it.
 
 The following tutorial walks through the steps in detail.
 
@@ -59,7 +59,7 @@ This tutorial assumes that the following resources and permissions have been set
 - **GroupProjectTemplate** and **GroupUtilities** repositories, populated with the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories
 - Permissions on your organization account for you to create projects and repositories for your team
 
-To be able to clone repositories and modify their content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you need the following:
+To be able to clone repositories and modify their content on your local machine or DSVM, or set up Azure File Storage and mount it to your DSVM, you need the following:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
@@ -268,16 +268,16 @@ To configure permissions for team members:
 
 ## Create team data and analytics resources
 
-This step is optional, but sharing data and analytics resources with your entire team has performance and cost benefits. Team members can execute their projects on the shared resources, save on budgets, and collaborate more efficiently. You can create Azure file storage and mount it on your DSVM to share with team members.
+This step is optional, but sharing data and analytics resources with your entire team has performance and cost benefits. Team members can execute their projects on the shared resources, save on budgets, and collaborate more efficiently. You can create Azure File Storage and mount it on your DSVM to share with team members.
 
 For information about sharing other resources with your team, such as Azure HDInsight Spark clusters, see [Platforms and tools](platforms-and-tools.md). That topic provides guidance from a data science perspective on selecting resources that are appropriate for your needs, and links to product pages and other relevant and useful tutorials.
 
 > [!NOTE]
 > To avoid transmitting data across data centers, which might be slow and costly, make sure that your Azure resource group, storage account, and DSVM are all hosted in the same Azure region.
 
-### Create Azure file storage
+### Create Azure File Storage
 
-1. Run the following script to create Azure file storage for data assets that are useful for your entire team. The script prompts you for your Azure subscription information, so have that ready to enter.
+1. Run the following script to create Azure File Storage for data assets that are useful for your entire team. The script prompts you for your Azure subscription information, so have that ready to enter.
 
    - On a Windows machine, run the script from the PowerShell command prompt:
 
@@ -295,13 +295,13 @@ For information about sharing other resources with your team, such as Azure HDIn
 
 1. Log in to your Microsoft Azure account when prompted, and select the subscription you want to use.
 
-1. Select the storage account to use, or create a new one under your selected subscription. You can use lowercase characters, numbers, and hyphens for the Azure file storage name.
+1. Select the storage account to use, or create a new one under your selected subscription. You can use lowercase characters, numbers, and hyphens for the Azure File Storage name.
 
-1. To facilitate mounting and sharing the storage, press Enter or enter *Y* to save the Azure file storage information into a text file in your current directory. You can check in this text file to your **TeamTemplate** repository, ideally under **Docs\DataDictionaries**, so all projects in your team can access it. You also need the file information to mount your Azure file storage to your Azure DSVM in the next section.
+1. To facilitate mounting and sharing the storage, press Enter or enter *Y* to save the Azure File Storage information into a text file in your current directory. You can check in this text file to your **TeamTemplate** repository, ideally under **Docs\DataDictionaries**, so all projects in your team can access it. You also need the file information to mount your Azure File Storage to your Azure DSVM in the next section.
 
-### Mount Azure file storage on your local machine or DSVM
+### Mount Azure File Storage on your local machine or DSVM
 
-1. To mount your Azure file storage to your local machine or DSVM, use the following script.
+1. To mount your Azure File Storage to your local machine or DSVM, use the following script.
 
    - On a Windows machine, run the script from the PowerShell command prompt:
 
@@ -317,9 +317,9 @@ For information about sharing other resources with your team, such as Azure HDIn
      bash AttachFileShare.sh
      ```
 
-1. Press Enter or enter *Y* to continue, if you saved an Azure file storage information file in the previous step. Enter the complete path and name of the file you created.
+1. Press Enter or enter *Y* to continue, if you saved an Azure File Storage information file in the previous step. Enter the complete path and name of the file you created.
 
-   If you don't have an Azure file storage information file, enter *n*, and follow the instructions to enter your subscription, Azure storage account, and Azure file storage information.
+   If you don't have an Azure File Storage information file, enter *n*, and follow the instructions to enter your subscription, Azure storage account, and Azure File Storage information.
 
 1. Enter the name of a local or TDSP drive to mount the file share on. The screen displays a list of existing drive names. Provide a drive name that doesn't already exist.
 
