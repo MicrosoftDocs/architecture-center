@@ -18,7 +18,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Decentralized bank trust architecture diagram](./media/architecture-decentralized-trust.png) alt-text="Architecture diagram showing back-end components for a private enterprise blockchain network."
+![Architecture diagram showing back-end components for a private enterprise blockchain network.](./media/architecture-decentralized-trust.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
