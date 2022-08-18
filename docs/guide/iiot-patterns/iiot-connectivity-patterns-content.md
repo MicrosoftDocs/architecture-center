@@ -98,7 +98,7 @@ Connect to manufacturing machines by using a cloud connector component that's av
   - [How to connect Kepware KEPServerEX to IoT Edge](/samples/azure-samples/iot-hub-how-to-kepware-edge/azure-iot-edge-connect-ptc)
 
 - Resources:
-  - [Bring Industrial data into your Azure IoT solution with CloudRail](https://docs.microsoft.com/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
+  - [Bring Industrial data into your Azure IoT solution with CloudRail](/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
 
 ## Connect to layer 2 and IoT Edge gateways
 
