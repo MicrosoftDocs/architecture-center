@@ -21,7 +21,9 @@ Each function app stores its data in an independent [Azure Cosmos DB](https://az
 
 The following diagram shows the patient record creation request flow:
 
-![Diagram showing virtual network integrated microservices.](./media/virtual-network-microservices.png)
+:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="./media/virtual-network-microservices.png" lightbox="./media/virtual-network-microservices.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/virtual-network-microservices.vsdx) of this architecture.*
 
 1. Outside services and clients make a POST request to APIM, with a data body that includes patient information.
 1. APIM calls the `CreatePatient` function in the **Patient API** with the given patient information.
