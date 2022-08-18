@@ -18,7 +18,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Decentralized Bank Trust Architecture Diagram](./media/architecture-decentralized-trust.png)
+![Decentralized bank trust architecture diagram](./media/architecture-decentralized-trust.png) alt-text="Architecture diagram showing back-end components for a private enterprise blockchain network."
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
@@ -74,7 +74,7 @@ The Ethereum PoA blockchain can itself provide some degree of resilience as the 
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+## Cost optimization
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected performance and availability requirements.
 
