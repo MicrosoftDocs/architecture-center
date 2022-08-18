@@ -1,53 +1,42 @@
-<!intro>
-Revist the four Vs.
-
-## Performance
-## Latency
-## Responsiveness
-## Scalability
-## Durability
-## Resiliency
-## Security
-
 ---
+title: Data platform for mission-critical workloads on Azure
+description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Networking.
+author: esbran
+categories: database
+ms.author: csiemens
+ms.date: 08/01/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.category:
+  - database
+azureCategories:
+  - database  
+summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+products:
+  - azure-cosmosdb
+---
+# Data platform for mission-critical workloads on Azure
 
-## Dump zone
+## Database
 
-The Azure Mission-Critical application data access pattern has the following characteristics:
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)** was chosen as the main database as it provides the crucial ability of multi-region writes: each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions.
 
-- Read pattern - Point reads e.g. queries which fetch a single record. These queries have a "WHERE" clause defined so that a single row is selected for reads.
-- Write pattern - Small writes e.g. queries which usually insert a single or a very small number of records in a transaction.
-- Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users
-- Payload or dataset size - small (usually in order of KB)
-- Data freshness - This stores the latest transactional data with a limited history
-- Low response time (in order of milli-seconds)
-- Low Latency (in order of milli-seconds)
-- The OLTP nature of the access pattern of Azure Mission-Critical has a bearing on the choice of architectural characteristics and must be considered while choosing backend datastores. The key architectural characteristics are:
-
-Based on these characteristics, Azure Mission-Critical uses the following data stores:
-
-Cosmos DB to serve as the main backend database.
-Event Hubs for messaging capabilities.
-Note - From data platform capabilities perspective, the current reference implementation of Azure Mission-Critical focuses on the operational data store. In future, we plan to update Azure Mission-Critical guidance to include analytics capabilities. In the meantime, we encourage readers to refer to Enterprise Scale Analytics guidance for enabling analytics at scale on Azure.
-
-Database
-Azure Cosmos DB was chosen as the main database as it provides the crucial ability of multi-region writes: each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions.
-
-Azure Mission-Critical is a cloud-native application. Its data model does not require features offered by traditional relational databases (e.g. entity linking across tables with foreign keys, strict row/column schema, views etc.).
+The Azure Mission-Critical reference implementation contains a cloud-native application as its sample workload. Its data model does not require features offered by traditional relational databases (e.g. entity linking across tables with foreign keys, strict row/column schema, views etc.).
 
 The SQL API of Cosmos DB is being used as it provides the most features and there is no requirement for migration scenario (to or from some other database like MongoDB).
 
 The reference implementation uses Cosmos DB as follows:
 
-Consistency level is set to the default "Session consistency" as the most widely used level for single region and globally distributed applications. Azure Mission-Critical does not use weaker consistency with higher throughput because the asynchronous nature of write processing doesn't require low latency on database write.
+- **Consistency level** is set to the default "Session consistency" as the most widely used level for single region and globally distributed applications. Azure Mission-Critical does not use weaker consistency with higher throughput because the asynchronous nature of write processing doesn't require low latency on database write.
 
-Partition key is set to /id for all collections. This decision is based on the usage pattern which is mostly "writing new documents with random GUID as ID" and "reading wide range of documents by ID". Providing the application code maintains its ID uniqueness, new data will be evenly distributed into partitions by Cosmos DB.
+- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly "writing new documents with random GUID as ID" and "reading wide range of documents by ID". Providing the application code maintains its ID uniqueness, new data will be evenly distributed into partitions by Cosmos DB.
 
-Indexing policy is configured on collections to optimize queries. To optimize RU cost and performance a custom indexing policy is used and this only indexes properties used in query predicates. For example, the application doesn't use the winning player name field as a filter in queries and so it was excluded from the custom indexing policy.
+- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance a custom indexing policy is used and this only indexes properties used in query predicates. For example, the application doesn't use the winning player name field as a filter in queries and so it was excluded from the custom indexing policy.
 
-Example of setting indexing policy in Terraform:
+*Example of setting indexing policy in Terraform:*
 
-``` 
+```hcl
 indexing_policy {
 
   excluded_path {
@@ -65,21 +54,36 @@ indexing_policy {
   included_path {
     path = "/*"
   }
+
 }
 ```
 
-Database structure follows basic NoSQL principles and stores related data as single documents.
+- **Database structure** follows basic NoSQL principles and stores related data as single documents.
+  - Application code gets the `playerName` information from AAD and stores it in the database instead of querying AAD each time.
+  - Leaderboard is generated on-demand and persists in the database (instead of recalculating on every request) as this action can be a database-heavy operation.
 
-Application code gets the playerName information from AAD and stores it in the database instead of querying AAD each time.
-Leaderboard is generated on-demand and persists in the database (instead of recalculating on every request) as this action can be a database-heavy operation.
-In application code, the SDK is configured as follows:
+- **In application code**, the SDK is configured as follows:
+  - Use Direct connectivity mode (default for .NET SDK v3) as this offers better performance because there are fewer network hops compared to Gateway mode which uses HTTP.
+  - `EnableContentResponseOnWrite` is set to `false` to prevent the Cosmos DB client from returning the resource from Create, Upsert, Patch and Replace operations to reduce network traffic and because this is not needed for further processing on the client.
+  - Custom serialization is used to set the JSON property naming policy to `JsonNamingPolicy.CamelCase` (to translate .NET-style properties to standard JSON-style and vice-versa) and the default ignore condition to ignore properties with null values when serializing (`JsonIgnoreCondition.WhenWritingNull`).
 
-Use Direct connectivity mode (default for .NET SDK v3) as this offers better performance because there are fewer network hops compared to Gateway mode which uses HTTP.
-EnableContentResponseOnWrite is set to false to prevent the Cosmos DB client from returning the resource from Create, Upsert, Patch and Replace operations to reduce network traffic and because this is not needed for further processing on the client.
-Custom serialization is used to set the JSON property naming policy to JsonNamingPolicy.CamelCase (to translate .NET-style properties to standard JSON-style and vice-versa) and the default ignore condition to ignore properties with null values when serializing (JsonIgnoreCondition.WhenWritingNull).
-The Azure Mission-Critical reference implementation leverages the native backup feature of Cosmos DB for data protection. Cosmos DB's backup feature supports online backups and on-demand data restore.
+The Azure Mission-Critical reference implementation leverages the native backup feature of Cosmos DB for data protection. [Cosmos DB's backup feature](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
-Note - In practice, most workloads are not purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Cosmos DB supports this capability via Azure Synapse Link for Cosmos DB.
+> Note - In practice, most workloads are not purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Cosmos DB supports this capability via [Azure Synapse Link for Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/synapse-link-use-cases).
+
+- **Multi-region write**
+
+Cosmos DB multi-master technology allows your application to write data to the the database in every region that it is deployed in, significantly lowering latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation leverages multi-master technology to provide the highest level of app resilience and efficiency available.
+
+- **Conflict management**
+
+With the ability to perform writes across multiple regions comes the necessity to adopt a conflict management model as simultaneous writes can introduce record conflicts.  Last Writer Wins is the default model and is used for the Mission Critical design. The last writer, as defined by the associated timestamps of the records wins the conflict.  The SQL API also allows for a custom property to be defined. 
+
+- **Query optimization**
+
+Given the partition key design recommendation above, a general query efficiency recommendation for read-heavy containers with a high number of partitions is to add an equality filter with the itemID identified.  An in-depth review of query optimization recommendations can be found at [Troubleshoot query issues when using Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/troubleshoot-query-performance).
+
+
 
 ## Messaging services
 
@@ -149,3 +153,4 @@ The health of the messaging system must be considered in the health checks for a
 
 - The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker.
 - The health check should ensure that messages can be sent to the message system.
+
