@@ -1,38 +1,6 @@
-Retail competition between companies is intense, and retailers are required to bring computational intelligence and smart insights into their commercial, marketing, and manufactory processes. While increasing and retaining customers is paramount for the success of a company, retailers must also align their inventory levels to customer demand to maximize operational efficiency and reduce waste and costs.
-
-*Inventory optimization* is the process of providing the right inventory, in the right quantities, at the right locations to meet the customer demand. The objective of optimization is to lessen the carrying, storing, and maintenance costs, while meeting the needs of customers and maintaining a high level of customer satisfaction. *Demand forecasting* is the process of making predictions about customer demand by using various historical and third-party data. Demand forecasting helps business leaders to make informed decisions and is one of the most widely used techniques of inventory optimization. 
-
-This article showcases a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. The solution uses the latest advancements in forecasting, optimization, and parallel computing. To better work with a large volume of supply chain data, it offers the following guidelines for transforming and scaling existing on-premises solutions:
-
--   Provide a customer interface by using Power BI and PowerApps from which users can launch simulations and determine the parameters of the simulation and data, access results, and so on.
-
--   Process, validate, and analyze data by using Azure Machine Learning.
-
--   Generate probabilistic forecasts of inventory supply levels by using advanced machine learning methods, such as DeepAR.
-
--   Run parallel simulations for generating and forecasting inventory by using Azure Kubernetes and Ray.
+This article showcases a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. The solution uses the latest advancements in forecasting, optimization, and parallel computing.
 
 *Ray® or Ray.io® is either a registered trademark or trademarks of the Anyscale, Inc. in the United States and/or other countries. No endorsement by Anyscale, Inc. is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is designed for the retail industry, but it also applies to the manufacturing industry and to the following scenarios:
-
--   Analyze product information across locations to assess demand levels and decrease inventory costs.
-
--   Analyze stock variability and sales by using historical demand data to forecast demand in future periods, across customers, and by location and sales channel. For example, a shipping and delivery company needs to predict the quantities of products at different locations, and an insurer might want to know the number of products that will be returned because of failures.
-
--   Identify the ideal amount of inventory to have in stock.
-
--   Predict how seasonal changes or other events might affect sales and restocking options.
-
--   Forecast the prices of commodities across locations and sales channels by using historical transaction data in a retail context.
-
-Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or available from a subset of factories. Companies must also meet service level agreements and other relevant metrics. So, forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
-
-Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
-
-Methods of forecasting demand include on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
 
 ## Architecture
 
@@ -89,6 +57,42 @@ Instead of running the Ray framework on Kubernetes, you can use the Ray framewor
 
 You could use [Web Apps](https://azure.microsoft.com/services/app-service/web/) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
 
+## Scenario details
+
+Retail competition between companies is intense, and retailers are required to bring computational intelligence and smart insights into their commercial, marketing, and manufactory processes. While increasing and retaining customers is paramount for the success of a company, retailers must also align their inventory levels to customer demand to maximize operational efficiency and reduce waste and costs.
+
+*Inventory optimization* is the process of providing the right inventory, in the right quantities, at the right locations to meet the customer demand. The objective of optimization is to lessen the carrying, storing, and maintenance costs, while meeting the needs of customers and maintaining a high level of customer satisfaction. *Demand forecasting* is the process of making predictions about customer demand by using various historical and third-party data. Demand forecasting helps business leaders to make informed decisions and is one of the most widely used techniques of inventory optimization. 
+
+To better work with a large volume of supply chain data, this solution offers the following guidelines for transforming and scaling existing on-premises solutions:
+
+-   Provide a customer interface by using Power BI and PowerApps from which users can launch simulations and determine the parameters of the simulation and data, access results, and so on.
+
+-   Process, validate, and analyze data by using Azure Machine Learning.
+
+-   Generate probabilistic forecasts of inventory supply levels by using advanced machine learning methods, such as DeepAR.
+
+-   Run parallel simulations for generating and forecasting inventory by using Azure Kubernetes and Ray.
+
+### Potential use cases
+
+This solution is designed for the retail industry, but it also applies to the manufacturing industry and to the following scenarios:
+
+-   Analyze product information across locations to assess demand levels and decrease inventory costs.
+
+-   Analyze stock variability and sales by using historical demand data to forecast demand in future periods, across customers, and by location and sales channel. For example, a shipping and delivery company needs to predict the quantities of products at different locations, and an insurer might want to know the number of products that will be returned because of failures.
+
+-   Identify the ideal amount of inventory to have in stock.
+
+-   Predict how seasonal changes or other events might affect sales and restocking options.
+
+-   Forecast the prices of commodities across locations and sales channels by using historical transaction data in a retail context.
+
+Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or available from a subset of factories. Companies must also meet service level agreements and other relevant metrics. So, forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
+
+Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
+
+Methods of forecasting demand include on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
+
 ### Forecasting with Deep Learning
 
 The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, this solution uses multivariate probabilistic forecasting to account for uncertainties that are common in supply chains. By using an ensemble modeling approach that blends Deep AutoRegression RNN (DeepAR) or Transformer models that use the classical Monte Carlo Sampling method, the reference solution achieved 99.9% mean square error (MSE) improvement over a customer's initial approach for high-volume/high-impact business products. For ensembling, this solution explored XGBClassifier and XGBRegressor model architectures.
@@ -130,9 +134,9 @@ Often, for optimization and Operations Research problems, compute-intensive calc
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 
@@ -145,7 +149,7 @@ Other contributors:
 ## Next steps
 
 -   [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
--   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
+-   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 -   [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes.html)
 -   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
 -   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)

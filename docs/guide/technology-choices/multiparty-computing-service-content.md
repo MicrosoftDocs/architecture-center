@@ -103,7 +103,7 @@ This diagram summarizes options for the multiparty computing with Azure services
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Quorum Blockchain Service](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.qbs-contact-me)
+- [Quorum Blockchain Service](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview)
 - [Authenticating Azure confidential ledger nodes](/azure/confidential-ledger/authenticate-ledger-nodes)
 - [Azure Confidential Ledger Architecture](/azure/confidential-ledger/architecture)
 

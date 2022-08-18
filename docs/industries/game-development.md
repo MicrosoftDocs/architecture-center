@@ -3,8 +3,8 @@ title: Solutions for the game development industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the game development industry.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 01/18/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide

@@ -143,7 +143,7 @@ Read the product documentation:
 - [Deploy a model to an Azure Kubernetes Service cluster][aml-aks]
 - [Introduction to private Docker container registries in Azure][registry-intro]
 
-Try these Microsoft Learning paths:
+Try these learning paths:
 
 - [Introduction to Kubernetes on Azure][mslearn-aks-intro]
 - [Develop and deploy applications on Kubernetes][mslearn-aks-deploy]

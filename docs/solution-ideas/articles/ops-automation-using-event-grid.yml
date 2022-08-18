@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Event Grid can speed up automation and simplify policy enforcement by covering tasks that range from checking service configurations to filing work items.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 06/06/2022
   ms.topic: conceptual
   ms.service: architecture-center

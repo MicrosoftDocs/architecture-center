@@ -1,4 +1,4 @@
-This reference architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
+This architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
@@ -7,7 +7,7 @@ This reference architecture provides guidance for designing a mission critical w
 
 Reliability is a relative concept and for a workload to be appropriately reliable it should reflect the business requirements surrounding it, including Service Level Objectives (SLO) and Service Level Agreements (SLA) to capture the percentage of time the application should be available.
 
-This reference architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
+This architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
@@ -16,7 +16,7 @@ This reference architecture targets an SLO of 99.99%, which corresponds to a per
 
 ## Key design strategies
 
-Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This reference architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
+Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
 
 - **Redundancy in layers**
     - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
@@ -58,6 +58,7 @@ The components of this architecture can be broadly categorized in this manner. F
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
 
+Here are the high-level considerations about the components. For detailed information about the decisions, see [**Global resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#global-resources).
 
 #### Global load balancer
 
@@ -69,7 +70,6 @@ Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. H
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-
 #### Database
 
 All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
@@ -78,6 +78,8 @@ All state related to the workload is stored in an external database, **Azure Cos
 > While a multi-region-write configuration represents the gold standard for reliability, there is a significant trade-off on cost, which should be properly considered.
 
 The account is replicated to each regional stamp and also has zonal redundancy enabled. Also, autoscaling is enabled at the container-level so that containers automatically scale the provisioned throughput as needed.
+
+For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -97,6 +99,8 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
 
 ![Diagram that shows the regional resources.](./images/mission-critical-stamp.png)
+
+Here are the high-level considerations about the components. For detailed information about the decisions, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
 #### Frontend
 
@@ -126,6 +130,8 @@ The entire stamp is stateless except for at certain points, such as this message
 In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
 For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and deduplication capabilities.
+
+For more information, see [Messaging services for mission-critical workloads](./mission-critical-data-platform.md#messaging-services).
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
@@ -190,7 +196,7 @@ The description of this flow is in the following sections.
 
 ### Website request flow
 
-1. A request for the web user interface is sent to a global load balancer. For this reference architecture, the global load balancer is Azure Front Door.
+1. A request for the web user interface is sent to a global load balancer. For this architecture, the global load balancer is Azure Front Door.
 
 2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requester if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
 
@@ -223,16 +229,16 @@ We suggest that you explore these design areas for recommendations and best prac
 
 |Design area|Description|
 |---|---|
-|[Application design](/azure/architecture/framework/mission-critical/mission-critical-application-design)|Design patterns that allow for scaling, and error handling.|
-|**[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
-|[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
-|**[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
-|[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
-|[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
+|[Application design](mission-critical-app-design.md)|Design patterns that allow for scaling, and error handling.|
+|[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
+|[Data platform](mission-critical-data-platform.md)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
+|[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
+|[Health modeling](mission-critical-health-modeling.md)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
+|[Deployment and testing](mission-critical-deploy-test.md)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
 |[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
 
-** Indicates design area considerations that are specific to this reference architecture.
+** Indicates design area considerations that are specific to this architecture.
 
 ## Related resources
 
@@ -251,12 +257,17 @@ For product documentation on the Azure services used in this architecture, see t
 
 ## Deploy this architecture
 
-Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. 
+Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. It contains a deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
 
 ## Next steps
 
-If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). It contains a security-focused reference implementation and deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
+If you want to extend the baseline architecture with network controls on ingress and egress traffic, see this architecture. 
 
+> [!div class="nextstepaction"]
+> [Architecture: Mission-critical baseline with network controls](./mission-critical-network-architecture.yml)
+
+> [!div class="nextstepaction"]
+> [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
