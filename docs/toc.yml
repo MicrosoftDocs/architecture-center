@@ -330,12 +330,15 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
                 - name: Application design
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
+                - name: Networking and connectivity platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+                - name: Data platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md                                    
                 - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
-                - name: Networking and connectivity platform
-                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+
             - name: Guides
               items:
                 - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
@@ -386,6 +389,8 @@ items:
                 href: guide/multitenant/approaches/messaging.md
               - name: Identity
                 href: guide/multitenant/approaches/identity.md
+              - name: Integration
+                href: guide/multitenant/approaches/integration.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
@@ -2767,8 +2772,6 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Orchestrate MLOps on Azure Databricks
-                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Predict student attrition
@@ -2851,6 +2854,8 @@ items:
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
               - name: Model deployment to AKS
                 href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
+              - name: Orchestrate MLOps with Azure Databricks
+                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Personalized marketing solutions
                 href: solution-ideas/articles/personalized-marketing.yml
               - name: Personalized offers

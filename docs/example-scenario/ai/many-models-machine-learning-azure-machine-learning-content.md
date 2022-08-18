@@ -14,9 +14,7 @@ A many models solution requires a different dataset for every model during train
 
 ## Architecture
 
-:::image type="content" source="media/many-models-machine-learning-azure-aml.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="media/many-models-machine-learning-azure-aml.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/US-1884393-many-models-machine-learning-azure-aml.vsdx) of this architecture.*
+:::image type="content" source="media/many-models-machine-learning-azure.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="media/many-models-machine-learning-azure.png":::
 
 1. **Data ingestion:**
    Azure Data Factory pulls data from a source database and copies it to Azure Data Lake Storage. It then stores it in a Machine Learning datastore as a tabular dataset.

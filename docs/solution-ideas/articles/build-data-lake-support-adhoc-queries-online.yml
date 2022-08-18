@@ -23,6 +23,6 @@ products:
   - azure-data-lake-gen2
   - azure-databricks
   - azure-synapse-analytics
-thumbnailUrl: /azure/architecture/browse/thumbs/build-data-lake-support-adhoc-queries-online-01.png
+thumbnailUrl: /azure/architecture/browse/thumbs/build-data-lake-support-adhoc-queries-online-02.png
 content: |
    [!include[](build-data-lake-support-adhoc-queries-online-content.md)]

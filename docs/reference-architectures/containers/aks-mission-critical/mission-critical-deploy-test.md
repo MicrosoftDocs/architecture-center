@@ -14,6 +14,7 @@ ms.category:
   - testing
 products:
   - azure-devops
+  - azure-chaos-studio
 ---
 
 # Deployment and testing for mission-critical workloads on Azure
