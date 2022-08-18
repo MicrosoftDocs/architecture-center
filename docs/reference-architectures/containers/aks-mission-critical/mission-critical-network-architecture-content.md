@@ -1,4 +1,4 @@
-This reference architecture provides guidance for designing a mission critical workload that has strict network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
+This architecture provides guidance for designing a mission critical workload that has strict network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
 
 It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls. This architecture adds features to restrict ingress and egress paths using the appropriate cloud-native capabilities, such as Azure Virtual Network(VNet) and private endpoints, Azure Private Link, Azure Private DNS Zone, and others.
 
@@ -233,7 +233,7 @@ The networking aspects of this architecture are implemented in the Mission-criti
 > [Implementation: Mission-critical Connected](https://github.com/Azure/Mission-Critical-Connected)
 
 > [!NOTE]
-> The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
+> The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
 
 ## Next steps
 
