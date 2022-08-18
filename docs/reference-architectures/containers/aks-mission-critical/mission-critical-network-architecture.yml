@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Mission-critical baseline architecture with network controls
-  description: Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.
+  description: Architecture for a highly reliable workload with enhanced network controls such as private endpoints.
   author: calcof
   ms.author: prwilk
   ms.date: 08/10/2022
@@ -19,7 +19,7 @@ azureCategories:
   - networking
   - security
   - devops
-summary: Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.
+summary: Architecture for a highly reliable workload with enhanced network controls such as private endpoints.
 products:
   - azure-front-door
   - azure-firewall
