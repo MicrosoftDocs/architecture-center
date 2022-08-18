@@ -56,6 +56,8 @@ Due to the ephemeral nature of deployment stamps, avoid persisting state within 
 
 In the reference implementation **Azure Cosmos DB** serves as the main data store for the application. [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions. **SQL API** is used because it supports all capabilities of the database engine.
 
+For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
+
 > [!NOTE]
 > New applications should use the Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Cosmos DB SQL API.
 
@@ -63,48 +65,6 @@ In the reference implementation **Azure Cosmos DB** serves as the main data stor
 > For mission-critical applications that prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
 
 In this architecture, there's a need to store state temporarily in the stamp for Event Hubs checkpointing. **Azure Storage** is used for that purpose.
-
-Data model should be designed such that features offered by traditional relational databases aren't required. For example, foreign keys, strict row/column schema, views, and others.
-
-The workload has these **data access characteristics**:
-
-- Read pattern:
-  - Point reads - Fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
-  - List reads - Getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
-- Write pattern:
-  - Small writes - Requests usually insert a single or a very small number of records in a transaction.
-- Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
-- Small payload or dataset size - usually in order of KB.
-- Low response time (in order of milliseconds).
-- Low latency (in order of milliseconds).
-
-Cosmos DB is configured as follows:
-
-- **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
-
-- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling virtually infinite scale.
-
-- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes properties used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
-
-Here's an example from the implementation that shows indexing policy settings using Terraform:
-
-```
-indexing_policy {
-
-  excluded_path {
-    path = "/description/?"
-  }
-
-  excluded_path {
-    path = "/comments/text/?"
-  }
-
-  included_path {
-    path = "/*"
-  }
-
-}
-```
 
 All workload components use the Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Here are some key configuration settings:
 
