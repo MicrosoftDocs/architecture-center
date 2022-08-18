@@ -16,7 +16,7 @@ The concepts in this article apply to any high-performance computing (HPC) workl
 
 This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
 
-![Diagram showing architecture of Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.png)
+![Diagram showing architecture of image-based modeling using Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-image-modeling.vsdx) of this architecture.*
 
