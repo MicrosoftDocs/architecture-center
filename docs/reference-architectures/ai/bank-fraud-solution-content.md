@@ -1,4 +1,4 @@
-In a typical case of online fraud, the thief makes multiple transactions leading to a loss of thousands. That's why fraud detection must happen in near real-time. More than 800 million people use mobile apps. As that number increases, so does mobile bank fraud. The financial industry is seeing a 100 percent year-over-year increase in losses caused by access from mobile platforms. But there is a mitigation. This article presents a solution that uses Azure technology to predict a fraudulent mobile bank transaction within two seconds. The architecture presented here is based on a real-world solution.
+In a typical case of online fraud, the thief makes multiple transactions, leading to a loss of thousands of dollars. That's why fraud detection must happen in near real-time. More than 800 million people use mobile apps. As that number increases, mobile bank fraud also increases. The financial industry is experiencing a 100 percent year-over-year increase in losses caused by access from mobile platforms. But there is a mitigation. This article presents a solution that uses Azure technology to predict a fraudulent mobile bank transaction within two seconds. The architecture presented here is based on a real-world solution.
 
 ## Challenges: Rare instances of fraud and rigid rules
 
@@ -7,10 +7,10 @@ Most mobile fraud occurs when a *SIM swap attack* is used to compromise a mobile
 Mobile fraud is hard to detect and expensive for consumers and banks. The first challenge is that it's rare. Fewer than 1 percent of all transactions are fraudulent, so it can take time for a fraud or case management team to sift through potentially fraudulent transactions to identify the fraudulent ones. A second challenge is that many fraud monitoring solutions today rely on rule-based engines. Traditionally, rule-based engines are effective at detecting established patterns of fraud-like transactions generated from risky IP addresses or multiple transactions generated within a brief period on a new account. But rule-based engines have a significant limitation: rules don't adapt quickly to new or evolving types of attacks. They're constrained in the following ways:
 
 - Detection isn't real-time, so fraud is detected after a financial loss occurs.
-- Rules are binary and limited. They don't accommodate the complexity and combinations of input variables that can be evaluated. This limitation results in high false positives.
+- Rules are binary and limited. They don't accommodate the complexity and combinations of input variables that can be evaluated. This limitation results in high numbers of false positives.
 - Rules are hardcoded into business logic. Curating the rules, incorporating new data sources, or adding new fraud patterns usually requires application changes that affect a business process. Propagating changes throughout a business process can be cumbersome and expensive.
 
-AI models can dramatically improve fraud detection rates and detection times. Banks are using them together with other approaches to reduce losses. The process described here is based on three factors:
+AI models can dramatically improve fraud detection rates and detection times. Banks are using them together with other approaches to reduce losses. The process described here is based on three elements:
 - An AI model that acts on a derived set of behavioral characteristics
 - A methodology for machine learning
 - A model evaluation process that's similar to the one used by a fraud manager to evaluate a portfolio
@@ -29,17 +29,17 @@ For the solution to deliver value, there must be a clear understanding of how mo
 - How is it committed? 
 - What are the patterns in fraudulent activities and transactions?
 
-The answers to these questions led to an understanding of the type of behavior that could signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
+The answers to these questions led to an understanding of the types of behavior that can signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
 
 The following table identifies types of compromise, data attributes that might signal fraud, and behaviors that were relevant for the bank:
 
 |  |Credential compromises*  |Device compromises  |Financial compromises  |Non-Transactional compromises|
 |---------|---------|---------|---------|---|
 |Methods used    | Phishing, vishing.        |   SIM swap, vishing, malware, jailbreaking, device emulators.      |   Use of account credentials, device and user digital identifiers (like email and physical addresses).      |Adding new users to account, increasing card or account limits, changing account details and customer profile information or password.|
-|Data     | Email or password, credit or debit card numbers, customer-selected or one-time PINs).        |  Device ID, SIM card number, geolocation and IP.       |   Transaction amounts, transfer, withdrawal, or payment beneficiaries.      |Account details.|
-|Patterns     | New digital customer (not previously registered) with an existing card and PIN. <br><br> Failed sign-ins for users that don't exist or are unknown.<br><br>Sign-ins during time frames that are unusual for the account.<br><br> Multiple attempts to change sign-in passwords. |  Geographical irregularities (access from an unusual location).<br><br>Access from multiple devices in a short period of time.|Patterns in transactions. For example, many small transactions logged for the same account in a short time, sometimes followed by a large withdrawal. Or payments, withdrawals, or transfers made for the maximum allowable amounts.<br><br>Unusual frequency of transactions.|   Patterns in the sign-ins and sequence of activities. For example, multiple sign-ins within a short period, multiple attempts to change contact information, or adding devices during an unusual time frame. |
+|Data     | Email or password, credit or debit card numbers, customer-selected or one-time PINs.        |  Device ID, SIM card number, geolocation and IP.       |   Transaction amounts, transfer, withdrawal, or payment beneficiaries.      |Account details.|
+|Patterns     | New digital customer (not previously registered) with an existing card and PIN. <br><br> Failed sign-ins for users that don't exist or are unknown.<br><br>Sign-ins during time frames that are unusual for the account.<br><br> Multiple attempts to change sign-in passwords. |  Geographical irregularities (access from an unusual location).<br><br>Access from multiple devices in a short period of time.|Patterns in transactions. For example, many small transactions logged for the same account in a short time, sometimes followed by a large withdrawal. Or payments, withdrawals, or transfers made for the maximum allowable amounts.<br><br>Unusual frequency of transactions.|   Patterns in the sign-ins and sequence of activities. For example, multiple sign-ins within a short period of time, multiple attempts to change contact information, or adding devices during an unusual time frame. |
 
-\* The most common indicator of compromise. It precedes financial and non-financial compromises.
+*\* The most common indicator of compromise. It precedes financial and non-financial compromises.*
 
 The behavioral dimension is critical for detecting mobile fraud. Behavioral-based profiles can help establish typical behavior patterns for an account. Analytics can point to an activity that appears to be outside of the norm. These are some examples of types of behavior that were profiled: 
 - How many accounts are associated with the device?
@@ -49,7 +49,7 @@ The behavioral dimension is critical for detecting mobile fraud. Behavioral-base
 - What's the average monetary transfer or withdrawal amount from the account?
 - How often are withdrawals made from the account?
 
-The solution used an approach based on:
+The solution uses an approach based on:
 - Feature engineering to create behavioral profiles for customers and accounts.
 - Azure machine learning to create a fraud classification model for suspicious or inconsistent account behavior.
 - Azure services for real-time event processing and end-to-end workflow.
@@ -68,11 +68,11 @@ There are three workstreams in this architecture:
 
 - An event-driven pipeline ingests and processes log data, creates and maintains behavioral account profiles, incorporates a fraud classification model, and produces a predictive score.
 Most steps in this pipeline start with an [Azure function](/azure/azure-functions/functions-overview). Azure functions are used because they're serverless, easily scaled out, and scheduled. This workload requires processing millions of incoming mobile transactions and assessing them for fraud in near real-time.
-- A model training workstream combines on-premises historical fraud data and ingested log data. This workload is batch-oriented and used for model training and re-training. Azure Data Factory orchestrates the processing steps, including:
-   - Upload of labelled historical fraud data from on-premises sources.
+- A model training workstream combines on-premises historical fraud data and ingested log data. This workload is batch-oriented and used for model training and retraining. Azure Data Factory orchestrates the processing steps, including:
+   - Upload of labeled historical fraud data from on-premises sources.
    - Archive of data feature sets and score history for all transactions.
-   - Extraction of events and messages into a structured format for feature engineering and model re-training and evaluation.
-   - Training and re-training of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
+   - Extraction of events and messages into a structured format for feature engineering and model retraining and evaluation.
+   - Training and retraining of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
 - The third workstream integrates to back-end business processes. You can use [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
 
@@ -82,7 +82,7 @@ The solution integrates with the bank's on-premises environment by using an ente
 
 ### Data pipeline and automation
 
-When a criminal has access to a bank account through a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction occurs. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the less the financial loss.
+When a criminal has access to a bank account via a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction occurs. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the lower the financial loss.
 
 Less than two seconds, and ideally a lot less, is the maximum amount of time after a mobile banking activity is forwarded for processing that it needs to be assessed for fraud. This is what needs to happen during those two seconds:
 
@@ -118,7 +118,7 @@ Alt text: Diagram that shows the event-processing infrastructure.
 
 ### Data pre-processing and JSON transformation
 
-In the real-world scenario that this solution is based on, pre-processing the data was an integral step in formatting the data for the development and training of the machine learning models. There were years of historic mobile and internet banking events, including transaction data from the application gateway telemetry in JSON format. There were hundreds of thousands of files that contained multiple events that needed to be deserialized and flattened and cleaned for the purpose of training the machine learning model.
+In the real-world scenario that this solution is based on, pre-processing the data was an integral step in formatting the data for the development and training of the machine learning models. There were years of historic mobile and internet banking events, including transaction data from the application gateway telemetry in JSON format. There were hundreds of thousands of files that contained multiple events that needed to be deserialized and flattened and cleaned for training the machine learning model.
 
 Each application gateway produces telemetry from a user's interaction, capturing information like the OS, mobile device metadata, account data, and transaction requests and responses. There was variation between JSON files and attributes, and data types were disparate and inconsistent. Another complication with the JSON files was that attributes and data types could change unexpectedly as application updates were pushed out to the gateways and features were removed, modified, or added. Data transformation challenges with the schemas include the following:
 
@@ -128,7 +128,7 @@ Each application gateway produces telemetry from a user's interaction, capturing
 - Attributes like email addresses might be missing or partially formatted. 
 - There might be complex, nested properties and values.
 
-A Spark pool is used as part of the cold path to process historical JSON files, deserialize, flatten, and extract device and transaction attributes. Each JSON file is validated and parsed, and the transaction attributes extracted and persisted onto a data lake and partitioned based on the date of the transaction.  
+A Spark pool is used as part of the cold path to process historical JSON files, and to deserialize, flatten, and extract device and transaction attributes. Each JSON file is validated and parsed, and the transaction attributes are extracted and persisted onto a data lake and partitioned based on the date of the transaction.  
 
 These attributes are used later to create features for the fraud classifier. The power of this solution relies on JSON data's capability to be standardized, joined, and aggregated with historical data to create behavior profiles.
 
@@ -136,9 +136,9 @@ These attributes are used later to create features for the fraud classifier. The
 
 In this solution, events are produced from multiple sources, including authentication records, customer information and demographics, transaction records, and log and activity data from mobile devices. SQL Database is used to perform real-time data parsing, pre-processing, and featurization because SQL is familiar to many developers. 
 
-HTAP functionality is necessary to retrieve user account behavior history for a particular device over the previous seven days to calculate features in near real-time with low latency. In SQL Database, these hybrid transaction/analytical processing (HTAP) capabilities are used: 
+HTAP functionality is necessary to retrieve user-account behavior history for a particular device over the previous seven days to calculate features in near real-time with low latency. In SQL Database, these hybrid transaction/analytical processing (HTAP) capabilities are used: 
 
-- [Memory-optimized tables](/sql/relational-databases/in-memory-oltp/memory-optimized-tables) are used to store account profiles. Memory-optimized tables have advantages over traditional SQL tables because they're created and accessed in the main memory. The latencies and overhead of disk access are avoided. The requirement for this solution is to process 300 JSON messages/second. Memory-optimized tables provide for this level of throughput.
+- [Memory-optimized tables](/sql/relational-databases/in-memory-oltp/memory-optimized-tables) store account profiles. Memory-optimized tables have advantages over traditional SQL tables because they're created and accessed in the main memory. The latency and overhead of disk access are avoided. The requirement for this solution is to process 300 JSON messages/second. Memory-optimized tables provide this level of throughput.
 - Memory-optimized tables are most efficiently accessed from [natively compiled stored procedures](/sql/relational-databases/in-memory-oltp/natively-compiled-stored-procedures). Unlike interpreted stored procedures, natively compiled stored procedures are compiled when they're first created.
 - A [temporal table](/azure/sql-database/sql-database-temporal-tables) is a table that automatically maintains change history. When a row is added or updated, it's versioned and written to the history table. In this solution, the account profiles are stored in a temporal table that has a 7-day retention policy, so rows are automatically removed after the retention period.
 
@@ -152,7 +152,7 @@ This approach also provides these benefits:
 
 The automation of schema management is another challenge that needed to be resolved for this solution. JSON is a flexible and portable file format, partly because a schema isn't stored with the data. When JSON files need to be parsed, deserialized, and processed, a schema that represents the structure of the JSON must be coded somewhere to validate the data properties and data types. If the schema isn't synchronized with the incoming JSON message, the JSON validation fails and data isn't extracted.
 
-The challenge comes when the structure of JSON messages changes because of new application functionality. In its original solution, the bank that this solution is based on deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out-of-sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
+The challenge comes when the structure of JSON messages changes because of new application functionality. In its original solution, the bank that this solution is based on deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out of sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
 
 The bank didn't have a formal schema defined for these events, and the constant fluctuations in the structure of the JSON files created technical debt at each iteration of the solution. This solution resolves that problem by establishing a schema for these events and using Azure Schema Registry. [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) provides a central repository of schemas for events and flexibility for producers and consumer applications to exchange data without needing to manage and share the schema. The simple governance framework it introduces for reusable schemas and the relationship it defines between schemas through the grouping constructs (schema groups) can eliminate significant technical debt, enforce conformance, and provide backward compatibility across changing schemas.
 
@@ -182,15 +182,15 @@ AutoML can perform the following tasks in an ML process:
 - Perform cross validation
 - Generate features
 - Impute missing values
-- Perform one-hot encoding and a variety of scalers
+- Perform one-hot encoding and various scalers
  
 ### Data imbalance
 
-Fraud classification is challenging because of the severe class imbalance. In a fraud dataset, there are many more non-fraudulent transactions than fraudulent transactions.  Typically, less than 1 percent of a dataset contains fraudulent transactions. If it's not addressed, this imbalance can cause a credibility problem in the model because all transactions could end up classified as non-fraud. The model could completely miss all fraudulent transactions and still achieve a 99 percent accuracy rate.
+Fraud classification is challenging because of the severe class imbalance. In a fraud dataset, there are many more non-fraudulent transactions than fraudulent transactions.  Typically, less than 1 percent of a dataset contains fraudulent transactions. If it's not addressed, this imbalance can cause a credibility problem in the model because all transactions could end up classified as non-fraudulent. The model could completely miss all fraudulent transactions and still achieve a 99 percent accuracy rate.
 
 AutoML can help redistribute data and create a better balance between fraudulent and non-fraudulent transactions:  
 
-- AutoML supports adding a column of weights as input, causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20 percent of the number of samples in the majority class. Subsequently, AutoML runs the experiment with sub-sampled data to check if using class weights will remedy this problem and improve performance. If it determines the performance is better because of the experiment, the remedy is applied.
+- AutoML supports adding a column of weights as input, causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20 percent of the number of samples in the majority class. Subsequently, AutoML runs the experiment with subsampled data to check if using class weights resolves this problem and improves performance. If it determines the performance is better because of the experiment, the remedy is applied.
 - You can use a performance-measurement metric that handles imbalanced data better. For example, if your model needs to be sensitive to false negatives, use `recall`. When the model needs to be sensitive to false positives, use `precision`. You can also use an F1 score. This score is the harmonic mean between `precision` and `recall`, so it's not affected by a high number of true positives or true negatives. You might need to calculate some metrics manually during your testing phase.
 
 Alternatively, to increase the number of transactions classified as fraudulent, you can manually use a technique called Synthetic Minority Oversampling Technique (SMOTE). SMOTE is a statistical technique that uses bootstrapping and k-nearest neighbor (KNN) to produce instances of the minority class.
@@ -201,7 +201,7 @@ For model training, the Python SDK expects data in either a pandas dataframe for
 
 Here's a code sample, with comments:
 
-![Screenshot that shows a code sample for model training.](_images/automl-code.png)
+:::image type="content" source="_images/automl-code.png" alt-text="Screenshot that shows a code sample for model training.":::
 
 In the code:
 
@@ -230,14 +230,14 @@ In this solution, account-level metrics are created and factored into the decisi
 |Fraud manager concern|Metric  |Description  |
 |---------|---------|---------|
 |Am I detecting fraud?     |    Fraud Account Detection Rate (ADR)     |   The percentage of detected fraud accounts in all fraud accounts.      |The percentage of monetary savings, assuming the current fraud transaction triggers a blocking action on subsequent transactions, over all fraud losses.
-|How much money am I saving (loss prevention)? How much will a delay to react to an alert cost?     |      Value Detection Rate (VDR)   |  The percentage of monetary savings, assuming the current fraud transaction triggered a blocking action on subsequent transactions, over all fraud losses.  |
+|How much money am I saving (loss prevention)? How much will a delay in reacting to an alert cost?     |      Value Detection Rate (VDR)   |  The percentage of monetary savings, assuming the current fraud transaction triggers a blocking action on subsequent transactions, over all fraud losses.  |
 |How many good customers am I inconveniencing?     |   Account False Positive Ratio (AFPR)      |      The number of non-fraudulent accounts that get flagged for every real fraud detected (per day). The ratio of detected false positive accounts over detected fraudulent accounts.        |
 
 These metrics are valuable data points for a fraud manager. The manager uses them to get a more complete picture of the account risk and decide on remediation.
 
 ### Model operationalization and retraining
 
-Predictive models need to be updated periodically. Over time, and as new and different data becomes available, a predictive model needs to be re-trained. This is especially true for fraud detection models in which new patterns of criminal activity are frequent. It also becomes necessary when the telemetry from mobile application logs change because of modifications pushed out to the application gateway. To provide for re-training in this solution, every transaction submitted for analysis and the corresponding model evaluation metrics are logged. Over time, the model performance is monitored. When it appears to degrade, a re-training workflow is triggered. Several Azure services are used in the re-training workflow:
+Predictive models need to be updated periodically. Over time, and as new and different data becomes available, a predictive model needs to be retrained. This is especially true for fraud detection models in which new patterns of criminal activity are frequent. It also becomes necessary when the telemetry from mobile application logs changes because of modifications pushed out to the application gateway. To provide for retraining in this solution, every transaction submitted for analysis and the corresponding model evaluation metrics are logged. Over time, the model performance is monitored. When it appears to degrade, a retraining workflow is triggered. Several Azure services are used in the retraining workflow:
 
 - You can use [Azure Synapse Analytics](../../data-guide/relational-data/data-warehousing.yml) or Azure Data Lake to store historical customer data. You can use these services to store known fraudulent transactions uploaded from on-premises sources and data archived from the Azure Machine Learning web service, including transactions, predictions, and model evaluation metrics. The data needed for retraining is stored in this data store.
 - You can use [Data Factory](/azure/data-factory/introduction) or [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) to orchestrate the data flow and process for retraining, including: 
@@ -255,7 +255,7 @@ Predictive models need to be updated periodically. Over time, and as new and dif
 - [Key Vault](https://azure.microsoft.com/services/key-vault) encrypts cryptographic keys and other secrets used by cloud apps and services.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade service for the end-to-end machine learning lifecycle.
 - [AutoML](/azure/machine-learning/concept-automated-ml) is a process for automating the time-consuming, iterative tasks of machine learning model development.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 
 ## Technical considerations
@@ -264,20 +264,21 @@ Selecting the right technology components for a continuously operating cloud-bas
 
 ### Skill sets
 
-Consider the current technology skill sets of the teams designing, implementing, and maintaining the solution. Cloud and AI technologies expand the choices available for implementing a solution. For example, if your team has basic data science skills, Azure Machine Learning is a good choice for model creation and endpoint. The decision to use Event Hubs is another example. Event Hubs is a managed service that's easy to set up and maintain. There are technical advantages to using an alternative like Kafka, but that might require training.
+Consider the current technology skill sets of the teams designing, implementing, and maintaining the solution. Cloud and AI technologies expand the choices available for implementing a solution. For example, if your team has basic data science skills, Azure Machine Learning is a good choice for model creation and endpoint. The decision to use Event Hubs is another example. Event Hubs is a managed service that's easy to set up and maintain. There are technical advantages to using an alternative like Kafka, but doing so might require training.
 
 ### Hybrid operational environment
 
 The deployment for this solution spans an on-premises environment and the Azure environment. Services, networks, applications, and communication have to work effectively across both infrastructures to support the workload. The technology decisions include:
+
 - How are environments integrated?
 - What are the network connectivity requirements between the Azure datacenter and the on-premises infrastructure? Azure ExpressRoute is used because it provides dual lines, redundancy, and failover. Site-to-site VPN doesn't provide the security or Quality-of-Service (QoS) that's needed for the workload.
 - How do fraud detection scores integrate with back-end systems? Scoring responses should integrate with back-end fraud workflows to automate the verification of transactions with customers or other case management activities. You can use either Azure Functions or Logic Apps to integrate Azure services with on-premises systems.
 
 ### Security
 
-Hosting a solution in the cloud brings new security responsibilities. In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant. Workload responsibilities vary depending on whether the workload is a SaaS, PaaS, or IaaS service. For more information, see [Shared Responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
+Hosting a solution in the cloud brings new security responsibilities. In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant. Workload responsibilities vary depending on whether the workload is a SaaS, PaaS, or IaaS service. For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
 
-Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration. For design and deployment, we recommend that you adopt security principles that are consistent with a Zero Trust approach. Adopting principles like verify explicitly, use least privilege access, and assume breach strengthen workload security.
+Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration. For design and deployment, we recommend that you adopt security principles that are consistent with a Zero Trust approach. Adopting principles like *verify explicitly*, *use least privilege access*, and *assume breach* strengthens workload security.
 
 **Verify explicitly** is the process of examining and assessing various aspects of an access request. Here are some of the principles:
 - Use a strong identity platform like Azure Active Directory (Azure AD). 
@@ -324,9 +325,9 @@ For the bank fraud solution, security guidance that's specific to each of the so
 |  **Logging and monitoring**   |   [Monitor Event Hubs](/azure/event-hubs/monitor-event-hubs)      |  [Monitor Key Vault](/azure/key-vault/general/monitor-key-vault), [logging](/azure/key-vault/general/logging)       |  [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage)       |[Enable logging, diagnostic settings](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor#diagnostic-settings)|[Monitoring, logging, and auditing](/azure/azure-sql/database/security-best-practice#monitoring-logging-and-auditing)|[Log and monitor](/azure/azure-functions/security-concepts?tabs=v4#log-and-monitor)|
 |   **Protection and detection**  |         |         |         ||||
 |  - Azure security baseline   |    [Event Hubs](/security/benchmark/azure/baselines/event-hubs-security-baseline)     |    [Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)     |        [Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline) |[Synapse Analytics Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)|[SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline#identity-management)|[Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline)|
-| - Recommended security practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       |[Azure Synapse Analytics security white paper](/azure/synapse-analytics/guidance/security-white-paper-introduction)|[Playbook for common security Requirements](/azure/azure-sql/database/security-best-practice#network-security)|[Securing Azure Functions](/azure/azure-functions/security-concepts)|
+| - Recommended security practices    |         |[Key Vault](/azure/key-vault/general/best-practices)         |  [Azure Storage](/azure/storage/blobs/security-recommendations)       |[Azure Synapse Analytics security white paper](/azure/synapse-analytics/guidance/security-white-paper-introduction)|[Playbook for common security requirements](/azure/azure-sql/database/security-best-practice#network-security)|[Securing Azure Functions](/azure/azure-functions/security-concepts)|
 |   - Monitor security posture and configuration by using Defender for Cloud   |      Yes   |Yes         |Yes         |Yes|Yes|Yes|
-| - Advanced threat detection     | No native service. Option to forward logs to Log Analytics Workspace / Sentinel.         |   [Defender for Key Vault](/azure/defender-for-cloud/defender-for-storage-introduction)      |    [Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)    |No native service. Option to forward logs to Log Analytics Workspace/ Sentinel. |[Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql)|No native service. Option to forward logs to Log Analytics Workspace / Sentinel.|
+| - Advanced threat detection     | No native service. Option to forward logs to Log Analytics Workspace / Sentinel.         |   [Defender for Key Vault](/azure/defender-for-cloud/defender-for-storage-introduction)      |    [Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)    |No native service. Option to forward logs to Log Analytics Workspace / Sentinel. |[Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql)|No native service. Option to forward logs to Log Analytics Workspace / Sentinel.|
 
 For more information, see [Zero Trust Guidance Center](/security/zero-trust).
 
@@ -372,4 +373,4 @@ Other contributor:
 - [Compare Microsoft machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)
 - [Performance and scale guidance for Event Hubs with Azure Functions](../../serverless/event-hubs-functions/performance-scale.yml)
 - [Monitor Azure Functions and Event Hubs](../../serverless/event-hubs-functions/observability.yml)
-- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
