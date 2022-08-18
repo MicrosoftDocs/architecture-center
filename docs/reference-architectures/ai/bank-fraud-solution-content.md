@@ -4,7 +4,7 @@ In a typical case of online fraud, the thief makes multiple transactions, leadin
 
 Most mobile fraud occurs when a *SIM swap attack* is used to compromise a mobile number. The phone number is cloned and the criminal receives the SMS notifications and calls sent to the victim's mobile device. The criminal then obtains sign-in credentials by using social engineering, phishing, vishing (using a phone to phish), or an infected downloaded app. With this information, the criminal can impersonate a bank customer, register for mobile access, and immediately generate fund transfers and withdrawals.
 
-Mobile fraud is hard to detect and expensive for consumers and banks. The first challenge is that it's rare. Fewer than 1 percent of all transactions are fraudulent, so it can take time for a fraud or case management team to sift through potentially fraudulent transactions to identify the fraudulent ones. A second challenge is that many fraud monitoring solutions today rely on rule-based engines. Traditionally, rule-based engines are effective at detecting established patterns of fraud-like transactions generated from risky IP addresses or multiple transactions generated within a brief period on a new account. But rule-based engines have a significant limitation: rules don't adapt quickly to new or evolving types of attacks. They're constrained in the following ways:
+Mobile fraud is hard to detect and expensive for consumers and banks. The first challenge is that it's rare. Fewer than 1 percent of all transactions are fraudulent, so it can take time for a fraud or case management team to sift through potentially fraudulent transactions to identify the fraudulent ones. A second challenge is that many fraud monitoring solutions rely on rule-based engines. Traditionally, rule-based engines are effective at detecting established patterns of fraud-like transactions generated from risky IP addresses or multiple transactions generated within a brief period on a new account. But rule-based engines have a significant limitation: rules don't adapt quickly to new or evolving types of attacks. They're constrained in the following ways:
 
 - Detection isn't real-time, so fraud is detected after a financial loss occurs.
 - Rules are binary and limited. They don't accommodate the complexity and combinations of input variables that can be evaluated. This limitation results in high numbers of false positives.
@@ -29,19 +29,20 @@ For the solution to deliver value, there must be a clear understanding of how mo
 - How is it committed? 
 - What are the patterns in fraudulent activities and transactions?
 
-The answers to these questions led to an understanding of the types of behavior that can signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
+The answers to these questions led to an understanding of the types of behavior that can signal fraud. Data attributes were mapped to the messages, collected from the mobile application gateways, that correlated to the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
 
 The following table identifies types of compromise, data attributes that might signal fraud, and behaviors that were relevant for the bank:
 
 |  |Credential compromises*  |Device compromises  |Financial compromises  |Non-Transactional compromises|
 |---------|---------|---------|---------|---|
-|Methods used    | Phishing, vishing.        |   SIM swap, vishing, malware, jailbreaking, device emulators.      |   Use of account credentials, device and user digital identifiers (like email and physical addresses).      |Adding new users to account, increasing card or account limits, changing account details and customer profile information or password.|
+|Methods used    | Phishing, vishing.        |   SIM swap, vishing, malware, jailbreaking, device emulators.      |   Use of account credentials and device and user digital identifiers (like email and physical addresses).      |Adding new users to account, increasing card or account limits, changing account details and customer profile information or password.|
 |Data     | Email or password, credit or debit card numbers, customer-selected or one-time PINs.        |  Device ID, SIM card number, geolocation and IP.       |   Transaction amounts, transfer, withdrawal, or payment beneficiaries.      |Account details.|
 |Patterns     | New digital customer (not previously registered) with an existing card and PIN. <br><br> Failed sign-ins for users that don't exist or are unknown.<br><br>Sign-ins during time frames that are unusual for the account.<br><br> Multiple attempts to change sign-in passwords. |  Geographical irregularities (access from an unusual location).<br><br>Access from multiple devices in a short period of time.|Patterns in transactions. For example, many small transactions logged for the same account in a short time, sometimes followed by a large withdrawal. Or payments, withdrawals, or transfers made for the maximum allowable amounts.<br><br>Unusual frequency of transactions.|   Patterns in the sign-ins and sequence of activities. For example, multiple sign-ins within a short period of time, multiple attempts to change contact information, or adding devices during an unusual time frame. |
 
 *\* The most common indicator of compromise. It precedes financial and non-financial compromises.*
 
-The behavioral dimension is critical for detecting mobile fraud. Behavioral-based profiles can help establish typical behavior patterns for an account. Analytics can point to an activity that appears to be outside of the norm. These are some examples of types of behavior that were profiled: 
+The behavioral dimension is critical for detecting mobile fraud. Behavioral-based profiles can help establish typical behavior patterns for an account. Analytics can point out activity that appears to be outside of the norm. These are some examples of types of behavior that can be profiled:
+
 - How many accounts are associated with the device?
 - How many devices are associated with the account? How frequently are they dropped or added?
 - How frequently does the device or customer sign in?
@@ -58,7 +59,7 @@ The solution uses an approach based on:
 
 diagram 
 
-alt text: Diagram that shows an architecture for detecting online bank fraud.
+alt text: Diagram that shows an architecture for detecting mobile bank fraud.
 
 download link 
 
@@ -82,7 +83,7 @@ The solution integrates with the bank's on-premises environment by using an ente
 
 ### Data pipeline and automation
 
-When a criminal has access to a bank account via a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction occurs. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the lower the financial loss.
+When a criminal has access to a bank account via a mobile app, financial loss can occur in minutes. Effective detection of fraud activity must occur while the criminal is interacting with the mobile application and before a monetary transaction occurs. The time it takes to react to a fraudulent transaction directly influences how much financial loss can be prevented. The sooner the detection takes place, the less the financial loss.
 
 Less than two seconds, and ideally a lot less, is the maximum amount of time after a mobile banking activity is forwarded for processing that it needs to be assessed for fraud. This is what needs to happen during those two seconds:
 
@@ -130,7 +131,7 @@ Each application gateway produces telemetry from a user's interaction, capturing
 
 A Spark pool is used as part of the cold path to process historical JSON files, and to deserialize, flatten, and extract device and transaction attributes. Each JSON file is validated and parsed, and the transaction attributes are extracted and persisted onto a data lake and partitioned based on the date of the transaction.  
 
-These attributes are used later to create features for the fraud classifier. The power of this solution relies on JSON data's capability to be standardized, joined, and aggregated with historical data to create behavior profiles.
+These attributes are used later to create features for the fraud classifier. The power of this solution relies on the ability of JSON data to be standardized, joined, and aggregated with historical data to create behavior profiles.
 
 ### Near real-time data processing and featurization with SQL Database
 
@@ -152,13 +153,13 @@ This approach also provides these benefits:
 
 The automation of schema management is another challenge that needed to be resolved for this solution. JSON is a flexible and portable file format, partly because a schema isn't stored with the data. When JSON files need to be parsed, deserialized, and processed, a schema that represents the structure of the JSON must be coded somewhere to validate the data properties and data types. If the schema isn't synchronized with the incoming JSON message, the JSON validation fails and data isn't extracted.
 
-The challenge comes when the structure of JSON messages changes because of new application functionality. In its original solution, the bank that this solution is based on deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out of sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
+The challenge comes when the structure of JSON messages changes because of new application functionality. In its original solution, the bank for which this solution was created deployed multiple application gateways, each with their own UI, functionality, telemetry, and JSON message structure. When the schema was out of sync with the incoming JSON data, the inconsistencies created data loss and processing delays for fraud detection.
 
 The bank didn't have a formal schema defined for these events, and the constant fluctuations in the structure of the JSON files created technical debt at each iteration of the solution. This solution resolves that problem by establishing a schema for these events and using Azure Schema Registry. [Azure Schema Registry](/azure/event-hubs/schema-registry-overview) provides a central repository of schemas for events and flexibility for producers and consumer applications to exchange data without needing to manage and share the schema. The simple governance framework it introduces for reusable schemas and the relationship it defines between schemas through the grouping constructs (schema groups) can eliminate significant technical debt, enforce conformance, and provide backward compatibility across changing schemas.
 
 ### Feature engineering for machine learning
 
-Features are a way to profile account behavior by aggregating activity over different time scales. They're created from data in the application logs that represents transactional, non-transactional, and device behavior. Transactional behavior includes monetary transaction activities like payments and withdrawals. Non-transactional behavior includes user actions like sign-in attempts and password changes. Device behavior includes activities that involve a mobile device, like adding or removing a device. Features are used to represent current and past account behavior, including:
+*Features* provide a way to profile account behavior by aggregating activity over different time scales. They're created from data in the application logs that represents transactional, non-transactional, and device behavior. Transactional behavior includes monetary transaction activities like payments and withdrawals. Non-transactional behavior includes user actions like sign-in attempts and password changes. Device behavior includes activities that involve a mobile device, like adding or removing a device. Features are used to represent current and past account behavior, including:
 
 - New user registration attempts from a specific device.
 - Successful and unsuccessful sign-in attempts.
@@ -210,7 +211,7 @@ In the code:
 1. Create a variable for the column you want to predict.
 1. Start creating the AutoML parameters.
 1. Configure `AutoMLConfig`.
-   1. `task` is the type of machine learning you want to do, `classification` or `regression`. In this case, use `classification`.
+   1. `task` is the type of machine learning you want to do: `classification` or `regression`. In this case, use `classification`.
    1. `debug_log` is the location where debug information is written.
    1. `training_data` is the dataframe or tabular object the training data is loaded into.
    1. `label_column_name` is the column you want to predict.
@@ -229,7 +230,7 @@ In this solution, account-level metrics are created and factored into the decisi
 
 |Fraud manager concern|Metric  |Description  |
 |---------|---------|---------|
-|Am I detecting fraud?     |    Fraud Account Detection Rate (ADR)     |   The percentage of detected fraud accounts in all fraud accounts.      |The percentage of monetary savings, assuming the current fraud transaction triggers a blocking action on subsequent transactions, over all fraud losses.
+|Am I detecting fraud?     |    Fraud Account Detection Rate (ADR)     |   The percentage of detected fraud accounts in all fraud accounts.      |
 |How much money am I saving (loss prevention)? How much will a delay in reacting to an alert cost?     |      Value Detection Rate (VDR)   |  The percentage of monetary savings, assuming the current fraud transaction triggers a blocking action on subsequent transactions, over all fraud losses.  |
 |How many good customers am I inconveniencing?     |   Account False Positive Ratio (AFPR)      |      The number of non-fraudulent accounts that get flagged for every real fraud detected (per day). The ratio of detected false positive accounts over detected fraudulent accounts.        |
 
