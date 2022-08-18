@@ -1,4 +1,4 @@
-This reference architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
+This architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
@@ -7,7 +7,7 @@ This reference architecture provides guidance for designing a mission critical w
 
 Reliability is a relative concept and for a workload to be appropriately reliable it should reflect the business requirements surrounding it, including Service Level Objectives (SLO) and Service Level Agreements (SLA) to capture the percentage of time the application should be available.
 
-This reference architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
+This architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
@@ -16,7 +16,7 @@ This reference architecture targets an SLO of 99.99%, which corresponds to a per
 
 ## Key design strategies
 
-Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This reference architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
+Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
 
 - **Redundancy in layers**
     - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
@@ -190,7 +190,7 @@ The description of this flow is in the following sections.
 
 ### Website request flow
 
-1. A request for the web user interface is sent to a global load balancer. For this reference architecture, the global load balancer is Azure Front Door.
+1. A request for the web user interface is sent to a global load balancer. For this architecture, the global load balancer is Azure Front Door.
 
 2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requester if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
 
@@ -232,7 +232,7 @@ We suggest that you explore these design areas for recommendations and best prac
 |[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
 
-** Indicates design area considerations that are specific to this reference architecture.
+** Indicates design area considerations that are specific to this architecture.
 
 ## Related resources
 
@@ -265,5 +265,3 @@ If you want to extend the baseline architecture with network controls on ingress
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
-
-
