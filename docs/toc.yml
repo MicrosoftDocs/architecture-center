@@ -330,12 +330,15 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
                 - name: Application design
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
+                - name: Networking and connectivity platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+                - name: Data platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md                                    
                 - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
-                - name: Networking and connectivity platform
-                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+
             - name: Guides
               items:
                 - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio

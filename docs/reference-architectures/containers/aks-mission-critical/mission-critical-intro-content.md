@@ -58,6 +58,7 @@ The components of this architecture can be broadly categorized in this manner. F
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
 
+Here are the high-level considerations about the components. For detailed information about the decisions, see [**Global resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#global-resources).
 
 #### Global load balancer
 
@@ -69,7 +70,6 @@ Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. H
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-
 #### Database
 
 All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
@@ -78,6 +78,8 @@ All state related to the workload is stored in an external database, **Azure Cos
 > While a multi-region-write configuration represents the gold standard for reliability, there is a significant trade-off on cost, which should be properly considered.
 
 The account is replicated to each regional stamp and also has zonal redundancy enabled. Also, autoscaling is enabled at the container-level so that containers automatically scale the provisioned throughput as needed.
+
+For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -97,6 +99,8 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
 
 ![Diagram that shows the regional resources.](./images/mission-critical-stamp.png)
+
+Here are the high-level considerations about the components. For detailed information about the decisions, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
 #### Frontend
 
@@ -126,6 +130,8 @@ The entire stamp is stateless except for at certain points, such as this message
 In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
 For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and deduplication capabilities.
+
+For more information, see [Messaging services for mission-critical workloads](./mission-critical-data-platform.md#messaging-services).
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
@@ -223,12 +229,12 @@ We suggest that you explore these design areas for recommendations and best prac
 
 |Design area|Description|
 |---|---|
-|[Application design](/azure/architecture/framework/mission-critical/mission-critical-application-design)|Design patterns that allow for scaling, and error handling.|
-|**[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
-|[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
-|**[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
-|[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
-|[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
+|[Application design](mission-critical-app-design.md)|Design patterns that allow for scaling, and error handling.|
+|[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
+|[Data platform](mission-critical-data-platform.md)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
+|[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
+|[Health modeling](mission-critical-health-modeling.md)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
+|[Deployment and testing](mission-critical-deploy-test.md)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
 |[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
 

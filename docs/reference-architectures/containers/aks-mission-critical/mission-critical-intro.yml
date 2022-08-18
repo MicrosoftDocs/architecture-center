@@ -4,7 +4,7 @@ metadata:
   description: Reference architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.
   author: calcof
   ms.author: prwilk
-  ms.date: 08/10/2022
+  ms.date: 08/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
