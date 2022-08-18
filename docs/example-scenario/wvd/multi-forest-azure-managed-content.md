@@ -50,7 +50,7 @@ Principal author:
 
 ## Next steps
 
-- [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml)
+- [Multiple Active Directory forests architecture with Azure Virtual Desktop](./multi-forest.yml)
 - [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies)
 - [Compare different identity options](/azure/active-directory-domain-services/compare-identity-solutions)
