@@ -32,7 +32,7 @@ A gateway also lets you abstract backend services from the clients, allowing you
 
 Part of the promise of the cloud is elasticity. Services can be spun up to meet increasing demand or spun down when demand is low to save money. The complexity of registering and unregistering service instances is encapsulated in the gateway. The client is unaware of an increase or decrease in the number of services.
 
-Service instances can be deployed in a single or multiple regions. The [Geode pattern](https://docs.microsoft.com/azure/architecture/patterns/geodes) details how a multi-region, active-active deployment can improve latency and increase availability of a service.
+Service instances can be deployed in a single or multiple regions. The [Geode pattern](./geodes.yml) details how a multi-region, active-active deployment can improve latency and increase availability of a service.
 
 ### Multiple versions of the same service
 
