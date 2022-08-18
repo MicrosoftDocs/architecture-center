@@ -57,11 +57,9 @@ The solution uses an approach based on:
 
 ## High-level architecture
 
-diagram 
+:::image type="content" source="_images/bank-fraud-solution-high-level.png" alt-text="Diagram that shows an architecture for detecting mobile bank fraud." lightbox="_images/bank-fraud-solution-high-level.png" border="false":::
 
-alt text: Diagram that shows an architecture for detecting mobile bank fraud.
-
-download link 
+*Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -102,11 +100,9 @@ Telemetry events from the bank's mobile and internet application gateways are fo
 
 The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure:
 
-image 
+:::image type="content" source="_images/event-processing.png" alt-text="Diagram that shows the event-processing infrastructure." lightbox="_images/event-processing.png" border="false":::
 
-link? 
-
-Alt text: Diagram that shows the event-processing infrastructure.
+*Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
 #### Dataflow
 
@@ -308,12 +304,11 @@ Here are some guidelines to consider:
 
 Networking is one of the most important security factors. By default, Azure Synapse workspace endpoints are public endpoints. This means that they can be accessed from any public network, so we strongly recommend that you disable public access to the workspace. Consider deploying Azure Synapse with the Managed Virtual Network feature enabled to add a layer of isolation between your workspace and other Azure services.  For more information about Managed Virtual Network and other security factors, see [Azure Synapse Analytics security white paper: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security).
 
-image 
+:::image type="content" source="_images/bank-fraud-solution-network.png" alt-text="Diagram that shows the networking considerations for the solution." lightbox="_images/bank-fraud-solution-network.png" border="false":::
 
-alt text Network considerations
+*Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
 Security guidance that's specific to each solution component in the bank solution is included in the following table. For a good starting point, review [Azure Security Benchmark](/security/benchmark/azure/introduction), which includes security baselines for each of the individual Azure services. The security baseline recommendations can help you select the security configuration settings for each service.
-
 
 |  |Event Hubs clusters  |Key Vault  |Azure Data Lake Storage Gen2  |Azure Synapse Analytics workspace: Spark pools |Azure SQL|Azure Functions|
 |---------|---------|---------|---------|---|---|---|
