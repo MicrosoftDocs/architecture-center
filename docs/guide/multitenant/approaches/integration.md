@@ -73,7 +73,7 @@ For real-time integrations, you might measure volume as the number of transactio
 
 ### Data formats
 
-Consider the following formats:
+When data is exchanged between two parties, it's important they both have a clear understanding of how the data will be formatted and structured. Consider the following parts of the data format:
 
 - The file format, such as JSON, Parquet, CSV, or XML.
 - The schema, such as the list of fields that will be included, date formats, and nullability of fields.
