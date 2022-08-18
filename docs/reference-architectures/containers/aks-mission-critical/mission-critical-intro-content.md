@@ -36,7 +36,7 @@ Many factors can affect the reliability of an application, such as the ability t
     
 - **Reliable and repeatable deployments**    
     
-    - Apply the _principle of Infrastructure as code (IaC)_ using technologies such as Terraform to provide version control and a standardized operational approach for infrastructure components.
+    - Apply the _principle of Infrastructure as code (IaC)_ using technologies, such as Terraform, to provide version control and a standardized operational approach for infrastructure components.
 
     - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
 
