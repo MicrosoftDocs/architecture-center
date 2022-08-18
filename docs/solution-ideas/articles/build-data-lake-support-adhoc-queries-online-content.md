@@ -10,7 +10,7 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users.":::
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
 
 ## Potential use cases
 
@@ -38,7 +38,9 @@ Raw documents are not necessarily required.
 
 ## Architecture
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
 
 Leisure and travel booking scenarios can generate large amounts of raw documents
 at a high frequency. However, you may not need to index the entire contents of

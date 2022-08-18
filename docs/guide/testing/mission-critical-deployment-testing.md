@@ -1,5 +1,5 @@
 ---
-title: Continuous Validation with Azure Load Testing and Azure Chaos Studio
+title: Continuous validation with Azure Load Testing and Azure Chaos Studio
 description: Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.
 author: heoelri
 ms.author: msimecek
@@ -13,7 +13,7 @@ products:
 - chaos-studio
 - load-testing
 ---
-# Continuous Validation with Azure Load Testing and Azure Chaos Studio
+# Continuous validation with Azure Load Testing and Azure Chaos Studio
 
 As cloud-native applications and services get more complex, your deployment will need to keep up when rolling out changes and new releases. Outages are often caused by failed deployments or erroneous releases. However, errors can also occur after the deployment when traffic starts to hit an application, especially for complex applications in highly distributed, multi-tenanted cloud environments, and with multiple development teams involved. These environments have higher need for resiliency measures, such as retry logic and autoscaling, which are usually to test during the development process.
 
