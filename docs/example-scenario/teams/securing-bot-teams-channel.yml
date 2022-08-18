@@ -18,6 +18,6 @@ products:
   - azure-web-application-firewall
 name: Help secure your Microsoft Teams channel bot and web app behind a firewall
 summary: Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.
-thumbnailUrl: /azure/architecture/browse/thumbs/securing-bot-image-001-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/Securing-bot-image-001-thumbnail.png
 content: |
   [!include[](securing-bot-teams-channel-content.md)]
