@@ -52,7 +52,7 @@ This architecture uses Azure Cosmos DB with SQL API. This option is chosen becau
 
 - **Multi-region write**
 
-  Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation leverages multi-master technology to provide maximum resiliency and availability.
+  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation leverages multi-master technology to provide maximum resiliency and availability.
 
   Zone redundancy is also enabled within each replicated region.
 
