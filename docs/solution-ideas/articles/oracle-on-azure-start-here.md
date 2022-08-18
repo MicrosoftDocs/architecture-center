@@ -1,17 +1,17 @@
 ---
 title: Oracle on Azure architecture design
 titleSuffix: Azure Architecture Center
-description: [Description]
+description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
 author: EdPrice-MSFT
 ms.author: architectures
-ms.date: [Date]
+ms.date: 08/19/22
 ms.topic: conceptual 
 ms.service: architecture-center
 ms.subservice: azure-guide
 categories:
   - databases
 products:
-  - <Choose 1-5 products from the list at https://review.docs.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
+  - azure
   - azure-virtual-machines
 ---
 
@@ -19,7 +19,7 @@ products:
 
 Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. Microsoft and Oracle’s cloud interoperability enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure. You can deploy Oracle applications on Azure with their back-end databases in Azure or on Oracle Cloud Infrastructure (OCI).
 
-Azure provides a wide range of service to support Oracle on Azure. Following are some of the key services: 
+Azure provides a wide range of services to support Oracle on Azure. Following are some of the key services: 
 
 - [Accelerate your cloud adoption with Microsoft and Oracle](https://azure.microsoft.com/solutions/oracle/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
@@ -58,12 +58,9 @@ Oracle on Azure can support SAP workloads, as described in the following Learn m
 - [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 - [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 
-
-
 ## Best practices
 
 - [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci)
-
 
 ## Oracle on Azure architectures
 
