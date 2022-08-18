@@ -33,7 +33,9 @@ This solution is ideal for the automotive and transportation industries. Typical
 
 ## Architecture
 
-![A picture containing graphical user interface](images/building-blocks-autonomous-driving-simulation-environments.png)
+:::image type="content" border="false" source="images/building-blocks-autonomous-driving-simulation-environments.png" alt-text="Diagram showing building blocks for autonomous-driving simulation environments." lightbox="images/building-blocks-autonomous-driving-simulation-environments.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/building-blocks-autonomous-driving-simulation.vsdx) of this architecture.*
 
 ### User input layer
 
