@@ -246,7 +246,7 @@ Predictive models need to be updated periodically. Over time, and as new and dif
   -  The JSON deserialization process.
   - Data pre-processing logic.  
 
-  For a detailed information, see [Retraining and Updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory).
+  For a detailed information, see [Retraining and updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory).
 - You can use blue-green deployments in Azure Machine Learning. For information about deploying a new model with minimal downtime, see [Safe rollout for online endpoints](/azure/machine-learning/how-to-safely-rollout-managed-endpoints).
 
 ## Components
@@ -261,7 +261,7 @@ Predictive models need to be updated periodically. Over time, and as new and dif
 
 ## Technical considerations
 
-Selecting the right technology components for a continuously operating cloud-based infrastructure for fraud detection depends on understanding current, and sometimes vague, requirements. The technology choices for this solution are based on considerations that might help you make similar decisions.
+To select the right technology components for a continuously operating cloud-based infrastructure for fraud detection, you need to understand current, and sometimes vague, requirements. The technology choices for this solution are based on considerations that might help you make similar decisions.
 
 ### Skill sets
 
@@ -271,13 +271,13 @@ Consider the current technology skill sets of the teams designing, implementing,
 
 The deployment for this solution spans an on-premises environment and the Azure environment. Services, networks, applications, and communication have to work effectively across both infrastructures to support the workload. The technology decisions include:
 
-- How are environments integrated?
+- How are the environments integrated?
 - What are the network connectivity requirements between the Azure datacenter and the on-premises infrastructure? Azure ExpressRoute is used because it provides dual lines, redundancy, and failover. Site-to-site VPN doesn't provide the security or Quality-of-Service (QoS) that's needed for the workload.
 - How do fraud detection scores integrate with back-end systems? Scoring responses should integrate with back-end fraud workflows to automate the verification of transactions with customers or other case management activities. You can use either Azure Functions or Logic Apps to integrate Azure services with on-premises systems.
 
 ### Security
 
-Hosting a solution in the cloud brings new security responsibilities. In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant. Workload responsibilities vary depending on whether the workload is a SaaS, PaaS, or IaaS service. For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
+Hosting a solution in the cloud creates new security responsibilities. In the cloud, security is a shared responsibility between a cloud vendor and a customer tenant. Workload responsibilities vary depending on whether the workload is a SaaS, PaaS, or IaaS service. For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).  
 
 Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) approach or working to apply regulatory compliance requirements, securing a solution end-to-end requires careful planning and consideration. For design and deployment, we recommend that you adopt security principles that are consistent with a Zero Trust approach. Adopting principles like *verify explicitly*, *use least privilege access*, and *assume breach* strengthens workload security.
 
@@ -295,16 +295,16 @@ Whether you're moving toward a [Zero Trust](https://www.microsoft.com/security/b
  
 **Assume breach** is a strategy for guiding design and deployment decisions. The strategy is to assume that a solution has been compromised. It's an approach to build resilience into a workload by planning for detection of, response to, and remediation of a security threat. For design and deployment decisions, it implies that:
 
-- Workload components are isolated and segmented so that a compromise of one component minimizes impact to upstream or downstream components. 
+- Workload components are isolated and segmented so that a compromise of one component minimizes impact to upstream or downstream components.
 - Telemetry is captured and analyzed proactively to identify anomalies and potential threats.
-- Automation is in place to detect, respond, and remediate a threat.  
+- Automation is in place to detect, respond to, and remediate a threat.  
 
 Here are some guidelines to consider:
 
 - Encrypt data at rest and in transit.
 - Enable auditing for services.
 - Capture and centralize audit logs and telemetry into a single log workspace to facilitate analysis and correlation. 
-- Enable [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to scan for potentially vulnerable configurations and provide early warning to potential security problems.
+- Enable [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to scan for potentially vulnerable configurations and provide early warning of potential security problems.
 
 Networking is one of the most important security factors. By default, Azure Synapse workspace endpoints are public endpoints. This means that they can be accessed from any public network, so we strongly recommend that you disable public access to the workspace. Consider deploying Azure Synapse with the Managed Virtual Network feature enabled to add a layer of isolation between your workspace and other Azure services.  For more information about Managed Virtual Network and other security factors, see [Azure Synapse Analytics security white paper: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security).
 
@@ -312,7 +312,7 @@ image
 
 alt text Network considerations
 
-For the bank fraud solution, security guidance that's specific to each of the solution components is included in following table. For a good starting point, review the [Azure Security Benchmark](/security/benchmark/azure/introduction), which includes security baselines for each of the individual Azure services. The security baseline recommendations can help you select the security configuration settings for each service.
+Security guidance that's specific to each solution component in the bank solution is included in the following table. For a good starting point, review [Azure Security Benchmark](/security/benchmark/azure/introduction), which includes security baselines for each of the individual Azure services. The security baseline recommendations can help you select the security configuration settings for each service.
 
 
 |  |Event Hubs clusters  |Key Vault  |Azure Data Lake Storage Gen2  |Azure Synapse Analytics workspace: Spark pools |Azure SQL|Azure Functions|
@@ -336,9 +336,9 @@ For more information, see [Zero Trust Guidance Center](/security/zero-trust).
 
 The solution needs to perform end-to-end through peak times. A streaming workflow for handling millions of continuously arriving events demands high throughput. Plan to build a test system that simulates the volume and concurrency to ensure the technology components are configured and tuned to meet required latencies. Scalability testing is especially important for these components: 
 
-- Data ingestion to handle concurrent data streams. In this architecture, Event Hubs is used because multiple instances of it can be deployed and assigned to different consumer groups. A scale-out approach is a better option because scaling up can cause locking. In the real-world scenario, the scale-out approach also was a better fit with plans to expand fraud detection from mobile banking to include the internet banking channel.
+- Data ingestion to handle concurrent data streams. In this architecture, Event Hubs is used because multiple instances of it can be deployed and assigned to different consumer groups. A scale-out approach is a better option because scaling up can cause locking. A scale-out approach is also a better fit if you plan to expand fraud detection from mobile banking to include an internet banking channel.
 - A framework to manage and schedule the process flow. Azure Functions is used to orchestrate the workflow. For improved throughput, messages are batched in micro batches and processed through a single Azure function rather than processing one message per function call.
-- A low-latency data process to handle parsing, pre-processing, aggregations, and storage. In the real-world solution, the capabilities of in-memory optimized SQL functions meet the scalability and concurrency requirements.
+- A low-latency data process to handle parsing, pre-processing, aggregations, and storage. In the real-world solution that this article is based on, the capabilities of in-memory optimized SQL functions meet scalability and concurrency requirements.
 - Model scoring to handle concurrent requests. With Azure Machine Learning web services, you have two options for scaling: 
   - Select a production web tier to support the API concurrency workload.
   - Add multiple endpoints to a web service if you need to support more than 200 concurrent requests.
