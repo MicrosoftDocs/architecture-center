@@ -140,8 +140,8 @@ The messaging system must be able to handle the required throughput (as in MB pe
 - The non-functional requirements (NFRs) of the system should specify the average message size and the peak number of messages/second each stamp must support. This can be used to calculate the required peak MB/second per stamp.
 - The impact of a failover must be considered when calculating the required peak MB/second per stamp.
 - For Azure Service Bus, the NFRs should specify any advanced Service Bus features such as sessions and de-duping messages. These features will affect the throughput of Service Bus.
-- The throughput of Service Bus with the required features should be calculated through testing as MB/second per Messaging Unit (MU). For more information about this topic, see [Service Bus premium and standard messaging tiers](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging).
-- The throughput of Azure Event Hubs should be calculated through testing as MB/second per throughput unit (TU) for the standard tier or processing unit (PU) for premium tier. For more information about this topic, see [Scaling with Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability).
+- The throughput of Service Bus with the required features should be calculated through testing as MB/second per Messaging Unit (MU). For more information about this topic, see [Service Bus premium and standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
+- The throughput of Azure Event Hubs should be calculated through testing as MB/second per throughput unit (TU) for the standard tier or processing unit (PU) for premium tier. For more information about this topic, see [Scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability).
 - The above calculations can be used to validate that the messaging service can handle the required load per stamp, and the required number of scale units required to meet that load.
 - The operations section will discuss auto-scaling.
 
@@ -150,7 +150,7 @@ The messaging system must be able to handle the required throughput (as in MB pe
 Azure Service Bus premium tier is the recommended solution for high-value messages for which processing must be guaranteed. The following are details regarding this requirement when using Azure Service Bus premium:
 
 - To ensure that messages are properly transferred to and accepted by the broker, message producers should use one of the supported Service Bus API clients. Supported APIs will only return successfully from a send operation if the message was persisted on the queue/topic.
-- To ensure messages on the bus are processed, you should use [PeekLock receive mode](https://docs.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following outlines the process:
+- To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following outlines the process:
   - The message consumer receives the message to process.
   - The consumer is given an exclusive lock on the message for a given time duration.
   - If the consumer successfully processes the message, it sends an acknowledgement back to the broker, and the message is removed from the queue.
@@ -166,7 +166,7 @@ The message broker must be available for producers to send messages and consumer
 
 - To ensure the highest availability with Service Bus, use the premium tier, which has support for availability zones in supporting regions. With availability zones, messages and metadata are replicated across three disparate data centers in the same region.
 - Use supported Service Bus or Event Hubs SDKs to automatically retry read or write failures.
-- Consider [active-active replication](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-federation-overview#all-active-replication) or [active-passive replication](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-federation-overview#active-passive-replication) patterns to insulate against regional disasters.
+- Consider [active-active replication](/azure/service-bus-messaging/service-bus-federation-overview#all-active-replication) or [active-passive replication](/azure/service-bus-messaging/service-bus-federation-overview#active-passive-replication) patterns to insulate against regional disasters.
 
 > [!NOTE]
 > Azure Service Bus Geo-disaster recovery only replicates metadata across regions. This feature does not replicate messages.
@@ -180,10 +180,10 @@ The messaging system acts as a buffer between message producers and consumers. T
   - For Service Bus, queue depth is exposed as message count
   - For Event Hubs, the consumers have to calculate queue depth per partition and push the metric to your monitoring software. For each read, the consumer gets the sequence number of the current event, and the event properties of the last enqueued event. The consumer can calculate the offset.
 - **Dead-letter queue** - Messages in the dead-letter queue represent messages that couldn't be processed. These messages usually require manual intervention. Alerts should be set on the dead-letter queue.
-  - Service Bus has a [dead-letter queue](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues) and a DeadLetteredMessages metric.
+  - Service Bus has a [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) and a DeadLetteredMessages metric.
   - For Event Hubs, this functionality must be custom logic built into the consumer.
 - **CPU/Memory usage** - CPU and memory should be monitored to ensure the messaging system has enough resources to process the current load. Both Service Bus premium and Event Hubs premium expose CPU and memory Usage.
-  - Messaging units (MUs) are used in Service Bus to isolate resources such as CPU and memory for a namespace. CPU and memory rising above a threshold can indicate that there aren't enough MUs configured, while falling below other thresholds can indicate that there are too many MUs configured. These indicators can be used to [auto-scale MUs](https://docs.microsoft.com/azure/service-bus-messaging/automate-update-messaging-units).
+  - Messaging units (MUs) are used in Service Bus to isolate resources such as CPU and memory for a namespace. CPU and memory rising above a threshold can indicate that there aren't enough MUs configured, while falling below other thresholds can indicate that there are too many MUs configured. These indicators can be used to [auto-scale MUs](/azure/service-bus-messaging/automate-update-messaging-units).
   - Event Hubs premium tier uses processing units (PUs) to isolate resources, while standard tier uses throughput units (TUs). Neither tier requires interaction with CPU/Memory to auto-inflate PUs or TUs.
 
 ### Health check
