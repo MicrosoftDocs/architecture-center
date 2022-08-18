@@ -1,10 +1,10 @@
 ---
 title: Data platform for mission-critical workloads on Azure
-description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Networking.
-author: esbran
+description: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
+author: msimecek
 categories: database
 ms.author: csiemens
-ms.date: 08/01/2022
+ms.date: 08/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -12,7 +12,7 @@ ms.category:
   - database
 azureCategories:
   - database  
-summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+summary: Data decisions for the baseline reference architecture for a mission-critical workload on Azure.
 products:
   - azure-cosmosdb
   - azure-event-hubs
@@ -26,10 +26,10 @@ In a mission-critical architecture, any state must be stored outside the compute
 |---|---|
 |Performance|How much compute is required?|
 |Latency|What impact will the distance between the user and the data store have on latency? What is the desired level of consistency with tradeoff on latency?|
-|Responsiveness|Is the data store required to be available at all times?|
-|Scalability|What's the partioning scheme?|
+|Responsiveness|Is the data store required to be always available?|
+|Scalability|What's the partitioning scheme?|
 |Durability|Is the data expected to long lasting? What is the retention policy? |
-|Resiliency|In case of a failure, is the data store able to failover automatically? What measures are in place to reduce the failover time? |
+|Resiliency|In case of a failure, is the data store able to fail over automatically? What measures are in place to reduce the failover time? |
 |Security|Is the data encrypted? Can the datastore be reached over public network?|
 
 In this architecture, there are two data stores:
@@ -38,7 +38,7 @@ In this architecture, there are two data stores:
 
   Stores related to the workload.  It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, synchronizing data across regions should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
-  Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read and write requests.
+  Data replication in an active-active configuration is highly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read and write requests.
 
 - **Message broker**
 
@@ -52,7 +52,7 @@ This architecture uses Azure Cosmos DB with SQL API. This option is chosen becau
 
 - **Multi-region write**
 
-  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation leverages multi-master technology to provide maximum resiliency and availability.
+  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation uses multi-master technology to provide maximum resiliency and availability.
 
   Zone redundancy is also enabled within each replicated region.
 
@@ -71,7 +71,7 @@ This architecture uses Azure Cosmos DB with SQL API. This option is chosen becau
   It's recommended that you use the native backup feature of Cosmos DB for data protection. [Cosmos DB's backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
 > [!NOTE]
-> Most workloads aren't purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Cosmos DB supports this capability via [Azure Synapse Link for Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/synapse-link-use-cases).
+> Most workloads aren't purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Cosmos DB supports this capability via [Azure Synapse Link for Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
 
 ### Data model for the workload
 
@@ -80,10 +80,10 @@ Data model should be designed such that features offered by traditional relation
 The workload has these **data access characteristics**:
 
 - Read pattern:
-  - Point reads - Fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
+  - Point reads - Fetching a single record. Item ID and partition key is directly used for maximum optimization (1 RU per request).
   - List reads - Getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
 - Write pattern:
-  - Small writes - Requests usually insert a single or a very small number of records in a transaction.
+  - Small writes - Requests usually insert a single or a small number of records in a transaction.
 - Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
 - Small payload or dataset size - usually in order of KB.
 - Low response time (in order of milliseconds).
@@ -98,9 +98,9 @@ Cosmos DB is configured as follows:
   > [!NOTE] 
   > The _Session_ consistency level offers a reasonable tradeoff for latency, availability and consistency guarantees for this specific application. It's important to understand that _Strong_ consistency level isn't available for multi-master write databases.
 
-- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling virtually infinite scale.
+- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern, which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling infinite scale.
 
-- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes properties used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
+- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes the properties that are used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
 
 Here's an example from the implementation that shows indexing policy settings using Terraform:
 
@@ -137,7 +137,7 @@ The following are design considerations and recommendations for Azure Service Bu
 
 The messaging system must be able to handle the required throughput (as in MB per second). Consider the following:
 
-- The non-functional requirements (NFRs) of the system should specify the average message size and the peak number of messages/second each stamp must support. This can be used to calculate the required peak MB/second per stamp.
+- The non-functional requirements (NFRs) of the system should specify the average message size and the peak number of messages/second each stamp must support. This information can be used to calculate the required peak MB/second per stamp.
 - The impact of a failover must be considered when calculating the required peak MB/second per stamp.
 - For Azure Service Bus, the NFRs should specify any advanced Service Bus features such as sessions and de-duping messages. These features will affect the throughput of Service Bus.
 - The throughput of Service Bus with the required features should be calculated through testing as MB/second per Messaging Unit (MU). For more information about this topic, see [Service Bus premium and standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
@@ -153,8 +153,8 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
 - To ensure messages on the bus are processed, you should use [PeekLock receive mode](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock). This mode enables at-least once processing. The following outlines the process:
   - The message consumer receives the message to process.
   - The consumer is given an exclusive lock on the message for a given time duration.
-  - If the consumer successfully processes the message, it sends an acknowledgement back to the broker, and the message is removed from the queue.
-  - If an acknowledgement isn't received by the broker in the allotted time period, or the handler explicitly abandons the message, the exclusive lock is released. The message is then available for other consumers to process the message.
+  - If the consumer successfully processes the message, it sends an acknowledgment back to the broker, and the message is removed from the queue.
+  - If an acknowledgment isn't received by the broker in the allotted time period, or the handler explicitly abandons the message, the exclusive lock is released. The message is then available for other consumers to process the message.
   - If a message is not successfully processed a configurable number of times, or the handler forwards the message to the dead-letter queue.
 - Because messages can potentially be processed more than one time, message handlers should be made idempotent.
 - To ensure that messages sent to the dead-letter queue are acted upon, the dead-letter queue should be monitored, and alerts should be set.
@@ -184,11 +184,11 @@ The messaging system acts as a buffer between message producers and consumers. T
   - For Event Hubs, this functionality must be custom logic built into the consumer.
 - **CPU/Memory usage** - CPU and memory should be monitored to ensure the messaging system has enough resources to process the current load. Both Service Bus premium and Event Hubs premium expose CPU and memory Usage.
   - Messaging units (MUs) are used in Service Bus to isolate resources such as CPU and memory for a namespace. CPU and memory rising above a threshold can indicate that there aren't enough MUs configured, while falling below other thresholds can indicate that there are too many MUs configured. These indicators can be used to [auto-scale MUs](/azure/service-bus-messaging/automate-update-messaging-units).
-  - Event Hubs premium tier uses processing units (PUs) to isolate resources, while standard tier uses throughput units (TUs). Neither tier requires interaction with CPU/Memory to auto-inflate PUs or TUs.
+  - Event Hubs premium tier uses processing units (PUs) to isolate resources, while standard tier uses throughput units (TUs). Those tiers don't requires interaction with CPU/Memory to auto-inflate PUs or TUs.
 
 ### Health check
 
-The health of the messaging system must be considered in the health checks for a mission critical application. Consider the following:
+The health of the messaging system must be considered in the health checks for a mission critical application. Consider the following factors:
 
 - The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker.
 - The health check should ensure that messages can be sent to the message system.

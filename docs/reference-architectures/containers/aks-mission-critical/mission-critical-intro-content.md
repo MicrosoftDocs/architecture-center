@@ -223,7 +223,7 @@ We suggest that you explore these design areas for recommendations and best prac
 
 |Design area|Description|
 |---|---|
-|[Application design](mission-critical-app-design)|Design patterns that allow for scaling, and error handling.|
+|[Application design](mission-critical-app-design.md)|Design patterns that allow for scaling, and error handling.|
 |[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
 |[Data platform](mission-critical-data-platform.md)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
 |[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
