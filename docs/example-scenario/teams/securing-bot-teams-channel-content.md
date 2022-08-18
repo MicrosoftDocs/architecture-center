@@ -4,7 +4,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 :::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.png" lightbox="media/securing-bot-image-001.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/securing-bot-image-001.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Securing-bot-image-001.vsdx) of this architecture.*
 
 ### Dataflow
 
