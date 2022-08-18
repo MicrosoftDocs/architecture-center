@@ -100,7 +100,7 @@ Telemetry events from the bank's mobile and internet application gateways are fo
 
 The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure:
 
-:::image type="content" source="_images/event-processing.png" alt-text="Diagram that shows the event-processing infrastructure." lightbox="_images/event-processing.png" border="false":::
+:::image type="content" source="_images/event-processing.png" alt-text="Diagram that shows the event-processing infrastructure."  border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
