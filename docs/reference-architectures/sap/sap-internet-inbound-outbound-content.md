@@ -4,14 +4,14 @@ This reference architecture shows a set of proven practices how to securely enab
 
 ## Architecture
 
-This reference architecture describes a common production environment. The configuration described and shown can also be reduced in size and scope, depending on business requirements. A reduction applies to both SAP landscape - fewer VMs, no high-availability, embedded SAP Web Dispatchers instead of discrete VMs - as well as alternatives on network side, described later in this document.
-
-Particularly in the network space different customer requirements, driven by business or company policy, will require adaptation of the architecture. Where possible, alternatives have been listed below and many solutions are viable. Choose the right approach for your business while securing your Azure resources, yet providing a performant solution to your user base.
-
 [![Reference architecture for Internet facing communication for SAP on Azure](./images/sap-internet-inbound-outbound-visio.png)](./images/sap-internet-inbound-outbound-visio.png#lightbox)
 *Figure - Reference architecture for Internet facing communication for SAP on Azure.*
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of this architecture, containing all drawings shown here._
+
+This reference architecture describes a common production environment. The configuration described and shown can also be reduced in size and scope, depending on business requirements. A reduction applies to both SAP landscape - fewer VMs, no high-availability, embedded SAP Web Dispatchers instead of discrete VMs - as well as alternatives on network side, described later in this document.
+
+Particularly in the network space different customer requirements, driven by business or company policy, will require adaptation of the architecture. Where possible, alternatives have been listed below and many solutions are viable. Choose the right approach for your business while securing your Azure resources, yet providing a performant solution to your user base.
 
 For disaster recovery (DR) insights, they'ren't covered by this architecture intentionally. On a network level, the same principles and design apply which are valid for primary production regions. Thus, on network level considerations should be made to enable disaster recovery in another Azure region, depending on the applications being protected for DR.
 
@@ -41,7 +41,7 @@ For optimal performance, ensure [HTTP/2 support](/azure/application-gateway/conf
 
 **Load Balancer** Azure [Standard Load Balancer](/azure/load-balancer/load-balancer-overview) (SLB) provides networking element for the highly available design of your SAP systems. For clustered systems, SLB provides the virtual IP address for the cluster service such as (A)SCS and database running on VMs. SLB can be used to provide IP for virtual SAP hostname of non-clustered systems as well, if [secondary IPs on Azure network cards](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593) shouldn't be used. Later in this document we document use of SLB instead of the AppGw and addressing outbound internet access.
 
-**NAT Gateway** Azure virtual network [NAT gateway](/azure/virtual-network/nat-gateway/nat-overview) is a service providing static public IP(s) for outbound connectivity. NAT gateway assigned to a subnet, all outbound communications use the NAT Gateway's IP(s) for Internet access. Inbound connections aren't using the NAT gateway, outbound connection only. Applications such as SAP Cloud Connector or VM's OS update services accessing repositories on Internet can use NAT Gateway, instead of the routing all outbound traffic through the central firewall. Often [user defined rules](/azure/virtual-network/ip-services/default-outbound-access) are in place on all subnets, forcing all Internet bound traffic off all vnets through the central firewall. NAT Gateway can act as alternative for such central firewall, on outbound connections only. Examples are reaching Azure public endpoints used by public services or OS patches repositories.
+**NAT Gateway** Azure virtual network [NAT gateway](/azure/virtual-network/nat-gateway/nat-overview) is a service providing static public IP(s) for outbound connectivity. NAT gateway assigned to a subnet, all outbound communications use the NAT Gateway's IP(s) for Internet access. Inbound connections aren't using the NAT gateway, outbound connection only. Applications such as SAP Cloud Connector or VM's OS update services accessing repositories on Internet can use NAT Gateway, instead of the routing all outbound traffic through the central firewall. Often [user defined rules](/azure/virtual-network/ip-services/default-outbound-access) are in place on all subnets, forcing all Internet bound traffic off all vnets through the central firewall. Depending on customer requirements, NAT Gateway can act as alternative for such central firewall, on outbound connections only. Benefits are offloading load from the central firewall, while talking to NSG-allowed public endpoints. Additionally outbound IP control, as destination firewall rules can be configured on set IP list of the NAT gateway. Examples are reaching Azure public endpoints used by public services, OS patch repositories or 3rd party interfaces.
 
 For high-availability setup, keep in mind NAT gateway is deployed in a [specific zone only](/azure/virtual-network/nat-gateway/faq#how-does-virtual-network-nat-gateway-work-with-availability-zones) and is currently not cross-zone redundant. It's thus not ideal for SAP deployments using zone-redundant (cross-zone) deployment for virtual machines.
 
@@ -104,8 +104,9 @@ Enabling access to your SAP system to third parties such as SAP support or partn
 Saprouter acts as a tunnel to SAP or partners, the communication path to Internet is protected through:
 
 - Azure Firewall or third party NVA provides the public IP entry point into your Azure networks. Firewall rules in place to limit communication to authorized IPs only. For SAP suppport connection, [SAP note 48243 - Integrating the SAProuter software into a firewall environment](https://launchpad.support.sap.com/#/notes/48243) documents the IP address of SAP's routers.
+- Similarly to firewall rules, network security rules allow communication on saprouter's port, typically 3299 with the designated destination.
 - The saproutab file, where saprouter allow/deny rules are maintained, specifying who can contact saprouter and which SAP system can be accessed.
-- NSG rules in place on the respective subnets.
+- Further NSG rules in place on the respective subnets within the SAP production subnet, containing the SAP systems.
 
 The following blog post [SAP on Azure Tech Community | Saprouter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496) contains steps to configure saprouter with Azure Firewall.
 
@@ -131,7 +132,9 @@ Keep in mind that securing the SAP Web Dispatcher needs to be performed in any s
 
 #### Firewall and AppGw
 
-All web traffic provided by the application gateway is https based and encrypted with the provided TLS certificate. Using a Firewall as entry point into the corporate network, with its public IP, and SAP Fiori traffic flowing from firewall to AppGw next through internal IP is possible and a [documented use case](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-after-firewall). Since the TCP/IP layer 7 encryption is already in place through TLS, there's limited benefit of using firewall in such scenario, and thus can't perform any packet inspection. One aspect is Fiori communicating through same external IP for both inbound and outbound traffic, which is typically not required for SAP Fiori deployments. As such, using only AppGw with public IP is the recommended use case for SAP deployments.
+All web traffic provided by the application gateway is https based and encrypted with the provided TLS certificate. Using a Firewall as entry point into the corporate network, with its public IP, and SAP Fiori traffic flowing from firewall to AppGw next through internal IP is possible and a [documented use case](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-after-firewall). Since the TCP/IP layer 7 encryption is already in place through TLS, there's limited benefit of using firewall in such scenario, and thus can't perform any packet inspection. One aspect is Fiori communicating through same external IP for both inbound and outbound traffic, which is typically not required for SAP Fiori deployments.
+
+Benefits of a tandem AppGw and layer 4 firewall deployment is possible integration with enterprise-wide security policy management and already discarding network traffic violating [security rules](/azure/firewall/threat-intel) not requiring content inspection. Such a combined deployment is a good architecture and it depends on your overall enterprise architecture how inbound Internet traffic must be handled. Consider also how such overall network architecture fits with access from internal IP address space such as on-premise clients, covered in next section.
 
 #### AppGw for internal IP (optional)
 
@@ -139,9 +142,9 @@ The architecture focuses on Internet facing applications. Clients accessing SAP 
 
 Similar configuration with private IP on AppGw can be used for private only network access to the SAP landscape. The public IP in such case only is used for management purposes and doesn't have a listener associated to it.
 
-As an alternative when deciding to not use application gateway is to use a load balancer internally. A standard internal load balancer (SLB) with Web Dispatcher VMs configured as round-robin backend. The SLB placed would be place with the Web Dispatcher VMs in the SAP production application subnet.
+As an alternative when deciding to not use application gateway is to use a load balancer internally. A standard internal load balancer (SLB) with Web Dispatcher VMs configured as round-robin backend. The SLB placed would be placed with the Web Dispatcher VMs in the SAP production application subnet and provide [active/active](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/683d6a1797a34730a6e005d1e8de6f22/489a9a6b48c673e8e10000000a42189b.html) load balancing between Web Dispatcher VMs.
 
-For any Internet facing deployments, AppGw with web application firewall is the recommended use case.
+For any Internet facing deployments, AppGw with web application firewall is the recommended use case instead of using a load balancer with public IP.
 
 ### SAP Business Technology Platform (BTP)
 
