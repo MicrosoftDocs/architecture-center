@@ -32,7 +32,7 @@ For the solution to deliver value, there must be a clear understanding of how mo
 The answers to these questions led to an understanding of the type of behavior that could signal fraud. Data attributes were mapped to the messages collected from the mobile application gateways with the behaviors identified. Account behavior most relevant for determining fraud was then profiled.
 
 The following table identifies types of compromise, data attributes that might signal fraud, and behaviors that were relevant for the bank:
- 
+
 |  |Credential compromises*  |Device compromises  |Financial compromises  |Non-Transactional compromises|
 |---------|---------|---------|---------|---|
 |Methods used    | Phishing, vishing.        |   SIM swap, vishing, malware, jailbreaking, device emulators.      |   Use of account credentials, device and user digital identifiers (like email and physical addresses).      |Adding new users to account, increasing card or account limits, changing account details and customer profile information or password.|
