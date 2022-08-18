@@ -79,6 +79,6 @@ To explore related Microsoft Learn modules, see these resources:
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Speech services](./speech-services.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 - [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 - [Commerce chatbot for customer service](./commerce-chatbot.yml)

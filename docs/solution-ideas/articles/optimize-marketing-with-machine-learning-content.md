@@ -74,7 +74,7 @@ For information about solution components, see these resources:
 
 - [Azure Machine Learning documentation][aml-docs]
 - [Azure Synapse Analytics documentation][synapse-docs]
-- [Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
+- [Cognitive Services Documentation](/azure/cognitive-services)
 - [Power BI documentation][pbi-docs]
 - [App Service overview](/azure/app-service/overview)
 - [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
