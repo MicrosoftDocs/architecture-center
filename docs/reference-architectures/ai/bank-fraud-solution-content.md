@@ -10,14 +10,14 @@ Mobile fraud is hard to detect and expensive for consumers and banks. The first 
 - Rules are binary and limited. They don't accommodate the complexity and combinations of input variables that can be evaluated. This limitation results in high numbers of false positives.
 - Rules are hardcoded into business logic. Curating the rules, incorporating new data sources, or adding new fraud patterns usually requires application changes that affect a business process. Propagating changes throughout a business process can be cumbersome and expensive.
 
-AI models can dramatically improve fraud detection rates and detection times. Banks are using them together with other approaches to reduce losses. The process described here is based on three elements:
+AI models can dramatically improve fraud detection rates and detection times. Banks are using these models together with other approaches to reduce losses. The process described here is based on three elements:
 - An AI model that acts on a derived set of behavioral characteristics
 - A methodology for machine learning
-- A model evaluation process that's similar to the one used by a fraud manager to evaluate a portfolio
+- A model evaluation process that's like the one used by a fraud manager to evaluate a portfolio
 
 ## Operational context
 
-For the bank that this solution is based on, as customers increased the use of digital services, there was a spike in fraud across the mobile channel. It was time for the bank to reconsider its approach to fraud detection and prevention. This solution started with questions that would affect their fraud process and decisions:
+For the bank that this solution is based on, as customers increased the use of digital services, there was a spike in fraud across the mobile channel. It was time for the bank to reconsider its approach to fraud detection and prevention. This solution started with questions that affected their fraud process and decisions:
 
 - Which activities or transactions are likely fraudulent?  
 - Which accounts are compromised?
@@ -73,7 +73,7 @@ Most steps in this pipeline start with an [Azure function](/azure/azure-function
    - Extraction of events and messages into a structured format for feature engineering and model retraining and evaluation.
    - Training and retraining of a fraud model via [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
-- The third workstream integrates to back-end business processes. You can use [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
+- The third workstream integrates with back-end business processes. You can use [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to connect and synchronize to an on-premises system to create a fraud management case, suspend account access, or generate a phone contact.
 
 Central to this architecture is the data pipeline and AI model, which are discussed in more detail later in this article.
 
@@ -106,7 +106,7 @@ The following diagram illustrates the fundamental interactions for an Azure func
 
 #### Dataflow
 
-1. Ingest the raw JSON event payload from Event Hubs and authenticate by using an SSL certificate retrieved from [Azure Key Vault](/azure/key-vault/general/overview).
+1. Ingest the raw JSON event payload from Event Hubs and authenticate by using an SSL certificate that's retrieved from [Azure Key Vault](/azure/key-vault/general/overview).
 1. Coordinate the deserialization, parsing, storing, and logging of raw JSON messages in [Azure Data Lake](../../data-guide/scenarios/data-lake.md) and user financial transaction history in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 1. Update and retrieve user account and device profiles from SQL Database and Data Lake.  
 1. Call an Azure Machine Learning endpoint to run a predictive model and obtain a fraud score. Persist the inferencing result to a data lake for operational analytics.
@@ -142,7 +142,7 @@ HTAP functionality is necessary to retrieve user-account behavior history for a 
 This approach also provides these benefits:
 
 - Access to archived data for operational analytics, machine learning model retraining, and fraud validation
-- Simplified data archive to long-term storage
+- Simplified data archiving to long-term storage
 - Scalability via sharding data and the use of an elastic database
 
 ### Event schema management
@@ -163,7 +163,7 @@ The bank didn't have a formal schema defined for these events, and the constant 
 - Requests to increase account or credit card limits.
 - Password changes.
 
-An account profile table contains attributes from the JSON transactions, like the message ID, transaction type, payment amount, day of the week, and hour of the day. Activities are aggregated across multiple time frames, like an hour, a day, and seven days, and stored as a behavior history for each account. Each row in the table represents a single account. These are of some of the features:
+An account profile table contains attributes from the JSON transactions, like the message ID, transaction type, payment amount, day of the week, and hour of the day. Activities are aggregated across multiple time frames, like an hour, a day, and seven days, and stored as a behavior history for each account. Each row in the table represents a single account. These are some of the features:
 
 ![Table that lists example features, including number of changed password messages in the past seven days and average withdrawal in the past day.](_images/example-features.png)
 
@@ -173,7 +173,7 @@ After the account features are calculated and the profile is updated, an Azure f
 
 [AutoML](/azure/machine-learning/concept-automated-ml) is used in the solution because it's fast and easy to use. AutoML can be a useful starting point for quick discovery and learning because it doesn't require specialized knowledge or setup. It automates the time-consuming, iterative tasks of machine learning model development. Data scientists, analysts, and developers can use it to build machine learning models with high scalability, efficiency, and productivity while sustaining model quality.
 
-AutoML can perform the following tasks in an ML process:
+AutoML can perform the following tasks in a machine learning process:
 - Split data into train and validation datasets
 - Optimize training based on a chosen metric
 - Perform cross validation
@@ -187,7 +187,7 @@ Fraud classification is challenging because of the severe class imbalance. In a 
 
 AutoML can help redistribute data and create a better balance between fraudulent and non-fraudulent transactions:  
 
-- AutoML supports adding a column of weights as input, causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20 percent of the number of samples in the majority class. Subsequently, AutoML runs the experiment with subsampled data to check if using class weights resolves this problem and improves performance. If it determines the performance is better because of the experiment, the remedy is applied.
+- AutoML supports adding a column of weights as input, causing the rows in the data to be weighted up or down, which can make a class less important. The algorithms used by AutoML detect imbalance when the number of samples in the minority class is equal to or fewer than 20 percent of the number of samples in the majority class. Subsequently, AutoML runs the experiment with subsampled data to check if using class weights resolves this problem and improves performance. If it determines that the performance is better because of the experiment, the remedy is applied.
 - You can use a performance-measurement metric that handles imbalanced data better. For example, if your model needs to be sensitive to false negatives, use `recall`. When the model needs to be sensitive to false positives, use `precision`. You can also use an F1 score. This score is the harmonic mean between `precision` and `recall`, so it's not affected by a high number of true positives or true negatives. You might need to calculate some metrics manually during your testing phase.
 
 Alternatively, to increase the number of transactions classified as fraudulent, you can manually use a technique called Synthetic Minority Oversampling Technique (SMOTE). SMOTE is a statistical technique that uses bootstrapping and k-nearest neighbor (KNN) to produce instances of the minority class.
@@ -203,14 +203,14 @@ Here's a code sample, with comments:
 In the code:
 
 1. Load the dataset into an Azure Machine Learning tabular dataset or pandas dataframe.
-1. Split the dataset into 70 percent training 30 percent validation.
+1. Split the dataset into 70 percent training and 30 percent validation.
 1. Create a variable for the column you want to predict.
 1. Start creating the AutoML parameters.
 1. Configure `AutoMLConfig`.
    1. `task` is the type of machine learning you want to do: `classification` or `regression`. In this case, use `classification`.
    1. `debug_log` is the location where debug information is written.
-   1. `training_data` is the dataframe or tabular object the training data is loaded into.
-   1. `label_column_name` is the column you want to predict.
+   1. `training_data` is the dataframe or tabular object that the training data is loaded into.
+   1. `label_column_name` is the column that you want to predict.
 1. Run the machine learning job.
 
 ### Model evaluation
