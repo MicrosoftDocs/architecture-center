@@ -33,6 +33,6 @@ products:
   - azure-data-science-vm
   - sql-server
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/loan-credit-risk-with-sql-server.png
+thumbnailUrl: /azure/architecture/browse/thumbs/loan-credit-risk-with-sql-server-thumb.png
 content: |
   [!include[](loan-credit-risk-with-sql-server-content.md)]
