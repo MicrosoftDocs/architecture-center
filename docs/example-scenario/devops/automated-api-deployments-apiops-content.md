@@ -45,7 +45,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 ### Alternatives
 
-This architecture uses Azure Resource Management (ARM) templates from the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). You can replace ARM templates with Terraform, Azure Resource Manager, PowerShell, the REST API to format and push newly extracted changes back to the portal.
+The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). Utilities like the extractor and the creator were extended to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
 This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. Any similar technology could be used to provide those services.
 
