@@ -33,7 +33,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
   During the enrich step, the AI capabilities of [Azure Applied AI Services](/azure/applied-ai-services) are used to extract information, find patterns, and deepen understanding.
 
-  In this step, you can use optical character recognition (OCR) using Azure Computer Vision services and forms recognition over the documents using Azure Form Recognizer. There are even [pre-trained models](https://formrecognizer.appliedai.azure.com/studio) such as the Invoice Model, the ID Document Model, and the Receipt Model. Or, for more flexibility, you can build a custom model.
+  During this step, you can use optical character recognition (OCR) and forms recognition on the documents. You can use Azure Computer Vision for OCR and Azure Form Recognizer for forms recognition. Form Recognizer provides [prebuilt models](https://formrecognizer.appliedai.azure.com/studio) for documents like invoices, identity documents, and receipts. For more flexibility, you can build a custom model.
 
 * **Explore**
 
@@ -43,20 +43,19 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ### Components
 
-Key technologies used to implement tools for this technical content review and research:
+These are the key technologies used for this technical content review and research:
 
-* [Cognitive Services Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
-* [Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/#overview)
-* [Azure Cognitive Search](/azure/search)
-* [Azure Form Recognizer](/azure/applied-ai-services/form-recognizer/)
-* [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+* [Form Recognizer](https://azure.microsoft.com/services/form-recognizer)
+* [Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+* [Web API custom skills](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-* Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
+* Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 * Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-* Learn about using [extracting data from documents and forms using OCR and Form Recognizer](/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer)
-* Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+* Learn about [extracting data from documents and forms by using OCR and Form Recognizer](/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer).
+* Explore a Microsoft Learning path: [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
 
 ## Related resources
 
