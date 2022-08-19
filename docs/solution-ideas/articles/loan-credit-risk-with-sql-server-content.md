@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-By using SQL Server 2016 or later with Machine Learning Services, a lending institution can use predictive analytics to reduce the number of loans they offer to borrowers that are most likely to default, increasing the profitability of their loan portfolio.
+By using SQL Server 2016 or later with Machine Learning Services, a lending institution can use predictive analytics to reduce the number of loans they offer to borrowers who are most likely to default, increasing the profitability of their loan portfolio.
 
 ## Architecture
 
