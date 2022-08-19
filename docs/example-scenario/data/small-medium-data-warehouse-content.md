@@ -129,11 +129,11 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 Principal authors:
 
-* [Galina Polyakova](/) | Senior Cloud Solution Architect
+- Galina Polyakova | Senior Cloud Solution Architect
 
 ## Next steps
 
-- For training content and labs, see the Microsoft Learn [Data Engineer Learning Paths](/learn/roles/data-engineer).
+- For training content and labs, see the [Data Engineer Learning Paths](/learn/roles/data-engineer).
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 - [Create a storage account for Azure Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)

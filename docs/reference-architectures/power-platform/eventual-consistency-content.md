@@ -16,14 +16,18 @@ The following examples show the potential journeys for a record submission.
 
 **Example 1 - Successful path with no outage or transient errors**
 
-![Diagram of an example of a multiple-system synchronization that succeeds.](./_images/data-dependent-example.png)
+:::image type="content" alt-text="Diagram of an example of a multiple-system synchronization that succeeds." source="./_images/data-dependent-example.png" lightbox="./_images/data-dependent-example.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
 1. **Instance A** synchronizes a new account to **Instance B**. All are working because no transient faults or outages have occurred.
 2. An integrated system reads the master accounts from **Instance A** and intends to submit an API call that references an account that was replicated to **Instance B**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
-![Diagram of an example of a multiple-system synchronization that fails.](./_images/data-dependent-example-fails.png)
+:::image type="content" alt-text="Diagram of an example of a multiple-system synchronization that fails." source="./_images/data-dependent-example-fails.png" lightbox="./_images/data-dependent-example-fails.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
 1. **Instance A** attempts to synchronize a new account to **Instance B**. **Instance B** is unreachable, due to downtime or upgrade.
 2. An integrated system reads the master accounts from **Instance A** and intends to submit an API call that references an account that was not replicated to **Instance B**. The API call fails because the account with the given identifier was not created in **Instance B**. 
@@ -34,7 +38,9 @@ The following examples show the potential journeys for a record submission.
 
 This can be performed in a number of plugin steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the PreValidation step. PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
 
-![Diagram of a solution with the plugin.](./_images/solution.png)
+:::image type="content" alt-text="Diagram of a solution with the plugin." source="./_images/solution.png" lightbox="./_images/solution.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
 
 1. **Instance A** attempts to synchronize a new account to **Instance B**. **Instance B** is unreachable, due to downtime or upgrade.
 2. An integrated system reads the master accounts from **Instance A**. It intends to submit an API call that references an account that was not replicated to **Instance B**. As it stands, the API call will fail because the record does not exist, due to the sync not working.

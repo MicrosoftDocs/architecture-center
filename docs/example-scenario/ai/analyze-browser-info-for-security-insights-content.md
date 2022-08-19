@@ -125,9 +125,9 @@ Other contributors:
 - [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Consume data with Power BI](/learn/paths/consume-data-with-power-bi)
 - [Copy and ingest data by using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
-- [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
+- [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 - [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
-- [Power BI](https://docs.microsoft.com/power-bi)
+- [Power BI](/power-bi)
 - [Send and receive data by using Azure Data Share and transform data by using Azure Data Factory](/learn/modules/receive-data-with-azure-data-share-transforming-with-azure-data-factory)
 
 ## Related resources

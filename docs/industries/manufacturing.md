@@ -3,8 +3,8 @@ title: Solutions for the manufacturing industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable manufacturing solutions.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 11/22/2021
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -65,7 +65,7 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Anomaly detector process](/azure/architecture/solution-ideas/articles/anomaly-detector-process) | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. | Analytics |
 | [Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control) | This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.  | IoT |
-| [Build a speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
+| [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
 | [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform) | The architecture extends on the Analytics end-to-end with Azure Synapse scenario. It allows for a custom ML model to be trained in Azure Machine Learning, and implemented with a custom application built using Microsoft Power Platform. | AI/ML |
 | [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service) | A hierarchy service allows your business stakeholders to centrally define how production assets like machines are organized within factories, from both an operational and maintenance point of view.  | IoT |
 | [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory) | This example architecture shows an end-to-end approach to computer vision from the edge to the cloud and back. | AI/ML |

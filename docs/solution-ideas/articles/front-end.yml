@@ -23,6 +23,6 @@ products:
   - azure-table-storage
   - power-apps
   - power-automate
-thumbnailUrl: /azure/architecture/browse/thumbs/front-end.png
+thumbnailUrl: /azure/architecture/browse/thumbs/front-end-thumbnail.png
 content: |
    [!include[](front-end-content.md)]
