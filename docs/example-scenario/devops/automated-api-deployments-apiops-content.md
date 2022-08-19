@@ -69,9 +69,9 @@ To make sure the API Management instances are using best practices for security,
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that synchronize to API Management instances:
 
-- **Pull Request (PR) Review**: Use branches and protect the branches that represent the state of the API Management instances from having changes pushed to them directly. Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the [GitHub code owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
+- **Pull Request (PR) Review**: Use branches and protect the branches that represent the state of the API Management instances from having changes pushed to them directly. Require PRs to have at least one reviewer to enforce the four-eyes principle.
 - **Immutable history**: Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
-- **Multi-factor authentication**: Require your GitHub users to activate two-factor authentication.
+- **Multi-factor authentication**: Require your users to activate two-factor authentication.
 - **Signed Commits**: Allow only signed commits that can't be altered after the fact.
 
 ### Operational Excellence
