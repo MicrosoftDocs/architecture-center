@@ -74,7 +74,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 - **Multi-factor authentication**: Require your GitHub users to activate two-factor authentication.
 - **Signed Commits**: Allow only signed commits that can't be altered after the fact.
 
-### Operations
+### Operational Excellence
 
 APIOps can increase DevOps productivity for API development and deployments. One of the most useful features is the ability to use Git operations to quickly roll back changes that behave unexpectedly. The commit graph contains all commits, so it can help with the post-mortem analysis.
 
