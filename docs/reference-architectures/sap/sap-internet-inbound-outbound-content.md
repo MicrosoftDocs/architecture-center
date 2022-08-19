@@ -1,6 +1,6 @@
 <!-- cSpell:ignore saprouter linky -->
 
-This reference architecture shows a set of proven practices how to securely enable inbound and outbound Internet connections for your SAP on Azure landscape
+This reference architecture shows a set of proven practices for enabling inbound and outbound internet connections for your SAP on Azure landscape with improved security.
 
 ## Architecture
 
