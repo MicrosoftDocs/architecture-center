@@ -89,5 +89,5 @@ Principal author:
 
 ## Related resources
 
-- [Deployment Stamps pattern](https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp)
-- [Move an IoT solution from test to production](https://docs.microsoft.com/azure/architecture/example-scenario/iot/iot-move-to-production)
+- [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp)
+- [Move an IoT solution from test to production](/azure/architecture/example-scenario/iot/iot-move-to-production)

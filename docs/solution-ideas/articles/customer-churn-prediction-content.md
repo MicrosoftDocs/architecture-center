@@ -76,5 +76,5 @@ Reference architectures:
 
 * [Batch scoring for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 * [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
-* [Build a speech-to-text transcription pipeline](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+* [Build a speech-to-text transcription pipeline](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 * [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
