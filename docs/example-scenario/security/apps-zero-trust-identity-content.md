@@ -163,8 +163,8 @@ Other contributor:
 
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Microsoft Learn: Establish the guiding principles and core components of Zero Trust](/learn/paths/zero-trust-principles/)
-- [Introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [What is Azure SQL?](https://docs.microsoft.com/en-us/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
 
 ## Related resources
 

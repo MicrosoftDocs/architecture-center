@@ -57,4 +57,4 @@ This solution applies to scenarios that can benefit from the ability to search r
 
 - [Gridwich cloud media system](../../reference-architectures/media-services/gridwich-architecture.yml)
 - [Live stream digital media](./digital-media-live-stream.yml)
-- [Video-on-demand digital media](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/digital-media-video)
+- [Video-on-demand digital media](/azure/architecture/solution-ideas/articles/digital-media-video)

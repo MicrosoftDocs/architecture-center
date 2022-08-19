@@ -15,7 +15,7 @@ ms.custom:
   - guide
 ---
 
-# Compare the machine learning products and technologies from Microsoft
+# Compare Microsoft machine learning products and technologies
 
 Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to most effectively build, deploy, and manage your machine learning solutions.
 
