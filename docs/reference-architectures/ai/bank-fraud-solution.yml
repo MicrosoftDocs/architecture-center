@@ -20,6 +20,6 @@ products:
   - azure-sql-database
 name: Detect mobile bank fraud
 summary: Learn about a solution that uses behavioral profiles and machine learning to detect mobile bank fraud.
-thumbnailUrl: /azure/architecture/browse/thumbs/bank-fraud-solution-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/bank-fraud-solution-high-level-thumb.png
 content: |
   [!include[](bank-fraud-solution-content.md)]
