@@ -425,6 +425,10 @@ items:
                     href: guide/multitenant/service/postgresql.md
                   - name: Azure Cache for Redis
                     href: guide/multitenant/service/cache-redis.md
+              - name: Security
+                items:
+                  - name: Azure Key Vault
+                    href: guide/multitenant/service/key-vault.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
