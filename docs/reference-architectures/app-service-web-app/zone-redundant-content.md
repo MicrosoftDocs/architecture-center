@@ -10,9 +10,13 @@ _Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) th
 
 This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones, see [Azure regions with Availability Zones][az-regions].
 
-Availability zones spread a solution across multiple independent zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, and many specialized Azure services provide support for availability zones today. All of the Azure services in this architecture are zone-redundant, simplifying deployment and management. For a list of Azure services that support availability zones see [Azure Services that support Availability Zones][az-services].
+Availability zones spread a solution across multiple independent zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, and many specialized Azure services provide support for availability zones today. 
+
+All of the Azure services in this architecture are either always-available or zone-redundant services. Azure Front Door, Azure Active Directory (Azure AD), Azure DNS and Static Web Apps are always-available (non-regional) services, resilient to zone and region-wide outages. All other services are zone-redundant.
 
 Zone-redundant Azure services automatically manage and mitigate failures, including zone failures, to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/). Zone-redundancy offers effective recovery times of zero for zone failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run.
+
+For a list of highly available services in Azure, see [Azure Services that support Availability Zones][az-services].
 
 ### Workflow and components
 
