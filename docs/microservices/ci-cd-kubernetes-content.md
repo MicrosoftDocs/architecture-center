@@ -27,7 +27,7 @@ These assumptions drive many of the specific details of the CI/CD pipeline. Howe
 
 ### Common Alternatives
 
-The following are common alternatives customers use when choosing a CI/CD strategy with Azure Kubernetes Service:
+The following are common alternatives customers might use when choosing a CI/CD strategy with Azure Kubernetes Service:
 
 - As an alternative to using Helm as a package management and deployment tool, [Kustomize](https://kustomize.io/) is a Kubernetes native configuration management tool that introduces a template-free way to customize and parameterize application configuration.
 - As an alternative to using Azure DevOps for Git repositories and pipelines, [GitHub Repositories](https://docs.github.com/en/repositories) can be used for private and public Git repositories and [GitHub Actions](https://github.com/features/actions) for CI/CD pipelines.
