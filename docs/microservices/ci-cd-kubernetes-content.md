@@ -21,9 +21,17 @@ For purposes of this example, here are some assumptions about the development te
 - The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
-- A push deployment model is used, where Azure DevOps pipelines and agents perform deployments to the AKS cluster, instead of a [GitOps or Pull deployment model](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
+- A push deployment model is used, where Azure DevOps pipelines and associated agents perform deployments directly to the AKS cluster.
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
+
+### Common Alternatives
+
+The following are common alternatives customers use when choosing a CI/CD strategy with Azure Kubernetes Service:
+
+- As an alternative to using Helm as a package management and deployment tool, [Kustomize](https://kustomize.io/) is a Kubernetes native configuration management tool that introduces a template-free way to customize and parameterize application configuration.
+- As an alternative to using Azure DevOps for Git repositories and pipelines, [GitHub Repositories](https://docs.github.com/en/repositories) can be used for private and public Git repositories and [GitHub Actions](https://github.com/features/actions) for CI/CD pipelines.
+- As an alternative to using a push deployment model, managing Kubernetes configuration at large scale can be done using [GitOps (pull deployment model)](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks), where an in-cluster Kubernetes Operator synchronizes cluster state based on configuration stored in a Git repository.
 
 ## Validation builds
 
@@ -380,8 +388,9 @@ The following diagram shows the end-to-end CI/CD process described in this artic
 
 ## Next steps
 
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](./logging-monitoring-content.md)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 
 ## Related resources
 
-- [CI/CD for microservices](./ci-cd-content.md)
+- [CI/CD for microservices](/azure/architecture/microservices/ci-cd)

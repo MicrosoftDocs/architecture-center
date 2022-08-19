@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Microservices CI/CD pipeline on Kubernetes
-  description: Learn about building a continuous integration and continuous delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
+  title: Microservices CI/CD pipeline on Kubernetes with Azure DevOps and Helm
+  description: Learn about building a continuous integration and continuous delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS) using Azure DevOps and Helm.
   author: EdPrice-MSFT
   ms.author: architectures
   ms.date: 07/26/2022
@@ -14,8 +14,8 @@ products:
   - azure-kubernetes-service
   - azure-container-registry
   - azure-devops
-name: Build a CI/CD pipeline for microservices on Kubernetes
-summary: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS).
+name: Build a CI/CD pipeline for microservices on Kubernetes with Azure DevOps and Helm
+summary: Learn about building a Continuous Integration and Continuous Delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS) with Azure DevOps and Helm.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-ci-cd.png
 content: |
   [!include[](ci-cd-kubernetes-content.md)]
