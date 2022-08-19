@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-By using SQL Server 2016 and later with Machine Learning Services, a lending institution can make use of predictive analytics to reduce number of loans they offer to those borrowers most likely to default, increasing the profitability of their loan portfolio.
+By using SQL Server 2016 or later with Machine Learning Services, a lending institution can use predictive analytics to reduce the number of loans they offer to borrowers that are most likely to default, increasing the profitability of their loan portfolio.
 
 ## Architecture
 
@@ -9,17 +9,17 @@ By using SQL Server 2016 and later with Machine Learning Services, a lending ins
 
 ### Dataflow
 
-* Connect to your data source (e.g. SQL Server) and use your preferred IDE to develop Python and/or R models.
-* When the model is ready, [publish it to SQL Server](/sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server) or visualize in Power BI.
-* Should you want to manage your model in a fully-functional workspace, you are also able to deploy the model to an [Azure Machine Learning Workspace](/azure/machine-learning/concept-workspace). 
+* Connect to your data source (SQL Server) and use your preferred IDE to develop Python and/or R models.
+* When the model is ready, [publish it to SQL Server](/sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server) or visualize the data in Power BI.
+* If you want to manage your model in a fully functional workspace, you can also deploy it to an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace).
 
-If you do not have a workspace set up, such as a database or IDE, try using an Azure Data Science Virtual Machine. You're able to use a Windows or Linux version to run your components.
+If you don't have a workspace set up, like a database or IDE, you can use [Azure Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines). You can use a Windows or Linux version to run your components.
 
 ### Components
 
-* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, and predicted results for consumption.
-* [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions, in addition to other tools pre-installed commonly used for data science applications.
-* [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15). SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, and predicted results for consumption.
+* [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines). Data Science Virtual Machines provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on predictions. It also provides other tools that are commonly used for data science applications.
+* [Power BI](https://powerbi.microsoft.com). Power BI provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on predictions.
 
 ## Solution details
 
@@ -27,7 +27,7 @@ If we had a crystal ball, we would only loan money to someone we knew would pay 
 
 ### Business perspective
 
-The business user uses the predicted scores to help determine whether or not to grant a loan. He fine tunes his prediction by using the Power BI Dashboard to see the number of loans and the total dollar amount saved under different scenarios. The dashboard includes a filter based on percentiles of the predicted scores. When all the values are selected, he views all the loans in the testing sample and can inspect information about how many of them defaulted. Then by checking just the top percentile (100), he drills down to information about loans with a predicted score in the top 1%. Checking multiple continuous boxes allows him to find a cutoff point he is comfortable with to use as a future loan acceptance criteria.
+Business users review the predicted scores to help them determine whether to grant a loan. They fine-tune predictions by using the Power BI Dashboard to see the number of loans and the total dollar amount saved under different scenarios. The dashboard includes a filter based on percentiles of the predicted scores. When all the values are selected, the business users view all the loans in the testing sample and can inspect information about how many of them defaulted. Then, by checking just the top percentile (100), they drill down to information about loans with a predicted score in the top 1%. Checking multiple continuous boxes allows these users to find a cutoff point they're comfortable with to use as a future loan acceptance criteria.
 
 ### Data scientist perspective
 
