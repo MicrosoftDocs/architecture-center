@@ -7,7 +7,7 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 08/19/2022
 ms.author: ansyeo
 ms.custom:
   - internal-intro
@@ -18,7 +18,7 @@ products:
   - azure-iot-hub
 ---
 
-# Get started with Azure IoT solutions
+# Internet of things (IoT) architecture design
 
 This guide discusses basic internet of things (IoT) concepts, describes how to get started with Azure IoT, and provides links to articles about Azure IoT patterns and solutions.
 
