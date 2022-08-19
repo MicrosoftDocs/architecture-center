@@ -31,7 +31,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 * **Enrich**
 
-  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding using [Azure's Applied AI Services suite](/azure/applied-ai-services).
+  During the enrich step, the AI capabilities of [Azure Applied AI Services](/azure/applied-ai-services) are used to extract information, find patterns, and deepen understanding.
 
   In this step, you can use optical character recognition (OCR) using Azure Computer Vision services and forms recognition over the documents using Azure Form Recognizer. There are even [pre-trained models](https://formrecognizer.appliedai.azure.com/studio) such as the Invoice Model, the ID Document Model, and the Receipt Model. Or, for more flexibility, you can build a custom model.
 
