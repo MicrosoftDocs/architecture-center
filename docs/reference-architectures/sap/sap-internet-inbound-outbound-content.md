@@ -1,19 +1,18 @@
 <!-- cSpell:ignore saprouter linky -->
 
-This reference architecture shows a set of proven practices for enabling inbound and outbound internet connections for your SAP on Azure landscape with improved security.
+This article provides a set of proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.
 
 ## Architecture
 
-[![Reference architecture for Internet facing communication for SAP on Azure](./images/sap-internet-inbound-outbound-visio.png)](./images/sap-internet-inbound-outbound-visio.png#lightbox)
-*Figure - Reference architecture for Internet facing communication for SAP on Azure.*
+[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](./images/sap-internet-inbound-outbound-visio.png)](./images/sap-internet-inbound-outbound-visio.png#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of this architecture, containing all drawings shown here._
+_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
-This reference architecture describes a common production environment. The configuration described and shown can also be reduced in size and scope, depending on business requirements. A reduction applies to both SAP landscape - fewer VMs, no high-availability, embedded SAP Web Dispatchers instead of discrete VMs - as well as alternatives on network side, described later in this document.
+This reference architecture illustrates a common production environment. You can reduce the size and scope of the configuration, per your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives on the network side, as described later in this article.
 
-Particularly in the network space different customer requirements, driven by business or company policy, will require adaptation of the architecture. Where possible, alternatives have been listed below and many solutions are viable. Choose the right approach for your business while securing your Azure resources, yet providing a performant solution to your user base.
+Customer requirements, driven by business or company policies, will necessitate adaptations to the architecture, particularly on the network side. When possible, we've included alternatives. Many solutions are viable. Choose an approach that's right for your business. It needs to help you secure your Azure resources but still provide a performant solution.
 
-For disaster recovery (DR) insights, they'ren't covered by this architecture intentionally. On a network level, the same principles and design apply which are valid for primary production regions. Thus, on network level considerations should be made to enable disaster recovery in another Azure region, depending on the applications being protected for DR.
+Disaster recovery (DR) isn't covered in this architecture. On a network level, the same principles and design that are valid for primary production regions apply. For the network, you should consider enabling disaster recovery in another Azure region, depending on the applications being protected for DR.
 
 ### Components
 
