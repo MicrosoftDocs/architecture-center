@@ -53,7 +53,7 @@ This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to prov
 
 Scalability, security, and operations are important considerations and three pillars of the Azure Well-Architected Framework that can be used to improve the quality of a workload. For more information, see the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
-### Scalability
+### Performance Efficiency
 
 APIOps has many benefits, but as API Management landscapes grow, so does the complexity of managing them. This solution helps meet challenges like:
 
