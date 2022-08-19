@@ -1,10 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture uses Azure Relay Hybrid Connections to connect from Azure to edge resources or devices that are protected by firewalls.
-
-## Potential use cases
-
-Edge devices are often behind a corporate firewall or NAT device. They're unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
 
 ## Architecture
 
@@ -32,6 +26,12 @@ You need a secure integration between solution components in Azure and component
 
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+
+## Scenario details
+
+### Potential use cases
+
+Edge devices are often behind a corporate firewall or NAT device. They're unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
 
 ## Considerations
 

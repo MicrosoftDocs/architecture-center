@@ -47,7 +47,7 @@ This article showcases a practical, scalable, and manageable solution for implem
 
 ### Alternatives
 
-In this solution, Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks/) or Azure Synapse Analytics to perform the same type of analytics when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
+In this solution, Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks/) or Azure Synapse Analytics to perform the same type of analytics when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview).
 
 As an alternative to [mapping data flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory to curate and perform ETL on data in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), you can use Azure Databricks for a code-first approach.
 
@@ -154,7 +154,7 @@ Other contributors:
 -   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
 -   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)
 -   [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
--   [Security baseline for Azure Machine Learning service](https://docs.microsoft.com/security/benchmark/azure/baselines/machine-learning-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+-   [Security baseline for Azure Machine Learning service](/security/benchmark/azure/baselines/machine-learning-security-baseline?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json)
 
 ## Related resources
 

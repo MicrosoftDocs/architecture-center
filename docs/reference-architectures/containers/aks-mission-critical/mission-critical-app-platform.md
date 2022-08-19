@@ -92,13 +92,7 @@ It's recommended that all state is stored globally in a database separated from 
 
 Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read _and_ write requests.
 
-This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. The consistency level is set to _Session_, which offers a reasonable tradeoff for latency, availability and consistency guarantees for this specific application. It's important to understand that _Strong_ consistency level isn't available for multi-master write databases.
-
-Zone redundancy is also enabled within each replicated region.
-
-For details on multi-region writes, see [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/sql/how-to-multi-master).
-
-> For other data considerations, see [Misson-critical guidance in Well-architected Framework: Data platform considerations](/azure/architecture/framework/mission-critical/mission-critical-data-platform).
+For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
 ### Global monitoring
 
@@ -197,6 +191,9 @@ In this architecture, Standard SKU is used and zone redundancy is enabled for hi
 Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. For example, if messages can't be sent to the event hub, the stamp  would be unusable for any write operations. HealthService should automatically detect this condition and report unhealthy state to Front Door, which will take the stamp out of rotation.
 
 For scalability, enabling auto-inflate is recommended.
+
+For more information, see [Messaging services for mission-critical workloads](./mission-critical-data-platform.md#messaging-services).
+
 
 > For other considerations about messaging, see [Misson-critical guidance in Well-architected Framework: Asynchronous messaging](/azure/architecture/framework/mission-critical/mission-critical-application-platform#asynchronous-messaging).
 

@@ -37,7 +37,7 @@ The following components are required.
 
 **Gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure VNet.
 We recommend [Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) for creating private connections that don't go over the public internet. As an alternative, you can use a
-[site-to-site](../../reference-architectures/hybrid-networking/vpn.yml) connection. To reduce latency, you can use
+[site-to-site](/azure/expressroute/expressroute-howto-coexist-resource-manager) connection. To reduce latency, you can use
 [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) or [ExpressRoute FastPath](/azure/expressroute/about-fastpath). These options are discussed later in this article.
 
 **Zone-redundant gateway.** ExpressRoute or virtual private network (VPN) gateways can be deployed across zones to guard against zone failures. This architecture uses [zone-redundant](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) VNet gateways for resiliency rather than a zonal deployment based on the same Availability Zone.

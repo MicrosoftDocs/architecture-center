@@ -14,8 +14,9 @@ Organizations that utilize this service include:
 
 ## Architecture
 
-![Architecture diagram shows from users through the D N S routing to a before and after failover virtual machines: disaster recovery enterprise scale.](../media/disaster-recovery-enterprise-scale-dr.png)
-*Download an [SVG](../media/disaster-recovery-enterprise-scale-dr.svg) of this architecture.*
+:::image type="content" border="false" source="../media/disaster-recovery-enterprise-scale-dr.png" alt-text="Architecture diagram shows from users through the D N S routing to a before and after failover virtual machines: disaster recovery enterprise scale." lightbox="../media/disaster-recovery-enterprise-scale-dr.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/disaster-recovery-enterprise-scale-dr.vsdx) of this architecture.*
 
 ### Components
 
