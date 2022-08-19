@@ -33,12 +33,7 @@ The content in this section is designed for architects, lead developers, and any
 
 ## What's covered in this section?
 
-The articles in this section describe some Azure services commonly used in multitenant solutions. The following Azure services are covered so far:
-
-- Deployment and configuration: [Azure Resource Manager](resource-manager.md) and [Azure App Configuration](app-configuration.md)
-- Compute: [App Service and Azure Functions](app-service.yml)
-- Networking: [Private Link](private-link.md) and [Virtual Network NAT](nat-gateway.md)
-- Storage and data: [Azure Cache for Redis](cache-redis.md), [Azure Cosmos DB](cosmos-db.md), [Azure Database for PostgreSQL](postgresql.md), [Azure Storage](storage.md), and [Azure SQL Database](sql-database.md).
+The articles in this section describe some Azure services commonly used in multitenant solutions.
 
 We frequently add new articles with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 
