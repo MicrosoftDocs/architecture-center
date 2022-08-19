@@ -15,9 +15,9 @@ This solution is ideal for the finance industry. When organizations task employe
 
 ## Architecture
 
-![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
+![Diagram that shows how to use knowledge mining in business process management.](../media/knowledge-mining-business-process-management.png)
 
-*Download the [Visio file](../media/knowledge-mining-business-process-management.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-business-process-management.vsdx) of this architecture.*
 
 ### Dataflow
 
