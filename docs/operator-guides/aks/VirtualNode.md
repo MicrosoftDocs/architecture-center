@@ -20,44 +20,39 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
 ## General Issues & relative Guidance
 
+## Unable to Provision Virtual Node in a Region
+#### Resolution: VNET SKUs aren't available for Azure Container Instances in the region
 
-1. If you're deploying virtual nodes on AKS where Virtual Node isn't available, it's because
-   * VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Region Availability](/azure/aks/virtual-nodes)
+One reason could be VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Region Availability](/azure/aks/virtual-nodes)
 
 
-2. Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
+## Virtual Node not available even after enabling the option
+#### Resolution: Provision of Separate Subnet & Network Contributor Role on subnet within virtual network
+
+Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
    * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
    
    * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them, so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Prerequisites for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
         * Microsoft.Network/virtualNetworks/subnets/join/action
         * Microsoft.Network/virtualNetworks/subnets/read
-    * To monitor Virtual nodes Pods, refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
 
-  
-3. There could be scenarios where the installation of Virtual node on Kubenet enabled AKS clusters can face some issues like below & then how can you fix that up
+* For more detailed logs & monitoring Virtual nodes Pods, refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
 
-    **Error** 
+## Installation Error: ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
+#### Resolution: You must have a CNI enabled cluster & can't work on Kubenet at time of writing
 
-    You might see error that look like these:
+Please refer this link for [Known limitations](/azure/aks/virtual-nodes#known-limitations)
 
-    ```output
-    ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
-    ```
-    **Solution**
-
-    You must have a CNI enabled cluster & can't work on Kubenet at time of writing
-
-
-    **Reference Link** : [Known limitations](/azure/aks/virtual-nodes#known-limitations)
 * Container Insights can also help in providing further insights for the pods & containers workloads on Virtual Nodes query the Logs, For more information refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/azure-monitor/containers/container-insights-log-query)
 
         
+## Workload being scheduled on an agent pools' node rather than a virtual node.
 
-<br/>
+#### Resolution: Check workload tolerations and node selector
 
-4. Scenarios where deployment gets completed however workload gets scheduled on the agent pool node rather than virtual node
+One reason that your workload might not be running on a virtual node is that the workload must be set to tolerate the taint that is automatically added to virtual nodes. Also, if nodeSelector should be configured as to not conflict with the virtual nodes' metadata.
 
-     The below snippet can be used to schedule to virtual node
+The yaml snippet below contains the configuration for both the tolerations and a compliant nodeSelector designator.
 
 ```yaml
 nodeSelector:
@@ -72,10 +67,6 @@ tolerations:
 ```
 
 **Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
-
-<br/>
-
-
 
 ## Next steps
 
