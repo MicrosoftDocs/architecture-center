@@ -25,11 +25,8 @@ azureCategories:
   - featured
 summary: Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.
 products:
-  - azure-blob-storage
-  - azure-container-registry
   - azure-databricks
-  - azure-kubernetes-service
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization-thumbnail.png
+thumbnailUrl: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
 content: |
   [!include[](scalable-personalization-with-content-based-recommendation-system-content.md)]
