@@ -18,7 +18,6 @@ ms.custom:
 
 Installation of Virtual Nodes or workload deployment on them can have some challenges & therefore this document is created for Administrators to know the most common issues & how the relative guidance is helpful
 
-## General Issues & relative Guidance
 
 ## Unable to Provision Virtual Node in a Region
 #### Resolution: VNET SKUs aren't available for Azure Container Instances in the region
