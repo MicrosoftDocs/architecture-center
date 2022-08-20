@@ -40,7 +40,7 @@ Sometimes during the installation phase you can notice that Virtual Node is not 
 ## Installation Error: ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
 #### Resolution: You must have a CNI enabled cluster & can't work on Kubenet at time of writing
 
-Please refer this link for [Known limitations](/azure/aks/virtual-nodes#known-limitations)
+* Please refer this link for [Known limitations](/azure/aks/virtual-nodes#known-limitations)
 
 * Container Insights can also help in providing further insights for the pods & containers workloads on Virtual Nodes query the Logs, For more information refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/azure-monitor/containers/container-insights-log-query)
 
