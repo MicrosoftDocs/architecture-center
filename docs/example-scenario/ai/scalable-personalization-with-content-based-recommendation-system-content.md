@@ -25,7 +25,7 @@ This solution is ideal for the retail industry. This scenario is relevant to the
 
 ## Architecture
 
-![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization using Azure Databricks.](./media/architecture-scalable-personalization.png)
+![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization using Azure Databricks.](./media/scalable-personalization-with-content-based-recommendation-system-architecture.svg)
 
 ### Dataflow
 
@@ -58,6 +58,13 @@ This architecture makes use of the following components:
 Principal author:
 
 - [Scott Graham](https://www.linkedin.com/in/scott-graham-3a23822) | Principal Data Scientist
+
+Other contributor:
+
+- Andrew Ajulawa | Program Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
