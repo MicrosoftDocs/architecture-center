@@ -22,7 +22,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 1. Data scientists and R&D engineers use Kusto Query Language (KQL) capabilities to build analytics use cases that they store as user-defined functions. KQL functions include aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins.
 
-1. Power BI uses Dynamic Query to create visualizations with the user-defined queries. The Grafana Azure Data Explorer data source plugin uses the user-defined queries for near real-time updates.
+1. Power BI uses Dynamic Query to create visualizations with the user-defined queries. The Grafana data source plugin for Azure Data Explorer uses the user-defined queries for near real-time updates.
 
 1. An Azure App Service app uses Azure Maps data source rendering capabilities to visualize user-defined query results that use GeoJSON format.
 
@@ -34,7 +34,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 1. The `Update()` function uses methods such as:
 
-   - `mv-expand` to expand complex values stored in JSON structures into rows with individual signals.
+   - `mv-expand()` to expand complex values stored in JSON structures into rows with individual signals.
    - `geo_point_to_h3cell()` or `geo_point_to_geohash()` to convert latitude and longitude to geohashes for geospatial analytics.
    - `todouble()` and `tostring()` to cast extracted values from dynamic JSON objects into the appropriate data types.
 
@@ -48,7 +48,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 1. Stored plugin functions like `DetectAnomaly()` find anomalies in data series. ML plugins like autocluster find common patterns of discrete attributes.
 
-1. The `GetGeospatial()` function generates GeoJSON files that contain grouped signals by geo hashes.
+1. The `GetGeospatial()` function generates GeoJSON files that contain grouped signals by geohashes.
 
 ### Components
 
@@ -87,7 +87,7 @@ This approach offers the following benefits:
 
 Automotive OEMs use large fleets of prototype and test vehicles to test and verify all kinds of vehicle functions. Test procedures are expensive, because real drivers and vehicles need to be involved, and certain specific real-world road testing scenarios must pass multiple times. Integration testing is especially important to evaluate interactions between electrical, electronic, and mechanical components in complex systems.
 
-To validate vehicle functions and analyze anomalies and failures, gigabytes of diagnostic data must be captured from electronic control unit (ECUs), computer nodes, vehicle communication buses like Controller Area Network (CAN) and Ethernet, and sensors. In the past, diagnostic data had to be stored locally in the vehicles on small data logger servers as master database (MDF), multimedia fusion extension (MFX), CSV, or JSON files. After test drives were complete, the diagnostic data was uploaded to data centers, processed, and provided to the R&D engineers for analytics. This process could take hours or sometimes days. More recent scenarios use telemetry ingestion patterns like Message Queuing Telemetry Transport (MQTT)-based synchronous data streams, or near real-time file uploads.
+To validate vehicle functions and analyze anomalies and failures, gigabytes of diagnostic data must be captured from electronic control unit (ECUs), computer nodes, vehicle communication buses like Controller Area Network (CAN) and Ethernet, and sensors. In the past, small data logger servers in the vehicles stored diagnostic data locally as master database (MDF), multimedia fusion extension (MFX), CSV, or JSON files. After test drives were complete, the servers uploaded diagnostic data to data centers, which processed it and provided it to R&D engineers for analytics. This process could take hours or sometimes days. More recent scenarios use telemetry ingestion patterns like Message Queuing Telemetry Transport (MQTT)-based synchronous data streams, or near real-time file uploads.
 
 ### Potential use cases
 
@@ -118,7 +118,7 @@ It's important to understand the division of responsibility between the automoti
 
 - Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 - Encryption at rest and in transit.
-- Identity and access management using Azure Active Directory (Azure AD) identities and [Azure AD Conditional Access](/azure/active-directory/conditional-access) policies.
+- Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD Conditional Access](/azure/active-directory/conditional-access) policies.
 - [Row Level Security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for Azure Data Explorer.
 - Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 - Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
