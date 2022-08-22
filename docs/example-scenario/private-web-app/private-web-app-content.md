@@ -58,7 +58,7 @@ The **AppSrvSubnet** and **PrivateLinkSubnet** could be in separate peered Virtu
 
 You could use an [App Service Environment](/azure/app-service/environment/intro) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine provide private connectivity.
 
-- The App Service Environment and Azure SQL Managed Instance are natively deployed within a virtual network. An App Service web app and Azure SQL Databases in the architecture above are not natively deployed to virtual networks.
+- The App Service Environment and Azure SQL Managed Instance are natively deployed within a virtual network. An App Service web app and Azure SQL Databases in the architecture above aren't natively deployed to virtual networks.
 - Virtual network integration and private endpoint aren't needed with App Service Environments and Azure SQL Managed Instances. These offerings are typically more costly because they provide single-tenant isolated deployment and other features. For example, an App Service Environment hosts the web application in an isolated environment.
 - If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database.
 - If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
@@ -72,7 +72,7 @@ You can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-
 
 - Without using private connectivity, you can add [firewall rules](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart) that limit inbound traffic from specified IP address ranges only.
 - You could [allow Azure services](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services) to access the server. This approach locks down the firewall to allow only traffic from within Azure. However, the allowed traffic would include all Azure regions and other customers.
-- You can also add a more restrictive firewall rule to allow only your app's [outbound IP addresses](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) to access the database. But because App Service is a multi-tenant service, these IP addresses are shared with and allow traffic from other customers on the same [deployment stamp](../../patterns/deployment-stamp.yml), which uses the same outbound IP addresses.
+- You can also add a more restrictive firewall rule to allow only your app's [outbound IP addresses](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) to access the database. But because App Service is a multi-tenant service, these IP addresses are shared with and allow traffic from other customers on the same [deployment stamp](../../patterns/deployment-stamp.yml) that uses the same outbound IP addresses.
 
 ## Considerations
 
@@ -80,7 +80,7 @@ Below we outline other security, reliability, and cost-optimization consideratio
 
 ### Security
 
-The architecture creates a secure outbound connection from an App Service web app to a downstream dependency like a database. You can also secure the inbound connection to the web app. Fronting the app with a service like [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview) enhances the inbound security of the web app. For additional inbound security, you can integrate [Azure Web Application Firewall](/azure/web-application-firewall/overview) into both the Application Gateway and Azure Front Door.
+The architecture creates a secure outbound connection from an App Service web app to a downstream dependency like a database. You can also secure the inbound connection to the web app. Fronting the app with a service like [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview) enhances the inbound security of the web app. For extra inbound security, you can integrate [Azure Web Application Firewall](/azure/web-application-firewall/overview) into both the Application Gateway and Azure Front Door.
 
 You can set [App Service access restrictions](/azure/app-service/app-service-ip-restrictions) to prevent users from bypassing the front-end service and accessing the web app directly. For an example scenario, see [Application Gateway integration with App Service (multi-tenant)](/azure/app-service/networking/app-gateway-with-service-endpoints#integration-with-app-service-multi-tenant).
 
@@ -90,7 +90,7 @@ Two configuration changes are required to make the query to the public DNS (for 
 
 1. *Regional virtual network integration* - Regional virtual network integration routes outbound web app traffic to the virtual network.
     - Even with regional virtual network integration enabled, the DNS query to the database will still resolve to the public IP address of the Azure SQL Database. The connection to the database won't go into the virtual network but will travel along the Azure backbone.
-    - Using the hostname of the Private Link (for example,  `contoso.privatelink.database.windows.net`) won't work either. Azure SQL Database won't accept this hostname because of [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns). The Private Link hostname will still resolve to the public IP address.
+    - The hostname of the Private Link (for example,  `contoso.privatelink.database.windows.net`) won't work either. Azure SQL Database won't accept this hostname because of [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns). The Private Link hostname will still resolve to the public IP address.
 1. *Enable the 'Route All' setting* - [Enable the **Route All** setting](/azure/app-service/web-sites-integrate-with-vnet#application-routing) setting on the web app's VNet integration to make DNS resolve the hostname to the SQL Database's private IP address.
     - The public DNS (`contoso.database.windows.net`) won't resolve to the public IP address but to the private IP address of the private endpoint as defined in the Azure Private DNS zone.
     - Traffic will flow privately over the virtual network.
@@ -106,7 +106,7 @@ You can configure the firewall to prevent others from accessing the database:
 1. Configure the firewall to [deny public network access](/azure/azure-sql/database/connectivity-settings#deny-public-network-access). This configuration turns off all other firewall rules and makes the database accessible only through its private endpoint.
 
       - Denying public network access is the most secure configuration.
-      - Database access is only be possible through the virtual network that hosts the private endpoint. To connect to the database, anything other than the web app must have direct connectivity to the Virtual Network.
+      - Database access is only possible through the virtual network that hosts the private endpoint. To connect to the database, anything other than the web app must have direct connectivity to the Virtual Network.
       - Deployments or urgent manual connections from SQL Server Management Studio (SSMS) on local machines can only reach the database through VPN or ExpressRoute connectivity into the virtual network.
       - You can also remotely connect to a VM in the virtual network and use SSMS from there.
       - For exceptional situations, you could temporarily allow public network access, and reduce risk by using other configuration options.
@@ -131,7 +131,7 @@ There's no extra cost for App Service regional virtual network integration in a 
 
 The private endpoint has an [associated cost](https://azure.microsoft.com/pricing/details/private-link/) based on an hourly fee plus a premium on bandwidth.
 
-To explore the cost of running this scenario, all the mentioned services are pre-configured in an [Azure pricing calculator estimate](https://azure.com/e/f25225ef92824212ae34f837c22d519c) with reasonable default values for a small scale application.
+All the mentioned services are pre-configured in an [Azure pricing calculator estimate](https://azure.com/e/f25225ef92824212ae34f837c22d519c) with reasonable default values for a small scale application.
 
 To see how the pricing would change for your use case, change the appropriate variables to match your expected usage.
 
