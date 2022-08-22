@@ -14,6 +14,15 @@ This reference architecture shows best practices for creating a web application 
 - **Azure DNS**: [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - **Azure SQL Database**: [SQL Database](/azure/sql-database) is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These alternatives are fully managed database services based on the open-source MySQL Server and Postgres database engines.
 
+### Components
+
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure DNS](https://azure.microsoft.com/services/dns)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+
 ## Recommendations
 
 Your requirements might differ from the architecture described and given in the code. The code deploys with production configurations. Use the recommendations to customize your deployment to meet your needs.
