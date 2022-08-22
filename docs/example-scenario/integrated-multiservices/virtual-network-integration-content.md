@@ -1,29 +1,16 @@
-This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
-
 In this Azure solution, [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management) controls access to the API through a single managed endpoint. The application backend consists of two interdependent [Azure Functions](https://azure.microsoft.com/services/functions) microservice apps that create and manage patient records and audit records. APIM and the two function apps access each other through a locked-down [virtual network](https://azure.microsoft.com/services/virtual-network).
-
-Some benefits of serverless applications like Azure Functions are the cost savings and flexibility of using only necessary compute resources, rather than paying up front for dedicated servers. This solution lets Azure Functions use virtual network access restrictions for security, without incurring the cost and operational overhead of full [Azure App Service Environments (ASEs)](/azure/app-service/environment/network-info).
 
 This article and the [associated code project](https://github.com/mspnp/vnet-integrated-serverless-microservices) distill the example scenario down to the main technical components, to serve as scaffolding for specific implementations. The solution automates all code and infrastructure deployments with [Terraform](https://www.terraform.io), and includes automated integration, unit, and load testing.
 
-## Potential use cases
-
-- Access highly sensitive data from designated external endpoints.
-- Implement secure auditing for data access operations.
-- Integrate interdependent microservices apps with common access and security.
-- Use virtual network security features while taking advantage of serverless cost savings and flexibility.
-
 ## Architecture
-
-APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries.
-
-Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
 
 The following diagram shows the patient record creation request flow:
 
 :::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.png" lightbox="virtual-network-microservices.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-network-microservices.vsdx) of this architecture.*
+
+### Workflow
 
 1. Outside services and clients make a POST request to APIM, with a data body that includes patient information.
 1. APIM calls the `CreatePatient` function in the **Patient API** with the given patient information.
@@ -32,7 +19,7 @@ The following diagram shows the patient record creation request flow:
 1. The `CreatePatient` function creates the patient document in Azure Cosmos DB, and returns a success response to APIM.
 1. The outside services and clients receive the success response from APIM.
 
-## Components
+### Components
 
 The solution uses the following components:
 
@@ -54,7 +41,7 @@ The solution uses the following components:
 
   For more information about the distributed telemetry tracing in this solution, see [Distributed telemetry](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/distributed_telemetry.md).
 
-## Alternatives
+### Alternatives
 
 - The current solution requires a subscription key to access the APIM endpoint, but you can also use [Azure Active Directory (Azure AD) authentication](/azure/active-directory/authentication/overview-authentication).
 - In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Azure AD authorization for the APIs' managed identities.
@@ -64,6 +51,25 @@ The solution uses the following components:
 - Instead of Terraform, you can use the Azure portal or Azure CLI for [Key Vault key rotation](/samples/azure-samples/serverless-keyvault-secret-rotation-handling/handling-keyvault-secret-rotation-changes-utilized-by-an-azure-function) tasks.
 - Instead of Terraform, you can use a system like [Azure DevOps](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions) to automate solution deployment.
 - For higher availability, this solution can be deployed to multiple regions. [Set Azure Cosmos DB to multi-master](/azure/cosmos-db/how-to-multi-master), use APIM's built-in [multi-region support](/azure/api-management/api-management-howto-deploy-multi-region), and deploy the Azure Function apps to [paired regions](/azure/best-practices-availability-paired-regions).
+
+## Scenario details
+
+This article describes an integrated solution for patient records management. A health organization needs to digitally store large amounts of highly sensitive patient medical test data in the cloud. Internal and third-party systems must be able to securely read and write the data through an application programming interface (API). All interactions with the data must be recorded in an audit register.
+
+### Potential use cases
+
+- Access highly sensitive data from designated external endpoints.
+- Implement secure auditing for data access operations.
+- Integrate interdependent microservices apps with common access and security.
+- Use virtual network security features while taking advantage of serverless cost savings and flexibility.
+
+### Benefits
+
+Some benefits of serverless applications like Azure Functions are the cost savings and flexibility of using only necessary compute resources, rather than paying up front for dedicated servers. This solution lets Azure Functions use virtual network access restrictions for security, without incurring the cost and operational overhead of full [Azure App Service Environments (ASEs)](/azure/app-service/environment/network-info).
+
+APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries.
+
+Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
 
 ## Considerations
 
@@ -139,7 +145,7 @@ In this solution, APIM and the function apps use Azure [system-assigned managed 
 - The Patient API function app can get the Audit API host key and the Cosmos DB connection string for its data store.
 - The Audit API function app can get the Cosmos DB connection string for its data store.
 
-### Cost
+### Cost optimization
 
 One of the primary benefits of serverless applications like Azure Functions is the cost savings of paying only for consumption, rather than paying up front for dedicated servers. Virtual network support requires the [Azure Functions Premium](https://azure.microsoft.com/pricing/details/functions) plan, at additional charge. Azure Functions Premium has support for regional virtual network integration, while still supporting dynamic scaling. The Azure Functions Premium SKU includes virtual network integration on APIM.
 
@@ -147,7 +153,7 @@ For details and pricing calculator, see [Azure Functions pricing](https://azure.
 
 Functions can also be hosted on [App Service virtual machines](https://azure.microsoft.com/pricing/details/app-service/windows). Only [App Service Environments (ASEs)](/azure/app-service/environment/network-info) offer complete network-level virtual network isolation. ASEs can be considerably more expensive than an Azure Functions plan that supports regional virtual network integration, and ASE scaling is less elastic.
 
-## Deploy the solution
+## Deploy this solution
 
 The source code for this solution is at [Azure VNet-Integrated Serverless Microservices](https://github.com/mspnp/vnet-integrated-serverless-microservices).
 
@@ -173,16 +179,32 @@ Principal author:
 
 * [Hannes Nel](https://nz.linkedin.com/in/hannesn) | Principal Software Engineering Lead
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Use Azure API Management with microservices deployed in Azure Kubernetes Service](/azure/api-management/api-management-kubernetes)
 - [How to use Azure API Management with virtual networks](/azure/api-management/api-management-using-with-vnet)
 - [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
 - [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
-
-## Related resources
-
 - [APIs and microservices e-book](https://azure.microsoft.com/mediahandler/files/resourcefiles/apis-microservices-ebook/Azure_API-Microservices_eBook.pdf)
 - [API Management access restriction policies](/azure/api-management/api-management-access-restriction-policies)
 - [Azure Functions networking options](/azure/azure-functions/functions-networking-options)
 - [Azure Functions scale and hosting](/azure/azure-functions/functions-scale)
+
+## Related resources
+
+The following architectures cover key API Management scenarios:
+
+- [Migrate a web app using Azure API Management](/azure/architecture/example-scenario/apps/apim-api-scenario)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Azure API Management landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function)
+
+The following articles cover key functions scenarios:
+
+- [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
+- [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
+- [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
+- [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+- [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
