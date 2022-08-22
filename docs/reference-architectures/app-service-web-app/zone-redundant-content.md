@@ -23,18 +23,18 @@ For a list of highly available services in Azure, see [Azure Services that suppo
 A SPA (single page application) running in a browser requests static assets including scripts, stylesheets and media assets. Once loaded, the SPA makes API calls that provide functionality.
 
 * SPA users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
-* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several back-end (origin) services. Front Door also provides automatic protection from layer 4 DDoS attacks, and a range of other features to enhance the security and performance of your application.
+* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several Azure services. Front Door also provides automatic protection from layer 4 DDoS attacks, and a range of other features to enhance the security and performance of your application.
 * [Azure Static Web Apps][swa] hosts all of the SPA assets, including scripts, stylesheets and media.
-* [Azure App Service][app-services] hosts the API applications and services, also providing a front-end for back-end services. Deployment slots are used to provide zero-downtime releases.
-* App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend services over a private VNet.
-* [Azure Functions][functions] host backend Functions that connect to backend services and databases.
+* [Azure App Service][app-services] hosts the "front-end" API applications that are called by the SPA. Deployment slots are used to provide zero-downtime releases.
+* App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend Azure services over a private VNet.
+* [Azure Functions][functions] provide a data access layer for Azure SQL Database. APIs hosted in App Services trigger these functions synchronously via HTTPS requests and asynchronously via Service Bus messages.
 * [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session and general-purpose caching.
-* [Azure Service Bus][service-bus] acts as a high-speed bus between front-end and back-end services for asynchronous messaging.
-* [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end services.
-* [Azure SQL DB][sql-db] provides relational databases for back-end services.
-* [Azure Cognitive Search][cog-search] indexes Cosmos DB documents, allowing them to be searched via front-end APIs.
+* [Azure Service Bus][service-bus] acts as an asynchronous high-speed bus between front-end and back-end application services.
+* [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end application services.
+* [Azure SQL DB][sql-db] provides a transactional and relational database for back-end application services.
+* [Azure Cognitive Search][cog-search] indexes Cosmos DB documents, allowing them to be searched via an API.
 * [Azure Blob Storage][storage] stores meta-data and trigger state for Function Apps.
-* [Private Endpoints][peps] allow connections to back-end Azure services from private VNets, and allow the public endpoints on these services to be disabled.
+* [Private Endpoints][peps] allow connections to Azure services from private VNets, and allow the public endpoints on these services to be disabled.
 * [Azure private DNS][private-dns] automatically configures and updates the DNS records required by private endpoint services.
 * [Azure Key Vault][akv] securely stores secrets and certificates to be accessed by Azure services.
 * [Azure Monitor][azmon] and [Application Insights][insights] collects service logs and application performance metrics for observability.
@@ -71,6 +71,7 @@ Azure Front Door is a global service offering resilience to zone and region fail
 * Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
 * Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
+* Use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 
 ### Azure Static Web Apps
 
@@ -212,9 +213,9 @@ See also this important guidance for increasing resilience to Azure AD failures 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. Backend services use private endpoints and public endpoints are disabled.
+This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. Solutions with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 
-All service to service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps are configured to only accept HTTPS traffic.
+Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps are configured to only accept HTTPS traffic.
 
 ### Cost optimization
 
@@ -452,3 +453,4 @@ Fully deployable architectures:
 [app-service-controls]:https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance
 [private-dns]:https://docs.microsoft.com/azure/dns/private-dns-overview
 [apim]:https://azure.microsoft.com/en-us/services/api-management/
+[afd-pep]:https://docs.microsoft.com/azure/frontdoor/private-link
