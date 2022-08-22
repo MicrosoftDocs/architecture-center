@@ -404,4 +404,4 @@ If the AKS cluster is down, the health service won't respond, rendering the work
 
 The health service is also used for explicitly configured URL ping tests with each stamp's Application Insights resource.
 
-For more details about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling#application-health-service).
+For more details about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).
