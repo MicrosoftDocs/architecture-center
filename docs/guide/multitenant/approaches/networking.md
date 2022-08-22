@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/29/2022
+ms.date: 08/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
