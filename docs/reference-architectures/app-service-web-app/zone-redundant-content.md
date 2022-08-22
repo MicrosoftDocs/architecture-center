@@ -355,7 +355,7 @@ Other contributors:
 [storage-pricing]:https://azure.microsoft.com/pricing/details/storage/blobs/
 [pep-pricing]:https://azure.microsoft.com/pricing/details/private-link/
 [reservations]:https://azure.microsoft.com/reservations/
-[bom]:https://azure.com/e/888e1c7e5e814e998da8364b612c292a
+[bom]:https://azure.com/e/3aeac3eda5d44a85baea8d335ce23772
 [msi]:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
 [azmon]:https://azure.microsoft.com/services/monitor/
 [azmon-bp]:https://docs.microsoft.com/azure/azure-monitor/best-practices
