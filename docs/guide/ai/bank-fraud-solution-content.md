@@ -57,9 +57,9 @@ The solution uses an approach based on:
 
 ## High-level architecture
 
-:::image type="content" source="_images/bank-fraud-solution-high-level.png" alt-text="Diagram that shows an architecture for detecting mobile bank fraud." lightbox="_images/bank-fraud-solution-high-level.png" border="false":::
+:::image type="content" source="media/bank-fraud-solution-high-level.png" alt-text="Diagram that shows an architecture for detecting mobile bank fraud." lightbox="media/bank-fraud-solution-high-level.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/MobileBankFraudArchitectures.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -100,7 +100,7 @@ Telemetry events from the bank's mobile and internet application gateways are fo
 
 The following diagram illustrates the fundamental interactions for an Azure function within this infrastructure:
 
-:::image type="content" source="_images/event-processing.png" alt-text="Diagram that shows the event-processing infrastructure."  border="false":::
+:::image type="content" source="media/event-processing.png" alt-text="Diagram that shows the event-processing infrastructure."  border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
@@ -165,7 +165,7 @@ The bank didn't have a formal schema defined for these events, and the constant 
 
 An account profile table contains attributes from the JSON transactions, like the message ID, transaction type, payment amount, day of the week, and hour of the day. Activities are aggregated across multiple time frames, like an hour, a day, and seven days, and stored as a behavior history for each account. Each row in the table represents a single account. These are some of the features:
 
-![Table that lists example features, including number of changed password messages in the past seven days and average withdrawal in the past day.](_images/example-features.png)
+![Table that lists example features, including number of changed password messages in the past seven days and average withdrawal in the past day.](media/example-features.png)
 
 After the account features are calculated and the profile is updated, an Azure function calls the machine learning model for scoring via a REST API to answer this question: *What's the probability that this account is in a state of fraud, based on the behavior we've seen?*
 
@@ -198,7 +198,30 @@ For model training, the Python SDK expects data in either a pandas dataframe for
 
 Here's a code sample, with comments:
 
-:::image type="content" source="_images/automl-code.png" alt-text="Screenshot that shows a code sample for model training.":::
+```
+data = https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv
+dataset = Dataset.Tabular.from_delimited_files(data)
+training_data, validation_data = dataset.random_split(percentage=0.7)
+label_column_name = "Class"
+
+automl_settings = {
+    "n_cross_validations": 3, # Number of cross validation splits.
+    "primary_metric": "average_precision_score_weighted", # This is the metric that you want to optimize.
+    "experiment_timeout_hours": 0.25, # Percentage of an hour you want this to run.
+    "verbosity": logging.INFO, # Logging info level, debug, info, warning, error, critical.
+    "enable_stack_ensemble": False, # VotingEnsembled is enabled by defualt.
+}
+
+automl_config = AutoMLConfig(
+    task="classification",
+    debug_log="automl_errors.log",
+    training_data=training_data,
+    label_column_name=label_column_name,
+    **automl_settings,
+)
+
+local_run = experiment.submit(automl_config, show_output=True)
+```
 
 In the code:
 
@@ -239,7 +262,7 @@ Predictive models need to be updated periodically. Over time, and as new and dif
 - You can use [Azure Synapse Analytics](../../data-guide/relational-data/data-warehousing.yml) or Azure Data Lake to store historical customer data. You can use these services to store known fraudulent transactions uploaded from on-premises sources and data archived from the Azure Machine Learning web service, including transactions, predictions, and model evaluation metrics. The data needed for retraining is stored in this data store.
 - You can use [Data Factory](/azure/data-factory/introduction) or [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) to orchestrate the data flow and process for retraining, including: 
   - The extraction of historical data and log files from on-premises systems.
-  -  The JSON deserialization process.
+  - The JSON deserialization process.
   - Data pre-processing logic.  
 
   For a detailed information, see [Retraining and updating Azure Machine Learning models with Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory).
@@ -304,7 +327,7 @@ Here are some guidelines to consider:
 
 Networking is one of the most important security factors. By default, Azure Synapse workspace endpoints are public endpoints. This means that they can be accessed from any public network, so we strongly recommend that you disable public access to the workspace. Consider deploying Azure Synapse with the Managed Virtual Network feature enabled to add a layer of isolation between your workspace and other Azure services.  For more information about Managed Virtual Network and other security factors, see [Azure Synapse Analytics security white paper: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security).
 
-:::image type="content" source="_images/bank-fraud-solution-network.png" alt-text="Diagram that shows the networking considerations for the solution." lightbox="_images/bank-fraud-solution-network.png" border="false":::
+:::image type="content" source="media/bank-fraud-solution-network.png" alt-text="Diagram that shows the networking considerations for the solution." lightbox="media/bank-fraud-solution-network.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UpdatedMobileBankFraudArchitectures.vsdx) of this architecture.*
 
