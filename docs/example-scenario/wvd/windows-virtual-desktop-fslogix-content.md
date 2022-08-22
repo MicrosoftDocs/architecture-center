@@ -99,7 +99,7 @@ The table below shows you how you can further optimize your AVD environment. Det
 
 Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Azure Virtual Desktop. The low latency and the high amount of IOPs is a great mixture for enterprises at scale.
 
-Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings as well. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Azure Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
+Create volumes with Standard network features [where available](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-regions). Volumes with [Basic network features](/azure/azure-netapp-files/configure-network-features) allow up to 1000 IP connections per active VNet. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Azure Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
 
 #### Pooled scenarios
 
