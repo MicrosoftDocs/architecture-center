@@ -3120,7 +3120,7 @@ items:
                   - name: Security baseline for Windows VMs
                     href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
                     maintainContext: true
-              - name: SQ Server on Azure VMs
+              - name: SQL Server on Azure VMs
                 items:
                   - name: SQL Server on Windows VMs
                     href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
