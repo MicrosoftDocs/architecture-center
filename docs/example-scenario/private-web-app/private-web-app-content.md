@@ -1,6 +1,6 @@
 This example scenario describes how to securely connect a web app to a backend database over a fully private connection.
 
-The solution integrates [Azure App Service](/azure/app-service/) to the virtual network. The web makes outbound calls through the virtual network, not over the public internet. The web app connects to the backend [Azure SQL Database](/azure/azure-sql/database/) through a private endpoint in the virtual network provided by [Azure Private Link](/azure/private-link/private-link-overview) and facilitated by a private DNS zone in [Azure DNS](/azure/dns/dns-overview). Web app calls to the database go through the virtual network and never traverse the public internet.
+The solution brings [Azure App Service](/azure/app-service/) and [Azure SQL Database](/azure/azure-sql/database/) into the virtual network. The web app makes outbound calls through the virtual network, not over the public internet. The web app connects to the backend [Azure SQL Database](/azure/azure-sql/database/) through a private endpoint supported by [Azure Private Link](/azure/private-link/private-link-overview) that is in the virtual network. A private DNS zone in [Azure DNS](/azure/dns/dns-overview) makes resolves the public DNS to the private IP address of the private endpoint. Web app API calls to the database stay in the virtual network and never traverse the public internet.
 
 ## Potential use cases
 
@@ -20,9 +20,9 @@ The solution integrates [Azure App Service](/azure/app-service/) to the virtual 
 
 - The web app receives an HTTP request from the internet that requires an API call to the Azure SQL Database.
 
-- Web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features) by default. But setting up [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) gives the web app outbound access to resources in your virtual network that are not internet-hosted endpoint. We configured *all traffic routing* so all outbound traffic from the web app goes through the virtual network.
+- Web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features) by default. But setting up [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) gives the web app outbound access to resources in the virtual network that are not internet-hosted endpoint. Regional network integration mounts a virtual interface in the **AppSvcSubnet**. We applied the **Route All* setting to the regional network integration. All outbound traffic from the web app goes through the virtual network.
 
-- The web app connects to the virtual network through a virtual interface mounted in the **AppSvcSubnet** subnet of the [virtual network](/azure/virtual-network/).
+- The web app connects to the virtual network through a virtual interface mounted in the **AppSvcSubnet** of the [virtual network](/azure/virtual-network/).
 
 - [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the [Azure SQL Database](/azure/azure-sql/database/) in the **PrivateLinkSubnet** of the Virtual Network.
 
@@ -48,17 +48,21 @@ This scenario uses the following Azure services:
 
 ### Alternatives
 
-- In this example, the virtual network only routes traffic and is otherwise empty. Other subnets and workloads could also run in the virtual network. The **AppSrvSubnet** and **PrivateLinkSubnet** could be in separate peered Virtual Networks as part of a hub-and-spoke network configuration.
-- An alternative approach for private connectivity is an [App Service Environment](/azure/app-service/environment/intro) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine. An App Service Environment hosts the web application in an isolated environment. The App Service Environment and Azure SQL Managed Instance are natively deployed within a virtual network. There would be no need for VNet Integration or private endpoints. These offerings are typically more costly because they provide single-tenant isolated deployment and other features.
-- If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database. 
-- If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
-- As an alternative to the Private Endpoint, you can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. With a Service Endpoint, the private endpoint, **PrivateLinkSubnet**, and configuring the **Route All** regional VNet integration setting are unnecessary. You still need regional VNet Integration to route incoming traffic through the Virtual Network.
+- The virtual network in the architecture only routes traffic and is otherwise empty. Other subnets and workloads could also run in the virtual network.
+- The **AppSrvSubnet** and **PrivateLinkSubnet** could be in separate peered Virtual Networks as part of a hub-and-spoke network configuration.
+- An [App Service Environment](/azure/app-service/environment/intro) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine provide private connectivity. The App Service Environment and Azure SQL Managed Instance are natively deployed within a virtual network. Virtual network integration and private endpoint are not needed. These offerings are typically more costly because they provide single-tenant isolated deployment and other features. For example, an App Service Environment hosts the web application in an isolated environment.
 
-  Compared to Service Endpoints, a Private Endpoint provides a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints).
+  - If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database.
+  - If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+
+- You can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) instead of the private endpoint to secure the database. You still need regional virtual network integration to route outbound web app traffic to the virtual network.
+
+  - With a service endpoint, the virtual interface in the AppSrvSubnet a private IP address would route the API call through the Azure backbone to the public IP of the Azure SQL Database service endpoint. This route path makes the private endpoint, **PrivateLinkSubnet**, and the **Route All** configuration unnecessary.
+  - A service endpoint is for an entire service. A private endpoint provides a private, dedicated IP address toward a specific instance (logical SQL Server for example). Private endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints).
 
 ## Considerations
 
-The following considerations apply to this scenario.
+Below we outline relevant security, reliability, and cost-optimization considerations.
 
 ### Security
 
