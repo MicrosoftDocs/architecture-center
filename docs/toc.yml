@@ -401,30 +401,32 @@ items:
                 href: guide/multitenant/service/overview.md
               - name: Deployment and configuration
                 items:
-                  - name: Azure Resource Manager
-                    href: guide/multitenant/service/resource-manager.md
                   - name: Azure App Configuration
                     href: guide/multitenant/service/app-configuration.md
+                  - name: Azure Resource Manager
+                    href: guide/multitenant/service/resource-manager.md
               - name: Compute
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
               - name: Networking
                 items:
-                  - name: NAT Gateway
+                  - name: Azure NAT Gateway
                     href: guide/multitenant/service/nat-gateway.md
+                  - name: Azure Private Link
+                    href: guide/multitenant/service/private-link.md
               - name: Storage and data
                 items:
-                  - name: Azure Storage
-                    href: guide/multitenant/service/storage.md
-                  - name: Azure SQL Database
-                    href: guide/multitenant/service/sql-database.md
+                  - name: Azure Cache for Redis
+                    href: guide/multitenant/service/cache-redis.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
                     href: guide/multitenant/service/postgresql.md
-                  - name: Azure Cache for Redis
-                    href: guide/multitenant/service/cache-redis.md
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
+                  - name: Azure Storage
+                    href: guide/multitenant/service/storage.md
               - name: Security
                 items:
                   - name: Azure Key Vault
