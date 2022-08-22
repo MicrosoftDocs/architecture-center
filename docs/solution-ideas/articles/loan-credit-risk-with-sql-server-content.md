@@ -10,9 +10,9 @@ By using SQL Server 2016 or later with Machine Learning Services, a lending inst
 
 ### Dataflow
 
-* Connect to your data source (SQL Server) and use your preferred IDE to develop Python and/or R models.
-* When the model is ready, [publish it to SQL Server](/sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server) or visualize the data in Power BI.
-* If you want to manage your model in a fully functional workspace, you can also deploy it to an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace).
+1. Connect to your data source (SQL Server) and use your preferred IDE to develop Python and/or R models.
+1. When the model is ready, [publish it to SQL Server](/sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server) or visualize the data in Power BI.
+1. If you want to manage your model in a fully functional workspace, you can also deploy it to an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace).
 
 If you don't have a workspace set up, like a database or IDE, you can use [Azure Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines). You can use a Windows or Linux version to run your components.
 
