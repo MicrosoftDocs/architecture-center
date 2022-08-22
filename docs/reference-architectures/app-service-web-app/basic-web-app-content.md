@@ -178,7 +178,7 @@ Some limitations of App Service authentication:
 - If you use more than one IDP, there's no built-in mechanism for home realm discovery.
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
-## Deploy the solution
+## Deploy this scenario
 
 This architecture includes an Azure App Service plan and an empty application. It uses Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
 
