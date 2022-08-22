@@ -153,7 +153,7 @@ For details and pricing calculator, see [Azure Functions pricing](https://azure.
 
 Functions can also be hosted on [App Service virtual machines](https://azure.microsoft.com/pricing/details/app-service/windows). Only [App Service Environments (ASEs)](/azure/app-service/environment/network-info) offer complete network-level virtual network isolation. ASEs can be considerably more expensive than an Azure Functions plan that supports regional virtual network integration, and ASE scaling is less elastic.
 
-## Deploy this solution
+## Deploy this scenario
 
 The source code for this solution is at [Azure VNet-Integrated Serverless Microservices](https://github.com/mspnp/vnet-integrated-serverless-microservices).
 
