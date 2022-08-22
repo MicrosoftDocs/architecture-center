@@ -20,7 +20,7 @@ With this pattern, the client application only needs to know about and communica
 
 ### Multiple disparate services
 
-![Diagram of the Gateway Routing pattern for multiple services](./_images/gateway-multiple-services.png)
+![Diagram of the gateway sitting in front of a search service, a checkout service, an order history service, a cart service and a reviews service.](./_images/gateway-multiple-services.png)
 
 The gateway routing pattern is useful in this scenario where a client is consuming multiple services. If a service is consolidated, decomposed or replaced, the client doesn't necessarily require updating. It can continue making requests to the gateway, and only the routing changes.
 
@@ -28,7 +28,7 @@ A gateway also lets you abstract backend services from the clients, allowing you
 
 ### Multiple instances of the same service
 
-![Diagram of the Gateway Routing pattern for multiple services in multiple regions](./_images/gateway-multiple-regions.png)
+![Diagram of the gateway sitting in front of a search service in region 1 and a search service in region 2.](./_images/gateway-multiple-regions.png)
 
 Part of the promise of the cloud is elasticity. Services can be spun up to meet increasing demand or spun down when demand is low to save money. The complexity of registering and unregistering service instances is encapsulated in the gateway. The client is unaware of an increase or decrease in the number of services.
 
@@ -36,7 +36,7 @@ Service instances can be deployed in a single or multiple regions. The [Geode pa
 
 ### Multiple versions of the same service
 
-![Diagram of the Gateway Routing pattern for multiple versions of a service](./_images/gateway-multiple-versions.png)
+![Diagram of the gateway sitting in front of a search service version 1 and a search service version 1.1.](./_images/gateway-multiple-versions.png)
 
 This pattern can be used for deployments, by allowing you to manage how updates are rolled out to users. When a new version of your service is deployed, it can be deployed in parallel with the existing version. Routing lets you control what version of the service is presented to the clients, giving you the flexibility to use various release strategies, whether incremental, parallel, or complete rollouts of updates. Any issues discovered after the new service is deployed can be quickly reverted by making a configuration change at the gateway, without affecting clients.
 
@@ -85,7 +85,7 @@ server {
 }
 ```
 
-On Azure, multiple services can be set up behind:
+The following Azure services can be used to implement the gateway routing pattern:
 
 - An [Application Gateway instance](/azure/application-gateway/tutorial-multiple-sites-cli), which provides regional layer-7 routing.
 - An [Azure Front Door instance](/azure/frontdoor), which provides global layer-7 routing.
