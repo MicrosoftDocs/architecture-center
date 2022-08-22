@@ -976,6 +976,8 @@ items:
                 href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
+              - name: Detect mobile bank fraud
+                href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
@@ -2543,6 +2545,8 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
+                  - name: Detect mobile bank fraud
+                    href: guide/ai/bank-fraud-solution.yml  
                   - name: Machine learning on Azure IoT Edge
                     href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
                     maintainContext: true
