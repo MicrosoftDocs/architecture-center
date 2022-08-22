@@ -165,7 +165,7 @@ Principal authors:
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
-Other contributors:
+Other contributor:
 
  * [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
 
