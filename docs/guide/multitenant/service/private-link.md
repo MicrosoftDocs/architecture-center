@@ -156,6 +156,19 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 [!include[](../includes/private-link-resources.md)]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ 
+Other contributors:
+
+ * [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager, Azure Private Link
+
 ## Next steps
 
 Review [networking approaches for multitenancy](../approaches/networking.md).
