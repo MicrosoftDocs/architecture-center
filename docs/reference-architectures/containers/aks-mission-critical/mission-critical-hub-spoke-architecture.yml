@@ -26,4 +26,4 @@ products:
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-thumb.svg
 content: |
-   [!include[](mission-critical-hub-spoke-content.md)]
+   [!include[](mission-critical-hub-spoke-architecture-content.md)]
