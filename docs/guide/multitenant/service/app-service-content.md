@@ -107,6 +107,21 @@ If your application connects to a large number of databases or external services
 
 However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Thiago Almeida](https://www.linkedin.com/in/thiagoalmeidaprofile) | Principal Program Manager, Azure Functions
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
