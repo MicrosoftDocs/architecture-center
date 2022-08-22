@@ -2,7 +2,7 @@ Microsoft offers several security solutions that can help secure and protect Ama
 
 AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](aws-azure-ad-security.yml), often without additional cost.
 
-Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Defender for Cloud Apps backs up Azure AD with session protection and user behavior monitoring. Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
+Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts. Microsoft Defender for Cloud Apps backs up Azure AD with session protection and user behavior monitoring. Microsoft Defender for Cloud helps proactively strengthen security for AWS environment without any agents and provides threat protection to AWS workloads. Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
 
 These Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
@@ -22,6 +22,8 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 - Defender for Cloud Apps integrates with Azure AD Conditional Access to enforce additional restrictions, and monitors and protects sessions after sign-in. Defender for Cloud Apps uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and to support information protection.
 
+- Microsoft Defender for Cloud implements AWS security recommendations in the Defender for Cloud portal right alongside Azure recommendations. There are more than 160 out-of-the-box recommendations for IaaS and PaaS services as well as support for regulatory standards including CIS, PCI, and AWS foundational security best practices. Microsoft Defender for Cloud also provides Cloud Workload Protection (CWP)for [Amazon EKS clusters](/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks.yml), [AWS EC2 instances](/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud.yml), and [SQL servers running on AWS EC2](/defender-for-cloud/defender-for-sql-introduction.yml).
+
 - Microsoft Sentinel integrates with Defender for Cloud Apps and AWS to detect and automatically respond to threats. Microsoft Sentinel monitors the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
 
 ### Defender for Cloud Apps for visibility and control
@@ -39,9 +41,22 @@ Defender for Cloud Apps provides several capabilities that can integrate with AW
 
 Defender for Cloud Apps is available standalone, or as part of Microsoft Enterprise Mobility + Security E5, which includes Azure AD Premium P2. For more pricing and licensing information, see [Enterprise Mobility + Security pricing options](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing).
 
+### Microsoft Defender for Cloud for CSPM and CWPP
+
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+Microsoft Defender for Cloud Provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
+
+- [Cloud Security Posture Management (CSPM)](/defender-for-cloud/overview-page.yml) assesses your AWS resources according to [AWS-specific security recommendations](/defender-for-cloud/recommendations-reference-aws.yml) and reflects your security posture in your secure score. The [asset inventory](/defender-for-cloud/asset-inventory.yml) gives you one place to see all of your protected AWS resources. The [regulatory compliance dashboard](/defender-for-cloud/regulatory-compliance-dashboard.yml) shows your compliance with built-in standards specific to AWS, including AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices.
+-	[Microsoft Defender for Servers](/defender-for-cloud/defender-for-servers-introduction.yml) brings threat detection and advanced defenses to [supported Windows and Linux EC2 instances](/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-windows.yml).
+-	[Microsoft Defender for Containers](/defender-for-cloud/defender-for-containers-introduction.yml) brings threat detection and advanced defenses to [supported Amazon EKS clusters](/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=azure-aks.yml).
+-	[Microsoft Defender for SQL](/defender-for-cloud/defender-for-sql-introduction.yml) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server.
+
 ### Microsoft Sentinel for advanced threat detection
 
 Threats can come from a wide range of devices, applications, locations, and user types. Data loss prevention requires inspecting content during upload or download, because post-mortem review may be too late. AWS doesn't have native capabilities for device and application management, risk-based conditional access, session-based controls, or inline UBA.
+
+It is critical that security solutions reduce complexity and deliver comprehensive protection regardless of whether resources are in multicloud, on-premises, or hybrid. Microsoft Defender for Cloud provides Cloud Security Posture Management and Cloud Workload Protection. It identifies configuration weak spots across AWS to help strengthen the overall security posture and provides threat protection for Amazon EKS Linux clusters, AWS EC2 instances, SQL servers in AWS EC2. 
 
 [Microsoft Sentinel](/azure/sentinel/) is a *Security Information and Event Management (SIEM)* and *Security Orchestration, Automation, and Response (SOAR)* solution that centralizes and coordinates threat detection and response automation for modern security operations. Microsoft Sentinel can monitor AWS accounts to compare events across multiple firewalls, network devices, and servers. Microsoft Sentinel combines monitoring data with threat intelligence, analytics rules, and machine learning to discover and respond to advanced attack techniques.
 
@@ -253,6 +268,72 @@ Test all policies regularly to ensure they're still effective and relevant. Here
 
 - **Malware detection policy**: If you configured malware detection as a session policy, you can test it by uploading a file to an AWS S3 storage account. You can download a safe test file from the [European Institute for Computer Anti-Virus Research (EICAR)](https://www.eicar.org/). The policy should immediately block you from uploading the file, and you should see the alert trigger in the Defender for Cloud Apps portal shortly afterwards.
 
+### Deploy Microsoft Defender for Cloud
+
+Connect an AWS account with native cloud connector which provides an agentless connection to your AWS account to gather Cloud Security Posture Management (CSPM) recommendations and you can extend with Defender for Cloud's Defender plans to secure your AWS resources with Cloud Workload Protection.
+
+ :::image type="content" source="media/session-controls.png" alt-text="Screenshot of Microsoft Defender for Cloud Dashboard.":::
+
+To protect your AWS-based resources, you:
+
+1.	Connect AWS account
+
+1.	Monitor AWS
+
+#### Connect your AWS account
+
+To connect your AWS account to Defender for Cloud with a native ###connector:
+
+1.	Review the [prerequisites](/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#prerequisites.yml) for connecting AWS account and ensure they are completed before proceeding.
+
+2.	If you have any classic connectors, [remove them](/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#remove-classic-connectors.yml). Using both the classic and native connectors can produce duplicate recommendations.
+            
+3.	Sign in to the [Azure portal](https://portal.azure.com).
+
+4.	Navigate to Defender for Cloud > Environment settings.
+
+5.	Select Add environment > Amazon Web Services.
+
+ :::image type="content" source="media/session-controls.png" alt-text="Screenshot of Microsoft Defender for Cloud Environment Settings page.":::
+
+6.	Enter the details of the AWS account, including the location where you'll store the connector resource.
+(Optional) Select Management account to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
+
+:::image type="content" source="media/session-controls.png" alt-text="Screenshot of Microsoft Defender for Cloud Add Account page.":::
+
+7.	Select Next: Select plans.
+
+:::image type="content" source="media/session-controls.png" alt-text="Screenshot of Microsoft Defender for Cloud Add Account Details page.":::
+
+8.	By default, the Servers plan is set to On. This is necessary to extend Defender for server's coverage to your AWS EC2. Ensure you've fulfilled the [network requirements for Azure Arc](/azure-arc/servers/network-requirements?tabs=azure-cloud.yml).
+(Optional) Select Configure, to edit the configuration as required.
+
+9.	By default, the Containers plan is set to On. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the [network requirements](/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#network-requirements.yml) for the Defender for Containers plan.
+(Optional) Select Configure, to edit the configuration as required. If you choose to disable this configuration, the Threat detection (control plane) feature will be disabled. Learn more about the [feature availability](/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=azure-aks.yml).
+
+10.	By default, the Databases plan is set to On. This is necessary to extend Defender for SQL's coverage to your AWS EC2 and RDS Custom for SQL Server.
+(Optional) Select Configure, to edit the configuration as required. We recommend you leave it set to the default configuration.
+
+11.	Select Next: Configure access.
+	
+12.	Download the CloudFormation template.
+
+13.	Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
+
+14.	Select Next: Review and generate.
+
+15.	Select Create.
+
+Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](defender-for-cloud/recommendations-reference-aws.yml).
+
+#### Monitor your AWS resources
+
+Defender for Cloud's security recommendations page displays your AWS resources. You can use the environments filter to enjoy Defender for Cloud's multicloud capabilities: view the recommendations for Azure, AWS, and GCP resources together.
+
+To view all the active recommendations for your resources by resource type, use Defender for Cloud's asset inventory page and filter to the AWS resource type in which you're interested:
+
+:::image type="content" source="media/session-controls.png" alt-text="Screenshot of Microsoft Defender for Cloud Inventory page.":::
+
 ### Deploy Microsoft Sentinel
 
 Connecting an AWS account and Defender for Cloud Apps to Microsoft Sentinel enables monitoring capabilities that compare events across multiple firewalls, network devices, and servers.
@@ -323,6 +404,8 @@ If the data stops ingesting and the graph drops, check the credentials used to c
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
+- [Connect your AWS accounts to Microsoft Defender for Cloud](/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings)
+- [New AWS connector in Microsoft Defender for Cloud](/defender-for-cloud/episode-one)
 - [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security)
 - [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws)
 - [Connect Microsoft Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws)
