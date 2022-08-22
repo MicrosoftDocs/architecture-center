@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/21/2022
+ms.date: 08/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
