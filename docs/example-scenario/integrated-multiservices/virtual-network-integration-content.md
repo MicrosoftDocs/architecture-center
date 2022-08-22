@@ -23,7 +23,7 @@ The following diagram shows the patient record creation request flow:
 
 The solution uses the following components:
 
-- [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management) is a hybrid, multi-cloud platform for managing APIs across all environments. In this solution, APIM controls internal and third-party access to the Patient API that allows reading and/or writing data. APIM allows for easy integration with different authentication mechanisms.
+- [Azure API Management (APIM)](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud platform for managing APIs across all environments. In this solution, APIM controls internal and third-party access to the Patient API that allows reading and/or writing data. APIM allows for easy integration with different authentication mechanisms.
 
 - [Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute platform that handles small, event-driven pieces of code. The cloud infrastructure provides the necessary updated servers to run the functions at scale. The current solution uses a set of two Azure Functions API microservices that create and manage operations for patient test results and auditing records.
 
@@ -97,7 +97,7 @@ To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/vi
 
 Function apps can restrict IPv4, IPv6, and virtual network subnet access. By default, a function app allows all access, but once you add one or more address or subnet restrictions, the app denies all other network traffic.
 
-In this solution, the function apps allow interactions only within their own virtual network. The Patient API allows calls from the APIM subnet by adding the APIM subnet to its access restriction allow list. The Audit API allows communication with the Patient API by adding the Patient API subnet to its access restriction allow list. The APIs reject traffic from other sources.
+In this solution, the function apps allow interactions only within their own virtual network. The Patient API allows calls from the APIM subnet by adding the APIM subnet to its access restriction allowlist. The Audit API allows communication with the Patient API by adding the Patient API subnet to its access restriction allowlist. The APIs reject traffic from other sources.
 
 The solution uses [regional virtual network integration](/azure/azure-functions/functions-networking-options#regional-virtual-network-integration) to integrate APIM and the function apps with the same virtual network and Azure region. There are several important considerations for using regional virtual network integration:
 
@@ -157,7 +157,7 @@ Functions can also be hosted on [App Service virtual machines](https://azure.mic
 
 The source code for this solution is at [Azure VNet-Integrated Serverless Microservices](https://github.com/mspnp/vnet-integrated-serverless-microservices).
 
-The [Typescript](https://www.typescriptlang.org) source code for the [PatientTest API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/PatientTestsApi/readme.md) and the [Audit API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/AuditApi/readme.md) are in the `/src` folder. Each API's source includes a [dev container](https://code.visualstudio.com/docs/remote/containers) that has all the prerequisites installed, to help you get going quickly.
+The [TypeScript](https://www.typescriptlang.org) source code for the [PatientTest API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/PatientTestsApi/readme.md) and the [Audit API](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/src/AuditApi/readme.md) are in the `/src` folder. Each API's source includes a [dev container](https://code.visualstudio.com/docs/remote/containers) that has all the prerequisites installed, to help you get going quickly.
 
 Both APIs have a full suite of automated integration and unit tests to help prevent regressions when you make changes. The project is also configured for *linting* with ESLint, to maintain code styles and help guard against unintentional errors. The services' respective README files contain information on how to run the tests and linting.
 
