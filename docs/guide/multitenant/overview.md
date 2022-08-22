@@ -100,6 +100,7 @@ Other contributors:
  * [David Crook](http://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
  * [LaBrina Loving](http://linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
  * [Raj Nemani](http://linkedin.com/in/rajnemani) | Partner Technology Strategist
+ * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
 ## Next steps
 
