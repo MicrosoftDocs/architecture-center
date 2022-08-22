@@ -1,5 +1,3 @@
-<!-- cSpell:ignore CNAME -->
-
 This reference architecture shows how to run a web-app workload on Azure App Services in a zone-redundant configuration. [Zone-redundant services][az-ha-services] provide high-availability by replicating your services and data across Availability zones to protect from single points of failure. [**Deploy this scenario**.](#deploy-this-scenario)
 
 ## Architecture
@@ -39,13 +37,23 @@ A SPA (single page application) running in a browser requests static assets incl
 * [Azure Key Vault][akv] securely stores secrets and certificates to be accessed by Azure services.
 * [Azure Monitor][azmon] and [Application Insights][insights] collects service logs and application performance metrics for observability.
 
+### Networking
+
+Private endpoints are used throughout this architecture to improve security. While private endpoints do not directly improve (or reduce) the availability of this solution, they allow important security principals to be applied. For more information about security design princpals, see [Azure well architected framework - Security pillar][waf-security].   
+
+Network segmentation boundaries are established along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. 
+
+Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. This includes the data services; Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. 
+
+> For network and subnet topology details, see the [Azure quickstart template][quickstart] for this architecture.
+
 ### Alternatives
 
 * Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
 * [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching is not required.
+* Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app will resolve, and public access to the App Service will be rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis]. In this architecture
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
-* In this architecture, Functions are hosted in a zone-redundant elastic premium Functions plan. Azure Static Web Apps also has the capability to host Functions, either fully managed or bring-your-own. For more information about hosting Functions in Static Web Apps, see [API support in Azure Static Web Apps with Azure Functions][swa-apis]. 
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
 
 ### Solution details
@@ -66,7 +74,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Front Door
 
-Azure Front Door is a global service offering resilience to zone and region failures. 
+Azure Front Door is a global service, always available across all Azure geographies and resilient to zone-wide outages and region-wide outages.
 
 * Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
 * Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
@@ -83,7 +91,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 
 * Deploy a minimum of three instances for zone-redundancy.
 * Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
-* Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend services.
+* Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend Azure services.
 
 ### Azure Functions
 
@@ -162,25 +170,11 @@ Integrate Private Endpoints with Azure DNS Private Zones to simplify DNS managem
 
 ## Considerations
 
-<!--
-
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
--->
-
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-<!-- 
-
-> This section includes resiliency and availability considerations. They can also be H4 headers in this section, if you think they should be separated.
-> Are there any key resiliency and reliability considerations (past the typical)?
-
--->
 
 #### Availability
 
@@ -213,53 +207,34 @@ See also this important guidance for increasing resilience to Azure AD failures 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. Solutions with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
-
-Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps are configured to only accept HTTPS traffic.
+* Private endpoints are used on Azure services that don't need to be accessed from the public internet. 
+* Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+* Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). 
+* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only.
+* Managed identities are used for authenticating Azure service-to-service communication. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-<!-- 
-
-> How much will this cost to run? See if you can answer this without dollar amounts.
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
-
-> Link to the pricing calculator (https://azure.microsoft.com/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
-
--->
 
 Zone-redundant architectures are less expensive than multi-region alternatives because services can be deployed in a single region. However, there are several cost implications that customers should be aware of:
 
 * Some zone-redundant services incur charges for inter-zone bandwidth. For more information, see [Bandwidth pricing][bandwidth-pricing].
 * Some services require a minimum number of instances or replicas to be deployed to achieve zone-redundancy.
 * Zone redundant storage (ZRS) is priced differently to Locally redundant storage (LRS). For more information, see [Storage pricing][storage-pricing].
-* Private Endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
+* Private endpoints are usually only available on Premium Azure service SKUs. Private endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
 
 Some cost optimization considerations include:
 
 * Save money when you reserve resources in advance. Several services in this architecture are eligible for Reserved capacity pricing. For more information about Reserved capacity, see [Reservations][reservations].
 * Function Apps can be hosted in the same dedicated App Service Plan as the API Apps. Combining the plans removes the segmentation of frontend and backend services and introduces risk of noisy neighbor effect; backend services could consume resources needed by frontend services, and vice-versa. Hosting Functions in an App Service plans also negates the elasticity benefits the Elastic Premium plan.
-* Private endpoints can be removed to save costs. Conduct a risk assessment to determine the risk of enabling public endpoints on backend services. Use [Managed Identities][msi] and enable service firewalls to provide defense in depth.
+* Private endpoints can be removed to save costs. Conduct a risk assessment to determine the risk of enabling public endpoints on backend services. Use managed identities and enable service firewalls to provide defense in depth.
 
 > An example bill of materials for this architecture can be viewed in [Azure Pricing Calculator][bom].
-
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-<!-- 
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
-
--->
 
 All Azure PaaS (Platform as a Service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
 
@@ -278,14 +253,6 @@ Test the performance and resilience of the entire solution with [Azure Load Test
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-<!--
-
-> This includes scalability considerations.
-> Are there any key performance considerations (past the typical)?
-> Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
-
--->
-
 This architecture can be highly optimized for performance and scale:
 
 * Develop web apps as Single page applications (SPAs)
@@ -299,20 +266,6 @@ This architecture can be highly optimized for performance and scale:
 
 ## Deploy this scenario
 
-<!-- 
-
-> REQUIRED: Reference Architectures require a deployment. If you cannot provide a deployment, use the Example Workload template instead. 
-
-_Describe a step-by-step process for implementing the reference architecture solution. Best practices are to add the solution to GitHub, provide a link (use boilerplate text below), and explain how to roll out the solution._
-
-A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](https://www.github.com/path-to-repo).
-
-1. First step
-2. Second step
-3. Third step ...
-
--->
-
 Deploy this reference architecture using the [Azure Quickstart Template][quickstart]. 
 
 * Azure AD / Azure AD B2C and Azure DNS aren't deployed by this sample. 
@@ -320,59 +273,23 @@ Deploy this reference architecture using the [Azure Quickstart Template][quickst
 
 ## Contributors
 
-<!-- 
-> (Expected, but this section is optional if all the contributors would prefer to not be mentioned.)
-
-> Start with the explanation text (same for every section), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Principal authors" list and the "Other contributors" list, if there are additional contributors (all in plain text, not italics or bold). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). (The profiles can be linked to from the person's LinkedIn page, and we hope to automate that on the platform in the future). Implement this format:
-
---> 
-
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
-
-<!-- Only the primary authors. Listed alphabetically by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s). -->
 
  - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz/) | FastTrack for Azure Customer Engineer
  
 Other contributors: 
 
-<!-- Include contributing (but not primary) authors, major editors (not minor edits), and technical reviewers. Listed alphabetically by last name. Use this format: Fname Lname. It's okay to add in newer contributors. -->
-
  - [John Downs](https://www.linkedin.com/in/john-downs/) | FastTrack for Azure Customer Engineer
 
 ## Next steps
-
-<!-- 
-
-> Link to Docs and Learn articles. Could also be to appropriate sources outside of Docs, such as GitHub repos, third-party documentation, or an official technical blog post.
-
-Examples:
-* [Azure Machine Learning documentation](/azure/machine-learning)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-
--->
 
 * [Microsoft Azure Well-Architected Framework - Reliability][learn-ha] - Learn module.
 * [Find an Availability Zone region near you][region-roadmap]
 
 
 ## Related resources
-
-<!--
-
-> Use "Related resources" for architecture information that's relevant to the current article. It must be content that the Azure Architecture Center TOC refers to, but may be from a repo other than the AAC repo.
-> Links to articles in the AAC repo should be repo-relative, for example (../../solution-ideas/articles/article-name.yml).
-
-> Here is an example section:
-
-Fully deployable architectures:
-
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
-
--->
 
 * [Highly available multi-region web app](./multi-region.yml)
 * [Design principles for Azure applications](/azure/architecture/guide/design-principles)
@@ -431,7 +348,7 @@ Fully deployable architectures:
 [cosmos-pep]:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints
 [storage-spa]:https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website
 [sb-pep]:https://docs.microsoft.com/azure/service-bus-messaging/private-link-service
-[swa-apis]:https://docs.microsoft.com/azure/static-web-apps/apis-functions
+[swa-apis]:https://docs.microsoft.com/azure/static-web-apps/apis-overview
 [pep-dns]:https://docs.microsoft.com/azure/key-vault/general/private-link-service
 [aad-resilience]:https://docs.microsoft.com/azure/active-directory/fundamentals/resilience-in-infrastructure
 [bandwidth-pricing]:https://azure.microsoft.com/pricing/details/bandwidth/
@@ -452,5 +369,6 @@ Fully deployable architectures:
 [apim-zr]:https://docs.microsoft.com/azure/availability-zones/migrate-api-mgt
 [app-service-controls]:https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance
 [private-dns]:https://docs.microsoft.com/azure/dns/private-dns-overview
-[apim]:https://azure.microsoft.com/en-us/services/api-management/
+[apim]:https://azure.microsoft.com/services/api-management/
 [afd-pep]:https://docs.microsoft.com/azure/frontdoor/private-link
+[waf-security]:https://docs.microsoft.com/azure/architecture/framework/security/security-principles
