@@ -71,39 +71,39 @@ For a high-availability configuration, keep in mind that NAT gateway is deployed
 
 ### Use of network components across a SAP landscape
 
-An architecture document typically depicts only one SAP system or landscape, for ease of understanding. Often unaddressed is the overall bigger picture of how such architecture fits to a larger SAP landscape with several system tracks and tiers.
+An architecture document typically depicts only one SAP system or landscape. This makes them easier to understand. The result is that frequently the bigger picture, how the architecture fits into a larger SAP landscape that has several system tracks and tiers, isn't addressed.
 
-Central networking services, such as firewall, NAT gateway, proxy servers if deployed are best used across entire SAP landscape of all tiers - production, pre-production, development and sandbox. Depending on your requirements, organization size and company policy you can consider separate implementation per tier or one production and one sandbox/testing environment.
+Central networking services, like the firewall, NAT gateway, and proxy servers if they're deployed, are best used across the entire SAP landscape of all tiers: production, pre-production, development, and sandbox. Depending on your requirements, the size of your organization, and business policies, you might want to consider separate implementations per tier, or one production and one sandbox/testing environment.
 
-Services typically serving an SAP system are best separated as follows
+Services that typically serve an SAP system are best separated as described here:
 
-- **Load Balancers** dedicated to individual service. Degree of separation best per company policy on naming and grouping. Recommended deployment is one load balancer for (A)SCS and ERS and another for DB, for each SAP SID separated. This ensures troubleshooting doesn't get complex with multiple front- and backend pools and load balancing rules all on same single load balancer. Single load balancer per SAP SID also ensures placement in resource groups matches the other infrastructure components.
-- **Application Gateway**, similarly to load balancer, allows multiple back- and frontends, HTTP settings and rules. The decision to use one Application Gateway for multiple uses - different web dispatchers ports for same SAP S/4HANA system or different SAP environments is here more common, as not all SAP systems in the environment require public access. Recommended approach is thus to use one Application Gateway at least per tier (production, non-production, sandbox) unless the complexity and amount of connected systems gets too high.
-- **SAP services** like saprouter or cloud connector, analytics cloud agent are deployed based on application requirements either centrally or split up. Often production and non-production separation is desired.
+- **Load balancers** should be dedicated to individual services. The degree of separation is best dictated by company policy on naming and grouping. We recommend one load balancer for ASCS/SCS and ERS and another for database, separated for each SAP SID. This configuration helps to ensure that troubleshooting doesn't get complex, with multiple front-end and back-end pools and load balancing rules all on a single load balancer. A single load balancer per SAP SID also ensures that placement in resource groups matches that of other infrastructure components.
+- **Application Gateway**, like a load balancer, allows multiple back ends, front ends, HTTP settings, and rules. The decision to use one application gateway for multiple uses is more common here because not all SAP systems in the environment require public access. Multiple uses in this context include different web dispatcher ports for same SAP S/4HANA systems or different SAP environments. We recommend at least one application gateway per tier (production, non-production, and sandbox) unless the complexity and number of connected systems becomes too high.
+- **SAP services** like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. Production and non-production separation is often desired.
 
 ### Subnet sizing and design
 
-When designing subnets for your SAP landscape, ensure correct sizing and design principles are adhered to.
+When you design subnets for your SAP landscape, be sure to follow sizing and design principles:
 
-- Several Azure PaaS services require own, designated subnets.
-- Application Gateway requires at least /29 subnet, although /27 or larger is [recommended](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub). Application Gateway version 1 and 2 can't be part of the same subnet.
-- If using Azure NetApp Files for your NFS/SMB shares or database storage, again own designated subnet is required. /24 subnet is default and [proper sizing](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) should be chosen based on requirements.
-- If using SAP virtual hostnames, more address space is needed in your SAP subnets, including SAP DMZ.
-- Central services like Azure Bastion or Azure Firewall, typically managed by central IT team, require their own dedicated subnets with sufficient sizing.
+- Several Azure platform as a service (PaaS) services require their own designated subnets.
+- Application Gateway requires at least a /29 subnet, although we [recommend /27 or larger](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub). You can't use both versions of Application Gateway (1 and 2) in the same subnet.
+- If you use Azure NetApp Files for your NFS/SMB shares or database storage, a designated subnet is required. A /24 subnet is the default. Use your requirements to determine the [proper sizing](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
+- If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter.
+- Central services like Azure Bastion or Azure Firewall, typically managed by a central IT team, require their own dedicated subnets of sufficient size.
 
-Dedicated subnets for SAP database and application allow NSGs to be set more strict, protecting both application types with own set of rules. Access to database can be then much more simply limited to SAP applications only, without having to resort to application security groups for granular control. Separating your SAP application and database subnets also allows easier manageability of your security rules within NSGs.
+By using dedicated subnets for SAP databases and applications, you can set NSGs to be more strict, which helps to protect both application types with their own sets of rules. You can them limit database access to SAP applications more easily, without needing to resort to application security groups for granular control. Separating your SAP application and database subnets also makes it easier to manage your security rules in NSGs.
 
-## SAP Services
+## SAP services
 
-### Saprouter
+### SAProuter
 
-Enabling access to your SAP system to third parties such as SAP support or partners can be done with saprouter. Saprouter software runs on one VM in Azure. Routing permissions to use saprouter are stored in a flat file called saproutab. The saproutab entries allow connection to any TCP/IP port to a network destination behind saprouter, typically your SAP system VMs. SAP support remote access relies on the use of saprouter, same for download of SAP notes into your SAP NetWeaver system utilizes the saprouter to connect to SAP. The above architecture uses the earlier described network design, with a saprouter VM running within the designated SAP-DMZ vnet. Through the vnet peering, saprouter then communicates with your SAP servers running in own spoke virtual network and subnets.
+You can use SAProuter to enable third parties like SAP support or your partners to access your SAP system. SAProuter runs on one VM in Azure. Route permissions for using SAProuter are stored in a flat file called *saprouttab*. The *saprouttab* entries allow connection to any TCP/IP port to a network destination behind SAProuter, typically your SAP system VMs. SAP support remote access relies on the use of saprouter, same for download of SAP notes into your SAP NetWeaver system utilizes the saprouter to connect to SAP. The above architecture uses the earlier described network design, with a saprouter VM running within the designated SAP-DMZ vnet. Through the vnet peering, saprouter then communicates with your SAP servers running in own spoke virtual network and subnets.
 
 Saprouter acts as a tunnel to SAP or partners, the communication path to Internet is protected through:
 
 - Azure Firewall or third party NVA provides the public IP entry point into your Azure networks. Firewall rules in place to limit communication to authorized IPs only. For SAP support connection, [SAP note 48243 - Integrating the SAProuter software into a firewall environment](https://launchpad.support.sap.com/#/notes/48243) documents the IP address of SAP's routers.
 - Similarly to firewall rules, network security rules allow communication on saprouter's port, typically 3299 with the designated destination.
-- The saproutab file, where saprouter allow/deny rules are maintained, specifying who can contact saprouter and which SAP system can be accessed.
+- The saprouttab file, where saprouter allow/deny rules are maintained, specifying who can contact saprouter and which SAP system can be accessed.
 - Further NSG rules in place on the respective subnets within the SAP production subnet, containing the SAP systems.
 
 The following blog post [SAP on Azure Tech Community | Saprouter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496) contains steps to configure saprouter with Azure Firewall.
