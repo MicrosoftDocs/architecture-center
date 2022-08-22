@@ -153,7 +153,7 @@ For general guidance on designing secure solutions, see the [Azure security docu
 For deploying fresh simulation environments, it's best to use CI/CD processes using a solution such as Azure DevOps or GitHub Actions, as described in the
 [Azure DevOps Starter](/azure/devops-project/overview) documentation.
 
-## Pricing
+### Cost optimization
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. You can also optimize your costs by following the process to right-size the capacity of your VMs from the beginning, along with simplified resizing as needed. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
