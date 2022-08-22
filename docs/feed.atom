@@ -2,18 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-08-15T14:12:19.973Z</updated>
+    <updated>2022-08-22T13:58:13.461Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Microsoft mixed reality overview]]></title>
+        <title type="html"><![CDATA[Azure Private Link service considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/private-link</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/private-link"/>
+        <updated>2022-08-22T09:46:40.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Key Vault considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/key-vault</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/key-vault"/>
+        <updated>2022-08-19T09:31:30.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data platform for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform"/>
+        <updated>2022-08-18T16:21:00.000Z</updated>
+        <summary type="html"><![CDATA[Data decisions for the baseline reference architecture for a mission-critical workload on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for tenant integration and data access]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/integration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/integration"/>
+        <updated>2022-08-17T09:12:03.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to consider for integrations in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Health modeling for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling"/>
+        <updated>2022-08-15T15:55:04.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Health modeling.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft mixed reality architecture overview]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/mixed-reality/mixed-reality-overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/mixed-reality/mixed-reality-overview"/>
         <updated>2022-08-14T07:49:43.000Z</updated>
-        <summary type="html"><![CDATA[See an overview of Microsoft mixed-reality concepts, training, best practices, and Azure services.]]></summary>
+        <summary type="html"><![CDATA[See an overview of Microsoft mixed-reality concepts, training, best practices, architectures, and Azure services.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -37,7 +77,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture"/>
         <updated>2022-08-11T15:52:30.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.]]></summary>
+        <summary type="html"><![CDATA[Architecture for a highly reliable workload with enhanced network controls such as private endpoints.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -81,7 +121,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Continuous Validation with Azure Load Testing and Azure Chaos Studio]]></title>
+        <title type="html"><![CDATA[Continuous validation with Azure Load Testing and Azure Chaos Studio]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing"/>
         <updated>2022-08-02T18:44:57.000Z</updated>
@@ -116,8 +156,48 @@
         <title type="html"><![CDATA[Mission-critical baseline architecture on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
-        <updated>2022-08-11T15:52:30.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
+        <updated>2022-08-18T16:21:00.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiple forests with AD DS and Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest"/>
+        <updated>2022-08-18T16:24:15.000Z</updated>
+        <summary type="html"><![CDATA[This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Desktop for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop"/>
+        <updated>2022-08-18T16:24:15.000Z</updated>
+        <summary type="html"><![CDATA[Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CI/CD for Azure VMs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms"/>
+        <updated>2022-08-17T02:35:28.000Z</updated>
+        <summary type="html"><![CDATA[High-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2022-08-16T21:47:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Large-scale custom natural language processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing"/>
+        <updated>2022-08-16T08:01:29.000Z</updated>
+        <summary type="html"><![CDATA[Implement a custom natural language processing (NLP) solution in Azure. Use Spark NLP for tasks like topic and sentiment detection and analysis.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -381,7 +461,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking"/>
         <updated>2022-07-01T17:52:42.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Networking.]]></summary>
+        <summary type="html"><![CDATA[Networking decisions for the baseline reference architecture for a mission-critical workload on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -665,11 +745,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Orchestrate MLOps on Azure Databricks using Databricks Notebook]]></title>
+        <title type="html"><![CDATA[Orchestrate MLOps by using Azure Databricks]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/orchestrate-mlops-azure-databricks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/orchestrate-mlops-azure-databricks"/>
         <updated>2022-07-06T08:14:58.000Z</updated>
-        <summary type="html"><![CDATA[This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.]]></summary>
+        <summary type="html"><![CDATA[Learn about an approach to machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -941,7 +1021,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
         <updated>2022-06-16T22:43:49.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
+        <summary type="html"><![CDATA[Architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1197,7 +1277,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest-azure-managed</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest-azure-managed"/>
         <updated>2022-06-24T21:36:30.000Z</updated>
-        <summary type="html"><![CDATA[This is a solution idea that builds on the multiple forests scenario, using Azure Virtual Desktop and Azure Active Directory Domain Services.]]></summary>
+        <summary type="html"><![CDATA[This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1205,7 +1285,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/multi-forest"/>
         <updated>2022-06-24T21:36:30.000Z</updated>
-        <summary type="html"><![CDATA[This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.]]></summary>
+        <summary type="html"><![CDATA[This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1213,7 +1293,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop"/>
         <updated>2022-06-24T21:36:30.000Z</updated>
-        <summary type="html"><![CDATA[Explore Azure Virtual Desktop and learn to build virtual desktop infrastructure solutions at enterprise scale.]]></summary>
+        <summary type="html"><![CDATA[Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -3293,7 +3373,7 @@
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms"/>
         <updated>2022-05-20T19:54:52.000Z</updated>
-        <summary type="html"><![CDATA[Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you'll need a CI/CD pipeline to automatically push changes to these virtual machines.]]></summary>
+        <summary type="html"><![CDATA[High-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
