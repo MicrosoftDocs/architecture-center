@@ -9,7 +9,7 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ## Architecture
 
-:::image type="content" alt-text="Consumer health portal architecture" source="./images/consumer-health-portal.png" lightbox="./images/consumer-health-portal.png":::
+:::image type="content" alt-text="Diagram of consumer health portal architecture." source="./images/consumer-health-portal.png" lightbox="./images/consumer-health-portal.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/consumer-health-portal.vsdx) of this architecture.*
 
