@@ -1,27 +1,31 @@
 ### YamlMime:Architecture
 metadata:
-  title: Internet inbound and outbound connections for SAP on Azure
-  description: Proven design practices to design secure access to and by SAP systems running in Azure.
+  title: Inbound and outbound internet connections for SAP on Azure
+  description: Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.
+  author: msftrobiro
   ms.author: robiro
-  ms.date: 07/12/2022
+  ms.date: 08/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: azure-guide
   ms.category:
     - databases
     - compute
   ms.custom:
     - reference-architecture
     - e2e-sap
-name: Internet inbound and outbound connections for SAP on Azure
+name: Inbound and outbound internet connections for SAP on Azure
 azureCategories:
   - databases
   - compute
-summary: 'Proven design practices to design secure access to and by SAP systems running in Azure.'
+  - networking
+summary: Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.
 products:
-  - azure
   - azure-virtual-machines
   - azure-linux-vm
+  - azure-virtual-network
+  - azure-application-gateway
+  - azure-load-balancer
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-internet-inbound-outbound-content-thumbnail.png
 content: |
    [!include[](sap-internet-inbound-outbound-content.md)]
