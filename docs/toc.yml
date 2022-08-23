@@ -976,6 +976,8 @@ items:
                 href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
+              - name: Detect mobile bank fraud
+                href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
@@ -1876,6 +1878,8 @@ items:
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+              - name: Automotive test data analytics
+                href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Building blocks for autonomous driving
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: IoT Edge railroad maintenance and safety
@@ -2541,6 +2545,8 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
+                  - name: Detect mobile bank fraud
+                    href: guide/ai/bank-fraud-solution.yml  
                   - name: Machine learning on Azure IoT Edge
                     href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
                     maintainContext: true
@@ -2950,6 +2956,8 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Automotive test data analytics
+                href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse and Dynamics 365
