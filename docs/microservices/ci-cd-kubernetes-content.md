@@ -25,7 +25,7 @@ For purposes of this example, here are some assumptions about the development te
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
 
-### Common Alternatives
+### Common alternatives
 
 The following are common alternatives customers might use when choosing a CI/CD strategy with Azure Kubernetes Service:
 
