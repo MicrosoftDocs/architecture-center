@@ -14,7 +14,7 @@ azureCategories:
   - mobile
 products:
   - azure
-  - azure-api-for-fhir
+  - api-for-fhir
 name: Virtual health on Microsoft Cloud for Healthcare 
 summary: This article describes an architecture to develop a virtual health solution using Microsoft Cloud for Healthcare.
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-health-solution.png
