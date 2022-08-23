@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Multiregion web app on private DB connection
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 02/05/2021
+  ms.date: 07/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -22,7 +22,7 @@ products:
   - azure-private-link
   - azure-sql-database
   - azure-web-apps
-name: Multi-region web app with private connectivity to database
+name: Multi-region web app with private connectivity to a database
 summary: Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.
 thumbnailUrl: /azure/architecture/browse/thumbs/app-service-private-sql-multi-region-solution-architecture-thumbnail.png
 content: |

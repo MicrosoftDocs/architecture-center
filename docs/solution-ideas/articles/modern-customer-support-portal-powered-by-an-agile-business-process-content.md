@@ -1,6 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
+Easily connect multiple business systems to enable nimbler customer support.
+
+## Potential use cases
+
+This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. This solution is ideal for the retail industry and the travel and hospitality industries.
 
 ## Architecture
 
@@ -23,7 +27,10 @@ This line-of-business application solution provides a mechanism for monitoring a
 
 ## Next steps
 
-- [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)
-- [Managing identities in your applications](../../multitenant-identity/index.yml)
 - [Automate access and use of data across applications with Logic Apps](/azure/logic-apps)
 - [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services/welcome)
+
+## Related resources
+
+- [Matching the architecture to your business needs](../../guide/design-principles/build-for-business.md)
+- [Managing identities in your applications](../../multitenant-identity/index.yml)

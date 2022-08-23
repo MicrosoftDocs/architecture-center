@@ -14,6 +14,10 @@ Consider Azure DevOps and CI/CD processes for:
 
 ![Architecture diagram of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
+### Dataflow
+
 The data flows through the scenario as follows:
 
 1. A developer changes application source code.
@@ -51,7 +55,7 @@ This [decision tree for Azure compute services](../../guide/technology-choices/c
 
 ## Considerations
 
-### Security and management considerations
+### Security and management
 
 - Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
 
@@ -89,6 +93,14 @@ Once you've configure a pipeline with Azure DevOps Projects and the build is com
 
 The pipeline creates a release definition and a continuous deployment trigger, deploying our application into the Dev environment. As part of a continuous deployment process, you may see releases that span multiple environments. A release can span both infrastructure (using techniques such as infrastructure-as-code), and can also deploy the application packages required along with any post-configuration tasks.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Chris Reddington](https://uk.linkedin.com/in/chrisreddington) | Cloud Solution Architect
+
 ## Next steps
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
@@ -104,7 +116,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 
 <!-- links -->
 
-[ansible]: /azure/developer/ansible/
+[ansible]: /azure/developer/ansible
 [application-insights]: /azure/application-insights/app-insights-overview
 [arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
@@ -124,7 +136,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
 [vsts-pricing-page]: https://azure.microsoft.com/pricing/details/visual-studio-team-services
-[vsts-release-variables]: /vsts/pipelines/release/variables?tabs=batch&view=vsts
+[vsts-release-variables]: /azure/devops/pipelines/release/variables
 [vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
 [infra-as-code]: /archive/blogs/mvpawardprogram/infrastructure-as-code
 [azure-devops-server]: https://visualstudio.microsoft.com/tfs
@@ -134,3 +146,4 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [compare-vm-hosting]: /azure/app-service/choose-web-site-cloud-service-vm
 [devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
 [terraform]: /azure/terraform
+[visio-download]: https://arch-center.azureedge.net/architecture-devops-dotnet-webapp.vsdx

@@ -1,22 +1,29 @@
-In this scenario, an organization has hosted multiple APIs using [Application Service Environments][ase](ILB ASE) and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
+In this scenario, an organization has hosted multiple APIs using [Azure Application Service Environment][ase] (ILB ASE), and they want to consolidate these APIs internally, by using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using [Azure Application Gateway][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
+
+## Potential use cases
+
+- Synchronize customer address information internally after a change made by the customer.
+- Attract developers to your platform by exposing unique data assets.
 
 ## Architecture
 
 ![Architecture diagram][architecture]
 
-The above scenario covers a complete lifecycle of internal APIs getting consumed by the external users.
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-publish-internal-apis-externally.vsdx) of this architecture.*
+
+The above scenario covers a complete lifecycle of internal APIs that are consumed by the external users.
 
 ### Dataflow
 
 The data flows as follows:
 
-1. Developers check in code to a GitHub repository connected to CI/CD pipeline Agent installed on an Azure VM
-2. The agent pushes the build to the API application hosted on ILB ASE
-3. API Management consumes the above APIs via HOST Headers specified in API Management policy
-4. API Management uses the App Service Environment's DNS name for all the APIs
-5. Application Gateway exposes API Management's developer and API portal
-6. Azure Private DNS is used to route the traffic internally between ASE, API Management, and Application Gateway
-7. External Users uses exposed Dev Portal to consume the APIs via Application Gateway's public IP
+1. Developers check in code to a GitHub repository that's connected to a CI/CD pipeline agent that's installed on an Azure VM.
+2. The agent pushes the build to the API application that's hosted on ILB ASE.
+3. Azure API Management consumes the above APIs via HOST headers that are specified in API Management policy.
+4. API Management uses the App Service Environment's DNS name for all the APIs.
+5. Application Gateway exposes API Management's developer and API portal.
+6. Azure Private DNS is used to route the traffic internally between ASE, API Management, and Application Gateway.
+7. External users utilize the exposed developer portal to consume the APIs via Application Gateway's public IP.
 
 ### Components
 
@@ -44,9 +51,9 @@ The data flows as follows:
 - Review the suggested [network configuration][ntwkcons] for App Service Environments
 - There needs to be an explicit mention about [port 3443 allowing API Management][apim-port-nsg] to manage via the Azure portal or PowerShell.
 - Leverage policies within APIM to add a HOST header for the API hosted on ASE.  This ensures that the ASE's load balancer will properly forward the request.
-- The API Management accepts ASE's DNS entry for all the apps hosted under App Service Environments. Add an [APIM policy][apim-policy] to explicitly set the HOST Header to allow the ASE load balancer to differentiate between Apps under the App Service Environment.
+- The API Management accepts ASE's DNS entry for all the apps hosted under App Service Environments. Add an [APIM policy][apim-policy] to explicitly set the HOST header to allow the ASE load balancer to differentiate between Apps under the App Service Environment.
 - Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
-- If using CI/CD pipelines for deploying Internal APIs, consider [building your own Hosted Agent on a VM][hosted-agent] inside the Virtual Network.
+- If you use CI/CD pipelines for deploying Internal APIs, consider [building your own Hosted Agent on a VM][hosted-agent] inside the Virtual Network.
 
 ### Availability
 
@@ -69,6 +76,21 @@ Since the above example scenario is hosted completely on an internal network, AP
 ### Resiliency
 
 This example scenario though talks more about configuration, the APIs hosted on the App Service Environments should be resilient enough to handle errors in the requests, which eventually is managed by the API Management service and Application Gateway. Consider [Retry and Circuit breaker patterns][api-pattern] in the API design. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+
+### Cost optimization
+
+API Management is offered in four tiers: developer, basic, standard, and premium. You can find detailed guidance on the difference in these tiers at the [Azure API Management pricing guidance here.][apim-pricing]
+
+Customers can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
+
+> [!NOTE]
+> The Developer tier can be used for evaluation of the API Management features. The Developer tier should not be used for production.
+
+To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
+
+Similarly, the [App Service Environments pricing guidance is provided here][ase-pricing]
+
+Application Gateway pricing can be [configured here][appgtwy-pricing] depending upon the required tier and resources.
 
 ## Deploy this scenario
 
@@ -121,20 +143,11 @@ Once the above steps are successfully completed, Configure the DNS entries in Go
 
 *It is not a good practice to use same URL for Internal and External endpoints for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external endpoints, we could make use of App Gateway WAF v2, which supports http redirection and much more.*
 
-## Pricing
+## Next steps
 
-API Management is offered in four tiers: developer, basic, standard, and premium. You can find detailed guidance on the difference in these tiers at the [Azure API Management pricing guidance here.][apim-pricing]
-
-Customers can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
-
-> [!NOTE]
-> The Developer tier can be used for evaluation of the API Management features. The Developer tier should not be used for production.
-
-To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
-
-Similarly, the [App Service Environments pricing guidance is provided here][ase-pricing]
-
-Application Gateway pricing can be [configured here][appgtwy-pricing] depending upon the required tier and resources.
+- [Tutorial: Import and publish your first API](/azure/api-management/import-and-publish)
+- [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products?tabs=azure-portal)
+- [Tutorial: Publish multiple versions of your API](/azure/api-management/api-management-get-started-publish-versions)
 
 ## Related resources
 
@@ -142,7 +155,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./media/architecture-publish-internal-apis-externally.png
+[architecture]: ./media/architecture-publish-internal-apis-externally-new.png
 [dns]: /azure/dns/private-dns-overview
 [ase]: /azure/app-service/environment/intro
 [apim]: /azure/api-management/api-management-key-concepts

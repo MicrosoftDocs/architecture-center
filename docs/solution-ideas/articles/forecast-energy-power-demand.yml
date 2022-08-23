@@ -5,7 +5,7 @@ metadata:
   description: Forecast spikes in demand for energy products and services with Microsoft Azure Machine Learning and give your company a competitive advantage.
   author: carlosasantos
   ms.author: cfernandesdo
-  ms.date: 4/1/2022
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -18,7 +18,7 @@ metadata:
     - power forecast
     - energy forecast
     - ai-ml
-    - "https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand/"
+    - "https://azure.microsoft.com/solutions/architecture/forecast-energy-power-demand"
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/forecast-energy-power-demand.png

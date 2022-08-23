@@ -52,7 +52,7 @@ The architecture is described in terms of the roles of the participants.
 
    The expected output is relational queries, BI reports, and dashboards.
 
-1. **MLOps Engineer:** Responsible for productionizing models that the Data Scientist or Citizen Data Scientist provides.
+1. **MLOps Engineer:** Responsible for putting models into production that the Data Scientist or Citizen Data Scientist provides.
 
    The expected output is models that are ready for production and reproducible.
 
@@ -117,6 +117,15 @@ Pricing for this solution is based on:
 - Compute resources that are needed to perform machine learning tasks.
 
 You can estimate costs by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+- [Sandy Su](https://www.linkedin.com/in/sandylsu/) | Cloud Solution Architect
 
 ## Next steps
 

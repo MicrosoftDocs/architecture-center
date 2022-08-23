@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Knowledge mining in business process management
-  titleSuffix: Azure Solution Ideas
-  description: Learn how to use knowledge mining in business process management to explore information, gain insight, and find relationships your organization's data.
+  titleSuffix: Azure Architecture Center
+  description: "Learn how to use knowledge mining in business process management to explore information, gain insight, and find relationships your organization's data."
   author: EdPrice-MSFT
-  ms.author: pracjain
-  ms.date: 12/16/2019
+  ms.author: kapapa
+  ms.date: 08/22/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -23,6 +23,6 @@ summary: This architecture demonstrates how to use knowledge mining in business 
 products:
   - azure-cognitive-search
   - azure-form-recognizer
-thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-business-process-management.png
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-business-process-management-thumb.png
 content: |
   [!include[](business-process-management-content.md)]

@@ -117,11 +117,11 @@ Finally, though you might not have an index of all repositories and the code wit
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
 
-**Other contributors:**
+Other contributors:
 
  * [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
  

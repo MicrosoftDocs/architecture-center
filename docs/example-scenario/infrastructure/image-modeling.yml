@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: Digital image-based modeling on Azure
-  description: Learn how to perform image-based modeling on Azure infrastructure-as-a-service (IaaS) by following the architecture and design guidance in an example scenario.
+  description: Learn how to perform image-based modeling on Azure infrastructure-as-a-service (IaaS) by following the architecture and design guidance in an example scenario.
   author: EdPrice-MSFT
-  ms.author: edprice 
-  ms.date: 04/26/2022
+  ms.author: architectures 
+  ms.date: 08/22/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -21,7 +21,7 @@ name: Digital image-based modeling on Azure
 azureCategories:
   - compute
   - storage
-summary: This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS).
+summary: Get architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS).
 products:
   - azure-blob-storage
   - azure-key-vault

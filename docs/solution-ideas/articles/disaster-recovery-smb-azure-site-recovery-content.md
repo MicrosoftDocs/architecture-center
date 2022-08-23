@@ -4,14 +4,22 @@ Small and medium businesses can inexpensively implement disaster recovery to the
 
 This solution is built on the Azure managed services: [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery), and [Virtual Network](https://azure.microsoft.com/services/virtual-network). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+Ideal industries for this solution include healthcare, travel and hospitality, and manufacturing. Industries that utilize this service include:
+
+- Healthcare (portable clinics and pop-up virus testing centers)
+- Restaurants (local and regional chains, in the travel and hospitality industries)
+- Logistics (local and regional supply chains, in the manufacturing industry)
+
 ## Architecture
 
-![Architecture Diagram](../media/disaster-recovery-smb-azure-site-recovery.png)
+![Architecture diagram shows from customer through D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site.](../media/disaster-recovery-smb-azure-site-recovery.png)
 *Download an [SVG](../media/disaster-recovery-smb-azure-site-recovery.svg) of this architecture.*
 
 ### Components
 
-* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) which can easily move traffic from one site to another based on policies defined by your organization.
+* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), which can easily move traffic from one site to another based on policies defined by your organization.
 * [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) orchestrates the replication of machines and manages the configuration of the failback procedures.
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): The virtual network is where the failover site will be created when a disaster occurs.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs) stores the replica images of all machines that are protected by Site Recovery.

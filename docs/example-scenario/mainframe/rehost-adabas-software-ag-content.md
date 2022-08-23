@@ -1,14 +1,4 @@
-For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database, the Natural programming language, or even your green screen, unless you want to.  
-
-Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You simply move your workload as is, if possible, to Azure virtual machines (VMs), a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that are managed by Microsoft, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management. 
-
-This architecture presents the rehost option. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
-
-## Potential use cases
-
-This architecture is appropriate for organizations that want to use a *rehost* approach for a cost-effective mainframe migration to Azure that optimizes reuse of legacy systems. 
-
-To gain the full benefits of cloud computing, consider a *[refactor](refactor-adabas-aks.yml)* approach that uses modern techniques like container-based microservices. This type of migration is more complex than a rehost approach, but the payoff is increased flexibility and scalability. 
+For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database or the Natural programming language. This architecture presents the option to rehost your system on Azure. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
 
 ## Mainframe architecture 
 
@@ -17,7 +7,6 @@ This architecture shows a legacy Adabas & Natural architecture, before a rehost 
 :::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.png" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.png ":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-rehost-before.vsdx) of this architecture.*
-
 
 ### Workflow
 
@@ -37,7 +26,7 @@ G. Operating systems run on partitions.
 
 H. Partitions are used to run separate workloads or segregate work types within the environment. 
 
-## Rehosted Azure architecture
+## Azure architecture
 
 This diagram shows the legacy architecture migrated to Azure. A rehost approach is used to migrate the system:
 
@@ -64,7 +53,21 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). Application Gateway provides a customizable Layer 7 load-balancing solution.
 - [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface). A network interface enables a VM to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to provide child VMs with their own dedicated network interface device and IP address.  
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.  
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.  
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). You can use ExpressRoute to extend your on-premises networks into the Azure cloud via a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft cloud services like Azure and Office 365.
+
+## Scenario details
+
+For decades, Software AG Adabas has been the adaptable database system behind many large mission-critical business applications. Now you can bring the convenience of cloud computing to these applications without giving up your Adabas database, the Natural programming language, or even your green screen, unless you want to.  
+
+Most organizations are pragmatic in their approach to digital transformation. They want to reuse what they can and make cost-effective choices about the rest. That's why the rehost approach to cloud migration is so popular. You simply move your workload as is, if possible, to Azure virtual machines (VMs), a type of infrastructure as a service (IaaS). VMs run in Azure datacenters that are managed by Microsoft, so you benefit from the efficiency, scalability, and performance of a distributed platform without the overhead of hardware management. 
+
+This architecture presents the rehost option. It provides a high-level look at what's possible, whether you keep the green screen or go modern. 
+
+### Potential use cases
+
+This architecture is appropriate for organizations that want to use a *rehost* approach for a cost-effective mainframe migration to Azure that optimizes reuse of legacy systems. 
+
+To gain the full benefits of cloud computing, consider a *[refactor](refactor-adabas-aks.yml)* approach that uses modern techniques like container-based microservices. This type of migration is more complex than a rehost approach, but the payoff is increased flexibility and scalability. 
 
 ## Considerations 
 
@@ -96,32 +99,33 @@ This solution uses an Azure network security group (NSG) to manage traffic betwe
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:** 
+Principal author:
 
- * Marlon Johnson | Senior Program Manager
+- Marlon Johnson | Senior Program Manager
 
-**Other contributors:** 
+Other contributors:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- * [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 
 ## Next steps  
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).  
 
 See these additional resources:
+
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Microsoft Learn: Configure virtual networks](/learn/modules/configure-virtual-networks)
+- [Configure virtual networks](/learn/modules/configure-virtual-networks)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 
 ## Related resources 
 
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
-- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)

@@ -1,4 +1,3 @@
-
 Building strong relationships with customers is key to improving customer retention, attracting loyalty, and increasing revenue. Companies rely heavily on platforms like customer relationship management (CRM) systems and Microsoft 365 to help them maintain customer relationships. This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. The dashboard provides actionable data about customer relationships at the level of both the seller account portfolio and individual account. You can use these insights to manage and improve interactions at different stages in a customer-engagement life cycle.
 
 *Apache®, [Apache Spark](https://spark.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
@@ -105,8 +104,8 @@ For more information, see these articles:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Synapse Analytics](/azure/synapse-analytics)
-- [Microsoft Graph Data Connect](https://docs.microsoft.com/graph)
-- [Microsoft Power BI](https://docs.microsoft.com/power-bi)
+- [Microsoft Graph Data Connect](/graph)
+- [Microsoft Power BI](/power-bi)
 
 ## Related resources
 

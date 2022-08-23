@@ -1,12 +1,12 @@
-
-
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure.
+
+## Architecture
 
 ![Highly available network architecture for Azure N-tier applications"](./images/multi-region-sql-server.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 This architecture builds on the one shown in [N-tier application with SQL Server](n-tier-sql-server.yml).
 
@@ -154,7 +154,7 @@ Test the resiliency of the system to failures. Here are some common failure scen
 
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
-## Cost considerations
+## Cost optimization
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
@@ -181,6 +181,7 @@ Traffic Manager billing is based on the number of DNS queries received, with a d
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 ### VNET-Peering pricing
+
 A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
 
 For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -199,11 +200,10 @@ In order to test the Azure environment where the applications are running, it sh
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
-## Next Steps
+## Next steps
 
 - [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
 - [Deploy Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
-
 
 ## Related resources
 

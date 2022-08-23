@@ -7,7 +7,7 @@ Other components that are commonly incorporated into this architecture include:
 - One or more databases.
 - A cache to store values from the database for quick reads.
 - CDN to serve static content
-- Remote services, such as email or SMS service. Often these are provided by third parties.
+- Remote services, such as email or SMS service. Often these features are provided by third parties.
 - Identity provider for authentication.
 
 The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. The worker is an optional component. If there are no long-running operations, the worker can be omitted.
@@ -62,9 +62,9 @@ This section describes a recommended Web-Queue-Worker architecture that uses Azu
 
 - For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
 
-For more details, see [App Service web application reference architecture][scalable-web-app].
+For more information, see [App Service web application reference architecture][scalable-web-app].
 
-### Additional considerations
+### Other considerations
 
 - Not every transaction has to go through the queue and worker to storage. The web front end can perform simple read/write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
 
@@ -74,7 +74,7 @@ For more details, see [App Service web application reference architecture][scala
 
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 
-- Use deployment slots to manage deployments. This lets you to deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version, if there was a problem with the update.
+- Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version, if there was a problem with the update.
 
 <!-- links -->
 
@@ -83,5 +83,5 @@ For more details, see [App Service web application reference architecture][scala
 [caching]: ../../best-practices/caching.yml
 [cdn]: ../../best-practices/cdn.yml
 [data-partition]: ../../best-practices/data-partitioning.yml
-[polyglot]: ../design-principles/use-the-best-data-store.md
+[polyglot]: /azure/architecture/guide/design-principles/use-best-data-store
 [scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml

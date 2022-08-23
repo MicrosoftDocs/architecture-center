@@ -4,7 +4,7 @@ metadata:
   description: Best practices for setting up networking as per Requirement 1 and 2 of PCI-DSS 3.2.1.
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 07/06/2021
+  ms.date: 06/20/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

@@ -1,23 +1,8 @@
-An Internet-of-Things *measure and control loop* keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process. The device may be part of a larger physical system controlled by software that contains one or more networked devices.
-
-An IoT device that is prone to disturbances from external events requires a closed-loop control process to keep it near its desired setpoint configuration. The measure and control loop *control logic* observes the device through *sensor* metrics and takes corrective measures through *actuator* actions.
-
 This article provides an overview of the measure and control process loop architecture, characteristics, and components.
-
-## Potential use cases
-
-Examples of measure and control loops in action include:
-- Smart mousetrap: Triggers a trap shut event when the sensors detect a mouse.
-- Smoke sensors: Trigger sprinklers upon sensing smoke from multiple sensors.
-- Power transformer: Shut down a transformer under a predicted severe thunderstorm.
-- Gas pipeline monitor: Open a valve to compensate for a pressure drop.
-- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling below the setpoint.
-- Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
-- Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
 
 ## Architecture
 
-![Measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
+![Diagram that shows the measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
 
 A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.yml) and [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
 
@@ -44,7 +29,25 @@ An IoT *thing* (device) is composed of sensors, actuators, and a controller. All
 
 - **Control logic** keeps device state within the tolerable desired range. The current state is computed from sensor measurements. If the current state deviates from the desired state, the controller  takes corrective action by sending commands to the actuators. Examples of corrective actions include closing the valve of a natural gas tank, turning on a home heater, or applying brakes to a wind turbine rotor. The controller can also emit telemetry and receive external commands from monitor and manage loops as needed.
 
-## Next steps
+## Scenario details
+
+An Internet-of-Things *measure and control loop* keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process. The device may be part of a larger physical system controlled by software that contains one or more networked devices.
+
+An IoT device that is prone to disturbances from external events requires a closed-loop control process to keep it near its desired setpoint configuration. The measure and control loop *control logic* observes the device through *sensor* metrics and takes corrective measures through *actuator* actions.
+
+## Potential use cases
+
+This solution is ideal for the energy and environment industries. Examples of measure and control loops in action include:
+
+- Smart mousetrap: Triggers a trap shut event when the sensors detect a mouse.
+- Smoke sensors: Trigger sprinklers upon sensing smoke from multiple sensors.
+- Power transformer: Shut down a transformer under a predicted severe thunderstorm.
+- Gas pipeline monitor: Open a valve to compensate for a pressure drop.
+- Home thermostat: Increase the heater gas flow upon sensing the room temperature falling below the setpoint.
+- Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
+- Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
+
+## Related resources
 
 - [Analyze and optimize loops](analyze-optimize-loop.yml)
 - [Monitor and manage loops](monitor-manage-loop.yml)

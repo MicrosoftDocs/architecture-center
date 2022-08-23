@@ -1,23 +1,4 @@
-*Smart places* are physical environments that bring together connected devices and data sources. By using these environments, you can see and control:
-
-- Products and systems.
-- Interior and exterior spaces.
-- Personal experiences with surroundings.
-
-Smart places can include buildings, college campuses, corporate campuses, stadiums, and cities. These environments provide value by helping property owners, facility managers, and occupants operate and maintain sites. Smart places also make spaces more efficient, cost effective, comfortable, and productive.
-
-Smart spaces digitally model spaces and compile relevant data. From that data, you can derive insights on how people, places, and devices are connected.
-
 This article outlines a solution for smart spaces. Azure Digital Twins forms the core of the architecture by modeling the environment. Azure IoT Hub, which is a managed IoT service, also plays a significant role, as does the analytics service Azure Data Explorer.
-
-## Potential use cases
-
-This solution applies to many areas:
-
-- Smart campuses
-- Facilities management
-- Smart offices
-- Energy optimization
 
 ## Architecture
 
@@ -26,9 +7,11 @@ The following diagram shows the flow of data in this solution:
 - The boxes that contain multiple icons represent categories of services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
-:::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::
+:::image type="content" source="./media/smart-places-diagram-new.png" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram-new.png":::
 
-Download an [SVG][SVG version of architecture diagram] of this architecture.
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/smart-places-diagram.vsdx) of this architecture.*
+
+### Dataflow
 
 1. The environment can use these and other communication protocols:
 
@@ -230,7 +213,29 @@ These services provide support for components in all areas of the solution:
 
 - Event Hubs can also provide an ingestion service that's scalable and secure. Unlike IoT Hub, which supports bidirectional communication with devices, Event Hubs supports one-way traffic. As a result, you can't use Event Hubs to send commands and policies back to devices. Event Hubs also doesn't offer device-level security. But Event Hubs is appropriate for environments with a high volume of messages from a low number of input devices.
 
-## Business outcomes
+## Solution details
+
+*Smart places* are physical environments that bring together connected devices and data sources. By using these environments, you can see and control:
+
+- Products and systems.
+- Interior and exterior spaces.
+- Personal experiences with surroundings.
+
+Smart places can include buildings, college campuses, corporate campuses, stadiums, and cities. These environments provide value by helping property owners, facility managers, and occupants operate and maintain sites. Smart places also make spaces more efficient, cost effective, comfortable, and productive.
+
+Smart spaces digitally model spaces and compile relevant data. From that data, you can derive insights on how people, places, and devices are connected.
+
+### Potential use cases
+
+This solution applies to many areas:
+
+- Smart campuses (education industry)
+- Facilities management (real estate)
+- Smart stadiums (sports industry)
+- Smart offices
+- Energy optimization
+
+### Business outcomes
 
 In this example solution, a large commercial real estate owner is digitally transforming an office property. This improvement combines legacy facilities-management data with new features and technologies including:
 
@@ -259,13 +264,13 @@ The following considerations apply to this solution.
 
 ### Reliability
 
-#### Scalability considerations
+#### Scalability
 
 Solutions for smart places solutions can be relatively simple, low-volume implementations. They can also be sophisticated implementations that handle a high volume of data. A solution that aggregates heating, ventilation, and air conditioning (HVAC) telemetry across a large campus is an example of a high-volume implementation.
 
 The core Azure services in this solution are scalable by design and well suited for complex solutions. But when you combine these services, ensure that they don't create choke points. Early in the development cycle, run performance tests at scheduled intervals to identify potential problems.
 
-#### Flexibility considerations
+#### Flexibility
 
 Design your smart space to be well integrated but also flexible. Smart places use cases are rapidly evolving. At some point after you deploy your solution, you'll need to add new sensors, data types, AI functionality, and visualization techniques. To increase flexibility:
 

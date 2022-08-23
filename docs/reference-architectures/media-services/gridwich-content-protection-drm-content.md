@@ -1,6 +1,4 @@
-
-
-Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
+Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -195,6 +193,8 @@ Product documentation:
 - [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
+For more information about Media Services content protection, see [Protect your content with Media Services dynamic encryption](/azure/media-services/latest/drm-content-protection-concept).
+
 Microsoft Learn modules:
 
 - [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
@@ -205,5 +205,3 @@ Microsoft Learn modules:
 
 - [Gridwich request-response messages](gridwich-message-formats.yml)
 - [Gridwich variable flow](variable-group-terraform-flow.yml)
-
-For more information about Media Services content protection, see [Content protection overview](/azure/media-services/previous/media-services-content-protection-overview).

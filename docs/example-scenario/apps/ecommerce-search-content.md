@@ -1,24 +1,10 @@
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
-Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, etc.
-
-Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
-
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
-Other relevant use cases include:
-
-- Finding real estate listings or stores near the user's physical location.
-- Searching for articles in a news site or looking for sports results, with a higher preference for more _recent_ information.
-- Searching through large repositories for _document-centric_ organizations like policy makers and notaries.
-
-Ultimately, _any_ application that has some form of search functionality can benefit from a dedicated search service.
-
 ## Architecture
 
 ![Diagram showing an architecture overview of the Azure components involved in an intelligent product search engine for e-commerce.][architecture]
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-search.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -48,6 +34,24 @@ This scenario covers an e-commerce solution where customers can search through a
 Other options for the data tier include:
 
 - [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Cosmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Cognitive Search also supports indexing the data from Cosmos DB directly.
+
+## Scenario details
+
+Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, and so on.
+
+Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
+
+### Potential use cases
+
+This solution is optimized for the retail industry.
+
+Other relevant use cases include:
+
+- Finding real estate listings or stores near the user's physical location (for the facilities and real-estate industry).
+- Searching for articles in a news site or looking for sports results, with a higher preference for more _recent_ information (for the sports, media, and entertainment industries).
+- Searching through large repositories for _document-centric_ organizations, like policy makers and notaries.
+
+Ultimately, _any_ application that has some form of search functionality can benefit from a dedicated search service.
 
 ## Considerations
 
@@ -79,19 +83,27 @@ Typical ways to tune your search service include:
 - Using [Microsoft provided language analyzers][search-languages] that use an advanced Natural Language Processing (NLP) stack to better interpret queries
 - Using [custom analyzers][search-analyzers] to ensure your products are found correctly, especially if you want to search on non-language based information like a product's make and model.
 
-## Deploy this scenario
-
-To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
-
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, all the services mentioned above are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected usage.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+We have provided three sample cost profiles based on amount of traffic you expect to handle:
 
 - [Small][small-pricing]: In this profile, we're using a single `Standard S1` Web App to host the website, the free tier of the Azure Bot service, a single `Basic` search service, and a `Standard S2` SQL Database.
 - [Medium][medium-pricing]: Here we are scaling up the Web App to two instances of the `Standard S3` tier, upgrading the search service to a `Standard S1` tier, and using a `Standard S6` SQL Database.
 - [Large][large-pricing]: In the largest profile, we use four instances of a `Premium P2V2` Web App, upgrade the Azure Bot service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), use 2 units of the `Standard S3` search service, and a `Premium P6` SQL Database.
+
+## Deploy this scenario
+
+To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer
 
 ## Next steps
 

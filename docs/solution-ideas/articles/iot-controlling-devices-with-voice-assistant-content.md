@@ -11,7 +11,9 @@ This solution idea describes how to create voice conversational interfaces with 
 
 ## Architecture
 
-![Diagram showing the architecture of a voice assistant app.](../media/controlling-iot-devices-using-voice.svg)
+![Diagram showing the architecture of a voice assistant app.](../media/controlling-iot-devices-using-voice-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/controlling-iot-devices-using-voice.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -34,6 +36,14 @@ This solution idea describes how to create voice conversational interfaces with 
 - [IoT Hub](https://azure.microsoft.com/services/iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor) that provides extensible application performance management and monitoring for live web apps. 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Kevin Hilscher](https://www.linkedin.com/in/kevinhilscher) | Principal Product Manager, Azure IoT
+
 ## Next steps
 
 - [Voice assistants documentation](/azure/cognitive-services/speech-service/index-voice-assistants)
@@ -52,5 +62,4 @@ This solution idea describes how to create voice conversational interfaces with 
 - [Interactive voice response app with bot](interactive-voice-response-bot.yml)
 - [Speech services](speech-services.yml)
 - [Keyword search and speech-to-text with OCR digital media](digital-media-speech-text.yml)
-- [Build a speech-to-text transcription pipeline with Azure Cognitive Services](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
-
+- [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

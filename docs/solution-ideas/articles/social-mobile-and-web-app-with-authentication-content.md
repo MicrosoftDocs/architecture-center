@@ -17,10 +17,10 @@ The mobile client app works in offline mode, which allows you to view and upload
 
 ## Architecture
 
-![Architecture Diagram](../media/social-mobile-and-web-app-with-authentication.png)
+![Architecture diagram shows the route from the Engineer to Application Insights.](../media/social-mobile-and-web-app-with-authentication.png)
 *Download an [SVG](../media/social-mobile-and-web-app-with-authentication.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
@@ -42,7 +42,7 @@ The mobile client app works in offline mode, which allows you to view and upload
 * An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
 * Use [Azure Functions](https://azure.microsoft.com/services/functions) for serverless background processing. For example, one Azure function can automatically resize new blobs when they're added to a container, while another function listens for messages on a queue in order to delete multiple background images.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully-managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
 * Azure [Queue storage](https://azure.microsoft.com/services/storage/queues) is used for durable messaging between the App Service backend and Azure Functions.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs): Azure Storage hosts image files to take advantage of better scalability with lower cost. Communication between the web app and the Azure function is often performed using blob triggers and Azure Queue storage.
 * Azure [Notification Hubs](https://azure.microsoft.com/services/notification-hubs) are used for scalable, cross-platform push notifications.

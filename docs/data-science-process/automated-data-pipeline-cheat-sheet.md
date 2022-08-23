@@ -44,5 +44,5 @@ Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to
 
 * For an overview of Microsoft Azure Machine Learning designer see [What is Azure Machine Learning designer?](/azure/machine-learning/concept-designer)
 * For an overview of Microsoft Azure Machine Learning, see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).
-* For an explanation of how to deploy a scoring web service, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where).
+* For an explanation of how to deploy a scoring web service, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 * For a discussion of how to consume a scoring web service, see [Consume an Azure Machine Learning model deployed as a web service](/azure/machine-learning/how-to-consume-web-service).

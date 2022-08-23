@@ -2,9 +2,17 @@
 
 Quickly save, retrieve, and update web session data such as user cookies and output pages. Azure Cache for Redis improves the performance of your application by increasing its responsiveness and enabling it to handle increasing loads with less web-compute resources.
 
+## Potential use cases
+
+Organizations utilize scalable web apps to help:
+
+- Increase performance
+- Ensure availability
+- Provide fast data retrieval
+
 ## Architecture
 
-![Architecture diagram](../media/scalable-web-apps.svg)
+![Architecture diagram shows from browser to Azure Web App to Azure Cache for Redis.](../media/scalable-web-apps.svg)
 
 ### Components
 

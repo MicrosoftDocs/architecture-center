@@ -2485,7 +2485,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(102000):26"/>
 			</v:userDefs>
-			<title>Azure Spring Cloud.1426</title>
+			<title>Azure Spring Apps.1426</title>
 			<g id="shape1427-764" v:mID="1427" v:groupContext="shape">
 				<title>Sheet.1427</title>
 				<path d="M10.93 493.3 L0 493.3 L0 483.73 L10.93 483.73 L10.93 493.3 ZM1.93 491.61 L9 491.61 L9 485.42 L1.93 485.42
@@ -2545,7 +2545,7 @@
 		</g>
 		<g id="shape1438-801" v:mID="1438" v:groupContext="shape" transform="translate(408.3,-199.777)">
 			<title>Sheet.1438</title>
-			<desc>Azure Spring Cloud</desc>
+			<desc>Azure Spring Apps</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(103000):26"/>
 			</v:userDefs>
@@ -2926,7 +2926,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(107000):26"/>
 			</v:userDefs>
-			<title>Azure Spring Cloud.1456</title>
+			<title>Azure Spring Apps.1456</title>
 			<g id="shape1457-909" v:mID="1457" v:groupContext="shape">
 				<title>Sheet.1457</title>
 				<path d="M9.99 493.29 L0 493.29 L0 483.71 L9.99 483.71 L9.99 493.29 ZM1.76 491.6 L8.23 491.6 L8.23 485.4 L1.76 485.4
@@ -2985,7 +2985,7 @@
 		</g>
 		<g id="shape1468-940" v:mID="1468" v:groupContext="shape" transform="translate(576.219,-198.143)">
 			<title>Sheet.1468</title>
-			<desc>Azure Spring Cloud</desc>
+			<desc>Azure Spring Apps</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(108000):26"/>
 			</v:userDefs>

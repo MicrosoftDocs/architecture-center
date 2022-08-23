@@ -2,17 +2,21 @@
 
 This solution idea shows how to deploy an e-commerce web site on Azure. The e-commerce web site is hosted on Azure Web App and uses Azure Cosmos DB as data store for  product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 
+## Potential use cases
+
+This solution is ideal for the retail industry.
+
 ## Architecture
 
-![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
+![Architecture diagram shows data into Azure App Services, through Azure Storage and Cosmos D B, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
 
 ### Dataflow
 
-1.	The web application is hosted in an Azure Web App.
-2.	The data (products and session state) gets stored in Azure Cosmos DB.
-3.	Static content and product images are stored in an Azure Storage account.
-4.	Azure Cognitive Search is used to search across all the products. 
+1. The web application is hosted in an Azure Web App.
+1. The data (products and session state) gets stored in Azure Cosmos DB.
+1. Static content and product images are stored in an Azure Storage account.
+1. Azure Cognitive Search is used to search across all the products.
 
 ### Components
 
@@ -22,6 +26,14 @@ This architecture includes the following components:
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) stores the products and the session state.
 * [Azure Storage](https://azure.microsoft.com/services/storage): Static product images and other static contents are stored in an Azure Storage account.
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search) provides a search capability over all the products.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
 
 ## Next steps
 

@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea describes how to build and deploy a machine-learning model that recommends actions to maximize the purchase rate of leads targeted by a campaign. The ideas discussed can be used in many industries, including retail, services, and finance.
-
-## Potential use cases
-
-When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads.
-
-For example, a machine-learning model can be used to predict actions that are expected to maximize the purchase rate of leads that are targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations can be about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. Recommendations can be about *when* to contact targeted leads, for example, day of week and time of day.
+This solution idea describes how to build and deploy a machine-learning model that recommends actions to maximize the purchase rate of leads targeted by a campaign.
 
 ## Architecture
 
@@ -30,7 +24,17 @@ This architecture includes the following services:
 - [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15)
 - [Power BI](https://powerbi.microsoft.com)
 
-## Business manager perspective
+## Scenario details
+
+The ideas discussed in this article can be used in many industries, including retail, services, and finance.
+
+### Potential use cases
+
+When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads.
+
+For example, a machine-learning model can be used to predict actions that are expected to maximize the purchase rate of leads that are targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations can be about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. Recommendations can be about *when* to contact targeted leads, for example, day of week and time of day.
+
+### Business manager perspective
 
 This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week, and the best time of day in which to make the contact.
 
@@ -46,7 +50,7 @@ Also on the Recommendations tab are various summaries of recommendations and dem
 
 The Campaign Summary tab of the dashboard shows summaries of the historical data used to create the predicted recommendations. While this tab also shows values of Day of Week, Time of Day, and Channel, these values are actual past observations, not to be confused with the recommendations shown on the Recommendations tab.
 
-## Data scientist perspective
+### Data scientist perspective
 
 Two roles in this solution idea are:
 
@@ -57,6 +61,14 @@ Two roles in this solution idea are:
 ## Deploy this scenario
 
 The AI Gallery [campaign optimization with SQL Server solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this solution idea with SQL [Server 2016 R Services](/sql/machine-learning/r/sql-server-r-services) and [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) as an interactive visualization tool. The gallery solution uses simulated data, which can easily be configured to use custom data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
 
 ## Next steps
 

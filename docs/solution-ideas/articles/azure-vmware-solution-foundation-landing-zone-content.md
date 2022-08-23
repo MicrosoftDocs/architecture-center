@@ -11,8 +11,8 @@ This article covers considerations for deploying and running Azure VMware Soluti
 
 Running Azure VMware Solution as part of a landing zone environment helps address the following use-cases:
 
-- Re-use an existing Azure tenancy infrastructure: Azure VMware Solution environment can be integrated with an existing Azure tenant. This way, customers can use their existing ownership chain for billing and accounting purposes.
-- Re-use shared landing zones: Customers can re-use their existing shared landing zones, which run services as network connectivity, monitoring, and so on, with Azure VMware Solution environment. This re-use can reduce costs, as well as improve the operational efficiency.
+- Reuse an existing Azure tenancy infrastructure: Azure VMware Solution environment can be integrated with an existing Azure tenant. This way, customers can use their existing ownership chain for billing and accounting purposes.
+- Reuse shared landing zones: Customers can reuse their existing shared landing zones, which run services as network connectivity, monitoring, and so on, with Azure VMware Solution environment. This reuse can reduce costs, as well as improve the operational efficiency.
 - Separation of governance rules: Customers want to have different governance needs in dev/test environments, than in a production environment. Having separate landing zones for Azure VMware Solution environments enables the desired level of control, based on customer requirements.
 
 ## Architecture
@@ -29,7 +29,7 @@ Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guid
 
 ### Identity and access management (B)
 
-Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/ext/VMware/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Additional operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (AAD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
+Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (AAD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
 
 ### Management group and subscription management (C)
 
@@ -37,7 +37,7 @@ Azure VMware Solution resources can be deployed in an Azure subscription. This s
 
 ### Management subscription (D)
 
-[Management subscription](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring) is part of the platform management group. Management and monitoring subscriptions can enable consolidating shared management and monitoring services. Azure VMware Solution workloads can use shared services, such as Log Analytics Workspace, to send their diagnostic data, which can be correlated with logs from other Azure services, such as Azure Application Gateway. By centralizing and consolidating diagnostics data across multiple Azure services, debugging and logs corelation becomes very easy. Azure VMware Solution workloads can also use shared Azure Automation Update Management for variety of purposes such as Patch Management, Change Tracking, Configuration Management, and so on.
+[Management subscription](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring) is part of the platform management group. Management and monitoring subscriptions can enable consolidating shared management and monitoring services. Azure VMware Solution workloads can use shared services, such as Log Analytics Workspace, to send their diagnostic data, which can be correlated with logs from other Azure services, such as Azure Application Gateway. By centralizing and consolidating diagnostics data across multiple Azure services, debugging and logs corelation becomes easy. Azure VMware Solution workloads can also use shared Azure Automation Update Management for variety of purposes such as Patch Management, Change Tracking, Configuration Management, and so on.
 
 ### Connectivity subscription (E)
 
@@ -58,6 +58,14 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Mahesh Kshirsagar](https://www.linkedin.com/in/mahesh-kshirsagar-msft) | Cloud Solution Architect
+
 ## Next steps
 
 Use the following guidance about other Azure VMware Solution ideas:
@@ -68,7 +76,7 @@ Use the following guidance about other Azure VMware Solution ideas:
 
 ## Related resources
 
-Refer to following additional resources to learn more about Azure VMware Solution:
+Refer to following resources to learn more about Azure VMware Solution:
 
 - [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone)
 - [Azure VMware Solution](/azure/azure-vmware)

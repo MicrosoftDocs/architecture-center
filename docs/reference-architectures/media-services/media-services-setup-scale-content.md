@@ -2,25 +2,7 @@
 
 Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing.
 
-## Azure Media Services V2
-
-To perform the encoding of sprite sheets, or to create thumbnails during media processing, Gridwich uses the Azure Media Services V2 API via REST.
-
-The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
-
-Within the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs), the function `ConfigureRestClient` sets up authentication via an [Azure.Core.TokenCredential](/dotnet/api/azure.identity.defaultazurecredential) object:
-
-```csharp
-var amsAccessToken = _tokenCredential.GetToken(
-    new TokenRequestContext(
-        scopes: new[] { "https://rest.media.azure.net/.default" },
-        parentRequestId: null),
-    default);
-```
-
-This code presents the identity of the [TokenCredential](/dotnet/api/azure.identity.interactivebrowsercredential) and requests authorization at the REST API scope.
-
-When running locally, the `TokenCredential` prompts the developer to sign in. That identity is then presented when requesting access to the scope. For successful authentication, the developer must be a contributor on the resource, and the correct environment variables must be in the local settings file.
+## Azure Media Services v3
 
 Use the Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
 
@@ -57,9 +39,7 @@ for id in ${mediaServicesAccountResourceId}
 }
 ```
 
-## Azure Media Services V3
-
-The Azure Media Services V3 SDK doesn't support managed identity. Instead, the *ams_sp.sh* script creates an explicit service principal to use with the Media Services V3 SDK, by using the `az ams account sp create` command:
+The *ams_sp.sh* script creates an explicit service principal to use with the Media Services v3 SDK, by using the `az ams account sp create` command:
 
 ```azurecli
 # Ref: https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to

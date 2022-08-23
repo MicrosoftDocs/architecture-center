@@ -2,13 +2,21 @@
 
 An enterprise data warehouse lets you bring together all your data at any scale easily, and to get insights through analytical dashboards, operational reports, or advanced analytics for all your users.
 
+## Potential use cases
+
+This approach can be used to:
+
+- Establish a data warehouse to be a single source of truth for your data.
+- Integrate relational data sources with other unstructured datasets.
+- Use semantic modeling and powerful visualization tools for simpler data analysis.
+
 ## Architecture
 
 :::image type="content" source="../media/enterprise-data-warehouse.png" alt-text="Diagram of an enterprise data warehouse architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services and Power BI." border="false":::
 
 *Download an [SVG](../media/enterprise-data-warehouse.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Combine all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Synapse Analytics Pipelines to Azure Blob Storage.
 1. Leverage data in Azure Blob Storage to perform scalable analytics with Azure Synapse Analytics Spark pool and achieve cleansed and transformed data.

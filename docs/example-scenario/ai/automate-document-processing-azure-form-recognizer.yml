@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automate document processing by using Azure Form Recognizer
+  title: Automate document processing with Azure Form Recognizer
   titleSuffix: Azure Example Scenarios
   description: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
   author: jyravi

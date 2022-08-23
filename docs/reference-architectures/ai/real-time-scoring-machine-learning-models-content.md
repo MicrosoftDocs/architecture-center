@@ -1,5 +1,3 @@
-
-
 This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Kubernetes Service][aml-aks]. Machine learning models deployed on Azure Kubernetes are good for high-scale production deployments.
 
 Two scenarios are covered in this article: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown. In addition, two reference implementations for these scenarios are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
@@ -87,7 +85,9 @@ AKS automatically logs all stdout/stderr to the logs of the pods in the cluster.
 
 Use [Azure Monitor container insights][monitor-containers] to collect metrics and logs through a containerized version of the Log Analytics agent for Linux, which is stored in your Log Analytics workspace.
 
-## Security considerations
+## Considerations
+
+### Security
 
 Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Enable Defender for Cloud on your subscriptions][get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
@@ -105,31 +105,31 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
-## Cost considerations
+### Cost considerations
 
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
-### Azure Machine Learning
+#### Azure Machine Learning
 
 In this reference architecture, a large portion of cost is driven by compute resources. For the purposes of experimentation and training, Azure Machine Learning is free. You are only charged for the compute used by the web service. Use the [Azure pricing calculator][azure-pricing-calculator] to estimate your compute costs.
 
-### Azure Container Registry
+#### Azure Container Registry
 
 Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose a tier depending on the storage you need. Choose **Premium**  if you need geo replication, or you enhanced throughput for docker pulls across concurrent nodes. In addition, standard networking charges apply. For more information, see Azure [Container Registry pricing][az-container-registry-pricing].
 
-### Azure Kubernetes Service
+#### Azure Kubernetes Service
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
 For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
-## DevOps considerations
+### DevOps
 
 In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization. The pipeline can include DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing. The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
-## Deployment
+## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the GitHub repos:
 
@@ -143,7 +143,7 @@ Read the product documentation:
 - [Deploy a model to an Azure Kubernetes Service cluster][aml-aks]
 - [Introduction to private Docker container registries in Azure][registry-intro]
 
-Try these Microsoft Learning paths:
+Try these learning paths:
 
 - [Introduction to Kubernetes on Azure][mslearn-aks-intro]
 - [Develop and deploy applications on Kubernetes][mslearn-aks-deploy]

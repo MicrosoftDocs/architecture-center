@@ -6,7 +6,7 @@ The BCL system can also deliver radiant energy in the non-visible ultraviolet (U
 
 Other UVC virus-killing technology that uses plug-in devices, robots, drones, and wands can't provide overall space coverage or performance and effectiveness data. To operate these devices safely and efficiently disrupts business and personnel, resulting in loss of productivity and lower space utilization. UVEN disinfection operates in unoccupied spaces during non-use times, providing safe, comprehensive, autonomous microbe deactivation without business disruption.
 
-Because IoT devices work directly on the physical environment and may use and collect sensitive data, device safety and security are paramount. UVEN double fail-safe features ensure occupants receive beneficial light only. The [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) standalone microprocessor unit (MCU)-based platform securely runs IoT apps and connects directly to the cloud for complete Azure-based security and the latest OS and app updates.
+Because IoT devices work directly on the physical environment and may use and collect sensitive data, device safety and security are paramount. UVEN double fail-safe features ensure occupants receive beneficial light only. The [Azure Sphere](https://azure.microsoft.com/services/azure-sphere) standalone microprocessor unit (MCU)-based platform securely runs IoT apps and connects directly to the cloud for complete Azure-based security and the latest OS and app updates.
 
 The system can continually integrate new research developments and public health updates via its cloud connection, ensuring an up-to-date and scientifically based lighting and disinfection system.
 
@@ -25,9 +25,11 @@ This solution is ideal for the healthcare and facilities industries. We recommen
 
 ## Architecture
 
-![Diagram that shows the UVEN architecture.](../media/uven-system.png)
+:::image type="content" alt-text="Diagram that shows the UVEN architecture." source="../media/uven-system.png" lightbox="../media/uven-system.png":::
 
-### Workflow
+*Download a [Visio file](https://arch-center.azureedge.net/uven-system.vsdx) of this architecture.*
+
+### Dataflow
 
 - The system uses radar proximity sensors to detect when people are present. Whenever a space is unoccupied, the panels emit UV radiation to heavily reduce or eliminate viruses and bacteria.
 - One UVEN lighting control system (LCS) can control both BCL light and UVC radiation emissions for up to 20 luminaires. The LCS connects to radar sensors, electrical power, and to the internet or other LCSs for updates and real-time calibration.
@@ -63,7 +65,7 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 ## Next steps
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
-- For more information about the BCL system, see the [BrainLit](https://www.brainlit.com/) website.
+- For more information about the BCL system, see the [BrainLit](https://www.brainlit.com) website.
 - For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).
 

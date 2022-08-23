@@ -127,7 +127,7 @@ If Data Share isn't an option, consider a virtual private network (VPN) instead.
 
 The technologies in this solution meet most companies' requirements for security, scalability, and availability.
 
-### Security considerations
+### Security
 
 Because of the sensitivity of medical information, several components play a role in securing data:
 
@@ -159,7 +159,7 @@ Because of the sensitivity of medical information, several components play a rol
   - Blocks traffic that originates from network segments outside Azure Data Explorer.
   - Safeguards data and helps you meet commitments by using [Azure Disk Encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service provides volume encryption for virtual machine data disks and the OS. Azure Disk Encryption also integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
 
-### Availability considerations
+### Availability
 
 This solution uses a single-region deployment. Some scenarios require a multi-region deployment for high availability, disaster recovery, or proximity. For those cases, the following services offer paired Azure regions for high availability:
 
@@ -169,7 +169,7 @@ This solution uses a single-region deployment. Some scenarios require a multi-re
 
 - [Azure Data Explorer offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
 
-## Pricing
+### Cost optimization
 
 Pricing for this solution depends on several factors:
 
@@ -227,7 +227,6 @@ Product documentation:
 - [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 
-
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Azure API for FHIR]: https://azure.microsoft.com/services/azure-api-for-fhir/
@@ -247,11 +246,11 @@ Product documentation:
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Medical data storage solutions]: ../../solution-ideas/articles/medical-data-storage.yml
 [Microsoft DICOM]: https://github.com/microsoft/dicom-server
-[Microsoft Genomics]: https://azure.microsoft.com/services/genomics/
+[Microsoft Genomics]: https://azure.microsoft.com/services/genomics
 [Modern data warehouse architecture]: ../../solution-ideas/articles/enterprise-data-warehouse.yml
 [An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
 [Security in Azure Data Explorer]: /azure/data-explorer/security
-[Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/
+[Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics
 [Security overview for Azure Data Share]: /azure/data-share/security
 [Supported data stores in Azure Data Share]: /azure/data-share/supported-data-stores
 [What is Azure Active Directory?]: /azure/active-directory/fundamentals/active-directory-whatis

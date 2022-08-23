@@ -1,20 +1,10 @@
-Mainframe and midrange systems generate, process, and store huge amounts of data. When this data gets old, it's not typically useful. However, compliance and regulatory rules sometimes require this data to be stored for a certain number of years, so archiving it is critical. By archiving this data, you can reduce costs and optimize resources. Archiving data also helps with data analytics and provides a history of your data. 
-
-## Potential use cases
-
-Archiving data to the cloud can help you: 
-- Free up storage resources in mainframe and midrange systems. 
-- Optimize performance for queries by storing only relevant data on the active system. 
-- Reduce operational costs by storing data in a more economical way.
-- Use archived data for analytics to create new opportunities and make better business decisions.
+This reference architecture shows how to move data from mainframe and midrange systems to Azure. In this architecture, archived data is serviced and used only in the mainframe system. Azure is used only as a storage medium. 
 
 ## Architecture 
 
 :::image type="content" border="false" source="media/mainframe-export-archive-data.png" alt-text="Diagram that shows an architecture for archiving mainframe data to Azure." lightbox="media/mainframe-export-archive-data.png"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/archive-mainframe-data.vsdx) of this architecture.*
-
-This reference architecture shows how to move data from mainframe and midrange systems to Azure. In this architecture, archived data is serviced and used only in the mainframe system. Azure is used only as a storage medium. 
 
 To decide which method to use for moving data between the mainframe system and Azure storage, consider the frequency of data retrieval and the amount of data. Microsoft and third-party solutions are available: 
 
@@ -27,7 +17,7 @@ To decide which method to use for moving data between the mainframe system and A
 ### Workflow
 
 1. The Azure Data Factory [FTP connector moves data from the mainframe system to Azure Blob Storage](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555). This solution requires an intermediate virtual machine (VM) on which a self-hosted integration runtime is installed. 
-2.	The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](/azure/data-factory/v1/data-factory-onprem-db2-connector). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed. 
+1.	The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](/azure/data-factory/v1/data-factory-onprem-db2-connector). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed. 
 1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe. You can get this solution by contacting [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 
     a. You need to complete a one-time configuration of the solution. This configuration involves getting the Blob Storage access keys and moving required artifacts to the mainframe system.
@@ -35,13 +25,13 @@ To decide which method to use for moving data between the mainframe system and A
     b. A JCL submission moves files to and from the mainframe and Blob Storage. 
 
     c. Files are stored in binary format on Azure. You can configure the custom solution to convert EBCDIC to ASCII for simple data types. 
-4. Optionally, Azure Data Box can help you physically transfer mainframe data to Azure. This option is appropriate when a large amount of data needs to be migrated and online methods of transmission take too long. (For example, if migration takes weeks.)
-5. Easy interaction with the mainframe or midrange environment is provided by [third-party archive solutions](#third-party-archive-solutions). 
+1. Optionally, Azure Data Box can help you physically transfer mainframe data to Azure. This option is appropriate when a large amount of data needs to be migrated and online methods of transmission take too long. (For example, if migration takes weeks.)
+1. Easy interaction with the mainframe or midrange environment is provided by [third-party archive solutions](#third-party-archive-solutions). 
    
     These solutions interact with the mainframe and handle various mainframe parameters, like data types, record types, storage types, and access methods. They serve as a bridge between Azure and the mainframe. Some third-party solutions connect a storage drive to the mainframe and help transfer data to Azure. 
-6. Data is periodically synced and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure by using available connectors. 
-7. Data is [stored in Azure](#azure-storage). 
-8. As needed, [data is recalled from Azure](#data-recall) back to the mainframe or midrange systems. 
+1. Data is periodically synced and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure by using available connectors. 
+1. Data is [stored in Azure](#azure-storage). 
+1. As needed, [data is recalled from Azure](#data-recall) back to the mainframe or midrange systems. 
 
 ### Components
 
@@ -52,6 +42,18 @@ To decide which method to use for moving data between the mainframe system and A
 ### Alternatives
 
 You can use the classic method of moving the data out of the mainframe or midrange system via FTP. Data Factory provides an [FTP connector](/azure/data-factory/connector-ftp?tabs=data-factory) that you can use to archive the data on Azure.
+
+## Scenario details
+
+Mainframe and midrange systems generate, process, and store huge amounts of data. When this data gets old, it's not typically useful. However, compliance and regulatory rules sometimes require this data to be stored for a certain number of years, so archiving it is critical. By archiving this data, you can reduce costs and optimize resources. Archiving data also helps with data analytics and provides a history of your data. 
+
+### Potential use cases
+
+Archiving data to the cloud can help you: 
+- Free up storage resources in mainframe and midrange systems. 
+- Optimize performance for queries by storing only relevant data on the active system. 
+- Reduce operational costs by storing data in a more economical way.
+- Use archived data for analytics to create new opportunities and make better business decisions.
 
 ## Recommendations 
 
@@ -83,11 +85,11 @@ Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 * [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta) | Engineering Architect
 
-**Other contributors:**
+Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Senior Engineering Architect Manager 
@@ -104,9 +106,9 @@ See these resources:
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 - [What is Azure Data Box?](/azure/databox/data-box-overview)
-- [Microsoft Learn: Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
 
-## Related resources 
+## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md) 
 - [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) 

@@ -4,9 +4,15 @@ on:
   schedule:
   - cron: "0 */24 * * *"
 
+permissions:
+  contents: read
+
 jobs:
   stale:
 
+    permissions:
+      issues: write  # for actions/stale to close stale issues
+      pull-requests: write  # for actions/stale to close stale PRs
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +29,11 @@ jobs:
           
           Other resources:
           
-          - [Get Help](https://review.docs.microsoft.com/help/contribute/help-options?branch=master)
+          - [Get Help](https://review.docs.microsoft.com/help/contribute/help-options?branch=main)
           
           - [Docs Support Teams Channel](https://teams.microsoft.com/l/channel/19%3a7ecffca1166a4a3986fed528cf0870ee%40thread.skype/General?groupId=de9ddba4-2574-4830-87ed-41668c07a1ca&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
           
-          - [Resolve Merge Conflict](https://review.docs.microsoft.com/help/contribute/resolve-merge-conflicts?branch=master)
+          - [Resolve Merge Conflict](https://review.docs.microsoft.com/help/contribute/resolve-merge-conflicts?branch=main)
           
 
         

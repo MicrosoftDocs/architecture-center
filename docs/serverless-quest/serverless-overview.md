@@ -3,8 +3,8 @@ title: Serverless functions architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.
 author: rogeriohc
-ms.author: pnp
-ms.date: 03/04/2022
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

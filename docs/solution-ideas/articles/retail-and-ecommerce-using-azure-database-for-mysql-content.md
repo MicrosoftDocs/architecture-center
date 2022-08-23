@@ -1,11 +1,22 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service.
+Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service. 
+
+## Potential use cases
+
+This solution is ideal for the retail industry.
 
 ## Architecture
 
-![Architecture Diagram](../media/retail-and-ecommerce-using-azure-database-for-mysql.png)
+![Architecture diagram shows data into Azure App Services, to Azure Storage and databases, through Azure Search and into Azure H D Insight.](../media/retail-and-ecommerce-using-azure-database-for-mysql.png)
 *Download an [SVG](../media/retail-and-ecommerce-using-azure-database-for-mysql.svg) of this architecture.*
+
+### Dataflow
+
+1. The web application is hosted in an Azure Web App.
+1. The data (products and session state) gets stored in Azure MySQL DB.
+1. Static content and product images are stored in an Azure Storage account.
+1. Azure Cognitive Search is used to search across all the products.
 
 ### Components
 

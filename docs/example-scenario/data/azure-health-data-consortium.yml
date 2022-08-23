@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Health data consortium on Azure
-  titleSuffix: Azure Example Scenarios
-  description: Build a data consortium to share healthcare data among partners. Collect data from multiple sources. Share it with members in a secure and efficient way.
+  titleSuffix: Azure Architecture Center
+  description: Build a data consortium to share healthcare data among partners. Collect data from multiple sources and share it with members in a secure and efficient way.
   author: matthansen0
   ms.author: mahans
-  ms.date: 04/26/2022
+  ms.date: 08/22/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -22,7 +22,7 @@ products:
   - azure-databricks
   - azure-sql-database
 name: Health data consortium on Azure
-summary: Build a data consortium to share healthcare data among partners. Collect data from multiple sources. Share it with members in a secure and efficient way.
+summary: Build a data consortium to share healthcare data among partners. Collect data from multiple sources and share it with members in a secure and efficient way.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-health-data-consortium-architecture-thumbnail.png
 content: |
   [!include[](azure-health-data-consortium-content.md)]

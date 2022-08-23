@@ -1,6 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-An energy grid consists of energy consumers, and various types of energy supplying, trading, and storage components: Substations accept power load or exports excessive power; Batteries may discharge energy or store it for future use; Windfarms and solar panel (self-scheduled generators), micro-turbines (dispatchable generators), and demand response bids can all be engaged to satisfying the demand from the consumers within the grid. The costs of soliciting different types of resources vary, while the capacities and the physical characteristics of each resource type limit the dispatch of the resource. Given all these constraints, a central challenge the smart grid operator must face, is how much energy each type of the resources should commit over a time frame, so that the forecasted energy demand from the grid is satisfied.
+An energy grid consists of energy consumers, and various types of energy supplying, trading, and storage components: Substations accept power load or exports excessive power; Batteries may discharge energy or store it for future use; Windfarms and solar panel (self-scheduled generators), micro-turbines (dispatchable generators), and demand response bids can all be engaged to satisfying the demand from the consumers within the grid.
+
+The costs of soliciting different types of resources vary, while the capacities and the physical characteristics of each resource type limit the dispatch of the resource. Given all these constraints, a challenge the smart grid operator must face is how much energy each type of the resources should commit over a time frame. This allows the forecasted energy demand from the grid is satisfied.
 
 ## Potential use cases
 
@@ -13,14 +15,14 @@ This solution demonstrates the ability of Azure to accommodate external tools, s
 ![Architecture Diagram](../media/energy-supply-optimization.png)
 *Download an [SVG](../media/energy-supply-optimization.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
   1. The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.
-  2. The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue, that will be used in the rest of the solution flow.
-  3. Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.
-  4. The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.
-  5. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
-  6. Finally, Power BI is used for results visualization.
+  1. The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue that will be used in the rest of the solution flow.
+  1. Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.
+  1. The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.
+  1. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
+  1. Finally, Power BI is used for results visualization.
   
 ### Components
 

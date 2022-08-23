@@ -79,6 +79,14 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
  - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
  - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Mahesh Kshirsagar](https://www.linkedin.com/in/mahesh-kshirsagar-msft) | Cloud Solution Architect
+
 ## Next steps
 
 See the following guidance about additional AVS architectural options:

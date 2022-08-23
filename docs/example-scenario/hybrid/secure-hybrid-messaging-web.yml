@@ -2,10 +2,10 @@
 metadata:
   title: Enhanced-security hybrid messaging — web access
   titleSuffix: Azure Example Scenarios
-  description: This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+  description: Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
   author: pakondra
   ms.author: pakondra
-  ms.date: 12/20/2021
+  ms.date: 06/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -20,7 +20,7 @@ products:
   - "m365"
   - "office-365"
 name: Enhanced-security hybrid messaging infrastructure — web access
-summary: This article describes an architecture to help you enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+summary: Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-messaging-web.png
 content: |
   [!include[](secure-hybrid-messaging-web-content.md)]

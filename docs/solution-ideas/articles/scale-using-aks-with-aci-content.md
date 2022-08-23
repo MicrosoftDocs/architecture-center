@@ -2,9 +2,13 @@
 
 Use the AKS virtual node to provision pods inside ACI that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI, without any additional servers to manage.
 
+## Potential use cases
+
+Organizations utilize this solution so they don't need extra servers to perform this type of scaling.
+
 ## Architecture
 
-![Architecture Diagram](../media/scale-using-aks-with-aci.png)
+![Architecture diagram shows users to Azure Container Registry to A K S, then to A K S virtual node and S Q L database, then to A C I.](../media/scale-using-aks-with-aci.png)
 *Download an [SVG](../media/scale-using-aks-with-aci.svg) of this architecture.*
 
 ### Dataflow
@@ -16,10 +20,18 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ### Components
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Azure Kubernetes Service (AKS) can use the Virtual Kubelet to provision pods inside Azure Container Instance(ACI) that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI without any additional servers to manage.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances) offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Azure Kubernetes Service (AKS) can use the Virtual Kubelet to provision pods inside Azure Container Instance(ACI) that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out more pods in ACI without any extra servers to manage.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Uthappa Kattera Chengappa](https://www.linkedin.com/in/uthappa) | Principal Cloud Solution Architect
 
 ## Next steps
 
@@ -29,4 +41,4 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/paths/intro-to-kubernetes-on-azure).

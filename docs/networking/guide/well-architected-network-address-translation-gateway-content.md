@@ -65,7 +65,7 @@ Microsoft Defender for Cloud can monitor for any suspicious outbound connectivit
 ## Next steps
 
 - [Microsoft Well-Architected Framework](/azure/architecture/framework)
-- [Tutorial: Create a NAT gateway using the Azure portal](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal)
+- [Tutorial: Create a NAT gateway using the Azure portal](/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal)
 
 ## Related resources
 

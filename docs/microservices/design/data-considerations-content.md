@@ -6,7 +6,7 @@ The reason for this rule is to avoid unintentional coupling between services, wh
 
 ![Diagram of a wrong approach to CQRS](../../guide/architecture-styles/images/cqrs-microservices-wrong.png)
 
-This approach naturally leads to [polyglot persistence](https://martinfowler.com/bliki/PolyglotPersistence.html) &mdash; the use of multiple data storage technologies within a single application. One service might require the schema-on-read capabilities of a document database. Another might need the referential integrity provided by an RDBMS. Each team is free to make the best choice for their service. For more about the general principle of polyglot persistence, see [Use the best data store for the job](../../guide/design-principles/use-the-best-data-store.md).
+This approach naturally leads to [polyglot persistence](https://martinfowler.com/bliki/PolyglotPersistence.html) &mdash; the use of multiple data storage technologies within a single application. One service might require the schema-on-read capabilities of a document database. Another might need the referential integrity provided by an RDBMS. Each team is free to make the best choice for their service. For more about the general principle of polyglot persistence, see [Use the best data store for the job](/azure/architecture/guide/design-principles/use-best-data-store).
 
 > [!NOTE]
 > It's fine for services to share the same physical database server. The problem occurs when services share the same schema, or read and write to the same set of database tables.

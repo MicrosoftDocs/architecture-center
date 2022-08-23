@@ -2,10 +2,10 @@
 metadata:
   title: Blue/green app deployments 
   titleSuffix: Azure Example Scenarios
-  description: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Cloud.
+  description: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
   author: vermegi
   ms.author: givermei
-  ms.date: 4/05/2022
+  ms.date: 06/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -16,11 +16,11 @@ metadata:
 azureCategories:
   - devops
 products:
-  - azure-spring-cloud
+  - azure-spring-apps
   - github
   - azure-devops
-name: Blue/green deployments for applications on Azure Spring Cloud 
-summary: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Cloud.
+name: Blue/green deployments for applications on Azure Spring Apps 
+summary: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
 thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment.png
 content: |
   [!include[](blue-green-spring-content.md)]

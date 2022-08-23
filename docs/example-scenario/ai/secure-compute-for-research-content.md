@@ -47,7 +47,7 @@ This architecture consists of several Azure cloud services that scale resources 
 
 Here are the core components that move and process research data.
 
-- [**Azure Data Science Virtual Machine (DSVM):**](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) VMs that are configured with tools used for data analytics and machine learning.
+- [**Azure Data Science Virtual Machine (DSVM):**](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) VMs that are configured with tools used for data analytics and machine learning.
 
 - [**Azure Machine Learning:**](https://azure.microsoft.com/free/machine-learning) Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of ML compute resources.
 
@@ -57,7 +57,7 @@ Here are the core components that move and process research data.
 
 - [**Azure Data Factory:**](https://azure.microsoft.com/services/data-factory) Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- [**Azure Virtual Desktop**](https://azure.microsoft.com/free/virtual-desktop) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
+- [**Azure Virtual Desktop**](https://azure.microsoft.com/free/virtual-desktop) is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion). But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
   - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.
   - Ability to limit copy, paste, and screen captures.
@@ -69,15 +69,15 @@ Here are the core components that move and process research data.
 
 These components continuously monitor the posture of the workload and its environment. The purpose is to discover and mitigate risks as soon as they are discovered.
 
-- [**Microsoft Defender for Cloud**](https://azure.microsoft.com/services/defender-for-cloud/) is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score.
+- [**Microsoft Defender for Cloud**](https://azure.microsoft.com/services/defender-for-cloud) is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score.
 
-- [**Microsoft Sentinel**](https://azure.microsoft.com/services/microsoft-sentinel/) is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
+- [**Microsoft Sentinel**](https://azure.microsoft.com/services/microsoft-sentinel) is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
 
-- [**Azure Monitor**](https://azure.microsoft.com/services/monitor/) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
+- [**Azure Monitor**](https://azure.microsoft.com/services/monitor) provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
 
 #### Governance components
 
-- [**Azure Policy**](https://azure.microsoft.com/services/azure-policy/) helps to enforce organizational standards and to assess compliance at-scale.
+- [**Azure Policy**](https://azure.microsoft.com/services/azure-policy) helps to enforce organizational standards and to assess compliance at-scale.
 
 ### Alternatives
 

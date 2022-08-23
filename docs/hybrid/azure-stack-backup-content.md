@@ -1,21 +1,14 @@
 This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.
 
+## Architecture
+
 ![Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
+### Workflow
 
-While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.
-
-For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.
-
-> [!Note]
-> MABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.
-
-## Architecture of the proposed solution
-
-Cloud components include the following services:
+The cloud components include the following services:
 
 - An Azure subscription that hosts all cloud resources included in this solution.
 - An Azure Active Directory (Azure AD) tenant associated with the Azure subscription, which provides authentication of Azure AD security principals to authorize access to Azure resources.
@@ -41,7 +34,27 @@ The on-premises components include the following services:
    > [!Note]
   > MARS agent is also referred to as an *Azure Backup agent*.
 
-## Core functionality
+### Alternatives
+
+The recommended solution described in this reference architecture document is understandably not the only way to provide backup and restore functionality to user workloads running on Azure Stack Hub. Customers have other options, including:
+
+- Local backup and restore by using the **Windows Server Backup** feature included in the Windows Server operating system. Users can subsequently copy local backups to a longer-term storage. This approach supports application-consistent backups by relying on Windows VSS providers, but increases local disk space usage and backup maintenance overhead.
+- Backup and restore by using Azure Backup with the locally installed MARS agent. This approach minimizes the use of local disk space and automates the process of uploading backups to cloud-based storage. However, it doesn't support application-consistent backups.
+- Backup and restore by using a backup solution installed in the same datacenter but outside of Azure Stack Hub. This approach facilitates scenarios that involve an Azure Stack Hub disconnected deployment model.
+- Azure Stack Hub–level backup and restore by using disk snapshots. This approach requires that the VM being backed up is stopped, which is typically not a viable option for business-critical workloads, but might be acceptable in some scenarios.
+
+## Scenario details
+
+Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
+
+While one of the primary strengths of Azure Stack Hub is its support for the platform-as-a-service (PaaS) model, it also helps customers to modernize their existing infrastructure-as-a-service (IaaS) workloads. Such workloads might include file shares, Microsoft SQL Server databases, Microsoft SharePoint farms, and Microsoft Exchange Server clusters. Migrating them to VMs running on hyperconverged, highly-resilient clusters, with administrative and programming models consistent with Microsoft Azure, results in minimized management and maintenance overhead.
+
+For implementing backup of files and applications running on Azure Hub Stack VMs, Microsoft recommends a hybrid approach that relies on a combination of cloud and on-premises components to deliver a scalable, performant, resilient, secure, straightforward to manage, and cost-efficient backup solution. The central component of this solution is Microsoft Azure Backup Server (MABS) v3, which is part of the Azure Backup offering. MABS relies on Azure Stack Hub infrastructure for compute, network, and short-term storage resources, while it leverages Azure-based storage to serve as the long-term backup store. This minimizes or eliminates the need to maintain physical backup media such as tapes.
+
+> [!Note]
+> MABS is based on Microsoft System Center Data Protection Manager (DPM) and provides similar functionality with just a few differences. However, DPM is not supported for use with Azure Stack Hub.
+
+### Core functionality
 
 The proposed solution supports the following functionality on Azure Stack Hub VMs running Windows Server 2019, 2016, 2012 R2, 2012, 2008 R2 SP1 (64-bit with Windows Management Framework 4.0), 2008 SP2 (64-bit with Windows Management Framework 4.0), and Windows 10 (64-bit):
 
@@ -67,7 +80,7 @@ At a high level, the backup process consists of the following four stages:
 1. The protected workload backs up to the local MABS disks according to the schedule you specified.
 1. The local backup stored on MABS disks is backed up to the Azure Recovery Services vault by the MARS agent running on the MABS server.
 
-## Prerequisites
+### Prerequisites
 
 Implementing the recommended solution is contingent on meeting the following prerequisites:
 
@@ -84,7 +97,9 @@ Implementing the recommended solution is contingent on meeting the following pre
   > [!Note]
   > MABS also requires a local instance of SQL Server. For details regarding SQL Server requirements, refer to [Install and upgrade Azure Backup Server][azure-backup-server].
 
-## Availability considerations
+## Considerations
+
+### Availability
 
 Azure Stack Hub helps increase workload availability through resiliency inherent to its infrastructure. You can further enhance the degree of this availability by designing and implementing solutions with the purpose of extending the scope of workload protection. This is the added value that MABS provides. In the context of MABS running on Azure Stack Hub, there are two aspects of availability that need to be explored in more detail:
 
@@ -103,7 +118,7 @@ MABS and its data stores availability is contingent on the availability of the V
 
 The point-in-time restore capability of MABS-protected workloads is dependent to a large extent on the type of data, its backups, and its protection policies. To understand these dependencies, it's necessary to explore these concepts in more detail.
 
-### Data types
+#### Data types
 
 From the perspective of MABS, there are two data types to consider:
 
@@ -113,7 +128,7 @@ From the perspective of MABS, there are two data types to consider:
 > [!Note]
 > As an alternative to file data backup with MABS, it is possible to install the MABS agent directly on Azure Stack Hub VMs and back up their local file system directly to an Azure Recovery Services vault. However, unlike MABS, this approach does not provide centralized management and always relies on cloud-based storage for backups and restores.
 
-### Backup types
+#### Backup types
 
 Whether you're protecting file data or application data, protection begins with creating a replica of the data source in the local storage of a MABS instance. The replica is synchronized or updated at regular intervals according to the settings that you configure. The method that MABS uses to synchronize the replica depends on the type of data being protected. If a replica is identified as being inconsistent, MABS performs a consistency check, which is a block-by-block verification of the replica against the data source.
 
@@ -139,7 +154,7 @@ To enable faster recovery time, MABS regularly performs an express full backup, 
 
 As with file data protection, if a replica becomes inconsistent with its data source, MABS generates an alert that specifies which server and which data sources are affected. To resolve the inconsistency, you can repair the replica by initiating a synchronization with consistency check on the replica. During a consistency check, MABS performs a block-by-block verification of the replica and repairs it to bring it back into consistency with the data sources. You can schedule a daily consistency check for protection groups or initiate a consistency check manually.
 
-### Protection policies
+#### Protection policies
 
 A computer or its workload becomes protected when you install the MABS protection agent software on the computer and add its data to a protection group. Protection groups are used to configure and manage protection of data sources on computers. A *protection group* is a collection of data sources that share the same protection configuration. The *protection configuration* is the collection of settings that are common to a protection group, such as the protection group name, protection policy, storage allocations, and replica creation method.
 
@@ -171,7 +186,7 @@ You configure a protection policy for each protection group based on the recover
   > [!Note]
   > For the listing of Azure region pairs, refer to [Business continuity and disaster recovery (BCDR): Azure Paired Regions][azure-paired-regions].
 
-## Scalability and performance considerations
+### Scalability and performance
 
 When planning to deploy MABS on Azure Stack Hub, you need to consider the amount of processing, storage, and network resources allocated to the VM (or VMs) hosting the deployment. Microsoft recommends allocating 2.33 gigahertz (GHz) quad-core CPU to account for MABS processing needs, with about 10 GB disk space to accommodate the installation binaries. Additional storage requirements can be divided into the following categories:
 
@@ -236,7 +251,7 @@ To accommodate larger backup sizes, you could consider leveraging Azure ExpressR
 > [!Note]
 > MABS v3 leverages enhancements built into MBS, and optimizes network and storage usage by transferring only changed data during consistency checks.
 
-## Manageability considerations
+### Manageability
 
 From the manageability standpoint, one of the primary considerations affecting your backup and restore strategy is the configuration of protection groups and criteria you use to decide which protected workloads should belong to the same protected groups. As described earlier in this document, a *protection group* is a collection of data sources such as volumes, shares, or application data stores, which have common backup and restore settings. When defining a protection group, you need to specify:
 
@@ -270,13 +285,13 @@ The offline-seeding workflow involves the following  high-level steps:
 1. Azure datacenter staff copies data from SATA disks to the Azure Storage account.
 1. The workflow triggers a copy from the Azure Storage account to the Azure Recovery Services vault.
 
-### Testing restores
+#### Testing restores
 
 In addition to an optimally designed and implemented backup strategy, it is equally important to define, document, and test the proper restore process for each type of protected workload. While MABS provides built-in consistency checks that automatically verify integrity of backed up data, testing of restores should be part of routine operating procedures, which validate that integrity based on the state of restored workloads. Results of such validation should be available to workload owners.
 
 In general, testing restores tends to be challenging because it requires an environment that closely resembles the one hosting protected workloads. Azure Stack Hub, with its built-in DevOps and Infrastructure-as-Code capabilities, considerably simplifies addressing this challenge.
 
-### Roles and responsibilities
+#### Roles and responsibilities
 
 Planning for and implementing backup and restore of Azure Stack Hub–based workloads typically involves interaction among a number of stakeholders:
 
@@ -286,7 +301,7 @@ Planning for and implementing backup and restore of Azure Stack Hub–based work
 - Azure Stack Hub tenant IT staff. These stakeholders design, implement, and manage MABS, including its backups and restores.
 - Azure Stack Hub users. These users provide RPO and RTO requirements and submit requests to back up and restore data and applications.
 
-## Security considerations
+### Security
 
 Managing user data and applications in hybrid scenarios warrants additional security considerations. These considerations can be grouped into the following categories:
 
@@ -309,11 +324,11 @@ Azure Recovery Services vault offers a number of mechanisms that further protect
 - Protection of security-sensitive operations. The Azure Recovery Services vault automatically implements an additional layer of authentication whenever a security-sensitive operation—such as changing a passphrase—is attempted. This extra validation helps ensure that only authorized users are performing these operations.
 - Suspicious activity monitoring and alerts. Azure Backup provides built-in monitoring and alerting of security-sensitive events related to Azure Backup operations. Backup Reports facilitate usage tracking, auditing of backups and restores, and identifying key backup trends.
 
-## DevOps considerations
+### DevOps
 
 While backup and restore are considered part of IT operations, there are some DevOps-specific considerations that are worth incorporating into a comprehensive backup strategy. Azure Stack Hub facilitates automated deployment of a variety of workloads, including VM-based applications and services. You can leverage this capability to streamline MABS deployment to Azure Stack Hub VMs, which simplifies the initial setup in multitenant scenarios. By combining Azure Resource Manager templates, VM extensions, and the DPM PowerShell module, it is possible to automate configuration of MABS, including setup of its protection groups, retention settings, and backup schedules. In the spirit of the best practices of DevOps, store templates and scripts in a source control and configure their deployment through pipelines. These provisions will also help with minimizing recovery time in scenarios where the infrastructure necessary to restore file and application data needs to be recreated.
 
-## Cost considerations
+### Cost optimization
 
 When considering the cost of the backup solution described in this reference architecture document, remember to account for both on-premises and cloud-based components. The pricing of on-premises components is determined by the Azure Stack Hub pricing model. As with Azure, Azure Stack Hub offers a pay-as-you-use arrangement available through enterprise agreements and the Cloud Solution Provider program. This arrangement includes a monthly price per Windows Server VM. If you have the option to leverage existing Windows Server licenses, you can significantly reduce that cost down to the base VM pricing. While MABS relies on SQL Server as its data store, there is no licensing cost associated with running that SQL Server instance providing it's used exclusively for MABS.
 
@@ -328,15 +343,6 @@ Azure-related charges are associated with use of the following resources:
 
 Without ExpressRoute, you might have to account for increased bandwidth utilization of your Internet connections, both during backups and restores. The cost will vary depending on a number of factors, including geographical area, current bandwidth usage, and the choice of an Internet service provider.
 
-## Alternative solutions
-
-The recommended solution described in this reference architecture document is understandably not the only way to provide backup and restore functionality to user workloads running on Azure Stack Hub. Customers have other options, including:
-
-- Local backup and restore by using the **Windows Server Backup** feature included in the Windows Server operating system. Users can subsequently copy local backups to a longer-term storage. This approach supports application-consistent backups by relying on Windows VSS providers, but increases local disk space usage and backup maintenance overhead.
-- Backup and restore by using Azure Backup with the locally installed MARS agent. This approach minimizes the use of local disk space and automates the process of uploading backups to cloud-based storage. However, it doesn't support application-consistent backups.
-- Backup and restore by using a backup solution installed in the same datacenter but outside of Azure Stack Hub. This approach facilitates scenarios that involve an Azure Stack Hub disconnected deployment model.
-- Azure Stack Hub–level backup and restore by using disk snapshots. This approach requires that the VM being backed up is stopped, which is typically not a viable option for business-critical workloads, but might be acceptable in some scenarios.
-
 ## Summary
 
 In conclusion, Azure Stack Hub is a unique offering, which differs in many aspects from other virtualization platforms. As such, it warrants special considerations in regard to business continuity strategies for workloads running on its VMs. Leveraging Azure services helps simplify the design and implementation strategy. In this architecture reference document, we explored using MABS for backup of file and application data on Azure Stack Hub VMs in the connected deployment model. This approach allows customers to benefit from resiliency and manageability of Azure Stack Hub, and from the hyperscale and global presence of the Azure cloud.
@@ -347,16 +353,18 @@ It's important to note that the backup solution described here focuses exclusive
 
 - [How-to guides - Backup Storage Accounts on Azure Stack](/azure-stack/user/azure-stack-network-howto-backup-storage)
 - [How-to guides - Backup of VMs on Azure Stack Hub using Commvault](/azure-stack/user/azure-stack-network-howto-backup-commvault)
-- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
-## Related resources
-
+See the following articles for more information about Azure Backup:
 - [Backup Cloud and On-Premises workloads to Cloud](/azure/backup/guidance-best-practices)
-- [Backup on premises applications and data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises-applications)
 - [Install Azure Backup Server](/azure/backup/backup-mabs-install-azure-stack)
 - [Backup files and applications on Azure Stack](/azure/backup/backup-mabs-files-applications-azure-stack)
 - [Backup a SharePoint farm on Azure Stack](/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Backup a SQL Server in Azure Stack](/azure/backup/backup-mabs-sql-azure-stack)
+
+## Related resources
+
+- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
+- [Backup on premises applications and data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises-applications)
 
 [architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx

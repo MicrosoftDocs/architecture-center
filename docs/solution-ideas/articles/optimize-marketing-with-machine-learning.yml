@@ -2,10 +2,10 @@
 metadata:
   title: Optimize marketing with machine learning
   titleSuffix: Azure Solution Ideas
-  description: Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.
-  author: nfmoore
-  ms.author: nimoore
-  ms.date: 04/13/2022
+  description: Extract insights from social media for your big data marketing campaigns by using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
+  author: ChristinaSka
+  ms.author: christinas
+  ms.date: 07/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -14,7 +14,7 @@ metadata:
     - analytics
   ms.custom:
     - acom-architecture
-    - machine learning r
+    - machine learning
     - ai-ml
     - machine learning in marketing
     - machine learning marketing
@@ -25,11 +25,13 @@ name: Optimize marketing with machine learning
 azureCategories:
   - ai-machine-learning
   - analytics
-summary: Build a machine-learning model with SQL Server 2016 with R Services that optimizes big data marketing campaigns.
+summary: Extract insights from social media for your big data marketing campaigns by using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
 products:
+  - azure-cognitive-services
+  - azure-synapse-analytics
   - azure-machine-learning
+  - azure-data-lake
   - power-bi
-  - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/optimize-marketing-with-machine-learning.png
 content: |
   [!include[](optimize-marketing-with-machine-learning-content.md)]

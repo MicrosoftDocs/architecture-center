@@ -3,8 +3,8 @@ title: Azure icons
 titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/04/2020
+ms.author: architectures
+ms.date: 07/26/2022
 ms.service: architecture-center
 azureCategories: developer-tools
 categories: developer-tools
@@ -17,15 +17,15 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ### Do's
 
-* Use the icon to illustrate how products can work together
-* In diagrams, we recommend to include the product name somewhere close to the icon
-* Use the icons as they would appear within Azure
+- Use the icon to illustrate how products can work together.
+- In diagrams, we recommend to include the product name somewhere close to the icon.
+- Use the icons as they would appear within Azure.
 
 ### Don'ts
 
-* Don't crop, flip or rotate icons
-* Don't distort or change icon shape in any way
-* Don't use Microsoft product icons to represent your product or service
+- Don't crop, flip or rotate icons.
+- Don't distort or change icon shape in any way.
+- Don't use Microsoft product icons to represent your product or service.
 
 ## Example architecture diagram
 
@@ -48,11 +48,11 @@ There are ~26 icons that have been added to the existing set. The download file 
 Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
 <div id="consent-checkbox">
-I agree to the above terms
+I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V4.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V6.zip)
 
 ## More icon sets from Microsoft
 

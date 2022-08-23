@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Upload, encode, and distribute video files with Azure services. Stream content to any video-capable endpoint device, mobile application, or desktop browser.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  ms.author: architectures
+  ms.date: 05/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -15,7 +15,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - media
-    - "https://azure.microsoft.com/solutions/architecture/digital-media-video/"
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-video"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media-video.png
 name: Video-on-demand digital media

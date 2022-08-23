@@ -4,7 +4,9 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram.png)](./media/architecture-diagram.png#lightbox)
+[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram-new.png)](./media/architecture-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -33,19 +35,19 @@ Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 st
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/)
+* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/)
+* [Azure Databricks](https://azure.microsoft.com/services/databricks)
 
 * [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops)
 
-* [Power BI](https://powerbi.microsoft.com/)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Scenario details
 
@@ -102,7 +104,7 @@ The following list contains the high-level steps required to set up the Parking 
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and AAD service principals per environment. The script also deploys Azure DevOps pipelines, variable groups, and service connections.
+1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure pipelines, variable groups, and service connections.
 1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
@@ -117,7 +119,9 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-[![Figure Process and Sequence for Build and Release](./media/ci-cd-process-diagram.png)](./media/ci-cd-process-diagram.png#lightbox)
+[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived git branches. For example, `<developer_name>/<branch_name>`.
 
@@ -188,7 +192,7 @@ Azure Databricks
 Data Factory
 
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
-* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
+* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
 Synapse Analytics
 
@@ -220,7 +224,7 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Videos
+### Detailed walkthrough
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
 

@@ -12,21 +12,21 @@ By using natural language processing (NLP) with deep learning for content taggin
 
 *Download an [SVG file](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
-1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
+1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
 
-2. Azure Machine Learning (ML) can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing. 
+1. Azure Machine Learning (ML) can connect and read from such sources, to ingest the data into the NLP pipeline for pre-processing, model training, and post-processing.
 
-3. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow the language to be tokenized in a general form. 
+1. NLP pre-processing includes several steps to consume data, with the purpose of text generalization. Once the text is broken up into sentences, NLP techniques, such as lemmatization or stemming, allow the language to be tokenized in a general form.
 
-4. As NLP models are already available pre-trained, the transfer learning approach recommends that you download language-specific embeddings and use an industry standard model, for multi-class text classification, such as variations of [BERT](https://arxiv.org/abs/1810.04805).
+1. As NLP models are already available pre-trained, the transfer learning approach recommends that you download language-specific embeddings and use an industry standard model, for multi-class text classification, such as variations of [BERT](https://arxiv.org/abs/1810.04805).
 
-5. NLP post-processing recommends storing the model in a model register in Azure ML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model. 
+1. NLP post-processing recommends storing the model in a model register in Azure ML, to track model metrics. Furthermore, text can be post-processed with specific business rules that are deterministically defined, based on the business goals. Microsoft recommends using ethical AI tools to detect biased language, which ensures the fair training of a language model.
 
-6. The model can be deployed through Azure Kubernetes Service, while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
+1. The model can be deployed through Azure Kubernetes Service, while running a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Endpoints can be made available to a front-end application. The model can be deployed through Azure Kubernetes Service as real-time endpoints.
 
-7. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store the results in the respective datastore. 
+1. Model results can be written to a storage option in file or tabular format, then properly indexed by Azure Cognitive Search. The model would run as batch inference and store the results in the respective datastore.
 
 ### Components
 
@@ -35,6 +35,14 @@ By using natural language processing (NLP) with deep learning for content taggin
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Azure Container Registry](/azure/container-registry)
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Louis Li](https://www.linkedin.com/in/louisli) | Senior Customer Engineer
 
 ## Next steps
 
@@ -48,9 +56,9 @@ See the product documentation:
 
 Try these Microsoft Learn modules:
 
-* [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch/)
-* [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
-* [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/)
+* [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch)
+* [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models)
+* [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)
 
 ## Related resources
 

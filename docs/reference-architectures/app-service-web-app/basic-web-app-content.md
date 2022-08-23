@@ -4,7 +4,7 @@ This reference architecture shows proven practices for a web application that us
 
 ![Diagram showing the reference architecture for a basic web application in Azure.](./images/basic-web-app.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures-basic-webapp.vsdx) of this architecture.*
 
 ### Workflow
 

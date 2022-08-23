@@ -1,13 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service/) to recognize and support voice commands.
-
-## Potential use cases
-
-This solution applies to the following scenarios:
-- Banking
-- Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
-- Entertainment commerce
+[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios.
 
 ## Architecture
 
@@ -15,11 +8,11 @@ This solution applies to the following scenarios:
 
 *Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The customer uses your mobile app.
-1. Using Azure Active Directory B2C, the customer authenticates.
-1. Using the custom application Bot, the customer requests information.
+1. The customer authenticates by using Azure Active Directory B2C.
+1. The customer requests information by using the custom application Bot.
 1. Cognitive Services helps process the natural language request.
 1. The response is reviewed by the customer, who can refine the question using natural language.
 1. Once the customer is happy with the results, the Application Bot updates the reservation.
@@ -37,6 +30,18 @@ Key technologies used to implement this architecture:
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
 
+## Scenario details
+
+[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service) to recognize and support voice commands.
+
+### Potential use cases
+
+This solution applies to the following scenarios:
+
+- Banking and finance
+- Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
+- Entertainment commerce (and retail)
+
 ## Next steps
 
 Product documentation:
@@ -50,10 +55,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
-* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
-* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model/)
+* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
+* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
+* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 
@@ -66,4 +71,4 @@ Azure Architecture Center articles describing chatbot architectures:
 
 * [Chatbot for hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+* [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

@@ -8,10 +8,10 @@ This system takes advantage of OS clustering for database performance, high avai
 
 ## Architecture
 
-![Architecture Diagram](../media/sap-s4-hana-on-hli-with-ha-and-dr.png)
+![Architecture diagram shows Front-end route, through Primary Azure Region to O S Clustering, to D R storage replication in D R Azure Region.](../media/sap-s4-hana-on-hli-with-ha-and-dr.png)
 *Download an [SVG](../media/sap-s4-hana-on-hli-with-ha-and-dr.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
 1. Azure high-speed ExpressRoute gateway is used to connect to Azure Virtual Machines.
@@ -26,7 +26,7 @@ This system takes advantage of OS clustering for database performance, high avai
 ### Components
 
 * [SAP HANA on Azure Large Instances](https://azure.microsoft.com/services/virtual-machines/sap-hana): SAP HANA on Azure (Large Instances) runs on dedicated blade servers located in a Microsoft Azure datacenter. This feature is specific to the database server.
-* [NFS storage for Azure HANA large instances](https://azure.microsoft.com/services/storage/files): The Azure high-performance NFS storage system offers the unmatched capability to perform snapshot backups, and replication to secondary storage.  In addition, HANA Large Instances is the only cloud infrastructure to provide storage volume encryption.
+* [NFS storage for Azure HANA large instances](https://azure.microsoft.com/services/storage/files): The Azure high-performance NFS storage system offers the unmatched capability to perform snapshot backups, and replication to secondary storage.  In addition, HANA Large Instances are the only cloud infrastructure to provide storage volume encryption.
 * SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU.
 * Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks) uses solid-state disk (SSD) in Azure Storage nodes and read cache that's backed by the local SSD of an Azure compute node.
 * [ExpressRoute (front end)](https://azure.microsoft.com/services/expressroute): Azure ExpressRoute used on the front end (see diagram) provides secure, high-bandwidth connectivity to establish reliable connections between your network and the Microsoft Azure network.

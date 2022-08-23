@@ -38,6 +38,6 @@ Use this pattern when:
 
 This pattern may not be suitable if there are no significant semantic differences between new and legacy systems.
 
-## Related guidance
+## Related resources
 
 - [Strangler Fig pattern](./strangler-fig.yml)

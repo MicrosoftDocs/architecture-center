@@ -6,7 +6,9 @@ This architecture builds on the [AKS Baseline architecture](../aks/secure-baseli
 
 ## Architecture
 
-![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
+:::image type="content" border="false" source="images/aks-production-deployment.png" alt-text="Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses." lightbox="images/aks-production-deployment.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
 
 If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 

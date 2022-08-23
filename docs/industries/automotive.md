@@ -3,8 +3,8 @@ title: Solutions for the automotive, mobility, and transportation industries
 titleSuffix: Azure Architecture Center
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the automotive, mobility, and transportation industries.
 author: EdPrice-MSFT
-ms.author: edprice 
-ms.date: 01/28/2022
+ms.author: architectures 
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,13 +29,13 @@ The automotive industry includes truck and automobile manufacturing and sales, a
 
 Another Azure solution, [Azure high-performance computing (HPC) for automotive](https://azure.microsoft.com/solutions/high-performance-computing/automotive), addresses issues that are specific to automotive, such as vehicle engineering, aerodynamic and physics simulations, sensor performance, and autonomous driving software. It offers a wide variety of specialized virtual machines for these areas and many others.
 
-The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
-
 View the ways that the digital transformation is revolutionizing the automotive and mobility services industry:
 
 <br>
 
 > [!VIDEO https://www.youtube.com/embed/jZtckoQ6HmY]
+
+The mobility services industry improves urban mobility with multi-modal route planning, mobile payment and ticketing, vehicle tracking, and analytics for planning and optimization. For related solutions on Azure, see [Emerging mobility services](https://www.microsoft.com/industry/automotive/emerging-mobility-services).
 
 ## Architectures for automotive, mobility, and transportation
 

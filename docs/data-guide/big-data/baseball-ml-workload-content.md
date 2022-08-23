@@ -1,28 +1,10 @@
 This scenario describes a web application, called the Baseball Machine Learning Workbench, which provides an interface for non-technical users to use artificial intelligence (AI) and machine learning (ML) to perform decision analysis techniques. These techniques help you rapidly gain insights and make informed predictions.
 
-This solution uses historical baseball data to generate National Baseball Hall of Fame insights. Machine intelligence powers the what-if analysis, decision thresholding, and improvements over traditional rule-based systems. User-friendly interface controls set adjustable parameters and surface the results in real time, with clear visual cues to highlight positive or negative outcomes.
-
-The architecture provides rapid results by using in-memory models and rapid two-way communication between the user and server. Delta rendering pushes down only modified content to the web browser, updating the display without having to reload the entire page. This solution can scale to tens of in-memory models serving hundreds of concurrent sessions in real time.
-
-The following article explains the architecture of the Baseball Machine Learning Workbench, where to get the source code for it, and how to deploy it. You can also [view a live demo of this solution](https://aka.ms/BaseballMLWorkbench).
-
-## Potential use cases
-
-Consider this scenario for the following use cases:
-
-- Decision analysis system replacement with AI and ML
-
-- AI-assisted decision support systems or decision management systems
-
-- Fantasy baseball
-
-- Financial forecasting
-
-- Business goal and objective modeling (budgeting and project planning, for example)
-
 ## Architecture
 
 ![An overview of the processing sequence of this architecture, detailed in accompanying text.](./images/baseball-machine-learning-workbench-diagram.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseball-machine-learning-workbench-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -59,6 +41,28 @@ The following assets and technologies were used to craft the Baseball Machine Le
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is the software programming environment used for this project. This architecture uses cross-platform components, so either the Windows or Mac version can be used.
 
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), can be used for performance monitoring and analytics and to drive autoscaling.
+
+## Scenario details
+
+This solution uses historical baseball data to generate National Baseball Hall of Fame insights. Machine intelligence powers the what-if analysis, decision thresholding, and improvements over traditional rule-based systems. User-friendly interface controls set adjustable parameters and surface the results in real time, with clear visual cues to highlight positive or negative outcomes.
+
+The architecture provides rapid results by using in-memory models and rapid two-way communication between the user and server. Delta rendering pushes down only modified content to the web browser, updating the display without having to reload the entire page. This solution can scale to tens of in-memory models serving hundreds of concurrent sessions in real time.
+
+This article explains the architecture of the Baseball Machine Learning Workbench, where to get the source code for it, and how to deploy it. You can also [view a live demo of this solution](https://aka.ms/BaseballMLWorkbench).
+
+### Potential use cases
+
+This solution is ideal for the sports and finance industries. Consider this scenario for the following use cases:
+
+- Decision analysis system replacement with AI and ML
+
+- AI-assisted decision support systems or decision management systems
+
+- Fantasy baseball
+
+- Financial forecasting
+
+- Business goal and objective modeling (budgeting and project planning, for example)
 
 ## Considerations
 

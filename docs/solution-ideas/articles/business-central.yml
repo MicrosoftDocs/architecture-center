@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Dynamics Business Central as a service on Azure
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: This example shows how to establish the production environment for Business Central in partner private Azure environment.
   author: altotovi
   ms.author: altotovi
   ms.sme: chrogers
-  ms.date: 03/11/2022
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

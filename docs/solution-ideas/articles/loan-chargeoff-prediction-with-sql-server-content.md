@@ -1,8 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has a negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. 
-
-This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period. 
+This solution template demonstrates a solution end to end, to run predictive analytics on loan data and produce scoring on chargeoff probability. A Power BI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
 
 ## Architecture
 
@@ -13,9 +11,9 @@ This solution demonstrates how to build and deploy a machine learning model, wit
 
 1. Develop and deploy R code into R Studio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
 
-2. Predict and score the model. The prediction and scored data can be visualized into Power BI.
+1. Predict and score the model. The prediction and scored data can be visualized into Power BI.
 
-Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code. 
+Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code.
 
 Finally, a Power BI report is used to visualize the predicted and scored results that are deployed.
 
@@ -31,9 +29,13 @@ In a Data Science VM, the SQL Server 2019 Developer edition is pre-installed. Fo
 
 ## Solution details
 
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has a negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off.
+
 There are multiple benefits for lending institutions to equip with loan chargeoff prediction data. Charging off a loan is the last resort that the bank will do on a severely delinquent loan, with the prediction data at hand, the loan officer could offer personalized incentives like lower interest rate or longer repayment period to help customers to keep making loan payments and thus prevent the loan of getting charged off. To get to this type of prediction data, often credit unions or banks manually handcraft the data based on customers' past payment history and performed simple statistical regression analysis. This method is highly subject to data compilation error and not statistically sound.
 
-This solution template demonstrates a solution end to end, to run predictive analytics on loan data and produce scoring on chargeoff probability. A Power BI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
+### Potential use cases
+
+This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period. This solution is ideal for the finance industry.
 
 ### Business manager perspective
 
@@ -55,21 +57,27 @@ Data scientists who are testing and developing solutions can work from the conve
 
 Click on the Deploy button to test the automation and the entire solution will be made available in your Azure subscription.
 
-## Pricing
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $1.15/hour for the default VM.
 
-Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you will incur higher costs.
+Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you'll incur higher costs.
 
-Make sure to delete the solution if you are not using it.
+Make sure to delete the solution if you're not using it.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
- - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad-96768a42) | Cloud Consultant
+ - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad🌐-96768a42) | Cloud Consultant
 
 ## Next steps
 

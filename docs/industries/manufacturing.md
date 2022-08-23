@@ -3,8 +3,8 @@ title: Solutions for the manufacturing industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable manufacturing solutions.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 11/22/2021
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -32,8 +32,6 @@ Microsoft Azure holds the promise of the [fourth industrial revolution](https://
 - Unlock innovation and new business models.
 - Engage with customers in new ways.
 
-To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For more resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -44,6 +42,8 @@ To learn how you can modernize your manufacturing business using Azure, visit [A
 
 <br>
 
+To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For more resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
+
 ## Architecture guides for manufacturing
 
 The following articles provide architectural guidelines for Azure solutions in the manufacturing industry.
@@ -52,10 +52,10 @@ The following articles provide architectural guidelines for Azure solutions in t
 | ------- | ------- | ------- |
 | [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml) | Build an architecture for an Industrial IoT (IIoT) analytics solution on Azure using PaaS (Platform as a service) components. | IoT |
 | [Upscale machine learning lifecycle with MLOps framework](../example-scenario/mlops/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
-| [On-demand, scalable, high-power compute](/previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json) | In this article, we walk through some well-known areas in engineering and manufacturing that need large computing power and explore how the Microsoft Azure platform can help. | Compute |
-| [Predictive maintenance in manufacturing](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json) | After introducing some background to predictive maintenance, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. | AI/ML |
-| [Predictive maintenance solution](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json) | This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. | AI/ML |
-| [Extract actionable insights from IoT data](/previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json) | This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics. | IoT |
+| [On-demand, scalable, high-power compute](/previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | In this article, we walk through some well-known areas in engineering and manufacturing that need large computing power and explore how the Microsoft Azure platform can help. | Compute |
+| [Predictive maintenance in manufacturing](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | After introducing some background to predictive maintenance, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. | AI/ML |
+| [Predictive maintenance solution](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. | AI/ML |
+| [Extract actionable insights from IoT data](/previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics. | IoT |
 
 ## Architectures for manufacturing
 
@@ -65,7 +65,7 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Anomaly detector process](/azure/architecture/solution-ideas/articles/anomaly-detector-process) | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. | Analytics |
 | [Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control) | This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.  | IoT |
-| [Build a speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
+| [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
 | [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform) | The architecture extends on the Analytics end-to-end with Azure Synapse scenario. It allows for a custom ML model to be trained in Azure Machine Learning, and implemented with a custom application built using Microsoft Power Platform. | AI/ML |
 | [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service) | A hierarchy service allows your business stakeholders to centrally define how production assets like machines are organized within factories, from both an operational and maintenance point of view.  | IoT |
 | [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory) | This example architecture shows an end-to-end approach to computer vision from the edge to the cloud and back. | AI/ML |

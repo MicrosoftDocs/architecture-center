@@ -3,8 +3,8 @@ title: Solutions for the finance industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable finance solutions.
 author: dsk-2015
-ms.author: edprice
-ms.date: 03/07/2022
+ms.author: architectures
+ms.date: 08/15/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -23,11 +23,9 @@ keywords:
   - Azure
 ---
 
-# Solutions for the finance industry
+# Solutions for the financial services industry
 
 The finance industry includes a broad spectrum of entities such as banks, investment companies, insurance companies, and real estate firms, engaged in the funding and money management for individuals, businesses, and governments. Besides data security concerns, financial institutions face unique issues such as, heavy reliance on traditional mainframe systems, cyber and technology risks, compliance issues, increasing competition, and customer expectations. By modernizing and digitally transforming financial systems to move to cloud platforms such as Microsoft Azure, financial institutes can mitigate these issues and provide more value to their customers.
-
-With digital transformation, financial institutions can leverage the speed and security of the cloud and use its capabilities to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/industries/financial/). Banking and capital market institutions can drive innovative cloud solutions with Azure; learn from relevant use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/industry/financial-services/microsoft-cloud-for-financial-services).
 
 <br>
 
@@ -38,6 +36,8 @@ With digital transformation, financial institutions can leverage the speed and s
 <!-- markdownlint-enable MD034 -->
 
 <br>
+
+With digital transformation, financial institutions can leverage the speed and security of the cloud and use its capabilities to offer differentiated customer experiences, manage risks, and fight fraud. To learn more, visit [Azure for financial services](https://azure.microsoft.com/industries/financial/). Banking and capital market institutions can drive innovative cloud solutions with Azure; learn from relevant use cases and documentation at [Azure for banking and capital markets](https://azure.microsoft.com/industries/financial/banking/). Microsoft also provides a complete set of capabilities across various platforms in the form of [Microsoft Cloud for Financial Services](https://www.microsoft.com/industry/financial-services/microsoft-cloud-for-financial-services).
 
 ## Architectures for finance
 

@@ -1,12 +1,4 @@
-This document describes the architecture and design considerations of a solution that delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
-
-Azure Stack Hub includes self-healing functionality, providing auto-remediation in a range of scenarios involving localized failures of its components. However, large-scale failures, including outages affecting server racks or site-level disasters, require additional considerations. These considerations should be part of the business continuity and disaster recovery strategy for VM-based user workloads. This strategy must also account for recovery of the Azure Stack infrastructure, which is separate from workload recovery.
-
-Traditional, on-premises workload recovery solutions are complex to configure, expensive and labor-intensive to maintain, and challenging to automate, especially when using another on-premises location as the failover site. Microsoft recommends an alternative solution that relies on a combination of the cloud and on-premises components to deliver resilient, performance-based, highly automated, and straightforward ways to manage, secure, and achieve a cost-efficient disaster recovery strategy. The core element of this solution is the Microsoft Azure Recovery Services offering, with the failover site residing in Azure.
-
-## Potential use cases
-
-Azure Site Recovery with Azure as the failover site eliminates all of these drawbacks. You can use its capabilities to protect both physical and virtual servers, including those running on either Microsoft Hyper-V or VMware ESXi virtualization platforms. You also have the option to leverage the same capabilities to facilitate recovery of workloads running on Azure Stack Hub VMs.
+This document describes the architecture and design considerations of a solution that delivers an optimized approach to the disaster recovery of virtual machine (VM)-based user workloads that are hosted on Azure Stack Hub.
 
 ## Architecture
 
@@ -72,7 +64,17 @@ The recommended solution described in this reference architecture document isn't
 
 - Backup and restore VMs using an external backup solution in the same datacenter followed by the replication of backups to another location. This allows you to restore Azure Stack Hub VMs to the same or a different Azure Stack Hub instance, or to Azure.
 
-## Core functionality
+## Scenario details
+
+Azure Stack Hub includes self-healing functionality, providing auto-remediation in a range of scenarios involving localized failures of its components. However, large-scale failures, including outages affecting server racks or site-level disasters, require additional considerations. These considerations should be part of the business continuity and disaster recovery strategy for VM-based user workloads. This strategy must also account for recovery of the Azure Stack infrastructure, which is separate from workload recovery.
+
+Traditional, on-premises workload recovery solutions are complex to configure, expensive and labor-intensive to maintain, and challenging to automate, especially when using another on-premises location as the failover site. Microsoft recommends an alternative solution that relies on a combination of the cloud and on-premises components to deliver resilient, performance-based, highly automated, and straightforward ways to manage, secure, and achieve a cost-efficient disaster recovery strategy. The core element of this solution is the Microsoft Azure Recovery Services offering, with the failover site residing in Azure.
+
+### Potential use cases
+
+Azure Site Recovery with Azure as the failover site eliminates all of these drawbacks. You can use its capabilities to protect both physical and virtual servers, including those running on either Microsoft Hyper-V or VMware ESXi virtualization platforms. You also have the option to leverage the same capabilities to facilitate recovery of workloads running on Azure Stack Hub VMs.
+
+### Core functionality
 
 Azure Site Recovery is a disaster recovery solution that facilitates protection of physical and virtual computers by providing two sets of features:
 
@@ -169,7 +171,7 @@ Implementing the recommended solution is contingent on satisfying the following 
   - Enable and run Secure Shell (SSH) port **22**.
   - Enable Secure FTP subsystem and password authentication.
 
-## High level implementation steps
+## High-level implementation steps
 
 At a high level, the implementation of Azure Site Recovery-based disaster recovery on Azure Stack Hub consists of the following stages:
 
@@ -386,7 +388,7 @@ While configuring VM-level recovery by using Azure Site Recovery is primarily a 
 
 For example, you can use the same Azure Resource Manager templates to provision all of the network resources necessary to accommodate VM-based workloads in an Azure Stack Hub stamp for your application in a single, coordinated operation. You can use the same template to provision a matching set of resources in Azure to provision a disaster recovery site. To account for any differences between the two environments, you can simply specify different values of template parameters in each case.
 
-## Pricing
+### Cost optimization
 
 When considering the cost of the Azure Site Recovery-based disaster recovery solution described in this reference architecture document, you need to account for both on-premises and cloud-based components. The Azure Stack Hub pricing model determines the pricing of on-premises components. As with Azure, Azure Stack Hub offers a pay-as-you-use arrangement, available through enterprise agreements and the Cloud Solution Provider program. This arrangement includes a monthly price for each Windows Server VM. If you have the option to leverage existing Windows Server licenses, you can significantly reduce the cost to the base VM pricing. However, with Azure Site Recovery, you will usually need only a single Azure Stack Hub VM per tenant, which is required to implement the tenant-specific configuration server.
 

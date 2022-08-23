@@ -1,18 +1,4 @@
-A teacher needs to provide each student with a personal Windows or Linux virtual machine (VM) for use during a course. The students must be able to use their VMs during scheduled instruction (synchronous) and unscheduled study (asynchronous) periods. They use their own devices of various types to access VMs from anywhere. A simple user experience for students is a high priority, since in many cases they don't have technical expertise. The teacher requires cost controls to adhere to a fixed budget.
-
 Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
-
-After an IT admin creates a lab account in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more exclusive VMs to complete exercises for the class.
-
-## Potential use cases
-
-This architecture can be used to provide virtual labs for:
-
-- Classes and professional training.
-- Customer trials and demos.
-- Developers.
-- Replacing on-premises computers.
-- Collaborative computer programming (hackathons).
 
 ## Architecture
 
@@ -41,11 +27,31 @@ This architecture can be used to provide virtual labs for:
 
 ### Components
 
-- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).  
+- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) allow you to create Linux and Windows virtual machines (VMs) in seconds, which can help you reduce costs.
+- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory) is a complete identity and access management solution with integrated security.
 
 ### Alternatives
 
 [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) (AVD) can also provide one-to-one virtual desktop infrastructure (VDI), but the cost of persistent VM storage is not waived for AVD deployments. If the scenario is larger in scale and allows for multi-user desktops or application streaming, AVD can provide cost advantages from economies of scale, due to its support for multi-user and application streaming.
+
+## Scenario details
+
+A teacher needs to provide each student with a personal Windows or Linux virtual machine (VM) for use during a course. The students must be able to use their VMs during scheduled instruction (synchronous) and unscheduled study (asynchronous) periods. They use their own devices of various types to access VMs from anywhere. A simple user experience for students is a high priority, since in many cases they don't have technical expertise. The teacher requires cost controls to adhere to a fixed budget.
+
+Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
+
+After an IT admin creates a lab account in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more exclusive VMs to complete exercises for the class.
+
+### Potential use cases
+
+This solution is ideal for the education industry. This architecture can be used to provide virtual labs for:
+
+- Classes and professional training
+- Customer trials and demos
+- Developers
+- Replacing on-premises computers
+- Collaborative computer programming (hackathons)
 
 ## Considerations
 
@@ -57,7 +63,7 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 - Multiple lab accounts can be created in an Azure subscription and multiple labs can be created in each lab account.
 - Understand the [Capacity limits in Azure Lab Services](/azure/lab-services/capacity-limits).
 
-### Availability considerations
+### Availability
 
 - Understand the [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0)
 
@@ -68,21 +74,29 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 - Lab VMs can egress to the internet. Ingress occurs only via managed load balancer or proxy, to RDP and SSH ports on the VMs.
 - Lab Services does not expose the Availability Zone configuration for lab VMs to the customer.
 
-## Deploy the solution
-
-Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST API’s](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
-
-## Pricing
+## Cost optimization
 
 - The two primary drivers of cost within Lab Services are how many hours the lab VMs are powered on, and what size they are. Larger sizes and GPU-enabled sizes are higher cost, so it makes sense to select the minimum size VM that's adequate for the labs.
 - Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
 - Pricing is covered in [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services), and sample cost estimates are provided for many of the [Class Type examples](/azure/lab-services/class-types) in the product docs, in the **Cost** section towards the end of each scenario. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) provides a way to build scenario pricing also.
 
+## Deploy this scenario
+
+Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST API’s](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Manuel Garriga](https://www.linkedin.com/in/manuelgarriga) | Principal Cloud Solution Architect
+
 ## Next steps
 
 - To get started with Azure Lab Services quickly, follow these tutorials:
-  - [Set up a lab account with Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-lab-account)
-  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-classroom-lab)
+  - [Set up a lab account with Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-lab-account)
+  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-classroom-lab)
 - [What is Azure Lab Services?](/azure/lab-services/lab-services-overview)
 - [Azure Lab Services documentation](/azure/lab-services)
 - [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services)

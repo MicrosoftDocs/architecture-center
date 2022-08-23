@@ -1,20 +1,6 @@
-This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
+This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to an SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
 
 See [Web app private connectivity to Azure SQL Database][Web app private connectivity to Azure SQL database] for information on the base architecture.
-
-To offer high availability, this solution:
-
-- Deploys a secondary instance of the solution in another Azure region.
-- [Uses auto-failover groups for geo-replication and high availability of the database][Use auto-failover groups to enable transparent and coordinated failover of multiple databases].
-
-You can achieve high availability with a [complete region failover][Complete region failover]. However, this solution uses a partial region failover. With this approach, only components with issues fail over:
-
-- If the primary database fails over, the web app in the primary region connects to the newly activated secondary database while maintaining private connectivity.
-- If the app goes down in the primary region, the instance in the secondary region takes over. That instance connects to the primary database, which is still active.
-
-## Potential use cases
-
-With private connectivity to a SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
 
 ## Architecture
 
@@ -28,7 +14,7 @@ With private connectivity to a SQL database and high availability, this solution
 
 In the general case, the traffic flow and basic configuration look like the [single-region version][Web app private connectivity to Azure SQL database].
 
-#### Traffic flow
+#### Dataflow
 
 1. Azure Front Door routes requests from the internet to a web app.
 1. By using Azure App Service regional VNet Integration, the web app connects to a delegated subnet named **AppSvcSubnet** in Azure Virtual Network.
@@ -152,25 +138,50 @@ In this case:
   - Function Apps
   - Other web apps
 
+## Scenario details
+
+To offer high availability, this solution:
+
+- Deploys a secondary instance of the solution in another Azure region.
+- [Uses auto-failover groups for geo-replication and high availability of the database][Use auto-failover groups to enable transparent and coordinated failover of multiple databases].
+
+You can achieve high availability with a [complete region failover][Complete region failover]. However, this solution uses a partial region failover. With this approach, only components with issues fail over:
+
+- If the primary database fails over, the web app in the primary region connects to the newly activated secondary database while maintaining private connectivity.
+- If the app goes down in the primary region, the instance in the secondary region takes over. That instance connects to the primary database, which is still active.
+
+### Potential use cases
+
+With private connectivity to an SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
+
 ## Considerations
 
 In general, the [considerations that apply to the single-region version][Considerations that apply to the single-region version] also apply to this solution. Keep the following points in mind, too.
 
-### Availability considerations
+### Availability
 
 This approach achieves a higher availability than a single-region deployment does.
 
 From the point of view of the web app, you can use this architecture in either an active-passive configuration or an active-active configuration. With an active-active approach, Front Door routes traffic to both regions simultaneously.
 
-### Performance considerations
+### Performance
 
 A partial region failover involves cross-region connectivity, which increases latency. Instead of staying within a single region, app requests to the database cross the Azure network backbone into a remote Azure region.
 
 Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
 
-### Security considerations
+### Security
 
 As with the single-region scenario, the web apps in this solution use fully private connections to securely connect to both backend databases. The public internet can't access either of the database servers. This type of setup eliminates a common attack vector.
+
+## Cost optimization
+
+- This solution effectively doubles the [cost of the single-region version][Cost of the single-region version]. But certain circumstances can affect this estimate:
+
+  - You use a scaled-down version of the App Service plan in the standby region and scale it up only when it becomes the active region.
+  - You have significant cross-region traffic. [Network traffic between Azure regions incurs charges][Bandwidth Pricing Details].
+
+- Make sure that [the primary and secondary databases use the same service tier][Configuring secondary database]. Otherwise, the secondary database may not keep up with replication changes.
 
 ## Deploy this scenario
 
@@ -191,14 +202,13 @@ At this point:
 - The apps in both regions should connect to both databases over their private endpoints.
 - Both apps should continue to function even if the database fails over to the other region.
 
-## Pricing
+## Contributors
 
-- This solution effectively doubles the [cost of the single-region version][Cost of the single-region version]. But certain circumstances can affect this estimate:
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-  - You use a scaled-down version of the App Service plan in the standby region and scale it up only when it becomes the active region.
-  - You have significant cross-region traffic. [Network traffic between Azure regions incurs charges][Bandwidth Pricing Details].
+Principal author:
 
-- Make sure that [the primary and secondary databases use the same service tier][Configuring secondary database]. Otherwise, the secondary database may not keep up with replication changes.
+ * [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | FastTrack for Azure Engineer
 
 ## Next steps
 
@@ -216,7 +226,7 @@ At this point:
 
 [Alternatives to the single-region version]: ../private-web-app/private-web-app.yml#alternatives
 [App Service networking features]: /azure/app-service/networking-features
-[Azure App Service]: /azure/app-service/
+[Azure App Service]: /azure/app-service
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
@@ -224,7 +234,7 @@ At this point:
 [Complete region failover]: #alternatives
 [Configuring secondary database]: /azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database
 [Considerations that apply to the single-region version]: ../private-web-app/private-web-app.yml#considerations
-[Cost of the single-region version]: ../private-web-app/private-web-app.yml#cost
+[Cost of the single-region version]: ../private-web-app/private-web-app.yml#cost-optimization
 [Create a Private Endpoint]: /azure/private-link/create-private-endpoint-portal#create-a-private-endpoint
 [Create the SQL failover group]: /azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group
 [Deploy this scenario single-region version]: ../private-web-app/private-web-app.yml#deploy-this-scenario

@@ -84,7 +84,7 @@ Configure the SQL Server Always On availability group as follows:
 > [!NOTE]
 > When floating IP is enabled, the front-end port number must be the same as the back-end port number in the load balancer rule.
 
-When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there's a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there's a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure).
 
 A failover closes existing client connections. After the failover completes, new connections are routed to the new primary replica.
 

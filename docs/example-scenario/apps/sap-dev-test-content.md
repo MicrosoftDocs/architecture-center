@@ -37,6 +37,8 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 
 ## Considerations
 
+Keep the following points in mind when establishing a development and test environment for SAP NetWeaver.
+
 ### Availability
 
 Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
@@ -49,15 +51,15 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
+#### Data protection and cloning
+
+For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
+
 ### Resiliency
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-### Data protection and cloning
-
-For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
-
-## Pricing
+### Cost optimization
 
 To help you explore the cost of running this scenario, all services are preconfigured in the cost calculator examples below. Change the appropriate variables to match the expected traffic for your use case.
 

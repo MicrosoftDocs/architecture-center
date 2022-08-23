@@ -4,6 +4,13 @@ Archive your on-premises data to Azure Blob storage.
 
 This solution is built on the Azure managed services: [StorSimple](https://azure.microsoft.com/services/storsimple) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use case
+
+Organizations leverage Azure Blob storage due to:
+
+* Ability to store structured and unstructured logs, images, videos, and other file types.
+* Cost effective solutions for petabytes of data.
+
 ## Architecture
 
 ![Architecture Diagram](../media/backup-archive-cloud-application.png)

@@ -4,33 +4,42 @@ Almost every business needs to predict the future to make better decisions and a
 
 This article focuses on presenting useful links to the forecasting best practices and an example of detailed architecture for an end-to-end implementation in Azure.
 
+## Potential use cases
+
+The following scenarios are ways an organization can utilize demand forecasting:
+
+- Inventory planning for retail
+- Network capacity planning (telecommunications)
+- Workforce planning
+- Increased customer satisfaction
+
 ## Architecture
 
-![Architecture diagram](../media/demand-forecasting.png)
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting](../media/demand-forecasting.png)
 *Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
-The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting for energy solution.
+The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components. These tools include all of the essential elements for building a demand-forecasting-for-energy solution.
 
 This solution combines several Azure services to provide actionable predictions:
 
   1. Event Hubs collects real-time consumption data.
-  2. Stream Analytics aggregates the streaming data and makes it available for visualization.
-  3. Azure SQL Database stores and transforms the consumption data.
-  4. Machine Learning implements and executes the forecasting model.
-  5. Power BI visualizes the real-time energy consumption and the forecast results.
-  6. Finally, Data Factory orchestrates and schedules the entire data flow.
+  1. Stream Analytics aggregates the streaming data and makes it available for visualization.
+  1. Azure SQL Database stores and transforms the consumption data.
+  1. Machine Learning implements and executes the forecasting model.
+  1. Power BI visualizes the real-time energy consumption and the forecast results.
+  1. Finally, Data Factory orchestrates and schedules the entire dataflow.
 
 ### Components
 
 Key technologies used to implement this architecture:
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/): Simple, secure, and scalable real-time data ingestion
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Provide Serverless real-time analytics, from the cloud to the edge
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Manage your intelligent SQL in the cloud
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Simple, secure, and scalable real-time data ingestion
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Provide Serverless real-time analytics, from the cloud to the edge
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Manage your intelligent SQL in the cloud
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
-* [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi/): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
+* [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
 
 ## Next steps
 

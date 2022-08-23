@@ -1,6 +1,6 @@
 This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data.
 
-The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim). 
+The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -8,13 +8,13 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 ## Potential use cases
 
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace and aviation industries.
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources. 
 
 ## Architecture
 
-:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png"::: 
+:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
 
@@ -30,7 +30,6 @@ The solution uses Kafka because the architecture is a Publisher-Subscriber archi
 1. Azure Data Lake provides storage.
 1. Power BI or Tableau displays the final data.
 
- 
 ### Components
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). A data analytics platform that's optimized for the Azure cloud. 
@@ -42,6 +41,7 @@ The solution uses Kafka because the architecture is a Publisher-Subscriber archi
 ### Alternatives
 
 For ingestion, the solution uses Kafka in a single VM. This configuration creates a single point of failure. For a more robust solution, you can use:
+
 - [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
 - [Apache Kafka for Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
 
@@ -51,9 +51,9 @@ As an alternative to Power BI, you can use Tableau or another visualization opti
 
 ## SWIM architecture
 
-SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging. 
+SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging.
 
-SWIM provides a single point of access for aviation data. Data producers publish data once, and users access the information they need through a single connection. SWIM provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. SWIM has a typical Publisher-Subscriber architecture. 
+SWIM provides a single point of access for aviation data. Data producers publish data once, and users access the information they need through a single connection. SWIM provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. SWIM has a typical Publisher-Subscriber architecture.
 
 ## Considerations
 
@@ -74,6 +74,7 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 #### GitHub workflows
 
 In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. Chef configures the resources that are required to connect to TFMS after provisioning is complete.
+
 - **terraform-azure.yml** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
    :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
@@ -82,9 +83,10 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
    :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
 
-### Security 
+### Security
 
 A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
+
 - VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
 - The Azure Databricks workspace uses your Azure identity for authentication.
 - Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
@@ -100,9 +102,10 @@ If you run this project, your account will be billed. For information, see [Over
 For information about deploying this solution, workflows, cookbooks, a notebook, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repo.
 
 The following steps summarize deployment of this scenario after the environment is prepared:
+
 1. Configure the Azure resources. The project contains the following components:
    - A virtual network
-   - Subnets 
+   - Subnets
    - A resource group
    - Kafka server
    - An Azure Databricks storage account  
@@ -119,18 +122,19 @@ The following steps summarize deployment of this scenario after the environment 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
- * [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
+- [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
 
-**Other contributors:** 
+Other contributors:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps
+
 - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Microsoft Learn: Introduction to Power BI](/learn/modules/introduction-power-bi)
+- [Introduction to Power BI](/learn/modules/introduction-power-bi)
 
 ## Related resources
 

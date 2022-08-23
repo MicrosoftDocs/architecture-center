@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Multi-tier app service with private endpoint
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Learn about an architecture that uses private endpoints to provide highly secure communications between app services in a multi-tier environment.
   author: DixitArora-MSFT
   ms.author: dixitaro
-  ms.date: 02/23/2022
+  ms.date: 07/02/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -24,8 +24,6 @@ The hierarchy service acts as the single point of integration with ERP systems, 
 
 ## Potential use cases
 
-Potential uses for this solution include:
-
 - Standardize asset organization across IT systems.
 - Easily incorporate new machines or changes to production lines.
 - Centrally manage different ERP systems within an enterprise.
@@ -42,7 +40,7 @@ This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. The **web app** lets users manage the hierarchy through a UI.
 1. **Azure Digital Twins Explorer** allows managing the hierarchy directly against Azure Digital Twins.
@@ -109,7 +107,7 @@ The service retrieves hierarchy data from either [Azure Digital Twins](/azure/di
 
 - Consider hosting [SAP on Azure](https://azure.microsoft.com/solutions/sap), to use all the benefits and integrations with the Azure platform and the [Microsoft 365 ecosystem](https://news.microsoft.com/2021/01/22/sap-and-microsoft-expand-partnership-and-integrate-microsoft-teams-across-solutions).
 
-- Consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize the performance of the AKS cluster and other resources, and to monitor and diagnose networking issues.
+- Consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of the AKS cluster and other resources, and to monitor and diagnose networking issues.
 
 This system design is intentionally simple to avoid the introduction of more services or dependencies. Consider supporting the following functionality:
 
@@ -145,7 +143,15 @@ To improve AKS security, apply and enforce built-in security policies by using [
 
 ## Pricing
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate the cost of running AKS in Azure. See the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) to learn about other considerations.
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate the cost of running AKS in Azure. See the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Max Zeier](https://www.linkedin.com/in/max-zeier) | Senior Technical Program Manager
 
 ## Next steps
 

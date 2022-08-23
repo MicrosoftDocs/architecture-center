@@ -1,19 +1,10 @@
-Providing personalized product recommendations to customers can be a very effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
-
-The solution described in this article uses machine learning to create movie recommendations automatically and at scale. Azure Machine Learning calculates the recommendations by applying the [alternating least squares][als] (ALS) algorithm to a dataset of viewer movie ratings. A data science virtual machine (DSVM) coordinates the process of training the Machine Learning model.
-
-## Potential use cases
-
-Personalized recommendations can be useful in many industries, including retail, news, and media. Potential applications include:
-
-- Product recommendations in an online store.
-- News or post recommendations on a news or social media site.
-- Music recommendations on a streaming app or online store.
-- Movie recommendations on a movie streaming app.
+The solution described in this article uses machine learning to create movie recommendations automatically and at scale.
 
 ## Architecture
 
-![Architecture of a machine learning model for training movie recommendations][architecture]
+:::image type="content" alt-text="Diagram of the architecture of a machine learning model for training movie recommendations." source="media/architecture-movie-recommender.png" lightbox="media/architecture-movie-recommender.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-movie-recommender.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -42,6 +33,21 @@ For an in-depth guide to building and scaling a recommender service, see the art
 ### Alternatives
 
 [Azure Databricks][databricks-service] is an alternative to Azure DSVMs. It's a managed Spark cluster for training and evaluating models. You can set up a managed Spark environment in minutes, and [autoscale][autoscale] up and down to help reduce the resources and costs associated with scaling clusters manually. Another resource-saving option is to configure inactive [clusters][clusters] to terminate automatically.
+
+## Scenario details
+
+Providing personalized product recommendations to customers can be an effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
+
+The solution described in this article uses machine learning to create movie recommendations automatically and at scale. Azure Machine Learning calculates the recommendations by applying the [alternating least squares][als] (ALS) algorithm to a dataset of viewer movie ratings. A data science virtual machine (DSVM) coordinates the process of training the Machine Learning model.
+
+### Potential use cases
+
+Personalized recommendations can be useful in many industries, including retail, news, and media/entertainment. Potential applications include:
+
+- Product recommendations in an online store.
+- News or post recommendations on a news or social media site.
+- Music recommendations on a streaming app or online store.
+- Movie recommendations on a movie streaming app.
 
 ## Considerations
 
@@ -99,7 +105,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)
 
-[architecture]: media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aci-service]: https://azure.microsoft.com/services/container-instances
 [aks]: /azure/aks/intro-kubernetes
@@ -127,7 +132,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [mls-service]: https://azure.microsoft.com/services/machine-learning
 [ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
-[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all

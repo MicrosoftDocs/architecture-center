@@ -1,20 +1,7 @@
-
-Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use one or more databases, and most databases are shared by many applications, often on multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
-
-The [Qlik](https://www.qlik.com/microsoft) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads.
-
 This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
 
 > [!Note]
 > Pronounce "Qlik" like "click".
-
-## Potential use cases
-
-This solution may be appropriate for:
-
-- Hybrid environments that require replication of data changes from a mainframe or midrange system to Azure databases.
-- Online database migration from Db2 to an Azure SQL database with little downtime.
-- Data replication from various on-premises data stores to Azure for consolidation and analysis.
 
 ## Architecture
 
@@ -77,7 +64,24 @@ The solution uses the components that are listed in the following subsections.
 
 - The diagram shows Qlik installed on-premises, a recommended best practice to keep it close to the on-premises data sources. An alternative is to install Qlik in the cloud on an Azure virtual machine.
 - Qlik Data Integration can deliver directly to Databricks without going through Kafka or an event hub.
-- Qlik Data integration can't replicate directly to Cosmos DB, but you can integrate Cosmos Db with an event hub by using event-sourcing architecture.
+- Qlik Data integration can't replicate directly to Cosmos DB, but you can integrate Cosmos DB with an event hub by using event-sourcing architecture.
+
+## Scenario details
+
+Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use one or more databases, and most databases are shared by many applications, often on multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
+
+The [Qlik](https://www.qlik.com/microsoft) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads. This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
+
+> [!Note]
+> Pronounce "Qlik" like "click".
+
+### Potential use cases
+
+This solution may be appropriate for:
+
+- Hybrid environments that require replication of data changes from a mainframe or midrange system to Azure databases.
+- Online database migration from Db2 to an Azure SQL database with little downtime.
+- Data replication from various on-premises data stores to Azure for consolidation and analysis.
 
 ## Considerations
 
@@ -107,7 +111,7 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
 - For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Cost optimization
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 

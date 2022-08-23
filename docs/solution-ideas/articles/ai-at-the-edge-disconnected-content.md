@@ -40,14 +40,14 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-* Want to learn more? Check out the related Learn pathway: [Microsoft Learn Azure Stack Module](/learn/modules/intro-to-azure-stack)
+* Want to learn more? Check out the related module [Introduction to Azure Stack](/learn/modules/intro-to-azure-stack)
 * Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
 * Deploy your ML models to an edge device with [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
 * Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services)
 
-## Related resources
+See the following product documentation for more information:
 
 * [App Service documentation](/azure/app-service)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
@@ -57,8 +57,21 @@ Key technologies used to implement this architecture:
 * [Container Registry documentation](/azure/container-registry)
 * [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
+
+See the following samples to interact with related solutions:
+
 * [AKS Engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
 * [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
 * [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
-* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
+
+## Related resources
+
+See the following related architectures:
+
+* [AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
+* [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)
+* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+* [Azure public multi-access edge compute deployment](/azure/architecture/example-scenario/hybrid/public-multi-access-edge-compute-deployment)
+* [Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)

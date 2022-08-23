@@ -15,11 +15,13 @@ This solution is ideal for the media and entertainment industries. Other relevan
 
 ## Architecture
 
-![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch][architecture]
+![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch.][architecture]
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Dataflow
 
-This scenario shows a workflow that uses [Azure Batch](/azure/batch/). The data flows as follows:
+This scenario shows a workflow that uses [Azure Batch](/azure/batch). The data flows as follows:
 
 1. Upload input files and the applications to process those files to your Azure Storage account.
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
@@ -32,7 +34,7 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 ### Components
 
-[Azure Batch](https://azure.microsoft.com/services/batch/) builds on the following Azure technologies:
+[Azure Batch](https://azure.microsoft.com/services/batch) builds on the following Azure technologies:
 
 - [Azure Virtual Networks](https://azure.microsoft.com/free/virtual-network) are used for both the head node and the compute resources.
 - [Azure Storage accounts](https://azure.microsoft.com/free/storage) are used for synchronization and data retention.
@@ -145,15 +147,15 @@ Product documentation:
 - [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
 
 Learn modules:
-- [Introduction to Azure Remote Rendering](/learn/modules/intro-to-azure-remote-rendering/)
-- [Render a model with Azure Remote Rendering](/learn/modules/render-model-azure-remote-rendering-unity/)
+
+- [Introduction to Azure Remote Rendering](/learn/modules/intro-to-azure-remote-rendering)
+- [Render a model with Azure Remote Rendering](/learn/modules/render-model-azure-remote-rendering-unity)
 
 ## Related resources
 
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [Run CFD simulations](../../example-scenario/infrastructure/hpc-cfd.yml)
-
 
 <!-- links -->
 
@@ -178,3 +180,4 @@ Learn modules:
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
+[visio-download]: https://arch-center.azureedge.net/architecture-video-rendering.vsdx

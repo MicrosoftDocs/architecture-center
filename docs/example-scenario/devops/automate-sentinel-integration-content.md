@@ -43,14 +43,14 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
    * Policies - SIEM engineers use Azure policies in the reference architecture, to configure and scale the diagnostic settings of the Azure services. The policies help automate deployment of the Microsoft Sentinel data connectors, such as Azure Key Vault. The policies are dependent on the OMSIntegration API.
    * Connectors - Microsoft Sentinel uses logical connectors, the Azure Data Connectors, to ingest security data, as in audits or metrics, from supported data sources, such as Azure Active Directory (Azure AD), Azure resources, Microsoft Defender, or third-party solutions. The main list of data connectors is managed by the SecurityInsights API. Others rely on the OMSIntegration API and are managed with the Azure Policy diagnostic settings.
    * Managed identity - Microsoft Sentinel uses managed identity to act on behalf of the Managed service identity (MSI) while interacting with playbooks, logic apps, or automation runbooks and the key vault.
-   * Automation - SOC teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure virtual machine (VM) chain of custody or Advanced eDiscovery for Microsoft Defender.
+   * Automation - SOC teams use automation during investigations. SOC teams run digital forensics data acquisition procedures with Azure Automation, such as Azure virtual machine (VM) chain of custody or eDiscovery (Premium) for Microsoft Defender.
    * Analytics - SOC analysts or threat hunters use built-in or custom analytics rules to analyze and correlate data in Microsoft Sentinel or to trigger playbooks if a threat and incident are identified.
    * Playbooks - Logic apps run the SecOps repeatable actions, such as assigning an incident, updating an incident, or taking remediation actions, like isolating or containing a VM, revoking a token, or resetting a user password.
    * Threat hunting - Threat hunters use proactive threat hunting capabilities that can be coupled with Jupyter notebooks for advanced use cases, such as data processing, data manipulation, data visualization, machine learning, or deep learning.
    * Workbooks - SIEM engineers use Workbooks dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its subcomponents.
    * Threat intelligence - A specific data connector that fuses threat intelligence platforms feeds into Microsoft Sentinel. Two connectivity methods are supported: TAXII and Graph API. Both methods serve as *tiIndicators*, or threat intelligence indicators, in security APIs.
 3. Azure AD - Identity and access management capabilities are delivered to components that are used in the reference architecture, such as managed identities, service principals, Azure role-based access controls (RBACs) for Microsoft Sentinel, logic apps, and automation runbooks.
-4. Azure DevOps pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions like the sandbox and production environments with continuous integration and continuous delivery (CI/CD) pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
+4. Azure pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions like the sandbox and production environments with continuous integration and continuous delivery (CI/CD) pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
 5. Azure Key Vault - SOC engineers use the key vault to securely store service principal secrets and certificates. This component of the architecture helps enforce the DevSecOps principle of _no secrets in code_ when used by Azure Pipeline service connections.
 6. Azure subscription - The SOC teams use two instances of Microsoft Sentinel in this reference architecture, separated within two logical Azure subscriptions to simulate production and sandbox environments. You can scale for your needs with other environments, such as testing, dev, preproduction, and so on.
 
@@ -65,12 +65,12 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
 This architecture makes use of the following components:  
 
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based service to manage your identity and access controls.
-* [Azure DevOps](https://azure.microsoft.com/services/devops/) is a cloud service to collaborate on code, build and deploy apps, or plan and track your work.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
-* [Azure Policy](https://azure.microsoft.com/services/azure-policy/) is a service to create, assign, and manage policy definitions in your Azure environment.
-* [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a scalable, cloud-native, SIEM and security orchestration, automation, and response (SOAR) solution.
-* [Azure Automation](https://azure.microsoft.com/services/automation/) is a service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks. Automation helps improve reliability, efficiency, and time to value for your company.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based service to manage your identity and access controls.
+* [Azure DevOps](https://azure.microsoft.com/services/devops) is a cloud service to collaborate on code, build and deploy apps, or plan and track your work.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+* [Azure Policy](https://azure.microsoft.com/services/azure-policy) is a service to create, assign, and manage policy definitions in your Azure environment.
+* [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a scalable, cloud-native, SIEM and security orchestration, automation, and response (SOAR) solution.
+* [Azure Automation](https://azure.microsoft.com/services/automation) is a service for simplifying cloud management through process automation. Use Azure Automation to automate long-running, manual, error-prone, and frequently repeated tasks. Automation helps improve reliability, efficiency, and time to value for your company.
 
 ## Threat definition attack scenarios based on MITRE
 
@@ -97,7 +97,7 @@ The following table summarizes security considerations for service principals an
 | -- | --- | --- | --- | --- | ---------- |
 | Enable Microsoft Sentinel connectors | Security administrator** <br><br> Owner* <br><br> Microsoft Sentinel contributor <br><br> Reader | JIT (one-time activation) <br><br> On purpose (every time a new subscription and connector deploys) | Tenant | SPN | Use the key vault to store service principal name (SPN) secrets and certificate. <br><br> Enable SPN auditing. <br><br> Periodically, review the permission assignment (Azure Privileged Identity Management for SPN) or suspicious activity for SPN. <br><br>Use Azure AD certificate authorities and multifactor authentication (when supported) for privileged accounts. <br><br> Use Azure AD Custom Roles for more granularity. |
 | Deploy Microsoft Sentinel artifacts, such as workbooks, analytics, rules, threat hunting queries, notebooks, and playbooks | Microsoft Sentinel Contributor <br> Logic Apps contributor  | Permanent | Microsoft Sentinel's Workspace or Resource Group | SPN | Use Azure DevOps (ADO) workflow approval and checks to secure pipeline deployment with this SPN. |
-| Assign a policy to configure log streaming features to Microsoft Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | Use AAD CA and MFA, when supported, for privileged accounts. |
+| Assign a policy to configure log streaming features to Microsoft Sentinel|  Resource Policy Contributor ** | On purpose (every time a new subscription and connector deploys) | All subscriptions to be monitored| SPN | Use Microsoft Azure Active Directory (Azure AD), CA, and MFA, when supported, for privileged accounts. |
 
 \* Only concerns Azure AD diagnostics settings. <br>
 \** Specific connectors need additional permissions like "security administrator" or "resource policy contributor" to allow streaming data to Microsoft Sentinel workspace, Azure AD, Microsoft 365 or Microsoft Defender, and Platform as a service (PaaS) resources like Azure Key Vault.
@@ -188,7 +188,7 @@ GitHub can use GitHub-hosted runners or self-hosted runners for activities that 
 
 **GitHub-hosted runners**
 
-This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information on GitHub hosted runners, see [About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners). GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses).
+This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information, see [About GitHub-hosted runners](https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners). GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses).
   
 **Self-hosted runners**
 
@@ -204,7 +204,7 @@ When choosing options for the agents and runners in your Microsoft Sentinel solu
 
 ### Orchestration and automation of release processes
 
-You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions).
 
 #### Azure DevOps
 
@@ -262,7 +262,7 @@ You can adapt the branching and merging strategy to the deployment strategy for 
 
 For more information on ARM templates, see [Using linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template).
 
-For more information on setting up Bicep environments, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+For more information on setting up Bicep environments, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/get-started/quickstart/github-flow).
 
 Logical definitions define a company's environments. The Git repository gathers the different definitions for a company.
 
@@ -308,7 +308,7 @@ Microsoft Sentinel artifacts is where DevOps gains greater relevance, because ea
 
 Implementing the artifacts can be the responsibility of one team or multiple teams. Automatic build and artifacts deployment is often the most common process requirement and determines the approach and conditions for your agents and runners.
 
-Deploying and managing Microsoft Sentinel artifacts requires using the Microsoft Sentinel REST API. For more information, see [Microsoft Sentinel REST API](/rest/api/securityinsights/). The following diagram shows an Azure DevOps pipeline on an Azure REST API stack.
+Deploying and managing Microsoft Sentinel artifacts requires using the Microsoft Sentinel REST API. For more information, see [Microsoft Sentinel REST API](/rest/api/securityinsights). The following diagram shows an Azure DevOps pipeline on an Azure REST API stack.
 
 ![Diagram of an Azure DevOps pipeline on Microsoft Sentinel API stack.](./media/azure-devops-pipeline-on-sentinel-api-stack.png)
 
@@ -336,7 +336,7 @@ The objective of your build process is to ensure that you generate the highest q
 * Make the [KQL local validation](https://github.com/Azure/Azure-Sentinel#run-kql-validation-locally) one option.
 * Integrate the [KQL inline validation](https://github.com/Azure/Azure-Sentinel/blob/master/.azure-pipelines/kqlValidations.yaml) tool in the DevOps pipeline.
 * If you're implementing logic that's based on PowerShell for Azure Automation, you can include syntax validation and unit testing by using the following elements:
-  * [Pester](https://devblogs.microsoft.com/scripting/what-is-pester-and-why-should-i-care/)
+  * [Pester](https://devblogs.microsoft.com/scripting/what-is-pester-and-why-should-i-care)
   * [PSScriptAnalyzer](/powershell/module/psscriptanalyzer/?view=ps-modules)  
 * Generate the MITRE manifest metadata report based on the metadata files that are included with the artifacts.
 
@@ -430,7 +430,7 @@ To support choosing the solution that fits your team's needs, the following tabl
 | We don't use Resource Manager or Bicep IaC languages to build artifacts. | Supported | Not supported |
 | We want to centrally manage the deployment of artifacts to multiple Microsoft Sentinel workspaces in a single Azure AD tenant. | Supported | Supported |
 | We want to integrate or extend CI/CD pipelines across multiple Azure AD tenants. | Supported | Supported |
-| We have playbooks with different parametrization depending on subscription, location, environment, and so on. | Supported | TBD, guidelines to be documented |
+| We have playbooks with different parameterization depending on subscription, location, environment, and so on. | Supported | TBD, guidelines to be documented |
 | We want to integrate different artifacts on the same repository to compose use cases. | Supported | Supported |
 | We want the ability to bulk remove artifacts. | Supported | Not Supported |
 
@@ -477,7 +477,7 @@ The following table compares the onboarding methods.
 
 For more information on publishing managed service offers, see [Publish a managed service offer to Azure Marketplace](/azure/lighthouse/how-to/publish-managed-services-offers).
 
-For more information on how to create an ARM template, see [Create and deploy ARM templates](/learn/modules/create-deploy-azure-resource-manager-templates/).
+For more information on how to create an ARM template, see [Create and deploy ARM templates](/learn/modules/create-deploy-azure-resource-manager-templates).
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
@@ -547,7 +547,7 @@ If you're working with Azure DevOps, you can create a component feed to host the
 
 ![Screenshot of how to create a component feed to host the NuGet packages.](./media/create-new-feed-to-host-nuget-package.png)
 
-If your team chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
+If your team chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).
 
 When you have an available NuGet repository, the pipeline contains a service connection for NuGet. These screenshots show the configuration for the new service connection that's named Microsoft Sentinel NuGet Framework Connection.
 
@@ -788,6 +788,15 @@ By using the Microsoft Sentinel deployment pipeline samples, you can set up a re
 1. Enter the name of the Azure DevOps service connection for the environment that's being exported in the **Azure Environment Connection** box.
 1. Select **Use PowerShell Pre-Release Artifacts** if you want to use the prerelease versions of the PowerShell framework components.
 
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Kevin Kisoka](https://fr.linkedin.com/in/kevinkisoka) | Associate Architect
+
 ## Next steps
 
 * To learn about Microsoft Sentinel with DevOps for single-tenant architecture, see [Deploying and managing Microsoft Sentinel as code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
@@ -803,4 +812,4 @@ By using the Microsoft Sentinel deployment pipeline samples, you can set up a re
 * [Dev SecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
 * [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
 * [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
-* [Advanced ARM template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates/)
+* [Advanced ARM template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
