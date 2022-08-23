@@ -1,4 +1,4 @@
-This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
+This architecture shows how security operations center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
@@ -144,7 +144,7 @@ Azure [Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 
 If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD
 
-## Pricing
+### Cost optimization
 
 Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
 
