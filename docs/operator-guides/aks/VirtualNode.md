@@ -20,18 +20,18 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
 
 ## Unable to Provision Virtual Node in a Region
-### Resolution: Look for other possible locations where VNET SKU's are available for Azure container Instances
+### Resolution: Look for other possible locations where VNET SKUs are available for Azure container Instances
 
-If you're trying to deploy Virtual Node in a region that does not have VNET SKUs for Azure Container Instances,  its recommended to verify region availability from [Region Availability](/azure/aks/virtual-nodes) & then proceed with deployments in one of the available regions 
+If you're trying to deploy Virtual Node in a region that does not have VNET SKUs for Azure Container Instances,  it's recommended to verify region availability from [Region Availability](/azure/aks/virtual-nodes) & then selecting appropriate region
 
 
 ## Virtual Node not available even after enabling the option
 ### Resolution: Provision of Separate Subnet & Network Contributor Role on subnet within virtual network
 
 Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
-   * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
+   * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -  [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
    
-   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them, so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Prerequisites for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
+   * Virtual Nodes utilize Azure CNI for getting IPs on demand from the subnet that is allocated to them, so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Prerequisites for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
         * Microsoft.Network/virtualNetworks/subnets/join/action
         * Microsoft.Network/virtualNetworks/subnets/read
 
