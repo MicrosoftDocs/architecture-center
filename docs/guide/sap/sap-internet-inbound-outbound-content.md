@@ -4,7 +4,7 @@ This article provides a set of proven practices for enabling improved-security i
 
 ## Architecture
 
-[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](./images/sap-internet-inbound-outbound-visio.png)](./images/sap-internet-inbound-outbound-visio.png#lightbox)
+[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-inbound-outbound-visio.png)](media/sap-internet-inbound-outbound-visio.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
@@ -16,13 +16,17 @@ Disaster recovery (DR) isn't covered in this architecture. On a network level, t
 
 ### Workflow
 
-
+- The on-premises network connects to a central hub via Azure ExpressRoute. The hub virtual network contains a gateway subnet, an Azure Firewall subnet, a shared services subnet, and an Azure Bastion subnet.
+- The hub connects to an SAP production subscription via virtual network peering. This subscription contains two spoke virtual networks:
+  - The SAP perimeter virtual network contains and an SAP perimeter application subnet and an Application Gateway subnet.
+  - SAP production virtual network contains an application subnet and a database subnet.
+- The hub subscription and the SAP production subscription connect to the internet via public IP addresses.  
 
 ### Components
 
 **Subscriptions.** This architecture implements the Azure [landing zone](/azure/cloud-adoption-framework/ready/landing-zone) approach. One Azure subscriptions is used for each workload. One or more subscriptions are used for central IT services that contain the network hub and central, shared services like firewalls or Active Directory and DNS. An additional subscriptions is used for the SAP production workload. Use the [decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions) in the Cloud Adoption Framework for Azure to determine the best subscription strategy for your scenario.
 
-**Virtual networks.** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via an Azure ExpressRoute or virtual private network (VPN) gateway that's deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The SAP production landscape uses own spoke virtual networks. Two distinct spoke virtual networks perform different tasks, and subnets provide network segregation.
+**Virtual networks.** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via an ExpressRoute or virtual private network (VPN) gateway that's deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The SAP production landscape uses own spoke virtual networks. Two distinct spoke virtual networks perform different tasks, and subnets provide network segregation.
 
 Separating into subnets by workload makes it easier to enable network security groups (NSGs) to set security rules for application VMs or Azure services that are deployed on them.
 
@@ -59,7 +63,7 @@ Drawbacks are increased complexity and extra virtual network peering costs for i
 
 To address the recommendations in this article but limit the drawbacks, you can use a single spoke virtual network for both the perimeter and the SAP applications. The following architecture contains all subnets in a single SAP production virtual network. The benefit of immediate isolation by termination of virtual network peering to the SAP perimeter if it's compromised isn't available. In this scenario, changes to NSGs affect only new connections.
 
-[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](./images/sap-internet-inbound-outbound-simplified-visio.png)](./images/sap-internet-inbound-outbound-simplified-visio.png#lightbox)
+[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-inbound-outbound-simplified-visio.png)](media/sap-internet-inbound-outbound-simplified-visio.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
@@ -200,6 +204,22 @@ For Linux operating systems, you can access the following repositories if you ob
 
 Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect  
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Dennis Padia](https://www.linkedin.com/in/dennispadia) | Senior SAP Architect
+- [Ben Trinh](https://www.linkedin.com/in/bentrinh) | Principal Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Communities
 
 Consider using these communities to get answers to questions and for help with setting up a deployment:
@@ -208,7 +228,7 @@ Consider using these communities to get answers to questions and for help with s
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
 
-## Related resources
+## Next steps
 
 - [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall v2 Setup for Internet-facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps)
 - [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure)
@@ -222,3 +242,9 @@ Consider using these communities to get answers to questions and for help with s
 - [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions)
 - [SAP Blogs | SAP Fiori using Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
 - [YouTube | Deploying Fiori at Scale](https://www.youtube.com/watch?v=IJQlSjxb8pE)
+
+## Related resources
+
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
