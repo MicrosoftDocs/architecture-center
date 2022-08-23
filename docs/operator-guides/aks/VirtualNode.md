@@ -20,13 +20,13 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
 
 ## Unable to Provision Virtual Node in a Region
-#### Resolution: VNET SKUs aren't available for Azure Container Instances in the region
+### Resolution: Look for other possible locations where VNET SKU's are available for Azure container Instances
 
-One reason could be VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Region Availability](/azure/aks/virtual-nodes)
+If you're trying to deploy Virtual Node in a region that does not have VNET SKUs for Azure Container Instances,  its recommended to verify region availability from [Region Availability](/azure/aks/virtual-nodes) & then proceed with deployments in one of the available regions 
 
 
 ## Virtual Node not available even after enabling the option
-#### Resolution: Provision of Separate Subnet & Network Contributor Role on subnet within virtual network
+### Resolution: Provision of Separate Subnet & Network Contributor Role on subnet within virtual network
 
 Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
    * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
@@ -37,8 +37,15 @@ Sometimes during the installation phase you can notice that Virtual Node is not 
 
 * For more detailed logs & monitoring Virtual nodes Pods, refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
 
-## Installation Error: ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
-#### Resolution: You must have a CNI enabled cluster & can't work on Kubenet at time of writing
+## Installation Error: Unable to Deploy ACI on a Kubenet enabled cluster
+### Resolution: You must have a CNI enabled cluster & can't work on Kubenet at time of writing
+
+During the installation of the Virtual nodes through [Azure CLI](/azure/aks/virtual-nodes-cli) , you can see the below error 
+
+```output
+ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
+```
+Virtual Nodes cannot run on Kubenet enabled clusters.
 
 * Please refer this link for [Known limitations](/azure/aks/virtual-nodes#known-limitations)
 
@@ -47,9 +54,10 @@ Sometimes during the installation phase you can notice that Virtual Node is not 
         
 ## Workload being scheduled on an agent pools' node rather than a virtual node.
 
-#### Resolution: Check workload tolerations and node selector
+### Resolution: Check workload tolerations and node selector
 
-One reason that your workload might not be running on a virtual node is that the workload must be set to tolerate the taint that is automatically added to virtual nodes. Also, if nodeSelector should be configured as to not conflict with the virtual nodes' metadata.
+One reason that your workload might not be running on a virtual node is that the workload must be set to tolerate the taint that is automatically added to virtual nodes. 
+Other reason could be that the nodeSelector is not configured with the virtual node's metadata
 
 The yaml snippet below contains the configuration for both the tolerations and a compliant nodeSelector designator.
 
