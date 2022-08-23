@@ -53,7 +53,7 @@ This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to prov
 
 Scalability, security, and operations are important considerations and three pillars of the Azure Well-Architected Framework that can be used to improve the quality of a workload. For more information, see the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
-### Performance Efficiency
+### Performance efficiency
 
 APIOps has many benefits, but as API Management landscapes grow, so does the complexity of managing them. This solution helps meet challenges like:
 
@@ -74,7 +74,15 @@ Apart from the task of setting up repository permissions, consider implementing 
 - **Multi-factor authentication**: Require your users to activate two-factor authentication.
 - **Signed Commits**: Allow only signed commits that can't be altered after the fact.
 
-### Operational Excellence
+### Cost optimization
+
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+- API Management offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
+
+- GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see [GitHub pricing](https://github.com/pricing).
+
+### Operational excellence
 
 APIOps can increase DevOps productivity for API development and deployments. One of the most useful features is the ability to use Git operations to quickly roll back changes that behave unexpectedly. The commit graph contains all commits, so it can help with the post-mortem analysis.
 
@@ -137,14 +145,6 @@ Deploying this solution involves these steps:
   :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
 
   After this pipeline runs successfully, all the changes are published into the API Management instance.
-
-## Pricing
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-
-- API Management offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
-
-- GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see [GitHub pricing](https://github.com/pricing).
 
 ## Contributors
 
