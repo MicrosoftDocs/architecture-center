@@ -18,7 +18,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/example-scenario/ai/media/scalable-personalization-with-content-based-recommendation-system-architecture.svg
+  social_image_url: /azure/architecture/solution-ideas/media/build-content-based-recommendation-system-using-recommender-architecture.svg
 name: Build a content-based recommendation system
 azureCategories:
   - ai-machine-learning
@@ -27,6 +27,6 @@ summary: Create content-based recommendation systems that use Azure Machine Lear
 products:
   - azure-databricks
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/example-scenario/ai/media/scalable-personalization-with-content-based-recommendation-system-thumbnail.svg
+thumbnailUrl: /azure/architecture/solution-ideas/media/build-content-based-recommendation-system-using-recommender-thumbnail.svg
 content: |
-  [!include[](scalable-personalization-with-content-based-recommendation-system-content.md)]
+  [!include[](build-content-based-recommendation-system-using-recommender-content.md)]

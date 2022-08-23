@@ -28,7 +28,7 @@ There are three main types of recommendation systems in supervised learning tech
 
 ## Architecture
 
-:::image type="content" alt-text="Architectural diagram that shows training, evaluation, and development of a machine learning model for content-based personalization that uses Azure Databricks." source="./media/scalable-personalization-with-content-based-recommendation-system-architecture.svg" lightbox="./media/scalable-personalization-with-content-based-recommendation-system-architecture.svg":::
+:::image type="content" alt-text="Architectural diagram that shows training, evaluation, and development of a machine learning model for content-based personalization that uses Azure Databricks." source="../media/build-content-based-recommendation-system-using-recommender-architecture.svg" lightbox="../media/build-content-based-recommendation-system-using-recommender-architecture.svg":::
 
 ### Dataflow
 
