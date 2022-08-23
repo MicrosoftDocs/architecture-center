@@ -63,7 +63,7 @@ This scenario uses virtual machine scale sets for the two front-end web server c
 
 The back end is a MariaDB cluster in an availability set. For more information, see the [MariaDB cluster tutorial][mariadb-tutorial].
 
-For other resiliency and scalability, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service)] in the Azure Architecture Center.
+For more resiliency and scalability guidance, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service)] in the Azure Architecture Center.
 
 ### Security
 
