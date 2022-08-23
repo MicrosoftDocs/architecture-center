@@ -2,14 +2,6 @@
 
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations by using machine learning.
 
-There are three main types of recommendation systems in supervised learning techniques: 
-
-- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products outside of those that are curated from their historical interactions. However, the downside of collaborative filtering is dealing with the "cold start" problem: since there's a scarcity of interactions between users and new offerings, newly added items aren't recommended by an algorithm that depends entirely on customer interactions. 
-
-- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems aren't hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
-
-- **Hybrid method.** Another approach to building recommendation systems is an amalgamation of content-based and collaborative filtering. This system recommends items based on user ratings and on information about items. The hybrid approach extracts the advantages of both collaborative filtering and content-based recommendation.
-
 ## Scenario details
 
 The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see [Best Practices on Recommendation Systems](https://github.com/microsoft/recommenders).
@@ -23,6 +15,16 @@ This solution is ideal for the retail industry. This scenario is relevant to the
 - Content recommendations for websites and mobile apps
 - Product recommendations for e-commerce sites
 - Displayed ad recommendations for websites
+
+### Types of recommendation systems
+
+There are three main types of recommendation systems in supervised learning techniques: 
+
+- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products outside of those that are curated from their historical interactions. However, the downside of collaborative filtering is dealing with the "cold start" problem: since there's a scarcity of interactions between users and new offerings, newly added items aren't recommended by an algorithm that depends entirely on customer interactions. 
+
+- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems aren't hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
+
+- **Hybrid method.** Another approach to building recommendation systems is an amalgamation of content-based and collaborative filtering. This system recommends items based on user ratings and on information about items. The hybrid approach extracts the advantages of both collaborative filtering and content-based recommendation.
 
 ## Architecture
 
