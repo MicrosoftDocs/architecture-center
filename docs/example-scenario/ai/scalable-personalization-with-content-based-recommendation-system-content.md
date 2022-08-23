@@ -4,15 +4,15 @@ Recommendations are a key revenue driver for many businesses and are used in dif
 
 There are three main types of recommendation systems in supervised learning techniques: 
 
-- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products outside of those that are curated from their historical interactions. However, the downside of collaborative filtering is dealing with the "cold start" problem: since there is a scarcity of interactions between users and new offerings, newly added items are not recommended by an algorithm that depends entirely on customer interactions. 
+- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products outside of those that are curated from their historical interactions. However, the downside of collaborative filtering is dealing with the "cold start" problem: since there's a scarcity of interactions between users and new offerings, newly added items aren't recommended by an algorithm that depends entirely on customer interactions. 
 
-- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems are not hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
+- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems aren't hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
 
 - **Hybrid method.** Another approach to building recommendation systems is an amalgamation of content-based and collaborative filtering. This system recommends items based on user ratings and on information about items. The hybrid approach extracts the advantages of both collaborative filtering and content-based recommendation.
 
 ## Scenario details
 
-The approach described in this article focuses on building a content-based recommendation system. For more details about the best practices of building recommendation systems, see [Best Practices on Recommendation Systems](https://github.com/microsoft/recommenders).
+The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see [Best Practices on Recommendation Systems](https://github.com/microsoft/recommenders).
 
 This example scenario shows how you can use machine learning to automate content-based personalization for your customers. The solution uses [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability that a user will engage with an item. [Batched Managed Endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) deploys that model to production as a prediction service. You can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume. 
 
@@ -56,12 +56,6 @@ This architecture makes use of the following components:
 
 - [Microsoft Recommenders](https://github.com/Microsoft/Recommenders) is an open-source repository that contains utility code and samples. By using this repository, you can start to build, evaluate, and operationalize a recommender system.
 
-## Next steps
-
-- To see more examples, tutorials, and tools to help you build your own recommendation system, see [Microsoft Recommenders](https://github.com/Microsoft/Recommenders), a GitHub repository.
-
-- See [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service), a post on the Microsoft Azure blog.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -79,8 +73,9 @@ Other contributor:
 
 ## Next steps
 
+- To see more examples, tutorials, and tools to help you build your own recommendation system, see [Microsoft Recommenders](https://github.com/Microsoft/Recommenders), a GitHub repository.
 
-
+- See [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service), a post on the Microsoft Azure blog.
 
 ## Related resources
 
