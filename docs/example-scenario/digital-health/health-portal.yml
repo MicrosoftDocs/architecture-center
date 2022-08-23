@@ -21,6 +21,6 @@ products:
   - azure-app-service
   - azure-functions
   - azure-web-application-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/consumer_health_portal-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/consumer-health-portal-thumbnail.png
 content: |
    [!include[](health-portal-content.md)]
