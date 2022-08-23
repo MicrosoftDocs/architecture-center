@@ -9,9 +9,9 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ## Architecture
 
-:::image type="content" alt-text="Consumer health portal architecture" source="./images/consumer_health_portal.png" lightbox="./images/consumer_health_portal.png":::
+:::image type="content" alt-text="Consumer health portal architecture" source="./images/consumer-health-portal.png" lightbox="./images/consumer-health-portal.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/consumer_health_portal.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/consumer-health-portal.vsdx) of this architecture.*
 
 ### Workflow
 
