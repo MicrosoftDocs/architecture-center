@@ -77,7 +77,7 @@ In combination with the use of multiple regions, data replication and virtual ma
 
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
