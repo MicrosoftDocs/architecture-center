@@ -2362,5 +2362,10 @@
       "redirect_url": "/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics",
       "redirect_document_id": false
     }
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
+      "redirect_document_id": true
+    }
   ]
 }
