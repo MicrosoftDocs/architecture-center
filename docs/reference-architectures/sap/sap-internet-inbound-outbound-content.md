@@ -8,11 +8,15 @@ This article provides a set of proven practices for enabling improved-security i
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
-This reference architecture illustrates a common production environment. You can reduce the size and scope of the configuration, per your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives on the network side, as described later in this article.
+This solution illustrates a common production environment. You can reduce the size and scope of the configuration, per your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives on the network side, as described later in this article.
 
 Customer requirements, driven by business or company policies, will necessitate adaptations to the architecture, particularly on the network side. When possible, we've included alternatives. Many solutions are viable. Choose an approach that's right for your business. It needs to help you secure your Azure resources but still provide a performant solution.
 
 Disaster recovery (DR) isn't covered in this architecture. On a network level, the same principles and design that are valid for primary production regions apply. For the network, depending on the applications being protected by DR, you might want to consider enabling DR in another Azure region.
+
+### Workflow
+
+
 
 ### Components
 
@@ -156,7 +160,7 @@ By default, VMs have [outbound internet](/azure/virtual-network/ip-services/defa
 - HTTP proxy servers that you operate.
 - A [user-defined route](/azure/virtual-network/ip-services/default-outbound-access) that forces the network traffic to a network appliance like a firewall.
 
-The reference architecture shows the most common scenario: routing internet-bound traffic to the hub virtual network and through the central firewall. You need to configure [further settings](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/642e87f1492146998a8eb0779cd07289.html) in SAP Cloud Connector to connect to your SAP BTP account.
+The architecture diagram shows the most common scenario: routing internet-bound traffic to the hub virtual network and through the central firewall. You need to configure [further settings](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/642e87f1492146998a8eb0779cd07289.html) in SAP Cloud Connector to connect to your SAP BTP account.
 
 #### High availability for SAP Cloud Connector
 
@@ -174,47 +178,47 @@ For some SAP BTP integration scenarios, the Private Link service approach is pre
 
 ### SAP RISE/ECS
 
-For customers where SAP operates their SAP system under SAP RISE/ECS contract, SAP acts as the managed service partner. The SAP environment is deployed by SAP and under SAP's architecture, the architecture shown here doesn't apply to your systems running in RISE with SAP/ECS. See our Azure documentation about [integrating such SAP landscape with Azure](/azure/virtual-machines/workloads/sap/sap-rise-integration) services and your network.
+If SAP operates your SAP system under a SAP RISE/ECS contract, SAP is the managed service partner. The SAP environment is deployed by SAP. On SAP's architecture, the architecture shown here doesn't apply to your systems that run in RISE with SAP/ECS. For information about integrating this type of SAP landscape with Azure services and your network, see the [Azure documentation](/azure/virtual-machines/workloads/sap/sap-rise-integration).
 
-### Other SAP communication needs
+### Other SAP communication requirements
 
-SAP landscape operating in Azure might require further considerations for Internet bound communication. Traffic flow in this architecture uses central Azure Firewall for such outbound traffic. User defined rules in the spoke vnets route the Internet bound traffic requests to the firewall. Alternatives are to use NAT gateways on specific subnets, [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) communication, public IP on VM (not recommended) or public load balancer with outbound rules.
+Additional considerations regarding internet-bound communications might apply to a SAP landscape operating on Azure. Traffic flow in this architecture uses a central Azure firewall for this outbound traffic. User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall. Alternatively, you can use NAT gateways on specific subnets, [default Azure outbound](/azure/virtual-network/ip-services/default-outbound-access) communication, public IP addresses on VMs (not recommended), or a public load balancer with outbound rules.
 
-For virtual machines behind a standard internal load balancer, such as clustered environments, be aware the Standard Load Balancer modifies the behavior for public connectivity in following article. [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
+For VMs behind a standard internal load balancer, like those in clustered environments, keep in mind that the Standard Load Balancer modifies the behavior for public connectivity, as described in [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
 
-#### Operating system  Updates
+#### Operating system updates
 
-Operating systems (OS) updates are often located behind a public endpoint through the Internet. If no enterprise repository and update management are in place, mirroring OS updates from vendors on private IP/VMs, your SAP workload will need to access the update repositories of respective vendor.
+Operating system updates are often located behind a public endpoint and accessed via the internet. If no enterprise repository and update management is in place, mirroring OS updates from vendors on private IP addresses / VMs, your SAP workload needs to access the update repositories of the vendors.
 
-For Linux operating systems, below repositories are accessible if you obtain the OS license from Azure. Contact the OS vendor if you purchase licenses directly and bring them to Azure (BYOS) about ways to connect to OS repositories and respective IP ranges.
+For Linux operating systems, you can access the following repositories if you obtain the OS license from Azure. If you purchase licenses directly and bring them to Azure (BYOS), contact the OS vendor about ways to connect to OS repositories and their respective IP address ranges.
 
-- For SuSE Enterprise Linux, [SuSE maintains](https://pint.suse.com/?resource=servers&csp=microsoft) a list of servers in each Azure region.
-- For RedHat Enterprise Linux, RedHat Update Infrastructure is [documented here](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers).
-- For Windows, Windows Update is available as [FQDN tag](/azure/firewall/fqdn-tags#current-fqdn-tags) for Azure Firewall.
+- For SUSE Enterprise Linux, [SUSE maintains](https://pint.suse.com/?resource=servers&csp=microsoft) a list of servers in each Azure region.
+- For Red Hat Enterprise Linux, [Red Hat Update Infrastructure is documented here](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers).
+- For Windows, Windows Update is available via [FQDN tags](/azure/firewall/fqdn-tags#current-fqdn-tags) for Azure Firewall.
 
-#### High-Availability cluster management
+#### High-availability cluster management
 
-Highly available systems such as clustered SAP (A)SCS or databases might use a cluster manager with Azure fence agent as its STONITH device. Such systems are dependent on reaching Azure resource manager (ARM). ARM is used for both status queries about state of Azure resources and also operations to stop/start virtual machines. Since ARM is a public endpoint, reachable under management.azure.com, VM outbound communication need to be able to reach it. This architecture again here relies on central firewall with user defined rules routing traffic from SAP vnets. Alternatives to central firewall exist as explained previous sections.
+Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
 ## Communities
 
-Communities can answer questions and help you set up a successful deployment. Consider the following communities:
+Consider using these communities to get answers to questions and for help with setting up a deployment:
 
-- [Azure Community Support](https://azure.microsoft.com/support/forums/)
+- [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
 
 ## Related resources
 
-- [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
-- [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/)
-- [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side/)
-- [SAP on Azure Tech Community | Saprouter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496)
+- [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall v2 Setup for Internet-facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps)
+- [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure)
+- [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side)
+- [SAP on Azure Tech Community | SAProuter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496)
 - [SAP on Azure Tech Community | Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593)
-- [SAP Documentation | What is Cloud Connector](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)
-- [SAP Documentation | What is SAP Analytics Cloud Agent](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/00f68c2e08b941f081002fd3691d86a7/7cb6ffb38c294a5c871d6cc6ad5b1b36.html)
-- [MS Docs | Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
-- [MS Docs | Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
-- [MS Docs | Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+- [SAP Documentation | What is Cloud Connector?](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)
+- [SAP Documentation | What is SAP Analytics Cloud Agent?](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/00f68c2e08b941f081002fd3691d86a7/7cb6ffb38c294a5c871d6cc6ad5b1b36.html)
+- [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
+- [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
+- [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions)
 - [SAP Blogs | SAP Fiori using Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
-- [Youtube | [SOT113] Deploying Fiori at Scale](https://www.youtube.com/watch?v=IJQlSjxb8pE)
+- [YouTube | Deploying Fiori at Scale](https://www.youtube.com/watch?v=IJQlSjxb8pE)
