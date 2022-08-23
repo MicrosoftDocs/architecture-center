@@ -2,7 +2,7 @@ This example scenario is relevant to organizations that need a highly scalable a
 
 ## Architecture
 
-![Example architecture for a scalable order processing pipeline](/docs/example-scenario/data/media/architecture-ecommerce-order-processing.png)
+![Example architecture for a scalable order processing pipeline][architecture]
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-order-processing.vsdx)* of this architecture.
 
