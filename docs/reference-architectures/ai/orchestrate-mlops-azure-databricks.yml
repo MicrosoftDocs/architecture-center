@@ -15,6 +15,6 @@ azureCategories:
 summary: Learn about an approach to machine learning operations (MLOps) that uses Azure Databricks to run model training and batch scoring.
 products:
   - azure-databricks
-thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-mlops-azure-databricks-01-thumb.jpg
+thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-mlops-azure-databricks-01-thumb.png
 content: |
   [!include[](orchestrate-mlops-azure-databricks-content.md)]
