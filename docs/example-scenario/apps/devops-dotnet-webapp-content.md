@@ -21,7 +21,7 @@ Consider Azure DevOps and CI/CD processes for:
 
 ## Architecture
 
-![Architecture diagram of an Azure DevOps pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.](./media/azure-devops-ci-cd-architecture.png)
+:::image type="content" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of an Azure DevOps pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.":::
 
 ### Components
 
@@ -116,7 +116,7 @@ Azure DevOps is billed on a per-user per-month basis. There might be more charge
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
 
-- [What is DevOps?(/azure/devops/learn/what-is-devops)
+- [What is DevOps?(/devops/what-is-devops)
 - [DevOps at Microsoft - How we work with Azure DevOps](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 - [Step-by-step Tutorials: DevOps with Azure DevOps](https://www.azuredevopslabs.com/labs/vstsextend/azuredevopsprojectdotnet)
 - [Create a CI/CD pipeline for .NET with Azure DevOps Projects](/azure/devops-project/azure-devops-project-aspnet-core)
