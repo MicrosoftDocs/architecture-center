@@ -171,12 +171,12 @@ The following table describes characteristics of various AKS upgrade and patchin
 |Node pool K8S upgrade | Yes  | Yes | Yes, if an updated node image uses an updated kernel.| Yes, if a new release is available.|
 |Node pool scale up | Yes  | No | No  | No  |
 |Node image upgrade | Yes  | No | Yes, if an updated node image uses an updated kernel.| Yes  |
-|Cluster auto upgrade | No  | Yes | No  | No  |
+|Cluster auto upgrade | No  | Yes | Yes, if an updated node image uses an updated kernel.  | Yes, if a new release is available.  |
 
 - For more information about Linux Automatic Security Updates, see [AutomaticSecurityUpdates](https://help.ubuntu.com/community/AutomaticSecurityUpdates).
 - It's possible that an OS security patch applied as part of a node image upgrade will install a later version of the kernel than creating a new cluster.
 - You can use the [Agent Pools - Get Upgrade Profile](/rest/api/aks/agentpools/getupgradeprofile) API to determine the latest node image version.
-- Node pool scale up uses the model associated with the virtual machine scale set at creation. OS kernels upgrade when security patches are applied and the nodes reboot.
+- Node pool scale up uses the model that is currently associated with the virtual machine scale set. OS kernels upgrade when security patches are applied and the nodes reboot.
 - Cluster auto upgrade is in preview. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 - Node image auto upgrade is in development. For more information, see [Automatic Node Image Upgrade for node versions](https://github.com/Azure/AKS/issues/1486).
 
