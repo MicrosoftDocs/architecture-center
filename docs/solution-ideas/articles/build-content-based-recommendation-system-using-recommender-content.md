@@ -10,7 +10,7 @@ This example scenario shows how you can use machine learning to automate content
 
 ### Potential use cases
 
-This solution is ideal for the retail industry. It is relevant to the following use cases:
+This solution is ideal for the retail industry. It's relevant to the following use cases:
 
 - Content recommendations for websites and mobile apps
 - Product recommendations for e-commerce sites
@@ -44,7 +44,7 @@ There are three main types of recommendation systems:
 
 1. **Postprocess.** Postprocessing involves model evaluation and selection based on which model performs best. 
 
-1. **Deploy.** Azure Databricks maintains the model. Batch managed endpoints deploys the model for exposure to front-end display. As the model is deployed, the new data is accessible via new endpoints. Batch and near-real-time recommendations are supported.
+1. **Deploy.** Azure Databricks maintains the model. Batch managed endpoints deploy the model for exposure to front-end display. As the model is deployed, the new data is accessible via new endpoints. Batch and near-real-time recommendations are supported.
 
 1. **Write.** User interfaces, such as web applications, can consume the stored model results. The results are written to and captured in Azure Synapse. The model runs as batch inference and stores the results in the respective datastore. 
 
