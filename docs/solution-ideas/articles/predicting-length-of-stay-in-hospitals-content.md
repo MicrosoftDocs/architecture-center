@@ -37,10 +37,6 @@ Data scientists who are testing and developing solutions can work conveniently f
 
 This solution includes the R code needed by a data scientist in the R folder. It shows the stored procedures (.sql files) that can be deployed in the SQLR folder. Click on the Deploy to Azure button to test the automation and the entire solution will be made available in your Azure subscription.
 
-## Deploy this scenario
-
-For deployment instructions and more details on the technical implementation, see [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -50,6 +46,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).
+
+## Deploy this scenario
+
+For deployment instructions and more details on the technical implementation, see [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
 
 ## Next steps
 
