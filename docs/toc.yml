@@ -780,6 +780,8 @@ items:
   - name: Industry solutions with Azure
     expanded: true
     items:
+      - name: Overview
+        href: /industry/overview.md
       - name: Retail
         items:
           - name: Overview
