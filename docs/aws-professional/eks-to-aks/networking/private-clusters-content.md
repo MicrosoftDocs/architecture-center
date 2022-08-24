@@ -66,8 +66,8 @@ The following table shows the options in terms of DNS configuration that you can
     </td>
     <td>
       <ul>
-        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
-        <li>No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
+        <li>Agent nodes, and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone, use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>No public API Server FQDN is available.</li>
       </ul>
     </td>
   </tr>
@@ -75,14 +75,14 @@ The following table shows the options in terms of DNS configuration that you can
     <td>Private DNS Zone resource id</td>
     <td>
       <ul>
-        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>Agent nodes, and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone, use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
         <li>Any other virtual machine uses the public FQDN of the API Server.</li>
       </ul>
     </td>
     <td>
       <ul>
-        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
-        <li>No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
+        <li>Agent nodes, and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone, use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>No public API Server FQDN is available.</li>
       </ul>
     </td>
   </tr>
