@@ -86,7 +86,7 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 > [!TIP]
 > See [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
 
-Once the platform landing zone is implemented the next step is to deploy [Application landing zones](azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the "landing zone" management group with the guardrails that Central IT or PlatformOps administrators require. The "corp" mangement group is for corperate connected applications and "online" for online only applications. 
+Once the platform landing zone is implemented the next step is to deploy [Application landing zones](azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications and `online` for applications that are primarily publicly facing. 
 
 [!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
 
