@@ -24,7 +24,7 @@ One scenario is to simplify the management of resources, such as policy enforcem
 ### Components
 
 - [Azure Event Grid](/azure/event-grid/overview)
-- [Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
 - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
 
 ## Next steps

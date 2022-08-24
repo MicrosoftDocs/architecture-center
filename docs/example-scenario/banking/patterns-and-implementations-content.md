@@ -14,6 +14,8 @@ The traditional _atomicity, consistency, isolation, and durability (ACID)_ prope
 
 ![Orchestration-based Saga on Serverless Architecture](./images/orchestration-based-saga-serverless-arch.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/orchestration-based-saga-serverless-arch.vsdx) of this architecture.*
+
 ## Dataflow
 
 ### Saga implementation
@@ -44,6 +46,8 @@ For more information, see [Pattern: Saga](https://microservices.io/patterns/data
 
 ![EFT-Processor Autoscaling with KEDA Kafka topic trigger](./images/eft-processor-autoscaling-keda-kafka-trigger.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/eft-processor-autoscaling-keda-kafka-trigger.vsdx) of this architecture.*
+
 For more information on KEDA scalers, see the following KEDA documents:
 
 * [Azure Event Hubs Trigger](https://keda.sh/docs/1.5/scalers/azure-event-hub/): Compatibility for reading Azure blob storage URI for Java applications. It uses the [Event Processor Host](/azure/event-hubs/event-hubs-event-processor-host) SDK, allowing the ability to scale Java consumers that read advanced message queuing protocols (AMQP) protocol messages from Event Hubs. Earlier the Event Hubs scaler worked only with Azure Functions.
@@ -67,6 +71,8 @@ The solution creates a great experience for developers and testers. Integrating 
 ### Load testing architecture
 
 ![Load Testing Pipeline with JMeter, ACI and Terraform](./images/load-testing-pipeline-jmeter.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/load-testing-pipeline-jmeter.vsdx) of this architecture.*
 
 The solution provisions JMeter agents as [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances) instances. It uses the remote testing approach. In the approach, a JMeter controller configures all workers using its own protocol and combines all load testing results. Finally, it generates the resulting artifacts like dashboard and logs.
 
