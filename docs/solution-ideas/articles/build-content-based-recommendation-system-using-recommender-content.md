@@ -30,6 +30,8 @@ There are three main types of recommendation systems in supervised learning tech
 
 :::image type="content" alt-text="Architectural diagram that shows training, evaluation, and development of a machine learning model for content-based personalization that uses Azure Databricks." source="../media/build-content-based-recommendation-system-using-recommender-architecture.svg" lightbox="../media/build-content-based-recommendation-system-using-recommender-architecture.svg":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/build-content-based-recommendation-system-using-recommender.pptx) of this architecture.*
+
 ### Dataflow
 
 1. **Store.** Azure Data Lake Storage Gen2 stores large amounts of data about user and consumer behavior. 
