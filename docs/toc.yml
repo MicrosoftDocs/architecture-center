@@ -2261,8 +2261,6 @@ items:
                     href: /azure/architecture/browse/?terms=media
                   - name: 3D video rendering
                     href: example-scenario/infrastructure/video-rendering.yml
-                  - name: Content-based recommendation
-                    href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
                   - name: Digital image-based modeling on Azure
                     href: example-scenario/infrastructure/image-modeling.yml
                   - name: Gridwich cloud media system
@@ -2740,8 +2738,8 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Build content-based recommendations
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Content-based recommendations
+                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: Build custom document processing models
                 href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Chatbot for hotel booking
