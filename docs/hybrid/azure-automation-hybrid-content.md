@@ -138,7 +138,7 @@ More about Azure Automation:
 - [Deploy extension-based Windows or Linux User Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
 - [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](/azure/automation/automation-windows-hrw-install)
 - [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](/azure/automation/automation-linux-hrw-install)
-- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
 - [Create a runbook in Azure Automation using Managed Identities](/azure/automation/learn/powershell-runbook-managed-identity)
 - [Run Automation runbooks on a Hybrid Runbook Worker](/azure/automation/automation-hrw-run-runbooks)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
