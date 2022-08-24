@@ -29,7 +29,7 @@ Many types of healthcare professionals can benefit from this solution:
 
 :::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data.":::
    Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium data share box to the member box. Below those boxes, a dotted box contains icons for shared services.
- lightbox="./media/azure-health-data-consortium-architecture.png":::image-end:::
+:::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-consortium-architecture.vsdx) of this architecture.*
 
