@@ -34,6 +34,8 @@ This article discusses the design considerations of the modularized [Azure Landi
 
 ![GitHub logo](../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Landing Zones (ALZ) - Bicep Implementation](https://github.com/Azure/ALZ-Bicep). You can use it as a starting point and configure it as per your needs.
 
+[!VIDEO https://www.youtube.com/embed/-pZNrH1GOxs]
+
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
@@ -52,6 +54,8 @@ A core concept in Bicep is the use of [modules](/azure/azure-resource-manager/bi
 The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
 ## Layers and staging
+
+[!VIDEO https://www.youtube.com/embed/FNT0ZtUxYKQ]
 
 In addition to modules, the Bicep landing zone architecture is structured using a concept of layers. Layers are groups of Bicep modules that are intended to be deployed together. Those groups form logical stages of the implementation.
 
@@ -81,6 +85,10 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 
 > [!TIP]
 > See [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
+
+Once the platform landing zone is implemented the next step is to deploy [Application landing zones](azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the "landing zone" management group with the guardrails that Central IT or PlatformOps administrators require. The "corp" mangement group is for corperate connected applications and "online" for online only applications. 
+
+[!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
 
 The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
