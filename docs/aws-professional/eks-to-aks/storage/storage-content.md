@@ -12,10 +12,12 @@ In EKS, after Kubernetes version 1.11 the cluster will have a default storage cl
 
 By adding these drivers and Storage Classes you can use other storage services such as:
 
-- Elastic Block Storage: block-level storage solution used with EC2 instances to store persistent data
-- Elastic File System: to provide NFS access to external file systems that can be shared across instances
-- Lustre: Lustre is an open/source file system commonly used in HPC
-- NetApp ONTAP: use a fully managed ONTAP shared storage in AWS
+- Elastic Block Storage: block-level storage solution used with EC2 instances to store persistent data. In Azure this can be achieved with Azure Disks having several SKUs like Standard SSD, Premium or Ultra Disks depending on the performance that is required.
+- Elastic File System: to provide NFS access to external file systems that can be shared across instances. An equivalent solution in Azure would be Azure Files and Azure Files Premium with both SMB and NFS access.
+- Lustre: Lustre is an open/source file system commonly used in HPC. In Azure you could use Azure Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning, high performance computing (HPC), etc.
+- NetApp ONTAP: use a fully managed ONTAP shared storage in AWS. Similarly Azure NetApp Files is a Microsoft Azure file storage service built on NetApp technology.
+
+The next section explores in more details Azure Storage services available in AKS.
 
 ## Storage options in Azure Kubernetes Service
 
@@ -41,9 +43,9 @@ As mentioned by default an AKS cluster will come with pre-created storage classe
 - managed-csi
 - managed-csi-premium
 
-Both of these classes will create a managed disk that will be attached to the node for the pod's access. The reclaim policy ensures that the disk will be deleted with the persistent volume, the disks can be expanded by editing the persistent volume claim.
+Similarly to Amazon EBS, both of these classes will create a managed disk or block device that will be attached to the node for the pod's access. The reclaim policy ensures that the disk will be deleted with the persistent volume, the disks can be expanded by editing the persistent volume claim.
 
-These Storage Classes use Azure Managed Disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage) this means that your data will have 3 synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option however it does not offer protection against an entire datacenter failure. To mitigate this risk, and especially when working with an [Availability Zone distributed AKS cluster](/azure/aks/availability-zones) it is recommended to use other replications such as [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by creating [Zone-redundant managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
+These Storage Classes use Azure Managed Disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage) this means that your data will have 3 synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option however it does not offer protection against an entire datacenter failure. To mitigate this risk take regular backups or snapshots of that data stored on Azure Disks, either using solutions like [Velero](https://github.com/heptio/velero) or [Azure Backup](/azure/backup/backup-managed-disks) that can use built-in snapshot technologies.
 
 As both Storage Classes are backed by Azure Managed Disks and both use SSD drives, it is important to also understand the differences between Premium and Standard storage:
 
@@ -60,7 +62,7 @@ To optimize costs on Azure Managed Disks usage use [Azure Reservations](/azure/v
 
 ### Azure Files
 
-When your workloads require concurrent access to a volume, Azure Disks cannot meet this requirement, however you can use Azure Files to connect using the Server Message Block 3.0 (SMB) protocol and mount a shared volume that is backed by an Azure Storage Account. As with Azure Disks there are two options:
+When your workloads require concurrent access to a volume, Azure Disks cannot meet this requirement, however you can use Azure Files to connect using the Server Message Block 3.0 (SMB) protocol and mount a shared volume that is backed by an Azure Storage Account, this service provides a network attached storage similarly to Amazon EFS. As with Azure Disks there are two options:
 
 - Azure Premium storage: where the file share is backed by high-performance SSDs drives. Be aware that the minimum size file share for premium is 100 GB.
 - Azure Standard storage: that is backed by regular HDDs.
@@ -78,13 +80,13 @@ To optimize costs on Azure Files usage use [Azure Reservations](/azure/storage/f
 
 ### Azure NetApp Files (ANF)
 
-The Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service that is fully managed in Azure using NetApp solutions. You could [configure your AKS cluster to use Azure NetApp Files](/azure/aks/azure-netapp-files) as your storage provider using the Astra Trident. Just like Azure Files, ANF provides the ability for multiple pods to mount a volume.
+Similarly to AWS NetApp ONTAP, the Azure NetApp Files service is an enterprise-class, high-performance, metered file storage service that is fully managed in Azure using NetApp solutions. You could [configure your AKS cluster to use Azure NetApp Files](/azure/aks/azure-netapp-files) as your storage provider using the Astra Trident. Just like Azure Files, ANF provides the ability for multiple pods to mount a volume.
 
 When choosing Azure NetApp files be aware that the minimum size of a capacity pool is 4TiB and you will be charged on the provisioned size rather than the used capacity.
 
 ### Azure Ultra Disks
 
-Azure Ultra Disks are another SKU or tier for Azure Managed Disks, they offer high throughput, high IOPS, and consistent low latency disk storage for Azure Virtual Machines, they are intended for data and transaction heavy workloads. Just like any other SKU of Azure Disks, they will be mounted by one pod at a time as it does not provide concurrent access.
+Azure Ultra Disks are another SKU or tier for Azure Managed Disks, they offer high throughput, high IOPS, and consistent low latency disk storage for Azure Virtual Machines, they are intended for data and transaction heavy workloads. Just like any other SKU of Azure Disks, they will be mounted by one pod at a time as it does not provide concurrent access and would be similar to Amazon EBS.
 
 When choosing Azure Ultra Disks, be mindful of its [limitations](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal) and make sure you choose a VM size that is compatible with Ultra Disks. Ultra Disks are available with LRS replication.
 
@@ -127,7 +129,7 @@ As described in the previous sections, different Storage Classes support differe
 
 ## CSI Storage Drivers
 
-For Storage Classes like Azure Disks and Files there are CSI Storage drivers, for Kubernetes versions older than 1.21 CSI drivers only must be used.
+Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default for Storage Classes like Azure Disks and Files.
 
 ## Dynamic vs Static provisioning
 
@@ -135,7 +137,7 @@ It is recommended to choose to [dynamically provision volumes](/azure/aks/operat
 
 ## Backup
 
-Choose a tool to backup persistent data, the tool should match the storage type you've chosen such as snapshots, Azure Backup, Velero or Kasten.
+Choose a tool to backup persistent data, the tool should match the storage type you've chosen such as snapshots, [Azure Backup](/azure/backup/backup-overview), [Velero](https://github.com/heptio/velero) or [Kasten](https://www.kasten.io/).
 
 ## Considerations
 
