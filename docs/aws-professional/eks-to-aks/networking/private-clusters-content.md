@@ -101,7 +101,7 @@ The following table shows the options in terms of DNS configuration that you can
   </tr>
 </table>
 
-The second option to improve cluster security and minimize attacks is using [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges) to restrict the access to the control plane of an AKS cluster to a well-known list of IP addresses and CIDRs. When using this is still publicly exposed, but access is limited to a set of IP ranges. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
+The second option to improve cluster security and minimize attacks to the API server is using [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges) to restrict the access to the control plane of a public AKS cluster to a well-known list of IP addresses and CIDRs. When using this option, the API server is still publicly exposed, but access is limited to a set of IP ranges. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
 
 An [AKS Private Cluster](/azure/aks/private-clusters) provides a higher security and isolation degree with respect to [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges). However, you cannot convert an existing public AKS cluster into a private cluster. Vice versa, Authorized IPs can be enabled for any existing AKS cluster, for example, using the following Azure CLI command:
 
