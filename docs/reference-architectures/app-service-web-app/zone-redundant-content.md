@@ -25,7 +25,7 @@ A SPA (single page application) running in a browser requests static assets incl
 * [Azure Static Web Apps][swa] hosts all of the SPA assets, including scripts, stylesheets and media.
 * [Azure App Service][app-services] hosts the "front-end" API applications that are called by the SPA. Deployment slots are used to provide zero-downtime releases.
 * App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend Azure services over a private VNet.
-* [Azure Functions][functions] provide a data access layer for Azure SQL Database. APIs hosted in App Services trigger these functions synchronously via HTTPS requests and asynchronously via Service Bus messages.
+* [Azure Functions][functions] provides a data access layer for Azure SQL Database. APIs hosted in App Services trigger these functions synchronously via HTTPS requests and asynchronously via Service Bus messages.
 * [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session and general-purpose caching.
 * [Azure Service Bus][service-bus] acts as an asynchronous high-speed bus between front-end and back-end application services.
 * [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end application services.
@@ -39,11 +39,11 @@ A SPA (single page application) running in a browser requests static assets incl
 
 ### Networking
 
-Private endpoints are used throughout this architecture to improve security. While private endpoints do not directly improve (or reduce) the availability of this solution, they allow important security principals to be applied. For more information about security design princpals, see [Azure well architected framework - Security pillar][waf-security].   
+Private endpoints are used throughout this architecture to improve security. While private endpoints don't directly improve (or reduce) the availability of this solution, they allow important security principals to be applied. For more information about security design principals, see [Azure well architected framework - Security pillar][waf-security].   
 
 Network segmentation boundaries are established along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. 
 
-Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. This includes the data services; Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. 
+Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. 
 
 > For network and subnet topology details, see the [Azure quickstart template][quickstart] for this architecture.
 
@@ -51,7 +51,7 @@ Azure services that don't require access from the public internet have private e
 
 * Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
-* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching is not required.
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching isn't required.
 * Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app will resolve, and public access to the App Service will be rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis]. In this architecture
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
@@ -229,7 +229,7 @@ Zone-redundant architectures are less expensive than multi-region alternatives b
 * Some zone-redundant services incur charges for inter-zone bandwidth. For more information, see [Bandwidth pricing][bandwidth-pricing].
 * Some services require a minimum number of instances or replicas to be deployed to achieve zone-redundancy.
 * Zone redundant storage (ZRS) is priced differently to Locally redundant storage (LRS). For more information, see [Storage pricing][storage-pricing].
-* Private endpoints are usually only available on Premium Azure service SKUs. Private endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
+* Private endpoints are mostly available on Premium Azure service SKUs. Private endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
 
 Some cost optimization considerations include:
 
