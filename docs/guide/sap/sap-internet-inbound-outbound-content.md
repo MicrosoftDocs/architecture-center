@@ -4,7 +4,7 @@ This article provides a set of proven practices for enabling improved-security i
 
 ## Architecture
 
-[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-inbound-outbound-visio.png)](media/sap-internet-inbound-outbound-visio.png#lightbox)
+[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.png)](media/sap-internet-communication-architecture-main.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
@@ -50,7 +50,7 @@ For optimal performance, enable [HTTP/2 support](/azure/application-gateway/conf
 
 The architecture uses two discrete virtual networks, both spoke virtual networks that are peered to the central hub virtual network. There's no spoke-to-spoke peering. A star topology is used, in which communication passes through the hub. The separation of networks helps to protect the applications from breaches.
 
-An application-specific [perimeter network](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks) (also known as a *DMZ*) contains the internet-facing applications, like SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. In the architecture diagram, the perimeter network is named *SAP perimeter spoke virtual network*. Because of dependencies on SAP systems, the SAP team typically does the deployment, configuration, and management of these services. That's why these SAP perimeter services frequently aren't located in a central hub subscription and network, where they would need to be managed by the central IT team. This constraint causes organizational challenges. Application Gateway always requires its own designated subnet, which is best placed in the SAP perimeter virtual network. Application Gateway uses public IP addresses for its front end and HTTPS listener.
+An application-specific [perimeter network](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks) (also known as a *DMZ*) contains the internet-facing applications, like SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. In the architecture diagram, the perimeter network is named *SAP perimeter -- spoke virtual network*. Because of dependencies on SAP systems, the SAP team typically does the deployment, configuration, and management of these services. That's why these SAP perimeter services frequently aren't located in a central hub subscription and network, where they would need to be managed by the central IT team. This constraint causes organizational challenges. Application Gateway always requires its own designated subnet, which is best placed in the SAP perimeter virtual network. Application Gateway uses public IP addresses for its front end and HTTPS listener.
 
 These are some of the benefits of using a separate SAP perimeter virtual network:
 
@@ -63,7 +63,7 @@ Drawbacks are increased complexity and extra virtual network peering costs for i
 
 To address the recommendations in this article but limit the drawbacks, you can use a single spoke virtual network for both the perimeter and the SAP applications. The following architecture contains all subnets in a single SAP production virtual network. The benefit of immediate isolation by termination of virtual network peering to the SAP perimeter if it's compromised isn't available. In this scenario, changes to NSGs affect only new connections.
 
-[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-inbound-outbound-simplified-visio.png)](media/sap-internet-inbound-outbound-simplified-visio.png#lightbox)
+[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.png)](media/sap-internet-communication-architecture-simplified.png#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
