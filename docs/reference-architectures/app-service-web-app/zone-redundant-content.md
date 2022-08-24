@@ -264,7 +264,7 @@ This architecture can be highly optimized for performance and scale:
 
 * Develop web apps as Single page applications (SPAs)
 * Host SPAs in Azure Static Web Apps
-* Cache SPA assets in Azure Front Door to distribute workloads to the Azure Edge.
+* Cache SPA assets in Azure Front Door to distribute workloads to the Azure Microsoft Edge.
 * Use premium services for maximum performance and scale, including App Services Premium and Azure Functions Premium.
 * Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
 * Review [subscription limits and quotas][quotas] to ensure services will scale to demand.
