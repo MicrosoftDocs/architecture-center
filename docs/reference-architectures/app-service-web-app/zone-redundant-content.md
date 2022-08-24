@@ -68,6 +68,13 @@ This architecture shows how to combine zone-redundant services into a solution t
 * **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
 * **Simplified networking.** All VNet traffic can remain in the same Azure region.
 
+### Potential use cases
+
+* Public website hosting
+* Mobile app hosting
+* E-commerce
+* Business critical systems with high availability requirements
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
