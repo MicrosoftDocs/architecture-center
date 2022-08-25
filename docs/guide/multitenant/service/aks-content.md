@@ -272,24 +272,7 @@ For more details about authentication and authorization with AKS, see:
 
 When hosting multiple tenant applications on a single AKS cluster, each in a separate namespace, each workload should use a different [Kubernetes service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) and credentials to access downstream Azure services. *Service accounts* are one of the primary user types in Kubernetes. The Kubernetes API holds and manages service accounts. Service account credentials are stored as Kubernetes secrets, allowing them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
 
-Tenant workloads deployed to AKS clusters can use Azure AD application credentials to access Azure AD-protected resources, such as Azure Key Vault and Microsoft Graph. [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers. As shown in the following diagram, the Kubernetes cluster becomes a security token issuer, issuing tokens to tenant service accounts. These security tokens, one for each tenant, can be configured to be trusted by Azure AD applications and exchanged with an Azure AD access token that tenant applications can use to access Azure services.
-
-![Simplified workflow for pod managed identity in Azure](./media/aks/message-flow.png)
-
-Message Flow:
-
-1. Kubelet projects service account token to the workload at a configurable file path.
-2. Kubernetes workload sends projected, signed service account token to the Azure Active Directory and requests an access token to it.
-3. Azure Active Directory checks trust on the registered application and validates incoming token.
-4. Azure Active Directory issues a security access token.
-5. The Kubernetes workload accesses Azure resources using Azure AD access token.
-
-For more information, see the following resources:
-
-- [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity).
-- [Workload identity federation](https://docs.microsoft.com/azure/active-directory/develop/workload-identity-federation)
-- [Azure AD workload identity federation with Kubernetes](https://blog.identitydigest.com/azuread-federate-k8s/)
-- [Use Azure AD workload identity for Kubernetes in a .NET Standard application](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/use-azure-ad-workload-identity-for-kubernetes-in-a-net-standard/ba-p/3576218)
+Tenant workloads deployed to AKS clusters can use Azure AD application credentials to access Azure AD-protected resources, such as Azure Key Vault and Microsoft Graph. [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers.
 
 ## Networking
 
