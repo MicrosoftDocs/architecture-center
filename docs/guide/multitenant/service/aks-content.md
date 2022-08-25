@@ -22,37 +22,6 @@ There is often some level of trust between members of different teams, but Kuber
 
 Another common form of multitenancy frequently involves a Software-as-a-Service (SaaS) vendor or a service provider running multiple instances of a workload for their customers, which are considered separate tenants. In this scenario, the customers do not have direct access to the AKS cluster but only to their application. Moreover, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern, and service providers use Kubernetes policies such as [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to ensure that the workloads are strongly isolated from each other.
 
-## Azure Kubernetes Architecture
-
-A [Kubernetes](/azure/aks/intro-kubernetes) cluster consists of a [control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) that runs Kubernetes system services and a [data plane](https://kubernetes.io/docs/concepts/overview/components/#node-components) consisting of worker nodes where tenant workloads are executed as pods.
-
-When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided at no cost as a managed Azure resource abstracted from the user. You only pay for the nodes attached to the AKS cluster. The control plane and its resources reside only on the region where you created the cluster. Likewise, an [Azure Kubernetes Service](/azure/aks/intro-kubernetes) cluster is composed of two components:
-
-- [Control plane](/azure/aks/concepts-clusters-workloads#control-plane): provides the core Kubernetes services and orchestration of application workloads.
-- [Agent nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools): agent nodes are Linux or Windows Azure virtual machines that run tenant workloads and Kubernetes node components such as [kubelet](https://kubernetes.io/docs/concepts/overview/components/#kubelet), [kube-proxy](https://kubernetes.io/docs/concepts/overview/components/#kube-proxy), and [container runtime](https://kubernetes.io/docs/concepts/overview/components/#container-runtime).
-
-![Kubernetes control plane and node components](./media/aks/control-plane-and-nodes.png)
-
-### Control plane
-
-The control plane layer is automatically provisioned and configured whenever you deploy an AKS cluster. If you opt for the free tier, this is provided at no cost. Alternatively, you can create an AKS cluster with the Uptime SLA that enables a financially backed, higher SLA for the control plane. [Uptime SLA](/azure/aks/uptime-sla) is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. Clusters with Uptime SLA, also regarded as paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes. 
-
-AKS provides a single-tenant control plane, with a dedicated API server that is shared by all the workloads running on the AKS cluster. For architectural best practices, see [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service).
-
-### Nodes and node pools
-
-To run your applications and supporting services, you need one or more Kubernetes *agent nodes*. An AKS cluster is composed of at least one node, an Azure virtual machine (VM) that runs the following [Kubernetes node components](https://kubernetes.io/docs/concepts/overview/components/#node-components).
-
-![Azure virtual machine and supporting resources for a Kubernetes node](./media/aks/aks-node-resource-interactions.png)
-
-The Azure VM size for agent nodes defines the storage CPUs, memory, size, and type available (such as high-performance SSD or regular HDD). Plan the node size around whether tenant applications may require large amounts of CPU and memory or high-performance storage. You can manually or automatically scale out the number of nodes in your AKS cluster to meet current demand.
-
-In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)) are automatically applied.
-
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped into [node pools](/azure/aks/use-multiple-node-pools). In an AKS cluster, you can create multiple node pools with different VM sizes for various purposes, tenants, and workloads and use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to place applications on a specific node pool to avoid the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Using different VM sizes for different node pools allows you to optimize costs. For more information, see [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
-
-In a shared AKS cluster, you can dedicate a set of nodes or a node pool to running pods from a particular tenant. For more information, see [Node isolation](#node-isolation) and [Tenancy models](#tenancy-models).
-
 ## Isolation models
 
 A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters that different teams or divisions share within an organization. It also contains clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other. This isolation minimizes the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
