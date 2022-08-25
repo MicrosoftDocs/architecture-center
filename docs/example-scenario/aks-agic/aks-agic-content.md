@@ -194,7 +194,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 
 #### Azure Container Registry
 
-- Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster. Your CI/CD deployment workflow should include a process to scan container images. [Azure Defender for Containers](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-cicd) can be used to scan code for vulnerabilities during build / deploy time in your automated pipelines. Alternately, tools such as [Prisma Cloud](https://docs.prismacloudcompute.com/docs) or [Aqua](https://www.aquasec.com) can  be used to scan and allow only verified images to be deployed.
+- Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster. Your CI/CD deployment workflow should include a process to scan container images. [Azure Defender for containers](/azure/defender-for-cloud/defender-for-containers-cicd) can be used to scan code for vulnerabilities during build / deploy time in your automated pipelines. Alternately, tools such as [Prisma Cloud](https://docs.prismacloudcompute.com/docs) or [Aqua](https://www.aquasec.com) can be used to scan and allow only verified images to be deployed.
 - As you use base images for application images, use automation to build new images when the base image is updated. Because those base images typically include security fixes, update any downstream application container images. For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-base-image-update).
 
 ### Performance considerations
@@ -281,7 +281,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
 ### DevOps considerations
 
-- Deploy your workloads to Azure Kubernetes Service (AKS), with a [Helm](https://helm.sh) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- Deploy your workloads to Azure Kubernetes Service (AKS), with a [Helm](https://helm.sh) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - Introduce A/B testing and canary deployments in your application lifecycle management, to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see:</p>
 
@@ -338,7 +338,7 @@ For online deployments, you must have an existing Azure account. If you need one
 
 Principal authors:
 
-* [Paolo Salvatori](https://it.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
 ## Next steps
 

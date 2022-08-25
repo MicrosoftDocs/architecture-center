@@ -6,6 +6,8 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 :::image type="content" source="media/mainframe-architecture.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.png" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
+
 #### Dataflow
 
 A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
@@ -28,6 +30,8 @@ I. Partitions run separate workloads and segregate work types within the environ
 ### Azure architecture, after migration  
 
 :::image type="content" source="media/imsql-virtual-machines.png" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
 #### Dataflow
 

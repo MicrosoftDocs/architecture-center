@@ -214,7 +214,7 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
    In addition to a firewall, some organizations might want to use an HTTP proxy to have additional controls on egress. We recommend you to still have the user-defined routes go to the firewall and to limit egress traffic to just go to the HTTP proxy. With this setup, if a pod tries to override the proxy, then the firewall can still block egress traffic. 
    
-   For more information, see [HTTP proxy support in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/http-proxy).
+   For more information, see [HTTP proxy support in Azure Kubernetes Service](/azure/aks/http-proxy).
 
 The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
 

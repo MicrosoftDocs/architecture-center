@@ -4,6 +4,8 @@ This scenario describes a web application, called the Baseball Machine Learning 
 
 ![An overview of the processing sequence of this architecture, detailed in accompanying text.](./images/baseball-machine-learning-workbench-diagram.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/baseball-machine-learning-workbench-diagram.vsdx) of this architecture.*
+
 ### Dataflow
 
 The processing sequence in this solution flows as follows:

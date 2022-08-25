@@ -254,7 +254,7 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 
 <!-- links -->
 

@@ -62,4 +62,4 @@ Principal author:
 - [Interactive voice response app with bot](interactive-voice-response-bot.yml)
 - [Speech services](speech-services.yml)
 - [Keyword search and speech-to-text with OCR digital media](digital-media-speech-text.yml)
-- [Build a speech-to-text transcription pipeline with Azure Cognitive Services](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
