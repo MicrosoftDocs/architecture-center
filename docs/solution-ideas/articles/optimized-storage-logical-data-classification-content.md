@@ -44,7 +44,7 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 
 Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
 
-:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::
+:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Diagram of data segregated by customer and category.":::
 
 1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
 1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
