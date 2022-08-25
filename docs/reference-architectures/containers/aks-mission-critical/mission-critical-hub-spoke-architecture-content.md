@@ -62,15 +62,15 @@ These resources are provisioned as part of a _deployment stamp_ to a single Azur
 
 - **Azure Virtual Network** contains services used by the workload to for processing incoming requests. This network isn't short-lived.
 
-**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
+- **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
 
-**Internal load balancer** is the application origin. Front Door uses this origin for establishing private and direct connectivity to the backend using Private Link. 
+- **Internal load balancer** is the application origin. Front Door uses this origin for establishing private and direct connectivity to the backend using Private Link. 
 
-**Azure Kubernetes Service (AKS)** is the orchestrator for [backend compute](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) that runs an application and is stateless. The AKS cluster is private. 
+- **Azure Kubernetes Service (AKS)** is the orchestrator for [backend compute](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) that runs an application and is stateless. The AKS cluster is private. 
 
-**Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-message-broker). Access is limited to authorized private endpoint connections.
+- **Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-message-broker). Access is limited to authorized private endpoint connections.
 
-**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). Access is limited to authorized private endpoint connections.
+- **Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). Access is limited to authorized private endpoint connections.
 
 For more information, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
@@ -86,9 +86,24 @@ Monitoring data for global resources and regional resources are stored independe
 To gain access to the private compute cluster, this arichitecture uses private build agents and jump box virtual machine instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
 ## Subscription democratization
-TBD
+
+How are the subscriptions tied to regions. Does every region run in a separate subscription? , for two regions we need If there are 2 regions, there are 4 vnets. 2 regions, 4 vnets. do i have 4, 2, 1 sub. Every region runs in a separate subscription.
+
 ## Networking considerations
-TBD
+
+In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that virtual network layout doesn't change in this architecture, the workload assumes that the virtual network is pre-provisioned where the workload resources are placed. 
+
+For a mission critical workload, multiple pre-production environments are recommended. Because those environments need connectivity, you'll need to pre-provision additional virtual networks per environment. In this architecture, at least two virtual networks per enviroment and region is needed to support the blue-green deployment strategy. The implementation deploys disconnected virtual networks on demand if <what?> and 
+
+ this might be optional, therefore the reference implementation is prepared to create the VNets if needed.
+
+For INT and PROD (or any other environments which do require connectivity), a multiple pre-provisioned VNets are expected to be available: Due to the blue-green deployment approach, at least two VNets per environment and region are required. The deployment pipeline looks for a file .ado/pipelines/config/vnets-[environment].json. If this file is not present, disconnected VNets will be deployed on demand, e.g. for E2E environments.
+
+The file needs to hold the resource IDs of the VNets per region. See /.ado/pipelines/config/vnets-int.json for an example. The deployment pipeline will check which VNets are currently not in use by any other deployment and then tag the VNets to mark them as in use. Once an environment gets destroyed again, this "earmark" tag is being removed again. See /.ado/pipelines/templates/steps-get-or-create-vnet.yaml for the pipeline script which implements the logic.
+
+The reference implementation is currently configured to require at least a VNet with a /23 address space for each stamp. This is to allow for a /24 subnet for AKS nodes and their pods. Change this based on your scaling requirements (number of nodes and number of pods). To change the subnet sizes (and thereby the required input size of /23), modify /src/infra/workload/releaseunit/modules/stamp/network.tf
+
+
 ## Overall reliability
 TBD
 ## Tradeoffs
