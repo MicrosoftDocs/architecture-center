@@ -13,7 +13,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 
 ## Architecture
 
-:::image type="content" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of an Azure DevOps pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.":::
+:::image type="complex" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines"::: Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace. :::image-end:::
 
 ### Components
 
@@ -23,6 +23,7 @@ The architecture uses these components.
 
 An Azure Repos Git repository serves as the code repository that provides version control and a platform for collaborative projects.
 
+> [!NOTE]
 > For product documentation, see [Azure Repos](/azure/devops/repos/?view=azure-devops)
 
 ##### Azure Pipelines
@@ -33,24 +34,28 @@ Azure Pipelines can be used to build, test, package and release both application
 - **Continuous Integration (CI)** - CI pipelines run after code is merged. They perform the same validation as PR pipelines, but add integration testing and publish build artifacts if everything succeeds.
 - **Continuous Deployment (CD)** - CD pipelines deploy build artifacts, run acceptance tests, and release to production.
 
+> [!NOTE]
 > For product documentation, see [Azure Pipelines](https://azure.microsoft.com/services/devops): runs automated builds, tests, and deployments.
 
 ##### Azure Web Apps / Azure Function Apps
 
 Azure Web Apps and Azure Function Apps are two options listed in this example for deploying and managing web apps written in various languages like C#, Java, JavaScript, or PHP. There are various other deployment options. These 2 were chosen for this example for simplicity. Both Azure Web Apps and Azure Function Apps are PaaS services that support deployment slots like staging and production. An application can be deployed to a staging slot and released to the production slot.
 
+> [!NOTE]
 > For product documentation, see [Web Apps](https://azure.microsoft.com/services/app-service/web/) or [Introduction to Azure Functions](/azure/azure-functions/functions-overview).
 
 ##### Azure Key Vault
 
-Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure DevOps Pipelines with an [Azure Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault?view=azure-devops) or by linking secrets from an Azure key vault](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
+Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure Pipelines with an [Azure Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault?view=azure-devops) or by [linking secrets from an Azure key vault](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 
+> [!NOTE]
 > For product documentation, see [Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 ##### Azure Monitor
 
 An observability resource that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
 
+> [!NOTE]
 > For product documentation, see [Azure Monitor](https://azure.microsoft.com/services/monitor).
 
 ### Dataflow
@@ -98,7 +103,7 @@ Consider Azure DevOps and CI/CD processes for:
 
 - Consider using one of the [tokenization tasks](https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance) available in the VSTS marketplace.
 
-- Use [release variables(/azure/devops/pipelines/release/variables) in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
+- Use [release variables](/azure/devops/pipelines/release/variables) in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
 
 - Consider using [Self-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) if you're deploying to resources running in a secured virtual network.
 

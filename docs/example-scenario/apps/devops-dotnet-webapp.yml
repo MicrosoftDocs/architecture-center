@@ -25,7 +25,7 @@ azureCategories:
   - devops
   - web
   - featured
-summary: This architecture illustrates building a continuous integration and deployment pipeline using Azure DevOps Pipelines.
+summary: This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.
 products:
   - azure-application-insights
   - azure-devops
