@@ -2,7 +2,7 @@
 metadata:
   title: Design a CI/CD pipeline using Azure DevOps
   titleSuffix: Azure Example Scenarios
-  description: This architecture illustrates building a continuous integration and deployment pipeline using Azure DevOps Pipelines.
+  description: This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.
   author: robbagby
   ms.author: robbag
   ms.date: 08/24/2022
