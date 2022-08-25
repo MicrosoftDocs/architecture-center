@@ -474,7 +474,7 @@ Configure multiple replicas in the deployment to handle disruptions such as hard
 > [!NOTE]
 > Setting resources quotas at the cluster level can cause problem when deploying third-party workloads that do not have proper requests and limits.
 
-**Set pod requests and limits**. Setting these limits allows Kubernetes to efficiently allocate CPU and, or memory resources to the pods and have higher container density on a node. Limits can also increase reliability with reduced costs because of better hardware utilization.
+**Set pod requests and limits**. Setting these limits allows Kubernetes to efficiently allocate CPU and/or memory resources to the pods and have higher container density on a node. Limits can also increase reliability with reduced costs because of better hardware utilization.
 
 To estimate the limits, test and establish a baseline. Start with equal values for requests and limits. Then, gradually tune those values until you have established a threshold that can cause instability in the cluster.
 
