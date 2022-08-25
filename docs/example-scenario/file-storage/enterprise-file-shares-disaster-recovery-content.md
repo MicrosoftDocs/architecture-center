@@ -39,7 +39,7 @@ The [Azure Well-Architected Framework](/azure/architecture/framework) provides r
 
 Replicating to a second region increases availability by protecting against regional service interruptions.
 
-### Performance
+### Performance efficiency
 
 - Azure NetApp Files comes with three performance tiers: Standard, Premium, and Ultra. Cross-region replication can replicate between different tiers. When the primary region uses the Premium or Ultra tier, you can replicate to a lower tier, for example Standard. In case of a failover, you can then upgrade the tier of the secondary as required.
 - The replication of the data is performed at the incremental block level—only changed data blocks are transferred—which minimizes data transfer.
@@ -53,6 +53,12 @@ This solution can be used for file shares ranging from 4 tebibytes (TiB) to a to
 - This solution has greater resiliency than a single-region deployment, and has failover capabilities.
 - The secondary volume is read-only. It can be verified at any given time, increasing resiliency.
 - You can run a disaster recovery test in isolation without interfering with the production deployment. The test uses the space-efficient volume clone feature to get a read/write copy of a volume in seconds.
+
+### Cost optimization
+
+The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For details, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
 
 ### Deploy this scenario
 
@@ -72,12 +78,6 @@ In case of a failover:
 These tasks can be and should be automated.
 
 See [Disaster Recovery for Enterprise File Shares](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757) for a step-by-step deployment guide.
-
-## Pricing
-
-The cost of the solution depends on the size of the volume that's replicated, the rate of change, and the destination tier of the Azure NetApp Files capacity pool. For details, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp) or use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
-See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
 
 ## Contributors
 

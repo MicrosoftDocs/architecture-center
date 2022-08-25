@@ -8,6 +8,8 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 
 ![Diagram that shows the architecture of Project Bonsai.](../media/machine-teaching-1-2.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/autonomous-systems-machine-teaching-bonzai.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.

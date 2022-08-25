@@ -275,7 +275,7 @@ This reference architecture only uses Azure Pipelines. Azure offers the Azure Pi
 
 For Azure Monitor Log Analytics, you are charged for data ingestion and retention. For more information, see [Azure Monitor Pricing][az-monitor-pricing] for more information.
 
-## Deploy this solution
+## Deploy this scenario
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
