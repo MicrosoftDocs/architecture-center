@@ -223,7 +223,7 @@ The availability and reliability considerations here aren't specific to multiten
 
 ### DevOps
 
-- Deploy your workloads to AKS by using a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline. Use a DevOps system like [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- Deploy your workloads to AKS by using a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline. Use a DevOps system like [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - To properly test an application before you make it available to users, use A/B testing and canary deployments in your application lifecycle management. There are several techniques that you can use to split the traffic across different versions of the same service. As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see [Linkerd Traffic Split](https://linkerd.io/2.10/features/traffic-split) and [Istio Traffic Management](https://istio.io/latest/docs/concepts/traffic-management).
 - Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure Active Directory identity.
 - Test ingress and egress on your workloads in a separate pre-production environment that mirrors the network topology and firewall rules of your production environment. A staged rollout strategy will help you detect any networking or security problems before you release a new feature or network rule into production.
@@ -278,7 +278,7 @@ For online deployments, you need an Azure account. If you don't have one, create
 
 Principal author:
 
-* [Paolo Salvatori](https://it.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
 ## Next steps
 

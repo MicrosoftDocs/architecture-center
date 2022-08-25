@@ -171,7 +171,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
 - [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
-- [Speech transcription with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Speech transcription with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 - [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Customer Reviews App with Cognitive Services](/samples/azure-samples/functions-customer-reviews/customer-reviews-cognitive-services/)
 - [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
