@@ -29,6 +29,16 @@ Azure Cache for Redis is commonly used to increase the performance of your solut
 
 When working with a multitenant system that uses Azure Cache for Redis, you need to make a decision about the level of isolation you want to use. Azure Cache for Redis supports several isolation models.
 
+The following table summarizes the differences between the main tenancy models for Azure Cache for Redis:
+
+| Consideration | Shared cache, shared database | Shared cache, database per tenant | Cache per tenant |
+|-|-|-|-|
+| **Data isolation** | TODO | TODO | TODO |
+| **Performance isolation** | TODO | TODO | TODO |
+| **Deployment complexity** | TODO | TODO | TODO |
+| **Operational complexity** | TODO | TODO | TODO |
+| **Example scenario** | TODO | TODO | TODO |
+
 ### Shared cache instance and shared database
 
 You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This approach is commonly used when you have a single application tier that all of your tenants share.
