@@ -91,9 +91,15 @@ How are the subscriptions tied to regions. Does every region run in a separate s
 
 ## Networking considerations
 
-In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that virtual network layout doesn't change in this architecture, the workload assumes that the virtual network is pre-provisioned where the workload resources are placed. 
+In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that virtual network layout doesn't change in this architecture, the workload assumes that the virtual network is pre-provisioned and the workload resources are placed there. 
 
-For a mission critical workload, multiple pre-production environments are recommended. Because those environments need connectivity, you'll need to pre-provision additional virtual networks per environment. In this architecture, at least two virtual networks per enviroment and region is needed to support the blue-green deployment strategy. The implementation deploys disconnected virtual networks on demand if <what?> and 
+For a mission critical workload, multiple environments are recommended. Because all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per enviroment and region is needed to support the blue-green deployment strategy. 
+
+The virtual network address space should be large enough to accomodate the AKS nodes and pods as they scale out. Determine the Load test your services to determine these numbers.
+
+The reference implementation is currently configured to require at least a VNet with a /23 address space for each stamp. This is to allow for a /24 subnet for AKS nodes and their pods. Change this based on your scaling requirements (number of nodes and number of pods). To change the subnet sizes (and thereby the required input size of /23), modify /src/infra/workload/releaseunit/modules/stamp/network.tf
+
+The implementation deploys disconnected virtual networks on demand if <what?> and 
 
  this might be optional, therefore the reference implementation is prepared to create the VNets if needed.
 
