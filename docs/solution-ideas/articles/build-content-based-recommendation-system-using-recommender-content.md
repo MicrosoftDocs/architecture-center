@@ -2,14 +2,6 @@
 
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data about customer activity, you can provide highly relevant recommendations by using machine learning.
 
-### Potential use cases
-
-This solution is ideal for the retail industry. It's relevant to the following use cases:
-
-- Content recommendations for websites and mobile apps
-- Product recommendations for e-commerce sites
-- Displayed ad recommendations for websites
-
 ### Types of recommendation systems
 
 There are three main types of recommendation systems: 
@@ -57,6 +49,14 @@ This architecture makes use of the following components:
 The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see the documentation and examples for [Recommenders](https://github.com/microsoft/recommenders) on GitHub.
 
 This example scenario shows how you can use machine learning to automate content-based personalization for your customers. The solution uses [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability that a user will be interested in an item. [batched managed endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) deploys that model as a prediction service. You can use this service to create personalized recommendations by ranking items based on the content that a user is most likely to be interested in. 
+
+### Potential use cases
+
+This solution is ideal for the retail industry. It's relevant to the following use cases:
+
+- Content recommendations for websites and mobile apps
+- Product recommendations for e-commerce sites
+- Displayed ad recommendations for websites
 
 ## Contributors
 
