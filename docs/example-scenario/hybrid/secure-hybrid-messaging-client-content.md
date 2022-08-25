@@ -293,6 +293,20 @@ For information about the resiliency of the components in this architecture, see
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
+### Cost optimization
+
+The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
+
+These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
+
+For more pricing information, see these resources:
+
+- [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
+- [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
+- [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
+
 ## Deploy this scenario
 
 Here are the high-level steps:
@@ -311,20 +325,6 @@ To set up an Azure AD Conditional Access policy that enforces multi-factor authe
  1. Apply the multi-factor authentication requirement in the **Grant** window:
 
     :::image type="content" source="./media/grant-control-desktop.png" alt-text="Screenshot that shows the Grant window.":::
-
-## Pricing
-
-The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
-
-These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-
-For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
-
-For more pricing information, see these resources:
-
-- [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
-- [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
-- [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
 ## Contributors
 
