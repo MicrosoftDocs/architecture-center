@@ -219,7 +219,7 @@ The following diagram shows a scenario where tenants A and B run on a shared AKS
 
 ![Diagram showing three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster.](./media/aks/vertically-partitioned-aks-clusters.png)
 
-Likewise, the following diagram shows scenario where tenant 1 and 2 run on the same node pool, whereas tenant 3 runs on a dedicated node pool.
+Likewise, the following diagram shows scenario where tenants A and B run on the same node pool, whereas tenant C runs on a dedicated node pool.
 
 ![Diagram showing three tenants. Tenants A and B share a node pool. Tenant C has a dedicated node pool.](./media/aks/vertically-partitioned-node-pools.png)
 
