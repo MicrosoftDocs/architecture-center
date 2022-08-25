@@ -262,13 +262,11 @@ To reduce the risk of downtimes that may affect tenant applications during clust
 
 When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when using tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/), [Helm](https://helm.sh/), [Flux](https://fluxcd.io/), [Argo CD](https://argo-cd.readthedocs.io/en/stable/), or other types of tools.
 
-If your AKS cluster [integrates with Azure Active Directory (Azure AD)](/azure/aks/managed-aad), you should use [Kubernetes role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to grant permissions to Azure AD users to perform actions within the cluster. When enabled, this integration allows customers to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac). This feature frees you from having to manage user identities and credentials for Kubernetes separately. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication and authorization with RBAC on AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity).
+For more details about authentication and authorization with AKS, see:
 
-You can configure an AKS cluster to leverage Azure RBAC for Kubernetes Authorization. The ability to manage RBAC for Kubernetes resources from Azure gives you a choice to manage RBAC for the cluster resources using Azure or native Kubernetes RBAC. With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to authorize calls to the Kubernetes API server. When enabled, Azure AD principals will be validated exclusively by Azure RBAC, while regular Kubernetes users and service accounts are validated solely by Kubernetes RBAC, as shown in the following picture.
-
-![Azure RBAC for Kubernetes authorization flow](./media/aks/azure-rbac-k8s-authz-flow.png)
-
-You can use Azure AD-integrated security and Azure RBAC to grant permissions to team users only on a subset of namespaces and resources just using Azure built-in or custom role definitions and role assignments. For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization).
+- [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
+- [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
+- [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac)
 
 ### Workload Identity
 
