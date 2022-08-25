@@ -2,9 +2,9 @@ This example scenario describes how to set up private connectivity from an Azure
 
 ## Architecture
 
-![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
+![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media/private-webapp-appsvc-private-sql-v4.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v3.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v4.vsdx) of this architecture.*
 
 ### Workflow
 
