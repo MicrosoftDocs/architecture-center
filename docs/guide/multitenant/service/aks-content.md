@@ -352,15 +352,9 @@ When AKS-hosted applications connect to a large number of databases or external 
 
 You can enable use [Azure Monitor](/azure/aks/monitor-aks) and [Container Insights](/azure/azure-monitor/containers/container-insights-overview) to monitor tenant applications running on a shared AKS cluster and calculate cost breakdowns on individual namespaces. Azure Monitor allows monitoring the health and performance of Azure Kubernetes Service (AKS). It includes the collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and visualization of collected data to identify trends and how to configure alerting to be proactively notified of critical issues. You can enable [Container insights](/azure/azure-monitor/containers/container-insights-overview) to expand on this monitoring. 
 
-Container insights is a feature in Azure Monitor that monitors the health and performance of AKS clusters and workloads. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios.
-
 You can also adopt open source tools such as [Prometheus](https://prometheus.io/) and [Grafana](https://www.prometheus.io/docs/visualization/grafana/), that are widely used by the community for Kubernetes monitoring, or adopt other 3rd party tools for monitoring and observability.
 
 ## Costs
-
-By using the Microsoft cloud, you can significantly improve the technical performance of your business workloads. It can also reduce your costs and the overhead required to manage organizational assets. However, the business opportunity creates risk because of the potential for waste and inefficiencies introduced into your cloud deployments. [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview) is a suite of tools provided by Microsoft that help you analyze, manage, and optimize the costs of your workloads. Using the suite helps ensure that your organization is taking advantage of the benefits provided by the cloud.
-
-Review the [Cloud Adoption Framework](/azure/architecture/framework/cost/design-governance) governance best practices and specially the [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management/) to understand how to better manage and govern costs.
 
 When calculating per-tenant costs, you should consider the costs associated with any resource used by a tenant application. The approach you follow to charge fees back to the tenants depends on the tenancy model adopted by your solution:
 
