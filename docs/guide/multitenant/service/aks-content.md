@@ -211,7 +211,7 @@ You can get the advantage of the benefits of the single-tenant and fully multite
 
 You can implement different variations of this tenancy model. For example, you may choose to offer your multitenant solution with different tiers of functionality at a different cost. Your pricing model could provide multiple SKUs each providing an incremental level of performance and isolation in terms of resource sharing, performance, network and data segregation:
 
-- Basic tier: tenant requests are served by a single, multitenant Kubernetes application shared with other tenants. Data are stored to one more relational or NoSQL databases shared by all Basic-tier tenants.
+- Basic tier: tenant requests are served by a single, multitenant Kubernetes application shared with other tenants. Data is stored in one or more databases shared by all Basic-tier tenants.
 - Standard tier: tenants requests are served by a dedicated Kubernetes application running in separate namespace which provides isolation boundaries in terms of security, networking, resource consumption. All tenants applications, one for each tenant, share the same AKS cluster and node pool with other standard-tier customers.
 - Premium tier: tenant application runs in a dedicated node pool or AKS cluster to guarantee a higher service level agreement, performance, and isolation degree. This tier could provide a flexible cost model based on the number and SKU of the agent nodes used to host the tenant application.
 
