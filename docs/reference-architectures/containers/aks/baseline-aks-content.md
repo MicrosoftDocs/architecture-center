@@ -73,9 +73,13 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
+-   Aligns with the [Azure enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
+
 ![Hub-spoke network topology](images/aks-baseline-architecture.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
+
+For additional information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
 ### Hub
 
@@ -110,8 +114,6 @@ To route and distribute traffic, [Traefik](https://doc.traefik.io/traefik/) is t
 #### Subnet to host the cluster nodes
 
 AKS maintains two separate groups of nodes (or node pools). The *system node pool* hosts pods that run core cluster services. The *user node pool* runs your workload and the ingress controller to enable inbound communication to the workload.
-
-For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
 #### Subnet to host the Private Link endpoint
 
@@ -530,7 +532,7 @@ For simplicity, in this architecture AKS is deployed to a single region with nod
 
 Enabling availability zones won't be enough if the entire region goes down. To have higher availability, run multiple AKS clusters, in different regions.
 
-- Use paired regions. Consider using a CI/CD pipeline that is configured to use a paired region to recover from region failures. A benefit of using paired regions is reliability during updates. Azure makes sure that only one region in the pair is updated at a time. Certain DevOps tools such as flux can make the multi-region deployments easier.
+- Use paired regions. Consider using a CI/CD pipeline that is configured to use a paired region to recover from region failures. A benefit of using paired regions is reliability during updates. Azure makes sure that only one region in the pair is updated at a time. Certain DevOps tools such as Flux can make the multi-region deployments easier.
 
 - If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
@@ -565,7 +567,7 @@ Also, expect additional network latency in node communication between zones or r
 
 ### Test with simulations and forced failovers
 
-Ensure reliability through forced failover testing with simulated outages such as bring down a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or bringing down an external dependency. Azure Chaos Studio can also be leverage to simulate various types of outages in Azure and on the cluster.
+Ensure reliability through forced failover testing with simulated outages such as stopping a node, bringing down all AKS resources in a particular zone to simulate a zonal failure, or invoke an external dependency failure. Azure Chaos Studio can also be leverage to simulate various types of outages in Azure and on the cluster.
 
 For more information, see [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
 
@@ -695,7 +697,7 @@ Here's an example that shows how to automate cluster configuration with GitOps a
 
 1. A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.
 
-2. Flux runs in pod alongside the workload. flux has read-only access to the git repository to make sure that flux is only applying changes as requested by developers.
+2. Flux runs in pod alongside the workload. Flux has read-only access to the git repository to make sure that Flux is only applying changes as requested by developers.
 
 3. Flux recognizes changes in configuration and applies those changes using kubectl commands.
 
@@ -703,7 +705,7 @@ Here's an example that shows how to automate cluster configuration with GitOps a
 
 5. Have branch policies on your Git server. That way, multiple developers can approva a change through a pull request before it's applied to production.
 
-While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) is recommended for AKS.
+While GitOps and Flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) is recommended for AKS.
 
 ### Workload and cluster deployment strategies
 
