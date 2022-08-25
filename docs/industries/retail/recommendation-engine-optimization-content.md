@@ -91,7 +91,7 @@ The development VM hosted model development, training and retraining, and deploy
 - [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/) (Open Source Version). Be careful not to reinstall R/r-base (it was installed previously with MLS 9.3.0).  
 - [Add a network security group](/azure/virtual-machines/windows/nsg-quickstart-portal) to the VM to allow for inbound connections over port 8787 for RStudio Server.  
 - Open Database Connectivity (ODBC) drivers to handle the communication between the development VM and Azure SQL Database. The following ODBC drivers were installed on the VM:  
-- The [ODBC Driver for SQL Server 17](https://www.microsoft.com/download/details.aspx?id=56567) compatible with Linux/ubuntu 16.10  
+- The [ODBC Driver for SQL Server 17](/sql/connect/odbc/download-odbc-driver-for-sql-server) compatible with Linux/ubuntu 16.10  
 - An open-source ODBC driver unixodbc with installation instructions from [Import relational data using ODBC](/machine-learning-server/r/how-to-revoscaler-data-odbc). Note: this article has two typos for Ubuntu instructions.  
 - To check if unixodbc is installed:
         ````Apt list –installed | grep unixODBC (should be unixodbc)````

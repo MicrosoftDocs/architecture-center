@@ -305,7 +305,7 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 More about Azure Automation:
 
 - [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
-- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
 - [Azure Automation Update Management](./azure-update-mgmt.yml)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)

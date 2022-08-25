@@ -1,4 +1,4 @@
-This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
+This architecture shows how security operations center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
@@ -56,7 +56,7 @@ The following security processes and components contribute to this Azure AD IDaa
 
 - [Multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks) requires multiple forms of authentication when users attempt to access protected resources. Most users are familiar with using something they know, like a password, when accessing resources. MFA asks users to also demonstrate something that they have, like access to a trusted device, or something that they are, like a biometric identifier. MFA can use different kinds of [authentication methods](/azure/active-directory/authentication/concept-authentication-methods) like phone calls, text messages, or [notification through the authenticator app](https://www.microsoft.com/en-us/account/authenticator).
 
-- [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/en-us/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2 compatible security keys](/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO alliance's Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
+- [Passwordless authentication](https://www.microsoft.com/security/business/identity-access/azure-active-directory-passwordless-authentication) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft Authenticator app](https://www.microsoft.com/en-us/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2-compatible security keys](/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO Alliance's Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
 
 #### App provisioning and entitlement
 
@@ -82,7 +82,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
-- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
+- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
 
   - [Create policies](/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with apps and services
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
@@ -144,7 +144,7 @@ Azure [Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 
 If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD
 
-## Pricing
+### Cost optimization
 
 Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
 
