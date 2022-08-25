@@ -365,6 +365,8 @@ When calculating per-tenant costs, you should consider the costs associated with
 
 You can use open-source tools such as [KubeCost](https://www.kubecost.com/) to monitor and govern an AKS cluster cost. Cost allocation can be scoped to a deployment, service, label, pod, and namespace, which will give you flexibility in how you chargeback or showback users of the cluster.
 
+For more information on the measurement, allocation, and optimization of costs for a multitenant application, see [Architectural approaches for cost management and allocation in a multitenant solution](/azure/architecture/guide/multitenant/approaches/cost-management-allocation).
+
 ## Next steps
 
 Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
