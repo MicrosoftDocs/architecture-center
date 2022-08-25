@@ -63,19 +63,19 @@ The following sections, organized by category, provide links to more example sce
 
 In addition to the resources about authentication noted earlier in the [Path to production](#path-to-production) section, see these articles:
 
-- [Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
+- [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 
-- [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
-- [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)
+- [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
+- [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
 
 ### FSLogix 
 
 FSLogix is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in public and private clouds. For more information, see these resources:
 
-- [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)
+- [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
 - [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=https%3A%2F%2Fdocs.microsoft.com%%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
@@ -90,9 +90,9 @@ Get the latest updates on [Azure virtual desktop technologies](https://azure.mic
 These are some additional articles about Azure Virtual Desktop:
 
 - [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
-- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
+- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml)
+- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)
 
 ### AWS professionals
 
-- [AWS to Azure services comparison - End-user computing](/azure/architecture/aws-professional/services#end-user-computing)
+- [AWS to Azure services comparison - End-user computing](../../aws-professional/services.md#end-user-computing)
