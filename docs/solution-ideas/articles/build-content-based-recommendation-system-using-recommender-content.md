@@ -2,12 +2,6 @@
 
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data about customer activity, you can provide highly relevant recommendations by using machine learning.
 
-## Scenario details
-
-The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see the documentation and examples for [Recommenders](https://github.com/microsoft/recommenders) on GitHub.
-
-This example scenario shows how you can use machine learning to automate content-based personalization for your customers. The solution uses [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability that a user will be interested in an item. [batched managed endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) deploys that model as a prediction service. You can use this service to create personalized recommendations by ranking items based on the content that a user is most likely to be interested in. 
-
 ### Potential use cases
 
 This solution is ideal for the retail industry. It's relevant to the following use cases:
@@ -57,6 +51,12 @@ This architecture makes use of the following components:
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a managed Apache Spark cluster for model training and evaluation. 
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
+
+## Scenario details
+
+The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see the documentation and examples for [Recommenders](https://github.com/microsoft/recommenders) on GitHub.
+
+This example scenario shows how you can use machine learning to automate content-based personalization for your customers. The solution uses [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability that a user will be interested in an item. [batched managed endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) deploys that model as a prediction service. You can use this service to create personalized recommendations by ranking items based on the content that a user is most likely to be interested in. 
 
 ## Contributors
 
