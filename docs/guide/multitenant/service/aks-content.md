@@ -37,11 +37,11 @@ Based on the security level provided by isolation, we can distinguish between so
 
 When you plan to build a multitenant [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) cluster, you should consider the layers of resource isolation and multitenancy provided by [Kubernetes](https://kubernetes.io/docs/concepts/security/multi-tenancy/):
 
-* Cluster
-* Namespace
-* Node Pool or Node
-* Pod
-* Container
+- Cluster
+- Namespace
+- Node Pool or Node
+- Pod
+- Container
 
 In addition, you should consider the security implications of sharing different resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent specific workloads from being collocated. For example, you might not allow untrusted code from outside your organization to run on the same node as containers that process sensitive information.
 
@@ -100,9 +100,7 @@ to limit the number of API resources (for example, the number of Pods or the num
 
 Resource quotas are namespaced objects. By mapping tenants to distinct namespaces, cluster administrators can use resource quotas to ensure that a tenant cannot monopolize a cluster's resources, such as agent nodes' CPU, memory, and network bandwidth, or overwhelm its control plane. In addition, while Kubernetes resource quotas only apply within a single namespace, some namespace management tools allow groups of namespaces to share the same quotas, giving administrators far more flexibility with less effort than built-in quotas.
 
-Quotas prevent a single tenant from consuming more than their allocated share of resources, minimizing the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), where one tenant negatively impacts the performance of other tenants' workloads.
-
-When you apply a resource quota to a namespace, Kubernetes requires you to specify resource requests and limits for each container. Limits represent the upper bound for the number of resources a container can consume. Containers that attempt to consume resources that exceed the configured limits will either be throttled or killed based on the resource type. When resource requests are set lower than limits, each container is guaranteed the requested amount, but there may still be some potential for impact across workloads.
+When you apply a resource quota to a namespace, Kubernetes requires you to specify resource requests and limits for each container. Limits represent the upper bound for the number of resources a container can consume. Containers that attempt to consume resources that exceed the configured limits will either be throttled or killed based on the resource type. When resource requests are set lower than limits, each container is guaranteed the requested amount, but there could still be some potential for impact across workloads.
 
 Resource quotas cannot protect against all kinds of resource sharing, such as network traffic. Node isolation may be a better solution for this problem.
 
