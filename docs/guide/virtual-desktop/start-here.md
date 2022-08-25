@@ -71,7 +71,7 @@ The following sections, organized by category, provide links to example scenario
 
 ### FSLogix 
 
-FSLogix is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in public and private clouds. For more information, see these resources:
+FSLogix is designed for roaming profiles in remote computing environments like Azure Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment. For more information, see these resources:
 
 - [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
 - [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=https%3A%2F%2Fdocs.microsoft.com%%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
