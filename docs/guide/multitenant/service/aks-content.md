@@ -1,12 +1,4 @@
-[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an extensible, open-source platform for managing containerized applications and and their associated networking and storage components. Kubernetes focuses on the application workloads, not the underlying infrastructure components. Kubernetes provides a declarative approach to deployments, backed by a robust set of APIs for management operations. Kubernetes has a large and rapidly growing ecosystem. Kubernetes services, support, and tools are widely available. The [Cloud Native Computing Foundation](https://www.cncf.io/) (CNCF) owns and maintains the Kubernetes project.
-
-You can build and run modern, portable, containerized and microservices-based applications, using Kubernetes to orchestrate and manage the availability of the application components. Kubernetes supports both stateless and stateful applications as teams progress through the adoption of microservices-based applications.
-
-As an open platform, Kubernetes allows you to build your applications with your preferred programming language, OS, libraries, or messaging bus. Existing continuous integration and continuous delivery (CI/CD) tools can integrate with Kubernetes to schedule and deploy releases.
-
-[Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to the Azure cloud platform. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications.
-
-In this article, we describe some of the features of AKS that are useful when building multitenant systems.
+[Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to the Azure cloud platform. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications. In this article, we describe some of the features of AKS that are useful when building multitenant systems.
 
 ## Features of Azure Kubernetes Service (AKS) that support multitenancy
 
