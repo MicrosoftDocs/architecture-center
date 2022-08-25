@@ -250,7 +250,7 @@ When you enable autoscaling for a node pool, you specify a minimum and a maximum
 When the traffic increases, cluster autoscaling adds new agent nodes to avoid pods going into a pending state due to a shortage of resources in terms of CPU and memory.
 Likewise, when the load diminishes, cluster autoscaling decreases the number of agent nodes in a node pool based on the specified boundaries, helping to reduce operational costs.
 
-You can use pod autoscaling to scale pods based on resource demands automatically. [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) automatically scales the number of pod replicas based on CPU/memory utilization or custom metrics. With Kubernetes Event-driven Autoscaling (KEDA) you can drive the scaling of any container in Kubernetes based on the number of events of external systems, such as [Azure Event Hubs](https://keda.sh/docs/2.7/scalers/azure-event-hub/) or [Azure Service Bus](https://keda.sh/docs/2.7/scalers/azure-service-bus/), used by tenant applications.
+You can use pod autoscaling to scale pods based on resource demands automatically. [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) automatically scales the number of pod replicas based on CPU/memory utilization or custom metrics. With [Kubernetes Event-driven Autoscaling](https://keda.sh/) (KEDA) you can drive the scaling of any container in Kubernetes based on the number of events of external systems, such as [Azure Event Hubs](https://keda.sh/docs/2.7/scalers/azure-event-hub/) or [Azure Service Bus](https://keda.sh/docs/2.7/scalers/azure-service-bus/), used by tenant applications.
 
 ## Maintenance
 
