@@ -16,7 +16,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 Consider Azure DevOps and CI/CD processes for:
 
 - Accelerating application development and development lifecycles.
-- Building quality and consistency into an automated build and release process
+- Building quality and consistency into an automated build and release process.
 - Increasing application stability and uptime.
 
 ## Architecture
@@ -30,6 +30,8 @@ The architecture uses these components.
 ##### Azure Repos Git repository
 
 An Azure Repos Git repository serves as the code repository that provides version control and a platform for collaborative projects.
+
+> For product documentation, see [Azure Repos](/azure/devops/repos/?view=azure-devops)
 
 ##### Azure Pipelines
 
@@ -80,6 +82,8 @@ While this article focuses on Azure DevOps, you could consider these alternative
 
 - [GitHub Actions](https://github.com/features/actions) allow you to automate your CI/CD workflows directly from GitHub.
 
+- [GitHub Repositories](https://docs.github.com/repositories) can be substituted as the code repository. Azure Pipelines integrates seamlessly with GitHub repositories.
+
 Consider these alternatives to hosting in Azure Web Apps or Azure Function Apps:
 
 - [Azure Virtual Machines](/azure/app-service/choose-web-site-cloud-service-vm) handles workloads that require a high degree of control, or depend on OS components and services that aren't possible with Web Apps (for example, the Windows GAC, or COM).
@@ -100,7 +104,7 @@ This [decision tree for Azure compute services](../../guide/technology-choices/c
 
 - Consider using [Application Insights](/azure/application-insights/app-insights-overview) and other monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment. By monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
 
-- Consider using [YAML pipelines](azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops) instead of the Classic interface. YAML pipelines can be treated like other code. YAML pipelines can be checked in to source control and versioned, for example.
+- Consider using [YAML pipelines](/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops) instead of the Classic interface. YAML pipelines can be treated like other code. YAML pipelines can be checked in to source control and versioned, for example.
 
 - Consider using [YAML Templates](/azure/devops/pipelines/process/templates?view=azure-devops) to promote reuse and simplify pipelines. For example, PR and CI pipelines are similar. A single parameterized template could be used for both pipelines.
 
@@ -116,7 +120,7 @@ Azure DevOps is billed on a per-user per-month basis. There might be more charge
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
 
-- [What is DevOps?(/devops/what-is-devops)
+- [What is DevOps?](/devops/what-is-devops)
 - [DevOps at Microsoft - How we work with Azure DevOps](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 - [Step-by-step Tutorials: DevOps with Azure DevOps](https://www.azuredevopslabs.com/labs/vstsextend/azuredevopsprojectdotnet)
 - [Create a CI/CD pipeline for .NET with Azure DevOps Projects](/azure/devops-project/azure-devops-project-aspnet-core)
