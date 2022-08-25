@@ -332,7 +332,9 @@ To set up an Azure AD Conditional Access policy that enforces multi-factor authe
 
 Principal author:
 
-* [Pavel Kondrashov](/) | Senior Customer Engineer
+* [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
