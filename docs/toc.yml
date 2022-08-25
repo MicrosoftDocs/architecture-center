@@ -5589,8 +5589,10 @@ items:
                 maintainContext: true
               - name: SAP NetWeaver on Windows on Azure
                 href: guide/sap/sap-netweaver.yml
+                maintainContext: true
               - name: SAP S/4HANA in Linux on Azure
                 href: guide/sap/sap-s4hana.yml
+                maintainContext: true
               - name: SAP workload configurations with AZs
                 href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
                 maintainContext: true
