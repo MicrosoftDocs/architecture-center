@@ -215,7 +215,7 @@ You can implement different variations of this tenancy model. For example, you m
 - Standard tier: tenants requests are served by a dedicated Kubernetes application running in separate namespace which provides isolation boundaries in terms of security, networking, resource consumption. All tenants applications, one for each tenant, share the same AKS cluster and node pool with other standard-tier customers.
 - Premium tier: tenant application runs in a dedicated node pool or AKS cluster to guarantee a higher service level agreement, performance, and isolation degree. This tier could provide a flexible cost model based on the number and SKU of the agent nodes used to host the tenant application.
 
-The following diagram shows a scenario where tenant 1 and 2 run on a shared AKS cluster, whereas tenant 3 runs on a separate AKS cluster.
+The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, whereas tenant C runs on a separate AKS cluster.
 
 ![Diagram showing three tenants. Tenants A and B share an AKS cluster. Tenant C has a dedicated AKS cluster.](./media/aks/vertically-partitioned-aks-clusters.png)
 
