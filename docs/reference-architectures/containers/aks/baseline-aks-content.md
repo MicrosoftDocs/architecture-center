@@ -73,9 +73,9 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Hub-spoke network topology](images/baseline-architecture.svg)
+![Hub-spoke network topology](images/aks-baseline-architecture.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
 ### Hub
 
@@ -160,7 +160,7 @@ Kubernetes and AKS are continuously-evolving products, with faster release cycle
 * AKS team describes preview features as *shipped and improving*. The reason behind that is that many of the preview features stay in that state for only a few months before moving to general release (GA) phase.
 * AKS [add-ons](/azure/aks/integrations) provides additional, supported functionality. Their installation, configuration, and lifecycle is managed by AKS.
 
-This baseline architecture doesn't include every preview feature or add-on, instead only those that add significant value to a general-purpose cluster are included. As these features come out of preview, this baseline architecture will be revised accordingly. There are some additional preview features or AKS add-ons you might want to evaluate in pre-production clusters that augment your security, manageability, or other requirements.
+This baseline architecture doesn't include every preview feature or add-on, instead only those that add significant value to a general-purpose cluster are included. As these features come out of preview, this baseline architecture will be revised accordingly. There are some additional preview features or AKS add-ons you might want to evaluate in pre-production clusters that augment your security, manageability, or other requirements. With third-party add-ons, you needed to install and maintain them, including tracking available versions and installing updates after upgrading a cluster’s Kubernetes version.
 
 ## Container image reference
 
@@ -252,7 +252,7 @@ In this reference implementation, access via local cluster accounts is explicitl
 
 Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A pod managed identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in the Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource.
 
-In this reference implementation, managed pod identities is facilitated through [Azure AD pod identity](/azure/aks/use-azure-ad-pod-identity).
+In this reference implementation, managed pod identities is facilitated through [Azure AD pod identity](/azure/aks/use-azure-ad-pod-identity). An alternative approach to evaluate is using [Azure AD Workload Identity for Kubernetes (preview)](https://github.com/Azure/azure-workload-identity), which integrates with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod identity. For more information about Azure AD workload identity federation, see the following [overview](/azure/active-directory/develop/workload-identity-federation).
 
 ## Deploy Ingress resources
 
