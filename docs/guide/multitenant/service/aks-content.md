@@ -297,7 +297,7 @@ For general guidance on how you can configure Private Link for an Azure-hosted m
 
 ## Reverse Proxy
 
-A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer, and API Gateway is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
+A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and an API Gateway that is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
 - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is a popular reverse proxy server that supports advanced features such as load balancing, SSL termination, and layer 7 routing.
 - [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is a Kubernetes Ingress controller that can be used to manage access to cluster services by supporting the Ingress specification.
