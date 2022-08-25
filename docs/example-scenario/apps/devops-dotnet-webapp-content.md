@@ -11,14 +11,6 @@ This article describes a high-level DevOps workflow for deploying application ch
 > [!NOTE]
 > Although this article covers CI/CD for application changes, Azure Pipelines can also be used to build CI/CD pipelines for infrastructure as code (IaC) changes.
 
-## Potential use cases
-
-Consider Azure DevOps and CI/CD processes for:
-
-- Accelerating application development and development lifecycles.
-- Building quality and consistency into an automated build and release process.
-- Increasing application stability and uptime.
-
 ## Architecture
 
 :::image type="content" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of an Azure DevOps pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.":::
@@ -93,6 +85,14 @@ Consider these alternatives to hosting in Azure Web Apps or Azure Function Apps:
 - [Azure Container Apps](/azure/container-apps/overview) allows you to run containerized applications on a serverless platform.
 
 This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.yml) can help when choosing the right path to take for a migration.
+
+## Scenario details
+
+Consider Azure DevOps and CI/CD processes for:
+
+- Accelerating application development and development lifecycles.
+- Building quality and consistency into an automated build and release process.
+- Increasing application stability and uptime.
 
 ## Security and Operational Excellence considerations
 
