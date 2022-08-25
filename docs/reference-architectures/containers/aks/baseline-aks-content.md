@@ -121,9 +121,9 @@ For additional information, [Private Link deployment options](../../../guide/net
 
 ## Plan the IP addresses
 
-![Diagram showing network topology of the AKS cluster.](images/baseline-network-topology.svg)
+![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks_network_topology.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
 
 The address space of the virtual network should be large enough to hold all subnets. Account for all entities that will receive traffic. IP addresses for those entities will be allocated from the subnet address space. Consider these points.
 
@@ -160,7 +160,7 @@ Kubernetes and AKS are continuously-evolving products, with faster release cycle
 * AKS team describes preview features as *shipped and improving*. The reason behind that is that many of the preview features stay in that state for only a few months before moving to general release (GA) phase.
 * AKS [add-ons](/azure/aks/integrations) provides additional, supported functionality. Their installation, configuration, and lifecycle is managed by AKS.
 
-This baseline architecture doesn't include every preview feature or add-on, instead only those that add significant value to a general-purpose cluster are included. As these features come out of preview, this baseline architecture will be revised accordingly. There are some additional preview features or AKS add-ons you might want to evaluate in pre-production clusters that augment your security, manageability, or other requirements. With third-party add-ons, you needed to install and maintain them, including tracking available versions and installing updates after upgrading a cluster’s Kubernetes version.
+This baseline architecture doesn't include every preview feature or add-on, instead only those that add significant value to a general-purpose cluster are included. As these features come out of preview, this baseline architecture will be revised accordingly. There are some additional preview features or AKS add-ons you might want to evaluate in pre-production clusters that augment your security, manageability, or other requirements. With third-party add-ons, you needed to install and maintain them, including tracking available versions and installing updates after upgrading a cluster's Kubernetes version.
 
 ## Container image reference
 
