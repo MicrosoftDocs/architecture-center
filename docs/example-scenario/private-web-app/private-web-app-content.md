@@ -4,23 +4,23 @@ This example scenario describes how to securely connect a web app to a backend d
 
 ![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v3.vsdx) of this architecture.*
 
 ### Workflow
 
-1 The web app receives an HTTP request from the internet that requires an API call to the Azure SQL Database.
+1. The web app receives an HTTP request from the internet that requires an API call to the Azure SQL Database.
 
-1 Web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features) by default. But setting up [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) gives the web app outbound access to resources in the virtual network that aren't internet-hosted endpoint. Regional network integration mounts a virtual interface in the **AppSvcSubnet**. We applied the **Route All* setting to the regional network integration. All outbound traffic from the web app goes through the virtual network.
+1. Web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features) by default. But setting up [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) gives the web app outbound access to resources in the virtual network that aren't internet-hosted endpoint. Regional network integration mounts a virtual interface in the **AppSvcSubnet**. We applied the **Route All* setting to the regional network integration. All outbound traffic from the web app goes through the virtual network.
 
-1 The web app connects to the virtual network through a virtual interface mounted in the **AppSvcSubnet** of the [virtual network](/azure/virtual-network/).
+1. The web app connects to the virtual network through a virtual interface mounted in the **AppSvcSubnet** of the [virtual network](/azure/virtual-network/).
 
-1 [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the [Azure SQL Database](/azure/azure-sql/database/) in the **PrivateLinkSubnet** of the Virtual Network.
+1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the [Azure SQL Database](/azure/azure-sql/database/) in the **PrivateLinkSubnet** of the Virtual Network.
 
-1 The web app sends an outbound DNS query for the IP address of the Azure SQL Database through the virtual interface in the **AppSvcSubnet**. The CNAME of the database DNS directs the DNS query to the private DNS zone. The private DNS zone returns the private IP address of the Azure SQL Database private endpoint.
+1. The web app sends an outbound DNS query for the IP address of the Azure SQL Database through the virtual interface in the **AppSvcSubnet**. The CNAME of the database DNS directs the DNS query to the private DNS zone. The private DNS zone returns the private IP address of the Azure SQL Database private endpoint.
 
-1 The web app connects to the SQL Database through the private endpoint in the **PrivateLinkSubnet**.
+1. The web app connects to the SQL Database through the private endpoint in the **PrivateLinkSubnet**.
 
-1 The database firewall allows only traffic coming from the PrivateLinkSubnet to connect. The database is inaccessible from the public internet.
+1. The database firewall allows only traffic coming from the PrivateLinkSubnet to connect. The database is inaccessible from the public internet.
 
 ### Components
 
