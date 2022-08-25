@@ -31,7 +31,7 @@ Azure provides these virtual desktop solutions:
 If you're new to virtual desktops on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. 
 Here's a learning path to get you started:
 
-- [Deliver remote desktops and apps with Azure Virtual Desktop](https://docs.microsoft.com/learn/paths/m365-wvd)
+- [Deliver remote desktops and apps with Azure Virtual Desktop](/learn/paths/m365-wvd)
 
 ## Path to production
 
@@ -45,8 +45,6 @@ These are two more key Cloud Adoption Framework articles:
 
 See [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) for a high-level overview of the network connections used by Azure Virtual Desktop.
 
-For information about authentication and Azure Virtual Desktop, see [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) and [Azure AD join for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join).
-
 ## Best practices
 
 - [Security best practices for Azure Virtual Desktop](/azure/virtual-desktop/security-guide)
@@ -57,12 +55,12 @@ For information about authentication and Azure Virtual Desktop, see [Authenticat
 
 ## More virtual desktop resources
 
-The following sections, organized by category, provide links to more example scenarios and articles.
+The following sections, organized by category, provide links to example scenarios and other articles.
 
 ### Identity
 
-In addition to the resources about authentication noted earlier in the [Path to production](#path-to-production) section, see these articles:
-
+- [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
+- [Azure AD join for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)
 - [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 
