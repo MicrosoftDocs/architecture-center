@@ -5555,6 +5555,8 @@ items:
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
+              - name: Inbound and outbound internet connections for SAP on Azure
+                href: guide/sap/sap-internet-inbound-outbound.yml
               - name: SAP workload configurations with AZs
                 href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
                 maintainContext: true
