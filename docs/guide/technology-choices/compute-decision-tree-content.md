@@ -30,7 +30,7 @@ If you're not familiar with the Azure service selected in the previous step, rea
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
 - [Azure Virtual machines](/azure/virtual-machines). Deploy and manage VMs inside an Azure virtual network.
 - [Azure Container Apps](/azure/container-apps). A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
-- [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes requires additional tools and resource.
+- [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes, which requires additional tools and resources.
 
 ## Understand the hosting models
 
