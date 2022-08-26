@@ -288,7 +288,7 @@ By using a private AKS cluster, you can ensure that the network traffic between 
 
 The second option to improve cluster security and minimize attacks is using [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges) to restrict the access to the control plane of a public AKS cluster to a well-known list of IP addresses and CIDRs. When using this is still publicly exposed, but access is limited to a set of IP ranges. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
 
-## Private Link integration
+### Private Link integration
 
 [Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) is an infrastructure component that allows applications to privately connect to a service via an [Azure Private Endpoint (PE)](/azure/private-link/private-endpoint-overview) defined in a virtual network and connected to the frontend IP configuration of an [Azure Load Balancer (ALB)](/azure/load-balancer/load-balancer-overview). With [Azure Private Link](/azure/private-link/private-link-overview), service providers can securely provide their services to their tenants that can connect from within Azure or on-premises without data exfiltration risks.
 
@@ -296,7 +296,7 @@ You can use [Azure Private Link Service Integration](https://cloud-provider-azur
 
 For general guidance on how you can configure Private Link for an Azure-hosted multitenant solution, see [Multitenancy and Azure Private Link](/azure/architecture/guide/multitenant/service/private-link).
 
-## Reverse proxies
+### Reverse proxies
 
 A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and an API Gateway that is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
@@ -331,7 +331,7 @@ You can use Azure Front Door to manage custom domain names and SSL termination f
 
 You can configure Azure Front Door Premium to privately connect to one or more tenant applications running on an AKS cluster via an internal load balancer origin using the [Azure Private Link Service](/azure/private-link/private-link-service-overview). For more information, see [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](/azure/frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer).
 
-## Integration with Azure Firewall
+### Integration with Azure Firewall
 
 In a multitenant environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the internet.
 
@@ -341,7 +341,7 @@ Likewise, you can control ingress traffic and improve the security of AKS-hosted
 
 For more information, see [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall).
 
-## Outbound connections
+### Outbound connections
 
 When AKS-hosted applications connect to a large number of databases or external services, the cluster may be at risk of SNAT port exhaustion. [SNAT Ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) are used to generate unique identifiers used to maintain distinct flows initiated by applications running on the same set of compute resources. Running several tenant applications on a shared Azure Kubernetes Service cluster which make a high number of outbound calls can lead to a SNAT port exhaustion. An AKS cluster can handle outbound connections in 3 different ways:
 
