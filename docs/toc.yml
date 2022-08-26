@@ -830,6 +830,8 @@ items:
                 href: industries/retail/retail-data-management-overview.md
               - name: AI and ML in retail
                 items:
+                  - name: Content-based recommendation
+                    href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
                   - name: Deploy AI-based footfall detection
                     href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
                   - name: Forecast bike rental demand
@@ -872,8 +874,6 @@ items:
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Buy online, pick up in store (retail)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
-              - name: Content-based recommendation
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Interactive price analytics
@@ -2267,8 +2267,6 @@ items:
                     href: /azure/architecture/browse/?terms=media
                   - name: 3D video rendering
                     href: example-scenario/infrastructure/video-rendering.yml
-                  - name: Content-based recommendation
-                    href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
                   - name: Digital image-based modeling on Azure
                     href: example-scenario/infrastructure/image-modeling.yml
                   - name: Gridwich cloud media system
@@ -2748,8 +2746,8 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Build content-based recommendations
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Content-based recommendations
+                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: Build custom document processing models
                 href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Chatbot for hotel booking
@@ -5555,6 +5553,12 @@ items:
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
+              - name: SAP NetWeaver on Windows on Azure
+                href: guide/sap/sap-netweaver.yml
+              - name: SAP S/4HANA in Linux on Azure
+                href: guide/sap/sap-s4hana.yml
+              - name: Inbound and outbound internet connections for SAP on Azure
+                href: guide/sap/sap-internet-inbound-outbound.yml
               - name: SAP workload configurations with AZs
                 href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
                 maintainContext: true
@@ -5585,10 +5589,6 @@ items:
                 maintainContext: true
               - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
-              - name: SAP NetWeaver on Windows on Azure
-                href: reference-architectures/sap/sap-netweaver.yml
-              - name: SAP S/4HANA in Linux on Azure
-                href: reference-architectures/sap/sap-s4hana.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server

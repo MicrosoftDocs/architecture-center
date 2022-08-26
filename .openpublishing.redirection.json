@@ -1784,6 +1784,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/sap/sap-netweaver.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-netweaver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/sap-s4hana.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -2361,6 +2371,11 @@
       "source_path": "docs/reference-architectures/ai/speech-to-text-transcription-pipeline.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
+      "redirect_document_id": true
     }
   ]
 }
