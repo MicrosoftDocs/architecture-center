@@ -276,7 +276,7 @@ Tenant workloads deployed to AKS clusters can use Azure AD application credentia
 
 ## Networking
 
-## Restrict network access to the API server
+### Restrict network access to the API server
 
 In Kubernetes, the API server receives requests to perform actions in the cluster, such as creating resources or scaling the number of nodes. When sharing an AKS cluster across multiple teams within an organization, protect access to the control plane using one of the following solutions.
 
