@@ -21,7 +21,7 @@ categories:
 
 Azure and Azure services can help you deliver high-quality video content to any device. Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and more. Gridwich, an event-processing framework for delivering media assets on Azure, was developed by Microsoft for a well-known entertainment conglomerate.
 
-Check out these Azure services:
+Use the following links to learn more about media services that are available on Azure: 
 
 - [Azure Media Services](https://azure.microsoft.com/services/media-services). Encode, store, and stream video and audio at scale.
 - [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). Use a single player for all your playback needs.
@@ -65,8 +65,8 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 
 - [Set up Azure DevOps](../../reference-architectures/media-services/set-up-azure-devops.yml)
 - [Run Azure admin scripts](../../reference-architectures/media-services/run-admin-scripts.yml)
-- [Set up s local development environment](../../reference-architectures/media-services/set-up-local-environment.yml)
-- [Create a cloud environmemt](../../reference-architectures/media-services/create-delete-cloud-environment.yml)
+- [Set up a local development environment](../../reference-architectures/media-services/set-up-local-environment.yml)
+- [Create a cloud environment](../../reference-architectures/media-services/create-delete-cloud-environment.yml)
 - [Maintain and rotate keys](../../reference-architectures/media-services/maintain-keys.yml)
 - [Test Media Services v3 encoding](../../reference-architectures/media-services/test-encoding.yml)
 
@@ -89,7 +89,7 @@ Get the latest updates on [Azure media services and features](https://azure.micr
 
 ### Example solutions
 
-These are some additional articles about Azure media solutions:
+Here are some additional articles about Azure media solutions:
 
 - [Encoding video and audio with Media Services](/azure/media-services/latest/encode-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
