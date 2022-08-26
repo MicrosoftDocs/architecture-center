@@ -21,10 +21,10 @@ categories:
 
 Azure and Azure services can help you deliver high-quality video content to any device. Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and more. Gridwich, an event-processing framework for delivering media assets on Azure, was developed by Microsoft for a well-known entertainment conglomerate.
 
-Use the following links to learn more about media services that are available on Azure: 
+Select the following links to learn more about media services that are available on Azure:
 
-- [Azure Media Services](https://azure.microsoft.com/services/media-services). Encode, store, and stream video and audio at scale.
-- [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). Use a single player for all your playback needs.
+- [Azure Media Services](https://azure.microsoft.com/services/media-services). Use high-definition video encoding and streaming services to reach your audiences on the devices they use. And enhance content discoverability and performance by using AI. 
+- [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). Use a single player for automatic playback on the most popular devices.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn). Deliver content on a fast, reliable network that has global reach.
 - [Azure Content Protection](https://azure.microsoft.com/services/media-services/content-protection). Use AES, PlayReady, Widevine, and FairPlay to deliver content with enhanced security.
 - [Encoding](https://azure.microsoft.com/services/media-services/encoding). Implement studio-grade encoding at cloud scale.
