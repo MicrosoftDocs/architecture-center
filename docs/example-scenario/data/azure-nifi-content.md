@@ -69,7 +69,7 @@ As a result, this solution applies to many areas:
 
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
-- Airflow - the differences are listed here: https://algoscale.com/blog/airflow-and-nifi-data-integration-tools/
+- [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
 
 ## Recommendations
 
@@ -889,7 +889,7 @@ Except for the clustering settings, use default values for your ZooKeeper config
 
 If you have a large NiFi cluster, you might need to use a greater number of ZooKeeper servers. For smaller cluster sizes, smaller VM sizes and Standard SSD managed disks are sufficient.
 
-## Pricing
+### Cost optimization
 
 - Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
 - For an estimate that includes all the services in this architecture except the custom alerting solution, see this [sample cost profile][Sample cost profile].
