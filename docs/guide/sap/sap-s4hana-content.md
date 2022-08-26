@@ -92,9 +92,7 @@ If you use the FES hub deployment, the FES is an add-on component to the classic
 
 :::image type="content" source="media/fiori.png" alt-text="Architecture diagram that shows the data flow between the internet and two virtual networks, one with SAP Fiori and one with SAP S/4HANA." lightbox="media/fiori.png" border="false":::
 
-<!--
-For some internet-facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solutions](../../reference-architectures/sap/sap-internet-inbound-outbound.yml).
--->
+For some internet-facing inbound/outbound design examples, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
 ### Application servers pool
 
