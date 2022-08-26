@@ -12,7 +12,7 @@ Reference the following tree when deciding between the options presented below f
 
 -   [MicroK8s](https://microk8s.io/docs): Conformant "Low Ops" Kubernetes by Canonical
 
--   [K3s](https://rancher.com/docs/k3s): Certified Kubernetes distribution built for IoT and edge computing
+-   [K3s](https://k3s.io): Certified Kubernetes distribution built for IoT and edge computing
 
 -   [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm): Kubernetes tool for creating ground-up Kubernetes clusters; good for standard compute (Linux/Windows)
 
