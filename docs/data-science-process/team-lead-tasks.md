@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 08/29/2020
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -44,7 +44,7 @@ The following diagram shows the workflow for the tasks the team lead completes t
 1. If required, create team data and analytics resources:
    - Add team-specific utilities to the **TeamUtilities** repository.
    - Create **Azure File Storage** to store data assets that can be useful for the entire team.
-   - Mount the Azure File Storage to the team lead's **Data Science Virtual Machine** (DSVM) and add data assets to it.
+   - Mount Azure File Storage to the team lead's **Data Science Virtual Machine** (DSVM) and add data assets to it.
 
 The following tutorial walks through the steps in detail.
 
