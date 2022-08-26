@@ -894,11 +894,6 @@ Except for the clustering settings, use default values for your ZooKeeper config
 
 If you have a large NiFi cluster, you might need to use a greater number of ZooKeeper servers. For smaller cluster sizes, smaller VM sizes and Standard SSD managed disks are sufficient.
 
-### Cost optimization
-
-- Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
-- For an estimate that includes all the services in this architecture except the custom alerting solution, see this [sample cost profile][Sample cost profile].
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
