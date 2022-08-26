@@ -56,6 +56,8 @@ Due to the ephemeral nature of deployment stamps, avoid persisting state within 
 
 In the reference implementation **Azure Cosmos DB** serves as the main data store for the application. [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions. **SQL API** is used because it supports all capabilities of the database engine.
 
+For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
+
 > [!NOTE]
 > New applications should use the Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Cosmos DB SQL API.
 
@@ -63,48 +65,6 @@ In the reference implementation **Azure Cosmos DB** serves as the main data stor
 > For mission-critical applications that prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
 
 In this architecture, there's a need to store state temporarily in the stamp for Event Hubs checkpointing. **Azure Storage** is used for that purpose.
-
-Data model should be designed such that features offered by traditional relational databases aren't required. For example, foreign keys, strict row/column schema, views, and others.
-
-The workload has these **data access characteristics**:
-
-- Read pattern:
-  - Point reads - Fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
-  - List reads - Getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
-- Write pattern:
-  - Small writes - Requests usually insert a single or a very small number of records in a transaction.
-- Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
-- Small payload or dataset size - usually in order of KB.
-- Low response time (in order of milliseconds).
-- Low latency (in order of milliseconds).
-
-Cosmos DB is configured as follows:
-
-- **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
-
-- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling virtually infinite scale.
-
-- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes properties used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
-
-Here's an example from the implementation that shows indexing policy settings using Terraform:
-
-```
-indexing_policy {
-
-  excluded_path {
-    path = "/description/?"
-  }
-
-  excluded_path {
-    path = "/comments/text/?"
-  }
-
-  included_path {
-    path = "/*"
-  }
-
-}
-```
 
 All workload components use the Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Here are some key configuration settings:
 
@@ -439,47 +399,9 @@ In the architecture, health monitoring is applied at these levels:
 
 If the AKS cluster is down, the health service won't respond, rendering the workload unhealthy. When the service is running, it performs periodic checks against critical components of the solution. All checks are done **asynchronously and in parallel**. If any of them fail, the whole stamp will be considered unavailable.
 
-Health check results are **cached in memory**, using the standard, non-distributed ASP.NET Core `MemoryCache`. Cache expiration is controlled by `SysConfig.HealthServiceCacheDurationSeconds` and is set to 10 seconds by default. There's not need for external cache in this case.
-
 > [!WARNING]
 > Azure Front Door health probes can generate significant load on the health service, because requests come from multiple PoP locations. To prevent overloading the downstream components, appropriate caching needs to take place.
 
 The health service is also used for explicitly configured URL ping tests with each stamp's Application Insights resource.
 
-#### Cosmos DB example
-
-To minimize impact on the overall load, the read check is a simple query which doesn't manipulate with data:
-
-```sql
-SELECT GetCurrentDateTime()
-```
-
-The write request creates a dummy document with minimum content and short time-to-live (TTL):
-
-```csharp
-var testRating = new ItemRating()
-{
-    Id = Guid.NewGuid(),
-    CatalogItemId = Guid.NewGuid(), // create some random (= non-existing) item id
-    CreationDate = DateTime.UtcNow,
-    Rating = 1,
-    TimeToLive = 10 // will be auto-deleted after 10 seconds
-};
-
-await AddNewRatingAsync(testRating);
-```
-
-#### Event Hubs example
-
-The health service reports healthy if it's able to send a message to Event Hubs. It contains additional property `HEALTHCHECK=TRUE` and the background processor ignores it.
-
-#### Blob Storage account example
-
-- Test if it's possible to reach Blob Storage. This storage account is also used by other components in the stamp and hence considered a critical resource.
-- Manually "turn off" a region by manipulating (i.e. deleting) the state file.
-
-The reference implementation looks for presence of the state file in the specified Blob Container. If it cannot connect to the Storage Account, or if the file is not found, stamp is considered unhealthy.
-
-**Remove** the file to disable a stamp.
-
-
+For more details about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).

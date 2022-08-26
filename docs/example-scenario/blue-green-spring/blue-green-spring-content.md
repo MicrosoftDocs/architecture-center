@@ -94,17 +94,17 @@ Automation of this setup via GitHub Actions workflows increases DevOps productiv
 
 Teams often manage multiple environments for the same application. It's typical to have several versions of an application deployed to different Azure Spring Apps services. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-## Deploy this scenario
-
-For a sample of this configuration, see the [Automated blue/green deployment for Azure Spring Apps applications](https://github.com/Azure-Samples/azure-spring-cloud-blue-green) GitHub repo. The repo also includes the steps for setting up your Azure Spring Apps service by using a Bicep template.
-
-## Pricing
+### Cost optimization
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 Azure Spring Apps has a Basic tier and a Standard tier. For details, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-cloud/). When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
 
 GitHub offers a free service. But to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
+
+## Deploy this scenario
+
+For a sample of this configuration, see the [Automated blue/green deployment for Azure Spring Apps applications](https://github.com/Azure-Samples/azure-spring-cloud-blue-green) GitHub repo. The repo also includes the steps for setting up your Azure Spring Apps service by using a Bicep template.
 
 ## Contributors
 

@@ -15,7 +15,9 @@ This solution is ideal for the media and entertainment industries. Other relevan
 
 ## Architecture
 
-![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch][architecture]
+![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch.][architecture]
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Dataflow
 
@@ -178,3 +180,4 @@ Learn modules:
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
+[visio-download]: https://arch-center.azureedge.net/architecture-video-rendering.vsdx

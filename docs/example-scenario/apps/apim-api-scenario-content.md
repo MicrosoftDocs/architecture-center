@@ -1,30 +1,10 @@
-An e-commerce company in the travel industry is modernizing their legacy browser-based software stack. While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. They are considering the creation of additional revenue streams to monetize some of the internal intellectual property that's been developed.
-
-Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
-
-- The development team will modernize the application back end, which is composed of relational databases hosted on VMs.
-- The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
-- A contract development team will build a new browser-based UI, which will be hosted in Azure.
-
-New application features will be delivered in stages. These features will gradually replace the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
-
-The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be used to address many of the project's requirements and constraints.
-
-## Potential use cases
-
-This scenario highlights modernizing legacy browser-based software stacks.
-
-You can use this scenario to:
-
-- See how your business can benefit from utilizing the Azure ecosystem.
-- Plan for migrating services to Azure.
-- Learn how a shift to Azure would affect existing APIs.
+In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management. The new UI will be hosted as a platform as a service (PaaS) application on Azure, and it will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces, which will enable better performance, easier integration, and future extensibility.
 
 ## Architecture
 
 ![Architecture diagram][architecture]
 
-The new UI will be hosted as a platform as a service (PaaS) application on Azure, and will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces enabling better performance, easier integration, and future extensibility.
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Workflow
 
@@ -32,7 +12,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 2. Calls from the existing web app to the existing HTTP services will remain unchanged. These calls are internal to the corporate network.
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
-    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [adding the IP address of the APIM instance to the allow list][apim-allow-ip] within the corporate network perimeter.
+    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [adding the IP address of the APIM instance to the allowlist][apim-allow-ip] within the corporate network perimeter.
     - A new module is configured into the on-premises HTTP services request pipeline (to act on **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
@@ -60,6 +40,30 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
 > [!NOTE]
 > For general information on connecting API Management to a VNet, [see here][apim-vnet].
 
+## Scenario details
+
+An e-commerce company in the travel industry is modernizing their legacy browser-based software stack. While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. They are considering the creation of additional revenue streams to monetize some of the internal intellectual property that's been developed.
+
+Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
+
+- The development team will modernize the application back end, which is composed of relational databases hosted on VMs.
+- The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
+- A contract development team will build a new browser-based UI, which will be hosted in Azure.
+
+New application features will be delivered in stages. These features will gradually replace the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
+
+The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be used to address many of the project's requirements and constraints.
+
+### Potential use cases
+
+This scenario highlights modernizing legacy browser-based software stacks.
+
+You can use this scenario to:
+
+- See how your business can benefit from utilizing the Azure ecosystem.
+- Plan for migrating services to Azure.
+- Learn how a shift to Azure would affect existing APIs.
+
 ## Considerations
 
 ### Availability and scalability
@@ -69,13 +73,7 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
 - [Deploying across multiple regions][apim-multi-regions] will enable fail over options and can be done in the [Premium tier][apim-pricing].
 - Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
 
-## Deploy this scenario
-
-To get started, [create an Azure API Management instance in the portal.][apim-create]
-
-Alternatively, you can choose from an existing Azure Resource Manager [quickstart template][azure-quickstart-templates-apim] that aligns to your specific use case.
-
-## Pricing
+### Cost optimization
 
 API Management is offered in four tiers: developer, basic, standard, and premium. You can find detailed guidance on the difference in these tiers at the [Azure API Management pricing guidance here.][apim-pricing]
 
@@ -85,6 +83,12 @@ Customers can scale API Management by adding and removing units. Each unit has c
 > The Developer tier can be used for evaluation of the API Management features. The Developer tier should not be used for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
+
+## Deploy this scenario
+
+To get started, [create an Azure API Management instance in the portal.][apim-create]
+
+Alternatively, you can choose from an existing Azure Resource Manager [quickstart template][azure-quickstart-templates-apim] that aligns to your specific use case.
 
 ## Contributors
 
@@ -96,7 +100,7 @@ Principal author:
 
 ## Next steps
 
-Product documention:
+Product documentation:
 
 - [Azure App Service overview](/azure/app-service/overview)
 - [About About API Management](/azure/api-management/api-management-key-concepts)
@@ -142,3 +146,4 @@ Learn modules:
 [azure-quickstart-templates-apim]: https://azure.microsoft.com/resources/templates/?term=API+Management&pageNumber=1
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
+[visio-download]: https://arch-center.azureedge.net/architecture-apim-api-scenario.vsdx

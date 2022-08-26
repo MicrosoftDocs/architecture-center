@@ -1,22 +1,10 @@
 This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
-## Potential use cases
-
-Relevant use cases include:
-
-- Modeling and measuring buildings, engineering structures, and forensic accident scenes.
-- Creating visual effects for computer games and movies.
-- Using digital images to indirectly generate measurements of objects of various scales as in urban planning and other applications.
-
 ## Architecture
 
-This example describes the use of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry.
+![Diagram showing architecture of image-based modeling using Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.png)
 
-The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
-
-This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
-
-![architecture diagram](./media/architecture-image-modeling.png)
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-image-modeling.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -45,6 +33,22 @@ This architecture also includes Active Directory domain controllers to control a
 - Deploy the BeeGFS parallel virtual file system as the back-end storage on Azure instead of Avere vFXT. Use the [BeeGFS template](https://github.com/paulomarquesc/beegfs-template) to deploy this end-to-end solution on Azure.
 - Deploy the storage solution of your choice, such as GlusterFS, Lustre, or Windows Storage Spaces Direct. To do this, edit the [PhotoScan template](https://github.com/paulomarquesc/photoscan-template) to work with the storage solution you want.
 - Deploy the worker nodes with the Windows operating system instead of Linux, the default option. When choosing Windows nodes, storage integration options are not executed by the deployment templates. You must manually integrate the environment with an existing storage solution, or customize the PhotoScan template to provide such automation, as described in the [repository](https://github.com/paulomarquesc/photoscan-template/blob/master/docs/AverePostDeploymentSteps.md).
+
+## Scenario details
+
+This example describes the use of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry.
+
+The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
+
+This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
+
+### Potential use cases
+
+Relevant use cases include:
+
+- Modeling and measuring buildings, engineering structures, and forensic accident scenes.
+- Creating visual effects for computer games and movies.
+- Using digital images to indirectly generate measurements of objects of various scales as in urban planning and other applications.
 
 ## Considerations
 
