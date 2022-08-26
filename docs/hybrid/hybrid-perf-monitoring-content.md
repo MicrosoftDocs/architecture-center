@@ -158,7 +158,7 @@ The following are considerations for integrating your environment with DevOps pr
     - Python
 - Use IT Service Management Connector (ITSMC) to connect to external IT Service Management (ITSM) tools. ITSMC connects Azure to supported ITSM products and services, where issue-related work items typically reside. For more information, see [Connect Azure to ITSM tools using IT Service Management Connector][itsm].
 
-## Pricing
+### Cost optimization
 
 The following items are considerations for controlling and managing costs in your environment.
 
