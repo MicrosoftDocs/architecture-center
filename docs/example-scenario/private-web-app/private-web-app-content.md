@@ -153,15 +153,15 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 
 1. Navigate through the five **Create a private endpoint** pages to create the private endpoint in the **PrivateLinkSubnet**.
 
-   1. Select your resource group and name your private endpoint on the basics page. On the Resource page, ensure the **Resource type** is **Microsoft.Sql/servers** and **Resource** shows the correct SQL Server. For **Target sub-resource**, select **sqlServer**.
+   1. Select your resource group and name your private endpoint on the *Basics* page. On the *Resource* page, ensure the **Resource type** is **Microsoft.Sql/servers** and **Resource** shows the correct SQL Server. For **Target sub-resource**, select **sqlServer**.
 
       ![Screenshot of Private Endpoint creation page.](media/create-private-endpoint-resource-page-v2.png)
 
-   1. On the Virtual Network page, select the virtual network you create and the **PrivateLinkSubnet**
+   1. On the *Virtual Network* page, select the virtual network you create and the **PrivateLinkSubnet**
 
         ![Screenshot of the Private Endpoint virtual network configuration page.](media/select-a-vnet-subnet.png)
 
-   1. On the **DNS** page, select **Yes** for the **Integrate with private DNS zone** option. The selection will register the private IP address of the database server in the `privatelink.database.windows.net` private Azure DNS zone.
+   1. On the *DNS* page, select **Yes** for the **Integrate with private DNS zone** option. The selection will register the private IP address of the database server in the `privatelink.database.windows.net` private Azure DNS zone.
 
       ![Screenshot of the Private Endpoint Configuration page.](media/dns-configuration.png)
 
