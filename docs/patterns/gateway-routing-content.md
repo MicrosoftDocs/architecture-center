@@ -20,7 +20,7 @@ With this pattern, the client application only needs to know about and communica
 
 ### Multiple disparate services
 
-![Diagram of the gateway sitting in front of a search service, a checkout service, an order history service, a cart service and a reviews service.](./_images/gateway-multiple-services.png)
+:::image source="./_images/gateway-multiple-services.png" alt-text="Diagram of the gateway sitting in front of a search service, a checkout service, an order history service, a cart service and a reviews service":::
 
 The gateway routing pattern is useful in this scenario where a client is consuming multiple services. If a service is consolidated, decomposed or replaced, the client doesn't necessarily require updating. It can continue making requests to the gateway, and only the routing changes.
 
@@ -28,15 +28,15 @@ A gateway also lets you abstract backend services from the clients, allowing you
 
 ### Multiple instances of the same service
 
-![Diagram of the gateway sitting in front of a search service in region 1 and a search service in region 2.](./_images/gateway-multiple-regions.png)
+:::image source="./_images/gateway-multiple-regions.png" alt-text="Diagram of the gateway sitting in front of a search service in region 1 and a search service in region 2.":::
 
-Part of the promise of the cloud is elasticity. Services can be spun up to meet increasing demand or spun down when demand is low to save money. The complexity of registering and unregistering service instances is encapsulated in the gateway. The client is unaware of an increase or decrease in the number of services.
+Part of the promise of the cloud is elasticity. Services can be spun up to meet increasing demand or spun down when demand is low to save money. The complexity of registering and unregistering service instances is encapsulated in the gateway. The client is unaware of an increase or decreases in the number of services.
 
 Service instances can be deployed in a single or multiple regions. The [Geode pattern](./geodes.yml) details how a multi-region, active-active deployment can improve latency and increase availability of a service.
 
 ### Multiple versions of the same service
 
-![Diagram of the gateway sitting in front of a search service version 1 and a search service version 1.1.](./_images/gateway-multiple-versions.png)
+:::image source="./_images/gateway-multiple-versions.png" alt-text="Diagram of the gateway sitting in front of a search service version 1 and a search service version 1.1.":::
 
 This pattern can be used for deployments, by allowing you to manage how updates are rolled out to users. When a new version of your service is deployed, it can be deployed in parallel with the existing version. Routing lets you control what version of the service is presented to the clients, giving you the flexibility to use various release strategies, whether incremental, parallel, or complete rollouts of updates. Any issues discovered after the new service is deployed can be quickly reverted by making a configuration change at the gateway, without affecting clients.
 
