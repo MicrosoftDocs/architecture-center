@@ -3,7 +3,7 @@ title: Azure Application Architecture Fundamentals
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
 author: EdPrice-MSFT
 ms.author: architectures
-ms.date: 07/26/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -62,7 +62,7 @@ You will probably have to make additional technology choices along the way, but 
 
 ## Design the architecture
 
-Once you have chosen the architecture style and the major technology components, you are ready to tackle the specific design of your application. Of course, every application is different, but the following resources can help you along the way:
+Once you have chosen the architecture style and the major technology components, you are ready to tackle the specific design of your application. Every application is different, but the following resources can help you along the way:
 
 ### Reference architectures
 
@@ -86,7 +86,7 @@ Our [security best practices](/security/compass/applications-services) describe 
 
 ## Quality pillars
 
-A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+A successful cloud application will focus on five pillars of software quality: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency.
 
 Leverage the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to assess your architecture across these five pillars.
 
