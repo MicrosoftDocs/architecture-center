@@ -87,8 +87,8 @@ Two configuration changes are required to make the query to the public DNS (for 
 
 1. *Regional virtual network integration* - Regional virtual network integration routes outbound web app traffic to the virtual network.
     - Even with regional virtual network integration enabled, the DNS query to the database will still resolve to the public IP address of the Azure SQL Database. The connection to the database won't go into the virtual network. It will travel along the Azure backbone instead.
-    - Pointing to the hostname of the Private Link (for example,  `contoso.privatelink.database.windows.net`) won't work either. Azure SQL Database won't accept this hostname because of [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns). The Private Link hostname will still resolve to the public IP address.
-1. *Enable the 'Route All' setting* - [Enable the **Route All** setting](/azure/app-service/web-sites-integrate-with-vnet#application-routing) setting on the web app's virtual network integration to make DNS resolve the hostname to the SQL Database's private IP address.
+    - Pointing the DNS query to the hostname of the Private Link (for example,  `contoso.privatelink.database.windows.net`) won't work either. Azure SQL Database won't accept this hostname because of [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns). The Private Link hostname will still resolve to the public IP address.
+1. *Enable the 'Route All' setting* - [Enable the **Route All** setting](/azure/app-service/web-sites-integrate-with-vnet#application-routing) on the web app's virtual network integration to make DNS resolve the hostname to the SQL Database's private IP address.
     - The public DNS (`contoso.database.windows.net`) won't resolve to the public IP address but to the private IP address of the private endpoint as defined in the Azure Private DNS zone.
     - Traffic will flow privately over the virtual network.
 
@@ -153,7 +153,7 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 
 1. Navigate through the five **Create a private endpoint** pages to create the private endpoint in the **PrivateLinkSubnet**.
 
-   1. Select your resource group and name your private endpoint on the basics page. On the Resource page, ensure the **Resource type** is **Microsoft.Sql/servers** and **Resource** is the correct SQL Server. For **Target sub-resource**, select **sqlServer**.
+   1. Select your resource group and name your private endpoint on the basics page. On the Resource page, ensure the **Resource type** is **Microsoft.Sql/servers** and **Resource** shows the correct SQL Server. For **Target sub-resource**, select **sqlServer**.
 
       ![Screenshot of Private Endpoint creation page.](media/create-private-endpoint-resource-page-v2.png)
 
@@ -177,7 +177,7 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 
 1. Enable the **Route All** setting.
 
-   The **VNet Integration** page now shows the Virtual Network configuration details.
+   The **VNet Integration** page now shows the virtual network configuration details.
 
    ![Screenshot of enabling regional VNet Integration for the web app.](media/vnet-integration-route-all.png)
 
