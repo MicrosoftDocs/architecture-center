@@ -41,9 +41,7 @@ This guide describes a production system. The system is deployed with specific v
 
 **Load balancers.** Load balancers are used to distribute traffic to VMs in the application-tier subnet. For SAP application high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic types, like HTTP or SAP GUI, or the required network services, like Secure Sockets Layer (SSL) termination. When you incorporate Load Balancer in a zonal deployment of SAP, make sure you select Standard Load Balancer because the Basic SKU balancer doesn't come with zone redundancy.
 
-<!--
-For some internet-facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solution](../../reference-architectures/sap/sap-internet-inbound-outbound.yml).
--->
+For some internet-facing inbound/outbound design examples, see [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
 Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
 
