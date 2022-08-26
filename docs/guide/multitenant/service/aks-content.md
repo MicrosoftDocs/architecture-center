@@ -291,6 +291,7 @@ The second option to improve cluster security and minimize attacks is using [Aut
 ## Private Link integration
 
 [Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) is an infrastructure component that allows applications to privately connect to a service via an [Azure Private Endpoint (PE)](/azure/private-link/private-endpoint-overview) defined in a virtual network and connected to the frontend IP configuration of an [Azure Load Balancer (ALB)](/azure/load-balancer/load-balancer-overview). With [Azure Private Link](/azure/private-link/private-link-overview), service providers can securely provide their services to their tenants that can connect from within Azure or on-premises without data exfiltration risks.
+
 You can use [Azure Private Link Service Integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) to provide tenants with private connectivity to their AKS-hosted workloads in a secure way without the need to expose any public endpoint on the public internet.
 
 For general guidance on how you can configure Private Link for an Azure-hosted multitenant solution, see [Multitenancy and Azure Private Link](/azure/architecture/guide/multitenant/service/private-link).
