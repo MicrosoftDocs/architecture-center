@@ -22,7 +22,7 @@ categories:
 
 These design patterns are useful for building reliable, scalable, secure applications in the cloud.
 
-Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Microsoft Azure. Most patterns include code samples or snippets showing how to implement the pattern on Azure. However, most patterns are relevant to any distributed system, whether hosted on Azure or other cloud platforms.
+Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Microsoft Azure. Most patterns include code samples or snippets that show how to implement the pattern on Azure. However, most patterns are relevant to any distributed system, whether hosted on Azure or other cloud platforms.
 
 ## Challenges in cloud development
 
@@ -31,7 +31,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     <td><a href="./category/data-management.md"><img src="_images/category/data-management.svg" alt="Data management" /></a></td>
     <td>
         <h3><a href="./category/data-management.md">Data Management</a></h3>
-        <p>Data management is the key element of cloud applications and influences most quality attributes. Data is typically hosted in different locations and across multiple servers for performance, scalability or availability, and this can present various challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.</p>
+        <p>Data management is the key element of cloud applications, and it influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for performance, scalability or availability. This can present various challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.</p>
     </td>
 </tr>
 <tr>
