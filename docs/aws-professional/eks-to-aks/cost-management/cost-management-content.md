@@ -30,12 +30,12 @@ The pricing of the AKS cluster is associated with the number and VM size of the 
 
 When looking into the pricing of Azure virtual machines and associated storage, keep in mind that:
 
-- Service Pricing differs per region. A VM in East US may be cheaper than in West Europe.
+- Service Pricing differs per region. For example, a VM in East US might be cheaper than in West Europe.
 - Not all services and VM sizes are available in each region.
 - There are multiple VM families optimized for different types of workloads.
 - Virtual machines are charged according to their size and usage.
-  - The bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes.
-  - The more specialized (e.g., GPU enabled or memory-optimized) is the VM series used for a node pool, the more expensive will be the cost of the agent pool.
+  - Generally speaking, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes.
+  - Likewise, generally speaking, the more specialized (e.g., GPU enabled or memory-optimized) is the VM series used for a node pool, the more expensive will be the cost of the agent pool.
   - The more time agent nodes are up and running, the higher the total cost of ownership for a cluster. Development environments usually don't need to be running 24/7.
 - Ephemeral OS disks are free and included in the VM price.
 - When using managed disks as OS drives, they are charged separately, and you must add their cost to the total cost estimation.
@@ -48,7 +48,7 @@ When looking into the pricing of Azure virtual machines and associated storage, 
 
 If you plan to run workloads that make use of CSI persistent volumes on you AKS cluster, you need to consider the associated cost of any additional storage provisioned and used by your applications. The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles. The CSI storage driver support on AKS allows you to natively use:
 
-- [Azure Disks](/azure/aks/azure-disk-csi) https://azure.microsoft.com/pricing/details/managed-disks/) can be used to create a Kubernetes data disk resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as ReadWriteOnce, which makes it available to one node in AKS. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files. For more information on costs, see [Managed Disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
+- [Azure Disks](/azure/aks/azure-disk-csi) can be used to create a Kubernetes data disk resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as ReadWriteOnce, which makes it available to one node in AKS. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files. For more information on costs, see [Managed Disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
 
 - [Azure Files](/azure/aks/azure-files-csi) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs. Azure File service relies on a Storage Account, and it is priced based on:
 
@@ -80,7 +80,7 @@ You will also use multiple Azure networking services to provide access to your a
   - Fixed price : this is set hourly (or partial hour) price.
   - Capacity Unit price: this is an additional consumption-based cost. Each capacity unit is composed of at most: 1 compute unit, or 2,500 persistent connections, or 2.22-Mbps throughput.
 
-- [Public IP addresses:](https://azure.microsoft.com/en-gb/pricing/details/ip-addresses/) have also a cost associated depending on:
+- [Public IP addresses:](https://azure.microsoft.com/pricing/details/ip-addresses/) have also a cost associated depending on:
 
   - Reserved vs Dynamic association.
   - Basic vs Standard: secured and zone redundant.
@@ -117,7 +117,7 @@ Other additional costs to keep in mind:
 - Additional storage or PaaS services such as databases.
 - Global networking services such as [Azure Traffic Manager](https://azure.microsoft.com/en-gb/pricing/details/traffic-manager/) or [Azure Front Door](https://azure.microsoft.com/en-gb/pricing/details/frontdoor/) used to route traffic to the public endpoints of workloads running on your AKS cluster.
 - Firewall and protection services such as [Azure Firewall](/azure/firewall/overview) inspect, allow, or block traffic to and from your [Azure Kubernetes Service (AKS)](/azure/aks) cluster.
-- Monitoring services such as [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-cost), [Azure Monitor Application Insights](https://azure.microsoft.com/en-gb/pricing/details/monitor/), [Azure DevOps](https://azure.microsoft.com/en-gb/pricing/details/devops/azure-devops-services/), [GitHub](https://github.com/pricing), [Microsoft Defender](https://azure.microsoft.com/en-gb/pricing/details/defender-for-cloud/), etc.
+- Monitoring services such as [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-cost), [Azure Monitor Application Insights](https://azure.microsoft.com/en-gb/pricing/details/monitor/), [Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/), [GitHub](https://github.com/pricing), [Microsoft Defender](https://azure.microsoft.com/pricing/details/defender-for-cloud/), etc.
 
 ## Cost Optimizations
 

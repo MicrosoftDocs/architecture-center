@@ -116,7 +116,7 @@ When using a private AKS cluster, you can manage the cluster using [kubectl](htt
 
 Alternatively, you can [az aks command invoke](/cli/azure/aks/command?view=azure-cli-latest#az-aks-command-invoke) to run a shell command (with kubectl, helm) on your private AKS cluster, without the need to connect to a jumpbox virtual machine.
 
-## Options for connecting to a private AKS cluster
+### Options for connecting to a private AKS cluster
 
 As mentioned in the previous section, there are several options for establishing network connectivity to the private cluster.
 
@@ -126,7 +126,7 @@ As mentioned in the previous section, there are several options for establishing
 - Use the [az aks command invoke](/azure/aks/command-invoke) Azure CLI command.
 - Use an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) connection.
 
-## Considerations
+### Considerations
 
 - IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
 - Azure Private Link service limitations apply to private clusters.
