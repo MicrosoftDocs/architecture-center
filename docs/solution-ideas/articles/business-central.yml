@@ -23,6 +23,6 @@ products:
   - azure-load-balancer
   - azure-sql-database
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/business-central-as-a-service.png
+thumbnailUrl: /azure/architecture/browse/thumbs/business-central-as-a-service-thumbnail.png
 content: |
    [!include[](business-central-content.md)]
