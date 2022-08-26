@@ -30,7 +30,7 @@ Large enterprises need to consider many factors when modernizing their existing 
 
 - Monitor connects to security information and event management (SIEM) tools like Microsoft Sentinel to create larger enterprise security datastores.
 
-- Power BI and Monitor Workbooks provide data visualization and dashboard capabilities.
+- Power BI and Azure Workbooks (for Azure Monitor) provide data visualization and dashboard capabilities.
 
 ### Components
 
@@ -50,7 +50,7 @@ This architecture includes the following components:
 - [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitors health and help you diagnose problems and tune performance for any product in the Azure SQL family.
 - [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of VMs and virtual machine scale sets. VM insights include running processes and dependencies on other resources.
 - [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve work items faster.
-- [Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
+- [Azure Workbooks for Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) provides a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
   - [Azure Active Directory Monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Azure Active Directory (Azure AD) activity logs to a Log Analytics workspace.
