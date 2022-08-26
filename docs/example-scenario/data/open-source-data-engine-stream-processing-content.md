@@ -156,9 +156,9 @@ Keep these points in mind when you deploy this solution:
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram/) | Cloud Solution Architect
+* [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram) | Cloud Solution Architect
 
 ## Next steps
 
