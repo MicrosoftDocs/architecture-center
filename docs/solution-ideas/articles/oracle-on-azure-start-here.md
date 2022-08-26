@@ -17,18 +17,22 @@ products:
 
 # Oracle on Azure architecture design
 
-Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. Microsoft and Oracle’s cloud interoperability enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure. You can deploy Oracle applications on Azure with their back-end databases in Azure or on Oracle Cloud Infrastructure (OCI).
+Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. The interoperability of Microsoft and Oracle’s cloud services enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure. You can deploy Oracle applications on Azure with their back-end databases in Azure or on Oracle Cloud Infrastructure (OCI).
 
 Azure provides a wide range of services to support Oracle on Azure. Following are some of the key services: 
 
 - [Accelerate your cloud adoption with Microsoft and Oracle](https://azure.microsoft.com/solutions/oracle/). Run your Oracle Database and enterprise applications on Azure and Oracle Cloud.
+
 - [Java on Azure](https://azure.microsoft.com/resources/developers/java/). Run Java EE applications with Oracle WebLogic Server on Azure Kubernetes Service (AKS) with solutions validated by Microsoft and Oracle.
+
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview). Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure virtual machines (VMs).
 
 
 ## Introduction to Oracle on Azure
 
-Azure can support SAP workloads that depend on Oracle software, as described in the following Learn modules:
+Azure supports running Oracle workloads on Azure virtual machines. Azure also supports connecting to Oracle Cloud Infrastructure (OCI) to connect workloads on Azure with workloads on OCI. For a brief overview of possibilities, see [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview). Options include Oracle databases, WebLogic Server integrated with Azure services, applications on Oracle Linux and WebLogic Server, options for high availability and for disaster recovery, and options for backing up Oracle workloads.
+
+Azure also supports SAP workloads that depend on Oracle software, as described in the following Learn modules:
 
 - [Explore Azure for SAP databases](/learn/modules/explore-azure-databases)
 - [Implement high availability for SAP workloads in Azure](/learn/modules/implement-high-availability-for-sap-workloads-azure)
@@ -36,41 +40,44 @@ Azure can support SAP workloads that depend on Oracle software, as described in 
 
 ## Path to production
 
-- [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
 
-- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).
+- [Host a Murex MX.3 workload on Azure](../../example-scenario/finance/murex-mx3-azure.yml). This example workload provides details to implement and run Murex MX.3 workloads on various databases, including Oracle databases.
 
-- [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard.
 
-- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). This reference architecture shows a set of practices for running SAP NetWeaver with Oracle Database on Azure.
+### Databases
+
+- [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure. High availability for your front-end and middle tier can be obtained by using Azure Load Balancers or Application Gateways. <!-- short, simple article -->
+
+- [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard and Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard.
 
 - [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml). This example scenario describes a high-bandwidth, low-latency solution for Oracle Database workloads.
 
-- [Host a Murex MX.3 workload on Azure](../../example-scenario/finance/murex-mx3-azure.yml). This example workload provides details for running Murex MX.3 workloads on various databases, including Oracle databases.
+- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describes creation of an interconnection between Azure and Oracle Cloud Infrastructure (OCI) by using Azure ExpressRoute and FastConnect. The connection between the services allows applications hosted on Azure to communicate with Oracle database hosted on OCI.
 
-- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describe creation of an interconnection between Azure and Oracle Cloud Infrastructure (OCI) by using Azure ExpressRoute and FastConnect.
-
-- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview). This article introduces capabilities to run Oracle solutions on Linux VMs in Azure infrastructure.
+- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs). <!-- short, simple article -->
 
 - [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design). This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance.
 
+### Backup and recovery
+
 - [Oracle Database in Azure Linux VM backup strategies](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies). This article describes strategies for backing up Oracle databases that run on Azure.
 
-- [Back up and recover an Oracle Database on an Azure Linux VM using Azure Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage). This article demonstrates backing up an Oracle database by using Oracle RMAN and Azure Files.
+- [Back up and recover an Oracle Database on an Azure Linux VM using Azure Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage). This article demonstrates backing up an Oracle database that's running on a VM by using Oracle RMAN and Azure Files.
 
-- [Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup). This article demonstrates using Azure Backup to create snapshots of the VM disks, which include the database files and fast recovery area.
+- [Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup). This article demonstrates using Azure Backup to create snapshots of the VM disks, which include the database files and fast recovery area. Azure Backup can take full-disk snapshots, which are stored in Recovery Services Vault, that are suitable as backups.
 
-- 
+- [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery). This article describes disaster recovery scenarios for an Oracle 12c database that runs on Azure.
 
-- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview). This article introduces capabilities to run Oracle solutions using Azure infrastructure.
 
-- [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery). This article describes disaster recovery scenarios for an Oracle 12c database that running on Azure.
+### WebLogic Server
 
 - [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic). This article describes solutions for running Oracle WebLogic Server (WLS) on Azure virtual machines.
 
 - [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks). This article describes solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS).
 
 ## Best practices
+
+- [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml). This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability..
 
 - [Connectivity to Oracle Cloud Infrastructure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci). This article describes methods for integrating an Azure landing zone architecture with Oracle Cloud Infrastructure (OCI).
 
@@ -82,16 +89,12 @@ Azure can support SAP workloads that depend on Oracle software, as described in 
 
 - [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture). This article provides detailed information about deploying Oracle Database Enterprise Edition on Azure and using Oracle Data Guard for disaster recovery.
 
-- [Oracle database migration to Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure)
-
-- [Overview of Oracle database migration](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview)
-- [Oracle database migration: Cross-cloud connectivity](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-cross-cloud)
-- [Oracle database migration: Lift and shift](/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift)
-- [Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
-- [Run Oracle databases on Azure](/azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-on-azure)
-- [SAP deployment on Azure using an Oracle database](/azure/architecture/example-scenario/apps/sap-production)
 
 ## Stay current with Oracle on Azure
+
+Check Azure updates for [news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle).
+
+You can also check Microsoft Azure Blog for [posts about Oracle](https://azure.microsoft.com/search/blog/?q=Oracle).
 
 ## Additional resources
 
