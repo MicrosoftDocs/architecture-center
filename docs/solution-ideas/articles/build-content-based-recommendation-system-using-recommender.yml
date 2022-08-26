@@ -4,7 +4,7 @@ metadata:
   description: Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.
   author: gramhagen
   ms.author: scgraham
-  ms.date: 08/2/2022
+  ms.date: 08/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -18,18 +18,15 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
+  social_image_url: /azure/architecture/solution-ideas/media/build-content-based-recommendation-system-using-recommender-architecture.svg
 name: Build a content-based recommendation system
 azureCategories:
   - ai-machine-learning
   - featured
 summary: Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.
 products:
-  - azure-blob-storage
-  - azure-container-registry
   - azure-databricks
-  - azure-kubernetes-service
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization-thumbnail.png
+thumbnailUrl: /azure/architecture/solution-ideas/media/build-content-based-recommendation-system-using-recommender-thumbnail.svg
 content: |
-  [!include[](scalable-personalization-with-content-based-recommendation-system-content.md)]
+  [!include[](build-content-based-recommendation-system-using-recommender-content.md)]

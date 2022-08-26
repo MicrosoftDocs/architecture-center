@@ -89,7 +89,12 @@ You can install ZooKeeper on Azure VMs by using official convenience binaries or
 
 ## Considerations
 
-For information on configuring NiFi, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]. Also keep these considerations in mind when you implement this solution:
+For information on configuring NiFi, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]. Also keep these considerations in mind when you implement this solution.
+
+### Cost optimization
+
+- Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
+- For an estimate that includes all the services in this architecture except the custom alerting solution, see this [sample cost profile][Sample cost profile].
 
 ### VM considerations
 
