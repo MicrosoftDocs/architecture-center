@@ -1,11 +1,9 @@
-# Hybrid Decision Matrix
-
 ## Perspectives
 Azure enables you to run your application code in a hybrid environment by offering several hybrid solutions. These services span from hardware to host your workloads, to being able to extend Azure PaaS services, security and operational tooling to your on-premises, edge and multicloud environment.
 
-This article provides guidance so you can choose the hybrid solution, consisting of hardware and software, that better fits your business use case. To bring clarity to the  process of choosing a technology, the article maps the decision making process to two perspectives: 
-- based on hardware aspects (SysAdmin perspective)
-- based on Azure service usage (DevOps perspective) 
+This article provides guidance so you can choose the hybrid solution, consisting of hardware and software, that better fits your business use case. To bring clarity to the  process of choosing a technology, the article maps the decision making process to two perspectives:
+- Based on hardware aspects (SysAdmin perspective)
+- Based on Azure service usage (DevOps perspective)
 
 Depending on your background, concerns and expertise you may approach these solutions starting from the application and workload requirements or starting from the hardware and hosting location constraints. Keep in mind that these perspectives are not specific to a role, however you might naturally lean more towards one approach than the other.
 
@@ -27,15 +25,27 @@ Based on these previously described concepts you can see that there are differen
 
 ### Decide based on Azure Services (DevOps perspective)
 
+As a Developer or DevOps, you may look into criteria like:
+
+- **Deployment type:** working with a large scale deployment for your applications is different than working with smaller scale implementations. A traditional IT deployment of VMs and databases will be very different than one based on containers or where distributed devices will be involved. In those distributed, more complex, at scale deployments it is important to make sure that the design incorporates the ability to massively scale the implementation of the service and concerns like business continuity might be addressed differently than it is in traditional IT.
+- **Hardware requirements:** depending on the type of workload you might need a traditional data center hardware where you are able to run VMs, containers and databases; whereas, in other instances like IoT deployments a restricted hardware device is a better fit and can choose from rack, portable or ruggedized servers.
+- **Use case:** the workload and use case will also be a very important criteria. A traditional application that runs on virtual machines will benefit from hyperconverged infrastructure and Azure's operational, security and management tooling for day-two operations, whereas a cloud-native application will be better suited to run on a container orchestrator like Azure Kubernetes Service, as well as, leveraging Azure PaaS solutions. If you need to deploy models built and trained in the cloud and run them on-premises, monitor IoT devices at scale or even provide Azure data transfer options then edge deployments and solutions will be in consideration.
+
 Use the following flowcharts to select a candidate hybrid service, you can choose depending on your background and selection criteria:
 
-![Decision tree for Azure hybrid services](./images/hybrid-choices.png)
+![Decision tree for Azure hybrid services](./images/hybrid-decision-tree.png)
 
 ### Decide based on hardware constraints (SysAdmin perspective)
 
-In brown field scenarios existing hardware needs to be included and represented in modern hybrid workload approaches. In green field scenarios decisions to buy or use hardware as a service with a monthly fee needs to be taken. The following decision matrix will guide you on selecting Azure services to include existing hardware.
+As a System Administrator or DevOps you might choose a hybrid and multicloud service based on a different criteria:
 
-![Decision tree for Azure hybrid services](./images/hybrid-decision-tree.png)
+- **Hardware refresh or repurposing hardware:** in brown field scenarios existing hardware needs to be included and represented in modern hybrid workload approaches. In green field scenarios decisions to buy or use hardware as a service with a monthly fee needs to be taken. The following decision matrix will guide you on selecting Azure services to renew or include existing hardware.
+- **Hosting location:** where will the workload be deployed might be another area of concern that Azure Hybrid can address in different ways. You may choose to run your application in an on-premises data center, in Azure or multicloud while still having a consistent approach of your operations with cloud-native technologies. Choosing a hosting location might be determined by business, compliance, cost or security decisions
+- **Workload type:** aside from the hardware and location of the servers, the type of workload to run needs to be considered as depending on the Azure Hybrid services that you choose you will be able to run: VMs, Azure Kubernetes Service Clusters, IoT Hub, data bases or PaaS solutions outside of a Microsoft datacenter.
+
+Use the following flowcharts to navigate the different options and criteria:
+
+![Decision tree for Azure hybrid services](./images/hybrid-choices.png)
 
 ## Disclaimer
 
