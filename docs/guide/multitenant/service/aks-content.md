@@ -295,7 +295,7 @@ You can use [Azure Private Link Service Integration](https://cloud-provider-azur
 
 For general guidance on how you can configure Private Link for an Azure-hosted multitenant solution, see [Multitenancy and Azure Private Link](/azure/architecture/guide/multitenant/service/private-link).
 
-## Reverse Proxy
+## Reverse proxies
 
 A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and an API Gateway that is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
