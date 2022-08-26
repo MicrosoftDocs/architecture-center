@@ -5,9 +5,6 @@ To secure Azure application workloads, you should use protective measures, such 
 - [Azure Application Gateway][appgw-overview] is a managed web traffic load balancer and HTTP(S) full reverse proxy that can do Secure Socket Layer (SSL) encryption and decryption. Application gateway preserves the original client IP address in an X-Forwarded-For HTTP header. Application Gateway also uses Web Application Firewall to inspect web traffic and detect attacks at the HTTP layer. For more information, see the [Application Gateway documentation][appgw-docs].
 - [Azure Web Application Firewall (WAF)][web-application-firewall] is an optional addition to Azure Application Gateway. It provides inspection of HTTP requests, and it prevents malicious attacks at the web layer, such as SQL Injection or Cross-Site Scripting. For more information, see the [Web Application Firewall documentation][waf-docs].
 
-> [!NOTE]
-> Please see [Preserve the original HTTP host name between a reverse proxy and its back-end web application][preserve-http-host] for more information on X-Forwarded-For and preserving the host name on a request.
-
 These Azure services are complementary. One or the other may be best for your workloads, or you can use them together for optimal protection at both the network and application layers. Use the following decision tree and the examples in this article to determine the best security option for your application's virtual network.
 
 Azure Firewall and Azure Application Gateway use different technologies, and they support securitization of different flows:
@@ -123,6 +120,9 @@ Azure Application Gateway adds metadata to the packet HTTP headers, such as the 
 
 - The flow is similar if the client comes from an on-premises network over a VPN or ExpressRoute gateway. The difference is the client accesses the private IP address of the Application Gateway instead of the public address.
 
+> [!NOTE]
+> Please see [Preserve the original HTTP host name between a reverse proxy and its back-end web application][preserve-http-host] for more information on X-Forwarded-For and preserving the host name on a request.
+
 ## Firewall and Application Gateway in parallel
 
 Because of its simplicity and flexibility, running Application Gateway and Azure Firewall in parallel is often the best scenario.
@@ -142,7 +142,7 @@ The following table summarizes the traffic flows for this scenario:
 
 This design gives much more granular egress filtering than NSGs. For example, if applications need connectivity to a specific Azure Storage Account, you can use *fully qualified domain name (FQDN)*-based filters. With FQDN-based filters, applications aren't sending data to rogue storage accounts. That scenario couldn't be prevented just by using NSGs. This design is often used where outbound traffic requires FQDN-based filtering. One example situation is when [limiting egress traffic from an Azure Kubernetes Services cluster][aks-egress].
 
-The following diagram illustrates the traffic flow for inbound connections from an outside client:
+The following diagram illustrates the traffic flow for inbound HTTP(S) connections from an outside client:
 
 ![Application Gateway and Azure Firewall in parallel, ingress flow](./images/design3_ingress_500.png)
 
