@@ -25,18 +25,18 @@ Use the following links to learn more about media services that are available on
 
 - [Azure Media Services](https://azure.microsoft.com/services/media-services). Encode, store, and stream video and audio at scale.
 - [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). Use a single player for all your playback needs.
-- [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn). Deliver content on a fast, reliable network with global reach.
+- [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn). Deliver content on a fast, reliable network that has global reach.
 - [Azure Content Protection](https://azure.microsoft.com/services/media-services/content-protection). Use AES, PlayReady, Widevine, and FairPlay to deliver content with enhanced security.
 - [Encoding](https://azure.microsoft.com/services/media-services/encoding). Implement studio-grade encoding at cloud scale.
-- [Live and on-demand streaming](https://azure.microsoft.com/services/media-services/live-on-demand). Deliver content to virtually all devices, with scalable streaming.
+- [Live and on-demand streaming](https://azure.microsoft.com/services/media-services/live-on-demand). Deliver content to virtually any device, with scalable streaming.
 
 ## Path to production
 
-Start with [Media Services terminology and concepts](/azure/media-services/latest/concepts-overview?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) for a brief overview of Azure Media Services terminology and concepts.
+For a brief overview, start with [Media Services terminology and concepts](/azure/media-services/latest/concepts-overview?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
 
 ## Best practices
 
-The Azure Security Benchmark provides recommendations on how you can improve the security of your Azure solutions. For information that's specific to Azure Media Services, see [Azure security baseline for Azure Media Services](/security/benchmark/azure/baselines/media-services-security-baseline?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
+The Azure Security Benchmark provides recommendations on how you can improve the security of your Azure solutions. For information that's specific to Media Services, see [Azure security baseline for Azure Media Services](/security/benchmark/azure/baselines/media-services-security-baseline?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
 
 ## Media architectures and solutions
 
@@ -59,7 +59,7 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 - [Gridwich Azure Storage Service](../../reference-architectures/media-services/gridwich-storage-service.yml)
 - [Logging](../../reference-architectures/media-services/gridwich-logging.yml)
 - [Gridwich request-response messages](../../reference-architectures/media-services/gridwich-message-formats.yml)
-- [Pipeline variables to Terraform flow](../../reference-architectures/media-services/variable-group-terraform-flow.yml)
+- [Variable flow with Terraform and Azure Pipelines](../../reference-architectures/media-services/variable-group-terraform-flow.yml)
 
 #### Gridwhich procedures
 
@@ -78,7 +78,7 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 
 ### Video on demand
 
-- [High Availability with Media Services and Video on Demand (VOD)](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [High availability with Media Services and video on demand](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Video-on-demand digital media](../../solution-ideas/articles/digital-media-video.yml)
 
 ## Stay current with media workloads on Azure
