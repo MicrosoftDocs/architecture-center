@@ -74,5 +74,5 @@ Principal author:
 
 ## Related resources
 
-- [Architecture - E-commerce front end]((../../example-scenario/apps/ecommerce-scenario.yml)
+- [Architecture - E-commerce front end](../../example-scenario/apps/ecommerce-scenario.yml)
 - [Architecture - E-commerce website running in secured App Service Environment](./ecommerce-website-running-in-secured-ase.yml)
