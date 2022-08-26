@@ -2,9 +2,9 @@
 metadata:
   title: Microservices CI/CD pipeline on Kubernetes with Azure DevOps and Helm
   description: Learn about building a continuous integration and continuous delivery (CI/CD) pipeline for deploying microservices to Azure Kubernetes Service (AKS) using Azure DevOps and Helm.
-  author: EdPrice-MSFT
-  ms.author: architectures
-  ms.date: 07/26/2022
+  author: jpocloud
+  ms.author: johnpoole
+  ms.date: 08/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
