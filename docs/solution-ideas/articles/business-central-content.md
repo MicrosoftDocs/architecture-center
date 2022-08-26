@@ -4,7 +4,9 @@ Because Dynamics 365 Business Central SaaS isn't available in all countries, thi
 
 ## Architecture
 
-![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)
+![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)  
+
+*Download a [Visio file](https://arch-center.azureedge.net/business-central-as-a-service.vsdx)* of this architecture.
 
 ### Dataflow
 
