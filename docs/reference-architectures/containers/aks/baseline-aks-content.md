@@ -383,7 +383,7 @@ By default, a pod can accept traffic from any other pod in the cluster. Kubernet
 
 Enable network policy when the cluster is provisioned because it can't be added later. There are a few choices for technologies that implement `NetworkPolicy`. Azure Network Policy is recommended, which requires Azure Container Networking Interface (CNI), see the note below. Other options include Calico Network Policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
-For information, see [Differences between Azure Network Policy and Calico policies and their capabilities](/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
+For more information, see [Differences between Azure Network Policy and Calico policies and their capabilities](/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 > [!NOTE]
 > AKS supports these networking models: kubenet and Azure Container Networking Interface (CNI). CNI is more advanced of the two models and is required for enabling Azure Network Policy. In this model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic. So, CNI is performant because there aren't additional network overlays. It also offers better security control because it enables the use Azure Network Policy. In general, CNI is recommended. CNI offers granular control by teams and the resources they control. Also, CNI allows for more scaled pods than kubenet. Carefully consider this choice otherwise, the cluster will need to be redeployed.
@@ -506,7 +506,7 @@ Configure multiple replicas in the deployment to handle disruptions such as hard
 > [!NOTE]
 > Setting resources quotas at the cluster level can cause problem when deploying third-party workloads that do not have proper requests and limits.
 
-**Set pod requests and limits**. Setting these limits allows Kubernetes to efficiently allocate CPU and, or memory resources to the pods and have higher container density on a node. Limits can also increase reliability with reduced costs because of better hardware utilization.
+**Set pod requests and limits**. Setting these limits allows Kubernetes to efficiently allocate CPU and/or memory resources to the pods and have higher container density on a node. Limits can also increase reliability with reduced costs because of better hardware utilization.
 
 To estimate the limits, test and establish a baseline. Start with equal values for requests and limits. Then, gradually tune those values until you have established a threshold that can cause instability in the cluster.
 

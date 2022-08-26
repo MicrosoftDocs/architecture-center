@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 08/01/2022
+ms.date: 08/22/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -24,6 +24,43 @@ The following new and updated articles have recently been published in the Azure
 
 ## August 2022
 
+### New articles
+
+- [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)
+- [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)
+- [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)
+- [Architectural approaches for tenant integration and data access](./guide/multitenant/approaches/integration.md)
+- [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)
+- [Microsoft mixed reality architecture overview](./guide/mixed-reality/mixed-reality-overview.md)
+- [Mobile architecture design](./guide/mobile/mobile-start-here.md)
+- [Apply the verify explicitly Zero Trust principle to your API implementation](./example-scenario/security/apps-zero-trust-identity.yml)
+- [Mission-critical baseline architecture with network controls](./reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml)
+- [Migration architecture design](./guide/migration/migration-start-here.md)
+- [Solutions for the aerospace industry](./industries/aerospace.md)
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)
+- [Deploy Autodesk VRED for HPC on Azure](./guide/hpc/hpc-autodesk-vred.md)
+- [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
+- [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
+- [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Rehost IMS workloads to virtual machines by using IMSql](./example-scenario/mainframe/imsql-rehost-ims.yml)
+- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)
+
+### Updated articles
+
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#a0357580f](https://github.com/MicrosoftDocs/architecture-center/commit/a0357580f))
+- [Multiple forests with AD DS and Azure AD](./example-scenario/wvd/multi-forest.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
+- [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
+- [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#39fa80883](https://github.com/MicrosoftDocs/architecture-center/commit/39fa80883))
+- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#bec86648c](https://github.com/MicrosoftDocs/architecture-center/commit/bec86648c))
+- [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)  ([#3314a883d](https://github.com/MicrosoftDocs/architecture-center/commit/3314a883d))
+- [Predict the length of stay in hospitals](./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)  ([#f389ec912](https://github.com/MicrosoftDocs/architecture-center/commit/f389ec912))
+- [SAS on Azure architecture](./guide/sas/sas-overview.yml)  ([#0ef237a56](https://github.com/MicrosoftDocs/architecture-center/commit/0ef237a56))
+- [Eventual consistency between multiple Power Apps instances](./reference-architectures/power-platform/eventual-consistency.yml)  ([#364740577](https://github.com/MicrosoftDocs/architecture-center/commit/364740577))
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
+- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
+- [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
+- [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
+- [Secure your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
 
 ## July 2022
 
@@ -92,7 +129,7 @@ The following new and updated articles have recently been published in the Azure
 - [Speech services](./solution-ideas/articles/speech-services.yml)  ([#6d0a6e8d5](https://github.com/MicrosoftDocs/architecture-center/commit/6d0a6e8d5))
 - [Azure Automation update management](./hybrid/azure-update-mgmt.yml)  ([#61147a107](https://github.com/MicrosoftDocs/architecture-center/commit/61147a107))
 - [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)  ([#8670010e0](https://github.com/MicrosoftDocs/architecture-center/commit/8670010e0))
-- [Orchestrate MLOps on Azure Databricks using Databricks Notebook](./reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)  ([#9bd7eb78e](https://github.com/MicrosoftDocs/architecture-center/commit/9bd7eb78e))
+- [Orchestrate MLOps by using Azure Databricks](./reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)  ([#9bd7eb78e](https://github.com/MicrosoftDocs/architecture-center/commit/9bd7eb78e))
 - [Profisee MDM and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#452322d9e](https://github.com/MicrosoftDocs/architecture-center/commit/452322d9e))
 - [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)  ([#e812e941c](https://github.com/MicrosoftDocs/architecture-center/commit/e812e941c))
 - [Azure AD security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#dc5f7ae42](https://github.com/MicrosoftDocs/architecture-center/commit/dc5f7ae42))
@@ -131,7 +168,7 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)
 - [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
 - [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml)
-- [Highly reliable mission-critical workload on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)
 - [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)

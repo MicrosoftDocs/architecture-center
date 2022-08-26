@@ -56,7 +56,7 @@ You can launch a Jupyter notebook from the Azure portal. Find the Spark cluster 
 
 ![Cluster dashboard and Jupyter notebooks](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-You also can access Jupyter notebooks at https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Replace *clustername* with the name of your cluster. You need the password for your administrator account to access the Jupyter notebooks.
+You also can access Jupyter notebooks at `https://<clustername>.azurehdinsight.net/jupyter`. Replace `<clustername>` with the name of your cluster. You need the password for your administrator account to access the Jupyter notebooks.
 
 ![Go to Jupyter notebooks by using the cluster name](./media/scala-walkthrough/spark-jupyter-notebook.png)
 

@@ -27,9 +27,11 @@ Many types of healthcare professionals can benefit from this solution:
 
 ## Architecture
 
-:::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data. The data flow starts with data sources and ends with storage and analysis." border="false":::
+:::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data." lightbox="./media/azure-health-data-consortium-architecture.png" border="false":::
    Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium data share box to the member box. Below those boxes, a dotted box contains icons for shared services.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-consortium-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -127,7 +129,7 @@ If Data Share isn't an option, consider a virtual private network (VPN) instead.
 
 The technologies in this solution meet most companies' requirements for security, scalability, and availability.
 
-### Security considerations
+### Security
 
 Because of the sensitivity of medical information, several components play a role in securing data:
 
@@ -159,7 +161,7 @@ Because of the sensitivity of medical information, several components play a rol
   - Blocks traffic that originates from network segments outside Azure Data Explorer.
   - Safeguards data and helps you meet commitments by using [Azure Disk Encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service provides volume encryption for virtual machine data disks and the OS. Azure Disk Encryption also integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
 
-### Availability considerations
+### Availability
 
 This solution uses a single-region deployment. Some scenarios require a multi-region deployment for high availability, disaster recovery, or proximity. For those cases, the following services offer paired Azure regions for high availability:
 
@@ -169,7 +171,7 @@ This solution uses a single-region deployment. Some scenarios require a multi-re
 
 - [Azure Data Explorer offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
 
-## Pricing
+### Cost optimization
 
 Pricing for this solution depends on several factors:
 

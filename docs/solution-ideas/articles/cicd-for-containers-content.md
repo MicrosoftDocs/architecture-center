@@ -9,7 +9,8 @@ By setting up a continuous build to produce your container images and orchestrat
 ## Architecture
 
 ![Architecture diagram](../media/cicd-for-containers.png)
-*Download an [SVG](../media/cicd-for-containers.svg) of this architecture.*
+
+*Download a [Visio file](https://arch-center.azureedge.net/cicd-for-containers.vsdx) of this architecture.*
 
 ### Dataflow
 

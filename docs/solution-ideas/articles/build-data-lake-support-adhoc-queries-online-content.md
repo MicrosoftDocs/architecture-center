@@ -1,44 +1,10 @@
-The visibility of raw data in leisure and travel booking scenarios is important
-to multiple actors. Technical support teams oversee real-time diagnostics to
-continuously monitor transaction processing and rapidly react to undesired
-issues. Data engineers oversee exporting data for stakeholder review and to feed
-analytics in real time. Customer support teams require historical and recent
-data to handle customer inquiries and complaints. Finally, legal teams ensure
-compliance duties are respected and legal actions performed. These types of
-requirements are typical in marketplaces that aggregate external providers and
-manage user purchases. For example, leisure and travel booking systems
-disintermediate users and services providers for searching services, aggregating
-meaningful offers from providers, and managing user reservations.
-
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users.":::
-
-## Potential use cases
-
-This architecture is ideal for the travel and hospitality industries. It's applicable to the following scenarios:
-
-* Quickly retrieving either real-time (for example, for diagnostics) or historical (for compliance) raw documents in their original format.
-* Managing petabytes of data.
-* Guaranteeing seconds-range performance for real-time diagnostics.
-* Achieving a unified approach to real-time diagnostics, historical queries, and feeding analytics.
-* Feeding downstream real-time analytics.
-* Controlling costs.
-* Insourcing data as raw documents (for instance, as json, xml, or csv files).
-* When a fraction of data is sufficient to describe queries.
-* When users want to retrieve full raw documents.
-* When the total data size would require scaling the system above your target price.
-
-This architecture might not be suitable when:
-
-* Data is insourced as recordsets.
-* Users are required to run analytics.
-* Users are willing to use their own packaged BI tool.
-* The size of data is not a challenge from a cost perspective.
-
-Raw documents are not necessarily required.
+This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
 
 ## Architecture
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
 
 Leisure and travel booking scenarios can generate large amounts of raw documents
 at a high frequency. However, you may not need to index the entire contents of
@@ -86,9 +52,53 @@ Contrary to using a delta lake, using a [Lambda architecture](/azure/architectur
 
 Spark is distributed with [Azure Databricks](https://azure.microsoft.com/services/databricks), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight). Hence, this architecture could be implemented with any of these Azure data services, preferably with a recent Spark version supporting Delta Lake 0.8 or 1.0.
 
+## Scenario details
+
+The visibility of raw data in leisure and travel booking scenarios is important
+to multiple actors. Technical support teams oversee real-time diagnostics to
+continuously monitor transaction processing and rapidly react to undesired
+issues. Data engineers oversee exporting data for stakeholder review and to feed
+analytics in real time. Customer support teams require historical and recent
+data to handle customer inquiries and complaints. Finally, legal teams ensure
+compliance duties are respected and legal actions performed. These types of
+requirements are typical in marketplaces that aggregate external providers and
+manage user purchases. For example, leisure and travel booking systems
+disintermediate users and services providers for searching services, aggregating
+meaningful offers from providers, and managing user reservations.
+
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
+
+### Potential use cases
+
+This architecture is ideal for the travel and hospitality industries. It's applicable to the following scenarios:
+
+* Quickly retrieving either real-time (for example, for diagnostics) or historical (for compliance) raw documents in their original format.
+* Managing petabytes of data.
+* Guaranteeing seconds-range performance for real-time diagnostics.
+* Achieving a unified approach to real-time diagnostics, historical queries, and feeding analytics.
+* Feeding downstream real-time analytics.
+* Controlling costs.
+* Insourcing data as raw documents (for instance, as json, xml, or csv files).
+* When a fraction of data is sufficient to describe queries.
+* When users want to retrieve full raw documents.
+* When the total data size would require scaling the system above your target price.
+
+This architecture might not be suitable when:
+
+* Data is insourced as recordsets.
+* Users are required to run analytics.
+* Users are willing to use their own packaged BI tool.
+* The size of data is not a challenge from a cost perspective.
+
+Raw documents are not necessarily required.
+
 ## Considerations
 
-### Performance
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Users will perform a double hop to access data. They'll query metadata first, and then retrieve the desired set of documents. It might be difficult to reuse existing or packaged client assets.
 

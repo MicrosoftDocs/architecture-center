@@ -15,7 +15,7 @@ Industry standards for communication, like [WebRTC](https://webrtc.org), separat
 
 | System  | Function| Protocols  | Access model   |
 |---|---|-----|--|
-| **Control plane** | Governs who communicates, when, and how | REST | [Azure AD service credentials](https://docs.microsoft.com/azure/communication-services/concepts/authentication#azure-ad-authentication) |
+| **Control plane** | Governs who communicates, when, and how | REST | [Azure AD service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
 | **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Azure AD service credentials |
 
 A common data flow occurs when client applications initiate communication by requesting control information from a service controller:
@@ -40,7 +40,7 @@ Communication Services clients present user access tokens to access, with improv
 
 1. A user starts the client application.
 2. The client application contacts your identity management service. The identity management service maintains a mapping between application identities and  Communication Services identities. (Application identities include your users and other addressable objects, like services or bots.)
-3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
+3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communication-identity/issue-access-token) for the applicable identity.
 
 Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
 
@@ -53,7 +53,7 @@ Azure App Service or Azure Functions are two alternatives for operating the iden
 
 ## User calls an app or phone number
 
-The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications. You can integrate Communication Services voice and video calling into web, native mobile, and Windows desktop apps. The [open-source UI Library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) can help you accelerate development.
+The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications. You can integrate Communication Services voice and video calling into web, native mobile, and Windows desktop apps. The [open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) can help you accelerate development.
 
 :::image type="content" source="./media/call-without-notifications.png" alt-text="Diagram that shows Communication Services calling without push notifications." border="false":::
 
@@ -98,7 +98,7 @@ You might want users to be able to join a group call without an explicit invitat
 
 Many organizations use Microsoft 365 and Teams for communication. [Communication Services and Teams are interoperable,](/azure/communication-services/concepts/teams-interop) which enables these scenarios:
 
-- **Build a custom application to allow an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business that's using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. To learn more about this scenario, see [Virtual visits tutorial and Sample Builder](https://docs.microsoft.com/azure/communication-services/tutorials/virtual-visits).
+- **Build a custom application to allow an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business that's using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. To learn more about this scenario, see [Virtual visits tutorial and Sample Builder](/azure/communication-services/tutorials/virtual-visits).
 - **Build a custom application for an internal user with Teams / Azure AD credentials.** This scenario is designed for building custom Teams clients for employees.
 
 These custom application scenarios use [Microsoft Graph APIs](/graph/overview?view=graph-rest-1.0) and Communication Services. When you build external apps and services that connect to Teams, you generally use Microsoft Graph as the *Teams control plane*. You use this control plane to configure who communicates and how and when they communicate by using APIs for:
@@ -108,7 +108,7 @@ These custom application scenarios use [Microsoft Graph APIs](/graph/overview?vi
 
 You use information from these control APIs, like the meeting URL and thread identifier, to connect Communication Services calling and chat clients to the Teams data plane.
 
-[Teams also has SDKs](/microsoftteams/platform/get-started/get-started-overview) for adding custom functionality *within* Teams experiences and through the [Teams store](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish), like tabs, bots, and automation. These scenarios are beyond the scope of this article.
+[Teams also has SDKs](/microsoftteams/platform/get-started/get-started-overview) for adding custom functionality *within* Teams experiences and through the [Teams store](/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish), like tabs, bots, and automation. These scenarios are beyond the scope of this article.
 
 Communication Services doesn't directly support interactions with Teams channels. For custom applications, you can use the Microsoft Graph [Chat](/graph/api/chat-get?view=graph-rest-1.0&tabs=http) and [Channel](/graph/api/channel-get?view=graph-rest-1.0&tabs=http) APIs to build custom clients for employees who access channels.
 
