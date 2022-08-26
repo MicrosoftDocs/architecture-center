@@ -79,11 +79,11 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 ### Video on demand
 
 - [High Availability with Media Services and Video on Demand (VOD)](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Video-on-demand digital media](../../solution-ideas/articles/digital-media-video)
+- [Video-on-demand digital media](../../solution-ideas/articles/digital-media-video.yml)
 
 ## Stay current with media workloads on Azure
 
-Get the latest updates on [Azure media services and features](https://azure.microsoft.com/en-us/updates/?category=media).
+Get the latest updates on [Azure media services and features](https://azure.microsoft.com/updates/?category=media).
 
 ## Additional resources
 
