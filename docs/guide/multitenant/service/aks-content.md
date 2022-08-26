@@ -62,7 +62,7 @@ In Kubernetes, a [namespace](https://kubernetes.io/docs/reference/glossary/?fund
 1. Object names within a namespace can overlap with names in other namespaces, similar to files in folders. This feature allows tenants to name their resources without worrying about any name collisions with other tenants sharing the same cluster. This happens for example when multiple instances of the same application, one for each tenant, are deployed on the same cluster.
 2. Many Kubernetes security policies are scoped to namespaces. For example, [RBAC Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) are namespace-scoped resources. Using RBAC, Users and Service Accounts can be restricted to a namespace.
 
-In a multi-tenant environment, a namespace helps segment a tenant's workload into a logical and distinct management unit. A common practice is to isolate every workload in its namespace, even if the same tenant operates multiple workloads. This approach ensures the following advantages:
+In a multitenant environment, a namespace helps segment a tenant's workload into a logical and distinct management unit. A common practice is to isolate every workload in its namespace, even if the same tenant operates multiple workloads. This approach ensures the following advantages:
 
 - Each workload only has access to its own resources, such as Config Maps and Secrets, and allows you to tailor dedicated security policies for each workload.
 - Better isolation at the security level, as each workload can use a separate identity to access resources in the same cluster or downstream PaaS services.
