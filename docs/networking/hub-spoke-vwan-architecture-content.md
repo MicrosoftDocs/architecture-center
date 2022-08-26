@@ -97,7 +97,9 @@ Standard Virtual WANs are by default connected in a full mesh. Standard Virtual 
 
 ### Virtual WAN Hub
 
-A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. The hub is the core of your network in a region. There can be multiple hubs per Azure region (see [Virtual WAN FAQ](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region)). When you create a hub using the Azure portal, it creates a virtual hub VNet and a virtual hub VPN gateway. A Virtual WAN Hub requires an address range minimum of /24. This IP address space will be used for reserving a subnet for gateway and other components.
+A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. The hub is the core of your network in a region. There can be multiple hubs per Azure region. For more information, see [Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq#is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region). 
+
+When you create a hub using the Azure portal, it creates a virtual hub VNet and a virtual hub VPN gateway. A Virtual WAN Hub requires an address range minimum of /24. This IP address space will be used for reserving a subnet for gateway and other components.
 
 ### Secured virtual hub
 
