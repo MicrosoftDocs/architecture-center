@@ -17,15 +17,6 @@ This reference architecture shows best practices for creating a web application 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a solution for collecting, analyzing, and acting on logs and metrics across your environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) supports secrets management, key management, and certificate management. It can store application secrets like database connection strings.
 
-### Components
-
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
-- [Azure DNS](https://azure.microsoft.com/services/dns)
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
-- [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-
 ## Recommendations
 
 Your requirements might differ from the architecture described and given in the code. The code deploys with production configurations. Use the recommendations to customize your deployment to meet your needs.
