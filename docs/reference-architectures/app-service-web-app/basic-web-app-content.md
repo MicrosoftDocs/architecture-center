@@ -17,6 +17,15 @@ This reference architecture shows best practices for creating a web application 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a solution for collecting, analyzing, and acting on logs and metrics across your environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) supports secrets management, key management, and certificate management. It can store application secrets like database connection strings.
 
+### Components
+
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure DNS](https://azure.microsoft.com/services/dns)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+
 ## Recommendations
 
 Your requirements might differ from the architecture described and given in the code. The code deploys with production configurations. Use the recommendations to customize your deployment to meet your needs.
@@ -175,7 +184,7 @@ Some limitations of App Service authentication:
 - If you use more than one IDP, there's no built-in mechanism for home realm discovery.
 - For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
-## Deploy the solution
+## Deploy this scenario
 
 This architecture includes an Azure App Service plan and an empty application. It uses Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
 
