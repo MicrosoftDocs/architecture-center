@@ -386,6 +386,16 @@ The following diagram shows the end-to-end CI/CD process described in this artic
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [John Poole](https://www.linkedin.com/in/johnrpoole) | Senior Cloud Solutions Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
