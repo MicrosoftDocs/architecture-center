@@ -91,23 +91,13 @@ How are the subscriptions tied to regions. Does every region run in a separate s
 
 ## Networking considerations
 
-In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that virtual network layout doesn't change in this architecture, the workload assumes that the virtual network is pre-provisioned and the workload resources are placed there. 
+In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned and the workload resources are placed there. 
 
 For a mission critical workload, multiple environments are recommended. Because all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per enviroment and region is needed to support the blue-green deployment strategy. 
 
-The virtual network address space should be large enough to accomodate the AKS nodes and pods as they scale out. Determine the Load test your services to determine these numbers.
+The scalability requirements of the workload influence how much address space should be allocated for the virtual network. The network should be large enough to accomodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they are reachable because each pod needs an individual address. 
 
-The reference implementation is currently configured to require at least a VNet with a /23 address space for each stamp. This is to allow for a /24 subnet for AKS nodes and their pods. Change this based on your scaling requirements (number of nodes and number of pods). To change the subnet sizes (and thereby the required input size of /23), modify /src/infra/workload/releaseunit/modules/stamp/network.tf
-
-The implementation deploys disconnected virtual networks on demand if <what?> and 
-
- this might be optional, therefore the reference implementation is prepared to create the VNets if needed.
-
-For INT and PROD (or any other environments which do require connectivity), a multiple pre-provisioned VNets are expected to be available: Due to the blue-green deployment approach, at least two VNets per environment and region are required. The deployment pipeline looks for a file .ado/pipelines/config/vnets-[environment].json. If this file is not present, disconnected VNets will be deployed on demand, e.g. for E2E environments.
-
-The file needs to hold the resource IDs of the VNets per region. See /.ado/pipelines/config/vnets-int.json for an example. The deployment pipeline will check which VNets are currently not in use by any other deployment and then tag the VNets to mark them as in use. Once an environment gets destroyed again, this "earmark" tag is being removed again. See /.ado/pipelines/templates/steps-get-or-create-vnet.yaml for the pipeline script which implements the logic.
-
-The reference implementation is currently configured to require at least a VNet with a /23 address space for each stamp. This is to allow for a /24 subnet for AKS nodes and their pods. Change this based on your scaling requirements (number of nodes and number of pods). To change the subnet sizes (and thereby the required input size of /23), modify /src/infra/workload/releaseunit/modules/stamp/network.tf
+The reference implementation is currently configured to require at least one virtual network with a `/23` address space for each stamp. This is to allow for a `/24` subnet for AKS nodes and their pods. 
 
 
 ## Overall reliability
