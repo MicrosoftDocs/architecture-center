@@ -1,4 +1,4 @@
-This reference architecture provides guidance for a mission critical workload in a hub-spoke network topology. The workload resources are deployed in a spoke virtual network while the hub network has the newtorking resources, which are used by this workload and others in the organization. In this topology, there are some options in terms of levels of responsibilities.
+This reference architecture provides guidance for a mission critical workload in a hub-spoke network topology. The workload resources are deployed in a spoke virtual network while the hub network has the networking resources, which are used by this workload and others in the organization. In this topology, there are some options in terms of levels of responsibilities.
 
 - **Centralized approach**
 
@@ -60,7 +60,7 @@ In this architecture, the resources are provisioned in a peered hub and spoke ne
 
 These resources are provisioned as part of a _deployment stamp_ to a single Azure region. They're short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They, however, share [global resources](#global-resources) between each other. 
 
-- **Azure Virtual Network** contains services used by the workload to for processing incoming requests. This network isn't short-lived.
+- **Azure Virtual Network** contains services used by the workload for processing incoming requests. This network isn't short-lived.
 
 - **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
 
@@ -83,29 +83,34 @@ Build and release pipelines for a mission critical application must be fully aut
 Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. These resources remain the same as the [baseline monitoring resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 ## Management resources
-To gain access to the private compute cluster, this arichitecture uses private build agents and jump box virtual machine instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
+To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
 ## Subscription democratization
 
-How are the subscriptions tied to regions. Does every region run in a separate subscription? , for two regions we need If there are 2 regions, there are 4 vnets. 2 regions, 4 vnets. do i have 4, 2, 1 sub. Every region runs in a separate subscription.
+TO DO:
+
+How are the subscriptions tied to regions. Does every region run in a separate subscription? If there are 2 regions, there are 4 vnets. Do i have 4, 2, 1 sub. 
 
 ## Networking considerations
 
-In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned and the workload resources are placed there. 
+In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned, and the workload resources are placed there. 
 
-For a mission critical workload, multiple environments are recommended. Because all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per enviroment and region is needed to support the blue-green deployment strategy. 
+For a mission critical workload, multiple environments are recommended. Because all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per enviroment and region are needed to support the blue-green deployment strategy. 
 
-The scalability requirements of the workload influence how much address space should be allocated for the virtual network. The network should be large enough to accomodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they are reachable because each pod needs an individual address. 
+The scalability requirements of the workload influence how much address space should be allocated for the virtual network. The network should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
 
 The reference implementation is currently configured to require at least one virtual network with a `/23` address space for each stamp. This is to allow for a `/24` subnet for AKS nodes and their pods. 
 
 
 ## Overall reliability
 TBD
+
 ## Tradeoffs
-TD+BD
+TBD
+
 ## Shift in responsibility
 TBD
+
 ## Deploy this architecture
 
 The networking aspects of this architecture are implemented in the Mission-critical Connected implementation.
