@@ -121,16 +121,16 @@ VMs in the Edsv5-series are the default SAS machines for Viya and Grid. They off
 - A good CPU-to-memory ratio.
 - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache, `CAS_CACHE`, that SAS uses for temporary files.
 
-If the Edsv5-series VMs are unavailable, it is recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/edv4-edsv4-series) have been tested and perform well on SAS workloads.
+If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/edv4-edsv4-series) have been tested and perform well on SAS workloads.
 
 #### Ebsv5-series
 
-In some cases the locally attached disk doesn't have sufficient storage space. For those scenarios it is recommended to use the [Ebsv5-series of VMs](/azure/virtual-machines/ebdsv5-ebsv5-series) with premium attached disks to meet the volume sizes needed. These VMs offer these features:
+In some cases, the locally attached disk doesn't have sufficient storage space for `SASWORK` or `CAS_CACHE`. To get a larger working directory, use the [Ebsv5-series of VMs](/azure/virtual-machines/ebdsv5-ebsv5-series) with premium attached disks. These VMs offer these features:
 
 - Same specifications as the Edsv5 and Esv5 VMs
-- High throughput against remote attached disk, up to 4GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
+- High throughput against remote attached disk, up to 4 GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
 
-If the Edsv5-series VMs offer enough storage, it is better to use those as they are most cost efficient. 
+If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient. 
 
 #### M-series
 
