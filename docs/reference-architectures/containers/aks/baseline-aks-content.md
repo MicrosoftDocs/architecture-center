@@ -75,9 +75,9 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 - Aligns with the [Azure enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
 
-![Hub-spoke network topology](images/aks-baseline-architecture.png)
+![Hub-spoke network topology](images/baseline-architecture.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-architecture.vsdx) of this architecture.*
 
 For additional information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
