@@ -5460,7 +5460,7 @@ items:
                 href: solution-ideas/articles/healthcare-network.yml
       - name: Oracle
         items:
-          - name: Oracle on Azure architecture design
+          - name: Get started
             href: solution-ideas/articles/oracle-on-azure-start-here.md
           - name: Guides
             items:
