@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 08/25/2022
+ms.date: 08/31/2022
 ms.topic: conceptual 
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -76,7 +76,7 @@ The articles in this section describe methods of backing up and recovering Oracl
 
 ### WebLogic Server
 
-The articles in this section can help you decide on a solution for running Oracle WebLogic Server on Azure and show you how to perform the migration.
+The articles in this section can help you decide on a solution for running Oracle WebLogic Server on Azure and help you prepare for migration.
 
 - [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) This article describes solutions for running Oracle WebLogic Server (WLS) on Azure VMs.
 
