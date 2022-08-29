@@ -215,7 +215,7 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 Principal authors:
 
-* [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
+- [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
 
 ## Next steps
 
@@ -277,7 +277,7 @@ To start implementing this solution, see this information:
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability
+[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?=cli#reliability
 [Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
