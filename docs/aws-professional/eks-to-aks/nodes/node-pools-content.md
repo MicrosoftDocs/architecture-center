@@ -220,8 +220,7 @@ To create a node pool with a taint, you can use the [az aks nodepool add](/cli/a
         --name mynodepool \
         --node-count 1 \
         --node-taints sku=gpu:NoSchedule \
-        --labels dept=IT costcenter=9999 \
-        --no-wait
+        --labels dept=IT costcenter=9999
   ```
 
 For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools?msclkid=f8996edaa9f611ec988702dcd79cd3f4#specify-a-taint-label-or-tag-for-a-node-pool).
