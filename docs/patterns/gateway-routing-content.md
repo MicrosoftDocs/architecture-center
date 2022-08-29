@@ -1,4 +1,4 @@
-Route requests to multiple services or multiple service instances using a single endpoint. The pattern is useful when you wish to:
+Route requests to multiple services or multiple service instances using a single endpoint. The pattern is useful when you want to:
 
 - Expose multiple services on a single endpoint and route to the appropriate service based on the request
 - Expose multiple instances of the same service on a single endpoint for load balancing or availability purposes
@@ -54,11 +54,11 @@ This pattern can be used for deployments, by allowing you to manage how updates 
 Use this pattern when:
 
 - A client needs to consume multiple services that can be accessed behind a gateway.
-- You wish to simplify client applications by using a single endpoint.
+- You want to simplify client applications by using a single endpoint.
 - You need to route requests from externally addressable endpoints to internal virtual endpoints, such as exposing ports on a VM to cluster virtual IP addresses.
 - A client needs to consume services running in multiple regions for latency or availability benefits.
 - A client needs to consume a variable number of service instances.
-- You wish to implement a deployment strategy where clients access multiple versions of the service at the same time.
+- You want to implement a deployment strategy where clients access multiple versions of the service at the same time.
 
 This pattern may not be suitable when you have a simple application that uses only one or two services.
 
