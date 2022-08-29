@@ -80,7 +80,33 @@ The following code snippet shows how to add a node pool named *mynodepool* with 
 
 > **Important**: when building an AKS cluster or adding a new node pool to an existing cluster, select a VM series that supports both [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) which provides better latency for intra-node calls and communications with PaaS services.
 
+### Node pools updates
+
+Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines. The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware.
+
+Updates rarely affect the hosted virtual machines which includes the agent nodes of existing AKS clusters. When updates do have an effect, Azure chooses the least impactful method for updates:
+
+- If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. 
+- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days (for Host machines) unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see Handling planned maintenance notifications using the Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
+
+For more information on how the Azure platforms updates virtual machines, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
+
 ### Upgrade a node pool
+
+Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. Upgrading the Kubernetes version of the existing virtual machines in an agent pool requires to cordon and drain nodes and then replace existing nodes with new nodes based on a new disk image with an up to date Kubernetes version.
+
+> [!IMPORTANT]
+> Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
+>
+> If using Azure CNI, validate there are available IPs in the subnet as well to [satisfy IP requirements of Azure CNI](configure-azure-cni.md).
+
+By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings will enable AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value may be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max surge value, the upgrade process completes faster, but setting a large value for max surge may cause disruptions during the upgrade process.
+
+For example, a max surge value of 100% provides the fastest possible upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a higher value such as this for testing environments. For production node pools, we recommend a max_surge setting of 33%.
+
+AKS accepts both integer values and a percentage value for max surge. An integer such as "5" indicates five extra nodes to surge. A value of "50%" indicates a surge value of half the current node count in the pool. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count. If the max surge value is lower than the current node count at the time of upgrade, the current node count is used for the max surge value.
+
+During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won't be higher than the number of nodes in the pool at the time of upgrade.
 
 The commands below explain how to upgrade a single specific node pool. You can use the [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepool_upgrade) to upgrade a node pool. To see the available upgrades use [az aks get-upgrades](/cli/azure/aks#az_aks_get_upgrades).
 
@@ -95,8 +121,7 @@ You can use the [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepoo
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name mynodepool \
-        --kubernetes-version KUBERNETES_VERSION \
-        --no-wait
+        --kubernetes-version KUBERNETES_VERSION
   ```
 
 You can list the status of your node pools again using the [az aks node pool list](/cli/azure/aks/nodepool#az_aks_nodepool_list) command.
