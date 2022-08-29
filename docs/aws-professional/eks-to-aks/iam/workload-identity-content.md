@@ -58,14 +58,6 @@ Workloads deployed in Kubernetes clusters require Azure AD application credentia
 
 [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers.
 
-- Removes the scale and performance issues that existed for identity assignment
-- Supports Kubernetes clusters hosted in any cloud or on-premises
-- Supports both Linux and Windows workloads
-- Removes the need for Custom Resource Definitions and pods that intercept Instance Metadata Service (IMDS) traffic
-- Avoids the complication and error-prone installation steps such as cluster role assignment from the previous iteration.
-
-## How does it work?
-
 As shown in the following diagram, , the Kubernetes cluster becomes a security token issuer, issuing tokens to Kubernetes Service Accounts. These tokens can be configured to be trusted on Azure AD applications. They can then be exchanged for an Azure AD access token using the [Azure Identity SDKs](/dotnet/api/overview/azure/identity-readme) or the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
 ![Simplified workflow for pod managed identity in Azure](./media/message-flow.png)
@@ -86,7 +78,7 @@ For more information, see the following resources:
 - [Azure Active Directory Workload Identity Federation with external OIDC Identity Providers](https://arsenvlad.medium.com/azure-active-directory-workload-identity-federation-with-external-oidc-idp-4f06c9205a26)
 - [Minimal Azure AD Workload identity federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 
-## Example Workload
+### Example Workload
 
 Let's assume you want to deploy to AKS a workload composed of a frontend and backend service on an AKS cluster that need to access the following services using a security token issued by Azure Active Directory:
 
@@ -136,7 +128,7 @@ There are four steps to get the sample working end-to-end in a Kubernetes cluste
 
 You can find the code of this example workload on [GitHub](https://github.com/azure-samples/azure-ad-workload-identity).
 
-## What is next?
+### What is next?
 
 Azure AD workload identity federation for Kubernetes is currently supported only on Azure AD applications. Microsoft intends to extend the same model to Azure managed identities.
 
