@@ -565,7 +565,7 @@ items:
                   - name: Identity and access management
                     items:
                       - name: Workload Identity
-                        href: aws-professional/eks-to-aks/iam/pod-identity.yml
+                        href: aws-professional/eks-to-aks/iam/workload-identity.yml
                   - name: Cluster observability and monitoring
                     items:
                       - name: Kubernetes Monitoring and Logging

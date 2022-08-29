@@ -18,4 +18,4 @@ name:  Kubernetes Pod Identity
 summary: Understand how pods can access PaaS services using a security token issued by Azure AD without the need of explicit credentials.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
-   [!include[](pod-identity-content.md)]
+   [!include[](workload-identity-content.md)]
