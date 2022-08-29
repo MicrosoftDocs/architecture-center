@@ -377,7 +377,6 @@ The following limitations apply when you create and manage AKS clusters that sup
 - You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 - System pools must contain at least one node, and user node pools may contain zero or more nodes.
 - The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
-- The AKS cluster must use virtual machine scale sets for the nodes.
 - You can't change the VM size of a node pool after you create it.
 - The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 - characters, for Windows node pools the length must be between 1 and 6 characters.
 - All node pools must reside in the same virtual network.
