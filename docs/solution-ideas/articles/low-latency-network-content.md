@@ -14,7 +14,9 @@ Use this approach for scenarios like:
 
 ## Architecture
 
-:::image type="content" source="../media/low-latency-network.png" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server. Azure Network Function Manager controls the private multi-access edge compute nodes on Azure Stack Edge." border="false":::
+:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="../media/low-latency-network.png" lightbox="../media/low-latency-network.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/low-latency-network.vsdx) of this architecture.*
 
 ### Dataflow
 
