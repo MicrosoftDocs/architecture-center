@@ -60,8 +60,8 @@ The following sections, organized by category, provide links to example scenario
 ### Identity
 
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
-- [Azure AD join for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)
-- [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Azure AD join for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
+- [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest.yml)
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
@@ -79,7 +79,7 @@ FSLogix is designed for roaming profiles in remote computing environments like A
 
 ## Stay current with virtual desktop technologies on Azure
 
-Get the latest updates on [Azure virtual desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
+Get the [latest updates on Azure virtual desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
 
 ## Additional resources
 
