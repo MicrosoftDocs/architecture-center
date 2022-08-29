@@ -55,7 +55,7 @@ The following sections can help you on the path to production for Oracle on Azur
 - [Backup and recovery of databases and workloads](#backup-and-recovery-of-databases-and-workloads)
 - [WebLogic Server](#weblogic-server)
 
-### Oracle database migration and deployment
+### Database migration and deployment
 
 The following articles describe how to run an Oracle database on Azure and connect to an Oracle database that's running in on OCI.
 
@@ -73,7 +73,7 @@ The following articles describe how to run an Oracle database on Azure and conne
 
 - [Host a Murex MX.3 workload on Azure](../../example-scenario/finance/murex-mx3-azure.yml). This example workload provides details to implement and run Murex MX.3 workloads on various databases, including Oracle databases.
 
-### Backup and recovery of Oracle databases and workloads
+### Backup and recovery of databases and workloads
 
 The articles in this section describe methods of backing up and recovering Oracle databases by using Azure resources.
 
