@@ -36,12 +36,6 @@ AKS uses several [user-assigned managed identities](/azure/active-directory/mana
 |----------------------------|-----------|----------|
 | Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers | Contributor role for Node resource group | Supported
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
-| Add-on | AzureNPM | No identity required | NA | No
-| Add-on | AzureCNI network monitoring | No identity required | NA | No
-| Add-on | azure-policy (gatekeeper) | No identity required | NA | No
-| Add-on | azure-policy | No identity required | NA | No
-| Add-on | Calico | No identity required | NA | No
-| Add-on | Dashboard | No identity required | NA | No
 | Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
