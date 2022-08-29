@@ -101,6 +101,18 @@ When assigning resources to resource groups, consider the following features:
 
 For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
 
+#### App configurations
+
+- Store configuration settings as [app settings](/azure/app-service-web/web-sites-configure). Define the app settings in your Resource Manager templates or using PowerShell. At runtime, app settings are available to the application as environment variables.
+- Never check passwords, access keys, or connection strings into source control. Instead, pass secrets as parameters to a deployment script that stores these values as app settings.
+- When you swap a deployment slot, the app settings are swapped by default. If you need different production and staging settings, you can create app settings that stick to a slot and don't get swapped.
+
+#### Diagnostics and monitoring
+
+- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
+- Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
+- Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Azure DevOps Server](/azure/devops/server/tfs-is-now-azure-devops-server). For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md).
+
 ### DevOps
 
 - Use [ARM templates](/azure/azure-resource-manager/resource-group-overview#resource-groups) to deploy Azure resources and their dependencies. The accompanying ARM template deploys a single web application. All the resources are isolated in the same basic workload. This isolation makes it easier to associate the workload's specific resources to a team. The team can then independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD).
@@ -128,18 +140,6 @@ An App Service app always has one deployment slot named `production`. The produc
 ### Security
 
 This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some other security considerations, see [Secure an app in Azure App Service](/azure/app-service-web/web-sites-security).
-
-#### App configurations
-
-- Store configuration settings as [app settings](/azure/app-service-web/web-sites-configure). Define the app settings in your Resource Manager templates or using PowerShell. At runtime, app settings are available to the application as environment variables.
-- Never check passwords, access keys, or connection strings into source control. Instead, pass secrets as parameters to a deployment script that stores these values as app settings.
-- When you swap a deployment slot, the app settings are swapped by default. If you need different production and staging settings, you can create app settings that stick to a slot and don't get swapped.
-
-#### Diagnostics and monitoring
-
-- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
-- Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
-- Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Azure DevOps Server](/azure/devops/server/tfs-is-now-azure-devops-server). For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md).
 
 #### SQL Database auditing
 
