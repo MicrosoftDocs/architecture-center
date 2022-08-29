@@ -128,7 +128,8 @@ Azure AD workload identity federation for Kubernetes is currently supported only
 
 ## Next Steps
 
-- [Cluster observability and monitoring](../monitoring/monitoring.yml)
+> [!div class="nextstepaction"]
+> [Kubernetes monitoring and logging](../monitoring/monitoring.yml)
 
 The following references provide automation and documentation on Azure Active Directory Workload Identity:
 

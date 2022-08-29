@@ -154,7 +154,8 @@ Examine open-source tools such as [KubeCost](https://www.kubecost.com/) to monit
 
 ## Next Steps
 
-- [Agent node management](../nodes/node-pools.yml)
+> [!div class="nextstepaction"]
+> [Agent node management](../nodes/node-pools.yml)
 
 The following references provide automation and documentation on AKS cost management:
 

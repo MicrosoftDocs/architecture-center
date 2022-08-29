@@ -63,6 +63,9 @@ Just like EKS monitoring, when you enable Container Insights for your AKS cluste
 
 ## Next Steps
 
+> [!div class="nextstepaction"]
+> [Secure network access to Kubernetes API](../networking/private-clusters.yml)
+
 The following references provide documentation on the deployment and automation of monitoring on AKS:
 
 - [Use Azure Monitor Private Link Scope](/samples/azure-samples/azure-monitor-private-link-scope/azure-monitor-private-link-scope/)
