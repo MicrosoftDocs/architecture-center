@@ -21,7 +21,6 @@ Microsoft and Oracle have partnered to enable customers to deploy Oracle applica
 
 Azure provides a wide range of services to support Oracle on Azure, including the key services shown in the following table.
 
-
 | Title | Description |
 |---------|---------|
 | [Accelerate your cloud adoption with Microsoft and Oracle](https://azure.microsoft.com/solutions/oracle/) | Run your Oracle Database and enterprise applications on Azure and Oracle Cloud. |
@@ -29,8 +28,6 @@ Azure provides a wide range of services to support Oracle on Azure, including th
 | [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview) | Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure virtual machines (VMs). |
 | [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) | This article provides information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace. |
 | [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services. |
-
-
 
 ## Introduction to Oracle on Azure
 
@@ -48,16 +45,17 @@ If you have an SAP workload that depends on an Oracle database, see the Learn mo
 > [!div class="nextstepaction"]
 > [Search Learn for current offerings about Oracle](/search/?terms=Oracle&category=Learn)
 
-
 ## Path to production
 
+The following sections can help you on the path to production for Oracle on Azure:
 
-
+- [Database migration and deployment](#database-migration-and-deployment)
+- [Backup and recovery of Oracle databases and workloads](#backup-and-recovery-of-oracle-databases-and-workloads)
+- [WebLogic Server](#weblogic-server)
 
 ### Database migration and deployment
 
-Introduction...
-
+The following articles can help you run an Oracle database on Azure or connect to an Oracle database that's running in Oracle's cloud, OCI.
 
 | Title | Description |
 |---------|---------|
@@ -71,8 +69,7 @@ Introduction...
 
 ### Backup and recovery of databases and workloads
 
-Introduction...
-
+The articles in this section describe methods of backing up and recovering Oracle databases by using Azure resources.
 
 | Title | Description |
 |---------|---------|
@@ -84,8 +81,7 @@ Introduction...
 
 ### WebLogic Server
 
-The articles in this section can help you decide on a solution for running Oracle WebLogic Server on Azure and show you have to perform the migration.
-
+The articles in this section can help you decide on a solution for running Oracle WebLogic Server on Azure and show you how to perform the migration.
 
 | Title | Description |
 |---------|---------|
@@ -96,11 +92,9 @@ The articles in this section can help you decide on a solution for running Oracl
 | [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway) | This tutorial describes the process of deploying WebLogic Server with Azure Application Gateway. It covers the specific steps for creating a Key Vault, storing a TLS/SSL certificate, and using that certificate for TLS/SSL termination. |
 | [Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution](/azure/developer/java/migration/migrate-weblogic-with-elk) | This tutorial describes the process of deploying WebLogic Server with Elastic on Azure, including the specific steps for creating a managed Elastic stack. |
 
-
 ## Best practices
 
 The articles in this section can help you identify and select the services and configurations that will best support your solutions for Oracle on Azure.
-
 
 | Title | Description |
 |---------|---------|
@@ -108,24 +102,25 @@ The articles in this section can help you identify and select the services and c
 | [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design) | This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance. |
 | [SAP deployment on Azure using an Oracle database](../../example-scenario/apps/sap-production.yml) | This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability. |
 
-
 ## Oracle on Azure architectures
 
-Introduction...
-
+The articles in this section describe architectures for deploying Oracle applications on Azure and integrating services on Azure with services on OCI.
 
 | Title | Description |
 |---------|---------|
 | [Architectures to deploy Oracle applications on Azure](/azure/virtual-machines/workloads/oracle/oracle-oci-applications) | This article describes recommended architectures for deploying Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in cross-cloud configurations or entirely on Azure. |
-| [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | This article describes how to partition a multi-tier application to run the database tier on Oracle Cloud Infrastructure (OCI) and the application and other tiers on Microsoft Azure. |
+| [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | This article describes how to partition a multi-tier application to run the database tier on OCI and the application and other tiers on Microsoft Azure. |
 | [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) | This article provides detailed information about deploying Oracle Database Enterprise Edition on Azure and using Oracle Data Guard for disaster recovery. |
-
 
 ## Stay current with Oracle on Azure
 
-Check Azure updates for [news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle).
+To stay informed about Oracle on Azure, check Asure updates and the Microsoft Azure blog.
 
-You can also check Microsoft Azure Blog for [posts about Oracle](https://azure.microsoft.com/search/blog/?q=Oracle).
+> [!div class="nextstepaction"]
+> Check Azure updates for [news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
+
+> [!div class="nextstepaction"]
+> Check Microsoft Azure Blog for [posts about Oracle](https://azure.microsoft.com/search/blog/?q=Oracle)
 
 ## Additional resources
 
