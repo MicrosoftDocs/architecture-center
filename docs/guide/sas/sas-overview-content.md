@@ -9,15 +9,14 @@ Along with discussing different implementations, this guide also aligns with [Mi
 SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support its solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms, which Microsoft has validated:
 
 - SAS Grid 9.4
-- SAS Viya 3.5
-- SAS Viya 4.0
+- SAS Viya
 
 The following architectures have been tested:
 
 - SAS Grid 9.4 on Linux
 - SAS 9 Foundation
 - SAS Viya 3.5 with symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures on Linux
-- SAS Viya 4.0 with an MPP architecture on AKS
+- SAS Viya 2020 and up with an MPP architecture on AKS
 
 This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. For more information on the Azure hosting and management services that SAS provides, see [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html).
 
@@ -159,7 +158,7 @@ Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/
 > [!WARNING]
 > When possible, avoid using Lsv2 VMs. Please use the Lsv3 VMs with Intel chipsets instead.
 
-With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
+With Azure, you can scale SAS Viya systems on demand to meet deadlines:
 
 - By increasing the compute capacity of the node pool.
 - By using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler) to add nodes and scale horizontally.
@@ -168,7 +167,7 @@ With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
 > [!NOTE]
 > When scaling computing components, also consider scaling up storage to avoid storage I/O bottlenecks.
 
-With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling.
+With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling at the moment. Viya 2022 supports horizontal scaling.
 
 ### Network and VM placement considerations
 
@@ -239,7 +238,7 @@ SAS and Microsoft have tested a series of data platforms that you can use to hos
 - [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 
-SAS offers performance-testing scripts for the Viya and GRID architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
+SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
 #### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
 
@@ -266,7 +265,7 @@ SAS tests have [validated NetApp performance for SAS Grid](https://communities.s
 
 Consider the following points when using this service:
 
-- Azure NetApp Files works well with Viya 3.5 and Viya 4.0 deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
+- Azure NetApp Files works well with Viya deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
 - On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This goes up to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) applied.
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
