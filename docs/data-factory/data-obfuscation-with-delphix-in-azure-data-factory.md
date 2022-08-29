@@ -25,7 +25,7 @@ Breaking down data silos is difficult:
 
 ### What is Azure Data Factory?
 
-[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
+[Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
 
 ### What is Delphix Continuous Compliance (Delphix CC)?
 
@@ -70,8 +70,8 @@ The data flows through the scenario as follows:
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastore(s) and the masked data that will be loaded into destination data store(s).
-- [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
-- Optional: [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that are not a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- [Resource Groups](/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
+- Optional: [Azure Virtual Network](/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that are not a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
 - Additional Components: Based on the datastores used as source and destination, additional components may need to be added. These datastores can vary depending on your requirements.
 
 ## Alternatives
@@ -151,7 +151,7 @@ Delphix CC irreversibly masks data values with realistic data that remains fully
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-By adjusting values on the Azure pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator/), you can see how your particular requirements impact cost.
+By adjusting values on the Azure pricing calculator (https://azure.microsoft.com/pricing/calculator/), you can see how your particular requirements impact cost.
 Azure Synapse: You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
 Data Factory: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
