@@ -172,7 +172,7 @@ AKS supports scaling node pools in an automatic mode via the  [cluster autoscale
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command shows how to add a new node pool called *mynodepool* to an existing cluster. The `--enable-cluster-autoscaler` parameter can be used to enable the cluster autoscaler on the new node pool, while the `--min-count` and `--max-count` parameters can be used to indicate, respectively, the minimum and maximum number of nodes.
 
   ```azurecli-interactive
-    az aks nodepool update \
+    az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynewnodepool \
@@ -225,6 +225,47 @@ To create a node pool with a taint, you can use the [az aks nodepool add](/cli/a
   ```
 
 For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools?msclkid=f8996edaa9f611ec988702dcd79cd3f4#specify-a-taint-label-or-tag-for-a-node-pool).
+
+### Reserved system labels
+
+Amazon EKS adds the automated Kubernetes labels to all nodes in a managed node group like the `eks.amazonaws.com/capacityType` which specifies the capacity type. Likewise, Azure Kubernetes Service (AKS) automatically adds system labels to agent nodes. The following labels are reserved for use by AKS. Virtual node usage specifies if these labels could be a supported system feature on virtual nodes. Some properties that these system features change aren't available on the virtual nodes, because they require modifying the host.
+
+| Label | Value | Example/Options | Virtual node usage |
+| ---- | --- | --- | --- |
+| kubernetes.azure.com/agentpool | \<agent pool name> | nodepool1 | Same |
+| kubernetes.io/arch | amd64 | runtime.GOARCH | N/A |
+| kubernetes.io/os | \<OS Type> | Linux/Windows | Same |
+| node.kubernetes.io/instance-type | \<VM size> | Standard_NC6 | Virtual |
+| topology.kubernetes.io/region | \<Azure region> | westus2 | Same |
+| topology.kubernetes.io/zone | \<Azure zone> | 0 | Same |
+| kubernetes.azure.com/cluster | \<MC_RgName> | MC_aks_myAKSCluster_westus2 | Same |
+| kubernetes.azure.com/mode | \<mode> | User or system | User |
+| kubernetes.azure.com/role | agent | Agent | Same |
+| kubernetes.azure.com/scalesetpriority | \<VMSS priority> | Spot or regular | N/A |
+| kubernetes.io/hostname | \<hostname> | aks-nodepool-00000000-vmss000000 | Same |
+| kubernetes.azure.com/storageprofile | \<OS disk storage profile> | Managed | N/A |
+| kubernetes.azure.com/storagetier | \<OS disk storage tier> | Premium_LRS | N/A |
+| kubernetes.azure.com/instance-sku | \<SKU family> | Standard_N | Virtual |
+| kubernetes.azure.com/node-image-version | \<VHD version> | AKSUbuntu-1804-2020.03.05 | Virtual node version |
+| kubernetes.azure.com/subnet | \<nodepool subnet name> | subnetName | Virtual node subnet name |
+| kubernetes.azure.com/vnet | \<nodepool vnet name> | vnetName | Virtual node virtual network |
+| kubernetes.azure.com/ppg  | \<nodepool ppg name> | ppgName | N/A |
+| kubernetes.azure.com/encrypted-set | \<nodepool encrypted-set name> | encrypted-set-name | N/A |
+| kubernetes.azure.com/accelerator | \<accelerator> | nvidia | N/A |
+| kubernetes.azure.com/fips_enabled | \<is fips enabled?> | true | N/A |
+| kubernetes.azure.com/os-sku | \<os/sku> | [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux |
+
+* *Same* is included in places where the expected values for the labels don't differ between a standard node pool and a virtual node pool. As virtual node pods don't expose any underlying virtual machine (VM), the VM SKU values are replaced with the SKU *Virtual*.
+* *Virtual node version* refers to the current version of the [virtual Kubelet-ACI connector release](https://github.com/virtual-kubelet/azure-aci/releases).
+* *Virtual node subnet name* is the name of the subnet where virtual node pods are deployed into Azure Container Instance (ACI).
+* *Virtual node virtual network* is the name of the virtual network, which contains the subnet where virtual node pods are deployed on ACI.
+
+The following list of prefixes are reserved for usage by AKS and can't be used for any node.
+
+* kubernetes.azure.com/
+* kubernetes.io/
+
+For additional reserved prefixes, see [Kubernetes well-known labels, annotations, and taints](https://kubernetes.io/docs/reference/labels-annotations-taints/).
 
 ### Network Plugins
 
