@@ -50,7 +50,7 @@ If you have an SAP workload that depends on an Oracle database, the Learn module
 The following sections can help you on the path to production for Oracle on Azure:
 
 - [Database migration and deployment](#database-migration-and-deployment)
-- [Backup and recovery of Oracle databases and workloads](#backup-and-recovery-of-oracle-databases-and-workloads)
+- [Backup and recovery of databases and workloads](#backup-and-recovery-of-databases-and-workloads)
 - [WebLogic Server](#weblogic-server)
 
 ### Database migration and deployment
