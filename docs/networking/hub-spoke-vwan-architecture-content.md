@@ -49,11 +49,11 @@ The architecture consists of:
 
 ### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/)
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 
 ### Alternatives
 
@@ -66,7 +66,7 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
 
 This diagram illustrates a few of the advantages that this architecture can provide:
-* A full meshed hubs among Azure Virtual Networks
+* A full meshed hub among Azure Virtual Networks
 * Branch to Azure connectivity
 * Branch to Branch connectivity
 * Mixed use of VPN and Express Route
@@ -168,7 +168,7 @@ Virtual network peering is a nontransitive relationship between two virtual netw
 
 A customer-managed hub infrastructure introduces management cost to underlying Azure resources. To achieve a transitive connectivity with a predictable latency, you must have a Network Virtual Appliance (NVA) or Azure Firewall deployed in each hub. Using Azure Firewall with either choice will lower the cost compared to an NVA. Azure Firewall costs are the same for both options. There is an extra cost for Azure Virtual WAN; however, it is much less costly than managing your own hub infrastructure.
 
-For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
+For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan).
 
 ## Next steps
 
@@ -192,12 +192,12 @@ Learn more:
 
 ## Related resources
 
--   [Strengthen your security posture with Azure](https://azure.microsoft.com/overview/security/)
+-   [Strengthen your security posture with Azure](https://azure.microsoft.com/overview/security)
 
--   [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+-   [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
--   [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+-   [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 
--   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+-   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 
--   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
+-   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
