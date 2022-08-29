@@ -349,7 +349,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
-        --name mynodepool \
+        --name myspotnodepool \
         --priority Spot \
         --eviction-policy Delete \
         --spot-max-price -1 \
