@@ -27,10 +27,6 @@ Azure provides a wide range of services to support Oracle on Azure. Following ar
 
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/#overview). Use preconfigured solutions from Oracle and host Java application servers with Oracle WebLogic on Azure virtual machines (VMs).
 
-- [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions). This article provides information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace.
-
-- [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
-
 
 ## Introduction to Oracle on Azure
 
@@ -59,19 +55,13 @@ The following sections can help you on the path to production for Oracle on Azur
 
 The following articles describe how to run an Oracle database on Azure and connect to an Oracle database that's running in on OCI.
 
-- [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure. High availability for your front-end and middle tier can be obtained by using Azure Load Balancers or Application Gateways. <!-- short, simple article -->
+- [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard and Azure Load Balancer. This solution allows you to gradually migrate your application tier in multiple steps.
 
-- [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard and Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard.
-
-- [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml). This example scenario describes a high-bandwidth, low-latency solution for Oracle Database workloads.
-
-- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describes creation of an interconnection between Azure and Oracle Cloud Infrastructure (OCI) by using Azure ExpressRoute and FastConnect. The connection between the services allows applications hosted on Azure to communicate with Oracle database hosted on OCI.
-
-- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs). <!-- short, simple article -->
+- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describes creation of an interconnection between Azure and OCI to allow applications that are hosted on Azure to communicate with an Oracle database that's hosted on OCI.
 
 - [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design). This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance.
 
-- [Host a Murex MX.3 workload on Azure](../../example-scenario/finance/murex-mx3-azure.yml). This example workload provides details to implement and run Murex MX.3 workloads on various databases, including Oracle databases.
+
 
 ### Backup and recovery of databases and workloads
 
@@ -83,8 +73,6 @@ The articles in this section describe methods of backing up and recovering Oracl
 
 - [Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup). This article demonstrates using Azure Backup to create snapshots of the VM disks, which include the database files and fast recovery area. Azure Backup can take full-disk snapshots, which are stored in Recovery Services Vault, that are suitable as backups.
 
-- [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery). This article describes disaster recovery scenarios for an Oracle 12c database that runs on Azure.
-
 
 ### WebLogic Server
 
@@ -95,10 +83,6 @@ The articles in this section can help you decide on a solution for running Oracl
 - [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks) This article describes solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS).
 
 - [Migrate WebLogic Server applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines). This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure VMs.
-
-- [Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network](/azure/developer/java/migration/migrate-weblogic-to-aks-within-an-existing-vnet). This tutorial shows you how to deploy Oracle WebLogic Server on AKS.
-
-- [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway). This tutorial describes the process of deploying WebLogic Server with Azure Application Gateway. It covers the specific steps for creating a Key Vault, storing a TLS/SSL certificate, and using that certificate for TLS/SSL termination.
 
 ## Best practices
 
@@ -129,6 +113,24 @@ To stay informed about Oracle on Azure, check Asure updates and the Microsoft Az
 > [!div class="nextstepaction"]
 > [Check Microsoft Azure Blog for posts about Oracle on Azure](https://azure.microsoft.com/search/blog/?q=Oracle)
 
+
 ## Additional resources
 
+The following articles provide additional support for implementing Oracle on Azure:
+
+- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview). This article introduces capabilities to run Oracle solutions by using Azure infrastructure.
+
+- [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions). This article provides information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace.
+
+- [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
+
+
+
 ### Example solutions
+
+Following are some additional solution ideas that might be helpful:
+
+- [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure by using Azure Load Balancers or Application Gateways.
+
+- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs). 
+
