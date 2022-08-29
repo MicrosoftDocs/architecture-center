@@ -2,7 +2,7 @@ This reference architecture provides a recommended baseline infrastructure archi
 
 This architecture isn't focused on a workload, rather it concentrates on the AKS cluster itself. The information here is the minimum recommended baseline for most AKS clusters. It integrates with Azure services that delivers observability, a network topology that supports multi-regional growth, and secures the in-cluster traffic.
 
-The target architecture is influenced by your business requirements, and as a result it can vary between different application contexts. It should be considered as your starting point for pre-production and production stages. This recommended baseline architecture supports both provisioned and bootstrapped AKS clusters, including at scale configuration management of many clusters as easily as one, referred to as a fleet.
+The target architecture is influenced by your business requirements, and as a result it can vary between different application contexts. It should be considered as your starting point for pre-production and production stages. This recommended baseline architecture supports both provisioned and bootstrapped AKS clusters enabled by using GitOps, which delivers at scale configuration management of many clusters as easily as one, referred to as a fleet.
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Baseline Reference Implementation](https://github.com/mspnp/aks-baseline). You can use it as a starting point and configure it per your needs.
 
@@ -403,7 +403,7 @@ Store secrets in a managed key store, such as Azure Key Vault. The advantage is 
 
 Azure Key Vault is well integrated with other Azure services. Use the built-in feature of those services to access secrets. For an example about how Azure Application Gateway accesses TLS certificates for the ingress flow, see the [Ingress traffic flow](#ingress-traffic-flow) section.
 
-With the new Azure RBAC permission model for Key Vault, it allows you to assign the workload identities to either the **Key Vault Secrets User** or **Key Vault Reader** role assignment and access the secrets. For more information, see [Access Azure Key Vault using RBAC](/azure/key-vault/general/rbac-guide).
+The Azure RBAC permission model for Key Vault allows you to assign the workload identities to either the **Key Vault Secrets User** or **Key Vault Reader** role assignment, and access the secrets. For more information, see [Access Azure Key Vault using RBAC](/azure/key-vault/general/rbac-guide).
 
 ### Accessing cluster secrets
 
