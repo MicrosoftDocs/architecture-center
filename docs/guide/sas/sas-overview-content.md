@@ -114,13 +114,24 @@ Run these commands to adjust that setting:
 
 SAS deployments often use the following VM SKUs:
 
-#### Edsv4-series
+#### Edsv5-series
 
-VMs in the Edsv4-series are the default SAS machines. They offer these features:
+VMs in the Edsv5-series are the default SAS machines for Viya and Grid. They offer these features:
 
 - Constrained cores. With many machines in this series, you can constrain the VM vCPU count.
 - A good CPU-to-memory ratio.
 - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache, `CAS_CACHE`, that SAS uses for temporary files.
+
+If the Edsv5-series VMs are unavailable, it is recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/edv4-edsv4-series) have been tested and perform well on SAS workloads.
+
+#### Ebsv5-series
+
+In some cases the locally attached disk doesn't have sufficient storage space. For those scenarios it is recommended to use the [Ebsv5-series of VMs](/azure/virtual-machines/ebdsv5-ebsv5-series) with premium attached disks to meet the volume sizes needed. These VMs offer these features:
+
+- Same specifications as the Edsv5 and Esv5 VMs
+- High throughput against remote attached disk, up to 4GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
+
+If the Edsv5-series VMs offer enough storage, it is better to use those as they are most cost efficient. 
 
 #### M-series
 
@@ -135,18 +146,18 @@ M-series VMs offer these features:
 - Up to 3.8 TiB of memory, suited for workloads that use a large amount of memory
 - High throughput to remote disks, which works well for the `SASWORK` folder when the locally available disk is insufficient
 
-#### Lsv2
+#### Ls-series
 
-Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
+Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`. 
 
 > [!NOTE]
 > SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
 >
-> - With math-heavy workloads, avoid VMs that don't use Intel processors.
-> - When selecting a CPU, validate how the MKL performs on it.
+> - With math-heavy workloads, avoid VMs that don't use Intel processors: the Lsv2 and Lasv3.
+> - When selecting an AMD CPU, validate how the MKL performs on it.
 
 > [!WARNING]
-> When possible, avoid using Lsv2 VMs. The CPU generation in this type of VM can vary from one node to another within a cluster.
+> When possible, avoid using Lsv2 VMs. Please use the Lsv3 VMs with Intel chipsets instead.
 
 With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
 
@@ -333,7 +344,9 @@ Other contributors:
 For help getting started, see the following resources:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal)
-- [Edsv4 series VMs](/azure/virtual-machines/edv4-edsv4-series)
+- [Edsv5 series VMs](/azure/virtual-machines/edv5-edsv5-series)
+- [Ebsv5 series VMs](/azure/virtual-machines/ebdsv5-ebsv5-series)
+- [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/availability-zones/az-overview)
 
