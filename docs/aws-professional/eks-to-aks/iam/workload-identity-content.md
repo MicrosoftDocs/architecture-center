@@ -83,7 +83,7 @@ For more information, see the following resources:
 - [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity).
 - [Workload identity federation](/azure/active-directory/develop/workload-identity-federation)
 - [Azure AD workload identity federation with Kubernetes](https://blog.identitydigest.com/azuread-federate-k8s/)
-- [Azure Active Directory Workload Identity Federation with external OIDC Identy Providers](https://arsenvlad.medium.com/azure-active-directory-workload-identity-federation-with-external-oidc-idp-4f06c9205a26)
+- [Azure Active Directory Workload Identity Federation with external OIDC Identity Providers](https://arsenvlad.medium.com/azure-active-directory-workload-identity-federation-with-external-oidc-idp-4f06c9205a26)
 - [Minimal Azure AD Workload identity federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 
 ## Example Workload
