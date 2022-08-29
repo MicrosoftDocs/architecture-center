@@ -2660,7 +2660,7 @@ items:
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
               - name: Interruptible workloads using Azure Spot VM
-                href: spot/spot-eviction.md
+                href: /docs/guide/spot/spot-eviction
                 maintainContext: true
           - name: Architectures
             items:

@@ -1,3 +1,4 @@
+### YamlMime:Architecture
 metadata:
   title: Azure Virtual Machine Spot Eviction
   description: Learn how to use Spot Eviction and design a solution to handle eviction notices. 

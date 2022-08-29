@@ -66,9 +66,8 @@ Azure Spot VM and scale sets instances will transition states and your workload 
 1. Stopped or Deleted (eviction policy based)
 1. Running (based on capacity and max price you set)
 
-<!--- new diagram here --->
-<!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
-![State diagram depicting how Azure VM Spot VM and scale sets behaves depending on policy, capacity ad price.](/media/spot-state-diagram.png)
+<!--- diagram here --->
+:::image type="content" source="/media/spot-state-diagram.png" alt-text="State diagram depicting how Azure VM Spot VM and scale sets behaves depending on policy, capacity ad price.":::
 
 The following table breaks down the expected outcome and state for a Spot VM based on the VMs current state, the input it receives from the Azure infrastructure, and the conditions you set (price limits and eviction policy).
 
