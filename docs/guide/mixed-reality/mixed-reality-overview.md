@@ -1,7 +1,7 @@
 ---
-title: Microsoft mixed reality overview
+title: Microsoft mixed reality architecture overview
 titleSuffix: Azure Architecture Center
-description: See an overview of Microsoft mixed-reality concepts, training, best practices, and Azure services.
+description: See an overview of Microsoft mixed-reality concepts, training, best practices, architectures, and Azure services.
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 08/16/2022
@@ -19,7 +19,7 @@ ms.custom:
   - overview
 ---
 
-# Mixed reality overview
+# Mixed reality architecture design
 
 Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing.
 

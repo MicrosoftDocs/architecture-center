@@ -184,9 +184,15 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
+
 Cost considerations include:
 
 - **Azure AD Connect** - The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
+
+  - There a no additional license requirements for using Azure AD Connect and is included in your Azure subscription.
+
+  - For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
 
 - **VMs for N-Tier application** - For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
@@ -225,14 +231,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [What is the Azure Active Directory architecture?][aad-scalability]
 
 For the Azure AD Connect sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of Azure AD Connect, specifying that it should use an existing instance of SQL Server.
-
-## Pricing
-
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
-
-- There a no additional license requirements for using Azure AD Connect and is included in your Azure subscription.
-- Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-- For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
 
 ## Next steps
 

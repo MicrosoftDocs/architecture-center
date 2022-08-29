@@ -45,7 +45,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and application virtualization service that runs on Azure. This service is free and managed by Microsoft as a platform as a service (PaaS) offering, saving you money on licensing and infrastructure costs. It's a flexible cloud virtual desktop infrastructure (VDI) platform that delivers virtual desktops and remote apps with maximum control and improved security.
 - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/database)  is a PaaS version of SQL Server. It's an intelligent and scalable relational database service.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller-as-a-service offering that provides layer-7 load balancing, security, and web application firewall functionality. 
-- [FSLogix](https://docs.microsoft.com/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
+- [FSLogix](/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
 
   For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) enables you to create your own private network infrastructure in the cloud. 
@@ -132,7 +132,7 @@ Other contributor:
  
 - [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
 - [Prepare an Azure Virtual Desktop image with this script](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/shawntmeyer/WVD/tree/master/Image-Build/Customizations)
-- [Download and install FSLogix](https://docs.microsoft.com/FSLogix/install-ht)
+- [Download and install FSLogix](/FSLogix/install-ht)
 - [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)
 - [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql)
