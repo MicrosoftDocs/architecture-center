@@ -1,4 +1,4 @@
-This series of articles will help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS) while highlighting key similarities and differences between the two managed Kubernetes solutions. The articles provide best practices and automated reference implementations to improve the security, compliance, and observability of your Azure Kubernetes Service deployments.
+This series of articles will help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS) while highlighting key similarities and differences between the two managed Kubernetes solutions. The articles provide best practices and recommended architectures to improve the security, compliance, and observability of your Azure Kubernetes Service deployments. For additional implementation references and content make sure to review the [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) and the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 These articles describe:
 
@@ -18,11 +18,11 @@ Please note that AKS is not the only way to run containers Azure, just like EKS 
 The following articles provide best practices for the specific design areas:
 
 - [Kubernetes Pod Identity](./iam/pod-identity.yml)
-- [Cost Management for a Kubernetes Cluster](./cost-management/cost-management.yml)
 - [Kubernetes Monitoring and Logging](./monitoring/monitoring.yml)
 - [Secure network access to Kubernetes API](./networking/private-clusters.yml)
-- [Agent node management](./nodes/node-pools.yml)
 - [Kubernetes Storage options](./storage/storage.yml)
+- [Cost Management for a Kubernetes Cluster](./cost-management/cost-management.yml)
+- [Agent node management](./nodes/node-pools.yml)
 
 ## Next Steps
 
