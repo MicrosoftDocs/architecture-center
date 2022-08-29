@@ -1,5 +1,8 @@
 The following article will compare how to add, update, create, and delete worker nodes in Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS).
 
+> [!NOTE]
+> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+
 ## Amazon EKS managed node groups
 
 Amazon EKS managed node groups automate the provisioning and lifecycle management of worker nodes (Amazon EC2 instances) for Amazon EKS clusters. AWS allows users to create, update, or terminate nodes for their EKS cluster using the [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html) command-line utility. Node updates and terminations automatically cordon and drain nodes to ensure that applications remain available.

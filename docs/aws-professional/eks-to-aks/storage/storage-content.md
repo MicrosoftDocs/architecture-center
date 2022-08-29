@@ -1,5 +1,8 @@
 The following article will guide you on the different options to store and retrieve workload data on an Azure Kubernetes Service.
 
+> [!NOTE]
+> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+
 ## EKS Architecture
 
 In EKS, after Kubernetes version 1.11 the cluster will have a default storage class for your persistent volume claims. The default storage class is **gp2**, however as an administrator you could define additional Storage Classes to use other storage services in AWS such as:

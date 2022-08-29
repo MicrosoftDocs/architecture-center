@@ -2,6 +2,9 @@ The following article will guide you on how the pricing for AKS works, how you c
 
 Cost Governance is the continuous process of implementing policies or controls to limit spending or costs. Both native Kubernetes tooling and Azure tools can allow you to have proactive monitoring and optimize the underlying infrastructure costs.
 
+> [!NOTE]
+> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+
 ## EKS Costs Basics
 
 In [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/pricing/) you pay a fixed price per hour for each EKS cluster that you create. Then you pay for the additional AWS resources (e.g., EC2 instances or Amazon Elastic Block Store (EBS) volumes) you provision to run your Kubernetes worker nodes. Since EKS worker nodes are standard Amazon EC2 instances, you are charged for them based on regular EC2 prices. You are also charged for additional networking, operations tools, and storage used by the cluster.

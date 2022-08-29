@@ -1,5 +1,8 @@
 The following article will guide you on how to establish a secure connection to the managed API Server of an Azure Kubernetes Service (AKS) cluster and the different options to restrict the public network access.
 
+> [!NOTE]
+> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+
 ## Amazon EKS Networking Modes
 
 Endpoint access control lets you configure whether the API Server endpoint is reachable from the public internet or through your VPC. EKS provides two ways for [controlling access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the public endpoint (default mode), private endpoint, or both endpoints simultaneously. When the public endpoint is enabled, you can add CIDR restrictions to limit the client IP addresses that can connect to the public endpoint.

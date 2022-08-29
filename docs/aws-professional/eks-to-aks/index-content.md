@@ -2,7 +2,7 @@ This series of articles will help professionals who are familiar with Amazon Ela
 
 These articles describe:
 
-- Identity and Access management.
+- Identity and access management.
 - Cluster observability and monitoring.
 - Network topologies.
 - Storage options.
