@@ -96,7 +96,7 @@ Two configuration changes are required to make the query to the public DNS (for 
 
 You can use the following steps to configure the firewall to prevent others from accessing the database:
 
-1. Create a network security group (NSG), and link it to the **PrivateLinkSubnet**. Use the NSG to only allow inbound traffic from the **AppSvcSubnet**. Keep in mind that the subnet that contains the [private endpoint needs to enable the *PrivateEndpointNetworkPolicies* property](/azure/private-link/disable-private-endpoint-network-policy) before the link exists in the NSG.
+1. Create a network security group (NSG), and link it to the **PrivateLinkSubnet**. Use the NSG to only allow inbound traffic from the **AppSvcSubnet**. For the subnet that contains the private endpoint, you need to [enable the *PrivateEndpointNetworkPolicies* property](/azure/private-link/disable-private-endpoint-network-policy) before the link will exist in the NSG.
 
 1. Create a [virtual network rule](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) that only allows traffic from the **AppSvcSubnet**. The **AppSvcSubnet** must have a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) configured for `Microsoft.Sql` so the database can identify traffic from that subnet.
 
