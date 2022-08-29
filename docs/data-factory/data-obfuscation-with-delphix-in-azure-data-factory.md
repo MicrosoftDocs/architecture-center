@@ -23,7 +23,7 @@ Breaking down data silos is difficult:
 - Data must be manipulated to fit to a common format. ETL pipelines must be adapted to each system of record and must scale to support the massive data sets of modern enterprises.
 - Compliance with regulations regarding sensitive information must be maintained when data is moved from systems of record. Customer content and other sensitive elements must be obscured without impacting the business value of the data set.
 
-### What is Azure Data Factory?
+### What is Azure Data Factory (ADF)?
 
 [Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
 
