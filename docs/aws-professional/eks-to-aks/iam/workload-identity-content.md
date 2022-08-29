@@ -102,12 +102,10 @@ Let's assume you want to deploy to AKS a workload composed of a frontend and bac
 - Create a Kubernetes service account for the workloads.
 - Create an Azure AD application as shown in the [Quick Start](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
 - Assign roles with the right permissions to the Azure AD registered application on the Azure resources accessed by the frontend and backend applications:
-
   - Azure Key Vault
   - Azure Cosmos DB
   - Azure Storage Account
   - Azure Service Bus namespace
-
 - Establish [federated identity credential](https://azure.github.io/azure-workload-identity/docs/quick-start.html) between the Azure AD application and the service account issuer and subject.
 - Deploy the workload application to the AKS cluster.
 
