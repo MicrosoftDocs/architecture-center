@@ -329,7 +329,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --os-type Windows \
-        --name mynodepool \
+        --name mywindowsnodepool \
         --node-count 1
   ```
 
