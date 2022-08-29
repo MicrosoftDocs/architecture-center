@@ -1,4 +1,7 @@
-The following article will guide you on how to use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to let your Kubernetes workloads access Azure resources without the need for a connection string, user credentials, or an access key. A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Azure AD Workload Identity eliminates the need for developers to manage credentials to access other cloud services such as Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage.
+
+The following article shows how an AKS cluster, its built-in services, and add-ons make use of [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to access Azure resources like load balancers and managed disks.
+
+In addition, this article shows how you can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to let your Kubernetes workloads access Azure resources without the need for a connection string, user credentials, or an access key. A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Azure AD Workload Identity eliminates the need for developers to manage credentials to access other cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage.balancers and managed disks.
 
 > [!NOTE]
 > This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
@@ -15,9 +18,41 @@ To call AWS Services from within a pod, you have two native options:
 
 ## AKS Architecture
 
-You can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to access an Azure managed service from an AKS-hosted workload application just using a security token issued by Azure Active Directory instead of using explicit credentials such as a connection string, username and password, or primary key:
+This section shows the use of managed identities in an Azure Kubernetes Service (AKS) cluster.
+
+### AKS cluster managed identities
+
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster a [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) is automatically created. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+
+To use a [service principal](/azure/aks/kubernetes-service-principal), you have to create one, as AKS does not create one automatically. Clusters using a service principal eventually expire and the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, thus it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
+
+Managed identities are essentially a wrapper around service principals, and make their management simpler. Managed identities use certificate-based authentication, and each managed identities credential has an expiration of 90 days and it's rolled after 45 days. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
+
+### Summary of managed identities
+
+AKS uses several [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for built-in services and add-ons.
+
+| Identity                       | Name    | Use case | Default permissions | Bring your own identity
+|----------------------------|-----------|----------|
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers | Contributor role for Node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
+| Add-on | AzureNPM | No identity required | NA | No
+| Add-on | AzureCNI network monitoring | No identity required | NA | No
+| Add-on | azure-policy (gatekeeper) | No identity required | NA | No
+| Add-on | azure-policy | No identity required | NA | No
+| Add-on | Calico | No identity required | NA | No
+| Add-on | Dashboard | No identity required | NA | No
+| Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
+| Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
+| Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
+| Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+
+For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 
 ### Azure Active Directory Workload Identity for Kubernetes
+
+You can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to access an Azure managed service from an AKS-hosted workload application just using a security token issued by Azure Active Directory instead of using explicit credentials such as a connection string, username and password, or primary key.
 
 Workloads deployed in Kubernetes clusters require Azure AD application credentials to access Azure AD protected resources, such as Azure Key Vault and Microsoft Graph. The [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) open-source project provided a way to avoid needing these secrets, such as connection strings and primary keys, by using Azure managed identities.
 
