@@ -61,7 +61,7 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 - [Gridwich request-response messages](../../reference-architectures/media-services/gridwich-message-formats.yml)
 - [Variable flow with Terraform and Azure Pipelines](../../reference-architectures/media-services/variable-group-terraform-flow.yml)
 
-#### Gridwhich procedures
+#### Gridwich procedures
 
 - [Set up Azure DevOps](../../reference-architectures/media-services/set-up-azure-devops.yml)
 - [Run Azure admin scripts](../../reference-architectures/media-services/run-admin-scripts.yml)
