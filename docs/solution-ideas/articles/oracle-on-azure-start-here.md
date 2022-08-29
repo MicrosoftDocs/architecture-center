@@ -117,10 +117,10 @@ The articles in this section describe architectures for deploying Oracle applica
 To stay informed about Oracle on Azure, check Asure updates and the Microsoft Azure blog.
 
 > [!div class="nextstepaction"]
-> Check Azure updates for [news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
+> [Check Azure updates for news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
 
 > [!div class="nextstepaction"]
-> Check Microsoft Azure Blog for [posts about Oracle](https://azure.microsoft.com/search/blog/?q=Oracle)
+> [Check Microsoft Azure Blog for posts about Oracle on Azure](https://azure.microsoft.com/search/blog/?q=Oracle)
 
 ## Additional resources
 
