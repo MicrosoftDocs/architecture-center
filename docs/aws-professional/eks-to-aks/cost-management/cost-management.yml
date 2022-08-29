@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Cost Management for a Kubernetes Cluster
-  description: Understand the cost factors of a Kubernetes cluster
+  description: Understand the cost factors of an Azure Kubernetes Service cluster as it relates to EKS.
   author: lanicolas
   ms.author: lanicola, paolos
   ms.date: 07/08/22
@@ -22,7 +22,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 name:  Cost Management for a Kubernetes Cluster
-summary: Understand the cost factors of a Kubernetes cluster
+summary: Understand the cost factors of an Azure Kubernetes Service cluster as it relates to EKS.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
    [!include[](cost-management-content.md)]

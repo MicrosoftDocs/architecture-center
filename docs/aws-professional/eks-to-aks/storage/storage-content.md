@@ -1,4 +1,4 @@
-The following article will guide you on the different options to store and retrieve data on an Azure Kubernetes Service.
+The following article will guide you on the different options to store and retrieve workload data on an Azure Kubernetes Service.
 
 ## EKS Architecture
 
@@ -58,8 +58,6 @@ When using Azure Managed Disks as your primary Storage Class, be mindful of the 
 
 Azure Disks Storage Class allows both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning.
 
-To optimize costs on Azure Managed Disks usage use [Azure Reservations](/azure/virtual-machines/disks-reserved-capacity).
-
 ### Azure Files
 
 When your workloads require concurrent access to a volume, Azure Disks cannot meet this requirement, however you can use Azure Files to connect using the Server Message Block 3.0 (SMB) protocol and mount a shared volume that is backed by an Azure Storage Account, this service provides a network attached storage similarly to Amazon EFS. As with Azure Disks there are two options:
@@ -105,7 +103,7 @@ For shared NFS access the preferred option would be to use Azure Files or ANF, h
 
 ### Third Party Solutions
 
-You can also integrate your AKS cluster with third party storage solutions deployed on Azure infrastructure, here are some examples:
+Like in EKS, AKS is just Kubernetes and allows you to integrate your own third-party storage solution deployed on Azure infrastructure, here are some examples:
 
 - [Rook](https://rook.io/) turns distributed storage systems into self-managing, self-scaling, self-healing storage services. It automates the tasks of a storage administrator: deployment, bootstrapping, configuration, provisioning, scaling, upgrading, migration, disaster recovery, monitoring, and resource management. Rook uses the power of the Kubernetes platform to deliver its services via a Kubernetes Operator for each storage provider.
 - [GlusterFS](https://www.gluster.org/) is a free and open-source scalable network filesystem. Gluster is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks. Gluster is free.
@@ -121,15 +119,15 @@ As described in the previous sections, different Storage Classes support differe
 
 | Storage Class      | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
 |--------------------|---------------|--------------|---------------|
-| Azure File         |      X        |      X       |       X       |
 | Azure Disks        |      X        |              |               |
+| Azure File         |      X        |      X       |       X       |
 | Azure NetApp Files |      X        |       X      |       X       |
-| Azure HPC Cache    |      X        |       X      |       X       |
 | NFS Server         |      X        |       X      |       X       |
+| Azure HPC Cache    |      X        |       X      |       X       |
 
 ## CSI Storage Drivers
 
-Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default for Storage Classes like Azure Disks and Files.
+In Kubernetes version 1.21 and newer, AKS uses CSI drivers only and by default for Storage Classes like Azure Disks and Files.
 
 ## Dynamic vs Static provisioning
 
@@ -139,6 +137,10 @@ It is recommended to choose to [dynamically provision volumes](/azure/aks/operat
 
 Choose a tool to backup persistent data, the tool should match the storage type you've chosen such as snapshots, [Azure Backup](/azure/backup/backup-overview), [Velero](https://github.com/heptio/velero) or [Kasten](https://www.kasten.io/).
 
+## Cost Optimizations
+
+To optimize costs on Azure Storage use Azure Reservations, make sure to check the list of services that support [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation) the [cost optimization article](../cost-management/cost-management.yml) for AKS deployments.
+
 ## Considerations
 
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-resource-limits)
@@ -147,6 +149,10 @@ Choose a tool to backup persistent data, the tool should match the storage type 
 
 ## Next Steps
 
+- [Cost Management for a Kubernetes Cluster](./cost-management/cost-management.yml)
+
+The following references provide additional information and documentation Azure Storage:
+ 
 - [Azure Storage Services](/learn/modules/azure-storage-fundamentals/)
 - [Store data in Azure](/learn/paths/store-data-in-azure/)
 - [Configure AKS Storage](/learn/modules/configure-azure-kubernetes-service/5-kubernetes-storage)
