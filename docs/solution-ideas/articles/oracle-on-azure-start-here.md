@@ -17,7 +17,14 @@ products:
 
 # Oracle on Azure architecture design
 
-Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. In addition to Oracle databases, Azure also supports WebLogic Server integrated with Azure services, applications on Oracle Linux and WebLogic Server, options for high availability and for disaster recovery, and options for backing up Oracle workloads. The interoperability of Microsoft and Oracle’s cloud services enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure (OCI). 
+Microsoft and Oracle have partnered to enable customers to deploy Oracle applications in the cloud. You can run your Oracle Database and enterprise applications on Oracle Linux, Windows Server, and other supported operating systems in Azure. In addition to Oracle databases, Azure also supports:
+
+- WebLogic Server integrated with Azure services
+- Applications on Oracle Linux and WebLogic Server
+- Options for high availability and for disaster recovery
+- Options for backing up Oracle workloads
+
+The interoperability of Microsoft and Oracle’s cloud services enables you to migrate and run mission-critical enterprise workloads across Microsoft Azure and Oracle Cloud Infrastructure (OCI). 
 
 Azure provides a wide range of services to support Oracle on Azure. Following are some of the key services: 
 
