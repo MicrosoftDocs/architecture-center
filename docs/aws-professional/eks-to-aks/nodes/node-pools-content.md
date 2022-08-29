@@ -74,6 +74,7 @@ The following code snippet shows how to add a node pool named *mynodepool* with 
   az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
+        --node-vm-size Standard_D8ds_v4 \
         --name mynodepool \
         --node-count 3
   ```
@@ -176,6 +177,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynewnodepool \
+    --node-vm-size Standard_D8ds_v4 \
     --enable-cluster-autoscaler \
     --min-count 1 \
     --max-count 5
@@ -218,7 +220,7 @@ To create a node pool with a taint, you can use the [az aks nodepool add](/cli/a
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name mynodepool \
-        --node-count 1 \
+        --node-vm-size Standard_D8ds_v4 \
         --node-taints sku=gpu:NoSchedule \
         --labels dept=IT costcenter=9999
   ```
@@ -312,6 +314,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name mynewnodepool \
+        --node-vm-size Standard_D8ds_v4 \
         --node-osdisk-type Ephemeral \
         --node-osdisk-size 48
   ```
@@ -328,8 +331,9 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
-        --os-type Windows \
         --name mywindowsnodepool \
+        --node-vm-size Standard_D8ds_v4 \
+        --os-type Windows \
         --node-count 1
   ```
 
@@ -350,6 +354,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name myspotnodepool \
+        --node-vm-size Standard_D8ds_v4 \
         --priority Spot \
         --eviction-policy Delete \
         --spot-max-price -1 \
