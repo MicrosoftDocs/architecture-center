@@ -175,7 +175,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --name mynodepool \
+    --name mynewnodepool \
     --enable-cluster-autoscaler \
     --min-count 1 \
     --max-count 5
@@ -187,10 +187,10 @@ The following [az aks nodepool update](/cli/azure/aks/nodepool?view=azure-cli-la
     az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --name mynodepool \
+    --name mynewnodepool \
     --update-cluster-autoscaler \
     --min-count 1 \
-    --max-count 5
+    --max-count 3
   ```
 
 The cluster autoscaler can be disabled with az aks nodepool update and passing the --disable-cluster-autoscaler parameter.
