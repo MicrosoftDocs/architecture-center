@@ -220,7 +220,7 @@ To create a node pool with a taint, you can use the [az aks nodepool add](/cli/a
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name mynodepool \
-        --node-vm-size Standard_D8ds_v4 \
+        --node-vm-size Standard_NC6 \
         --node-taints sku=gpu:NoSchedule \
         --labels dept=IT costcenter=9999
   ```
