@@ -220,8 +220,7 @@ To create a node pool with a taint, you can use the [az aks nodepool add](/cli/a
         --name mynodepool \
         --node-count 1 \
         --node-taints sku=gpu:NoSchedule \
-        --labels dept=IT costcenter=9999 \
-        --no-wait
+        --labels dept=IT costcenter=9999
   ```
 
 For more information, see [Specify a taint, label, or tag for a node pool](/azure/aks/use-multiple-node-pools?msclkid=f8996edaa9f611ec988702dcd79cd3f4#specify-a-taint-label-or-tag-for-a-node-pool).
@@ -312,7 +311,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
-        --name mynodepool \
+        --name mynewnodepool \
         --node-osdisk-type Ephemeral \
         --node-osdisk-size 48
   ```
@@ -330,7 +329,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --os-type Windows \
-        --name mynodepool \
+        --name mywindowsnodepool \
         --node-count 1
   ```
 
@@ -340,9 +339,9 @@ The above command also uses the default subnet in the virtual network used by th
 
 A spot node pool is a node pool backed by a [spot virtual machine scale set](/azure/virtual-machine-scale-sets/use-spot). Using spot virtual machines for nodes with your AKS cluster allows you to take advantage of unutilized capacity in Azure at a significant cost saving. The amount of available unutilized capacity will vary based on many factors, including node size, region, and time of day.
 
-When deploying a spot node pool, Azure will allocate the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure will evict spot nodes, and you will get a 30-second notice before eviction. Be aware that a spot node pool cannot be the cluster's default node pool. A spot node pool can only be used for a secondary pool.
+When deploying a spot node pool, Azure will allocate the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure will evict spot nodes, and you will get at most a 30-second notice before eviction. Be aware that a spot node pool cannot be the cluster's default node pool. A spot node pool can only be used for a secondary pool.
 
-Spot nodes are great for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool. Review the [spot instance's limitations](/azure/virtual-machines/spot-vms#limitations) for further details.
+Spot nodes are only for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool. Review the [spot instance's limitations](/azure/virtual-machines/spot-vms#limitations) for further details.
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command adds a spot node pool to an existing cluster with autoscaling enabled.
 
@@ -350,7 +349,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
-        --name mynodepool \
+        --name myspotnodepool \
         --priority Spot \
         --eviction-policy Delete \
         --spot-max-price -1 \
@@ -378,7 +377,6 @@ The following limitations apply when you create and manage AKS clusters that sup
 - You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 - System pools must contain at least one node, and user node pools may contain zero or more nodes.
 - The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
-- The AKS cluster must use virtual machine scale sets for the nodes.
 - You can't change the VM size of a node pool after you create it.
 - All node pools must reside in the same virtual network.
 - When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
