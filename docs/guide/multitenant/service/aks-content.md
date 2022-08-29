@@ -319,27 +319,17 @@ When using the [Application Gateway Ingress Controller (AGIC)](/azure/applicatio
 
 ### Integration with Azure Front Door
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is Microsoft's modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between users and web applications across the globe. Azure Front Door supports features such as request acceleration, SSL termination, response caching, WAF at the edge, URL-based routing, rewrite, and redirections.
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a global layer-7 load balancer and Microsoft's modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between users and web applications across the globe. Azure Front Door supports features such as request acceleration, SSL termination, response caching, WAF at the edge, URL-based routing, rewrite, and redirections that you can exploit when exposing AKS-hosted multitenant applications to the public internet.
 
-You can use [Azure Front Door](/azure/frontdoor/front-door-overview) global Azure Kubernetes Service (AKS) to expose AKS-hosted tenant applications to the public internet and implement geo-disaster recovery across multiple regions.
+For example, you may want to use an AKS-hosted multitenant application to serve all the customers' requests. In this context, you can use Azure Front Door to manage multiple custom domains, one for each tenant, terminate SSL connections on the edge, and route all the traffic to the AKS-hosted multitenant application configured with a single hostname.
 
-Front Door delivers static content using Microsoft's global edge network with hundreds of [points-of-presence (POPs)](/azure/frontdoor/edge-locations-by-region) distributed around the world close to tenants' customers. This feature allows fast delivery of static (e.g., client-side scripts, images, CSS files) and dynamic (e.g., previously cached response messages) artifacts used by AKS-hosted tenant applications, including single-page applications (SPA).
+![Azure Front Door and AKS](./media/aks/front-door-and-aks.png)
+
+You can configure Azure Front Door to modify the [request origin host header](/azure/frontdoor/front-door-backend-pool#origin-host-header) to match the domain name of the backend application. The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and the code of the multitenant application can use this information to [map the incoming request to the correct tenant](../considerations/map-requests.yml).
 
 [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/afds/afds-overview) on Azure Front Door provides centralized protection for web applications. You can use Azure WAF to defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
 
-You can use Azure Front Door to manage custom domain names and SSL termination for one or more tenant applications running on a shared AKS cluster. 
-
 You can configure Azure Front Door Premium to privately connect to one or more tenant applications running on an AKS cluster via an internal load balancer origin using the [Azure Private Link Service](/azure/private-link/private-link-service-overview). For more information, see [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](/azure/frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer).
-
-### Integration with Azure Firewall
-
-In a multitenant environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the internet.
-
-[Azure Firewall](/azure/firewall/overview) or a 3rd party firewall can be deployed to a hub virtual network and used to inspect traffic to and from AKS-hosted tenant applications, while AKS clusters can be deployed to spoke virtual networks peered to the hub virtual network and configured to route egress traffic to the firewall. By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services that run in the AKS cluster to access external resources as needed. If you want to restrict egress traffic, a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks. The easiest way to provide security for the outbound traffic from a Kubernetes cluster like AKS is to use a software firewall that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the fully qualified domain name (FQDN) of the destination. You can also configure your firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in AKS](/azure/aks/limit-egress-traffic).
-
-Likewise, you can control ingress traffic and improve the security of AKS-hosted applications by enabling [threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure firewall deployed to a shared perimeter network. This filtering can provide alerts and deny traffic to and from known malicious IP addresses and domains.
-
-For more information, see [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall).
 
 ### Outbound connections
 
