@@ -156,8 +156,7 @@ As your application workload demands change, you may need to scale the number of
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name mynodepool \
-        --node-count 5 \
-        --no-wait
+        --node-count 5
   ```
 
 You can list the status of your node pools again using the [az aks node pool list](/cli/azure/aks/nodepool#az_aks_nodepool_list) command.
