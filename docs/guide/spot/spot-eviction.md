@@ -1,26 +1,8 @@
----
-title: Azure Virtual Machine Spot Eviction
-description: Learn how to use Spot Eviction and design a solution to handle eviction notices. 
-author: ju-shim
-ms.author: jushiman
-ms.date: 08/01/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - power-platform
-  - power-apps
-categories:
-  - integration
-  - web
-  - devops
----
-
 # Azure Virtual Machine Spot Eviction
 
-You can take advantage of Azure's unused capacity at a significant cost savings by using Spot [virtual machines](/azure/virtual-machines/overview) (VM) and [scale sets](/azure/virtual-machine-scale-sets/overview). However, at any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot VMs. Therefore, Azure Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, and large compute workloads.
+You can take advantage of Azure's unused capacity at a significant cost savings by using Spot [virtual machines](/azure/virtual-machines/overview) (VM) and [scale sets](/azure/virtual-machine-scale-sets/overview). However, at any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot VMs. Therefore, This means that Azure Spot VMs should only be used for workloads that can handle interruptions like delayable batch or queue processing jobs, non-critical dev/test environments, and large, delayable compute workloads.
 
-Azure Spot VM and scale sets do not have an SLA once created, which means that they can be terminated at any moment with *up to* 30 seconds of notice. Whenever Azure needs the capacity back, the Azure infrastructure will send you an eviction notice and proceed to evict the service based on your configured eviction policy.
+Azure Spot VM and scale sets do not have an SLA once created, which means that they can be terminated at any moment with *up to* 30 seconds of notice. Whenever Azure needs the capacity back, the Azure infrastructure will send your compute instance an eviction notice and proceed to evict that same instance based on your configured eviction policy.
 
 This guide is meant to walk you through Azure Spot Eviction fundamentals and help you design a solution to support workload interruptions.
 
@@ -30,13 +12,26 @@ Azure provisions its spare capacity along all its offered regions so it can resp
 
 Keeping operational expenses under control is common practice when running solutions on the cloud and the [cost optimizations pillar from the Well Architected Framework](/azure/architecture/framework/cost/overview) can help you find the right strategy for your architecture.
 
+We recommend that you use the [Retail Rates Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to get retail prices for all Azure services. You will want to get familiar with this pricing API, because it will be another input parameter to consider along with eviction rates based on location and SKUs.
+
+For more details on how to plan with costs in mind, see [step 2 in the Planning section](https://github.com/mspnp/interruptible-workload-on-spot/blob/main/README.md#planning) of our implementation process.
+
 ## Purpose
 
 While the number one reason to choose Azure Spot is the significant cost savings at the infrastructure level, keep in mind that you need to build reliable **interruptible** workloads that can run on top of this Azure managed service.
 
 The goal is to design a workload that is fault tolerant and resilient, so that it's capable of being unexpectedly and reliably interrupted. Successful designs have workloads that are able to deal with high levels of uncertainty at the time of being deployed and can recover after being forcedly shut down. Even better, they can gracefully shut down with under 30 seconds of notice prior to eviction.
 
-## Potential workloads
+## Technology choice
+
+Avoid using Azure Spot if:
+
+- Your application is under a strict SLA that could be compromised by compute interruptions
+- You're planning to provision sticky session solutions
+- Your workload isn't specifically designed and tested to be interrupted
+- Your workload is stateful by nature
+
+If you find that Azure Spot is not the right service for you, go to [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) for further assistance.
 
 Some good candidates to run on top of Azure Spot VMs are:
 
@@ -46,14 +41,7 @@ Some good candidates to run on top of Azure Spot VMs are:
 - Tasks that are optional or have lower priority (ex. spawning a CI/CD agent for a dev/test environment)
 - Short lived jobs that can lose their progress repeatedly without having an effect on the end result
 
-Azure Virtual Machine Scale Sets are also offered with priority **Spot** and is an underlying service that will represent nodes for an Azure Kubernetes Service (AKS) cluster. As a result, stateless applications and opportunistic scale-out scenarios are possible candidates to build with Azure Spot [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) in mind if they're meant to run from an AKS cluster. The AKS use case is out of scope in this reference implementation.
-
-Avoid using Azure Spot if:
-
-- Your application is under a strict SLA that could be compromised by compute interruptions
-- You're planning to provision sticky session solutions
-- Your workload isn't designed to be interrupted
-- Your workload is stateful by nature
+Azure Virtual Machine Scale Sets are also offered with priority **Spot** and is an underlying service that will represent nodes for an Azure Kubernetes Service (AKS) cluster. As a result, stateless applications and opportunistic scale-out scenarios are possible candidates to build with Azure Spot [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) in mind if they're meant to run from an AKS cluster. The AKS use case is out of scope in the reference implementation.
 
 ## Considerations
 
@@ -61,10 +49,15 @@ Azure Spot VM and scale sets are compute infrastructure as a service (IaaS) avai
 
 You're acquiring unused (if any) ephemeral compute capacity that offers no high availability guarantees. Given that, Azure Spot VM and scale sets are a limited resource that won’t always be at your disposal and you should event prepare to overcome a potential scenario in which a VM is evicted right after being created.
 
+### Deployment strategies
+
 We recommend that any **production** workloads keep a guaranteed number of Azure VM instances with **Regular Priority** in addition to VMs with **Spot priority**. This way you can optimize your costs and remain in compliance with your application SLA. If your workload is capable of being consistently interrupted and it doesn't need an SLA, you might consider going full **Spot Priority** even in **production**. The following are some strategies for **production**:
 
 - The **Priority Swap** strategy consist of running `Spot` VMs initially. If after a considerable or safe amount of time you can't complete a job because it gets interrupted, then you would swap over to using `Regular` VMs. An example of a good candidate for this type of strategy would be running automated tests (CI).
 - The **Priority Balanced** strategy is good for getting a mix of `%Regular` and `%Spot` VMS initially based on your workload requirements. There is a chance under extreme circumstances that you might never get an Azure Spot VM at all. Additionally, you might have to consider going `Regular-Only`.
+
+> [!CAUTION]
+> At a macro level in production, it is especially important for you to anticipate and plan for evictions as they will greatly impact your performance. For example, if you have 100 Spot VMs allocated and you lose 10% of your capacity on compute as a result of an eviction, that is going to noticeably impact the overall throughput of your application.
 
 ## Spot VM states
 
@@ -109,20 +102,24 @@ There are several conditions that affect an eviction. The following list goes in
 1. **Rate** - The rate is nothing more but the chances of being evicted at a specific location. It's common to choose the location based on the eviction rate by SKU. To help with the selection process, query the [pricing history view in the Azure portal](/azure/virtual-machines/spot-vms#pricing-and-eviction-history) in addition to [Azure Spot advisor](https://azure.microsoft.com/pricing/spot-advisor/).
 
 1. **Type** - You can choose between **Max Price or Capacity** or **Capacity Only**.
-    1. **Capacity** - When using Azure Spot virtual machine scale sets with **Manual** scaling, a good practice is to enable the **Try to Restore** option if your policy eviction is **Deallocate**. If the Azure infrastructure evicted and took back capacity, this configuration looks for those clusters that have the most spare capacity. If space capacity is located, the configuration will attempt to redeploy your deallocated instances on top of them. This configuration provides your Azure Spot virtual machine scale sets with better chances of surviving next time an eviction event kicks in. When configured with **Autoscale**, this option isn't available as this implements its own logic to reallocate instances.
+
+    1. **Capacity** - If the Azure infrastructure evicted and took back capacity, this configuration looks for spare capacity. If space capacity is located, the configuration will attempt to redeploy your deallocated instances on top of them. This configuration provides your Azure Spot virtual machines with better chances of surviving next time an eviction event kicks in. Your architecture is most likely to succeed with this type when you have flexibility in SKU, region, and calendar/time.
+
         1. VM Configuration: as flexible as choosing the SKU, the better are chances to allocate Azure Spot VM and scale sets. Some SKU(s) like B-series or Promo versions of any size aren't supported.
         1. Location: same as in SKU, if your workload can run from any region, it improves the chances to be deployed as well as with fewer chances of being deallocated if you choose carefully considering the eviction rates. Take into account that Microsoft Azure China 21Vianet isn't supported.
         1. Time of the day, weekends, seasons, and other time based considerations are important factors when making a final decision between Azure Spot over regular VMs and scale sets.
+
     1. **Current VM Price vs Max Price** (you set): if you're willing to pay up to the **Pay as you go** rate, it's possible to prevent being evicted based on pricing reasons by setting the **Max Price** to `-1`, which is known as **Eviction Type Capacity Only**. If pricing is a constraint for your business organization goals, **Eviction Type Max Price or Capacity Only** is recommended instead, and in this case you can adjust the right **Max Price** at any moment by taking into account that changing this value requires to deallocate the VM or scale set first to take effect. If you choose the latter, it's a good idea to analyze the price history, and **Eviction Rate** for the regions you're targeting.
 
-1. **Policy**:
+1. **Policy** - The Policy configuration is an important consideration during eviction events. We recommend to choose the **Deallocate** policy if you are planning to start the same machine, provided your workload can wait for Azure to release capacity within the same location and SKU. Alternatively, we recommend the **Delete** policy to reduce costs, since you would be re-deploying your entire Spot infrastructure on demand, ideally changing location and/or SKU for more flexibility.
+
     1. Delete
         1. You free up the Cores from your Subscription
-        1. You're not longer charged for the disk as they get deleted along with the Azure Spot VM
-        1. Shared subscriptions or multiple workloads using Azure Spot VM instances can befitted from the policy
+        1. You're no longer charged for the disk as they get deleted along with the Azure Spot VM
+        1. Shared subscriptions or multiple workloads using Azure Spot VM instances can befitted from this policy
     1. Deallocate
         1. Change VM state to the stopped-deallocated state
-        1. Allowing you to redeploy it later.
+        1. Allows you to redeploy it later
         1. You're still being charge for the underlying disks
         1. It consumes Cores quota from your Subscription
 
@@ -134,11 +131,11 @@ There are several conditions that affect an eviction. The following list goes in
 
 ### Metadata APIs
 
-You can use the [Retail Rates Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to get retail prices for all Azure services.
+You can use the [Retail Rates Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to get retail prices for all Azure services. You will want to get familiar with this pricing API, because it will be another input parameter to consider along with eviction rates based on location and SKUs.
 
 ## The Workload
 
-One workload types to consider for Azure Spot VMs are [Batch processing apps](/azure/batch). This reference implementation guide contains a simple asynchronously queue-processing worker (C#, .NET 6) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This guide demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint. The endpoint allows your workload to receive a signal prior to eviction so that it can anticipate the disruption event, prepare for the interruption, and limit its impact.
+One workload types to consider for Azure Spot VMs are [Batch processing apps](/azure/batch). The reference implementation guide contains a simple asynchronously queue-processing worker (C#, .NET) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This guide demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint. The endpoint allows your workload to receive a signal prior to eviction so that it can anticipate the disruption event, prepare for the interruption, and limit its impact.
 
 ### Planning for being Fault Tolerant
 
@@ -163,7 +160,7 @@ When building reliable and interruptible workloads, you'll be focused on four ma
 
 #### System states
 
-In this reference implementation you'll notice we're using a **Distributed Producer Consumer** system type, where the interruptible workload is nothing but a batch processing app acting as the consumer. Since you're mainly considering Azure Spot VMs to save costs, we recommend looking into the issues that can arise with this kind of solution and get them mitigated to avoid wasting compute cycles. One example is the concurrency problems we show below.
+In the reference implementation you'll notice we're using a **Distributed Producer Consumer** system type, where the interruptible workload is nothing but a batch processing app acting as the consumer. Since you're mainly considering Azure Spot VMs to save costs, we recommend looking into the issues that can arise with this kind of solution and get them mitigated to avoid wasting compute cycles. One example is the concurrency problems we show below.
 
 1. Deadlock
 1. Starvation
@@ -171,11 +168,11 @@ In this reference implementation you'll notice we're using a **Distributed Produ
 In general, we recommend that you always take edge cases and common pitfalls associated to the system types you're building into account. Design their architectures to be good citizens while running on top of Azure Spot VMs.
 
 > [!NOTE]
-> This reference implementation follows the simple concurrency strategy: **Do-Nothing**. Since you're going to deploy a single interruptible workload instance (consumer) and produce a moderate and discrete amount of messages, do not expect a `Deadlock` or `Starvation` as system states. One recommendation to prevent your system from running into such states is to consider handling them if detected at the time of **Orchestration** as another mitigation strategy. However, we will not explore that process in this reference implementation.
+> The reference implementation follows the simple concurrency strategy: **Do-Nothing**. Since you're going to deploy a single interruptible workload instance (consumer) and produce a moderate and discrete amount of messages, do not expect a `Deadlock` or `Starvation` as system states. One recommendation to prevent your system from running into such states is to consider handling them if detected at the time of **Orchestration** as another mitigation strategy. However, we will not explore that process in the reference implementation.
 
 #### Orchestration
 
-As mentioned in the previous section, the orchestration can be scoped to coordinate at the application level or beyond to implement broader capabilities, like system recovery. However, this reference implementation is focused specifically on scheduling the interruptible workload into the Azure Spot VM operating system, thereby executing the worker app at the VM startup time.
+As mentioned in the previous section, the orchestration can be scoped to coordinate at the application level or beyond to implement broader capabilities, like system recovery. However, the reference implementation is focused specifically on scheduling the interruptible workload into the Azure Spot VM operating system, thereby executing the worker app at the VM startup time.
 
 It will be helpful to kick off the application after eviction or the first time the Azure Spot VM gets deployed. This way, the application will be able to continue processing messages without human intervention from the queue once started. Once the application is running, it will transition through the `Recover`, `Resume`, and `Start` application states.
 
@@ -188,7 +185,7 @@ Another important orchestration related aspect to understand is how to scale you
 
 - **Scale up strategy**
 
-    In this reference implementation, your workload is built with no artificial constraints and will grow to consume available resources in your VM instance without exhausting them. From the orchestration point of view, you want to ensure that it's running a SINGLETON of the workload and let it organically request resources as designed.
+    In the reference implementation, your workload is built with no artificial constraints and will grow to consume available resources in your VM instance without exhausting them. From the orchestration point of view, you want to ensure that it's running a SINGLETON of the workload and let it organically request resources as designed.
 
     <!--- IMAGE HERE: Depict the Azure Spot VM infrastructure orchestration scale up strategy --->
     <!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
@@ -204,26 +201,14 @@ Another important orchestration related aspect to understand is how to scale you
 
 Go to our [Spot Eviction guide installation steps](https://github.com/mspnp/interruptible-workload-on-spot#installation) for updated instructions. These steps will cover prerequisites, expected results, planning, cloning the repository, deploying the Azure Spot VM, packaging the workload, and cleaning up.
 
+#### Important notes
+
+- Once you have chosen a **Max Price** and **Capacity Eviction Policy**, it is good practice to regularly use the [Azure Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to check whether the **Max Price** you set is doing well against **Current Price**. Consider scheduling this query and respond with Max Price changes as well as gracefully deallocating the Virtual Machine as needed.
+
+- Your interruptible workload is set as code during the VM creation process. Therefore, if your application depends on managed identities like in the reference implementation, we recommended that you use **User assigned identities** and enforce your Spot VM depending on the proper role assignments. Otherwise, you might face race conditions and as a result it might acquire a mismatched Azure identity token. If you need to make use of **System assigned identities** in your architecture, the recommendation is to make the workloads resilient to `403` responses, and ensure you implement the pattern to re-acquire tokens awaiting for the System identity to be assigned with the proper roles.
+
+- Your Spot VMs might require redeployment after an eviction event from a different location or changing the SKU. Use and design bicep templates that are idempotent to re-deploy your infrastructure in a repeatable way.
+
 ### Troubleshooting
 
-#### Remote SSH using Bastion into the Spot VM
-
-1. SSH into the new Spot VM. For detailed steps, see [connect to a Linux VM](/azure/virtual-machines/linux-vm-connect?tabs=Linux).
-
-   ```bash
-   az network bastion ssh -n bh -g rg-vmspot --username azureuser --ssh-key ~/.ssh/opsvmspots.pem --auth-type ssh-key --target-resource-id $(az vm show -g rg-vmspot -n vm-spot --query id -o tsv)
-   ```
-
-#### Manually copy the **worker.zip** file into the Spot VM
-
-1. Open a tunnel using Bastion between your machine and the remote Spot VM:
-
-   ```bash
-   az network bastion tunnel -n bh -g rg-vmspot --target-resource-id $(az vm show -g rg-vmspot -n vm-spot --query id -o tsv) --resource-port 22 --port 50022
-   ```
-
-1. Copy the file using SSH copy:
-
-   ```bash
-   scp -i ~/.ssh/opsvmspots.pem -P 50022 src/bin/Release/net6.0/worker.zip azureuser@localhost:~/.
-   ```
+Go to our [Spot Eviction guide troubleshooting](https://github.com/mspnp/interruptible-workload-on-spot/blob/2e747427295aff419519377816a596a0dbc6f8c0/README.md#toublehshooting) for assistance.

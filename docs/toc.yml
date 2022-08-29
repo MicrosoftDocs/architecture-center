@@ -2659,6 +2659,9 @@ items:
                   - name: Red Hat JBoss EAP on Azure
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
+              - name: Interruptible workloads using Azure Spot VM
+                href: spot/spot-eviction.md
+                maintainContext: true
           - name: Architectures
             items:
               - name: 3D video rendering
