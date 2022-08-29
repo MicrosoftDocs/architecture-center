@@ -266,7 +266,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
         --node-count 1
   ```
 
-The above command also uses the default subnet in the virtual network used by the AKS cluster. For more information on how building an AKS cluster with a Windows node pool, see [/azure/aks/windows-container-cli](Create a Windows Server container in AKS).
+The above command also uses the default subnet in the virtual network used by the AKS cluster. For more information on how building an AKS cluster with a Windows node pool, see [Create a Windows Server container in AKS](/azure/aks/windows-container-cli).
 
 ### Spot node pools
 
@@ -316,8 +316,6 @@ The following limitations apply when you create and manage AKS clusters that sup
 - All node pools must reside in the same virtual network.
 - When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 - All subnets assigned to any node pool must belong to the same virtual network.
-- System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-- If you expand your virtual network after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket.
 
 ## Next Steps
 

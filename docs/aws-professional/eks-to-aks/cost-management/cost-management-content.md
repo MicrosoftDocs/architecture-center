@@ -35,7 +35,7 @@ When looking into the pricing of Azure virtual machines and associated storage, 
 - There are multiple VM families optimized for different types of workloads.
 - Virtual machines are charged according to their size and usage. Review this article for additional information on [how Azure compute compares to AWS](../../compute.md).
   - Generally speaking, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes.
-  - The more specialized (e.g., GPU enabled or memory-optimized) is the VM series used for a node pool, the more expensive will be the cost of the agent pool.
+  - Likewise, generally speaking, the more specialized (e.g., GPU enabled or memory-optimized) is the VM series used for a node pool, the more expensive will be the cost of the agent pool.
   - The more time agent nodes are up and running, the higher the total cost of ownership for a cluster. Development environments usually don't need to be running 24/7.
 - Ephemeral OS disks are free and included in the VM price.
 - When using managed disks as OS drives, they are charged separately, and you must add their cost to the total cost estimation.
@@ -80,7 +80,7 @@ You will also use multiple Azure networking services to provide access to your a
   - Fixed price : this is set hourly (or partial hour) price.
   - Capacity Unit price: this is an additional consumption-based cost. Each capacity unit is composed of at most: 1 compute unit, or 2,500 persistent connections, or 2.22-Mbps throughput.
 
-- [Public IP addresses:](https://azure.microsoft.com/en-gb/pricing/details/ip-addresses/) have also a cost associated depending on:
+- [Public IP addresses:](https://azure.microsoft.com/pricing/details/ip-addresses/) have also a cost associated depending on:
 
   - Reserved vs Dynamic association.
   - Basic vs Standard: secured and zone redundant.

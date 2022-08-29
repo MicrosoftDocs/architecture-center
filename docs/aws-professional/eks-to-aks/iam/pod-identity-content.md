@@ -12,35 +12,7 @@ To call AWS Services from within a pod, you have two native options:
 
 ## AKS Architecture
 
-You can use [Azure AD Pod Identity](/azure/aks/use-azure-ad-pod-identity) or [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to access an Azure managed service from an AKS-hosted workload application just using a security token issued by Azure Active Directory instead of using explicit credentials such as a connection string, username and password, or primary key:
-
-### Azure Active Directory Pod Identity
-
-[Azure Active Directory Pod Identity](/azure/aks/use-azure-ad-pod-identity) uses Kubernetes primitives to associate managed identities for Azure resources and identities in Azure Active Directory (Azure AD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on Azure AD as an identity provider.
-
-A managed identity for Azure resources lets a pod authenticate itself against Azure services that support it, such as Storage or SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:
-
-![Simplified workflow for pod managed identity in Azure](./media/pod-identity.png)
-
-Message flow:
-
-1. Pod requests a security token to access an Azure resource.
-2. Pod identity establishes identity of the pod and obtains the azureAssignedIdentity for the pod
-3. Pod identity uses azureAssignedIdentity to obtain a security token on behalf of the pod.
-4. Security token is returned to the pod.
-5. Pod uses the security token to access an Azure resource.
-
-With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
-
-For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications](https://github.com/Azure/aad-pod-identity#demo).
-
-> **Important**: Azure Active Directory (Azure AD) Pod-managed Identity feature will be soon replaced by [Azure Active Directory Workload Identity](https://azure.github.io/azure-workload-identity/docs/).
-
-For more information on Azure Active Directory Pod Identity, see the following resources:
-
-- [Azure Active Directory Pod Identity in Azure Kubernetes Service](/azure/aks/use-azure-ad-pod-identity)
-- [Azure Active Directory Pod Identity Documentation](https://azure.github.io/aad-pod-identity/docs/)
-- [Azure Active Directory Pod Identity GitHub repository](https://github.com/Azure/aad-pod-identity)
+You can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to access an Azure managed service from an AKS-hosted workload application just using a security token issued by Azure Active Directory instead of using explicit credentials such as a connection string, username and password, or primary key:
 
 ### Azure Active Directory Workload Identity for Kubernetes
 
@@ -64,7 +36,7 @@ Message Flow:
 
 1. Kubelet projects service account token to the workload at a configurable file path.
 2. Kubernetes workload sends projected, signed service account token to the Azure Active Directory and requests an access token to it.
-3. Azure Active Directory checks trust on the registered application and validates incoming token.
+3. Azure Active Directory checks trust on the user-defined managed identity or registered application and validates incoming token.
 4. Azure Active Directory issues a security access token.
 5. The Kubernetes workload accesses Azure resources using Azure AD access token.
 
@@ -103,9 +75,9 @@ Let's assume you want to deploy to AKS a workload composed of a frontend and bac
 
 ### Message Flow
 
-The following diagram shows how the frontend and backend applications:
+The following diagram shows how the frontend and backend applications acquire a security token from Azure Active Directory to access PaaS services such as Azure Key Vault or Azure Cosmos DB:
 
-- Acquire security tokens for their service account from the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. 
+- Acquire security tokens for their service account from the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster.
 - Exchange security tokens acquired from the OIDC issuer with security tokens issued by Azure AD.
 - Use Azure AD issued security tokens to access Azure resources.
 
@@ -131,14 +103,6 @@ You can find the code of this example workload on [GitHub](https://github.com/az
 ## What is next?
 
 Azure AD workload identity federation for Kubernetes is currently supported only on Azure AD applications. Microsoft intends to extend the same model to Azure managed identities.
-
-In the coming months, the product group plans to replace [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) with [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/introduction.html). The goal is to let users who are already using Azure AD Pod Identity to move to Azure Workload Identity with minimal changes.
-
-You can share any feedback or questions via GitHub [issues](https://github.com/Azure/azure-workload-identity/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) or [discussions](https://github.com/Azure/azure-workload-identity/discussions). Your support will help shape the project to meet community needs for ensuring secure access to Azure AD protected resources from Kubernetes workloads.
-
-## Considerations
-
-- Pod identities are intended for use with Linux pods and container images only. Pod-managed identities support for Windows containers is coming soon.
 
 ## Next Steps
 
