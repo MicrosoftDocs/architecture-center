@@ -152,7 +152,7 @@ To optimize costs on Azure Storage use Azure Reservations, make sure to check th
 - [Cost Management for a Kubernetes Cluster](../cost-management/cost-management.yml)
 
 The following references provide additional information and documentation Azure Storage:
- 
+
 - [Azure Storage Services](/learn/modules/azure-storage-fundamentals/)
 - [Store data in Azure](/learn/paths/store-data-in-azure/)
 - [Configure AKS Storage](/learn/modules/configure-azure-kubernetes-service/5-kubernetes-storage)

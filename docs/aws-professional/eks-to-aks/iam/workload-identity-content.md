@@ -106,8 +106,12 @@ Azure AD workload identity federation for Kubernetes is currently supported only
 
 ## Next Steps
 
-- [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/introduction.html)
-- [Azure AD Workload Identity - Quick Start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
-- [Use Azure AD workload identity for Kubernetes in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity/azure-ad-workload-identity/)
+- [Cluster observability and monitoring](../monitoring/monitoring.yml)
+
+The following references provide automation and documentation on Azure Active Directory Workload Identity:
+
+- [Azure Active Directory Workload Identity](https://azure.github.io/azure-workload-identity/docs/introduction.html)
+- [Azure Active Directory Workload Identity - Quick Start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
+- [Use Azure Active Directory Workload Identity for Kubernetes in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity/azure-ad-workload-identity/)
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service/)
 - [Manage identity and Access in Azure Active Directory](/learn/paths/manage-identity-and-access/)
