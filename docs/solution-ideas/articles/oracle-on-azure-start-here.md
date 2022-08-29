@@ -33,7 +33,7 @@ Azure provides a wide range of services to support Oracle on Azure, including th
 
 If you're new to Azure, the best place to start learning about Azure is with Microsoft Learn. Microsoft Learn is a free, online training platform that provides interactive learning for Microsoft products and more.
 
-If you have an SAP workload that depends on an Oracle database, see the Learn modules in the following table.
+If you have an SAP workload that depends on an Oracle database, the Learn modules in the following table can help you understand what Azure has to offer for Oracle databases and SAP.
 
 | Title | Description |
 |---------|---------|
@@ -55,7 +55,7 @@ The following sections can help you on the path to production for Oracle on Azur
 
 ### Database migration and deployment
 
-The following articles can help you run an Oracle database on Azure or connect to an Oracle database that's running in Oracle's cloud, OCI.
+The following articles describe how to run an Oracle database on Azure and connect to an Oracle database that's running in on OCI.
 
 | Title | Description |
 |---------|---------|
