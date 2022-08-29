@@ -21,7 +21,7 @@ There has been an explosion of data in recent years. In order to unlock the stra
 Breaking down data silos is difficult:
 
 - Data must be manipulated to fit to a common format. ETL pipelines must be adapted to each system of record and must scale to support the massive data sets of modern enterprises.
-- Compliance with regulations regarding sensitive information must be maintained when data is moved from systems of record. PII and other sensitive elements must be obscured without impacting the business value of the data set.
+- Compliance with regulations regarding sensitive information must be maintained when data is moved from systems of record. Customer content and other sensitive elements must be obscured without impacting the business value of the data set.
 
 ### What is Azure Data Factory?
 
@@ -29,13 +29,13 @@ Breaking down data silos is difficult:
 
 ### What is Delphix Continuous Compliance (Delphix CC)?
 
-[Delphix Continuous Compliance](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking. It offers a fast, automated, API-driven way to provide secure data where it is needed in organizations. 
+[Delphix Continuous Compliance](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking. It offers a fast, automated, API-driven way to provide secure data where it's needed in organizations. 
 
 ### How do Delphix CC and ADF Solve Automating Compliant Data?
 
 The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy while ADF enables connecting and moving data seamlessly. Together Delphix and ADF are combining industry-leading compliance and automation offerings to make the delivery of on-demand, compliant data easy for everyone. 
 
-By leveraging the data source connectors offered by ADF, we have created two ETL pipelines that automate the following steps: 
+By using the data source connectors offered by ADF, we've created two ETL pipelines that automate the following steps: 
 
 Read data from the system of record and write it to CSV files on Azure Blob Storage.  
 
@@ -49,7 +49,7 @@ Load the compliant data to any ADF-supported datastore.
 
 The following architecture outlines the use of Delphix Continuous Compliance in an ADF ETL pipeline to identify and mask sensitive data.
 
-:::image type="content" source="delphix-continuous-compliance-architecture.png" lightbox="delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continous Compliance architecture.":::
+:::image type="content" source="delphix-continuous-compliance-architecture.png" lightbox="delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
 
 Download a [Visio file](https://delphixit-my.sharepoint.com/:u:/g/personal/arun_saju_delphix_com/EVswtxQQs5JGpdNkbPfMNvUBmhw_EJ4_Sg88IpQmmbdjvg?e=7b8OG8) of this architecture.
 
@@ -71,8 +71,8 @@ The data flows through the scenario as follows:
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastore(s) and the masked data that will be loaded into destination data store(s).
 - [Resource Groups](/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
-- Optional: [Azure Virtual Network](/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that are not a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
-- Additional Components: Based on the datastores used as source and destination, additional components may need to be added. These datastores can vary depending on your requirements.
+- Optional: [Azure Virtual Network](/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- Other Components: Based on the datastores used as source and destination, other components may need to be added. These datastores can vary depending on your requirements.
 
 ## Alternatives
 You can also perform data obfuscation using GitHub with Microsoft Presidio.  Learn more about this option at [microsoft/presidio: Context aware, pluggable and customizable data protection and anonymization SDK for text and images](https://github.com/microsoft/presidio).
@@ -82,7 +82,7 @@ You can also perform data obfuscation using GitHub with Microsoft Presidio.  Lea
 ### Safely Activate Azure Data Services for Industry Specific Solutions
 
 - Identify and mask sensitive data in large and complex applications, where personally identifiable information (PII) would otherwise be difficult to identify. Delphix enables end users to automatically move compliant data from sources like SAP, Salesforce, and Oracle EBS to high-value service layers, like Microsoft Synapse.
-- Leverage the powerful and comprehensive connectors provided by Microsoft Azure to safely unlock, mask, and migrate your data - no matter where it originates. 
+- Use the powerful and comprehensive connectors provided by Microsoft Azure to safely unlock, mask, and migrate your data - no matter where it originates. 
 
 ### Solve Complex Regulatory Compliance for Data
 
@@ -91,12 +91,12 @@ You can also perform data obfuscation using GitHub with Microsoft Presidio.  Lea
 
 ### Accelerate the “DevSecOps” Shift Left
 
-- Equip your developer & analytics pipelines (Azure DevOps, Jenkins, Harness) and other automation workflows with production grade data by systematically and deterministically masking sensitive data in central ADF pipelines.
+- Equip your developer and analytics pipelines (Azure DevOps, Jenkins, Harness) and other automation workflows with production grade data by systematically and deterministically masking sensitive data in central ADF pipelines.
 - Mask data consistently across data sources, maintaining referential integrity for integrated application testing. For example, the name George must always be masked to Elliot or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
 
 ### Reduce AI/ML Algorithm Training Time with Compliant Analytics
 
-- Mask data in a manner that does not increase training cycles.
+- Mask data in a manner that doesn't increase training cycles.
 - Retain data integrity while masking to avoid impacting model/prediction accuracy.
 
 Any Azure Data Factory connector can be used to facilitate a given use case.
@@ -113,20 +113,20 @@ Any Azure Data Factory connector can be used to facilitate a given use case.
 ## Getting started
 
 1. [Deploy the Delphix CC Engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/)
-1. In ADF, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) ADF templates. These templates work for both Azure Synapse Analytics pipelines as well as ADF pipelines.
+1. In ADF, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) ADF templates. These templates work for both Azure Synapse Analytics and Azure Data Factory pipelines.
 1. In the Copy Data components, configure the desired source and target datastores. In the Web Activity components, input the Delphix application IP address / host name and the credentials to authenticate with Delphix CC APIs.
-1. Run the Delphix CC Profiling ADF template for initial setup, and any time you would like to re-identify sensitive data (ex: if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that may contain sensitive data.
+1. Run the Delphix CC Profiling ADF template for initial setup, and anytime you would like to reidentify sensitive data (ex: if there has been a schema change). This template provides Delphix CC with the initial configuration it requires to scan for columns that may contain sensitive data.
 1. Create a [Ruleset](https://maskingdocs.delphix.com/Connecting_Data/Managing_Rule_Sets/#managing-rule-sets) indicating the collection of data that you would like to profile. Run a [Profiling Job](https://maskingdocs.delphix.com/Identifying_Sensitive_Data/Running_A_Profiling_Job/) in the Delphix UI to identify and classify sensitive fields for that Ruleset and assign appropriate masking algorithms.
-1. Review and modify results from the [Inventory screen](https://maskingdocs.delphix.com/Connecting_Data/Managing_Inventories/#the-inventory-screen) as desired. Once you are satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+1. Review and modify results from the [Inventory screen](https://maskingdocs.delphix.com/Connecting_Data/Managing_Inventories/#the-inventory-screen) as desired. Once you're satisfied with the results and would like to mask accordingly, [create a masking job](https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
 1. Back in the ADF UI, open the Delphix CC Masking ADF template. Provide the Masking Job ID from the above step, then run the template.
-1. At the end of this step, you will have masked data in the target datastore of your choice.
+1. At the end of this step, you'll have masked data in the target datastore of your choice.
 
 > [!NOTE]
 > You will need the Delphix application IP address / host name with credentials to authenticate to Delphix APIs.
 
 ## Example architecture
 
-Provided by an anonymous customer, this is intended only as a sample for how one might architect an environment for this masking use case.
+The following example was provided by an anonymous customer.  It is intended only as a sample for how one might architect an environment for this masking use case.
 
 :::image type="content" source="example-architecture.png" lightbox="example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
 
@@ -145,7 +145,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Delphix CC irreversibly masks data values with realistic data that remains fully functional, enabling the development of higher-quality code.  Among the rich set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm that intentionally produces data collisions, and at the same time allows for salting data with specific values needed for potential validation routines run on the masked data set. From a Zero Trust perspective, operators do not need access to the actual data in order to mask it. In addition, the entire delivery of masked data from point A to point B can be completely automated via APIs.
+Delphix CC irreversibly masks data values with realistic data that remains fully functional, enabling the development of higher-quality code.  Among the rich set of algorithms available to transform data to user specifications, Delphix CC has a patented algorithm that intentionally produces data collisions, while at the same time allows for salting data with specific values needed for potential validation routines run on the masked data set. From a Zero Trust perspective, operators don't need access to the actual data in order to mask it. In addition, the entire delivery of masked data from point A to point B can be automated via APIs.
 
 ### Cost optimization
 
@@ -156,7 +156,7 @@ Azure Synapse: You can scale compute and storage levels independently. Compute r
 
 Data Factory: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
 
-Delphix CC: Unlike other data compliance products on the market, masking does not require a full physical copy of the environment being masked. Environment redundancy can be extremely expensive because of the time to set up and maintain the infrastructure, the cost of the infrastructure itself, and the time spent repeatedly loading physical data into the masking environment.
+Delphix CC: Unlike other data compliance products on the market, masking doesn't require a full physical copy of the environment being masked. Environment redundancy can be extremely expensive because of the time to set up and maintain the infrastructure, the cost of the infrastructure itself, and the time spent repeatedly loading physical data into the masking environment.
 
 ### Performance efficiency
 
@@ -164,7 +164,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Delphix CC is horizontally and vertically scalable. The transformations occur in memory and can be parallelized. The product runs both as a service and as a multi-node appliance allowing solution architectures of all sizes depending upon the application. Delphix is the market leader in delivering extremely large masked data sets.
 
-Masking streams can be increased to engage multiple CPU cores in a job. (Configuration recommendations, as well as how to alter memory allocation can be found here: https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
+Masking streams can be increased to engage multiple CPU cores in a job. (Configuration recommendations and details on how to alter memory allocation can be found here: https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/).
 
 For optimal performance for datasets larger than 1 TB in size, Delphix Hyperscale Masking (https://hyperscale-compliance.delphix.com/3.0.0/) breaks the large and complex datasets into numerous modules and then orchestrates the masking jobs across multiple Continuous Compliance Engines.
 
