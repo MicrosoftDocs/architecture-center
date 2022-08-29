@@ -278,7 +278,7 @@ To start implementing this solution, see this information:
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
 [Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability
-[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app-content.md#performance-efficiency
+[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters
