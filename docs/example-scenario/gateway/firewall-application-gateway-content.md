@@ -116,7 +116,7 @@ The following packet walk example shows how a client accesses the VM-hosted appl
 
 Azure Application Gateway adds metadata to the packet HTTP headers, such as the *X-Forwarded-For* header containing the original client's IP address. Some application servers need the source client IP address to serve geolocation-specific content, or for logging. For more information, see [How an application gateway works][appgw-networking].
 
-- The IP address `192.168.200.7` is one of the instances the Azure Application Gateway service deploys under the covers, here with the internal, privatefront-end IP address `192.168.200.4`. These individual instances are normally invisible to the Azure administrator. But noticing the difference is useful in some cases, such as when troubleshooting network issues.
+- The IP address `192.168.200.7` is one of the instances the Azure Application Gateway service deploys under the covers, here with the internal, private front-end IP address `192.168.200.4`. These individual instances are normally invisible to the Azure administrator. But noticing the difference is useful in some cases, such as when troubleshooting network issues.
 
 - The flow is similar if the client comes from an on-premises network over a VPN or ExpressRoute gateway. The difference is the client accesses the private IP address of the Application Gateway instead of the public address.
 
@@ -279,7 +279,7 @@ The designs in this article still apply in a *hub and spoke* topology. Shared re
 
 Some considerations for this topology include:
 
-- The Azure Firewall is deployed in the central hub virtual network. The diagram above shows the practice of deploying the Application Gateway in the hub.Application teams often manage components such as Azure Application Gateways or Azure API Management gateways, though. In this case, these components are deployed in the spoke virtual networks.
+- The Azure Firewall is deployed in the central hub virtual network. The diagram above shows the practice of deploying the Application Gateway in the hub. Application teams often manage components such as Azure Application Gateways or Azure API Management gateways, though. In this case, these components are deployed in the spoke virtual networks.
 - Pay special attention to UDRs in the spoke networks: When an application server in a spoke receives traffic from a specific Azure Firewall instance, like the `192.168.100.7` address in the previous examples, it should send return traffic back to the same instance. If a UDR in the spoke sets the next hop of traffic addressed to the hub to the Azure Firewall IP address (`192.168.100.4` in the diagrams above), return packets might end up on a different Azure Firewall instance, causing asymmetric routing. Make sure that if you have UDRs in the spoke VNets to send traffic to shared services in the hub through the Azure Firewall, these UDRs don't include the prefix of the Azure Firewall subnet.
 - The previous recommendation applies equally to the Application Gateway subnet and any other Network Virtual Appliances or reverse proxies that might be deployed in the hub VNet.
 - You can't set the next hop for the Application Gateway or Azure Firewall subnets through static routes with a next hop type of `Virtual Network`. This next hop type is only valid in the local VNet and not across VNet peerings. For more information about user-defined routes and next hop types, see [Virtual network traffic routing][udr].
