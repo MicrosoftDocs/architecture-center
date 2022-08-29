@@ -2,9 +2,9 @@ This reference architecture shows best practices for creating a web application 
 
 ## Architecture
 
-![Diagram showing the reference architecture for a basic web application in Azure.](./images/basic-web-app.png)
+![Diagram showing the reference architecture for a basic web application in Azure.](images/basic-webapp-v2.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures-basic-webapp.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures-basic-webapp-v2.vsdx) of this architecture.*
 
 ### Components
 
@@ -23,12 +23,16 @@ Your requirements might differ from the architecture described and given in the 
 
 ### App Service plan
 
-The App Service plan has different pricing tiers. Each pricing tier supports several *instance sizes* that differ by the number of cores and memory. The ARM template replicates a production environment and deploys to the Standard pricing tier. You can change the pricing tier after deployment by selecting "Scale up (App Service Plan)" on the left navigation.
+The App Service plan has different pricing tiers. Each pricing tier supports several *instance sizes* that differ by the number of cores and memory. You can change the pricing tier after deployment by selecting "Scale up (App Service Plan)" on the left navigation. Here are some App Service recommendations:
 
 - Run your production workload on the *Basic*, *Standard*, and *Premium* pricing tiers. In these three tiers, the app runs on dedicated virtual machine instances and has allocated resources that can scale out.
-- If you need autoscale and TLS/SSL, use the *Standard* and *Premier* tiers.
-- For testing and development, create a different App Service Plan. Use the *Free* and *Shared* (preview) tiers because they're cost efficient. Don't use them for production workloads. Shared resources can't scale out. The two tiers provide different options within your budget.
-- App Service plans are billed on a per-second basis. You're charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments). For more information about App Service plans, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service). For more information, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
+- Use the *Standard* and *Premier* tiers if you need autoscale and TLS/SSL.
+- Create a different App Service plan for testing and development. Use the *Free* and *Shared* (preview) tiers for testing and development for cost efficiency. But don't use the *Free* and *Shared* tiers for production workloads. Shared resources can't scale out.
+- Make sure to delete plans that you aren't using, such as testing deployments. App Service plans are billed on a per-second basis. You're charged for the instances in the App Service plan even if the app is stopped. For more information about App Service plans and billing, see:
+  - [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service).
+  - [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
+
+The ARM template below deploys to the Standard pricing tier.
 
 ### SQL database
 
@@ -37,7 +41,7 @@ The App Service plan has different pricing tiers. Each pricing tier supports sev
 
 ### Region
 
-- Provision the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
+- Create the App Service plan and the SQL Database in the same region to minimize network latency. Generally, choose the region closest to your users.
 - The resource group also has a region. It specifies where deployment metadata is stored. Put the resource group and its resources in the same region to improve availability during deployment.
 - Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 - For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
@@ -92,15 +96,15 @@ Create separate resource groups for production, development, and test environmen
 When assigning resources to resource groups, consider the following features:
 
 - *Lifecycle.* In general, put resources with the same lifecycle into the same resource group.
-- *Access.* You can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to apply access policies to the resources in a group.
+- *Access.* You can use [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to apply access policies to the resources in a group.
 - *Billing.* You can view the rolled-up costs for the resource group.
 
 For more information, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview).
 
 ### DevOps
 
-- Use [ARM templates](/azure/azure-resource-manager/resource-group-overview#resource-groups) to provision Azure resources and their dependencies. The accompanying ARM template deploys a single web application. All the resources are isolated in the same basic workload. This isolation makes it easier to associate the workload's specific resources to a team. The team can then independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD).
-- Use different ARM Templates and integrate them with Azure DevOps Services. This setup lets you provision different environments in minutes. For example, you can replicate production-like scenarios or load testing environments only when needed and save on cost.
+- Use [ARM templates](/azure/azure-resource-manager/resource-group-overview#resource-groups) to deploy Azure resources and their dependencies. The accompanying ARM template deploys a single web application. All the resources are isolated in the same basic workload. This isolation makes it easier to associate the workload's specific resources to a team. The team can then independently manage all aspects of those resources. This isolation enables the DevOps team to perform continuous integration and continuous delivery (CI/CD).
+- Use different ARM Templates and integrate them with Azure DevOps services. This setup lets you create different environments in minutes. For example, you can replicate production-like scenarios or load testing environments only when needed and save on cost.
 - Provision multiple instances of the web application. You don't want your web app to depend on a single instance and potentially create a single point of failure. Multiple instances improve resiliency and scalability.
 
 For more information, see the DevOps section in [Azure Well-Architected Framework](/azure/architecture/framework/devops/overview).
@@ -135,7 +139,7 @@ This section lists security considerations that are specific to the Azure servic
 
 - Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
 - Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
-- Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Visual Studio Team Foundation Server](/azure/devops/server/tfs-is-now-azure-devops-server). For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md).
+- Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Azure DevOps Server](/azure/devops/server/tfs-is-now-azure-devops-server). For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md).
 
 #### SQL Database auditing
 
@@ -143,7 +147,7 @@ Auditing can help you maintain regulatory compliance and get insight into discre
 
 #### Deployment slots
 
-Each deployment slot has a public IP address. Secure the nonproduction slots using [Azure Active Directory login](/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication) so that only members of your development and DevOps teams can reach those endpoints.
+Each deployment slot has a public IP address. Secure the nonproduction slots using the [Azure Active Directory login](/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication) so that only members of your development and DevOps teams can reach those endpoints.
 
 #### Logging
 
@@ -151,7 +155,7 @@ Logs should never record users' passwords or other information that might be use
 
 #### SSL
 
-An App Service app includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. The SSL endpoint includes a wildcard certificate for the `*.azurewebsites.net` domain. If you use a custom domain name, you must provide a certificate that matches the custom domain. The simplest approach is to buy a certificate directly through the Azure portal. You can also import certificates from other certificate authorities. For more information, see [Buy and Configure an SSL Certificate for your Azure App Service](/azure/app-service-web/web-sites-purchase-ssl-web-site).
+An App Service app includes an SSL endpoint on a subdomain of `azurewebsites.net` at no extra cost. The SSL endpoint includes a wildcard certificate for the `*.azurewebsites.net` domain. If you use a custom domain name, you must provide a certificate that matches the custom domain. The simplest approach is to buy a certificate directly through the Azure portal. You can also import certificates from other certificate authorities. For more information, see [buy and configure an SSL certificate for your Azure App Service](/azure/app-service-web/web-sites-purchase-ssl-web-site).
 
 HTTPS isn't enabled by default in the ARM template deployment. As a security best practice, your app should enforce HTTPS by redirecting HTTP requests. You can implement HTTPS inside your application or use a URL rewrite rule as described in [enable HTTPS for an app in Azure App Service](/azure/app-service-web/web-sites-configure-ssl-certificate).
 
