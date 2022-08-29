@@ -140,6 +140,9 @@ As mentioned in the previous section, there are several options for establishing
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Kubernetes Storage options](../storage/storage.yml)
+
 The following references provide links to automation samples and documentation to deploy AKS clusters with a secured API:
 
 - [Create a Private AKS cluster with a Public DNS Zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)

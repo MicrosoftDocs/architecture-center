@@ -26,6 +26,9 @@ The following articles provide best practices for the specific design areas:
 
 ## Next Steps
 
+> [!div class="nextstepaction"]
+> [Kubernetes Workload Identity](./iam/workload-identity.yml)
+
 To review and compare Azure and AWS core components review the following articles that compare the platforms' capabilities in these core areas:
 
 - [Azure and AWS accounts and subscriptions](../accounts.md)

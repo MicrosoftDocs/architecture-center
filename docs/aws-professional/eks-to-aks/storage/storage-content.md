@@ -152,7 +152,8 @@ To optimize costs on Azure Storage use Azure Reservations, make sure to check th
 
 ## Next Steps
 
-- [Cost Management for a Kubernetes Cluster](../cost-management/cost-management.yml)
+> [!div class="nextstepaction"]
+> [Cost management for a Kubernetes cluster](../cost-management/cost-management.yml)
 
 The following references provide additional information and documentation Azure Storage:
 
