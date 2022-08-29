@@ -341,7 +341,7 @@ A spot node pool is a node pool backed by a [spot virtual machine scale set](/az
 
 When deploying a spot node pool, Azure will allocate the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure will evict spot nodes, and you will get a 30-second notice before eviction. Be aware that a spot node pool cannot be the cluster's default node pool. A spot node pool can only be used for a secondary pool.
 
-Spot nodes are great for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool. Review the [spot instance's limitations](/azure/virtual-machines/spot-vms#limitations) for further details.
+Spot nodes are only for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool. Review the [spot instance's limitations](/azure/virtual-machines/spot-vms#limitations) for further details.
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command adds a spot node pool to an existing cluster with autoscaling enabled.
 
