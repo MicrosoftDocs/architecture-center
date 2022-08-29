@@ -278,7 +278,7 @@ Azure Kubernetes service supports two networking plugins:
 
 ### Dynamic IP allocation
 
-When using Azure CNI, pods get a private IP address from the same subnet of the hosting node pool. A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The [dynamic IP allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview) capability in Azure CNI solves this problem by allotting pod private IP addresses from a subnet separate from the subnet that hosts the node pool. This feature provides the following advantages:
+When using Azure CNI, pods get a private IP address from the same subnet of the hosting node pool. The [dynamic IP allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview) capability in Azure CNI allocates pod private IP addresses from a subnet separate from the subnet that hosts the node pool. This feature provides the following advantages:
 
 - **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.
 - **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.
