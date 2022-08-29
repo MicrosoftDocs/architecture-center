@@ -320,11 +320,11 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors:
-- [Kevin Raines](https://www.linkedin.com/in/kevingraines) | Director of Azure Marketing
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
 - [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
 
 Other contributors:
-- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
