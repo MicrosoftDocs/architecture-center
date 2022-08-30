@@ -98,9 +98,6 @@ Besides the components listed above, we still need to leverage more network secu
 
   - An engine manufacture needs a secured solution to protect the data and machine learning models of its factories and products in the MLOps solution which is the backbone for its 'Computer Vision Part Defect Detection'. The MLOps solution is based on Azure Machine Learning workspace, Azure blob storage, azure kubernetes service and Azure container registry etc.
 
-```{=html}
-<!-- -->
-```
 - It can be fully or partially reused for any similar scenario as the MLOps environment is deployed on Azure, being allowed to leverage Azure network security capabilities to protect the MLOps relevant   resources.
 
 **Secure Azure Machine Learning Workspace and Its Associated Resources**
@@ -293,13 +290,13 @@ As metioned in the previous section, the MLOps solution consists of a couple of 
 
 Each of the choices above has its pros and cons. First, let\'s compare Microsoft-hosted agents with self-hosted agents in the following perspectives:
 
-|             | Microsoft-hosted Agent                                                                                           | Self-hosted Agent                                                                                                                                                                                      |
-|-------------|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cost \*     | Start free for 1 parallel job with 1,800 minutes per month, \$40 per extra Microsoft-hosted CI/CD parallel job   | Start free for 1 parallel job with unlimited minutes per month, \$15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed) |
-| Maintenance | Taken care of for you by Microsoft                                                                               | Maintained by yourself with more control of installing any software you like                                                                                                                           |
-| Build Time  | More time consuming because it completely freshes every time you start a build and you always build from scratch | More time saving as it keeps all your files and caches                                                                                                                                                 |
+|             | Microsoft-hosted Agent | Self-hosted Agent |
+|-------------|------------------------|-------------------|
+| **Cost** \*     | Start free for 1 parallel job with 1,800 minutes per month, \$40 per extra Microsoft-hosted CI/CD parallel job. | Start free for 1 parallel job with unlimited minutes per month, \$15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
+| **Maintenance** | Taken care of for you by Microsoft. | Maintained by yourself with more control of installing any software you like. |
+| **Build Time** | More time consuming because it completely freshes every time you start a build and you always build from scratch | More time saving as it keeps all your files and caches. |
 
-\*The prices are as of Aug 19, 2022, for all regions. Please refer to
+\* The prices are as of Aug 19, 2022, for all regions. Please refer to
 <https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/>
 .
 
@@ -436,15 +433,15 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Will leveraging Azure network security capabilities add more cost to your solution? Let\'s take a look at them one by one:
 
-| Azure Service                | Pricing                                                                                             |
-|------------------------------|-----------------------------------------------------------------------------------------------------|
-| Azure Virtual Network        | Free of charge                                                                                      |
-| Azure Private Link           | Pay only for private endpoint resource hours and the data processed through your private endpoint   |
-| Azure Private Azure DNS Zone | Billing is based on the number of DNS zones hosted in Azure and the number of DNS queries received  |
-| Azure VNet Peering           | Inbound and outbound traffic is charged at both ends of the peered networks                         |
-| Azure VPN gateway            | Charged based on the amount of time that gateway is provisioned and available                       |
-| Azure ExpressRoute           | Charged for Azure ExpressRoute and ExpressRoute Gateways                                            |
-| Azure Bastion                | Billing involves a combination of hourly pricing based on SKU, scale units, and data transfer rates |
+| Azure Service | Pricing |
+|---------------|---------|
+| Azure Virtual Network | Free of charge. |
+| Azure Private Link    | Pay only for private endpoint resource hours and the data processed through your private endpoint. |
+| Azure Private Azure DNS Zone | Billing is based on the number of DNS zones hosted in Azure and the number of DNS queries received. |
+| Azure VNet Peering | Inbound and outbound traffic is charged at both ends of the peered networks. |
+| Azure VPN gateway     | Charged based on the amount of time that gateway is provisioned and available. |
+| Azure ExpressRoute    | Charged for Azure ExpressRoute and ExpressRoute Gateways. |
+| Azure Bastion         | Billing involves a combination of hourly pricing based on SKU, scale units, and data transfer rates. |
 
 Therefore, even though setting up Azure Virtual Networks is free of charge, you still need to pay for private links, DNS zones, VNet peering and other services if they are needed to protect your solution.
 
