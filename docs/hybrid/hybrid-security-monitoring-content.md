@@ -56,6 +56,8 @@ Details about Microsoft Defender for Cloud pricing can be found [here][azure-sec
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 The Log Analytics Agent for Windows and Linux is designed to have very minimal impact on the performance of VMs or physical systems.
@@ -93,7 +95,9 @@ The security policies that you enable in Microsoft Defender for Cloud drive secu
 
 ### Cost optimization
 
-- As previously described, costs beyond your Azure subscription might include:
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+As previously described, costs beyond your Azure subscription might include:
   1. Microsoft Defender for Cloud Standard tier. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
   1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
   1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
