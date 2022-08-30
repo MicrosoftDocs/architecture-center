@@ -120,7 +120,7 @@ Other additional costs to keep in mind:
 - Additional storage or PaaS services such as databases.
 - Global networking services such as [Azure Traffic Manager](https://azure.microsoft.com/en-gb/pricing/details/traffic-manager/) or [Azure Front Door](https://azure.microsoft.com/en-gb/pricing/details/frontdoor/) used to route traffic to the public endpoints of workloads running on your AKS cluster.
 - Firewall and protection services such as [Azure Firewall](/azure/firewall/overview) inspect, allow, or block traffic to and from your [Azure Kubernetes Service (AKS)](/azure/aks) cluster.
-- Monitoring and logging services such as [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-cost), [Azure Monitor Application Insights](https://azure.microsoft.com/en-gb/pricing/details/monitor/), [Microsoft Defender for Cloud](https://azure.microsoft.com/en-gb/pricing/details/defender-for-cloud/), etc.
+- Monitoring and logging services such as [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-cost), [Azure Monitor Application Insights](https://azure.microsoft.com/en-gb/pricing/details/monitor/), [Microsoft Defender for Cloud](https://azure.microsoft.com/en-gb/pricing/details/defender-for-cloud/), etc. Review the [understand monitoring costs for Container insights](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster) documentation for detailed guidance.
 - DevOps tools like ([Azure DevOps](https://azure.microsoft.com/en-gb/pricing/details/devops/azure-devops-services/) or [GitHub](https://github.com/pricing)
 
 ## Cost Optimizations
