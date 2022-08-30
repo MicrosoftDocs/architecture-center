@@ -745,6 +745,22 @@ Therefore, even though setting up Azure Virtual Networks is free of
 charge, you still need to pay for private links, DNS zones, VNet peering
 and other services if they are needed to protect your solution.
 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang) | Principal Software Engineer
+
+Other contributors:
+
+ - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+
 ## Next steps
 
 Refer to [Terraform on Azure
