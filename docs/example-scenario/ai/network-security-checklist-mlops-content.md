@@ -205,6 +205,7 @@ The following Terraform snippet shows how to create an AML compute
 cluster, attach it to an AML workspace and put it into a subnet of a
 virtual network.
 
+```terraform
 resource \"azurerm_machine_learning_compute_cluster\"
 \"compute_cluster\" {
 
@@ -240,6 +241,7 @@ type = \"SystemAssigned\"
 }
 
 }
+```
 
 **Azure Private Link and Azure Private Endpoint**
 
@@ -262,6 +264,7 @@ to link to an Azure Machine Learning workspace thus it can be protected
 by the virtual network. About the usage of the priate DNS zones, you may
 refer to the next section for the details.
 
+```terraform
 resource \"azurerm_machine_learning_workspace\" \"aml_ws\" {
 
 name = \"my_aml_workspace\"
@@ -375,6 +378,7 @@ depends_on =
 azurerm_machine_learning_compute_cluster.compute_cluster\]
 
 }
+```
 
 **Private Azure DNS Zone**
 
@@ -418,6 +422,7 @@ Microsoft\'s private network only.
 The following Terraform script sets up the VNet peering between AML VNET
 and BASTION VNET.
 
+```terraform
 \# Virtual network peering for amlvnet and basvnet
 
 resource \"azurerm_virtual_network_peering\" \"vp_amlvnet_basvnet\" {
@@ -451,6 +456,7 @@ allow_virtual_network_access = true
 allow_forwarded_traffic = true
 
 }
+```
 
 **Access the Resources in the VNet**
 
@@ -524,6 +530,7 @@ have the following options:
 Here\'s the sample code for provisioning two self-hosted agents by
 creating Azure virtual machines and extensions:
 
+```terraform
 resource \"azurerm_linux_virtual_machine\" \"agent\" {
 
 \...
@@ -567,11 +574,13 @@ AGENT_POOL = \"\${var.AGENT_POOL}\"
 SETTINGS
 
 }
+```
 
 As shown in the code above, the Terraform script calls agent_init.sh to
 install agent software and needed libraries on the agent VM per the
 customer\'s requirements. The shell script looks like the following:
 
+```bash
 \#!/bin/sh
 
 \# Install other needed libraries
@@ -606,6 +615,7 @@ sudo ./svc.sh install \${AGENT_USERNAME}
 \#Start svc
 
 sudo ./svc.sh start
+```
 
 **Use Azure Container Registry in VNet**
 
@@ -621,6 +631,7 @@ add virtual network link to link the private DNS zone
 (privatelink.azurecr.io) to BASTION VNET. Refer to the Terraform script
 snippet below for the implementation:
 
+```terraform
 \# AML ACR is for private access by AML WS
 
 resource \"azurerm_container_registry\" \"acr\" {
@@ -691,6 +702,7 @@ private_dns_zone_ids = \[azurerm_private_dns_zone.acr_zone.id\]
 }
 
 }
+```
 
 In the meantime, you should ensure that the Azure Container Registry has
 a contributor role for the system assigned managed identity of Azure
