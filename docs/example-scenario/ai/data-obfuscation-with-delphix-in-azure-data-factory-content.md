@@ -33,7 +33,7 @@ Load the compliant data to any ADF-supported datastore.
 
 The following architecture outlines the use of Delphix Continuous Compliance in an ADF ETL pipeline to identify and mask sensitive data.
 
-:::image type="content" source="media/delphix-continuous-compliance-architecture.png" lightbox="delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
+:::image type="content" source="./media/delphix-continuous-compliance-architecture.png" lightbox="./media/delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
 
 Download a [Visio file](https://delphixit-my.sharepoint.com/:u:/g/personal/arun_saju_delphix_com/EVswtxQQs5JGpdNkbPfMNvUBmhw_EJ4_Sg88IpQmmbdjvg?e=7b8OG8) of this architecture.
 
@@ -111,7 +111,7 @@ Any Azure Data Factory connector can be used to facilitate a given use case.
 
 The following example was provided by an anonymous customer.  It is intended only as a sample for how one might architect an environment for this masking use case.
 
-:::image type="content" source="media/example-architecture.png" lightbox="example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
+:::image type="content" source="./media/example-architecture.png" lightbox="./media/example-architecture.png" alt-text="Diagram of a sample architecture provided by an anonymous customer.":::
 
 In the above example architecture:
 

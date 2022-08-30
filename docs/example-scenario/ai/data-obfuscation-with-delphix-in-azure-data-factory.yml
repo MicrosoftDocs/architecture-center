@@ -9,8 +9,8 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-azureCategories: databases
-products: azure-data-factory
+azureCategories: [databases]
+products: [azure-data-factory]
 name: Data obfuscation on Azure with Delphix and Azure Data Factory
 summary: Learn about how to perform data obfuscation using Delphix in Azure Data Factory.
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
