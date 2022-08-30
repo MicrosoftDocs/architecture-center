@@ -7,7 +7,7 @@ Breaking down data silos is difficult:
 - Data must be manipulated to fit to a common format. ETL pipelines must be adapted to each system of record and must scale to support the massive data sets of modern enterprises.
 - Compliance with regulations regarding sensitive information must be maintained when data is moved from systems of record. Customer content and other sensitive elements must be obscured without impacting the business value of the data set.
 
-### What is Azure Data Factory?
+### What is Azure Data Factory (ADF)?
 
 [Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
 
@@ -54,7 +54,6 @@ The data flows through the scenario as follows:
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastore(s) and the masked data that will be loaded into destination data store(s).
-- [Resource Groups](/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
 - Optional: [Azure Virtual Network](/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
 - Other Components: Based on the datastores used as source and destination, other components may need to be added. These datastores can vary depending on your requirements.
 
