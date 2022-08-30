@@ -10,7 +10,7 @@ According to the [definition in Wikipedia](https://en.wikipedia.org/wiki/MLOps),
 
 The diagram below shows a simplified MLOps process model, which offers a solution that automates the process of machine learning data preparation, model training, model evaluation, model registration, model deployment and monitoring.
 
-![Diagram Description automatically generated with medium confidence](media/image2.png){width="6.5in" height="1.3458333333333334in"}
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="../media/network-security-checklist-mlops-process-pipeline-flow.png":::
 
 *Figure 2. MLOps Process*
 
@@ -52,7 +52,7 @@ In this article, we\'ll be focusing on how to use Azure Network Security mechani
 
 ## Architecture
 
-![Diagram Description automatically generated](media/image3.png){width="6.5in" height="4.292361111111111in"}
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-architecture.svg" lightbox="../media/network-security-checklist-mlops-architecture.svg":::
 
 *Figure 3. System Architecture*
 
