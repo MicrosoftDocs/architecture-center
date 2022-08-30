@@ -4,34 +4,6 @@ After being first highlighted in a paper entitled "Hidden Technical Debt in Mach
 
 In this article, we\'ll talk about how to use Azure network security capabilities such as Azure Virtual Network(VNet), Azure Private Link, Azure Private DNS Zone, Azure VNet Peering to protect MLOps solutions. After listing the choices of accessing resources in VNet, we\'ll introduce how to use Azure Pipelines to access resources in the VNet, required configurations of using an Azure Container Registry and Azure Machine Learning compute instances/clusters in VNet environment as well. Additionally, the description of the cost brought by the network security services is also provided for your reference.
 
-**About MLOps Security**
-
-According to the [definition in Wikipedia](https://en.wikipedia.org/wiki/MLOps), MLOps is a set of practices at the intersection of Machine Learning, DevOps and Data Engineering, aiming to deploy and maintain machine learning models in production reliably and efficiently.
-
-The diagram below shows a simplified MLOps process model, which offers a solution that automates the process of machine learning data preparation, model training, model evaluation, model registration, model deployment and monitoring.
-
-:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="../media/network-security-checklist-mlops-process-pipeline-flow.png":::
-
-**How to Secure Your MLOps Environment**
-
-When implementing a MLOps solution, you may have the challenges of securing the following resources:
-
-- Devops pipelines
-
-- Machine learning training data
-
-- Machine learning pipelines
-
-- Machine learning models
-
-In order to address the challenges above, you need to consider the following aspects to protect the MLOps solution:
-
-- Authentication and Authorization
-
-  - Use Azure service principals or managed identities instead of interactive authentication
-
-  - Use RBAC to define the user\'s access scope of the resources
-
 - **Network Security**
 
   - Use Azure Virtual Network (VNet) to partially or fully isolate the environment from the public internet to reduce the attack surface and data exfiltration
@@ -80,7 +52,39 @@ The sample MLOps solution consists of the following components:
 
 Besides the components listed above, we still need to use more network security services to protect the MLOps solution.
 
-### Potential Use Cases
+
+## Scenario details
+
+**About MLOps Security**
+
+MLOps is a set of practices at the intersection of Machine Learning, DevOps and Data Engineering, aiming to deploy and maintain machine learning models in production reliably and efficiently.
+
+The diagram below shows a simplified MLOps process model, which offers a solution that automates the process of machine learning data preparation, model training, model evaluation, model registration, model deployment and monitoring.
+
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="../media/network-security-checklist-mlops-process-pipeline-flow.png":::
+
+**How to Secure Your MLOps Environment**
+
+When implementing a MLOps solution, you may have the challenges of securing the following resources:
+
+- Devops pipelines
+
+- Machine learning training data
+
+- Machine learning pipelines
+
+- Machine learning models
+
+In order to address the challenges above, you need to consider the following aspects to protect the MLOps solution:
+
+- Authentication and Authorization
+
+  - Use Azure service principals or managed identities instead of interactive authentication
+
+  - Use RBAC to define the user\'s access scope of the resources
+
+
+### Potential use cases
 
 - The original customer for this solution is in telecommunications industry.
 
@@ -409,6 +413,7 @@ When putting an Azure Machine Learning compute cluster/instance into a VNet, you
 
 Also note that for the compute cluster or instance, it's now possible to remove the public IP address (a preview feature). This provides better protection of your compute resources in the MLOps solution.
 
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -442,6 +447,15 @@ Therefore, even though setting up Azure Virtual Networks is free of charge, you 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 The best practice is to use infrastructure as code tools such as Terraform or Azure ARM templates, and Azure DevOps, Azure Pipeline to streamline the CI/CD processes.
+
+## Deploy this scenario
+
+<!--
+Code snippets and practical processes go here
+Can you make a distinction between what are deployment details and what are Scenario details?
+Add anything from Scenario details if more applicable here
+-->
+
 
 ## Contributors
 
