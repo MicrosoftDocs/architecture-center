@@ -18,3 +18,4 @@ summary: Read this guide to learn how to use Spot Eviction and design a solution
 thumbnailUrl: /media/spot-orchestration-diagram.png
 content: |
   [!include[](spot-eviction.md)]
+  
