@@ -8,10 +8,6 @@ In this article, we\'ll talk about how to use Azure network security capabilitie
 
 According to the [definition in Wikipedia](https://en.wikipedia.org/wiki/MLOps), MLOps is a set of practices at the intersection of Machine Learning, DevOps and Data Engineering, aiming to deploy and maintain machine learning models in production reliably and efficiently.
 
-![Diagram, venn diagram Description automatically generated](media/image1.png){width="6.5in" height="4.6722222222222225in"}
-
-*Figure 1. What is MLOps*
-
 The diagram below shows a simplified MLOps process model, which offers a solution that automates the process of machine learning data preparation, model training, model evaluation, model registration, model deployment and monitoring.
 
 ![Diagram Description automatically generated with medium confidence](media/image2.png){width="6.5in" height="1.3458333333333334in"}
