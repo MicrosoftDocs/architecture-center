@@ -712,7 +712,11 @@ solution.
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 MLOps solution security should be considered in the very beginning of
 the architecture design. When developing a solution, even though you can
@@ -722,11 +726,15 @@ staging and production environments. 
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 The best practice is to use infrastructure as code tools such as
 Terraform or Azure ARM templates, and Azure DevOps, Azure Pipeline to
 streamline the CI/CD processes.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Will leveraging Azure network security capabilities add more cost to
 your solution? Let\'s take a look at them one by one:
