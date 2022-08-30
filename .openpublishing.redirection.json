@@ -2223,6 +2223,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks-content.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks-content",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/framework/security/law-authority.md",
       "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": false
