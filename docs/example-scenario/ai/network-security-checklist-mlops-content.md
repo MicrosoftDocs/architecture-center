@@ -724,14 +724,6 @@ think less about security in the development environment, still it is
 highly recommended you should take security into consideration in the
 staging and production environments. 
 
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-The best practice is to use infrastructure as code tools such as
-Terraform or Azure ARM templates, and Azure DevOps, Azure Pipeline to
-streamline the CI/CD processes.
-
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
@@ -753,6 +745,13 @@ Therefore, even though setting up Azure Virtual Networks is free of
 charge, you still need to pay for private links, DNS zones, VNet peering
 and other services if they are needed to protect your solution.
 
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+The best practice is to use infrastructure as code tools such as
+Terraform or Azure ARM templates, and Azure DevOps, Azure Pipeline to
+streamline the CI/CD processes.
 
 ## Contributors
 
