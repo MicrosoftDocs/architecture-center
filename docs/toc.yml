@@ -2661,7 +2661,6 @@ items:
                     maintainContext: true
               - name: Interruptible workloads using Azure Spot VM
                 href: /docs/guide/spot/spot-eviction.yml
-                maintainContext: true
           - name: Architectures
             items:
               - name: 3D video rendering
