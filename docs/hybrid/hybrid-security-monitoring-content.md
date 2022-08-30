@@ -1,18 +1,10 @@
 This reference architecture illustrates how to use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
 
+## Architecture
+
 ![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-## Potential use cases
-
-Typical uses for this architecture include:
-
-- Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads
-- How to integrate Microsoft Defender for Cloud with Azure Stack
-- How to integrate Microsoft Defender for Cloud with Microsoft Sentinel
-
-## Architecture
 
 ### Workflow
 
@@ -35,6 +27,16 @@ The architecture consists of the following workflow:
 - [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this architecture include:
+
+- Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads
+- How to integrate Microsoft Defender for Cloud with Azure Stack
+- How to integrate Microsoft Defender for Cloud with Microsoft Sentinel
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
@@ -52,15 +54,17 @@ Details about Microsoft Defender for Cloud pricing can be found [here][azure-sec
 > [!NOTE]
 > Microsoft Sentinel can run on workspaces in any general availability (GA) region of Log Analytics except the China and Germany (Sovereign) regions. Data that Microsoft Sentinel generates, such as incidents, bookmarks, and alert rules, which may contain some customer data sourced from these workspaces, is saved either in Europe (for Europe-based workspaces), in Australia (for Australia-based workspaces), or in the East US (for workspaces located in any other region).
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 The Log Analytics Agent for Windows and Linux is designed to have very minimal impact on the performance of VMs or physical systems.
 
 Microsoft Defender for Cloud operational process won't interfere with your normal operational procedures. Instead, it passively monitors your deployments and provides recommendations based on the security policies you enable.
 
-## Manageability considerations
+### Manageability
 
-### Microsoft Defender for Cloud roles
+#### Microsoft Defender for Cloud roles
 
 Defender for Cloud assesses your resources' configuration to identify security issues and vulnerabilities, and displays information related to a resource when you are assigned the role of owner, contributor, or reader for the subscription or resource group to which a resource belongs.
 
@@ -72,13 +76,13 @@ In addition to these roles, there are two specific Defender for Cloud roles:
 
 - The security roles, **Security Reader** and **Security Admin**, have access only in Defender for Cloud. The security roles don't have access to other Azure service areas, such as storage, web, mobile, or IoT.
 
-### Microsoft Sentinel subscription
+#### Microsoft Sentinel subscription
 
 - To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.
 - To use Microsoft Sentinel, you need contributor or reader permissions on the resource group to which the workspace belongs.
 - Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
-## Security considerations
+### Security
 
 A **security policy** defines the set of controls that are recommended for resources within a specified subscription. In Microsoft Defender for Cloud, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or data sensitivity for each subscription.
 
@@ -87,7 +91,14 @@ The security policies that you enable in Microsoft Defender for Cloud drive secu
 > [!NOTE]
 > Part one of the reference architecture details how to enable Microsoft Defender for Cloud to monitor Azure resources, on-premises systems, and Azure Stack systems.
 
-## Deploy the solution
+### Cost optimization
+
+- As previously described, costs beyond your Azure subscription might include:
+  1. Microsoft Defender for Cloud Standard tier. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
+  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
+  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
+
+## Deploy this scenario
 
 ### Create a Log Analytics workspace in the Azure portal
 
@@ -265,13 +276,6 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 
 - [Quickstart][azure-sentinel-quickstart]: Get started with Microsoft Sentinel
 - [Tutorial][azure-sentinel-tutorial]: Detect threats out-of-the-box
-
-## Cost considerations
-
-- As previously described, costs beyond your Azure subscription might include:
-  1. Microsoft Defender for Cloud Standard tier. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
-  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
-  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
 ## Next steps
 
