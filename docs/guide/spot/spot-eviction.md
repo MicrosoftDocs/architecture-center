@@ -6,6 +6,8 @@ Azure Spot VM and scale sets do not have an SLA once created, which means that t
 
 This guide is meant to walk you through Azure Spot Eviction fundamentals and help you design a solution to support workload interruptions.
 
+<!--- NOTE: Team will add a diagram here after publishing to further clarify this solution. --->
+
 ## Cost
 
 Azure provisions its spare capacity along all its offered regions so it can respond on demand when new resources are created. While that capacity remains idle, you have an opportunity to deploy VMs in your subscription at [discount prices and capped at pay-as-you-go prices using Azure Spot VMs and virtual machine scale sets](https://azure.microsoft.com/pricing/spot-advisor/).
@@ -150,9 +152,8 @@ When building reliable and interruptible workloads, you'll be focused on four ma
 
 1. **Resume**: The application is about to continue processing after a best effort to recover the context prior to eviction. It's good idea to transition into a `warmup` state to ensure the workload is healthy and ready to start.
 
-<!--- new diagram here --->
-<!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
-![A workload lifecycle diagram depicting the four possible stages interruptible workloads should contemplate during their lifetime]()
+<!--- diagram here --->
+:::image type="content" source="/media/lifecycle-spot-vm.png" alt-text="A workload lifecycle diagram depicting the four possible stages interruptible workloads should contemplate during their lifetime":::
 
 > [!NOTE]
 > The aforementioned states are just a reduced list of possible valid conditions for a reliable interruptible workload. You might find other states that are convenient for your own workloads.
@@ -177,8 +178,8 @@ It will be helpful to kick off the application after eviction or the first time 
 
 By design, this [bash script](https://github.com/mspnp/interruptible-workload-on-spot/blob/a497c29cc57bf499878d2860e37ed41ac27ef4be/orchestrate.sh) runs after the machine has started up. It downloads the workload package from an Azure Storage Account for file shares, decompresses the files, and executes the process.
 
-<!--- IMAGE HERE: Depict the Azure Spot VM infrastructure at orchestration time --->
-<!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
+<!--- diagram here --->
+:::image type="content" source="/media/spot-orchestration-diagram.png" alt-text="Depiction of the Azure Spot VM infrastructure at orchestration time.":::
 
 Another important orchestration related aspect to understand is how to scale your workload within a single VM instance, so it's more resource efficient.
 
@@ -186,15 +187,15 @@ Another important orchestration related aspect to understand is how to scale you
 
     In the reference implementation, your workload is built with no artificial constraints and will grow to consume available resources in your VM instance without exhausting them. From the orchestration point of view, you want to ensure that it's running a SINGLETON of the workload and let it organically request resources as designed.
 
-    <!--- IMAGE HERE: Depict the Azure Spot VM infrastructure orchestration scale up strategy --->
-    <!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
+    <!--- diagram here --->
+    :::image type="content" source="/media/spot-orchestration-scale-up-diagram.png" alt-text="Depiction of the Azure Spot VM infrastructure orchestration scale up strategy.":::
 
 - **Scale out strategy**
 
     Alternatively, if the workload resources specs are limited by design and it can't grow to consume VM resources, ensure your VM is the right size to orchestrate multiple whole instances of your workload. Doing so will ensure there's no wasted over-provisioning of compute resources in your Spot VM.
 
-    <!--- IMAGE HERE: Depict the Azure Spot VM infrastructure orchestration scale out strategy --->
-    <!--- :::image type="content" source="" alt-text="" link="https://link.com"::: --->
+    <!--- diagram here --->
+    :::image type="content" source="/media/spot-orchestration-scale-out-diagram.png" alt-text="Depiction of the Azure Spot VM infrastructure orchestration scale out strategy.":::
 
 ### Installation
 
