@@ -164,7 +164,7 @@ For information about validation rules for cluster upgrades, see [Validation rul
 The following table describes characteristics of various AKS upgrade and patching scenarios:
 
 |Scenario|User initiated|K8S upgrade|OS kernel upgrade|Node image upgrade|
-|--------|--------------|------------------|-----------------|------------------|-----|
+|--------|--------------|------------------|-----------------|------------------|
 |Security patching | No  | No | Yes, following reboot | Yes  |
 |Cluster create | Yes  | Maybe | Yes, if an updated node image uses an updated kernel.|Yes, relative to an existing cluster if a new release is available.|
 |Control plane K8S upgrade | Yes  | Yes | No  | No  |
