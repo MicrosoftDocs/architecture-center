@@ -206,40 +206,22 @@ cluster, attach it to an AML workspace and put it into a subnet of a
 virtual network.
 
 ```terraform
-resource \"azurerm_machine_learning_compute_cluster\"
-\"compute_cluster\" {
-
-name = \"my_compute_cluster\"
-
-location = \"eastasia\"
-
-vm_priority = \"LowPriority\"
-
-vm_size = \"Standard_NC6s_v3\"
-
-machine_learning_workspace_id =
-azurerm_machine_learning_workspace.my_workspace.id
-
-subnet_resource_id = azurerm_subnet.compute_subnet.id
-
-ssh_public_access_enabled = false
-
-scale_settings {
-
-min_node_count = 0
-
-max_node_count = 3
-
-scale_down_nodes_after_idle_duration = \"PT30S\"
-
-}
-
-identity {
-
-type = \"SystemAssigned\"
-
-}
-
+resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
+  name                          = "my_compute_cluster"
+  location                      = "eastasia"
+  vm_priority                   = "LowPriority"
+  vm_size                       = "Standard_NC6s_v3"
+  machine_learning_workspace_id = azurerm_machine_learning_workspace.my_workspace.id
+  subnet_resource_id            = azurerm_subnet.compute_subnet.id
+  ssh_public_access_enabled     = false
+  scale_settings {
+    min_node_count                       = 0
+    max_node_count                       = 3
+    scale_down_nodes_after_idle_duration = "PT30S"
+  }
+  identity {
+    type = "SystemAssigned"
+  }
 }
 ```
 
@@ -265,118 +247,71 @@ by the virtual network. About the usage of the priate DNS zones, you may
 refer to the next section for the details.
 
 ```terraform
-resource \"azurerm_machine_learning_workspace\" \"aml_ws\" {
+resource "azurerm_machine_learning_workspace" "aml_ws" {
+  name                    = "my_aml_workspace"
+  friendly_name           = "my_aml_workspace"
+  location                = "eastasia"
+  resource_group_name     = "my_resource_group"
+  application_insights_id = azurerm_application_insights.my_ai.id
+  key_vault_id            = azurerm_key_vault.my_kv.id
+  storage_account_id      = azurerm_storage_account.my_sa.id
+  container_registry_id   = azurerm_container_registry.my_acr_aml.id
 
-name = \"my_aml_workspace\"
-
-friendly_name = \"my_aml_workspace\"
-
-location = \"eastasia\"
-
-resource_group_name = \"my_resource_group\"
-
-application_insights_id = azurerm_application_insights.my_ai.id
-
-key_vault_id = azurerm_key_vault.my_kv.id
-
-storage_account_id = azurerm_storage_account.my_sa.id
-
-container_registry_id = azurerm_container_registry.my_acr_aml.id
-
-identity {
-
-type = \"SystemAssigned\"
-
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
+# Private DNS Zones
+
+resource "azurerm_private_dns_zone" "ws_zone_api" {
+  name                = "privatelink.api.azureml.ms"
+  resource_group_name = var.RESOURCE_GROUP
 }
 
-\# Private DNS Zones
-
-resource \"azurerm_private_dns_zone\" \"ws_zone_api\" {
-
-name = \"privatelink.api.azureml.ms\"
-
-resource_group_name = var.RESOURCE_GROUP
-
+resource "azurerm_private_dns_zone" "ws_zone_notebooks" {
+  name                = "privatelink.notebooks.azure.net"
+  resource_group_name = var.RESOURCE_GROUP
 }
 
-resource \"azurerm_private_dns_zone\" \"ws_zone_notebooks\" {
+# Linking of DNS zones to Virtual Network
 
-name = \"privatelink.notebooks.azure.net\"
-
-resource_group_name = var.RESOURCE_GROUP
-
+resource "azurerm_private_dns_zone_virtual_network_link" "ws_zone_api_link" {
+  name                  = "ws_zone_link_api"
+  resource_group_name   = "my_resource_group"
+  private_dns_zone_name = azurerm_private_dns_zone.ws_zone_api.name
+  virtual_network_id    = azurerm_virtual_network.aml_vnet.id
 }
 
-\# Linking of DNS zones to Virtual Network
-
-resource \"azurerm_private_dns_zone_virtual_network_link\"
-\"ws_zone_api_link\" {
-
-name = \"ws_zone_link_api\"
-
-resource_group_name = \"my_resource_group\"
-
-private_dns_zone_name = azurerm_private_dns_zone.ws_zone_api.name
-
-virtual_network_id = azurerm_virtual_network.aml_vnet.id
-
+resource "azurerm_private_dns_zone_virtual_network_link" "ws_zone_notebooks_link" {
+  name                  = "ws_zone_link_notebooks"
+  resource_group_name   = "my_resource_group"
+  private_dns_zone_name = azurerm_private_dns_zone.ws_zone_notebooks.name
+  virtual_network_id    = azurerm_virtual_network.aml_vnet.id
 }
 
-resource \"azurerm_private_dns_zone_virtual_network_link\"
-\"ws_zone_notebooks_link\" {
+# Private Endpoint configuration
 
-name = \"ws_zone_link_notebooks\"
+resource "azurerm_private_endpoint" "ws_pe" {
+  name                = "my_aml_ws_pe"
+  location            = "eastasia"
+  resource_group_name = "my_resource_group"
+  subnet_id           = azurerm_subnet.my_subnet.id
 
-resource_group_name = \"my_resource_group\"
+  private_service_connection {
+    name                           = "my_aml_ws_psc"
+    private_connection_resource_id = azurerm_machine_learning_workspace.aml_ws.id
+    subresource_names              = ["amlworkspace"]
+    is_manual_connection           = false
+  }
 
-private_dns_zone_name = azurerm_private_dns_zone.ws_zone_notebooks.name
+  private_dns_zone_group {
+    name                 = "private-dns-zone-group-ws"
+    private_dns_zone_ids = [azurerm_private_dns_zone.ws_zone_api.id, azurerm_private_dns_zone.ws_zone_notebooks.id]
+  }
 
-virtual_network_id = azurerm_virtual_network.aml_vnet.id
-
-}
-
-\# Private Endpoint configuration
-
-resource \"azurerm_private_endpoint\" \"ws_pe\" {
-
-name = \"my_aml_ws_pe\"
-
-location = \"eastasia\"
-
-resource_group_name = \"my_resource_group\"
-
-subnet_id = azurerm_subnet.my_subnet.id
-
-private_service_connection {
-
-name = \"my_aml_ws_psc\"
-
-private_connection_resource_id =
-azurerm_machine_learning_workspace.aml_ws.id
-
-subresource_names = \[\"amlworkspace\"\]
-
-is_manual_connection = false
-
-}
-
-private_dns_zone_group {
-
-name = \"private-dns-zone-group-ws\"
-
-private_dns_zone_ids = \[azurerm_private_dns_zone.ws_zone_api.id,
-azurerm_private_dns_zone.ws_zone_notebooks.id\]
-
-}
-
-\# Add Private Link after we configured the workspace
-
-depends_on =
-\[azurerm_machine_learning_compute_instance.compute_instance,
-azurerm_machine_learning_compute_cluster.compute_cluster\]
-
+  # Add Private Link after we configured the workspace
+  depends_on = [azurerm_machine_learning_compute_instance.compute_instance, azurerm_machine_learning_compute_cluster.compute_cluster]
 }
 ```
 
@@ -423,38 +358,23 @@ The following Terraform script sets up the VNet peering between AML VNET
 and BASTION VNET.
 
 ```terraform
-\# Virtual network peering for amlvnet and basvnet
-
-resource \"azurerm_virtual_network_peering\" \"vp_amlvnet_basvnet\" {
-
-name = \"vp_amlvnet_basvnet\"
-
-resource_group_name = \"my_resource_group\"
-
-virtual_network_name = azurerm_virtual_network.amlvnet.name
-
-remote_virtual_network_id = azurerm_virtual_network.basvnet.id
-
-allow_virtual_network_access = true
-
-allow_forwarded_traffic = true
-
+# Virtual network peering for amlvnet and basvnet
+resource "azurerm_virtual_network_peering" "vp_amlvnet_basvnet" {
+  name                      = "vp_amlvnet_basvnet"
+  resource_group_name       = "my_resource_group"
+  virtual_network_name      = azurerm_virtual_network.amlvnet.name
+  remote_virtual_network_id = azurerm_virtual_network.basvnet.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
 }
 
-resource \"azurerm_virtual_network_peering\" \"vp_basvnet_amlvnet\" {
-
-name = \"vp_basvnet_amlvnet\"
-
-resource_group_name = \"my_resource_group\"
-
-virtual_network_name = azurerm_virtual_network.basvnet.name
-
-remote_virtual_network_id = azurerm_virtual_network.amlvnet.id
-
-allow_virtual_network_access = true
-
-allow_forwarded_traffic = true
-
+resource "azurerm_virtual_network_peering" "vp_basvnet_amlvnet" {
+  name                      = "vp_basvnet_amlvnet"
+  resource_group_name       = "my_resource_group"
+  virtual_network_name      = azurerm_virtual_network.basvnet.name
+  remote_virtual_network_id = azurerm_virtual_network.amlvnet.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
 }
 ```
 
@@ -531,48 +451,28 @@ Here\'s the sample code for provisioning two self-hosted agents by
 creating Azure virtual machines and extensions:
 
 ```terraform
-resource \"azurerm_linux_virtual_machine\" \"agent\" {
-
-\...
-
+resource "azurerm_linux_virtual_machine" "agent" {
+  ...
 }
 
-resource \"azurerm_virtual_machine_extension\" \"update-vm\" {
+resource "azurerm_virtual_machine_extension" "update-vm" {
+  count                = 2
+  name                 = "update-vm${format("%02d", count.index)}"
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.1"
+  virtual_machine_id   = element(azurerm_linux_virtual_machine.agent.*.id, count.index)
 
-count = 2
-
-name = \"update-vm\${format(\"%02d\", count.index)}\"
-
-publisher = \"Microsoft.Azure.Extensions\"
-
-type = \"CustomScript\"
-
-type_handler_version = \"2.1\"
-
-virtual_machine_id = element(azurerm_linux_virtual_machine.agent.\*.id,
-count.index)
-
-settings = \<\<SETTINGS
-
-{
-
-\"script\":
-\"\${base64encode(templatefile(\"../scripts/terraform/agent_init.sh\", {
-
-AGENT_USERNAME = \"\${var.AGENT_USERNAME}\",
-
-ADO_PAT = \"\${var.ADO_PAT}\",
-
-ADO_ORG_SERVICE_URL = \"\${var.ADO_ORG_SERVICE_URL}\",
-
-AGENT_POOL = \"\${var.AGENT_POOL}\"
-
-}))}\"
-
-}
-
+  settings = <<SETTINGS
+    {
+        "script": "${base64encode(templatefile("../scripts/terraform/agent_init.sh", {
+          AGENT_USERNAME      = "${var.AGENT_USERNAME}",
+          ADO_PAT             = "${var.ADO_PAT}",
+          ADO_ORG_SERVICE_URL = "${var.ADO_ORG_SERVICE_URL}",
+          AGENT_POOL          = "${var.AGENT_POOL}"
+        }))}"
+    }
 SETTINGS
-
 }
 ```
 
@@ -581,39 +481,24 @@ install agent software and needed libraries on the agent VM per the
 customer\'s requirements. The shell script looks like the following:
 
 ```bash
-\#!/bin/sh
+#!/bin/sh
+# Install other needed libraries 
+...
 
-\# Install other needed libraries
-
-\...
-
-\# Creates directory & download ADO agent install files
-
-sudo mkdir /myagent
-
+# Creates directory & download ADO agent install files
+sudo mkdir /myagent 
 cd /myagent
-
-sudo wget
-https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
-
+sudo wget https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
 sudo tar zxvf ./vsts-agent-linux-x64-2.194.0.tar.gz
-
 sudo chmod -R 777 /myagent
 
-\# Unattended install
-
-sudo runuser -l \${AGENT_USERNAME} -c \'/myagent/config.sh \--unattended
-\--url \${ADO_ORG_SERVICE_URL} \--auth pat \--token \${ADO_PAT} \--pool
-\${AGENT_POOL}\'
+# Unattended install
+sudo runuser -l ${AGENT_USERNAME} -c '/myagent/config.sh --unattended  --url ${ADO_ORG_SERVICE_URL} --auth pat --token ${ADO_PAT} --pool ${AGENT_POOL}'
 
 cd /myagent
-
-\#Configure as a service
-
-sudo ./svc.sh install \${AGENT_USERNAME}
-
-\#Start svc
-
+#Configure as a service
+sudo ./svc.sh install ${AGENT_USERNAME}
+#Start svc
 sudo ./svc.sh start
 ```
 
@@ -632,75 +517,45 @@ add virtual network link to link the private DNS zone
 snippet below for the implementation:
 
 ```terraform
-\# AML ACR is for private access by AML WS
-
-resource \"azurerm_container_registry\" \"acr\" {
-
-name = \"my_acr\"
-
-resource_group_name = \"my_resource_group\"
-
-location = \"eastasia\"
-
-sku = \"Premium\"
-
-admin_enabled = true
-
-public_network_access_enabled = false
-
+# AML ACR is for private access by AML WS
+resource "azurerm_container_registry" "acr" {
+  name                     = "my_acr"
+  resource_group_name      = "my_resource_group"
+  location                 = "eastasia"
+  sku                      = "Premium"
+  admin_enabled            = true
+  public_network_access_enabled = false
 }
 
-resource \"azurerm_private_dns_zone\" \"acr_zone\" {
-
-name = \"privatelink.azurecr.io\"
-
-resource_group_name = \"my_resource_group\"
-
+resource "azurerm_private_dns_zone" "acr_zone" {
+  name                     = "privatelink.azurecr.io"
+  resource_group_name      = "my_resource_group"
 }
 
-resource \"azurerm_private_dns_zone_virtual_network_link\"
-\"acr_zone_link\" {
-
-name = \"link_acr\"
-
-resource_group_name = \"my_resource_group\"
-
-private_dns_zone_name = azurerm_private_dns_zone.acr_zone.name
-
-virtual_network_id = azurerm_virtual_network.amlvnet.id
-
+resource "azurerm_private_dns_zone_virtual_network_link" "acr_zone_link" {
+  name                  = "link_acr"
+  resource_group_name   = "my_resource_group"
+  private_dns_zone_name = azurerm_private_dns_zone.acr_zone.name
+  virtual_network_id    = azurerm_virtual_network.amlvnet.id
 }
 
-resource \"azurerm_private_endpoint\" \"acr_ep\" {
+resource "azurerm_private_endpoint" "acr_ep" {
+  name                = "acr_pe"
+  resource_group_name = "my_resource_group"
+  location            = "eastasia"
+  subnet_id           = azurerm_subnet.aml_subnet.id
 
-name = \"acr_pe\"
+  private_service_connection {
+    name                           = "acr_psc"
+    private_connection_resource_id = azurerm_container_registry.acr.id
+    subresource_names              = ["registry"]
+    is_manual_connection           = false
+  }
 
-resource_group_name = \"my_resource_group\"
-
-location = \"eastasia\"
-
-subnet_id = azurerm_subnet.aml_subnet.id
-
-private_service_connection {
-
-name = \"acr_psc\"
-
-private_connection_resource_id = azurerm_container_registry.acr.id
-
-subresource_names = \[\"registry\"\]
-
-is_manual_connection = false
-
-}
-
-private_dns_zone_group {
-
-name = \"private-dns-zone-group-app-acr\"
-
-private_dns_zone_ids = \[azurerm_private_dns_zone.acr_zone.id\]
-
-}
-
+  private_dns_zone_group {
+    name                 = "private-dns-zone-group-app-acr"
+    private_dns_zone_ids = [azurerm_private_dns_zone.acr_zone.id]
+  }
 }
 ```
 
