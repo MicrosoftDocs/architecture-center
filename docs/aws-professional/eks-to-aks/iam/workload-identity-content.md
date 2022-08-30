@@ -1,7 +1,7 @@
 
 The following article shows how an AKS cluster, its built-in services, and add-ons make use of [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to access Azure resources like load balancers and managed disks.
 
-In addition, this article shows how you can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to let your Kubernetes workloads access Azure resources without the need for a connection string, user credentials, or an access key. A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Azure AD Workload Identity eliminates the need for developers to manage credentials to access other cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage.balancers and managed disks.
+In addition, this article shows how you can use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/) to let your Kubernetes workloads access Azure resources without the need for a connection string, user credentials, or an access key. A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Azure AD Workload Identity eliminates the need for developers to manage credentials to access other cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage.
 
 > [!NOTE]
 > This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
