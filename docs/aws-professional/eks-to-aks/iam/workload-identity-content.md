@@ -28,6 +28,15 @@ To use a [service principal](/azure/aks/kubernetes-service-principal), you have 
 
 Managed identities are essentially a wrapper around service principals, and make their management simpler. Managed identities use certificate-based authentication, and each managed identities credential has an expiration of 90 days and it's rolled after 45 days. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
 
+For creating and using your own virtual network, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks), the Azure CLI will add the role assignment automatically. If you are using another method to create the AKS cluster such as Bicep template, ARM template, Terraform module or other method, you need to use the Principal ID of the cluster managed identity to perform a role assignment.
+
+For example, the cluster identity used by the AKS cluster must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required:
+
+- `Microsoft.Network/virtualNetworks/subnets/join/action`
+- `Microsoft.Network/virtualNetworks/subnets/read`
+
+When the cluster identity needs to access any existing resource, for example when deploying an AKS cluster to an existing virtual network, it's recommended to use a user-assigned managed identity. When using a system-assigned control plane identity, the resource provider could not get its principal ID before creating cluster, which makes it impossible to create the proper role assignments before the cluster provisioning.
+
 ### Summary of managed identities
 
 AKS uses several [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for built-in services and add-ons.
@@ -83,7 +92,7 @@ Let's assume you want to deploy to AKS a workload composed of a frontend and bac
 
 ### Prerequisites
 
-- Setup an AKS cluster with the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) enabled.
+- Setup an AKS cluster with the [OIDC Issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) enabled.
 - Install the [mutating admission webhook](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
 - Create a Kubernetes service account for the workloads.
 - Create an Azure AD application as shown in the [Quick Start](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
@@ -99,7 +108,7 @@ Let's assume you want to deploy to AKS a workload composed of a frontend and bac
 
 The following diagram shows how the frontend and backend applications acquire a security token from Azure Active Directory to access PaaS services such as Azure Key Vault or Azure Cosmos DB:
 
-- Acquire security tokens for their service account from the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster.
+- Acquire security tokens for their service account from the [OIDC Issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster.
 - Exchange security tokens acquired from the OIDC issuer with security tokens issued by Azure AD.
 - Use Azure AD issued security tokens to access Azure resources.
 
