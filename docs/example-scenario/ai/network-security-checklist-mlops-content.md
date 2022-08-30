@@ -86,7 +86,7 @@ following aspects to protect the MLOps solution:
 In this article, we\'ll be focusing on how to leverage Azure Network
 Security mechanism to protect the MLOps environment.
 
-**Architecture**
+## Architecture
 
 ![Diagram Description automatically
 generated](media/image3.png){width="6.5in" height="4.292361111111111in"}
@@ -97,6 +97,8 @@ The diagram above shows the architecture of a sample MLOps solution. As
 you can see, as the core of MLOps solution, Azure Machine Learning
 workspace and its associated resources are protected by the virtual
 network, AML VNET.
+
+### Dataflow
 
 The jump host, Azure Bastion and self-hosted agents are in another
 virutual network, BASTION VNET which simulates another solution that
@@ -114,7 +116,7 @@ Kubernetes Clusters.
 This is how the Azure Pipelines and Azure Machine Learning pipelines
 work in this MLOps solution.
 
-**Components** 
+### Components
 
 The sample MLOps solution consists of the following components:
 
@@ -132,7 +134,7 @@ The sample MLOps solution consists of the following components:
 Besides the components listed above, we still need to leverage more
 network security services to protect the MLOps solution.
 
-**Potential Use Cases**
+### Potential Use Cases
 
 - The original customer for this solution is in telecommunications
   industry.
@@ -708,9 +710,9 @@ possible to remove the public IP address (a preview feature). This
 provides better protection of your compute resources in the MLOps
 solution.
 
-**Considerations** 
+## Considerations
 
-**Security** 
+### Security
 
 MLOps solution security should be considered in the very beginning of
 the architecture design. When developing a solution, even though you can
@@ -718,13 +720,13 @@ think less about security in the development environment, still it is
 highly recommended you should take security into consideration in the
 staging and production environments. 
 
-**DevOps** 
+### Operational excellence
 
 The best practice is to use infrastructure as code tools such as
 Terraform or Azure ARM templates, and Azure DevOps, Azure Pipeline to
 streamline the CI/CD processes.
 
-**Pricing** 
+### Cost optimization
 
 Will leveraging Azure network security capabilities add more cost to
 your solution? Let\'s take a look at them one by one:
@@ -743,14 +745,14 @@ Therefore, even though setting up Azure Virtual Networks is free of
 charge, you still need to pay for private links, DNS zones, VNet peering
 and other services if they are needed to protect your solution.
 
-**Next steps** 
+## Next steps
 
 Refer to [Terraform on Azure
 documentation](https://docs.microsoft.com/en-us/azure/developer/terraform/)
 and code snippets in this article to build your network security
 solution for MLOps.
 
-**Related resources** 
+## Related resources
 
 - [Machine learning operations (MLOps) framework to upscale machine
   learning lifecycle with Azure Machine
