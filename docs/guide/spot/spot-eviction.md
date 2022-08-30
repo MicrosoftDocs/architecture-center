@@ -1,5 +1,3 @@
-# Azure Virtual Machine Spot Eviction
-
 You can take advantage of Azure's unused capacity at a significant cost savings by using Spot [virtual machines](/azure/virtual-machines/overview) (VM) and [scale sets](/azure/virtual-machine-scale-sets/overview). However, at any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot VMs. Therefore, This means that Azure Spot VMs should only be used for workloads that can handle interruptions like delayable batch or queue processing jobs, non-critical dev/test environments, and large, delayable compute workloads.
 
 Azure Spot VM and scale sets do not have an SLA once created, which means that they can be terminated at any moment with *up to* 30 seconds of notice. Whenever Azure needs the capacity back, the Azure infrastructure will send your compute instance an eviction notice and proceed to evict that same instance based on your configured eviction policy.
