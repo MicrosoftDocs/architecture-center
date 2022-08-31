@@ -41,7 +41,7 @@ Some good candidates to run on top of Azure Spot VMs are:
 - Tasks that are optional or have lower priority (ex. spawning a CI/CD agent for a dev/test environment)
 - Short lived jobs that can lose their progress repeatedly without having an effect on the end result
 
-Azure Virtual Machine Scale Sets are also offered with priority **Spot** and is an underlying service that will represent nodes for an Azure Kubernetes Service (AKS) cluster. As a result, stateless applications and opportunistic scale-out scenarios are possible candidates to build with Azure Spot [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) in mind if they're meant to run from an AKS cluster. The AKS use case is out of scope in the reference implementation.
+Azure Virtual Machine Scale Sets are also offered with priority **Spot** and is an underlying service that will represent nodes for an Azure Kubernetes Service (AKS) cluster. As a result, stateless applications and opportunistic scale-out scenarios are possible candidates to build with Azure Spot [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) in mind if they're meant to run from an AKS cluster.
 
 ## Considerations
 
