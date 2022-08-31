@@ -118,7 +118,7 @@ There are several conditions that affect an eviction. When architecting solution
 
     This decision will impact your ops process around the workload.  The more flexible you can be about workload portability, such as creating new deployments in available regions or SKUs while prior workload instances are interrupted, the more likely it will be you'll find a place to run.  This is more important on processes that have some time-boundness to them.  If you can wait until capacity becomes available, you'll have less of a monitoring/ops process to try to "rehome" your workloads.  The amount you invest in workload portability to chase available compute should be perorational to the importance that workload proceeds as if it wasn't interrupted.
 
-    1. Delete
+    1. **Delete**
         1. You free up the Cores from your Subscription
         1. You're no longer charged for the disk as they get deleted along with the Azure Spot VM
         1. Shared subscriptions or multiple workloads using Azure Spot VM instances can befitted from this policy
