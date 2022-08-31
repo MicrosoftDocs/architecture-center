@@ -1,8 +1,8 @@
 **Network Security Checklist for MLOps Solutions**
 
-After being first highlighted in a paper entitled "Hidden Technical Debt in Machine Learning Systems" in 2015, Machine Learning DevOps (MLOps)\'s been growing fast and its market is expected to reach \$4 billion by 2025. In the meantime, how to secure MLOps solutions is becoming more and more important.
+After being first highlighted in a paper entitled "Hidden Technical Debt in Machine Learning Systems" in 2015, Machine Learning DevOps (MLOps)'s been growing fast and its market is expected to reach $4 billion by 2025. In the meantime, how to secure MLOps solutions is becoming more and more important.
 
-In this article, we\'ll talk about how to use Azure network security capabilities such as Azure Virtual Network(VNet), Azure Private Link, Azure Private DNS Zone, Azure VNet Peering to protect MLOps solutions. After listing the choices of accessing resources in VNet, we\'ll introduce how to use Azure Pipelines to access resources in the VNet, required configurations of using an Azure Container Registry and Azure Machine Learning compute instances/clusters in VNet environment as well. Additionally, the description of the cost brought by the network security services is also provided for your reference.
+In this article, we'll talk about how to use Azure network security capabilities such as Azure Virtual Network(VNet), Azure Private Link, Azure Private DNS Zone, Azure VNet Peering to protect MLOps solutions. After listing the choices of accessing resources in VNet, we'll introduce how to use Azure Pipelines to access resources in the VNet, required configurations of using an Azure Container Registry and Azure Machine Learning compute instances/clusters in VNet environment as well. Additionally, the description of the cost brought by the network security services is also provided for your reference.
 
 - **Network Security**
 
@@ -18,7 +18,7 @@ In this article, we\'ll talk about how to use Azure network security capabilitie
 
   - Use Azure Monitor to collect and aggregate data (metrics, logs) from variety of sources into a common data platform where it can be used for analysis, visualization and alerting.
 
-In this article, we\'ll be focusing on how to use Azure Network Security mechanism to protect the MLOps environment.
+In this article, we'll be focusing on how to use Azure Network Security mechanism to protect the MLOps environment.
 
 ## Architecture
 
@@ -81,7 +81,7 @@ In order to address the challenges above, you need to consider the following asp
 
   - Use Azure service principals or managed identities instead of interactive authentication
 
-  - Use RBAC to define the user\'s access scope of the resources
+  - Use RBAC to define the user's access scope of the resources
 
 
 ### Potential use cases
@@ -116,7 +116,7 @@ The first step of securing the MLOps environment is to protect Azure Machine Lea
 
 Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 
-By putting Azure Machine Learning workspace and its associated resources into a VNet, we can ensure that components are able to communicate with each other without exposing them in the public internet. In this way, we can significantly reduce our MLOps solution\' attack surface and data exfiltration.
+By putting Azure Machine Learning workspace and its associated resources into a VNet, we can ensure that components are able to communicate with each other without exposing them in the public internet. In this way, we can significantly reduce our MLOps solution' attack surface and data exfiltration.
 
 The following Terraform snippet shows how to create an AML compute cluster, attach it to an AML workspace and put it into a subnet of a virtual network.
 
@@ -233,7 +233,7 @@ As you can see in the Terraform script snippet above, we created two private DNS
 
 **Azure Virtual Network Peering**
 
-In Figure 3, in order to enable the jump host VM or self-hosted agent VMs (in BASTION VNET)\'s access to the resources in AML VNET, we use virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft\'s private network only.
+In Figure 3, in order to enable the jump host VM or self-hosted agent VMs (in BASTION VNET)'s access to the resources in AML VNET, we use virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft's private network only.
 
 The following Terraform script sets up the VNet peering between AML VNET and BASTION VNET.
 
@@ -260,7 +260,7 @@ resource "azurerm_virtual_network_peering" "vp_basvnet_amlvnet" {
 
 **Access the Resources in the VNet**
 
-As Azure Machine Learning workspace\'s been put into AML VNET, how could data scientists or data engineers access it? You can do it in the following ways:
+As Azure Machine Learning workspace's been put into AML VNET, how could data scientists or data engineers access it? You can do it in the following ways:
 
 - Azure VPN gateway
 
@@ -284,27 +284,27 @@ As mentioned in the previous section, the MLOps solution consists of a couple of
 
 - Use Microsoft-hosted agents (as VPN clients) and Azure VPN Gateway
 
-Each of the choices above has its pros and cons. First, let\'s compare Microsoft-hosted agents with self-hosted agents in the following perspectives:
+Each of the choices above has its pros and cons. First, let's compare Microsoft-hosted agents with self-hosted agents in the following table.
 
-|             | Microsoft-hosted Agent | Self-hosted Agent |
-|-------------|------------------------|-------------------|
-| **Cost** \*     | Start free for one parallel job with 1,800 minutes per month, \$40 per extra Microsoft-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month, \$15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
+> [!NOTE]
+> The prices in the following table were current at the time of writing. For current pricing, see [Pricing for Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
+
+|                 | Microsoft-hosted Agent | Self-hosted Agent |
+|-----------------|------------------------|-------------------|
+| **Cost** | Start free for one parallel job with 1,800 minutes per month, $40 per extra Microsoft-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month, $15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
 | **Maintenance** | Taken care of for you by Microsoft. | Maintained by yourself with more control of installing any software you like. |
 | **Build Time** | More time consuming because it completely freshes every time you start a build and you always build from scratch | More time saving as it keeps all your files and caches. |
 
-\* The prices are as of Aug 19, 2022, for all regions. Please refer to
-<https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/>
-.
 
 Based on the comparison above, plus the consideration of security and complexity, we choose to use a self-hosted agent for the Azure Pipeline to trigger AML pipelines in the VNet. To set up a self-hosted agent, we have the following options:
 
 - To install the agent on Azure Virtual Machines
 
-- To install the agents on Azure virtual machine scale set that can be auto-scaled to meet the customer\'s demands
+- To install the agents on Azure virtual machine scale set that can be auto-scaled to meet the customer's demands
 
 - To install the agent on Docker container. This isn't feasible as we may need run Docker container within the agent for machine learning model training.
 
-Here\'s the sample code for provisioning two self-hosted agents by creating Azure virtual machines and extensions:
+Here's the sample code for provisioning two self-hosted agents by creating Azure virtual machines and extensions:
 
 ```terraform
 resource "azurerm_linux_virtual_machine" "agent" {
@@ -332,7 +332,7 @@ SETTINGS
 }
 ```
 
-As shown in the code above, the Terraform script calls agent_init.sh to install agent software and needed libraries on the agent VM per the customer\'s requirements. The shell script looks like the following:
+As shown in the code above, the Terraform script calls agent_init.sh to install agent software and needed libraries on the agent VM per the customer's requirements. The shell script looks like the following:
 
 ```bash
 #!/bin/sh
@@ -428,7 +428,7 @@ MLOps solution security should be considered in the very beginning of the archit
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Will using Azure network security capabilities add more cost to your solution? Let\'s take a look at them one by one:
+Will using Azure network security capabilities add more cost to your solution? Let's take a look at them one by one:
 
 | Azure Service | Pricing |
 |---------------|---------|
