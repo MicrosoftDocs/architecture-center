@@ -123,7 +123,7 @@ There are several conditions that affect an eviction. When architecting solution
         1. You're no longer charged for the disk as they get deleted along with the Azure Spot VM
         1. Shared subscriptions or multiple workloads using Azure Spot VM instances can befitted from this policy
         1. Workloads that have a designed process to be moved between SKU and/or Region are ideal for this policy.
-    1. Deallocate
+    1. **Deallocate**
         1. Change VM state to the stopped-deallocated state
         1. Allows you to redeploy it later
         1. You're still being charge for the underlying disks
@@ -173,7 +173,9 @@ In general, we recommend that you always take edge cases and common pitfalls ass
 
 #### Orchestration
 
-As mentioned in the previous section, the orchestration can be scoped to coordinate at the application level or beyond to implement broader capabilities, like system recovery. However, the reference implementation is focused specifically on scheduling the interruptible workload into the Azure Spot VM operating system, thereby executing the worker app at the VM startup time.
+Orchestration in this context is about workload recovery after evection.  Your choice of **delete** or **deallocate** will influence how you architect your solution to "resume operations" after your instance(s) have been evicted.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.  If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online.
+
+Either way, the end goal is the same.  The interruptible workload begins executing on an Azure Spot VM at startup time.
 
 It will be helpful to kick off the application after eviction or the first time the Azure Spot VM gets deployed. This way, the application will be able to continue processing messages without human intervention from the queue once started. Once the application is running, it will transition through the `Recover`, `Resume`, and `Start` application stages.
 
