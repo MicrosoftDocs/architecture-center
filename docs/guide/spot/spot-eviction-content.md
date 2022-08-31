@@ -193,7 +193,7 @@ Another important orchestration related aspect to understand is how to scale you
 
     ![Depiction of the Azure Spot VM infrastructure orchestration scale out strategy.](./media/spot-orchestration-scale-out-diagram.png)
 
-### Installation
+## Deploy this solution
 
 Go to our [Spot Eviction guide installation steps](https://github.com/mspnp/interruptible-workload-on-spot#installation) for updated instructions. These steps will cover prerequisites, expected results, planning, cloning the repository, deploying the Azure Spot VM, packaging the workload, and cleaning up.
 
