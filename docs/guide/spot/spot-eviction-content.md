@@ -197,12 +197,7 @@ Another important orchestration related aspect to understand is how to scale you
 
 ![GitHub logo](../../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
 
-#### Important notes
+## Next step
 
-- Your interruptible workload is set as code during the VM creation process. Therefore, if your application depends on managed identities like in the reference implementation, we recommended that you use **User assigned identities** and enforce your Spot VM depending on the proper role assignments. Otherwise, you might face race conditions and as a result it might acquire a mismatched Azure identity token. If you need to make use of **System assigned identities** in your architecture, the recommendation is to make the workloads resilient to `403` responses, and ensure you implement the pattern to re-acquire tokens awaiting for the System identity to be assigned with the proper roles.
-
-- Your Spot VMs might require redeployment after an eviction event from a different location or changing the SKU. Use and design bicep templates that are idempotent to re-deploy your infrastructure in a repeatable way.
-
-### Troubleshooting
-
-Go to our [Spot Eviction guide troubleshooting](https://github.com/mspnp/interruptible-workload-on-spot/blob/2e747427295aff419519377816a596a0dbc6f8c0/README.md#toublehshooting) for assistance.
+* See the Azure Well-Architected Framework's [cost optimization guidance for Virtual Machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review#cost-optimization).
+* Explore [VM Applications](/azure/virtual-machines/vm-applications) as part of your workload orchestration.
