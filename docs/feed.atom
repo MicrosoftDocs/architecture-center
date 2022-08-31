@@ -2,12 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-08-22T13:58:13.461Z</updated>
+    <updated>2022-08-29T14:02:53.278Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Run SAP NetWeaver in Windows on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/sap/sap-netweaver</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/sap/sap-netweaver"/>
+        <updated>2022-08-25T21:40:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/sap/sap-s4hana</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/sap/sap-s4hana"/>
+        <updated>2022-08-25T21:40:36.000Z</updated>
+        <summary type="html"><![CDATA[Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a content-based recommendation system]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender"/>
+        <updated>2022-08-25T21:14:25.000Z</updated>
+        <summary type="html"><![CDATA[Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industry solutions with Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/overview"/>
+        <updated>2022-08-26T21:06:02.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of opportunities that Azure provides, organized to various industries, including retail, financial, healthcare, manufacturing, and many more.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Inbound and outbound internet connections for SAP on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/sap/sap-internet-inbound-outbound</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/sap/sap-internet-inbound-outbound"/>
+        <updated>2022-08-25T20:03:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Detect mobile bank fraud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/ai/bank-fraud-solution</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/ai/bank-fraud-solution"/>
+        <updated>2022-08-22T21:11:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a solution that uses behavioral profiles and machine learning to detect mobile bank fraud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data analytics for automotive test fleets]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics"/>
+        <updated>2022-08-22T20:53:50.000Z</updated>
+        <summary type="html"><![CDATA[See an example data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Private Link service considerations for multitenancy]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/private-link</id>
@@ -158,6 +214,54 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
         <updated>2022-08-18T16:21:00.000Z</updated>
         <summary type="html"><![CDATA[Architecture for a highly reliable workload that is accessed over a public endpoint and doesn't require private network connectivity to other company resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/security/security-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/security/security-start-here"/>
+        <updated>2022-08-29T00:47:29.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure security technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a delta lake to support ad hoc queries in online leisure and travel booking]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-data-lake-support-adhoc-queries-online</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-data-lake-support-adhoc-queries-online"/>
+        <updated>2022-08-24T02:55:05.000Z</updated>
+        <summary type="html"><![CDATA[This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Patterns and implementations for a banking cloud transformation]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/banking/patterns-and-implementations</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/banking/patterns-and-implementations"/>
+        <updated>2022-08-23T21:34:58.000Z</updated>
+        <summary type="html"><![CDATA[Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Virtual network integrated serverless microservices]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration"/>
+        <updated>2022-08-22T17:35:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Knowledge mining in business process management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/business-process-management"/>
+        <updated>2022-08-22T15:58:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use knowledge mining in business process management to explore information, gain insight, and find relationships your organization's data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Loan credit risk with SQL Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-credit-risk-with-sql-server"/>
+        <updated>2022-08-22T15:36:04.000Z</updated>
+        <summary type="html"><![CDATA[Lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers most likely to default.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -585,14 +689,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build a content-based recommendation system]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system"/>
-        <updated>2022-07-22T16:36:29.000Z</updated>
-        <summary type="html"><![CDATA[Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Distributed training, deep learning models]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning"/>
@@ -686,14 +782,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix"/>
         <updated>2022-07-21T20:57:15.000Z</updated>
         <summary type="html"><![CDATA[Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SAP S/4HANA in Linux on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/sap-s4hana"/>
-        <updated>2022-07-19T21:31:45.000Z</updated>
-        <summary type="html"><![CDATA[Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1385,14 +1473,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Build a content-based recommendation system]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system"/>
-        <updated>2022-06-22T19:12:07.000Z</updated>
-        <summary type="html"><![CDATA[Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Batch scoring with R models to forecast sales]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-R-models</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-R-models"/>
@@ -2009,7 +2089,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Retail and e-commerce using Azure MySQL]]></title>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for MySQL]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql"/>
         <updated>2022-06-12T09:14:26.000Z</updated>
@@ -2017,7 +2097,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Retail and e-commerce using Azure PostgreSQL]]></title>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for PostgreSQL]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql"/>
         <updated>2022-06-12T09:14:26.000Z</updated>
@@ -2081,7 +2161,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Scalable web apps with Azure Redis Cache]]></title>
+        <title type="html"><![CDATA[Scalable web apps with Azure Cache for Redis]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-apps</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-apps"/>
         <updated>2022-06-12T08:49:41.000Z</updated>
@@ -2517,7 +2597,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp"/>
         <updated>2022-06-03T18:52:47.000Z</updated>
-        <summary type="html"><![CDATA[This architecture and design provides guidance for building a continuous integration and deployment pipeline for a two-tier .NET web application to the Azure App Service.]]></summary>
+        <summary type="html"><![CDATA[This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -2894,14 +2974,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning"/>
         <updated>2022-05-27T09:08:09.000Z</updated>
         <summary type="html"><![CDATA[Learn how healthcare and life science organizations can centralize data and use data science and machine learning to stay relevant to their customers.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Build a content-based recommendation system]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system"/>
-        <updated>2022-05-27T09:08:09.000Z</updated>
-        <summary type="html"><![CDATA[Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
