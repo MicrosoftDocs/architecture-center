@@ -6,7 +6,7 @@ This guide is meant to walk you through Azure Spot Eviction fundamentals and hel
 
 <!--- NOTE: Team will add a diagram here after publishing to further clarify this solution. --->
 
-## Cost
+## Cost optimization
 
 Azure provisions its spare capacity along all its offered regions so it can respond on demand when new resources are created. While that capacity remains idle, you have an opportunity to deploy VMs in your subscription at [discount prices and capped at pay-as-you-go prices using Azure Spot VMs and virtual machine scale sets](https://azure.microsoft.com/pricing/spot-advisor/).
 
