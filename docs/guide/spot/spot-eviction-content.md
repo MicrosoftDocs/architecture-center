@@ -87,7 +87,7 @@ The following table breaks down the expected outcome and state for a Spot VM bas
 
 ## Concepts
 
-There are several important considerations when building on top of Azure Spot VM instances.
+There are several important considerations when architecting solutions on top of Azure Spot VM instances.
 
 ### Subscription Limits
 
