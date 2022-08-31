@@ -179,18 +179,19 @@ Either way, the end goal is the same.  The interruptible workload begins executi
 
 It will be helpful to kick off the application after eviction or the first time the Azure Spot VM gets deployed. This way, the application will be able to continue processing messages without human intervention from the queue once started. Once the application is running, it will transition through the `Recover`, `Resume`, and `Start` application stages.
 
-By design, the orchestration could have more or less responsibilities like running after the machine has started up, downloading the workload package from an Azure Storage Account, decompressing files, executing the process, coordinating how many instances are going to be running in parallel, system recovery, and more. In the reference implementation, [the orchestration](https://github.com/mspnp/interruptible-workload-on-spot/blob/main/orchestrate.sh) scope is for installing and uninstalling purposes only. The interruptible workload is installed as a Linux service and the operating system is in charge of resuming your workload after the VM gets redeployed (restarted) if you have configured **Eviction Policy Type Deallocate**.
+By design, the orchestration could have more or less responsibilities like running after the machine has started up, downloading the workload package from an Azure Storage Account, decompressing files, executing the process, coordinating how many instances are going to be running in parallel, system recovery, and more.
+
+Consider using [VM Applications](/azure/virtual-machines/vm-applications) to package and distribute your interruptible workloads as part of your orchestration process. This mechanism allows for VMs to be defined, declaratively, with the specific workload in mind.  Using VM Applications can simplify your pipelines and provide a helpful separation of concerns between the management of Spot VM instances and the instantiation of the workload on those instances.  The implementation in GitHub demonstrates this.
 
 <!--- diagram here --->
 ![Depiction of the Azure Spot VM infrastructure at orchestration time.](./media/spot-orchestration-diagram.png)
 
-Another important orchestration related aspect to understand is how to scale your workload within a single VM instance, so it's more resource efficient.
+Another important orchestration related aspect to understand is how to scale your workload within a single VM instance, so it's using its resources efficiently.  Many workloads will span multiple VMs, but this guidance is still applicable to each VM within that system.
 
 - **Scale up strategy**
 
-    In the reference implementation, your workload is built with no artificial constraints and will grow to consume available resources in your VM instance without exhausting them. From the orchestration point of view, you want to ensure that it's running a SINGLETON of the workload and let it organically request resources as designed.
+    If your workload is built with no artificial constraints and it will grow to consume available resources in your VM instance without exhausting them. You'll want to ensure that it's running a singleton of the workload and let it organically request resources as designed. If you design your application to consume all available resources, this will give you compute SKU flexibility to include smaller or larger SKUs in your application.  You may find running mixed SKUs in your solution common.
 
-    <!--- diagram here --->
     ![Depiction of the Azure Spot VM infrastructure orchestration scale up strategy.](./media/spot-orchestration-scale-up-diagram.png)
 
 - **Scale out strategy**
