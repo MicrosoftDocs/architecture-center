@@ -195,7 +195,7 @@ Another important orchestration related aspect to understand is how to scale you
 
 ## Deploy this solution
 
-Go to our [Spot Eviction guide installation steps](https://github.com/mspnp/interruptible-workload-on-spot#installation) for updated instructions. These steps will cover prerequisites, expected results, planning, cloning the repository, deploying the Azure Spot VM, packaging the workload, and cleaning up.
+![GitHub logo](../../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
 
 #### Important notes
 
