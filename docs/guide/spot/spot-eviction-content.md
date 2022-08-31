@@ -122,53 +122,54 @@ There are several conditions that affect an eviction. When architecting solution
         1. You free up the Cores from your Subscription
         1. You're no longer charged for the disk as they get deleted along with the Azure Spot VM
         1. Shared subscriptions or multiple workloads using Azure Spot VM instances can befitted from this policy
+        1. Workloads that have a designed process to be moved between SKU and/or Region are ideal for this policy.
     1. Deallocate
         1. Change VM state to the stopped-deallocated state
         1. Allows you to redeploy it later
         1. You're still being charge for the underlying disks
         1. It consumes Cores quota from your Subscription
+        1. Workloads that are not under any time constraints or subscription quota pressure can benefit from this policy as it potentially makes resuming your workload more straightforward.
 
 1. **Simulation** - It's possible to [simulate an eviction event](/azure/virtual-machines/spot-portal#simulate-an-eviction.md) when Azure needs the capacity back. We recommend you become familiar with this concept so that you can simulate interruptions from dev/test environments to guarantee your workload is fully interruptible before deploying to production.
 
 ### Events
 
-[Azure Scheduled Events](/azure/virtual-machines/windows/scheduled-events.md) is a metadata service in Azure that signal about forthcoming events associated to the Virtual Machine resource type. The general recommendation when using Virtual Machines is to routinely query this endpoint to discover when maintenance will occur, so you're given the opportunity to prepare for disruption. One of the platform event types being scheduled that you'll want to notice is `Preempt` as this signals the imminent eviction of your spot instance. This event is scheduled with a minimum amount of time of 30 seconds in the future. Given that, you must assume that you're going to have less than that amount of time to limit the impact. The recommended practice here is to check this endpoint based on the periodicity your workload mandates (every 10 seconds) to attempt having a graceful interruption.
+[Azure Scheduled Events](/azure/virtual-machines/windows/scheduled-events) is a metadata service in Azure that signal about forthcoming events associated to the Virtual Machine resource type. The general recommendation when using Virtual Machines is to routinely query this endpoint to discover when maintenance will occur, so you're given the opportunity to prepare for disruption. One of the platform event types being scheduled that you'll want to notice is `Preempt` as this signals the imminent eviction of your spot instance. This event is scheduled with a maximum amount of time of 30 seconds in the future. Given that, you must assume that you're going to have less than that amount of time to limit the impact to your running workload. The recommended practice here is to check this endpoint based on the periodicity your workload mandates (such as every 10 seconds) to attempt having a graceful interruption.
 
-## The Workload
+## The workload
 
-One workload types to consider for Azure Spot VMs are [Batch processing apps](/azure/batch). The reference implementation guide contains a simple asynchronously queue-processing worker (C#, .NET) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This guide demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint. The endpoint allows your workload to receive a signal prior to eviction so that it can anticipate the disruption event, prepare for the interruption, and limit its impact.
+One common workload type for Azure Spot VMs are queue processing applications. The reference implementation guide contains a simple, asynchronous queue-processing worker (C#, .NET) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This implementation demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint, as mentioned above.
 
-### Planning for being Fault Tolerant
+### Planning for workload interruption
 
 #### Application states
 
-When building reliable and interruptible workloads, you'll be focused on four main stages during the workload lifecycle. These stages will translate into changes of states within your application.
+When architecting reliable and interruptible workloads, you'll want to focus on four main stages during the workload's lifecycle. These stages will translate into changes of states within your application.
 
-1. **Start**: After the application `warmup` state is completed, you could consider internally transitioning into the `processing` state. One important thing to consider is if there was a forced shutdown previously, then there might be some incomplete processing and we recommend that you implement idempotency as applicable. Additionally, it's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
+1. **Start**: After the application _warmup_ state is completed, you could consider internally transitioning into the _processing_ state. One important thing to consider is if there was a forced shutdown previously, then there might be some incomplete processing and we recommend that you implement idempotency as applicable. Additionally, it's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
 
-1. **Shutdown**: Your application is in the `processing` state and at the same time an eviction event is triggered by the Azure infrastructure. Compute capacity must be collected from Azure Spot instances, and as a result, an eviction notice will take place in your application. At this time, your application will change its state to `evicted` and implement the logic that responds to the eviction notice. It will gracefully shut down within 30 secs by releasing resources such us draining connections and event logging, or it will prepare to be forcedly deallocated or deleted based on your **Eviction Policy**. In the latter configuration, as a general rule, you can't persist any progress or data on the file system, because disks are being removed along with the Azure VM.
+1. **Shutdown**: Your application is in the _processing_ state and at the same time an eviction event is triggered by the Azure infrastructure. Compute capacity must be collected from Azure Spot instances, and as a result, an eviction notice will take place in your VM instance, which your application was actively monitoring for. At this time, your application will change its state to _evicted_ and implement the logic you've programmed that responds to the eviction notice. It will gracefully shut down in under 30 seconds (best to target 10 or less seconds) by releasing resources such as draining connections and event log flushing, or it will prepare to be forcedly deallocated or deleted based on your **Eviction Policy**. In the latter configuration, as a general rule, you can't persist any progress or data on the file system, because disks are being removed along with the Azure VM.
 
-1. **Recover**: In this stage, your workload is `redeployed` or `recreated` depending on your **Eviction Policy**. During recovery, these possible states are detected based on your scenario. You can implement the logic to deal with a prior forced shutdown, so your application is able to recover from a previous backup or checkpoint if necessary.
+1. **Recover**: In this stage, your workload is _redeployed_ or _recreated_ depending on your **Eviction Policy**. During recovery, these possible states are detected based on your scenario. You can implement the logic to deal with a prior forced shutdown, so your application is able to recover from a previous backup or checkpoint if necessary.
 
-1. **Resume**: The application is about to continue processing after a best effort to recover the context prior to eviction. It's good idea to transition into a `warmup` state to ensure the workload is healthy and ready to start.
+1. **Resume**: The application is about to continue processing after a best effort to recover the context prior to eviction. It's good idea to transition into a _warmup_ state to ensure the workload is healthy and ready to start.
 
-<!--- diagram here --->
 ![A workload lifecycle diagram depicting the four possible stages interruptible workloads should contemplate during their lifetime.](./media/lifecycle-spot-vm.png)
 
 > [!NOTE]
-> The aforementioned states are just a reduced list of possible valid conditions for a reliable interruptible workload. You might find other states that are convenient for your own workloads.
+> The aforementioned states are just a reduced list of possible conditions for a reliable interruptible workload. You might find other states that are convenient for modeling the lifecycle of your own workloads.
 
 #### System states
 
-In the reference implementation you'll notice we're using a **Distributed Producer Consumer** system type, where the interruptible workload is nothing but a batch processing app acting as the consumer. Since you're mainly considering Azure Spot VMs to save costs, we recommend looking into the issues that can arise with this kind of solution and get them mitigated to avoid wasting compute cycles. One example is the concurrency problems we show below.
+In the implementation is using a **Distributed Producer Consumer** system type, where the interruptible workload represents a batch processing application acting as the consumer. Since you'd mainly consider Azure Spot VMs for cost optimization, it is recommend looking into the issues that can arise with this kind of solution and architect mitigations to avoid wasting excess compute cycles. One class of examples would be concurrency problems.
 
-1. Deadlock
-1. Starvation
+* [Deadlock](https://wikipedia.org/wiki/Producer%E2%80%93consumer_problem)
+* [Starvation](https://wikipedia.org/wiki/Scheduling_(computing)#Scheduling_disciplines), by evaluating which scheduling system you're using and avoiding a solution would lead to starvation. For example, a fixed-priority preemptive scheduling system isn't advised for max priority queues that are never expected to be emptied.
 
-In general, we recommend that you always take edge cases and common pitfalls associated to the system types you're building into account. Design their architectures to be good citizens while running on top of Azure Spot VMs.
+In general, we recommend that you always take edge cases and common pitfalls associated to the system types you're building into account. Design their architectures to maximize the system type's expected behavior will benefit while running on top of Azure Spot VMs.
 
 > [!NOTE]
-> The reference implementation follows the simple concurrency strategy: **Do-Nothing**. Since you're going to deploy a single interruptible workload instance (consumer) and produce a moderate and discrete amount of messages, do not expect a `Deadlock` or `Starvation` as system states. One recommendation to prevent your system from running into such states is to consider handling them if detected at the time of **Orchestration** as another mitigation strategy. However, we will not explore that process in the reference implementation.
+> The reference implementation follows the simple concurrency strategy: **do nothing**. Since you're going to deploy a single interruptible workload instance (consumer) and produce a moderate and discrete number of messages, there would be no expectations of a deadlock or starvation as a system state. One recommendation to prevent your system from running into such states is to consider handling them if detected at the time of workload orchestration.
 
 #### Orchestration
 
