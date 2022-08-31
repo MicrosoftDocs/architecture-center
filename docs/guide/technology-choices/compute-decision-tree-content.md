@@ -6,7 +6,8 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services](images/compute-choices.png)
+![decision tree](https://user-images.githubusercontent.com/29985344/187650603-cb51c9f6-ef93-4099-9258-139889d3511f.png)
+
 
 Definitions:
 
