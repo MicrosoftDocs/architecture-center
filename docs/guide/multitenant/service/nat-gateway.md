@@ -75,6 +75,7 @@ Other contributors:
 
  * [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Program Manager 2, Azure NAT Gateway
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
