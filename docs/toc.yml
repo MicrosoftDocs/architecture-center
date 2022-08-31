@@ -2660,7 +2660,7 @@ items:
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
               - name: Interruptible workloads using Azure Spot VM
-                href: /docs/guide/spot/spot-eviction.yml
+                href: guide/spot/spot-eviction.yml
           - name: Architectures
             items:
               - name: 3D video rendering
