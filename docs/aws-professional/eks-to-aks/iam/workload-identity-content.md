@@ -35,7 +35,9 @@ For example, the cluster identity used by the AKS cluster must have at least [Ne
 - `Microsoft.Network/virtualNetworks/subnets/join/action`
 - `Microsoft.Network/virtualNetworks/subnets/read`
 
-When the cluster identity needs to access any existing resource, for example when deploying an AKS cluster to an existing virtual network, it's recommended to use a user-assigned managed identity. When using a system-assigned control plane identity, the resource provider could not get its principal ID before creating cluster, which makes it impossible to create the proper role assignments before the cluster provisioning.
+When the cluster identity needs to access any existing resource, for example when deploying an AKS cluster to an existing virtual network, it's recommended to use a user-assigned managed identity. When using a system-assigned control plane identity, the resource provider could not get its principal ID before creating cluster, which makes it impossible to create the proper role assignments before the cluster provisioning. 
+
+For a comparison between AWS and Azure Identity and Access Management (IAM), see [Azure Active Directory identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security) and [Mapping AWS IAM concepts to similar ones in Azure](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/mapping-aws-iam-concepts-to-similar-ones-in-azure/ba-p/3612216).
 
 ### Summary of managed identities
 
