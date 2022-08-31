@@ -124,7 +124,7 @@ Other contributors:
 
  * [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * Thomas Weiss
+ * Thomas Weiss | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
