@@ -137,11 +137,11 @@ Also, note that:
 
 Azure Virtual Desktop, much like Azure, has certain service limitations that you need to be aware of. To avoid having to make changes in the scaling phase, it's a good idea to address some of these limitations during the design phase.
 
-| Azure Virtual Desktop object | Parent container object | Service limit |
+| Azure Virtual Desktop object | Per Parent container object | Service limit |
 |--- |--- |---: |
 | Workspace | Azure Active Directory tenant | 1300 |
 | HostPool | Workspace | 400 |
-| Application group | Azure AD tenant | 500\* |
+| Application group | Azure Active Directory tenant | 500\* |
 | RemoteApp | Application group | 500 |
 | Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
