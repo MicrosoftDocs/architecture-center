@@ -66,7 +66,6 @@ When architecting interruptible workloads, it's important to understand the char
 1. Stopped or Deleted (eviction policy based)
 1. Running (based on capacity and max price you set)
 
-<!--- diagram here --->
 ![State diagram depicting how Azure VM Spot VM and scale sets behaves depending on policy, capacity and price.](./media/spot-state-diagram.png)
 
 The following table breaks down the expected outcome and state for a Spot VM based on the VMs current state, the input it receives from the Azure infrastructure, and the conditions you set (price limits and eviction policy).
