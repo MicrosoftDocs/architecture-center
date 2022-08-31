@@ -2,10 +2,11 @@
 Azure enables you to run your application code in a hybrid environment by offering several hybrid solutions. These services span from hardware to host your workloads, to being able to extend Azure PaaS services, security and operational tooling to your on-premises, edge and multicloud environment.
 
 This article provides guidance so you can choose the hybrid solution, consisting of hardware and software, that better fits your business use case. To bring clarity to the  process of choosing a technology, the article maps the decision making process to two perspectives:
+
 - Based on hardware aspects (SysAdmin perspective)
 - Based on Azure service usage (DevOps perspective)
 
-Depending on your background, concerns and expertise you may approach these solutions starting from the application and workload requirements or starting from the hardware and hosting location constraints. Keep in mind that these perspectives are not specific to a role, however you might naturally lean more towards one approach than the other.
+Depending on your background, concerns and expertise you may approach these solutions starting from the application and workload requirements or starting from the hardware and hosting location constraints. Keep in mind that these perspectives are not specific to a role, however you might naturally lean more towards one approach than the other. Also, when your organization starts deciding on how to host a given workload, both perspectives presented here will contribute the choosing process as both bring a different perspectives including constrains imposed by the type of workload, organizational standards, or industry regulations.
 
 ## Concepts
 Before selecting a hybrid service to run your workloads it is important to establish certain criteria and concepts that will guide the decision-making process. First, it is important to understand the differences hybrid, multi-cloud and edge.
