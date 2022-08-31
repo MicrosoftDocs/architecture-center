@@ -61,7 +61,7 @@ We recommend that any production workloads keep a guaranteed number of Azure VM 
 
 ## Spot VM states
 
-Azure Spot VM and scale sets instances will transition states and your workload must be able to behave accordingly. The diagram below visualizes the following states:
+When architecting interruptible workloads, it's important to understand the characteristics of the application platform you are running on. Azure Spot VM and scale sets instances will transition states and your workload must be able to behave accordingly. Considering these states and their transitions can help in the designing of your system. The diagram below visualizes the following states:
 
 1. Stopped or Deleted (eviction policy based)
 1. Running (based on capacity and max price you set)
