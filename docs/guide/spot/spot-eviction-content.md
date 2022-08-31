@@ -53,7 +53,7 @@ You're acquiring unused (if any) ephemeral compute capacity that offers no high 
 
 We recommend that any production workloads keep a guaranteed number of Azure VM instances with _regular_ priority in addition to VMs with _spot_ priority. This way you can optimize your costs and remain in compliance with your application SLA. If your workload is capable of being consistently interrupted and it doesn't need an SLA, you might consider going full _spot_ priority even in production. The following are some strategies to consider:
 
-- The **Priority Swap** strategy consist of running `Spot` VMs initially. If after a considerable or safe amount of time you can't complete a job because it gets interrupted, then you would swap over to using `Regular` VMs. An example of a good candidate for this type of strategy would be running automated tests (CI).
+- The **Priority Swap** strategy consist of running Spot VMs initially. If after a considerable or safe amount of time you can't complete a job because it gets interrupted, then you would swap over to using regular VMs. An example of a good candidate for this type of strategy would be running automated tests (CI).
 - The **Priority Balanced** strategy is good for getting a mix of `%Regular` and `%Spot` VMS initially based on your workload requirements. There is a chance under extreme circumstances that you might never get an Azure Spot VM at all. Additionally, you might have to consider going `Regular-Only`.
 
 > [!CAUTION]
