@@ -22,7 +22,7 @@ In this article, we\'ll be focusing on how to use Azure Network Security mechani
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-architecture.svg" lightbox="../media/network-security-checklist-mlops-architecture.svg":::
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-architecture.svg" lightbox="./media/network-security-checklist-mlops-architecture.svg":::
 
 The diagram above shows the architecture of a sample MLOps solution. As you can see, as the core of MLOps solution, Azure Machine Learning workspace and its associated resources are protected by the virtual network, AML VNET.
 
@@ -61,7 +61,7 @@ MLOps is a set of practices at the intersection of Machine Learning, DevOps and 
 
 The diagram below shows a simplified MLOps process model, which offers a solution that automates the process of machine learning data preparation, model training, model evaluation, model registration, model deployment and monitoring.
 
-:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="../media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="../media/network-security-checklist-mlops-process-pipeline-flow.png":::
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="./media/network-security-checklist-mlops-process-pipeline-flow.png":::
 
 **How to Secure Your MLOps Environment**
 
