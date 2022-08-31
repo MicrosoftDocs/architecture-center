@@ -91,17 +91,19 @@ There are several important considerations when architecting solutions on top of
 
 ### Subscription Limits
 
-The number of cores in a subscription are variable, depending on the subscription type and other considerations. Some subscriptions aren't supported. Refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machines-limits) for more information.
+The number of cores in a subscription are variable, depending on the subscription type and other considerations. Some subscription types aren't supported. Refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machines-limits) for more information.
 
 ### Eviction
 
-There are several conditions that affect an eviction. The following list goes into detail on every element you should consider.
+There are several conditions that affect an eviction. When architecting solutions to maximize cost optimization by using spot, having an understanding of what factors you'll be facing that cause interruption are important. The following list goes into detail on every element you should consider.
 
-1. **Rate** - The rate is nothing more but the chances of being evicted at a specific location. It's common to choose the location based on the eviction rate by SKU. To help with the selection process, query the [pricing history view in the Azure portal](/azure/virtual-machines/spot-vms#pricing-and-eviction-history) in addition to [Azure Spot advisor](https://azure.microsoft.com/pricing/spot-advisor/).
+1. **Rate** - The rate is nothing more but the chances of being evicted at a specific location, based on historical trends. The eviction rates are available by SKU to help in compute sizing choices. To help with the selection process, query the [pricing history view in the Azure portal](/azure/virtual-machines/spot-vms#pricing-and-eviction-history) in addition to [Azure Spot advisor](https://azure.microsoft.com/pricing/spot-advisor/).
 
 1. **Type** - You can choose between **Max Price or Capacity** or **Capacity Only**.
 
-    1. **Capacity** - If the Azure infrastructure evicted and took back capacity, this configuration looks for spare capacity. If space capacity is located, the configuration will attempt to redeploy your deallocated instances on top of them. This configuration provides your Azure Spot virtual machines with better chances of surviving next time an eviction event kicks in. Your architecture is most likely to succeed with this type when you have flexibility in SKU, region, and calendar/time.
+    1. **Capacity** - If the Azure infrastructure evicted and took back capacity, this configuration looks for spare capacity. If space capacity is located, the configuration will attempt to redeploy your deallocated instances on top of them. This configuration provides your Azure Spot virtual machines with better chances of surviving next time an eviction event kicks in.
+    
+        Your architecture is most likely to thrive with this type when you have built in intentional flexibility in VM SKU, operating region, and calendar/time.  Meaning your architecture and ops processes are explicitly designed with the intent that you will need to likely switch VM SKUs, regions, and/or pick up work at a later date/time.  Designing that flexibility into your architecture for this type of workload is recommended.
 
         1. VM Configuration: as flexible as choosing the SKU, the better are chances to allocate Azure Spot VM and scale sets. Some SKU(s) like B-series or Promo versions of any size aren't supported.
         1. Location: same as in SKU, if your workload can run from any region, it improves the chances to be deployed as well as with fewer chances of being deallocated if you choose carefully considering the eviction rates. Take into account that Microsoft Azure China 21Vianet isn't supported.
