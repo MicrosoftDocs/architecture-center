@@ -191,7 +191,6 @@ Another important orchestration related aspect to understand is how to scale you
 
     Alternatively, if the workload resources specs are limited by design and it can't grow to consume VM resources, ensure your VM is the right size to orchestrate multiple whole instances of your workload. Doing so will ensure there's no wasted over-provisioning of compute resources in your Spot VM.  This will impact your workload orchestration strategy.
 
-    <!--- diagram here --->
     ![Depiction of the Azure Spot VM infrastructure orchestration scale out strategy.](./media/spot-orchestration-scale-out-diagram.png)
 
 ### Installation
