@@ -15,6 +15,6 @@ products:
   - azure-application-insights
 name: Azure Virtual Machine Spot Eviction
 summary: Read this guide to learn how to use Spot Eviction and design a solution to handle eviction notices.
-thumbnailUrl: /media/spot-orchestration-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/spot-orchestration-diagram.png
 content: |
   [!include[](spot-eviction-content.md)]
