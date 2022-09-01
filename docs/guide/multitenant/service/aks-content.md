@@ -370,7 +370,6 @@ Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, C+E Skilling Content
 
 ## Next steps
 
