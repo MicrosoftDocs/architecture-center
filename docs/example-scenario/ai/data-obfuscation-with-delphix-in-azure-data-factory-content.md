@@ -15,7 +15,7 @@ Breaking down data silos is difficult:
 
 [Delphix Continuous Compliance](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking. It offers a fast, automated, API-driven way to provide secure data where it's needed in organizations. 
 
-### How do Delphix CC and ADF Solve Automating Compliant Data?
+### How do Delphix CC and ADF solve automating compliant data?
 
 The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy while ADF enables connecting and moving data seamlessly. Together Delphix and ADF are combining industry-leading compliance and automation offerings to make the delivery of on-demand, compliant data easy for everyone. 
 
@@ -63,22 +63,22 @@ You can also perform data obfuscation using GitHub with Microsoft Presidio.  Lea
 
 ## Potential use cases
 
-### Safely Activate Azure Data Services for Industry Specific Solutions
+### Safely activate Azure Data Services for industry specific solutions
 
-- Identify and mask sensitive data in large and complex applications, where personally identifiable information (PII) would otherwise be difficult to identify. Delphix enables end users to automatically move compliant data from sources like SAP, Salesforce, and Oracle EBS to high-value service layers, like Microsoft Synapse.
+- Identify and mask sensitive data in large and complex applications, where customer content would otherwise be difficult to identify. Delphix enables end users to automatically move compliant data from sources like SAP, Salesforce, and Oracle EBS to high-value service layers, like Microsoft Synapse.
 - Use the powerful and comprehensive connectors provided by Microsoft Azure to safely unlock, mask, and migrate your data - no matter where it originates. 
 
-### Solve Complex Regulatory Compliance for Data
+### Solve complex regulatory compliance for data
 
 - Automatically put the exhaustive Delphix Algorithm framework to work addressing any regulatory requirements for your data.
 - Apply data-ready rules for regulatory needs like GDPR, CCPA, LGPD, and HIPAA.
 
-### Accelerate the “DevSecOps” Shift Left
+### Accelerate the “DevSecOps” shift left
 
 - Equip your developer and analytics pipelines (Azure DevOps, Jenkins, Harness) and other automation workflows with production grade data by systematically and deterministically masking sensitive data in central ADF pipelines.
 - Mask data consistently across data sources, maintaining referential integrity for integrated application testing. For example, the name George must always be masked to Elliot or a given social security number (SSN) must always be masked to the same SSN, whether George and his SSN appear in Oracle, Salesforce, or SAP.
 
-### Reduce AI/ML Algorithm Training Time with Compliant Analytics
+### Reduce AI/ML algorithm training time with compliant analytics
 
 - Mask data in a manner that doesn't increase training cycles.
 - Retain data integrity while masking to avoid impacting model/prediction accuracy.
