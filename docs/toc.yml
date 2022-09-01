@@ -5464,6 +5464,8 @@ items:
                 href: solution-ideas/articles/healthcare-network.yml
       - name: Oracle
         items:
+          - name: Get started
+            href: solution-ideas/articles/oracle-on-azure-start-here.md
           - name: Guides
             items:
               - name: Connectivity to Oracle Cloud Infrastructure
