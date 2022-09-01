@@ -108,7 +108,7 @@ The articles in this section describe architectures for deploying Oracle applica
 
 ## Stay current with Oracle on Azure
 
-To stay informed about Oracle on Azure, check Asure updates and the Microsoft Azure blog.
+To stay informed about Oracle on Azure, check Azure updates and the Microsoft Azure blog.
 
 > [!div class="nextstepaction"]
 > [Check Azure updates for news about Oracle on Azure](https://azure.microsoft.com/updates/?query=Oracle)
@@ -124,7 +124,7 @@ The following articles provide additional support for implementing Oracle on Azu
 
 - [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions). This article provides information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace.
 
-- [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
+- [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview).  Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
 
 ### Example solutions
 
