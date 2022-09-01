@@ -17,15 +17,15 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ### Do's
 
-* Use the icon to illustrate how products can work together
-* In diagrams, we recommend to include the product name somewhere close to the icon
-* Use the icons as they would appear within Azure
+- Use the icon to illustrate how products can work together.
+- In diagrams, we recommend to include the product name somewhere close to the icon.
+- Use the icons as they would appear within Azure.
 
 ### Don'ts
 
-* Don't crop, flip or rotate icons
-* Don't distort or change icon shape in any way
-* Don't use Microsoft product icons to represent your product or service
+- Don't crop, flip or rotate icons.
+- Don't distort or change icon shape in any way.
+- Don't use Microsoft product icons to represent your product or service.
 
 ## Example architecture diagram
 
@@ -48,7 +48,7 @@ There are ~26 icons that have been added to the existing set. The download file 
 Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
 <div id="consent-checkbox">
-I agree to the above terms
+I agree to the above terms.
 </div>
 
  > [!div class="button"]

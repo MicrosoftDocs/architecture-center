@@ -1,8 +1,9 @@
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
 ## Architecture
+:::image type="content" alt-text="Diagram of example architecture for a scalable order processing pipeline." source="./media/architecture-ecommerce-order-processing.png" lightbox="./media/architecture-ecommerce-order-processing.png":::
 
-![Example architecture for a scalable order processing pipeline][architecture]
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-order-processing.vsdx)* of this architecture.
 
 ### Dataflow
 
@@ -82,11 +83,11 @@ We have provided three sample cost profiles based on amount of activity you expe
 
 Principal authors:
 
-* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+- [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
 ## Next steps
 
-This example scenario is based on a more extensive version of this architecture built by [Jet.com](https://jet.com), for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
+This example scenario is based on a more extensive version of this architecture built by jet.com for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
 
 See this other content:
 

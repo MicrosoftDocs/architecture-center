@@ -198,7 +198,7 @@ The IIoT analytics solution can also include [Microsoft 365](/office365) service
 
 Training ML models by using historical industrial data adds predictive capabilities to your IIoT application. Data scientists can use the IIoT analytics solution to build and train models that predict factory floor events or recommend asset maintenance.
 
-[Azure Machine Learning (Azure ML)](https://azure.microsoft.com/services/machine-learning) can [connect to data](/azure/machine-learning/how-to-create-register-datasets) stored in your Azure Storage account to create and train [forecasting models](/azure/machine-learning/how-to-auto-train-forecast). You can [deploy trained models](/azure/machine-learning/how-to-deploy-and-where) to an IoT Edge field gateway, or as a web service with Azure Functions or hosted on AKS.
+[Azure Machine Learning (Azure ML)](https://azure.microsoft.com/services/machine-learning) can [connect to data](/azure/machine-learning/how-to-create-register-datasets) stored in your Azure Storage account to create and train [forecasting models](/azure/machine-learning/how-to-auto-train-forecast). You can [deploy trained models](/azure/machine-learning/how-to-deploy-managed-online-endpoints) to an IoT Edge field gateway, or as a web service with Azure Functions or hosted on AKS.
 
 If your organization is new to ML or doesn't have data scientists, you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to add cognitive features to your IIoT analytics solution. Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you create applications that see, hear, speak, understand, and begin to reason.
 

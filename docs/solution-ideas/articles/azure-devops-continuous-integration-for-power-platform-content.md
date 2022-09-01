@@ -4,8 +4,9 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 ## Architecture
 
-![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
-*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png) of this architecture.*
+![Diagram showing continuous integration and continuous deployment pipeline to manage your Power Platform Application.](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/devops-cicd-for-power-apps.vsdx) of this architecture.*
 
 ### Dataflow
 

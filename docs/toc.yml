@@ -320,14 +320,29 @@ items:
             href: guide/saas/saas-digital-business-journey-azure.md
       - name: Mission critical applications
         items:
-            - name: Mission critical architecture on Azure
+            - name: Mission-critical baseline architecture
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+            - name: Mission-critical baseline architecture with network controls
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Design areas
               items:
                 - name: Application platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+                - name: Application design
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
                 - name: Networking and connectivity platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+                - name: Data platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md                                    
+                - name: Deployment and testing
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
+                - name: Health modeling
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
+
+            - name: Guides
+              items:
+                - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
+                  href: guide/testing/mission-critical-deployment-testing.md
       - name: Multitenant applications
         items:
           - name: Overview
@@ -374,6 +389,8 @@ items:
                 href: guide/multitenant/approaches/messaging.md
               - name: Identity
                 href: guide/multitenant/approaches/identity.md
+              - name: Integration
+                href: guide/multitenant/approaches/integration.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
@@ -384,30 +401,36 @@ items:
                 href: guide/multitenant/service/overview.md
               - name: Deployment and configuration
                 items:
-                  - name: Azure Resource Manager
-                    href: guide/multitenant/service/resource-manager.md
                   - name: Azure App Configuration
                     href: guide/multitenant/service/app-configuration.md
+                  - name: Azure Resource Manager
+                    href: guide/multitenant/service/resource-manager.md
               - name: Compute
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
               - name: Networking
                 items:
-                  - name: NAT Gateway
+                  - name: Azure NAT Gateway
                     href: guide/multitenant/service/nat-gateway.md
+                  - name: Azure Private Link
+                    href: guide/multitenant/service/private-link.md
               - name: Storage and data
                 items:
-                  - name: Azure Storage
-                    href: guide/multitenant/service/storage.md
-                  - name: Azure SQL Database
-                    href: guide/multitenant/service/sql-database.md
+                  - name: Azure Cache for Redis
+                    href: guide/multitenant/service/cache-redis.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
                     href: guide/multitenant/service/postgresql.md
-                  - name: Azure Cache for Redis
-                    href: guide/multitenant/service/cache-redis.md
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
+                  - name: Azure Storage
+                    href: guide/multitenant/service/storage.md
+              - name: Security
+                items:
+                  - name: Azure Key Vault
+                    href: guide/multitenant/service/key-vault.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
@@ -757,6 +780,8 @@ items:
   - name: Industry solutions with Azure
     expanded: true
     items:
+      - name: Overview
+        href: industries/overview.md
       - name: Retail
         items:
           - name: Overview
@@ -807,6 +832,8 @@ items:
                 href: industries/retail/retail-data-management-overview.md
               - name: AI and ML in retail
                 items:
+                  - name: Content-based recommendation
+                    href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
                   - name: Deploy AI-based footfall detection
                     href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
                   - name: Forecast bike rental demand
@@ -849,8 +876,6 @@ items:
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Buy online, pick up in store (retail)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
-              - name: Content-based recommendation
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Interactive price analytics
@@ -953,6 +978,8 @@ items:
                 href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
+              - name: Detect mobile bank fraud
+                href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
                 maintainContext: true
@@ -1853,6 +1880,8 @@ items:
                 href: /azure/architecture/browse/?terms=automotive
               - name: Automated guided vehicles fleet control
                 href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+              - name: Automotive test data analytics
+                href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Building blocks for autonomous driving
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: IoT Edge railroad maintenance and safety
@@ -2240,8 +2269,6 @@ items:
                     href: /azure/architecture/browse/?terms=media
                   - name: 3D video rendering
                     href: example-scenario/infrastructure/video-rendering.yml
-                  - name: Content-based recommendation
-                    href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
                   - name: Digital image-based modeling on Azure
                     href: example-scenario/infrastructure/image-modeling.yml
                   - name: Gridwich cloud media system
@@ -2374,6 +2401,8 @@ items:
                     href: example-scenario/iot/smart-places.yml
           - name: Aerospace
             items:
+              - name: Overview
+                href: industries/aerospace.md
               - name: Guides
                 items:
                   - name: Azure Orbital for space communication
@@ -2516,6 +2545,8 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
+                  - name: Detect mobile bank fraud
+                    href: guide/ai/bank-fraud-solution.yml  
                   - name: Machine learning on Azure IoT Edge
                     href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
                     maintainContext: true
@@ -2717,8 +2748,8 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Build content-based recommendations
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Content-based recommendations
+                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: Build custom document processing models
                 href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Chatbot for hotel booking
@@ -2753,8 +2784,6 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Orchestrate MLOps on Azure Databricks
-                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Predict student attrition
@@ -2837,6 +2866,8 @@ items:
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
               - name: Model deployment to AKS
                 href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
+              - name: Orchestrate MLOps with Azure Databricks
+                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Personalized marketing solutions
                 href: solution-ideas/articles/personalized-marketing.yml
               - name: Personalized offers
@@ -2925,6 +2956,8 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Automotive test data analytics
+                href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse and Dynamics 365
@@ -3070,6 +3103,12 @@ items:
                 href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
+              - name: HPC deployments 
+                items:
+                  - name: Deploy ADS CFD Code Leo
+                    href: guide/hpc/hpc-ads-cfd.yml 
+                  - name: Deploy Autodesk VRED
+                    href: guide/hpc/hpc-autodesk-vred.md 
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3089,7 +3128,7 @@ items:
                   - name: Security baseline for Windows VMs
                     href: /security/benchmark/azure/baselines/virtual-machines-windows-security-baseline
                     maintainContext: true
-              - name: SQ Server on Azure VMs
+              - name: SQL Server on Azure VMs
                 items:
                   - name: SQL Server on Windows VMs
                     href: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
@@ -3132,6 +3171,8 @@ items:
                   - name: Red Hat JBoss EAP on Azure
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
+              - name: Interruptible workloads using Azure Spot VM
+                href: guide/spot/spot-eviction.yml
           - name: Architectures
             items:
               - name: 3D video rendering
@@ -4521,6 +4562,8 @@ items:
             items:
               - name: AD DS resource forests in Azure
                 href: reference-architectures/identity/adds-forest.yml
+              - name: Apply Zero Trust to your API implementation
+                href: example-scenario/security/apps-zero-trust-identity.yml  
               - name: Azure AD identity management for AWS
                 href: reference-architectures/aws/aws-azure-ad-security.yml
               - name: Deploy AD DS in an Azure virtual network
@@ -4806,6 +4849,8 @@ items:
                     href: example-scenario/mainframe/mainframe-rehost-architecture-azure.yml 
                   - name: Rehost Adabas & Natural applications
                     href: example-scenario/mainframe/rehost-adabas-software-ag.yml
+                  - name: Rehost IMS workloads by using IMSql 
+                    href: example-scenario/mainframe/imsql-rehost-ims.yml
                   - name: Rehost mainframe with NTT DATA UniKix
                     href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
                   - name: Unisys CPF rehost using virtualization
@@ -4838,6 +4883,8 @@ items:
                     href: example-scenario/mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
                     href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
+                  - name: Rehost IMS DC and IMS DB
+                    href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
                   - name: Replicate and sync mainframe data
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Solution ideas
@@ -4945,7 +4992,7 @@ items:
       - name: Media
         items:
           - name: Get started
-            href: /azure/media-services/latest/architecture-concept
+            href: guide/media/start-here.md
             maintainContext: true
           - name: Guides
             items:
@@ -5022,6 +5069,8 @@ items:
                 href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
+          - name: Get started
+            href: guide/migration/migration-start-here.md
           - name: Guides
             items:
               - name: Migration deployments
@@ -5104,167 +5153,78 @@ items:
                 href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
         items:
+          - name: Get started
+            href: guide/mixed-reality/mixed-reality-overview.md
           - name: Guides
             items:
-              - name: Azure mixed reality cloud services
-                href: /windows/mixed-reality/develop/mixed-reality-cloud-services
+              - name: Mixed reality core concepts
+                href: /windows/mixed-reality/design/core-concepts-landingpage
                 maintainContext: true
-              - name: Choose a mixed reality engine
-                href: /windows/mixed-reality/develop/choosing-an-engine
+              - name: Mixed reality design guidance
+                href: /windows/mixed-reality/design/about-this-design-guidance
                 maintainContext: true
               - name: Design and prototype for mixed reality
                 href: /windows/mixed-reality/design/design
                 maintainContext: true
-              - name: MR core concepts
-                items:
-                  - name: App model
-                    href: /windows/mixed-reality/design/app-model
-                    maintainContext: true
-                  - name: App views
-                    href: /windows/mixed-reality/design/app-views
-                    maintainContext: true
-                  - name: Audio in mixed reality
-                    href: /windows/mixed-reality/design/spatial-sound
-                    maintainContext: true
-                  - name: Comfort
-                    href: /windows/mixed-reality/design/comfort
-                    maintainContext: true
-                  - name: Coordinate systems
-                    href: /windows/mixed-reality/design/coordinate-systems
-                    maintainContext: true
-                  - name: Eye tracking
-                    href:  /windows/mixed-reality/design/eye-tracking
-                    maintainContext: true
-                  - name: Holographic frame
-                    href: /windows/mixed-reality/design/holographic-frame
-                    maintainContext: true
-                  - name: Room scan visualization
-                    href: /windows/mixed-reality/design/room-scan-visualization
-                    maintainContext: true
-                  - name: Scene understanding
-                    href: /windows/mixed-reality/design/scene-understanding
-                    maintainContext: true
-                  - name: Spatial anchors
-                    href: /windows/mixed-reality/design/spatial-anchors
-                    maintainContext: true
-                  - name: Spatial mapping
-                    href: /windows/mixed-reality/design/spatial-mapping
-                    maintainContext: true
-                  - name: Start gesture
-                    href: /windows/mixed-reality/design/system-gesture
-                    maintainContext: true
+              - name: Design for holographic display
+                href: /windows/mixed-reality/design/designing-content-for-holographic-display
+                maintainContext: true
+              - name: Choose a mixed reality engine
+                href: /windows/mixed-reality/develop/choosing-an-engine
+                maintainContext: true
+              - name: Install the tools
+                href: /windows/mixed-reality/develop/install-the-tools
+                maintainContext: true
+              - name: Mixed reality interactions
+                href: /windows/mixed-reality/design/interaction-fundamentals
+                maintainContext: true
+              - name: Mixed reality UX elements
+                href: /windows/mixed-reality/design/app-patterns-landingpage
+                maintainContext: true
+              - name: Comfort
+                href: /windows/mixed-reality/design/comfort
+                maintainContext: true
+              - name: Spatial sound best practices
+                href: /windows/mixed-reality/design/spatial-sound-design
+                maintainContext: true
               - name: Types of mixed reality apps
                 href: /windows/mixed-reality/discover/types-of-mixed-reality-apps
                 maintainContext: true
-              - name: Design content for holographic display
-                href: /windows/mixed-reality/design/designing-content-for-holographic-display
+              - name: App quality criteria overview
+                href: /windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview
+                maintainContext: true
+              - name: Azure mixed reality cloud services
+                href: /windows/mixed-reality/develop/mixed-reality-cloud-services
                 maintainContext: true
               - name: Shared experiences in mixed reality
                 href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
                 maintainContext: true
-              - name: Interaction models
+              - name: Free-roaming multiuser VR experiences
+                href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
+                maintainContext: true
+              - name: Prototyping and manufacturing for enterprises
+                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
+                maintainContext: true
+              - name: Education and entertainment scenarios
                 items:
-                  - name: Instinctual interactions
-                    href: /windows/mixed-reality/design/interaction-fundamentals
+                  - name: Immersive education
+                    href: /windows/mixed-reality/enthusiast-guide/immersive-education
                     maintainContext: true
-                  - name: Hands and motion controllers
-                    items:
-                      - name: Direct manipulation with hands
-                        href: /windows/mixed-reality/design/direct-manipulation
-                        maintainContext: true
-                      - name: Motion controllers
-                        href: /windows/mixed-reality/design/motion-controllers
-                        maintainContext: true
-                      - name: Point and commit with hands
-                        href: /windows/mixed-reality/design/point-and-commit
-                        maintainContext: true
-                  - name: Hands-free model
-                    items:
-                      - name: Hands-free
-                        href: /windows/mixed-reality/design/hands-free
-                        maintainContext: true
-                      - name: Voice input
-                        href: /windows/mixed-reality/design/voice-input
-                        maintainContext: true
-                      - name: Eye-gaze and dwell
-                        href: /windows/mixed-reality/design/gaze-and-dwell-eyes
-                        maintainContext: true
-                      - name: Head-gaze and dwell
-                        href: /windows/mixed-reality/design/gaze-and-dwell-head
-                        maintainContext: true
-                      - name: Eye-gaze-based interaction
-                        href: /windows/mixed-reality/design/eye-gaze-interaction
-                        maintainContext: true
-                  - name: Gaze and commit model
-                    items:
-                      - name: Gaze and commit
-                        href: /windows/mixed-reality/design/gaze-and-commit
-                        maintainContext: true
-                      - name: Head-gaze and commit
-                        href: /windows/mixed-reality/design/gaze-and-commit-head
-                        maintainContext: true
-              - name: UI controls and behaviors
-                items:
-                  - name: Cursors
-                    href: /windows/mixed-reality/design/cursors
+                  - name: Theme parks and family entertainment
+                    href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
                     maintainContext: true
-                  - name: Point and commit with hands
-                    href: /windows/mixed-reality/design/point-and-commit
+                  - name: Training and simulation
+                    href: /windows/mixed-reality/enthusiast-guide/training-simulation
                     maintainContext: true
-                  - name: Button
-                    href: /windows/mixed-reality/design/button
+                  - name: Virtual museums and exhibits
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-museums
                     maintainContext: true
-                  - name: Interactable object
-                    href: /windows/mixed-reality/design/interactable-object
+                  - name: Virtual reality arcades
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
                     maintainContext: true
-                  - name: Bounding box and App bar
-                    href: /windows/mixed-reality/design/app-bar-and-bounding-box
-                    maintainContext: true
-                  - name: Direct manipulation with hands
-                    href: /windows/mixed-reality/design/direct-manipulation
-                    maintainContext: true
-                  - name: Hand menu
-                    href: /windows/mixed-reality/design/hand-menu
-                    maintainContext: true
-                  - name: Near menu
-                    href: /windows/mixed-reality/design/near-menu
-                    maintainContext: true
-                  - name: Object collection
-                    href: /windows/mixed-reality/design/object-collection
-                    maintainContext: true
-                  - name: Keyboard
-                    href: /windows/mixed-reality/design/keyboard
-                    maintainContext: true
-                  - name: Tooltip
-                    href: /windows/mixed-reality/design/tooltip
-                    maintainContext: true
-                  - name: Slate
-                    href: /windows/mixed-reality/design/slate
-                    maintainContext: true
-                  - name: Slider
-                    href: /windows/mixed-reality/design/slider
-                    maintainContext: true
-                  - name: Shader
-                    href: /windows/mixed-reality/design/shader
-                    maintainContext: true
-                  - name: Dialog
-                    href: /windows/mixed-reality/design/dialog-ui
-                    maintainContext: true
-                  - name: Hand coach
-                    href: /windows/mixed-reality/design/hand-coach
-                    maintainContext: true
-                  - name: Spatial mesh
-                    href: /windows/mixed-reality/design/spatial-mesh-ux
-                    maintainContext: true
-                  - name: Billboarding and tag-along
-                    href: /windows/mixed-reality/design/billboarding-and-tag-along
-                    maintainContext: true
-                  - name: Progress indicator
-                    href: /windows/mixed-reality/design/progress
-                    maintainContext: true
-                  - name: Surface magnetism
-                    href: /windows/mixed-reality/design/surface-magnetism
-                    maintainContext: true
+              - name: Mixed reality samples and apps
+                href: /windows/mixed-reality/develop/features-and-samples
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Design review with mixed reality
@@ -5275,6 +5235,8 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
+          - name: Get started
+            href: guide/mobile/mobile-start-here.md
           - name: Guides
             items:
               - name: Azure Communication Services architecture
@@ -5502,6 +5464,8 @@ items:
                 href: solution-ideas/articles/healthcare-network.yml
       - name: Oracle
         items:
+          - name: Get started
+            href: solution-ideas/articles/oracle-on-azure-start-here.md
           - name: Guides
             items:
               - name: Connectivity to Oracle Cloud Infrastructure
@@ -5595,6 +5559,12 @@ items:
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
+              - name: SAP NetWeaver on Windows on Azure
+                href: guide/sap/sap-netweaver.yml
+              - name: SAP S/4HANA in Linux on Azure
+                href: guide/sap/sap-s4hana.yml
+              - name: Inbound and outbound internet connections for SAP on Azure
+                href: guide/sap/sap-internet-inbound-outbound.yml
               - name: SAP workload configurations with AZs
                 href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
                 maintainContext: true
@@ -5625,10 +5595,6 @@ items:
                 maintainContext: true
               - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
-              - name: SAP NetWeaver on Windows on Azure
-                href: reference-architectures/sap/sap-netweaver.yml
-              - name: SAP S/4HANA in Linux on Azure
-                href: reference-architectures/sap/sap-s4hana.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server
@@ -5947,6 +5913,8 @@ items:
                 href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
       - name: Virtual Desktop
         items:
+          - name: Get started
+            href: guide/virtual-desktop/start-here.md
           - name: Guides
             items:
               - name: Authentication in Azure Virtual Desktop

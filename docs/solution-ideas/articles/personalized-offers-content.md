@@ -71,7 +71,7 @@ Microsoft Azure provides advanced analytics tools in the areas of data ingestion
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [About Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
+- [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
 - [Create reports and dashboards in Power BI - documentation](/power-bi/create-reports)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 

@@ -138,7 +138,7 @@ More about Azure Automation:
 - [Deploy extension-based Windows or Linux User Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
 - [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](/azure/automation/automation-windows-hrw-install)
 - [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](/azure/automation/automation-linux-hrw-install)
-- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
 - [Create a runbook in Azure Automation using Managed Identities](/azure/automation/learn/powershell-runbook-managed-identity)
 - [Run Automation runbooks on a Hybrid Runbook Worker](/azure/automation/automation-hrw-run-runbooks)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
@@ -171,7 +171,7 @@ More about Azure Automation:
 [12]: /azure/automation/how-to/region-mappings
 [13]: /azure/automation/source-control-integration
 [14]: https://azure.microsoft.com/pricing/calculator
-[15]:  https://azure.microsoft.com/pricing/details/automation
+[15]: https://azure.microsoft.com/pricing/details/automation
 [16]: https://azure.microsoft.com/pricing/details/monitor
 [17]: https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
 [18]: /azure/automation/automation-secure-asset-encryption

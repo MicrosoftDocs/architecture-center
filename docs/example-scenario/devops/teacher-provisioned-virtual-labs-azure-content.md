@@ -90,13 +90,13 @@ Because Lab Services labs are designed to be easy for teachers to deploy, the [p
 
 Principal author:
 
-* [Manuel Garriga](https://www.linkedin.com/in/manuelgarriga) | Principal Cloud Solution Architect
+- [Manuel Garriga](https://www.linkedin.com/in/manuelgarriga) | Principal Cloud Solution Architect
 
 ## Next steps
 
 - To get started with Azure Lab Services quickly, follow these tutorials:
-  - [Set up a lab account with Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-lab-account)
-  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-classroom-lab)
+  - [Set up a lab account with Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-lab-account)
+  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-classroom-lab)
 - [What is Azure Lab Services?](/azure/lab-services/lab-services-overview)
 - [Azure Lab Services documentation](/azure/lab-services)
 - [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services)

@@ -75,11 +75,13 @@ Many multitenant solutions need to be geo-distributed. You might share a globall
 
 Principal authors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
 
-Other contributor:
+Other contributors:
 
+ * Carl Dacosta | Principal Software Engineering Manager, Azure Cache for Redis
+ * [Kyle Teegarden](https://www.linkedin.com/in/kyleteegarden) | Senior Program Manager, Azure Cache for Redis 
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
