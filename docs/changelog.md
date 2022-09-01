@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 08/22/2022
+ms.date: 08/29/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,13 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.yml)
+- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.yml)
+- [Build a content-based recommendation system](./solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml)
+- [Industry solutions with Azure](./industries/overview.md)
+- [Inbound and outbound internet connections for SAP on Azure](./guide/sap/sap-internet-inbound-outbound.yml)
+- [Detect mobile bank fraud](./guide/ai/bank-fraud-solution.yml)
+- [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)
 - [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)
 - [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)
 - [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)
@@ -48,6 +55,12 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#a0357580f](https://github.com/MicrosoftDocs/architecture-center/commit/a0357580f))
+- [Security architecture design](./guide/security/security-start-here.yml)  ([#edbe3b3b4](https://github.com/MicrosoftDocs/architecture-center/commit/edbe3b3b4))
+- [Build a delta lake to support ad hoc queries in online leisure and travel booking](./solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)  ([#b01a90953](https://github.com/MicrosoftDocs/architecture-center/commit/b01a90953))
+- [Patterns and implementations for a banking cloud transformation](./example-scenario/banking/patterns-and-implementations.yml)  ([#e9807b4eb](https://github.com/MicrosoftDocs/architecture-center/commit/e9807b4eb))
+- [Virtual network integrated serverless microservices](./example-scenario/integrated-multiservices/virtual-network-integration.yml)  ([#07f0cc72c](https://github.com/MicrosoftDocs/architecture-center/commit/07f0cc72c))
+- [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#21456e2b6](https://github.com/MicrosoftDocs/architecture-center/commit/21456e2b6))
+- [Loan credit risk with SQL Server](./solution-ideas/articles/loan-credit-risk-with-sql-server.yml)  ([#b85659c09](https://github.com/MicrosoftDocs/architecture-center/commit/b85659c09))
 - [Multiple forests with AD DS and Azure AD](./example-scenario/wvd/multi-forest.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
 - [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
 - [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#39fa80883](https://github.com/MicrosoftDocs/architecture-center/commit/39fa80883))
@@ -109,7 +122,6 @@ The following new and updated articles have recently been published in the Azure
 - [Keyword search and speech-to-text](./solution-ideas/articles/digital-media-speech-text.yml)  ([#b75887ad9](https://github.com/MicrosoftDocs/architecture-center/commit/b75887ad9))
 - [Optimize marketing with machine learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#b75887ad9](https://github.com/MicrosoftDocs/architecture-center/commit/b75887ad9))
 - [Personalized offers](./solution-ideas/articles/personalized-offers.yml)  ([#b75887ad9](https://github.com/MicrosoftDocs/architecture-center/commit/b75887ad9))
-- [Build a content-based recommendation system](./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Image classification with CNNs](./solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Predict length of stay and patient flow](./solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
@@ -122,7 +134,6 @@ The following new and updated articles have recently been published in the Azure
 - [Customer support and feedback analysis](./solution-ideas/articles/customer-feedback-and-analytics.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
 - [Knowledge mining in digital asset management](./solution-ideas/articles/digital-asset-management.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
 - [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#08dfebd05](https://github.com/MicrosoftDocs/architecture-center/commit/08dfebd05))
-- [SAP S/4HANA in Linux on Azure](./reference-architectures/sap/sap-s4hana.yml)  ([#20a172c8e](https://github.com/MicrosoftDocs/architecture-center/commit/20a172c8e))
 - [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)  ([#fc3e7b8ee](https://github.com/MicrosoftDocs/architecture-center/commit/fc3e7b8ee))
 - [Streaming using HDInsight](./solution-ideas/articles/streaming-using-hdinsight.yml)  ([#2820f19b4](https://github.com/MicrosoftDocs/architecture-center/commit/2820f19b4))
 - [Azure AD join for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)  ([#e115e6f69](https://github.com/MicrosoftDocs/architecture-center/commit/e115e6f69))
@@ -217,7 +228,6 @@ The following new and updated articles have recently been published in the Azure
 - [IoT solution architecture](./example-scenario/iot/devices-platform-application.yml)  ([#064f640fa](https://github.com/MicrosoftDocs/architecture-center/commit/064f640fa))
 - [Efficient Docker image deployment for low-bandwidth connectivity](./example-scenario/iot/efficient-docker-image-deployment.yml)  ([#064f640fa](https://github.com/MicrosoftDocs/architecture-center/commit/064f640fa))
 - [IoT event routing](./example-scenario/iot/event-routing.yml)  ([#064f640fa](https://github.com/MicrosoftDocs/architecture-center/commit/064f640fa))
-- [Build a content-based recommendation system](./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)  ([#3c80532e7](https://github.com/MicrosoftDocs/architecture-center/commit/3c80532e7))
 - [Batch scoring with R models to forecast sales](./reference-architectures/ai/batch-scoring-R-models.yml)  ([#52f004e57](https://github.com/MicrosoftDocs/architecture-center/commit/52f004e57))
 - [Batch scoring of Python models on Azure](./reference-architectures/ai/batch-scoring-python.yml)  ([#52f004e57](https://github.com/MicrosoftDocs/architecture-center/commit/52f004e57))
 - [Machine learning at scale](./data-guide/big-data/machine-learning-at-scale.md)  ([#071eed09a](https://github.com/MicrosoftDocs/architecture-center/commit/071eed09a))
@@ -295,8 +305,8 @@ The following new and updated articles have recently been published in the Azure
 - [Cross-cloud scaling - on-premises data](./example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
 - [Condition monitoring for industrial IoT](./solution-ideas/articles/condition-monitoring.yml)  ([#ef29bfa6f](https://github.com/MicrosoftDocs/architecture-center/commit/ef29bfa6f))
 - [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
-- [Retail and e-commerce using Azure MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
-- [Retail and e-commerce using Azure PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
+- [Retail and e-commerce using Azure Database for MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
+- [Retail and e-commerce using Azure Database for PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
 - [SAP workload automation using SUSE on Azure](./solution-ideas/articles/sap-workload-automation-suse.yml)  ([#ce69ffbf1](https://github.com/MicrosoftDocs/architecture-center/commit/ce69ffbf1))
 - [Secure DevOps for AKS](./solution-ideas/articles/secure-devops-for-kubernetes.yml)  ([#86d673b01](https://github.com/MicrosoftDocs/architecture-center/commit/86d673b01))
 - [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#86d673b01](https://github.com/MicrosoftDocs/architecture-center/commit/86d673b01))
@@ -304,7 +314,7 @@ The following new and updated articles have recently been published in the Azure
 - [Architect scalable e-commerce web app](./solution-ideas/articles/scalable-ecommerce-web-app.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Scalable apps using Azure DB for MySQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Scalable apps using Azure DB for PostgreSQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
-- [Scalable web apps with Azure Redis Cache](./solution-ideas/articles/scalable-web-apps.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Scalable web apps with Azure Cache for Redis](./solution-ideas/articles/scalable-web-apps.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
@@ -414,7 +424,6 @@ The following new and updated articles have recently been published in the Azure
 - [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#66cb74b4f](https://github.com/MicrosoftDocs/architecture-center/commit/66cb74b4f))
 - [IoT device connectivity for healthcare facilities](./solution-ideas/articles/healthcare-network.yml)  ([#66cb74b4f](https://github.com/MicrosoftDocs/architecture-center/commit/66cb74b4f))
 - [Predict hospital readmissions with machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)  ([#680e96045](https://github.com/MicrosoftDocs/architecture-center/commit/680e96045))
-- [Build a content-based recommendation system](./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)  ([#680e96045](https://github.com/MicrosoftDocs/architecture-center/commit/680e96045))
 - [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#680e96045](https://github.com/MicrosoftDocs/architecture-center/commit/680e96045))
 - [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#680e96045](https://github.com/MicrosoftDocs/architecture-center/commit/680e96045))
 - [Use Azure Firewall to help protect an AKS cluster](./example-scenario/aks-firewall/aks-firewall.yml)  ([#680e96045](https://github.com/MicrosoftDocs/architecture-center/commit/680e96045))
