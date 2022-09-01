@@ -4992,7 +4992,7 @@ items:
       - name: Media
         items:
           - name: Get started
-            href: /azure/media-services/latest/architecture-concept
+            href: guide/media/start-here.md
             maintainContext: true
           - name: Guides
             items:
