@@ -68,8 +68,6 @@ The following articles describe how to run an Oracle database on Azure and conne
 
 - [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design). This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance.
 
-
-
 ### Backup and recovery of databases and workloads
 
 The articles in this section describe methods of backing up and recovering Oracle databases by using Azure resources.
@@ -79,7 +77,6 @@ The articles in this section describe methods of backing up and recovering Oracl
 - [Back up and recover an Oracle Database on an Azure Linux VM using Azure Files](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-storage). This article demonstrates backing up an Oracle database that's running on a VM by using Oracle RMAN and Azure Files.
 
 - [Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup). This article demonstrates using Azure Backup to create snapshots of the VM disks, which include the database files and fast recovery area. Azure Backup can take full-disk snapshots, which are stored in Recovery Services Vault, that are suitable as backups.
-
 
 ### WebLogic Server
 
@@ -109,7 +106,6 @@ The articles in this section describe architectures for deploying Oracle applica
 
 - [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture). This article provides detailed information about deploying Oracle Database Enterprise Edition on Azure and using Oracle Data Guard for disaster recovery.
 
-
 ## Stay current with Oracle on Azure
 
 To stay informed about Oracle on Azure, check Asure updates and the Microsoft Azure blog.
@@ -119,7 +115,6 @@ To stay informed about Oracle on Azure, check Asure updates and the Microsoft Az
 
 > [!div class="nextstepaction"]
 > [Check Microsoft Azure Blog for posts about Oracle on Azure](https://azure.microsoft.com/search/blog/?q=Oracle)
-
 
 ## Additional resources
 
@@ -131,8 +126,6 @@ The following articles provide additional support for implementing Oracle on Azu
 
 - [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/oracle-oci-overview) | Microsoft and Oracle provide low-latency, high-throughput, cross-cloud connectivity between Azure and OCI, allowing you to partition a multi-tier application across both cloud services.
 
-
-
 ### Example solutions
 
 Following are some additional solution ideas that might be helpful:
@@ -140,4 +133,3 @@ Following are some additional solution ideas that might be helpful:
 - [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure by using Azure Load Balancers or Application Gateways.
 
 - [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs). 
-
