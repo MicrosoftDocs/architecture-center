@@ -2,7 +2,7 @@ This example scenario describes how to securely connect a web app to a backend d
 
 ## Architecture
 
-![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media/private-webapp-appsvc-private-sql-v6.png)
+![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media\private-web-application-app-service-private-sql-v-6.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v6.vsdx) of this architecture.*
 
@@ -149,17 +149,17 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 
 1. To [create the private endpoint](/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint), navigate to your SQL Server. In the left navigation under **Security**, select **Networking**. At the top of the page, select **Private access**. Under **Private endpoint connections**, select **Create a private endpoint**.
 
-      ![Screenshot showing how to find the Private Endpoint creation page.](media/create-private-endpoint-v1.png)
+      ![Screenshot showing how to find the Private Endpoint creation page.](media/create-private-endpoint-v-1.png)
 
 1. Navigate through the five **Create a private endpoint** pages to create the private endpoint in the **PrivateLinkSubnet**.
 
    1. Select your resource group and name your private endpoint on the *Basics* page. On the *Resource* page, ensure the **Resource type** is **Microsoft.Sql/servers** and **Resource** shows the correct SQL Server. For **Target sub-resource**, select **sqlServer**.
 
-      ![Screenshot of Private Endpoint creation page.](media/create-private-endpoint-resource-page-v2.png)
+      ![Screenshot of Private Endpoint creation page.](media/create-private-endpoint-resource-page-v-2.png)
 
    1. On the *Virtual Network* page, select the virtual network you create and the **PrivateLinkSubnet**
 
-        ![Screenshot of the Private Endpoint virtual network configuration page.](media/select-a-vnet-subnet.png)
+        ![Screenshot of the Private Endpoint virtual network configuration page.](media/select-an-azure-virtual-network-and-subnet.png)
 
    1. On the *DNS* page, select **Yes** for the **Integrate with private DNS zone** option. The selection will register the private IP address of the database server in the `privatelink.database.windows.net` private Azure DNS zone.
 
@@ -179,7 +179,7 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 
    The **VNet Integration** page now shows the virtual network configuration details.
 
-   ![Screenshot of enabling regional VNet Integration for the web app.](media/vnet-integration-route-all.png)
+   ![Screenshot of enabling regional VNet Integration for the web app.](media/azure-virtual-network-integration-route-all.png)
 
    Configuring regional VNet Integration using the App Service **Networking** page (as we did) delegates the subnet to `Microsoft.Web` happens automatically. If you don't use the App Service **Networking** page, make sure to [manually delegate the subnet](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service) to `Microsoft.Web`.
 
