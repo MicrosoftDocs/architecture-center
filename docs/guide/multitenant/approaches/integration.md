@@ -205,7 +205,7 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 Principal authors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributor:

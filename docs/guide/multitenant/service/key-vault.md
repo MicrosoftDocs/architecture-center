@@ -106,6 +106,21 @@ More information:
 - [How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
 - [Is Azure Dedicated HSM right for you?](/azure/dedicated-hsm/overview#is-azure-dedicated-hsm-right-for-you)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Jack Lichwa](https://www.linkedin.com/in/jacklichwa) | Principal Product Manager, Azure Key Vault
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
