@@ -9,7 +9,7 @@ Breaking down data silos is difficult:
 
 ### What is Azure Data Factory (ADF)?
 
-[Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
+[Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.  Data factory pipelines are also available in Azure Synapse Analytics.
 
 ### What is Delphix Continuous Compliance (Delphix CC)?
 
@@ -53,6 +53,7 @@ The data flows through the scenario as follows:
 ## Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehouseing, and big data analytics. It includes Azure Data Factory pipelines to provide data integration.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastore(s) and the masked data that will be loaded into destination data store(s).
 - Optional: [Azure Virtual Network](/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
 - Other Components: Based on the datastores used as source and destination, other components may need to be added. These datastores can vary depending on your requirements.
@@ -82,7 +83,7 @@ You can also perform data obfuscation using GitHub with Microsoft Presidio.  Lea
 - Mask data in a manner that doesn't increase training cycles.
 - Retain data integrity while masking to avoid impacting model/prediction accuracy.
 
-Any Azure Data Factory connector can be used to facilitate a given use case.
+Any Azure Data Factory or Synapse Analytics connector can be used to facilitate a given use case.
 
 ## Key benefits
 
@@ -115,7 +116,7 @@ The following example was provided by an anonymous customer.  It is intended onl
 
 In the above example architecture:
 
-- Azure Data Factory ingests / connects to production, unmasked data in the landing zone
+- Azure Data Factory or Synapse Analytics ingests / connects to production, unmasked data in the landing zone
 - Data is moved to Data Staging in Azure Storage
 - NFS mount of production data to Delphix CC PODs enables the pipeline to call the Delphix CC service
 - Masked data is returned for distribution within ADF and lower environments
@@ -137,7 +138,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 By adjusting values on the Azure pricing calculator (https://azure.microsoft.com/pricing/calculator/), you can see how your particular requirements impact cost.
 Azure Synapse: You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
-Data Factory: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
+Data Factory or Synapse Analytics: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your costs will increase with each additional data stream and the amount of data processed by each one.
 
 Delphix CC: Unlike other data compliance products on the market, masking doesn't require a full physical copy of the environment being masked. Environment redundancy can be extremely expensive because of the time to set up and maintain the infrastructure, the cost of the infrastructure itself, and the time spent repeatedly loading physical data into the masking environment.
 

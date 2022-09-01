@@ -3611,7 +3611,7 @@ items:
                 href: example-scenario/data/azure-sql-htap.yml
               - name: Data governance with Profisee
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
-              - name: Data obfuscation with Delphix in Azure Data Factory
+              - name: Data obfuscation with Delphix in Azure Data Factory and Synapse Analytics
                 href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
