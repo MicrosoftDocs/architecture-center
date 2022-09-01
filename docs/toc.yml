@@ -3171,6 +3171,8 @@ items:
                   - name: Red Hat JBoss EAP on Azure
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
+              - name: Interruptible workloads using Azure Spot VM
+                href: guide/spot/spot-eviction.yml
           - name: Architectures
             items:
               - name: 3D video rendering
@@ -4990,7 +4992,7 @@ items:
       - name: Media
         items:
           - name: Get started
-            href: /azure/media-services/latest/architecture-concept
+            href: guide/media/start-here.md
             maintainContext: true
           - name: Guides
             items:
@@ -5462,6 +5464,8 @@ items:
                 href: solution-ideas/articles/healthcare-network.yml
       - name: Oracle
         items:
+          - name: Get started
+            href: solution-ideas/articles/oracle-on-azure-start-here.md
           - name: Guides
             items:
               - name: Connectivity to Oracle Cloud Infrastructure
@@ -5909,6 +5913,8 @@ items:
                 href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
       - name: Virtual Desktop
         items:
+          - name: Get started
+            href: guide/virtual-desktop/start-here.md
           - name: Guides
             items:
               - name: Authentication in Azure Virtual Desktop

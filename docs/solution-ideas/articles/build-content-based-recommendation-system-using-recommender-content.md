@@ -2,16 +2,6 @@
 
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data about customer activity, you can provide highly relevant recommendations by using machine learning.
 
-### Types of recommendation systems
-
-There are three main types of recommendation systems: 
-
-- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products other than those that are curated from their historical interactions. However, the downside of collaborative filtering is the *cold start* problem: since there's a scarcity of interactions between users and new offerings, newly added items aren't recommended by an algorithm that depends entirely on customer interactions. 
-
-- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems aren't hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
-
-- **Hybrid method.** Another approach to building recommendation systems is to blend content-based and collaborative filtering. This system recommends items based on user ratings and on information about items. The hybrid approach has the advantages of both collaborative filtering and content-based recommendation.
-
 ## Architecture
 
 :::image type="content" alt-text="Architectural diagram that shows training, evaluation, and development of a machine learning model for content-based personalization that uses Azure Databricks." source="../media/build-content-based-recommendation-system-using-recommender-architecture.svg" lightbox="../media/build-content-based-recommendation-system-using-recommender-architecture.svg":::
@@ -58,6 +48,16 @@ This solution is ideal for the retail industry. It's relevant to the following u
 - Product recommendations for e-commerce sites
 - Displayed ad recommendations for websites
 
+### Types of recommendation systems
+
+There are three main types of recommendation systems: 
+
+- **Collaborative filtering.** Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of collaborative filtering is the ease of generating data—users create data while interacting with listings of items and products. Moreover, customers can discover new items and products other than those that are curated from their historical interactions. However, the downside of collaborative filtering is the *cold start* problem: since there's a scarcity of interactions between users and new offerings, newly added items aren't recommended by an algorithm that depends entirely on customer interactions. 
+
+- **Content-based.** Content-based recommendation uses information about the items to learn customer preferences, and it recommends items that share properties with items that a customer has previously interacted with. Content-based recommendation systems aren't hampered by the cold-start problem and can adapt to the introduction of new items. However, the recommendations are limited to the features of the original item that a customer interacted with.
+
+- **Hybrid method.** Another approach to building recommendation systems is to blend content-based and collaborative filtering. This system recommends items based on user ratings and on information about items. The hybrid approach has the advantages of both collaborative filtering and content-based recommendation.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -81,7 +81,6 @@ Other contributor:
 
 ## Related resources
 
-
 - [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 - [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
@@ -91,4 +90,3 @@ Other contributor:
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Create personalized marketing solutions in near real time](../../solution-ideas/articles/personalized-marketing.yml)
 - [Personalized offers](../../solution-ideas/articles/personalized-offers.yml)
-
