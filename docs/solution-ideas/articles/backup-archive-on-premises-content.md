@@ -2,7 +2,7 @@
 
 Archive your on-premises data to Azure Blob storage.
 
-This solution is built on the Azure managed services: [StorSimple](https://azure.microsoft.com/services/storsimple) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [StorSimple](https://azure.microsoft.com/services/storsimple) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in. For new solution please evaluate [Azure File Sync](https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-files-private). AFS is a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 
 ## Potential use case
 
