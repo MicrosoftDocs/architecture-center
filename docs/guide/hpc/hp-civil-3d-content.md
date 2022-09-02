@@ -19,14 +19,14 @@ Civil 3D is used primarily to plan, design, and deliver land development, water,
 
 ## Architecture
 
-:::image type="content" source="media/hpc-civil-3d.png" alt-text="Diagram that shows an architecture for running Civil 3D on a virtual machine." lightbox="media/article-folder-name/hpc-civil-3d.png" border="false":::
+:::image type="content" source="media/hpc-civil-3d.png" alt-text="Diagram that shows an architecture for running Civil 3D on a virtual machine." lightbox="media/hpc-civil-3d.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-civil-3d.vsdx) of this architecture.*
 
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
-   -For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm) or [Windows VMs on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm). 
+   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm) or [Windows VMs on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm). 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
   - A public IP address connects the internet to the VM.
@@ -34,7 +34,7 @@ Civil 3D is used primarily to plan, design, and deliver land development, water,
 
 ## Compute sizing and drivers
 
-[NVadsA10 v5](/azure/virtual-machines/nva10v5-series) series VMs were used to test the performance of Civil 3D on Azure. The following table provides configuration details.
+[NVadsA10 v5](/azure/virtual-machines/nva10v5-series) series VMs were used to test the performance of Civil 3D on Azure. The following table provides configuration details:
 
 
 |VM name |vCPU  |Memory (GiB)  |SSD (GiB) |GPU|GPU memory (GiB)|Maximum data disks |
@@ -71,7 +71,7 @@ In the Corridors Tutorial, we performed the [Visualizing a Corridor](https://hel
 
 ![Image that shows a rendered corridor.](media/civil-3d-corridor.png)
 
-The following table shows the rendering sizes of the images created in the tests.
+The following table shows the rendering sizes of the images created in the tests:
 
 
 |Image number  | Rendering size|
@@ -87,33 +87,89 @@ The following table shows the rendering sizes of the images created in the tests
 
 The following tables and graphs show the rendering times and relative speed increases achieved during the tests.
 
-|Drawing: Surface-7||Rendering time in seconds     |||	|||
-|--|--|--|--|--|--|--|--|
+This table shows the rendering time, in seconds, for the six Surface-7 images:
+
 |Number of GPUs|	Number of CPUs|	Image 1|	Image 2|	Image 3|	Image 4|	Image 5|	Image 6|
+|--|--|--|--|--|--|--|--|
 1/6 GPU	|6|	3|	15|	44|	161|	29|	97|
 1/2 GPU	|18	|1	|4	|17	|37	|12	|26|
 |1 GPU|	36|	1	|3	|13|	28|	10|	25|
 
+This graph shows the relative speed increases for the Surface-7 drawings as the number of GPUs increases:
+
+![Graph that shows the relative speed increases for the Surface-7 drawings.](media/graph-surface.png)
+
+This table shows the rendering time, in seconds, for the six Corridor-5c images:
+
+|Number of GPUs|	Number of CPUs|	Image 1|	Image 2|	Image 3|	Image 4|	Image 5|	Image 6|
+|--|--|--|--|--|--|--|--|
+1/6 GPU	|6|	5|	30|	92|206	|55	|110	|
+1/2 GPU	|18	|1	|8	|	29|68|18|38|
+|1 GPU|	36|	1	|4	|17|36	|10	|	20|
+
+This graph shows the relative speed increases for the Corridor-5c drawings as the number of GPUs increases:
+
+![Graph that shows the relative speed increases for the Corridor-5c drawings.](media/graph-corridor.png)
+
+## Azure cost
+
+Only rendering time is considered for these cost calculations. Application installation time isn't considered.  
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+### Surface-7 drawing on NVadsA10 v5
+
+|VM size |	Number of GPUs|	Total time in hours|
+|--|--|--|
+|6 vCPU	|1/6|	0.10|
+|18 vCPU	|1/2|	0.03|
+|36 vCPU|	1	|0.02|
+
+### Corridors-5c drawing on NVadsA10 v5
+
+|VM size| 	Number of GPUs|	Total time in hours|
+|--|--|--|
+|6 vCPU	|1/6|	0.14|
+|18 vCPU	|1/2|	0.05|
+|36 vCPU|	1|	0.02|
+
+To compute the cost, multiply the total time by the Azure hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+## Summary
+
+- Civil 3D was successfully tested on NVadsA10_v5 series VMs on Azure.
+- NVadsA10 v5 series VMs demonstrated good GPU acceleration. Adding GPUs generally increases the speed. 
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal authors:
 
- * [Author 1 Name](http://linkedin.com/ProfileURL) | (Title, such as "Cloud Solution Architect")
- * [Author 2 Name](http://linkedin.com/ProfileURL) | (Title, such as "Cloud Solution Architect")
- * > Continue for each primary author (even if there are 10 of them).
+* [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+* [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+* [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
 
 Other contributors:
 
- * [Contributor 1 Name](http://linkedin.com/ProfileURL) | (Title, such as "Cloud Solution Architect")
- * [Contributor 2 Name](http://linkedin.com/ProfileURL) | (Title, such as "Cloud Solution Architect")
+* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+* [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+* [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+
   
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-
+- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
+- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
