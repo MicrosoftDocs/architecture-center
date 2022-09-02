@@ -19,9 +19,9 @@ Civil 3D is used primarily to plan, design, and deliver land development, water,
 
 ## Architecture
 
-:::image type="content" source="media/hpc-civil-3d.png" alt-text="Image alt text." lightbox="media/article-folder-name/hpc-civil-3d.png":::
+:::image type="content" source="media/hpc-civil-3d.png" alt-text="Image alt text." lightbox="media/hpc-civil-3d.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/DiagramName.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-civil-3d.vsdx) of this architecture.*
 
 ## Contributors
 
