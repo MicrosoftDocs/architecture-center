@@ -3107,6 +3107,8 @@ items:
                 items:
                   - name: Deploy ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
+                  - name: Deploy Autodesk Civil 3D
+                    href: guide/hpc/civil-3d.yml
                   - name: Deploy Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
               - name: Industry guidance

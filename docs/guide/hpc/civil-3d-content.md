@@ -26,7 +26,7 @@ Civil 3D is used primarily to plan, design, and deliver land development, water,
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
-   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm) or [Windows VMs on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm). 
+   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml) or [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml). 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
   - A public IP address connects the internet to the VM.
@@ -52,8 +52,8 @@ To take advantage of the GPU capabilities of [NVadsA10 v5](/azure/virtual-machin
 Before you install Civil 3D, you need to deploy and connect a VM and install the required NVIDIA GPU drivers.
 
 For information about deploying the VM and installing the drivers, see one of these articles:
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
 For detailed instructions, see the [Autodesk installation instructions](https://www.autodesk.in/support/download-install/individuals).  
 
@@ -169,7 +169,7 @@ Other contributors:
 
 ## Related resources
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

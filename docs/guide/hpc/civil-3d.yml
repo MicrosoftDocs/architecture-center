@@ -17,4 +17,4 @@ name: Deploy Autodesk Civil 3D on an Azure virtual machine
 summary: Learn how Autodesk Civil 3D for civil infrastructure design performs on an Azure virtual machine (VM).
 thumbnailUrl: /azure/architecture/browse/thumbs/hpc-civil-3d-thumb.png
 content: |
-  [!include[](hp-civil-3d-content.md)]
+  [!include[](civil-3d-content.md)]
