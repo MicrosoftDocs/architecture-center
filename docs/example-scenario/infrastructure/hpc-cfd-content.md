@@ -16,7 +16,9 @@ Other relevant industries for CFD applications include:
 
 ## Architecture
 
-![Architecture diagram][architecture]
+:::image type="content" alt-text="architecture" source="./media/architecture-hpc-cfd.png" lightbox="./media/architecture-hpc-cfd.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-cfd.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -121,7 +123,6 @@ See the following virtual machine articles:
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
 
 <!-- links -->
-[architecture]: ./media/architecture-hpc-cfd.png
 [security]: /azure/security
 [vmss]: /azure/virtual-machine-scale-sets/overview
 [cyclecloud]: /azure/cyclecloud
