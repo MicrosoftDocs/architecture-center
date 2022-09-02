@@ -65,9 +65,13 @@ We performed the [Surfaces](https://help.autodesk.com/view/CIV3D/2023/ENU/?guid=
 
 In the Surfaces Tutorial, we performed the [Rendering a Surface](https://help.autodesk.com/view/CIV3D/2023/ENU/?guid=GUID-9087C6F6-9B87-4703-A987-64C92506A017) exercise.
 
+Here's an example of a rendered surface:
+
 ![Image that shows a rendered surface.](media/civil-3d-surface.png)
 
 In the Corridors Tutorial, we performed the [Visualizing a Corridor](https://help.autodesk.com/view/CIV3D/2023/ENU/?guid=GUID-6D746CF2-E33F-4964-BEEF-6589AB2F9287) exercise.
+
+Here's an example of a rendered corridor:
 
 ![Image that shows a rendered corridor.](media/civil-3d-corridor.png)
 
@@ -162,9 +166,9 @@ Other contributors:
 ## Next steps
 
 - [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
-- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
-- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [Windows virtual machines on Azure](/azure/virtual-machines/windows/overview)
+- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
