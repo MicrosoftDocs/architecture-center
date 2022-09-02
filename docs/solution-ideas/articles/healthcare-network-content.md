@@ -14,7 +14,7 @@ Other examples of this approach include:
 
 ## Architecture
 
-:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices." border="false":::
+:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices." border="false" lightbox="../media/healthcare-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/healthcare-architecture.vsdx) of this architecture.*
 
