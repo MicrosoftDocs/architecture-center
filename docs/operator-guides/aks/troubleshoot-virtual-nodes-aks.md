@@ -17,7 +17,9 @@ categories: Azure Architecture Center
 
 # Troubleshoot virtual nodes in Azure Kubernetes Service (AKS) clusters
 
-Problems related to [AKS virtual nodes](/azure/aks/virtual-nodes) can arise from new installations, from landing workloads on virtual nodes, or when workloads scale out to virtual nodes. Always check the [AKS troubleshooting guide](/azure/aks/troubleshooting) to see whether your problem is described there. This article describes other details, considerations, and specific problems that might occur.  
+Problems related to [AKS virtual nodes](/azure/aks/virtual-nodes) can arise from new installations, from landing workloads on virtual nodes, or when workloads scale out to virtual nodes. Always check the [AKS troubleshooting guide](/azure/aks/troubleshooting) to see whether your problem is described there. 
+
+This article describes other considerations and specific problems related to virtual nodes that might occur.  
 
 ## Contributors
 
@@ -27,13 +29,13 @@ Principal author:
 
 * [Shubham Agnihotri](https://www.linkedin.com/in/shubham-agnihotri8/) | Senior Consultant GD
 
-## Unable to install the virtual nodes add-on
+## Virtual nodes add-on installation problems
 
 There are [various known limitations](/azure/aks/virtual-nodes#known-limitations) for virtual nodes that might prevent the add-on from installing. Some common limitations are listed below.
 
 ### AKS cluster networking type mismatch
 
-During the installation of the virtual nodes through [Azure CLI](/azure/aks/virtual-nodes-cli), you might see the error below:
+During the installation of virtual nodes through [Azure CLI](/azure/aks/virtual-nodes-cli), you might see the error below:
 
 ```output
 ACIConnectorRequiresAzureNetworking - ACI Connector requires Azure network plugin
@@ -41,13 +43,15 @@ ACIConnectorRequiresAzureNetworking - ACI Connector requires Azure network plugi
 
 Virtual nodes can't run on *kubenet*-enabled clusters. To support virtual nodes in your cluster, you'll need to re-create your cluster using [Azure CNI](/azure/aks/configure-azure-cni) networking.
 
-## Unable to provision virtual nodes
+## Virtual nodes provisioning problems
 
-Sometimes problems exist with virtual nodes at runtime, not just install time of the add-on. The add-on might appear to be installed, but isn't fully functional.
+Problems sometimes exist with virtual nodes at runtime, not just when the add-on is installed. The add-on might appear to be installed, but isn't fully functional.
 
 ### Region availability
 
-Virtual node availability and SKU choices are based on the underlying Azure Container Instances that are used for virtual nodes. Errors will arise if you attempt to use the virtual node add-on in AKS while the cluster isn't located in a region that supports Azure Container Instances. If you plan on using virtual nodes, you must ensure your expected cluster deployment conforms to the [region availability](/azure/aks/virtual-nodes#regional-availability) for virtual nodes.
+Virtual node availability and SKU choices are based on the underlying Azure Container Instances that are used for virtual nodes. A SKU represents the VM size series and type.
+
+Errors will arise if you attempt to use the virtual node add-on in AKS while the cluster isn't located in a region that supports Azure Container Instances. If you plan on using virtual nodes, you must ensure your expected cluster deployment conforms to the [region availability](/azure/aks/virtual-nodes#regional-availability) for virtual nodes.
 
 ### Networking
 
@@ -92,15 +96,15 @@ Monitoring the health of virtual nodes uses a combination of the logs and metric
 
 ## Next steps
 
-* Learn about [Azure Kubernetes Service application and cluster scalability](/learn/paths/aks-cluster-scalability/)
-* Learn about [Azure Kubernetes Service (AKS) cluster architecture and operations](/learn/paths/aks-cluster-architecture/)
-* Learn about the [Kubernetes Virtual Kubelet for ACI](https://github.com/virtual-kubelet/azure-aci).
+* Learn about [Azure Kubernetes Service application and cluster scalability](/learn/paths/aks-cluster-scalability/).
+* Learn about [Azure Kubernetes Service cluster architecture and operations](/learn/paths/aks-cluster-architecture/).
+* Learn about the [Kubernetes Virtual Kubelet for ACI](https://github.com/virtual-kubelet/azure-aci) on GitHub.
 
 Virtual nodes are often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
 * Understand the [Kubernetes horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler).
 * Understand the [Kubernetes cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler).
-* Check out the [autoscale sample for virtual nodes](https://github.com/Azure-Samples/virtual-node-autoscale).
+* Check out the [autoscale sample for virtual nodes](https://github.com/Azure-Samples/virtual-node-autoscale) on GitHub.
 
 ## Related resources
 
