@@ -1,15 +1,16 @@
 ---
 title: Troubleshoot virtual node problems in AKS clusters
 titleSuffix: Azure Architecture Center
-description: Learn to troubleshoot common virtual node problems in Azure Kubernetes Service (AKS) clusters.
+description: Learn how to troubleshoot common virtual node problems in Azure Kubernetes Service (AKS) clusters.
 author: shubhammicrosoft1
 ms.author: shagnih
-ms.date: 08/30/2022
+ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-kubernetes-service
+  - azure-container-instances
 ms.custom:
   - e2e-aks
 categories: Azure Architecture Center 
