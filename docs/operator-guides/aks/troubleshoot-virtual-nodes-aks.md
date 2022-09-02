@@ -49,13 +49,13 @@ Problems sometimes exist with virtual nodes at runtime, not just when the add-on
 
 ### Region availability
 
-Virtual node availability and SKU choices are based on the underlying Azure Container Instances that are used for virtual nodes. A SKU represents the VM size series and type.
+Virtual node availability and SKU choices are based on the underlying Azure Container Instances (ACI) that are used for virtual nodes. A SKU represents the VM size series and type.
 
 Errors will arise if you attempt to use the virtual node add-on in AKS while the cluster isn't located in a region that supports Azure Container Instances. If you plan on using virtual nodes, you must ensure your expected cluster deployment conforms to the [region availability](/azure/aks/virtual-nodes#regional-availability) for virtual nodes.
 
 ### Networking
 
-Virtual nodes use a SKU of Azure Container Instances that requires subnet connectivity. Virtual nodes use that dedicated subnet to launch ACI instances (as pods). Ensure that the ACI-delegated subnet was created and there are no overlaps with the cluster's subnet range.
+Virtual nodes use a SKU that requires subnet connectivity. Virtual nodes use that dedicated subnet to launch ACI instances (as pods). Ensure that the ACI-delegated subnet was created and there are no overlaps with the cluster's subnet range.
 
 #### Azure role-based access control
 
