@@ -51,7 +51,7 @@ Problems sometimes exist with virtual nodes at runtime, not just when the add-on
 
 Virtual node availability and SKU choices are based on the underlying Azure Container Instances (ACI) that are used for virtual nodes. A SKU represents the VM size series and type.
 
-Errors will arise if you attempt to use the virtual node add-on in AKS while the cluster isn't located in a region that supports Azure Container Instances. If you plan on using virtual nodes, you must ensure your expected cluster deployment conforms to the [region availability](/azure/aks/virtual-nodes#regional-availability) for virtual nodes.
+Errors will arise if you attempt to use the virtual node add-on in AKS while the cluster isn't located in a region that supports ACI. If you plan on using virtual nodes, you must ensure your expected cluster deployment conforms to the [region availability](/azure/aks/virtual-nodes#regional-availability) for virtual nodes.
 
 ### Networking
 
@@ -92,7 +92,7 @@ See [Deploy a sample app](/azure/aks/virtual-nodes-cli#deploy-a-sample-app) for 
 
 ## Monitoring
 
-Monitoring the health of virtual nodes uses a combination of the logs and metrics from underlying Azure Container Instances and also the host AKS cluster. Ensure that you [collect and analyze resource logs](/azure/container-instances/container-instances-log-analytics) from Azure Container Instances and also [collect and analyze resource logs](/azure/azure-monitor/containers/container-insights-log-query) with Container Insights for the AKS cluster.
+Monitoring the health of virtual nodes uses a combination of the logs and metrics from underlying Azure Container Instances and also the host AKS cluster. Ensure that you [collect and analyze resource logs](/azure/container-instances/container-instances-log-analytics) from ACI and also [collect and analyze resource logs](/azure/azure-monitor/containers/container-insights-log-query) with Container Insights for the AKS cluster.
 
 ## Next steps
 
