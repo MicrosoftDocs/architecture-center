@@ -4,13 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems, and it provides links to guidances for how to use Azure Service Bus in a multitenant solution.
 author: willvelida
 ms.author: willvelida
-ms.date: 08/26/2022
+ms.date: 09/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
   - azure-service-bus
+categories:
+ - integration
 ms.category:
   - fcp
 ms.custom:
@@ -33,7 +35,6 @@ The following table summarizes the differences between the main tenancy models f
 | **Data isolation** | High | Medium  | None |
 | **Performance isolation** | Highest. Manage performance needs based on each tenant's requirements | Medium. Potentially subject to noisy neighbor issues | Low. Potentially subject to noisy neighbor issues |
 | **Deployment complexity** | Medium. Be aware of [Azure Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the subscription level | Medium. Message entities must be deployed on a per-tenant basis. Be aware of [Azure Service Bus quotas and limits](/azure/service-bus-messaging/service-bus-quotas) at the namespace level | Low |
-
 | **Operational complexity** | High. Need to manage namespaces on a per-tenant basis | Medium. Granular management of message entities might be required depending on tenant  | Low |
 | **Example scenario** | Individual application instances per tenant | Dedicated queues for each tenant | Large multitenant solution with a shared application tier and one or more shared queues and topics |
 
