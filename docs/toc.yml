@@ -427,6 +427,10 @@ items:
                     href: guide/multitenant/service/sql-database.md
                   - name: Azure Storage
                     href: guide/multitenant/service/storage.md
+              - name: Messaging
+                items:
+                  - name: Azure Service Bus
+                    href: guide/multitenant/service/service-bus.md
               - name: Security
                 items:
                   - name: Azure Key Vault
