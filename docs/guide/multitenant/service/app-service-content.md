@@ -53,6 +53,17 @@ When you work with Azure App Service and Azure Functions, you should be aware of
 - In Azure App Service, a [plan](/azure/app-service/overview-hosting-plans) represents your hosting infrastructure. An app represents a single application running on that infrastructure. You can deploy multiple apps to a single plan.
 - In Azure Functions, your hosting and application are also separated, but you have [additional hosting options available](/azure/azure-functions/functions-scale) for *elastic hosting*, where Azure Functions manages scaling for you. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this article, because the principles described here apply to both App Service and Azure Functions, regardless of the hosting model you use.
 
+The following table summarizes the differences between the main tenancy isolation models for Azure App Service and Azure Functions:
+
+| Consideration | Plans per tenant | Apps per tenant with shared plans | Shared apps |
+|---|---|---|---|
+| **Configuration isolation** | High. Each tenant can have their own configuration | Medium. App-level settings are dedicated to the tenant, plan-level settings are shared | Low |
+| **Performance isolation** | High | Low-medium | Low |
+| **Deployment complexity** | High | Medium | Low |
+| **Operational complexity** | High | High | Low |
+| **Resource cost** | High | Low-high depending on application | Low |
+| **Example scenario** | Isolating a resource-intensive tenant to avoid noisy neighbor issues for other tenants | Single-tenant application tier | Large multitenant solution with a shared application tier |
+
 ### Plans per tenant
 
 The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
