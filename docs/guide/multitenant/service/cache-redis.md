@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cache for Redis that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.
 author: willvelida
 ms.author: willvelida
-ms.date: 07/12/2022
+ms.date: 09/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -32,12 +32,13 @@ When working with a multitenant system that uses Azure Cache for Redis, you need
 The following table summarizes the differences between the main tenancy models for Azure Cache for Redis:
 
 | Consideration | Shared cache, shared database | Shared cache, database per tenant | Cache per tenant |
-|-|-|-|-|
-| **Data isolation** | TODO | TODO | TODO |
-| **Performance isolation** | TODO | TODO | TODO |
-| **Deployment complexity** | TODO | TODO | TODO |
-| **Operational complexity** | TODO | TODO | TODO |
-| **Example scenario** | TODO | TODO | TODO |
+|---|---|---|---|
+| **Data isolation** | Low. Use Redis data structures or key prefixes to identify each tenant's data | Low. Data is separated but no security isolation provided | High |
+| **Performance isolation** | Low. All tenants share the same compute resources | Low. All tenants share the same compute resources | High |
+| **Deployment complexity** | Low | Medium | Medium-high |
+| **Operational complexity** | Low | Low | Medium-high |
+| **Resource cost** | Low | Low | High |
+| **Example scenario** | Large multitenant solution with a shared application tier | Migrating a single-tenant application to be multitenant-aware | Individual application instances per tenant |
 
 ### Shared cache instance and shared database
 
