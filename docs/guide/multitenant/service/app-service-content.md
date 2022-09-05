@@ -58,7 +58,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | Consideration | Plans per tenant | Apps per tenant with shared plans | Shared apps |
 |---|---|---|---|
 | **Configuration isolation** | High. Each tenant can have their own configuration | Medium. App-level settings are dedicated to the tenant, plan-level settings are shared | Low |
-| **Performance isolation** | High | Low-medium | Low |
+| **Performance isolation** | High | Low-medium. Potentially subject to noisy neighbor issues | Low |
 | **Deployment complexity** | High | Medium | Low |
 | **Operational complexity** | High | High | Low |
 | **Resource cost** | High | Low-high depending on application | Low |
