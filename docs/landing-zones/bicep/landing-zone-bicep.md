@@ -34,7 +34,7 @@ This article discusses the design considerations of the modularized [Azure Landi
 
 ![GitHub logo](../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Landing Zones (ALZ) - Bicep Implementation](https://github.com/Azure/ALZ-Bicep). You can use it as a starting point and configure it as per your needs.
 
-[!VIDEO https://www.youtube.com/embed/-pZNrH1GOxs]
+> [!VIDEO https://www.youtube.com/embed/-pZNrH1GOxs]
 
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
