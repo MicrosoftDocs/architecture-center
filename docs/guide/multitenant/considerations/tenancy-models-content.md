@@ -36,7 +36,7 @@ For example, consider a music streaming service. Initially, you might build a so
 
 In contrast, consider a company that builds cloud software for legal firms. Your customers might insist on their own dedicated infrastructure to maintain their compliance standards. Therefore, you need to be prepared to deploy and manage many different instances of your solution, right from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to their own dedicated deployment.
 
-A key difference between tenans and deployments is how isolation is enforced. When multiple tenants share a single deployment (set of infrastructure), you typically rely on your application code and a tenant identifier in a database, to keep each tenant's data separate. When you have tenants with their own dedicated deployments, they have their own infrastructure, and so it may be less important for your code to be aware that it's operating in a multitenant environment.
+A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (set of infrastructure), you typically rely on your application code and a tenant identifier in a database, to keep each tenant's data separate. When you have tenants with their own dedicated deployments, they have their own infrastructure, and so it may be less important for your code to be aware that it's operating in a multitenant environment.
 
 Sometimes, you'll see deployments referred to as _supertenants_ or _stamps_.
 
