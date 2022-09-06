@@ -5321,8 +5321,6 @@ items:
                 items:
                   - name: Azure Firewall architecture overview
                     href: example-scenario/firewalls/index.yml
-                  - name: Azure Firewall framework review
-                    href: networking/guide/well-architected-framework-azure-firewall.md
                   - name: Security baseline for Azure Firewall
                     href: /security/benchmark/azure/baselines/firewall-security-baseline
                     maintainContext: true
