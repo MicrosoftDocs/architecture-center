@@ -88,7 +88,7 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 
 Once the platform landing zone is implemented the next step is to deploy [Application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) which enable application teams under the `landing zones` management group with the guardrails that Central IT or PlatformOps administrators require. The `corp` management group is for corporate connected applications and `online` for applications that are primarily publicly facing but may still connect to corporate applications via hub networks in some scenarios. 
 
-[!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
+> [!Video https://www.youtube.com/embed/cZ7IN3zGbyM]
 
 The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
