@@ -1711,7 +1711,7 @@
       "redirect_url": "/azure/cloud-adoption-framework/reference/vdc"
     },
     {
-      "source_path": "docs/networking/guide/well-architected-framework-azure-firewall.md",
+      "source_path": "/docs/networking/guide/well-architected-framework-azure-firewall.md",
       "redirect_url": "/azure/architecture/framework/services/networking/azure-firewall"
     },
     {
