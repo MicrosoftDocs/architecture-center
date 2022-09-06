@@ -55,7 +55,7 @@ The ability to re-use modules offers a real benefit when defining and deploying 
 
 ## Layers and staging
 
-[!VIDEO https://www.youtube.com/embed/FNT0ZtUxYKQ]
+> [!VIDEO https://www.youtube.com/embed/FNT0ZtUxYKQ]
 
 In addition to modules, the Bicep landing zone architecture is structured using a concept of layers. Layers are groups of Bicep modules that are intended to be deployed together. Those groups form logical stages of the implementation.
 
