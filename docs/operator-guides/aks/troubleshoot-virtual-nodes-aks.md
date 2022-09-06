@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to troubleshoot common virtual node problems in Azure Kubernetes Service (AKS) clusters.
 author: shubhammicrosoft1
 ms.author: shagnih
-ms.date: 09/01/2022
+ms.date: 09/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
