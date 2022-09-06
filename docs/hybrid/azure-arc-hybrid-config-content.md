@@ -156,6 +156,12 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
+## Related resources
+Explore related architectures: 
+- [Manage configurations for Azure Arc-enabled servers](https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes)
+- [Azure Arc Jumpstart](https://azurearcjumpstart.io/)
+
 [agent-prerequisites]: /azure/azure-arc/servers/prerequisites#azure-resource-providers
 [agent-overview]: /azure/azure-arc/servers/agent-overview
 [Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
