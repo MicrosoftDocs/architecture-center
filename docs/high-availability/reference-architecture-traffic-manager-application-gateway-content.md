@@ -9,33 +9,37 @@ This reference architecture serves web workloads with resilient multi-tier appli
 
 ### Workflow
 
-- Azure Traffic Manager balances the traffic across regions. Traffic Manager use DNS-based routing to direct application traffic according to your choice of routing method. For example, you might direct that requests be sent to the closest endpoints, to improve responsiveness.
+- Azure Traffic Manager uses DNS-based routing to balance incoming HTTP(S) traffic across regions. It directs application traffic according to your choice of routing method. For example, you might direct that requests be sent to the closest endpoints, to improve responsiveness. It sends traffic to the public IP address of the Application Gateway.
 
-- there is a regional load balancer based on Azure Application Gateway.
+- The Application Gateway receives HTTP(S) traffic from Azure Traffic Manager and load balances requests across the backend pool of virtual machines (VMs) in the web tier. It is zone-redundant and includes a Web Application Firewall (WAF) that protects the application from web exploits and vulnerabilities.
 
-In this scenario, the application consists of three layers:
+- The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateway distributes traffic to each zone. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
-- **Web tier:** This is the top layer, and has the user interface. It parses user interactions and passes the actions to the business tier for processing.
-- **Business tier:** Processes the user interactions and determines the next steps. It connects the web and data tiers.
-- **Data tier:** Stores the application data, typically in a database, object storage, or files.
+- The internal load balancer distributes traffic to the business-tier VMs across the three availability zones. The internal load balancer uses a single, private IP address for easy configuration. The private IP address is zone-redundant. It is created in all three zones and can survive any single zone failure.
 
- Application Gateway load balances HTTP(S) and WebSocket requests as it routes them to backend pool servers. The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
+- The business tier processes the user interactions and determines the next steps. It connects the web and data tiers.
+
+- The data tier stores the application data, typically in a database, object storage, or files.
 
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux. The VMs are an on-demand and scalable resource.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) is automated and load-balanced VM scaling that simplifies management of your applications and increases availability.
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
-- [Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 load balancer. In this architecture, a zone-redundant Application Gateway routes HTTP requests to the web front end. Application Gateway also provides a Web Application Firewall (WAF) that protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway.
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) is a layer 4 load balancer. There are two SKUs: Standard and Basic. In this architecture, a zone-redundant Standard Load Balancer directs network traffic from the web tier to the business tier. Because a zone-redundant Load Balancer is not pinned to a specific zone, the application will continue to distribute the network traffic in the case of a zone failure.
-- [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) has enhanced features to protect  against distributed denial of service (DDoS) attacks, features that go beyond the basic protection that Azure provides.
-- [Azure DNS](https://azure.microsoft.com/services/dns/) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. Azure DNS also supports [private DNS zones](/azure/dns/private-dns-overview). Azure DNS Private Zones provide name resolution within a virtual network, as well as between virtual networks. The records contained in a private DNS zone are not resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
+- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a DNS-based traffic load balancer that distributes traffic to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
+- [Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer-7 load balancer. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway.
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/) is a layer-4 load balancer. A zone-redundant Load Balancer will distribute traffic in the case of a zone failure.
+- [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) has enhanced features to protect against distributed denial of service (DDoS) attacks.
+- [Azure DNS](https://azure.microsoft.com/services/dns/) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+- [Private DNS zones](/azure/dns/private-dns-overview) are supported by Azure DNS. Azure DNS Private Zones provide name resolution within a virtual network, as well as between virtual networks. The records contained in a private DNS zone are not resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the virtual network. This provides access while limiting the exposed public IP addresses of the VMs in the virtual network. Azure Bastion provides a cost-effective alternative to a provisioned VM to provide access to all VMs within the same virtual network.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 
 ### Alternatives
 
-Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
+- Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review the page on [Application Gateway](/azure/application-gateway/overview).
+- You can also configure regional load balancing. For more information, see [azure load balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
+
+- The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
 
 For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
 
