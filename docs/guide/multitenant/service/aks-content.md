@@ -55,7 +55,7 @@ There are several ways to design and build multitenant solutions with [Azure Kub
 
 ## Control plane isolation
 
-Isolation at the control plane level guarantees that different tenants cannot access or affect each others' resources, such as pods and services, and cannot impact the performance of other tenants' applications.
+Isolation at the control plane level guarantees that different tenants cannot access or affect each others' resources, such as pods and services, and cannot impact the performance of other tenants' applications. For more information, see [Control plane isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#control-plane-isolation) under Kubernetes documentation.
 
 ### Namespaces
 
