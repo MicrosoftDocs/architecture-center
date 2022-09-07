@@ -91,7 +91,7 @@ The following hybrid solution decision tree starts with Azure services, and desc
 
 ## Next steps
 
-- [Azure hybrid and multicloud documentation](/hybrid)
+- [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 - [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
 - [Introduction to Azure hybrid cloud services (Training module)](/training/modules/intro-to-azure-hybrid-services)
@@ -99,7 +99,6 @@ The following hybrid solution decision tree starts with Azure services, and desc
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Overview of a hybrid workload](../../framework/hybrid/hybrid-overview.md)
 - [DevOps in a hybrid environment](../../solution-ideas/articles/devops-in-a-hybrid-environment.yml)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
