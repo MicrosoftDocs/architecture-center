@@ -81,6 +81,21 @@ As your tenant base grows, the amount of time and the memory required to load se
 
 If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately to any others. In .NET applications, consider using an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's IConfiguration object and then use the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload a configuration upon every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Zhenlan Wang](https://www.linkedin.com/in/zhenlanwang) | Principal Software Engineering Manager, Azure App Configuration
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).

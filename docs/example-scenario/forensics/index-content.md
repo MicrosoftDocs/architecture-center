@@ -9,7 +9,9 @@ Companies must guarantee that digital evidence they provide in response to legal
 
 ## Architecture
 
-![Diagram showing the chain of custody architecture.](media/chain-of-custody.png)
+:::image type="content" alt-text="Diagram showing the chain of custody architecture." source="media/chain-of-custody.png" lightbox="media/chain-of-custody.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 

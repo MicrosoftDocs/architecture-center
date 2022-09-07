@@ -399,47 +399,9 @@ In the architecture, health monitoring is applied at these levels:
 
 If the AKS cluster is down, the health service won't respond, rendering the workload unhealthy. When the service is running, it performs periodic checks against critical components of the solution. All checks are done **asynchronously and in parallel**. If any of them fail, the whole stamp will be considered unavailable.
 
-Health check results are **cached in memory**, using the standard, non-distributed ASP.NET Core `MemoryCache`. Cache expiration is controlled by `SysConfig.HealthServiceCacheDurationSeconds` and is set to 10 seconds by default. There's not need for external cache in this case.
-
 > [!WARNING]
 > Azure Front Door health probes can generate significant load on the health service, because requests come from multiple PoP locations. To prevent overloading the downstream components, appropriate caching needs to take place.
 
 The health service is also used for explicitly configured URL ping tests with each stamp's Application Insights resource.
 
-#### Cosmos DB example
-
-To minimize impact on the overall load, the read check is a simple query which doesn't manipulate with data:
-
-```sql
-SELECT GetCurrentDateTime()
-```
-
-The write request creates a dummy document with minimum content and short time-to-live (TTL):
-
-```csharp
-var testRating = new ItemRating()
-{
-    Id = Guid.NewGuid(),
-    CatalogItemId = Guid.NewGuid(), // create some random (= non-existing) item id
-    CreationDate = DateTime.UtcNow,
-    Rating = 1,
-    TimeToLive = 10 // will be auto-deleted after 10 seconds
-};
-
-await AddNewRatingAsync(testRating);
-```
-
-#### Event Hubs example
-
-The health service reports healthy if it's able to send a message to Event Hubs. It contains additional property `HEALTHCHECK=TRUE` and the background processor ignores it.
-
-#### Blob Storage account example
-
-- Test if it's possible to reach Blob Storage. This storage account is also used by other components in the stamp and hence considered a critical resource.
-- Manually "turn off" a region by manipulating (i.e. deleting) the state file.
-
-The reference implementation looks for presence of the state file in the specified Blob Container. If it cannot connect to the Storage Account, or if the file is not found, stamp is considered unhealthy.
-
-**Remove** the file to disable a stamp.
-
-
+For more details about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).

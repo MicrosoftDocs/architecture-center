@@ -46,7 +46,6 @@ An observability resource  that collects and stores metrics and logs, applicatio
 
 > For product documentation, see [Azure Monitor](https://azure.microsoft.com/services/monitor):  collects and stores metrics and logs, including application telemetry.
 
-
 ### Workflow
 
 1. Azure Pipelines triggers automated build and test jobs (continuous integration).
@@ -54,16 +53,15 @@ An observability resource  that collects and stores metrics and logs, applicatio
 1. Azure Pipelines orchestrates the deployment of infrastructure changes and the updated VM application (continuous deployment). 
 1. Azure DevTest Labs provisions the compute and orchestrates the application deployment development and test environments.
 1. The changes are deployed to pre-production and production environments.
-1. Azure Monitor collects oberserability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data. 
-
+1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data. 
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 ## Next steps
 
-* [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 * [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
 * [Create and deploy VM Applications](/azure/virtual-machines/vm-applications-how-to?tabs=portal)
 
+## Related resources
 
-
+* [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)

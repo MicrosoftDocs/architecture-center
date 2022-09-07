@@ -171,7 +171,7 @@ Principal authors:
 [AKS]: https://azure.microsoft.com/services/kubernetes-service
 [AKS baseline for multiregion clusters]: ../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
 [Application-aware data management built for Kubernetes]: https://cloud.netapp.com/astra-control
-[Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.astra-info
+[Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-astra-acs
 [Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
@@ -197,7 +197,7 @@ Principal authors:
 [Manage apps by namespace]: https://docs.netapp.com/us-en/astra-control-service/use/manage-apps.html#manage-apps-by-namespace
 [Manage disaster recovery using cross-region replication]: /azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery
 [Monitor Astra Trident]: https://docs.netapp.com/us-en/trident/trident-use/monitor-trident.html
-[NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.astra-info?tab=overview
+[NetApp Astra Control Service]: https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-astra-acs
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Products available by region]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service%2Cnetapp&regions=all
 [Protect apps with snapshots and backups]: https://docs.netapp.com/us-en/astra-control-service/use/protect-apps.html

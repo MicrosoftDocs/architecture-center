@@ -150,9 +150,9 @@ Other contributors:
 
 -   [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
 -   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
--   [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes.html)
+-   [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes/)
 -   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
--   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)
+-   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes/)
 -   [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
 -   [Security baseline for Azure Machine Learning service](/security/benchmark/azure/baselines/machine-learning-security-baseline?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json)
 
