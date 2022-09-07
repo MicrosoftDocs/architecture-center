@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 10/18/2021
+ms.date: 09/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -95,6 +95,16 @@ Additionally, each component of Azure Storage provides further options for tenan
 
 ### Blob storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage blobs:
+
+| Consideration | Shared blob containers | Blob containers per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low-medium. Use paths to identify each tenant's data, or hierarchical namespaces | Medium. Use container-scoped SAS URLs to support security isolation | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Storing a small number of blobs per tenant | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
+
 #### Shared blob containers
 
 When working with blob storage, you might choose to use a shared blob container, and you might then use blob paths to separate data for each tenant:
@@ -120,6 +130,16 @@ By creating containers for each tenant, you can use Azure Storage access control
 
 ### File storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage files:
+
+| Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and directories | Medium-high | High |
+| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but set size quotas on a per-share level | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Application controls all access to files | Tenants access their own files | Separate deployment stamps for each tenant |
+
 #### Shared file shares
 
 When working with file shares, you might choose to use a shared file share, and then you might use file paths to separate data for each tenant:
@@ -143,6 +163,16 @@ By creating file shares for each tenant, you can use Azure Storage access contro
 
 ### Table storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage tables:
+
+| Consideration | Shared tables with partition keys per tenant | Tables per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low. Application enforces isolation | Low-medium | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Large multitenant solution with shared application tier | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
+
 #### Shared tables with partition keys per tenant
 
 When using table storage with a single shared table, you can consider using the [built-in support for partitioning](/rest/api/storageservices/understanding-the-table-service-data-model#partitionkey-property). Each entity must include a partition key. A tenant identifier is often a good choice for a partition key.
@@ -158,6 +188,16 @@ You can create individual tables for each tenant within a single storage account
 By creating tables for each tenant, you can use Azure Storage access control, including SAS, to manage access for each tenant's data.
 
 ### Queue storage isolation models
+
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage queues:
+
+| Consideration | Shared queues | Queues per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low | Low-medium | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Large multitenant solution with shared application tier | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
 
 #### Shared queues
 
