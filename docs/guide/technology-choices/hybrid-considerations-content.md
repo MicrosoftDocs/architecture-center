@@ -22,17 +22,17 @@ A hybrid solution must consider requirements and constraints for hardware, hosti
 
 Hybrid solution considerations include:
 
-- Hardware requirements: Whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios buy new hardware or use hardware as a service with a monthly fee.
-- Hosting location: Whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
-- Workload type: Whether the workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside of Azure datacenters can host hybrid workloads.
+- Hardware requirements: Consider whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios buy new hardware or use hardware as a service with a monthly fee.
+- Hosting location: Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
+- Workload type: Consider whether the workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside of Azure datacenters can host hybrid workloads.
 
-To evaluate hybrid solutions, developers and DevOps teams might emphasize criteria like mass deployments and restricted vs. purpose-built hardware. System administrators might focus on hosting location or hardware and hypervisor usage. All factors are important for the final decision, but depending on requirements, background, and expertise, organizations might approach the hybrid solution decision differently.
+To evaluate hybrid solutions, developers and DevOps teams might emphasize criteria like mass deployments and restricted vs. purpose-built hardware. System administrators might focus on hosting location or hardware and hypervisor usage. All factors are important for the final decision, but depending on requirements, background, and expertise, organizations might approach the evaluation from different starting points.
 
-Some organizations and roles might start with hardware and hosting requirements and constraints. Other organizations might start by investigating various PaaS and cloud service capabilities from an application and workload perspective. The following sections present hybrid solution decision trees from the hardware and services perspectives.
+Some organizations and teams might start with their hardware and hosting requirements and constraints. Other organizations might start by investigating various PaaS and cloud service capabilities from an application and workload perspective. The following sections present hybrid solution decision trees from both the hardware and services perspectives.
 
 ### Start with hardware
 
-The following hybrid solution decision tree starts with a hardware deployment and hosting model, and proceeds through steps to select an appropriate Azure hybrid solution. The three deployment choices are existing or custom hardware, another public cloud, or Microsoft-specified deployments.
+The following hybrid solution decision tree starts with a hardware deployment and hosting model, and proceeds through decision points to select an appropriate Azure hybrid solution. The three deployment choices are existing or custom hardware, another public cloud, or Microsoft-specified deployments.
 
 ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png)
 
@@ -65,31 +65,17 @@ The following hybrid solution decision tree starts with Azure services, and desc
 
 ![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.png)
 
-- The **Azure cloud** can provide cloud-based software-as-a-service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
+- The **Azure cloud** can provide cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
 
-- **Azure Stack Hub** provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services. Services run on industry-standard hardware on-premises or in multicloud datacenters.
+- [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack provides several solutions for different use cases.
 
-- **Azure Stack HCI** provides VM-based and AKS-based hyperconverged compute, storage, and network services. Services run on industry-standard hardware on-premises or in multicloud datacenters.
+  - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services, and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems, and can run on connected or disconnected environments.
+  - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises. Azure Stack HCI provides VM-based and AKS-based hyperconverged compute, storage, and network services, and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack HCI connects workloads to Azure for cloud services and management.
+  - [Azure Stack Edge](/azure/databox-online/) delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to edge locations. Azure Stack Edge provides VM-based, AKS-based, machine learning, and data transfer services on industry-standard hardware as a service, and runs on-premises or in multicloud datacenters.
 
-- **Azure Stack Edge** provides VM-based and AKS-based, machine learning, and data transfer services on industry-standard hardware as a service. Services can run on-premises or in multicloud datacenters.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) and [IoT Hub](https://azure.microsoft.com/services/iot-hub) deploy custom functionality to mass devices. IoT Edge natively integrates with IoT Hub to provide DevOps, PaaS, and containerized services on custom and industry-standard hardware, and runs on-premises or in multicloud datacenters.
 
-- **IoT Edge and IoT Hub** provide PaaS and containerized services on custom and industry-standard hardware. Services can run on-premises or in multicloud datacenters.
-
-- **Azure Arc** provides Azure Arc-enabled services on VMs, SQL databases, and Kubernetes. Services run on existing industry-standard hardware, hypervisors, Azure Stack HCI, or Azure Stack Edge, on-premises or in multicloud datacenters.
-
-## Azure hybrid services
-
-Azure hybrid solutions include the following services:
-
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys custom functionality on mass devices. IoT Edge natively integrates with [IoT Hub](https://azure.microsoft.com/services/iot-hub) to provide DevOps.
-
-- [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack has the following solutions for different use cases:
-
-  - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub delivers Azure services to datacenters with integrated systems and can run on connected or disconnected environments.
-  - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises. Azure Stack HCI connects workloads to Azure for cloud services and management.
-  - [Azure Stack Edge](/azure/databox-online/) delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to edge locations.
-
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc simplifies management, application delivery, and consistency.
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc) uses Azure Arc-enabled services on VMs, SQL databases, and Kubernetes to provide management, application delivery, and consistency. Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc runs on existing industry-standard hardware, hypervisors, Azure Stack HCI, or Azure Stack Edge, on-premises or in multicloud datacenters.
 
   Azure Arc includes the following capabilities:
   
@@ -104,4 +90,12 @@ Azure hybrid solutions include the following services:
 
 ## Next steps
 
-[Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
+- [Azure hybrid and multicloud documentation](/hybrid)
+- [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
+- [Introduction to hybrid and multicloud](/cloud-adoption-framework/scenarios/hybrid)
+- [Introduction to Azure hybrid cloud services (Training module)](/training/modules/intro-to-azure-hybrid-services)
+
+## Related resources
+
+
+
