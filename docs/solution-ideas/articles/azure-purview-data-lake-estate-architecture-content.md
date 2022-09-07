@@ -53,7 +53,7 @@ Scenarios for connecting Microsoft Purview to Data Lake services:
 
 - [Lineage](/azure/purview/concept-best-practices-lineage-azure-data-factory). Microsoft Purview diagrammatically visualizes lineage across Data Factory, Azure Synapse Analytics, and Power BI pipelines. These visualizations show the end-to-end flow of data at a granular level.
 
-- [Access control](/azure/purview/how-to-access-policies-storage). Microsoft Purview access control policy allows you to define and grant access to data assets from the catalog, directly on the underlying sources.
+- [Access control](/azure/purview/tutorial-data-owner-policies-storage). Microsoft Purview access control policy allows you to define and grant access to data assets from the catalog, directly on the underlying sources.
 
 - Ownership. Microsoft Purview allows you to apply data ownership and stewardship to data assets and glossary items in the catalog.
 

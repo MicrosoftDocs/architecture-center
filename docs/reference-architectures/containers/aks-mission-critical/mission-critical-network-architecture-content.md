@@ -256,4 +256,4 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Application Insights](/azure/azure-monitor/)
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure Blob Storage](/azure/storage/blobs/)
-- [Azure Firewall](/azure/storage/firewall/)
+- [Azure Firewall](/azure/firewall/overview)

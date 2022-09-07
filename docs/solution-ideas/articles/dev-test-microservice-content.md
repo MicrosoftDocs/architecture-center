@@ -83,9 +83,12 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 ## Next steps
 
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
+- [Set up Azure DevOps](/azure/devops/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+
+## Related resources
+
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
-- [Set up Azure DevOps](/azure/devops/get-started)
-- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)

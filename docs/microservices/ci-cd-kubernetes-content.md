@@ -25,7 +25,7 @@ For purposes of this example, here are some assumptions about the development te
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
 
-### Common Alternatives
+### Common alternatives
 
 The following are common alternatives customers might use when choosing a CI/CD strategy with Azure Kubernetes Service:
 
@@ -385,6 +385,16 @@ For more information about creating a release pipeline, see [Release pipelines, 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [John Poole](https://www.linkedin.com/in/johnrpoole) | Senior Cloud Solutions Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
