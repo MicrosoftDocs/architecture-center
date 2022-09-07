@@ -55,20 +55,24 @@ When you work with Azure App Service and Azure Functions, you should be aware of
 
 The following table summarizes the differences between the main tenancy isolation models for Azure App Service and Azure Functions:
 
-| Consideration | Plans per tenant | Apps per tenant with shared plans | Shared apps |
+| Consideration | Shared apps | Apps per tenant with shared plans | Plans per tenant |
 |---|---|---|---|
-| **Configuration isolation** | High. Each tenant can have their own configuration | Medium. App-level settings are dedicated to the tenant, plan-level settings are shared | Low |
-| **Performance isolation** | High | Low-medium. Potentially subject to noisy neighbor issues | Low |
-| **Deployment complexity** | High | Medium | Low |
-| **Operational complexity** | High | High | Low |
-| **Resource cost** | High | Low-high depending on application | Low |
-| **Example scenario** | Isolating a resource-intensive tenant to avoid noisy neighbor issues for other tenants | Single-tenant application tier | Large multitenant solution with a shared application tier |
+| **Configuration isolation** | Low | Medium. App-level settings are dedicated to the tenant, plan-level settings are shared | High. Each tenant can have their own configuration |
+| **Performance isolation** | Low | Low-medium. Potentially subject to noisy neighbor issues | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | High | High |
+| **Resource cost** | Low | Low-high depending on application | High |
+| **Example scenario** | Large multitenant solution with a shared application tier | Migrate applications that aren't aware of tenancy into Azure while gaining some cost efficiency | Single-tenant application tier |
 
-### Plans per tenant
+### Shared apps
 
-The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
+You might deploy a shared application on a single plan, and use the shared application for all your tenants.
 
-This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
+This tends to be the most cost-efficient option, and it requires the least operational overhead because there are fewer resources to manage. You can scale the overall plan based on load or demand, and all tenants sharing the plan will benefit from the increased capacity.
+
+It's important to be aware of the [App Service quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as the maximum number of custom domains that can be added to a single app, and the maximum number of instances of a plan that can be provisioned.
+
+To be able to use this model, your application code must be multitenancy-aware.
 
 ### Apps per tenant with shared plans
 
@@ -80,16 +84,14 @@ You can also choose to share your plan between multiple tenants, but deploy sepa
 
 However, because the plan's compute resources are shared, the apps might be subject to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Additionally, there are [limits to how many apps can be deployed to a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
 
-### Shared apps
-
-You can also consider deploying a shared application on a single plan. This tends to be the most cost-efficient option, and it requires the least operational overhead because there are fewer resources to manage. You can scale the overall plan based on load or demand, and all tenants sharing the plan will benefit from the increased capacity.
-
-It's important to be aware of the [App Service quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as the maximum number of custom domains that can be added to a single app, and the maximum number of instances of a plan that can be provisioned.
-
-To be able to use this model, your application code must be multitenancy-aware.
-
 > [!NOTE]
 > Don't use [deployment slots](/azure/app-service/deploy-staging-slots) for different tenants. Slots don't provide resource isolation. They are designed for deployment scenarios when you need to have multiple versions of your app running for a short time, such as blue-green deployments and a canary rollout strategy.
+
+### Plans per tenant
+
+The strongest level of isolation is to deploy a dedicated plan for a tenant. This dedicated plan ensures that the tenant has full use of all of the server resources that are allocated to that plan.
+
+This approach enables you to scale your solution to provide performance isolation for each tenant, and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group.
 
 ## Host APIs
 
