@@ -51,7 +51,7 @@ This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to prov
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)..
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Performance efficiency
 
@@ -75,6 +75,8 @@ Apart from the task of setting up repository permissions, consider implementing 
 - **Signed Commits**: Allow only signed commits that can't be altered after the fact.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
@@ -150,9 +152,11 @@ Deploying this solution involves these steps:
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-Principal authors:
+Principal author:
 
-[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
+- [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
