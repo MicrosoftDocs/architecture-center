@@ -134,7 +134,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 | Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
 |---|---|---|---|
-| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and diectories | Medium-high | High |
+| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and directories | Medium-high | High |
 | **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but set size quotas on a per-share level | High |
 | **Deployment complexity** | Low | Medium | High |
 | **Operational complexity** | Low | Medium | High |
