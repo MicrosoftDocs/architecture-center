@@ -1,12 +1,17 @@
 
-This reference architecture serves web workloads with resilient multitier applications, and deploys across multiple Azure regions to achieve high availability and robust disaster recovery.
+This reference architecture serves web workloads with resilient multi-tier applications and deploys across multiple Azure regions to achieve high availability and robust disaster recovery.
 
-Microsoft Azure Traffic Manager balances the traffic across regions, and there is a regional load balancer based on Azure Application Gateway. This combination gets you the benefits of Traffic Manager's flexible routing, and Application Gateway's many capabilities, including:
+## Architecture
 
-- Web Application Firewall (WAF).
-- Transport Layer Security (TLS) termination.
-- Path-based routing.
-- Cookie-based session affinity.
+:::image type="content" source="images/high-availability-multi-region.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region.vsdx) of this architecture.*
+
+### Workflow
+
+- Azure Traffic Manager balances the traffic across regions. Traffic Manager use DNS-based routing to direct application traffic according to your choice of routing method. For example, you might direct that requests be sent to the closest endpoints, to improve responsiveness.
+
+- there is a regional load balancer based on Azure Application Gateway.
 
 In this scenario, the application consists of three layers:
 
@@ -14,20 +19,9 @@ In this scenario, the application consists of three layers:
 - **Business tier:** Processes the user interactions and determines the next steps. It connects the web and data tiers.
 - **Data tier:** Stores the application data, typically in a database, object storage, or files.
 
-:::image type="content" source="images/high-availability-multi-region.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+ Application Gateway load balances HTTP(S) and WebSocket requests as it routes them to backend pool servers. The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region.vsdx) of this architecture.*
-
-> [!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
->
-> For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
-
-## Architecture
-
-Traffic Manager operates at the DNS layer to direct application traffic according to your choice of routing method. For example, you might direct that requests be sent to the closest endpoints, to improve responsiveness. Application Gateway load balances HTTP(S) and WebSocket requests as it routes them to backend pool servers. The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
-
-## Components
+### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux. The VMs are an on-demand and scalable resource.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) is automated and load-balanced VM scaling that simplifies management of your applications and increases availability.
@@ -38,6 +32,21 @@ Traffic Manager operates at the DNS layer to direct application traffic accordin
 - [Azure DNS](https://azure.microsoft.com/services/dns/) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. Azure DNS also supports [private DNS zones](/azure/dns/private-dns-overview). Azure DNS Private Zones provide name resolution within a virtual network, as well as between virtual networks. The records contained in a private DNS zone are not resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within the virtual network. This provides access while limiting the exposed public IP addresses of the VMs in the virtual network. Azure Bastion provides a cost-effective alternative to a provisioned VM to provide access to all VMs within the same virtual network.
+
+### Alternatives
+
+Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
+
+For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
+
+## Solution Details
+
+Traffic Manager and Application Gateway gives you the following capabilities:
+
+- Web Application Firewall (WAF).
+- Transport Layer Security (TLS) termination.
+- Path-based routing.
+- Cookie-based session affinity.
 
 ## Recommendations
 
