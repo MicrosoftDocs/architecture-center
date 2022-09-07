@@ -1,25 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Choose an Azure Hybrid service
-  description: Learn about Hybrid deployment options in Azure, including the different alternatives to deploy and host Azure Services on-premises and in other clouds.
-  author: lanicolas, RobEichEnterprise
-  ms.author: lanicola, robeich
-  ms.date: 07/01/2022
+  title: Choose an Azure hybrid service
+  description: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
+  author: lanicolas
+  ms.author: lanicola
+  ms.date: 09/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: fcp
 azureCategories:
   - hybrid
   - iot
 products:
   - azure-arc
-  - azure-stack 
+  - azure-iot-edge
   - azure-stack-edge
   - azure-stack-hci
   - azure-stack-hub
-name: Choose an Azure Hybrid Service
-summary: Use this article to decide which Azure Hybrid service, best suits your solution.
+name: Choose an Azure hybrid service
+summary: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-choices.png
 content: |
-  [!include[](hybrid-considerations.md)]
+  [!include[](hybrid-considerations-content.md)]
