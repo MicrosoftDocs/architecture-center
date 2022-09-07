@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Choose an Azure hybrid service
+  title: Azure hybrid options
   description: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
   author: lanicolas
   ms.author: lanicola
@@ -17,7 +17,7 @@ products:
   - azure-stack-edge
   - azure-stack-hci
   - azure-stack-hub
-name: Choose an Azure hybrid service
+name: Azure hybrid options
 summary: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-choices.png
 content: |
