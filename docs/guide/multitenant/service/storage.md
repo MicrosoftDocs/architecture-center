@@ -99,7 +99,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 | Consideration | Shared blob containers | Blob containers per tenant | Storage accounts per tenant |
 |---|---|---|---|
-| **Data isolation** | Low-medium. Use paths to identify each tenant's data, or hierarchical namespaces | Low. Data is separated but no security isolation provided | High |
+| **Data isolation** | Low-medium. Use paths to identify each tenant's data, or hierarchical namespaces | Medium. Use container-scoped SAS URLs to support security isolation | High |
 | **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
 | **Deployment complexity** | Low | Medium | High |
 | **Operational complexity** | Low | Medium | High |
@@ -135,7 +135,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
 |---|---|---|---|
 | **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and diectories. | Medium-high | High |
-| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to entire storage account, but set size quotas on a per-share level | High |
 | **Deployment complexity** | Low | Medium | High |
 | **Operational complexity** | Low | Medium | High |
 | **Example scenario** | Application controls all access to files | Tenants access their own files | Separate deployment stamps for each tenant |

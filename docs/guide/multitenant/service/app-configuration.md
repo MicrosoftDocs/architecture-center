@@ -41,7 +41,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | **Deployment complexity** | Low | Medium-high |
 | **Operational complexity** | Low | Medium-high |
 | **Resource cost** | Low | Medium-high |
-| **Example scenario** | Large multitenant solution with a shared application tier | Customer-managed encryption keys |
+| **Example scenario** | Large multitenant solution with a shared application tier | Premium tier tenants with fully isolated deployments |
 
 ### Shared stores
 
