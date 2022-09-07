@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/05/2022
+ms.date: 09/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -134,8 +134,8 @@ The following table summarizes the differences between the main tenancy isolatio
 
 | Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
 |---|---|---|---|
-| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and diectories. | Medium-high | High |
-| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to entire storage account, but set size quotas on a per-share level | High |
+| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and diectories | Medium-high | High |
+| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but set size quotas on a per-share level | High |
 | **Deployment complexity** | Low | Medium | High |
 | **Operational complexity** | Low | Medium | High |
 | **Example scenario** | Application controls all access to files | Tenants access their own files | Separate deployment stamps for each tenant |
