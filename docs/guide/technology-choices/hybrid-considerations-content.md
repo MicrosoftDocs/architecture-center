@@ -1,40 +1,41 @@
 This article guides you in choosing a hybrid solution to fit your business needs.
 
-A hybrid environment combines public cloud services with on-premises infrastructure. This strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
+A hybrid environment combines public cloud services with on-premises infrastructure. A hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
 
-Azure provides several platform-as-a-service (PaaS), hardware, and software solutions that host applications and workloads, extend services, and provide security and operational tooling for hybrid environments.
+Azure provides several platform-as-a-service (PaaS), hardware, and software solutions that host applications and workloads, extend services, and provide security and operational tooling for on-premises, edge, and multicloud hybrid scenarios.
 
 - *Edge* hybrid environments, such as internet of things (IoT), host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
 
 - *Multicloud* hybrid environment use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. This approach usually requires cloud-specific knowledge, and adds complexity in management, operations, and security.
 
-There are Azure hybrid solutions to fit on-premises, edge, Azure PaaS, and multicloud scenarios.
+Hybrid solutions encompass a system's [control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane).
 
-Hybrid solutions encompass both the [control plane and the data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane) of a system.
+- The *control plane* refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane. Hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances.
 
-- The *control plane* refers to resource management operations, such as creating an Azure virtual machine (VM). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane. Hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances.
-
-- The *data plane* uses the capabilities of the resource instances the control plane creates. For example, you use the data plane when you access an Azure VM over remote desktop protocol (RDP).
+- The *data plane* uses the capabilities of the resource instances the control plane creates. For example, you use the data plane when you access Azure VMs over remote desktop protocol (RDP).
 
 ## Choose a hybrid solution
 
-A hybrid solution must consider requirements and constraints for hardware, hosting location, application and workload type, and developer operations (DevOps). Hybrid solutions must also meet organizational and industry standards and regulations.
+A hybrid solution must consider requirements and constraints for hardware, hosting location, application or workload type, and developer operations (DevOps). Solutions must also meet organizational and industry standards and regulations.
 
 Hybrid solution considerations include:
 
 - Hardware requirements: Consider whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios buy new hardware or use hardware as a service with a monthly fee.
+
 - Hosting location: Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
+
 - Workload type: Consider whether the workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside of Azure datacenters can host hybrid workloads.
 
-To evaluate hybrid solutions, developers and DevOps teams might emphasize criteria like mass deployments and restricted vs. purpose-built hardware. System administrators might focus on hosting location or hardware and hypervisor usage. All factors are important for the final decision, but depending on requirements, background, and expertise, organizations might approach the evaluation from different starting points.
+All factors are important for the final decision, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different starting points. Developers and DevOps teams might emphasize criteria like mass deployments and restricted vs. purpose-built hardware. System administrators might focus on hosting location or hardware and hypervisor usage.
 
 Some organizations and teams might start with their hardware and hosting requirements and constraints. Other organizations might start by investigating various PaaS and cloud service capabilities from an application and workload perspective. The following sections present hybrid solution decision trees from both the hardware and services perspectives.
 
-### Start with hardware
+## Start with hardware
 
 The following hybrid solution decision tree starts with a hardware deployment and hosting model, and proceeds through decision points to select an appropriate Azure hybrid solution. The three deployment choices are existing or custom hardware, another public cloud, or Microsoft-specified deployments.
 
-![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png)
+[ ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png) ](./images/hybrid-decision-tree.png#lightbox)
+
 
 For **existing or custom** deployments:
 
@@ -42,7 +43,7 @@ For **existing or custom** deployments:
 
 1. For **restricted** hardware, decide whether the deployment is **mass** or **low scale**. Large-scale deployments have different requirements than smaller-scale implementations. Deployments based on containers or distributed devices must be able to massively scale on demand.
 
-1. For **datacenters** and **other public cloud** deployments, determine whether the workload type uses **containers** or **traditional IT** deployment in VMs or SQL databases.
+1. For **datacenters** and **other public cloud** deployments, determine whether the workload type uses **containers** or traditional IT deployment in **VMs** or **SQL** databases.
 
 1. **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled services. **Container-based** deployments can use Azure Arc-enabled Kubernetes, and **VM-based** deployments can use Azure Arc-enabled servers. **Restricted devices** can use rack, portable, or ruggedized servers for traditional or cloud deployments.
 
@@ -59,11 +60,11 @@ For **Microsoft-specified** deployments:
 - Cloud-native apps can run on a container orchestrator like AKS and use other Azure PaaS services.
 - Cloud-trained models deployed on-premises or on IoT Edge can monitor IoT devices at scale and provide Azure data transfer.
 
-### Start with services
+## Start with services
 
 The following hybrid solution decision tree starts with Azure services, and describes their supported hardware capabilities and deployment models. All Azure services include the Azure portal and other Azure operations and management tools.
 
-![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.png)
+![ ![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.png) ](./images/hybrid-choices.png#lightbox)
 
 - The **Azure cloud** can provide cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
 
@@ -75,9 +76,9 @@ The following hybrid solution decision tree starts with Azure services, and desc
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) and [IoT Hub](https://azure.microsoft.com/services/iot-hub) deploy custom functionality to mass devices. IoT Edge natively integrates with IoT Hub to provide DevOps, PaaS, and containerized services on custom and industry-standard hardware, and runs on-premises or in multicloud datacenters.
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) uses Azure Arc-enabled services on VMs, SQL databases, and Kubernetes to provide management, application delivery, and consistency. Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc runs on existing industry-standard hardware, hypervisors, Azure Stack HCI, or Azure Stack Edge, on-premises or in multicloud datacenters.
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc) provides application delivery and management by using Azure Arc-enabled services on VMs, SQL databases, and Kubernetes. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services.
 
-  Azure Arc includes the following capabilities:
+  Azure Arc runs on existing industry-standard hardware, hypervisors, Azure Stack HCI, or Azure Stack Edge, on-premises or in multicloud datacenters. Azure Arc provides the following capabilities:
   
   - [Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
   - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)
@@ -92,10 +93,13 @@ The following hybrid solution decision tree starts with Azure services, and desc
 
 - [Azure hybrid and multicloud documentation](/hybrid)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
-- [Introduction to hybrid and multicloud](/cloud-adoption-framework/scenarios/hybrid)
+- [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
 - [Introduction to Azure hybrid cloud services (Training module)](/training/modules/intro-to-azure-hybrid-services)
 
 ## Related resources
 
-
-
+- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Overview of a hybrid workload](../../framework/hybrid/hybrid-overview.md)
+- [DevOps in a hybrid environment](../../solution-ideas/articles/devops-in-a-hybrid-environment.yml)
+- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
