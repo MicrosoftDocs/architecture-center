@@ -36,31 +36,34 @@ This reference architecture serves web workloads with resilient multi-tier appli
 
 ### Alternatives
 
-- Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review the page on [Application Gateway](/azure/application-gateway/overview).
-- You can also configure regional load balancing. For more information, see [azure load balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
+- Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, see the [Application Gateway](/azure/application-gateway/overview).
+
+- You can also configure regional load balancing. For more information on regional load balancing, see [azure load balancer](/azure/load-balancer/load-balancer-overview).
+
+- Your end-to-end scenarios might benefit from combining these solutions as needed.
 
 - The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
 
-For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
+- For a comparison of Azure load-balancing options, see [overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
 
 ## Solution Details
 
-Traffic Manager and Application Gateway gives you the following capabilities:
+The combination of Traffic Manager and Application Gateway gives you the following capabilities:
 
 - Web Application Firewall (WAF).
 - Transport Layer Security (TLS) termination.
 - Path-based routing.
 - Cookie-based session affinity.
 
+For production workloads, run at least two gateway instances. Note that in this architecture, the public endpoints of the Application Gateways are configured as the Traffic Manager backends.
+
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+These considerations implement the pillars of the Azure Well-Architected Framework (WAF). WAF is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. For details, see [Multiple regions](#multiple-regions).
-- For production workloads, run at least two gateway instances. Note that in this architecture, the public endpoints of the Application Gateways are configured as the Traffic Manager backends.
-- Use Network Security Groups (NSG) rules to restrict traffic between tiers. For details, see [Network Security Groups](#network-security-groups).
+The following recommendations apply to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-## Availability considerations
+## Reliability
 
 ### Azure Availability Zones
 
@@ -68,11 +71,10 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Multiple regions
 
-Deploying in multiple regions can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Traffic Manager to fail over to the secondary region. Multiple regions can also help if an individual subsystem of the application fails.
-
-Note that this architecture is applicable for active/passive as well as for active/active configurations across Azure regions.
-
-For technical information, see [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
+- Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. For details, see [Multiple regions](#multiple-regions).
+- Deploying in multiple regions can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Traffic Manager to fail over to the secondary region. Multiple regions can also help if an individual subsystem of the application fails.
+- Note that this architecture is applicable for active/passive as well as for active/active configurations across Azure regions.
+- For technical information, see [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
 
 ### Paired regions
 
@@ -130,18 +132,19 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
-## Manageability considerations
+## Operational excellence
 
 - **Resource groups:** Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
+
 - **Virtual network peering:** Use [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks don't overlap. In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
+
 - **Virtual network and subnets:** Azure VM and specific Azure resources (such as Application Gateway and Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
-## Security considerations
+## Security
 
 - Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
-- Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier accepts traffic only from the business tier and the Bastion subnet, not from the web front end.
 
-### Network Security Groups
+- Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier accepts traffic only from the business tier and the Bastion subnet, not from the web front end.
 
  Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
@@ -153,7 +156,7 @@ Create rules 2 – 3 with higher priority than the first rule, so they override 
 
 You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall. See [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups) for details on Application Gateway NSG requirements.
 
-## Pricing
+## Cost optimization
 
 Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Here are some other considerations.
 
@@ -184,6 +187,8 @@ Traffic Manager billing is based on the number of DNS queries received, with a d
 A high-availability deployment that leverages multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
 
 For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+
+## Performance efficiency
 
 ## Next steps
 
