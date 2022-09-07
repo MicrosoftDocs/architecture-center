@@ -94,7 +94,7 @@ At the opposite extreme, you can consider a fully multitenant deployment, where 
 
 ![Diagram showing three tenants, all using a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
 
-**Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and might not have to migrate data between two separate deployments.
+**Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and you might not have to migrate data between two separate deployments.
 
 **Risks:**
 
