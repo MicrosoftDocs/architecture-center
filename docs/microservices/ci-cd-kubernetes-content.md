@@ -1,4 +1,4 @@
-It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
+It can be challenging to create a reliable continuous integration/continuous delivery (CI/CD) process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
 
 This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules. Instead, it's meant to be a starting point for designing your own CI/CD process.
 
@@ -16,22 +16,22 @@ For more background, see [CI/CD for microservices architectures](./ci-cd.yml).
 For purposes of this example, here are some assumptions about the development team and the code base:
 
 - The code repository is a monorepo, with folders organized by microservice.
-- The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases&preserve-view=true) to manage releases. Separate releases are created for each microservice.
-- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to build, test, and deploy the microservices to AKS.
-- The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
+- The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com).
+- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance) to manage releases. Separate releases are created for each microservice.
+- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines) to build, test, and deploy the microservices to AKS.
+- The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry).
 - The team uses Helm charts to package each microservice.
 - A push deployment model is used, where Azure DevOps pipelines and associated agents perform deployments by connecting directly to the AKS cluster.
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
 
-### Common alternatives
+### Alternatives
 
 The following are common alternatives customers might use when choosing a CI/CD strategy with Azure Kubernetes Service:
 
-- As an alternative to using Helm as a package management and deployment tool, [Kustomize](https://kustomize.io/) is a Kubernetes native configuration management tool that introduces a template-free way to customize and parameterize application configuration.
-- As an alternative to using Azure DevOps for Git repositories and pipelines, [GitHub Repositories](https://docs.github.com/en/repositories) can be used for private and public Git repositories and [GitHub Actions](https://github.com/features/actions) for CI/CD pipelines.
-- As an alternative to using a push deployment model, managing Kubernetes configuration at large scale can be done using [GitOps (pull deployment model)](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks), where an in-cluster Kubernetes Operator synchronizes cluster state based on configuration stored in a Git repository.
+- As an alternative to using Helm as a package management and deployment tool, [Kustomize](https://kustomize.io) is a Kubernetes native configuration management tool that introduces a template-free way to customize and parameterize application configuration.
+- As an alternative to using Azure DevOps for Git repositories and pipelines, [GitHub Repositories](https://docs.github.com/en/repositories) can be used for private and public Git repositories, and [GitHub Actions](https://github.com/features/actions) can be used for CI/CD pipelines.
+- As an alternative to using a push deployment model, managing Kubernetes configuration at large scale can be done using [GitOps (pull deployment model)](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks), where an in-cluster Kubernetes operator synchronizes cluster state, based on the configuration that's stored in a Git repository.
 
 ## Validation builds
 
@@ -86,7 +86,7 @@ The creation of this branch triggers a full CI build that runs all of the previo
 2. Run `helm package` to package the Helm chart for the service. The chart is also tagged with a version number.
 3. Push the Helm package to Container Registry.
 
-Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/). This pipeline has the following steps:
+Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release). This pipeline has the following steps:
 
 1. Deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
@@ -372,7 +372,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
-The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice, the release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This allows for independent deployments of each microservice. The release pipeline performs the following steps:
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice. The release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This pipeline allows you to have independent deployments of each microservice. The release pipeline performs the following steps:
 
 - Deploy the Helm chart to dev/QA/staging environments. The `Helm upgrade` command can be used with the `--install` flag to support the first install and subsequent upgrades.
 - Wait for an approver to approve or reject the deployment.
@@ -380,7 +380,7 @@ The output from the CI pipeline is a production-ready container image and an upd
 - Push the release tag to the container registry.
 - Deploy the Helm chart in the production cluster.
 
-For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release/?view=azure-devops&preserve-view=true).
+For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release).
 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
@@ -398,9 +398,15 @@ Principal author:
 
 ## Next steps
 
-- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
-- [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release)
+- [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals)
+- [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro)
 
 ## Related resources
 
 - [CI/CD for microservices](/azure/architecture/microservices/ci-cd)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Review a reference architecture which shows a microservices application deployed to Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
