@@ -2,7 +2,7 @@
 metadata:
   title: Enterprise business intelligence
   titleSuffix: Azure Reference Architectures
-  description: Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
+  description: Learn how to implement a pipeline that moves data from an on-premises Data Warehouse into Azure Synapse and transforms the data for analysis.
   author: EdPrice-MSFT
   ms.author: architectures
   ms.date: 07/28/2022
@@ -20,12 +20,10 @@ azureCategories:
   - integration
   - analytics
   - databases
-summary: Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
+summary: Learn how to implement a pipeline that moves data from an on-premises Data Warehouse into Azure Synapse and transforms the data for analysis.
 products:
   - azure-active-directory
   - azure-blob-storage
-  - azure-analysis-services
-  - azure-data-factory
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-synapse.png
 content: |
