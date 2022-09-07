@@ -4,7 +4,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing interactive price analytics" source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
 
@@ -71,6 +71,23 @@ The solution provides the following advantages:
 * Discovers related products (replacements and complements).
 * Lets you simulate promotional scenarios in Excel.
 
+## Considerations
+
+Considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
+
+* S1 standard ML service plan
+* S2 SQL Database
+* App hosting plan
+* Miscellaneous ADF data activities and storage costs
+
+If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
+
 ## Deploy this scenario
 
 The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers).
@@ -103,17 +120,6 @@ An implementation of this pricing analytics solution idea is described in the [A
 The solution uses an Azure SQL Database instance to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in Azure ML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a Power BI dashboard. The provided Excel spreadsheet consumes the predictive Web Services.
 
 Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, including the topic of connecting your own data and customization (GitHub login required).
-
-## Pricing
-
-To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
-
-* S1 standard ML service plan
-* S2 SQL Database
-* App hosting plan
-* Miscellaneous ADF data activities and storage costs
-
-If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
 
 ## Next steps
 
