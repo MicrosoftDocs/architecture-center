@@ -108,7 +108,7 @@ Tenant mapping logic likely runs on every request to your application. Consider 
 
 ### Session affinity
 
-One approach to reducing the performance overhead of tenant mapping logic is to use _session affinity_. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a _session cookie_ to the client that can then passed back to your service, with all subsequent client requests within that session.
+One approach to reducing the performance overhead of tenant mapping logic is to use _session affinity_. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a _session cookie_ to the client. The client passes the session cookie back to your service with all subsequent client requests within that session.
 
 > [!NOTE]
 > Many networking and application services in Azure can issue session cookies and natively route requests by using session affinity.
