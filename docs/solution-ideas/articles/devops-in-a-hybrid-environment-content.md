@@ -47,7 +47,7 @@ Principal author:
 
  * [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
-## Next steps
+## Related resources
 
 * [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 * [CI/CD for Azure Web Apps](./azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)

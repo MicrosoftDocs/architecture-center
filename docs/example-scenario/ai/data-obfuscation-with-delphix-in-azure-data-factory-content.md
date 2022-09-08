@@ -35,7 +35,7 @@ The following architecture outlines the use of Delphix Continuous Compliance in 
 
 :::image type="content" source="./media/delphix-continuous-compliance-architecture.png" lightbox="./media/delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
 
-Download a [Visio file](https://delphixit-my.sharepoint.com/:u:/g/personal/arun_saju_delphix_com/EVswtxQQs5JGpdNkbPfMNvUBmhw_EJ4_Sg88IpQmmbdjvg?e=7b8OG8) of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 
 ## Dataflow
 
