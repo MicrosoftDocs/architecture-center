@@ -105,7 +105,7 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 Tenant workloads can be configured to run on separate agent nodes to avoid the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and the risk of information disclosure. In AKS, you can create a separate cluster or just a dedicated node pool for those tenants that have strict requirements in terms of isolation, security, regulatory compliance, and performance. You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to constrain tenants pods to run only on a particular set of nodes or node pools.
 
-Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Node isolation is strictly related ot the tenancy model adopted by your solution. 
+Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant and is strictly related to the tenancy model adopted by your solution.
 
 For more information, see [Node Isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation) under Kubernetes documentation.
 
