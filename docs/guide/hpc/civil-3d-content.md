@@ -49,7 +49,9 @@ To take advantage of the GPU capabilities of [NVadsA10 v5](/azure/virtual-machin
 
 ## Civil 3D installation
 
-Before you install Civil 3D, you need to deploy and connect a VM, install Windows 10 or Windows 11, and install the required NVIDIA GPU drivers.
+Before you install Civil 3D, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 image, and install the required NVIDIA GPU drivers.
+
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
 For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
