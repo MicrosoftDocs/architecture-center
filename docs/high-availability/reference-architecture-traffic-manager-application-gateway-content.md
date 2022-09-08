@@ -94,7 +94,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 ### Traffic Manager configuration
 
-**Routing:**
+#### Routing
 
 - Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
 
@@ -104,7 +104,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
   - [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
   - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 
-**Traffic View:**
+#### Traffic View
 
 - Enable Traffic View in Traffic Manager to understand which regions have a large amount of traffic but suffer from higher latencies.
 
@@ -120,7 +120,7 @@ Use Application Gateway v2 SKU for automated resiliency.
 
 ### Health probes
 
-**Traffic Manager:**
+#### Traffic Manager
 
 - Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path.
 
@@ -135,7 +135,7 @@ When Traffic Manager initiates a failover, there's a period of time when clients
 
 For more information, see [About Traffic Manager Monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
-**Application Gateway and Load Balancer:**
+#### Application Gateway and Load Balancer
 
 Familiarize yourself with the health probe policies of the Application Gateway and Load Balancer to ensure you understand the health of your VMs. Here's a brief overview:
 
@@ -186,7 +186,7 @@ You can use [service tags](/azure/virtual-network/service-tags-overview) to defi
 
 ## Cost optimization
 
-Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.  virtual network peering over a VPN gateway. Peering  high-availability deployment that uses multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
+Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data. 
 
 Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
