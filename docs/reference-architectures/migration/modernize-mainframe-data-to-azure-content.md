@@ -152,7 +152,7 @@ The solution uses the following components.
 - When you use the Data Provider for Host Files client to convert data, [turn on connection pooling][Configure HIS component for performance] to reduce connection startup time.
 - When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
-## Scenario Details
+## Scenario details
 
 Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
 
@@ -190,7 +190,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files Security and Protection][Data Providers for Host Files Security and Protection] to improve security.
 
-### Cost Optimization
+### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
