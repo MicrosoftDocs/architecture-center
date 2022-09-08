@@ -20,7 +20,7 @@ products:
 
 # Day two operations for mission-critical workloads on Azure
 
-Like with any application, change will occur in your mission-critical workloads. You'll need to deploy changes to the application, keys will expire, patches will be released and more. All changes and maintenance should be applied using deployment pipelines. This document provides guidance for common changes and updates.
+Like with any application, change will occur in your mission-critical workloads. The application will evolve over time, keys will expire, patches will be released, and more. All changes and maintenance should be applied using deployment pipelines. This article provides operational guidance for making common changes and updates.
 
 Organizational alignment is equally important to operation procedures. It's crucial for the operational success of a mission-critical workload that the end-to-end responsibilities fall within a single team, the DevOps team.
 
@@ -30,7 +30,7 @@ The following sections describe approaches to handling different types of change
 
 ## Application automation
 
-Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to the environment. For mission-critical workloads, the changes listed below should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
+Continuous Integration and Continuous Deployment (CI/CD) enables the proper deployment and verification of mission-critical workloads. CI/CD is the preferred approach to deploy changes to any environment, Dev/Test, production, and others. For mission-critical workloads, the changes listed below should result in the deployment of an entirely new stamp. The new stamp should be thoroughly tested as part of the release process before traffic is routed to the stamp via a blue/green deployment strategy.
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
@@ -67,9 +67,9 @@ For dependencies dependabot isn't able to monitor, ensure that you have processe
 
 ### Key/Secret/Certificate Rotations
 
-Rotating (renewing) keys/secrets should be a standard procedure in any workload. Secrets might need to be changed on short notice after being exposed or regularly as a good security practice.
+Rotating (renewing) keys and secrets should be a standard procedure in any workload. Secrets might need to be changed on short notice after being exposed or regularly as a good security practice.
 
-Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. In the event secrets in one stamp expire, the application as a whole would continue to function.
+Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. If secrets in one stamp expire, the application as a whole would continue to function.
 
 Management of secrets to access long-living global resources, however, are critical. A notable example is the Cosmos DB API keys. If Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
 
@@ -103,7 +103,7 @@ Many platforms and services running on Azure provide automation for common day 2
 
 ### Scaling
 
-As part of the application design, the scale requirements (scale-unit) for the stamp as a whole should be determined. The individual services within the stamp need to be able to scale out to meet peak demand or scale in to save money or resources.
+As part of the application design, the scale requirements that define a scale-unit for the stamp as a whole should be determined. The individual services within the stamp need to be able to scale out to meet peak demand or scale in to save money or resources.
 
 Services that don't have enough resources can exhibit different side effects, including the following:
 
