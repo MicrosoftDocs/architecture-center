@@ -1,14 +1,4 @@
-In the current COVID-19 (coronavirus) pandemic, a large number of patients might prefer to visit their medical providers virtually rather than in person, whenever possible. Improving clinical and operational insights in healthcare becomes important in such a virtual world. This includes connecting data from across systems, creating insights to predict risk and help improve patient care, quality assurance, and operational efficiencies.
-
-This article discusses a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers. The foundation for this solution is the [Microsoft Cloud for Healthcare](/industry/healthcare/overview). Microsoft Cloud for Healthcare brings together trusted capabilities from Microsoft 365, Azure, Dynamics 365, Power Platform, and Microsoft's extensive partner ecosystem to help healthcare organizations create fast, efficient, and secure healthcare solutions.
-
-## Potential use cases
-
-This solution is targeted to provide virtual patient care in the current pandemic. However, health care providers can easily apply it to the following scenarios:
-
-- Scheduling virtual follow-ups to in person visits.
-
-- Providing non-emergency medical guidance to patients while traveling.
+This article discusses a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers.
 
 ## Architecture
 
@@ -74,7 +64,27 @@ Azure for healthcare services such as Azure API for FHIR and Azure Health Bot, C
 
 - It's worth noting that an actual deployment will need replacement tools for some components in this solution, such as the Appointment Queue, automated notifications, and Power BI analytics tools. These components will need to be created and customized for the healthcare provider's business needs.
 
-## Security considerations
+## Scenario details
+
+In the current COVID-19 (coronavirus) pandemic, a large number of patients might prefer to visit their medical providers virtually rather than in person, whenever possible. Improving clinical and operational insights in healthcare becomes important in such a virtual world. This includes connecting data from across systems, creating insights to predict risk and help improve patient care, quality assurance, and operational efficiencies.
+
+The foundation for this solution is the [Microsoft Cloud for Healthcare](/industry/healthcare/overview). Microsoft Cloud for Healthcare brings together trusted capabilities from Microsoft 365, Azure, Dynamics 365, Power Platform, and Microsoft's extensive partner ecosystem to help healthcare organizations create fast, efficient, and secure healthcare solutions.
+
+### Potential use cases
+
+This solution is targeted to provide virtual patient care in the current pandemic. However, health care providers can easily apply it to the following scenarios:
+
+- Scheduling virtual follow-ups to in person visits.
+
+- Providing non-emergency medical guidance to patients while traveling.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Since the system is built around patient data, basic security considerations for private information should be applied when developing this solution:
 
@@ -100,7 +110,9 @@ For custom security controls, consider using [Azure Active Directory](/azure/act
 
 Finally, when implementing this solution, keep in mind the [best practices and guidance for developing secure Azure solutions](/azure/security/fundamentals/overview).
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 For detailed pricing information on Microsoft Cloud for Healthcare, see [How to buy Microsoft Cloud for Healthcare](/industry/healthcare/buy). The components that form the Microsoft Cloud for Healthcare, have their own licensing requirement, such as:
 
@@ -110,7 +122,7 @@ For detailed pricing information on Microsoft Cloud for Healthcare, see [How to 
 
 To recreate components in this architecture that were custom-made, consider the pricing information for the underlying services that you choose to use.
 
-## Deploy the solution
+## Deploy this scenario
 
 The solution should be deployed in stages:
 
