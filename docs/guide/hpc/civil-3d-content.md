@@ -25,8 +25,8 @@ Civil 3D is used primarily to plan, design, and deliver land development, water,
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
-   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml) or [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml). 
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows VMs. 
+   - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml). 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
   - A public IP address connects the internet to the VM.
@@ -49,11 +49,9 @@ To take advantage of the GPU capabilities of [NVadsA10 v5](/azure/virtual-machin
 
 ## Civil 3D installation
 
-Before you install Civil 3D, you need to deploy and connect a VM and install the required NVIDIA GPU drivers.
+Before you install Civil 3D, you need to deploy and connect a VM, install Windows 10 or Windows 11, and install the required NVIDIA GPU drivers.
 
-For information about deploying the VM and installing the drivers, see one of these articles:
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 For detailed instructions, see the [Autodesk installation instructions](https://www.autodesk.in/support/download-install/individuals).  
 
@@ -137,7 +135,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |18 vCPU	|1/2|	0.05|
 |36 vCPU|	1|	0.02|
 
-To compute the cost, multiply the total time by the Azure hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+To compute the cost, multiply the total time by the Azure hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 ## Summary
 
@@ -167,13 +165,11 @@ Other contributors:
 
 - [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines on Azure](/azure/virtual-machines/windows/overview)
-- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
