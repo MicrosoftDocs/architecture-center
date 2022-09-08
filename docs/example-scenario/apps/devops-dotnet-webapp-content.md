@@ -135,3 +135,6 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 ## Related resources
 
 - [DevOps Checklist](../../checklist/dev-ops.md)
+- [CI/CD for Azure VMs](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)
+- [CI/CD for Containers](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cicd-for-containers)
+- [Build a CI/CD pipeline for microservices on Kubernetes](https://docs.microsoft.com/azure/architecture/microservices/ci-cd-kubernetes)
