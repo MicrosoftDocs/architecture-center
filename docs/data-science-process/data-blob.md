@@ -1,6 +1,6 @@
 ---
-title: Process Azure blob data with advanced analytics
-description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
+title: Process Azure Blob data with advanced analytics
+description: Explore data and generate features from data stored in Azure Blob Storage using advanced analytics.
 author: marktab
 manager: marktab
 editor: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# Process Azure blob data with advanced analytics
+# Process Azure Blob data with advanced analytics
 
 This document covers exploring data and generating features from data stored in Azure Blob storage.
 
@@ -26,7 +26,7 @@ This document covers exploring data and generating features from data stored in 
 
 In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file that can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
 
-1. Download the data from Azure blob with the following sample Python code using Blob service. Replace the variable in the code below with your specific values:
+1. Download the data from Azure Blob with the following sample Python code using Blob service. Replace the variable in the code below with your specific values:
 
     ```python
     from azure.storage.blob import BlobService
@@ -187,9 +187,9 @@ For generating binned features, we proceed as follows:
     dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)  
     ```
 
-## <a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
+## <a name="sql-featuregen"></a>Writing data back to Azure Blob and consuming in Azure Machine Learning
 
-After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps: Additional features can be created in the Azure Machine Learning Studio (classic) as well.
+After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure Blob and consume it in Azure Machine Learning using the following steps: Additional features can be created in the Azure Machine Learning Studio (classic) as well.
 
 1. Write the data frame to local file
 
@@ -197,7 +197,7 @@ After you have explored the data and created the necessary features, you can upl
     dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
     ```
 
-2. Upload the data to Azure blob as follows:
+2. Upload the data to Azure Blob as follows:
 
     ```python
     from azure.storage.blob import BlobService
