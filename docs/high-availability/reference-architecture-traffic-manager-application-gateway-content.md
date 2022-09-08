@@ -1,9 +1,9 @@
 
-This reference architecture serves web workloads with resilient multi-tier applications and deploys across multiple Azure regions to achieve high availability and robust disaster recovery.
+This is reference architecture for highly-resilient, multi-tier applications. It uses cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+:::image type="content" source="images/high-availability-multi-region-2.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region.vsdx) of this architecture.*
 
@@ -23,7 +23,7 @@ This reference architecture serves web workloads with resilient multi-tier appli
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux. The VMs are an on-demand and scalable resource.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) is automated and load-balanced VM scaling that simplifies management of your applications and increases availability.
 - [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a DNS-based traffic load balancer that distributes traffic to services across global Azure regions while providing high availability and responsiveness. For more information, see the section [Traffic Manager configuration](../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
 - [Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer-7 load balancer. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple instances of the gateway.
@@ -56,7 +56,9 @@ The combination of Traffic Manager and Application Gateway gives you the followi
 - Path-based routing.
 - Cookie-based session affinity.
 
-The architecture uses three zones to support the Application Gateway, load balancer, and each application tiers for high availability.
+The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
+
+In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
 
 ## Recommendations
 
@@ -76,7 +78,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 - Use multiple regions to avoid application downtime if a subsystem of the application fails.
 
-- Use region pairs for the most resiliency. Here are the benefits of region pairs:
+- Use Region Pairs for the most resiliency. Here are the benefits of Region Pairs:
 
   - One region is prioritized out of every pair to help reduce the time to restore for applications.
 
@@ -162,7 +164,7 @@ For more information, see:
 
 - **Resource groups:** Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
-- **Virtual network peering:** Use [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap. In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
+- **Virtual network peering:** Use [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
 - **Virtual network and subnets:** Azure VM and specific Azure resources (such as Application Gateway and Load Balancer) are deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
@@ -184,29 +186,16 @@ You can use [service tags](/azure/virtual-network/service-tags-overview) to defi
 
 ## Cost optimization
 
-Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Here are some other considerations.
+Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have a hourly charge but only charge on outbound data.  virtual network peering over a VPN gateway. Peering  high-availability deployment that uses multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
 
-### Standard Load Balancer
+Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
-Use the Standard Load Balancer SKU for cost efficiency zone redundancy. It's charged hourly based on the number of configured outbound load-balancing rules. Inbound NAT rules are free. There's no hourly charge for the Standard SKU Load Balancer when no rules are configured. There's also a charge for the amount of data that the Load Balancer processes.
+For more information, see:
 
-For more information, see [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
-
-### Application Gateway v2 SKU
-
-The Application Gateway should be provisioned with the v2 SKU and can span multiple Availability Zones. With the v2 SKU, the pricing model is driven by consumption and has two components: hourly fixed price and a consumption-based cost.
-
-For more information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-### Traffic Manager
-
-Traffic Manager billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You're also charged for each monitored endpoint. For pricing information, see [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
-
-### Virtual network peering
-
-A high-availability deployment that uses multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
-
-For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+- [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+- [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
+- [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+- [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
 
 ## Performance efficiency
 
