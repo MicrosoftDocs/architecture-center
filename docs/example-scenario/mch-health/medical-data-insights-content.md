@@ -90,15 +90,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-The security considerations for any architecture that uses Microsoft Cloud for Healthcare apply here. For example, see the security considerations discussed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#security-considerations).
+The security considerations for any architecture that uses Microsoft Cloud for Healthcare apply here. For example, see the security considerations discussed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#security).
 
 ## Pricing
 
-Pricing considerations for this architecture are similar to those in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#pricing).
+Pricing considerations for this architecture are similar to those in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#cost-optimization).
 
 ## Deploy this scenario
 
-To deploy this solution, do steps one through four of [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#deploy-the-solution).
+To deploy this solution, do steps one through four of [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#deploy-this-scenario).
 
 The following are the additional components that are created specifically for this solution. You can choose to create similar applications, or to use tools provided by your current EHR system.
 
