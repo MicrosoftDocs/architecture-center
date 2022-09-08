@@ -1,24 +1,11 @@
 This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
 
-Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
-
-By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and using Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
-
-This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Detecting fraudulent mobile-phone calls in telecommunications scenarios.
-- Identifying fraudulent credit card transactions for banking institutions.
-- Identifying fraudulent purchases in retail or e-commerce scenarios.
-
 ## Architecture
 
 ![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-fraud-detection.vsdx) of this architecture.*
+
 ### Dataflow
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
@@ -40,7 +27,25 @@ Many technology choices are available for real-time message ingestion, data stor
 
 Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
+## Scenario Details
+
+Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
+
+By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and using Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
+
+This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Detecting fraudulent mobile-phone calls in telecommunications scenarios.
+- Identifying fraudulent credit card transactions for banking institutions.
+- Identifying fraudulent purchases in retail or e-commerce scenarios.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -54,6 +59,8 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Azure Event Hubs secures data through an [authentication and security model][docs-event-hubs-security-model] based on a combination of Shared Access Signature (SAS) tokens and event publishers. An event publisher defines a virtual endpoint for an event hub. The publisher can only be used to send messages to an event hub. It is not possible to receive messages from a publisher.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
@@ -62,11 +69,9 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Deploy this scenario
+### Cost Optimization
 
-To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
-
-## Pricing
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected data volume.
 
@@ -75,6 +80,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Small][small-pricing]: process one million events through one standard streaming unit per month.
 - [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
 - [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
+
+## Deploy this scenario
+
+To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
 
 ## Contributors
 
