@@ -36,7 +36,7 @@ The following sections describe changes that should be implemented, where possib
 
 ### Application Changes
 
-All changes to the application code should be deployed through CI/CD. The code should be built, linted and tested against regressions. Application dependencies, such as runtime environment or packages should be monitored, with updates deployed via CI/CD.
+All changes to the application code should be deployed through CI/CD. The code should be built, linted, and tested against regressions. Application dependencies, such as runtime environment or packages should be monitored, with updates deployed via CI/CD.
 
 ### Infrastructure Changes
 
