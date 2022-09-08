@@ -10,13 +10,17 @@ The first step to determining how to share an AKS cluster across multiple tenant
 
 ### Multiple teams
 
-Multiple teams or divisions within an organization share a Kubernetes cluster to deploy, run, and monitor their workloads. Team users have direct access to their Kubernetes resources, usually organized and segregated in separate namespaces, using tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/) and [Helm](https://helm.sh/), DevOps systems such as [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) or [GitHub Actions](https://docs.github.com/en/actions), or indirect access using GitOps systems such as [Argo CD](https://argo-cd.readthedocs.io/en/stable/) or [Flux](https://fluxcd.io/).
+A common form of multitenancy is to share a cluster between multiple teams within an organization, each of whom can deploy, monitor, and operate one or more solutions. These workloads frequently need to communicate with each other and with other internal or external applications located on the same cluster or other hosting platforms.
+
+In addition, these workloads need to communicate with services such as a relational database, a NoSQL repository, or a messaging system hosted in the same cluster or running as PaaS services on Azure.
+
+In this scenario, members of the teams often have direct access to Kubernetes resources via tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/), or indirect access through GitOps controllers, such as [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/en/stable/), or other types of release automation tools.
 
 For more information on this scenario, see [Multiple teams](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-teams) under Kubernetes documentation.
 
 ### Multiple customers
 
-A Kubernetes cluster is shared by multiple per-customer instances of a software-as-a-service (SaaS) application. Tenants do not have direct access to the cluster and Kubernetes resources.
+Another common form of multitenancy frequently involves a Software-as-a-Service (SaaS) vendor or a service provider running multiple instances of a workload for their customers, which are considered separate tenants. In this scenario, the customers do not have direct access to the AKS cluster but only to their application. Moreover, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern, and service providers use Kubernetes policies such as [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to ensure that the workloads are strongly isolated from each other. 
 
 For more information on this scenario, see [Multiple customers](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-customers) under Kubernetes documentation.
 
@@ -28,7 +32,7 @@ Cluster multitenancy is an alternative to managing many single-tenant dedicated 
 
 When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
 
-Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy.
+Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy. 
 
 - Soft multitenancy is suitable within a single enterprise where tenants are different teams or departments that trust each other. In this scenario, isolation aims to guarantee workloads integrity, orchestrate cluster resources across different internal user groups, and defend against possible security attacks.
 - Hard multi tenancy is used to describe scenarios where heterogeneous tenants do not trust each other, often from security and resource-sharing perspectives.
@@ -43,7 +47,7 @@ When you plan to build a multitenant [Azure Kubernetes Service](/azure/aks/intro
 
 In addition, you should consider the security implications of sharing different resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent specific workloads from being collocated. For example, you might not allow untrusted code from outside your organization to run on the same node as containers that process sensitive information.
 
-Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that could be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac) (RBAC) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
+Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac) (RBAC) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
 ![Multitenancy](./media/aks/namespaces.png)
 
@@ -51,58 +55,22 @@ There are several ways to design and build multitenant solutions with [Azure Kub
 
 ## Control plane isolation
 
-Isolation at the control plane level guarantees that different tenants cannot access or affect each others' resources, such as pods and services, and cannot impact the performance of other tenants' applications. For more information, see [Control plane isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#control-plane-isolation) under Kubernetes documentation.
+Isolation at the control plane level guarantees that different tenants cannot access or affect each others' resources, such as pods and services, and cannot impact the performance of other tenants' applications. For more information, see [Control plane isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#control-plane-isolation) under Kubernetes documentation. The best way to implement isolation at the control plane level is to segregate each tenant's workload and its Kubernetes resources into a separate namespace.
 
-### Namespaces
+According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces), a [namespace](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-namespace) is an abstraction used to support the isolation of groups of resources within a single cluster. Namespaces can be used to isolate tenant workloads sharing a Kubernetes cluster:
 
-According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces), a [namespace](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-namespace) is an abstraction used to support isolation of groups of resources within a single cluster. Resources in different names can share the same name without the risk of ambiguity. 
+- Namespaces allow distinct tenant workloads to exist in their own virtual workspace without the risk of affecting each other's work. Separate teams within an organization can use namespaces to isolate their projects from each other as they can use the same resource names in different namespaces without the risk of name overlapping.
+- [RBAC Roles and Role Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) are namespace-scoped resources that teams can use to limit tenant users and processes to access resources and services only in their namespaces. Different teams can define roles to group lists of permissions or abilities under a single name and assign these roles to user and service accounts to ensure that only authorized identities have access to the resources in a given namespace.
+- [Resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) for CPU and memory are namespaced objects that teams can use to ensure that workloads sharing the same cluster are strongly isolated from a system resource consumption. This can ensure that every tenant application running in a separate namespace has the resources it needs to run and avoid [noisy neighbor issues](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) that could affect other tenant applications sharing the same cluster.
+- [Network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/ ) are namespaced objects that teams can adopt to enforce which network traffic is allowed for a given tenant application. You can use network policies to segregate distinct workloads sharing the same cluster from a networking perspective.
+- Team applications running in distinct namespaces can use different [service accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) to access resources within the same cluster, external applications, or managed services.
+- Using namespaces can improve performance at the control plane level. If workloads in a shared cluster are organized into multiple namespaces, the Kubernetes API will have fewer items to search when running operations. This can reduce the latency of calls against the API server and increase the throughput of the control plane.
 
-1. Object names within a namespace can overlap with names in other namespaces, similar to files in folders. This feature allows tenants to name their resources without worrying about any name collisions with other tenants sharing the same cluster. This happens for example when multiple instances of the same application, one for each tenant, are deployed on the same cluster.
-2. Many Kubernetes security policies are scoped to namespaces. For example, [RBAC Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) are namespace-scoped resources. Using RBAC, Users and Service Accounts can be restricted to a namespace.
+For more information on the isolation at the namespace level, see the following resources under the Kubernetes documentation: 
 
-In a multitenant environment, a namespace helps segment a tenant's workload into a logical and distinct management unit. A common practice is to isolate every workload in its namespace, even if the same tenant operates multiple workloads. This approach ensures the following advantages:
-
-- Each workload only has access to its own resources, such as Config Maps and Secrets, and allows you to tailor dedicated security policies for each workload.
-- Better isolation at the security level, as each workload can use a separate identity to access resources in the same cluster or downstream PaaS services.
-- Flexibility to switch between dedicated and shared clusters in the future or to use multi-cluster tooling such as service meshes.
-
-When hosting multiple workloads in a single namespace for the same tenant, it could be problematic to create and handle distinct policies for each application. In this scenario, you can use Kubernetes [Hierarchical Namespace Controller (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces) to organize tenant workloads namespaces into hierarchies and share specific policies and resources between them. It also helps you manage namespace labels, namespace lifecycles, and delegated management, and share resource quotas across related namespaces. These capabilities can be helpful in both [multi-team](#multiple-teams) and [multi-customer](#multiple-customers) scenarios.
-
-Other projects that provide similar capabilities and aid in managing namespaced resources are listed below:
-
-- Multi-team tenancy
-
-  - [Capsule](https://github.com/clastix/capsule)
-  - [Kiosk](https://github.com/loft-sh/kiosk)
-
-- Multi-customer tenancy
-
-  - [Kubeplus](https://github.com/cloud-ark/kubeplus)
-
-For more information on the isolation at the namespace level, see [Namespaces](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces) under Kubernetes documentation.
-
-### Access controls
-
-Another type of isolation at the control plane level is Kubernetes role-based access control. Suppose teams or their workloads could access or modify each other's API resources. In that case, they could change, tamper, or even delete resources of other tenants. They could also read sensitive data such as credentials and connection strings to access data from downstream data repositories. Hence, it is critical to guarantee that each tenant has the appropriate access only to the resources in their namespaces. This approach is known as [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). It consists in granting user principals, managed identities, and service accounts precisely the permissions they need to do their job and no more.
-
-Role-based access control (RBAC) is commonly used to enforce authorization in the Kubernetes control plane, for both users and workloads (service accounts). [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) are Kubernetes objects that are used at a namespace level to enforce access control in your application. [Cluster roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [cluster role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) can be used to authorize access to cluster-level objects, though these are less useful for multitenant clusters.
-
-When you enable [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad) you can use Azure AD users, groups, or service principals as subjects in [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). In addition, you can use Azure RBAC, built-in roles, or custom roles to authorize Azure AD users and identities to access Kubernetes API resources at the namespace and cluster level. For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
-
-In a multi-team environment, you can use RBAC to restrict tenants' access to the appropriate namespaces and ensure that cluster-wide resources can only be accessed or modified by privileged users such as cluster administrators. For more information, see [Access Controls](https://kubernetes.io/docs/concepts/security/multi-tenancy/#access-controls) under Kubernetes documentation.
-
-### Quotas
-
-Kubernetes workloads consume node resources, like CPU and memory. In a multitenant environment, you can use [Resource Quotas](/docs/concepts/policy/resource-quotas/) to manage resource usage of tenant workloads and avoid the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). For the multiple teams use case, where tenants have access to the Kubernetes API, you can use resource quotas
-to limit the number of API resources (for example, the number of Pods or the number of ConfigMaps) that a tenant can create. Limits on object count ensure fairness and aim to avoid [noisy neighbor issues](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) from affecting other tenants that share a control plane.
-
-Resource quotas are namespaced objects. By mapping tenants to distinct namespaces, cluster administrators can use resource quotas to ensure that a tenant cannot monopolize a cluster's resources, such as agent nodes' CPU, memory, and network bandwidth, or overwhelm its control plane. In addition, while Kubernetes resource quotas only apply within a single namespace, some namespace management tools allow groups of namespaces to share the same quotas, giving administrators far more flexibility with less effort than built-in quotas.
-
-When you apply a resource quota to a namespace, Kubernetes requires you to specify resource requests and limits for each container. Limits represent the upper bound for the number of resources a container can consume. Containers that attempt to consume resources that exceed the configured limits will either be throttled or killed based on the resource type. When resource requests are set lower than limits, each container is guaranteed the requested amount, but there could still be some potential for impact across workloads.
-
-Resource quotas cannot protect against all kinds of resource sharing, such as network traffic. In this case, node isolation could be a better solution to this issue. 
-
-For more information, see [Quotas](https://kubernetes.io/docs/concepts/security/multi-tenancy/#quotas) nder Kubernetes documentation.
+- [Namespaces](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces)
+- [Access Controls](https://kubernetes.io/docs/concepts/security/multi-tenancy/#access-controls)
+- [Quotas](https://kubernetes.io/docs/concepts/security/multi-tenancy/#quotas)
 
 ## Data plane isolation
 
@@ -110,44 +78,36 @@ Data plane isolation guarantees that pods and workloads of distinct tenants are 
 
 ### Network isolation
 
-When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. You should apply the [Principle of Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster.
+When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. By default, all pods in an AKS cluster can send and receive traffic without restrictions, including other applications sharing the same cluster. To improve security, you can define network rules to control the flow of traffic. Network Policy is a Kubernetes specification that defines access policies for communication between Pods. You can use [Network Policies](/docs/concepts/services-networking/network-policies/) to segregate communications between tenant applications that share the same cluster.
 
-By default, all pods in a Kubernetes cluster are allowed to communicate with each other, and all network traffic is unencrypted. This approach can quickly lead to security vulnerabilities where traffic is accidentally or maliciously sent to an unintended destination or gets intercepted by a workload on a compromised agent node.
-
-You can control service-to-service communications using [Network Policies](/docs/concepts/services-networking/network-policies/), which restrict communication between pods using namespace labels or IP address ranges. In a multitenant environment where strict network isolation between tenants is required,  we recommend starting with a default policy that denies communication between pods and creating another rule that allows all pods to query the DNS server for name resolution. With such a default policy in place, you can begin adding more permissive rules that allow for communication within a namespace. 
-
-Network policies require a [CNI plugin](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#cni) that supports the implementation of network policies. You can choose a network policy option when you create a new AKS cluster. You can't change a policy option after provisioning the cluster. Azure Kubernetes Service (AKS) provides two ways to implement network policies:
+Azure Kubernetes Service (AKS) provides two ways to implement network policies:
 
 1. Azure has its implementation for network policies, called Azure Network Policies.
 2. [Calico Network Policies](https://projectcalico.docs.tigera.io/security/calico-network-policy) is an open-source network and network security solution founded by [Tigera](https://www.tigera.io/).
 
-Both implementations use Linux IPTables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules. You can use Azure Network Policies only with AKS clusters configured the [Azure CNI](/azure/aks/configure-azure-cni) network plugin, while Calico Network Policies support both [Azure CNI](/azure/aks/configure-azure-cni) and [kubenet](/azure/aks/use-network-policies). For more information, see [/azure/aks/use-network-policies](/azure/aks/use-network-policies).
-
-You can implement more advanced network isolation by using a service mesh like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), or [Open Service Mesh](https://openservicemesh.io/), which provides Layer 7 network policies based on workload identity. These higher-level policies can make it easier to manage namespace-based multitenancy, primarily when multiple namespaces are dedicated to a single tenant. They frequently also offer encryption using mutual TLS, protecting your data even in the presence of a compromised node, and work across dedicated or virtual clusters. However, they can be significantly more complex to manage and could not be appropriate for all users.
+Both implementations use Linux IPTables to enforce the specified policies. Network policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules. You can use Azure Network Policies only with AKS clusters configured with the [Azure CNI](/azure/aks/configure-azure-cni) network plugin, while Calico Network Policies support [Azure CNI](/azure/aks/configure-azure-cni) and [kubenet](/azure/aks/use-network-policies). For more information, see [/azure/aks/use-network-policies](/azure/aks/use-network-policies).
 
 For more information, see [Network isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#network-isolation) under Kubernetes documentation.
 
 ### Storage isolation
 
-Azure provides a rich set of managed, platform-as-a-service (PaaS) data repositories such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction) and other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. In a multitenant scenario, different tenant applications running on AKS can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores), or they can use [a dedicated data repository and storage resource](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information on different strategies and approaches to manage data in a multitenant scenario, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
+Azure provides a rich set of managed, platform-as-a-service (PaaS) data repositories such as [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction) and other storage services that you can use as [persistent volumes](/azure/aks/concepts-storage#volumes) for your workloads. Tenant applications running on a shared AKS cluster can [share a database or file store](/azure/architecture/guide/multitenant/approaches/storage-data#shared-multitenant-databases-and-file-stores), or they can use [a dedicated data repository and storage resource](/azure/architecture/guide/multitenant/approaches/storage-data#multitenant-app-with-dedicated-databases-for-each-tenant). For more information on different strategies and approaches to manage data in a multitenant scenario, see [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data).
 
 Workloads running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) can also use persistent volumes to store data. On Azure, you can create [persistent volumes](/azure/aks/concepts-storage#volumes) as Kubernetes resources backed by Azure Storage. You can manually create data volumes and assign them to pods directly or have AKS automatically create them using [persistent volume claims](/azure/aks/concepts-storage#persistent-volume-claims). AKS provides built-in storage classes to create persistent volumes backed by [Azure Disks](/azure/virtual-machines/disks-types), [Azure Files](/azure/storage/files/storage-files-planning), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels). For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). For security and resiliency reasons, you should avoid using local storage on agent nodes via [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) and [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir).
 
-[Storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) allow you to describe custom storage classes to meet different tenants needs in terms of service level agreement (SLA), backup policies, pricing tier. For more information on built-in AKS storage classes and custom classes, see [Storage classes](/azure/aks/concepts-storage#storage-classes).
+When AKS [built-in storage classes](/azure/aks/azure-disk-csi#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes) are not a good fit for one or more tenants, you can build custom [storage classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) to address different tenants requirements in terms of volume size, storage SKU, service level agreement (SLA), backup policies, and pricing tier.
 
-For example, you can configure a separate storage class for each tenant and use this to strengthen isolation. If a storage class is shared, you should set a [reclaim policy of `Delete`](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy) to ensure that a persistent volume cannot be reused across different namespaces.
-
-Pods can request storage using a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). A persistent volume claim is a namespaced resource, which enables isolating portions of the storage system and dedicating it to tenants within the shared Kubernetes cluster. However, it is important to note that a PersistentVolume is a cluster-wide resource and has a lifecycle independent of workloads and namespaces. 
+For example, you can configure a custom storage class for each tenant and use it to apply tags to any persistent volume created in their namespace to charge back their costs to them. For more information on this scenario, see [Use Azure tags in Azure Kubernetes Service (AKS)](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/use-azure-tags-in-azure-kubernetes-service-aks/ba-p/3611583).
 
 For more information, see [Storage isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#storage-isolation) under Kubernetes documentation.
 
 ### Node isolation
 
-Node isolation is another technique that you can use to isolate tenant workloads from each other. With node isolation, a set of agent nodes is dedicated to running only the pods of a particular tenant. This configuration reduces the  [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), as all the pods running on a set of nodes will belong to a single tenant. The risk of information disclosure and data tampering is lower with node isolation because an attacker that manages to get control of a container will only have access to the containers and volumes mounted that belong to a single tenant. In AKS, you can create a dedicated node pool for those tenants that have strict requirements in terms of isolation, security, and performance. You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to constrain tenants pods to run only on a particular set of nodes or node pools.
+Tenant workloads can be configured to run on separate agent nodes to avoid the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and the risk of information disclosure. In AKS, you can create a separate cluster or just a dedicated node pool for those tenants that have strict requirements in terms of isolation, security, regulatory compliance, and performance. You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to constrain tenants pods to run only on a particular set of nodes or node pools.
 
-Although workloads from different tenants are running on different nodes, it is important to be aware that the kubelet and (unless using virtual control planes) the Kubernetes API service are still shared services. A skilled attacker could use the permissions assigned to the kubelet or other pods running on the node to move laterally within the cluster and gain access to tenant workloads running on other nodes. If this is a major concern, consider segregating tenants into separate AKS clusters.
+Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Node isolation is strictly related ot the tenancy model adopted by your solution. 
 
-Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Node isolation is strictly related ot the tenancy model adopted by your solution. For more information, see [Node Isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation) under Kubernetes documentation.
+For more information, see [Node Isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation) under Kubernetes documentation.
 
 ## Tenancy models
 
