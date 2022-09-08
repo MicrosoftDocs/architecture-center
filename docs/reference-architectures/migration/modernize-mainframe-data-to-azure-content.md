@@ -1,21 +1,4 @@
-Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
-
-Successful modernizations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data, rather than the new system. Data management is no longer merely an item on the modernization checklist. Instead, the data becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
-
-This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources. The solution uses Azure data platform components in a data-first approach. Specifically, the plan involves:
-
-- **Object conversion**: Converting object definitions from the source data store to corresponding objects in the target data store.
-- **Data ingestion**: Connecting to the source data store and extracting data.
-- **Data transformation**: Transforming extracted data into appropriate target data store structures.
-- **Data storage**: Loading data from the source data store to the target data store, both initially and continually.
-
-## Potential use cases
-
-Mainframe and midrange customers can benefit from this solution, especially when targeting these goals:
-
-- Modernize mission-critical workloads.
-- Acquire business intelligence to improve operations and gain a competitive advantage.
-- Escape the high costs and rigidity associated with mainframe and midrange data stores.
+This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources.
 
 ## Architecture
 
@@ -169,7 +152,30 @@ The solution uses the following components.
 - When you use the Data Provider for Host Files client to convert data, [turn on connection pooling][Configure HIS component for performance] to reduce connection startup time.
 - When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
+## Scenario Details
+
+Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
+
+Successful modernizations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data, rather than the new system. Data management is no longer merely an item on the modernization checklist. Instead, the data becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
+
+The solution uses Azure data platform components in a data-first approach. Specifically, the plan involves:
+
+- **Object conversion**: Converting object definitions from the source data store to corresponding objects in the target data store.
+- **Data ingestion**: Connecting to the source data store and extracting data.
+- **Data transformation**: Transforming extracted data into appropriate target data store structures.
+- **Data storage**: Loading data from the source data store to the target data store, both initially and continually.
+
+## Potential use cases
+
+Mainframe and midrange customers can benefit from this solution, especially when targeting these goals:
+
+- Modernize mission-critical workloads.
+- Acquire business intelligence to improve operations and gain a competitive advantage.
+- Escape the high costs and rigidity associated with mainframe and midrange data stores.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when considering this architecture.
 
@@ -177,12 +183,17 @@ Keep these points in mind when considering this architecture.
 
 When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
-### Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files Security and Protection][Data Providers for Host Files Security and Protection] to improve security.
 
-## Pricing
+### Cost Optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
 ## Next steps
