@@ -41,8 +41,6 @@ You can use this solution to modernize your workplace and improve employee and c
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-
 Consider these points when implementing this solution:
 
 ### Availability
@@ -57,8 +55,6 @@ The availability of this solution depends on the availability of its main compon
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-> This section includes identity and data sovereignty considerations.
 
 This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure services in the architecture. You can manage permissions via Azure AD authentication or role-based access control.
 
@@ -83,6 +79,8 @@ For information about resiliency for other services, see these checklists:
 - [Azure Synapse Analytics](../../checklist/resiliency-per-service.md#azure-synapse-analytics)
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs of the services in this architecture.
 
