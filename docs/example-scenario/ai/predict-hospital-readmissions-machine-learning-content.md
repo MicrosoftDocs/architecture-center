@@ -1,19 +1,4 @@
-As healthcare and life science organizations strive to provide a more personalized experience for patients and caregivers, they're challenged to use data from legacy systems to provide predictive insights that are relevant, accurate, and timely. Data collection has moved beyond traditional operational systems and electronic health records (EHRs), and increasingly into unstructured forms from consumer health apps, fitness wearables, and smart medical devices. Organizations need the ability to quickly centralize this data and harness the power of data science and machine learning to stay relevant to their customers.
-
-To achieve these objectives, healthcare and life science organizations should aim to:
-
-- Create a data source from which predictive analytics can provide real-time value to healthcare providers, hospital administrators, drug manufacturers, and others.
-- Accommodate their industry subject matter experts (SMEs) that don't have data science and machine learning skills.
-- Provide to data science and machine learning (ML) SMEs the flexible tools that they need to create and deploy predictive models efficiently, accurately, and at scale.
-
 This architecture provides a predictive health analytics framework in the cloud to accelerate the path of model development, deployment, and consumption.
-
-## Potential use cases
-
-- Predict hospital readmissions
-- Accelerate patient diagnosis through ML-powered imaging
-- Perform text analytics on physician notes
-- Predict adverse events by analyzing remote patient monitoring data from the Internet of Medical Things (IoMT)
 
 ## Architecture
 
@@ -80,7 +65,26 @@ Although this list provides a comprehensive view of all the potential roles that
 
 - **Machine Learning:** H2O.ai, DataRobot, Dataiku, and other vendors offer automated machine learning capabilities that are similar to Machine Learning AutoML. You can use such platforms to supplement Azure data engineering and machine learning activities.
 
+## Scenario details
+
+As healthcare and life science organizations strive to provide a more personalized experience for patients and caregivers, they're challenged to use data from legacy systems to provide predictive insights that are relevant, accurate, and timely. Data collection has moved beyond traditional operational systems and electronic health records (EHRs), and increasingly into unstructured forms from consumer health apps, fitness wearables, and smart medical devices. Organizations need the ability to quickly centralize this data and harness the power of data science and machine learning to stay relevant to their customers.
+
+To achieve these objectives, healthcare and life science organizations should aim to:
+
+- Create a data source from which predictive analytics can provide real-time value to healthcare providers, hospital administrators, drug manufacturers, and others.
+- Accommodate their industry subject matter experts (SMEs) that don't have data science and machine learning skills.
+- Provide to data science and machine learning (ML) SMEs the flexible tools that they need to create and deploy predictive models efficiently, accurately, and at scale.
+
+### Potential use cases
+
+- Predict hospital readmissions
+- Accelerate patient diagnosis through ML-powered imaging
+- Perform text analytics on physician notes
+- Predict adverse events by analyzing remote patient monitoring data from the Internet of Medical Things (IoMT)
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
@@ -100,13 +104,17 @@ Providing real-time clinical data and insights is critical for many healthcare o
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Healthcare data often includes sensitive protected health information (PHI) and personal information. The following resources are available to secure this data:
 
 - Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](/azure/storage/blobs/data-lake-storage-access-control-model).
 - Synapse Analytics provides a number of [access and security controls](/azure/azure-sql/database/logins-create-manage?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) at the database, column, and row levels. Data can also be protected at the cell level and through [data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&tabs=azure-portal&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 - Data Factory provides a [basic security infrastructure](/azure/data-factory/data-movement-security-considerations) for data movement in both hybrid and cloud scenarios.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Pricing for this solution is based on:
 
