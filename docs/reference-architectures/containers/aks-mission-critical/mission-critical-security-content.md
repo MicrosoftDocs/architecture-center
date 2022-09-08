@@ -45,7 +45,7 @@ Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts 
 > [!NOTE]
 > This workload doesn't use certificates, but the same principles apply.
 
-The [**Azure Key Vault Provider for Secrets Store**](/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secret. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
+The [**Azure Key Vault Provider for Secrets Store**](/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secrets. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
 
 ```yml
 #
@@ -113,9 +113,35 @@ The combination of CSI driver's auto reload and `reloadOnChange: true` ensures t
 The exception is the storage of **sensitive values** for the pipelines. These values are stored as secrets in Azure DevOps variable groups.
 
 
-# topics
+## Container security
 
-- container hardening
+Securing container images (also referred to as 'hardening') is important aspect of every containerized workload.
+
+The application Docker containers, used in the reference implementation, are based on **runtime images**, not SDK, to minimize footprint and potential attack surface.
+
+The application runs under a **non-root user**:
+
+```dockerfile
+RUN groupadd -r workload && useradd --no-log-init -r -g workload workload
+USER workload
+```
+
+Read-only filesystem and non-privileged execution is configured with Helm:
+
+```yaml
+#
+# /src/app/charts/backgroundprocessor/values.yaml
+#
+containerSecurityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+```
+
+
+- container scanning
+- using private registry
+
 
 
 ## Verify explicitly
