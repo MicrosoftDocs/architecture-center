@@ -34,6 +34,20 @@ Continuous Integration and Continuous Deployment (CI/CD) enables the proper depl
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
+### Application Changes
+
+All changes to the application code should be deployed through CI/CD. The code should be built, linted and tested against regressions. Application dependencies, such as runtime environment or packages should be monitored, with updates deployed via CI/CD.
+
+### Infrastructure Changes
+
+Infrastructure should be modeled and provisioned as code. This practice is commonly referred to as Infrastructure as Code (IaC). All changes to the IaC should be deployed through the CI/CD pipelines. Updates to the infrastructure, such as patching the OS should also be managed via CI/CD pipelines.
+
+Long-lived resources such as databases should have a resource lock placed on them, preventing their inadvertent deletion. Short-lived, ephemeral resources shouldn't have locks, as that causes unnecessary overhead for deployment pipelines.
+
+### Configuration Changes
+
+Configuration changes are a common cause of application outages. To combat these outages, configuration for application or infrastructure should be captured as code. This practice is known as Configuration as Code (CaC). Changes to CaC should be deployed via CI/CD pipelines.
+
 ### Library/SDK updates
 
 For mission-critical applications, it's critical that source code and dependencies are updated when new versions become available. The recommended approach is to take advantage of configuration management change process in the source code repository. It should be configured to automatically create Pull Requests for various dependency updates, such as:
@@ -78,20 +92,6 @@ The following is Azure mission critical tested and documented approach for rotat
    ```
 
 5. Change the IaC template back to use the primary API key for future deployments. Alternatively, you can continue to use the secondary key and switch back to the primary API key when to the time comes to renew the secondary.
-
-### Application Changes
-
-All changes to the application code should be deployed through CI/CD. The code should be built, linted and tested against regressions. Application dependencies, such as runtime environment or packages should be monitored, with updates deployed via CI/CD.
-
-### Infrastructure Changes
-
-Infrastructure should be modeled and provisioned as code. This practice is commonly referred to as Infrastructure as Code (IaC). All changes to the IaC should be deployed through the CI/CD pipelines. Updates to the infrastructure, such as patching the OS should also be managed via CI/CD pipelines.
-
-Long-lived resources such as databases should have a resource lock placed on them, preventing their inadvertent deletion. Short-lived, ephemeral resources shouldn't have locks, as that causes unnecessary overhead for deployment pipelines.
-
-### Configuration Changes
-
-Configuration changes are a common cause of application outages. To combat these outages, configuration for application or infrastructure should be captured as code. This practice is known as Configuration as Code (CaC). Changes to CaC should be deployed via CI/CD pipelines.
 
 ### Alerts
 
@@ -146,3 +146,6 @@ Restoring from a periodic backup can only be accomplished via a support case. Th
 ### Quota Increases
 
 Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For non-adjustable quotas you, need to submit a support request. The Azure support team will work with you to find a solution.
+
+> [!IMPORTANT]
+> See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
