@@ -1,20 +1,24 @@
-This article guides you in choosing a hybrid solution to fit your business needs.
+Azure has several solutions that can host applications and workloads, extend services, and provide security and operational tooling for hybrid environments. Hybrid solutions range from hardware to host traditional IT apps and databases, to integrated platform-as-a-service (PaaS) solutions for on-premises, edge, and multicloud scenarios. This guide helps you choose a hybrid solution that meets your business requirements.
 
-A hybrid environment combines public cloud services with on-premises infrastructure. A hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
+## Hybrid concepts
 
-Azure provides several platform-as-a-service (PaaS), hardware, and software solutions that host applications and workloads, extend services, and provide security and operational tooling for on-premises, edge, and multicloud hybrid scenarios.
+Hybrid environments include the following types of hosting locations and infrastructure:
 
-- *Edge* hybrid environments, such as internet of things (IoT), host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
+- *Hybrid cloud* environments combine public cloud services with on-premises infrastructure. This hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
 
-- *Multicloud* hybrid environment use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. This approach usually requires cloud-specific knowledge, and adds complexity in management, operations, and security.
+- *Edge* environments, such as internet of things (IoT), host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
+
+- *Multicloud* hybrid environments use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. This approach usually requires cloud-specific knowledge, and adds complexity in management, operations, and security.
 
 Hybrid solutions encompass a system's [control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane).
 
-- The *control plane* refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane. Hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances.
+- The *control plane* refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane.
 
-- The *data plane* uses the capabilities of the resource instances the control plane creates. For example, you use the data plane when you access Azure VMs over remote desktop protocol (RDP).
+- The *data plane* uses the capabilities of resource instances that the control plane creates. For example, you use the data plane when you access Azure VMs over remote desktop protocol (RDP).
 
-## Choose a hybrid solution
+Azure hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances.
+
+## Hybrid considerations
 
 A hybrid solution must consider requirements and constraints for hardware, hosting location, application or workload type, and developer operations (DevOps). Solutions must also meet organizational and industry standards and regulations.
 
@@ -26,16 +30,15 @@ Hybrid solution considerations include:
 
 - Workload type: Consider whether the workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside of Azure datacenters can host hybrid workloads.
 
-All factors are important for the final decision, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different starting points. Developers and DevOps teams might emphasize criteria like mass deployments and restricted vs. purpose-built hardware. System administrators might focus on hosting location or hardware and hypervisor usage.
+All these factors are important for the final solution, but depending on requirements, background, and expertise, organizations and teams might start from different perspectives. approach solution evaluation from different starting points. Developers and DevOps teams might focus on mass deployments and restricted or purpose-built hardware. Systems administrators might focus on hosting location or hardware and hypervisor usage.
 
-Some organizations and teams might start with their hardware and hosting requirements and constraints. Other organizations might start by investigating various PaaS and cloud service capabilities from an application and workload perspective. The following sections present hybrid solution decision trees from both the hardware and services perspectives.
+Some organizations and teams might start with their hardware and hosting requirements and constraints. Others might start by investigating the PaaS and cloud service capabilities from an application and workload perspective. The following sections present hybrid solution decision trees from both the hardware and services perspectives.
 
 ## Start with hardware
 
-The following hybrid solution decision tree starts with a hardware deployment and hosting model, and proceeds through decision points to select an appropriate Azure hybrid solution. The three deployment choices are existing or custom hardware, another public cloud, or Microsoft-specified deployments.
+The following hybrid solution decision tree starts with a deployment and hosting model, and proceeds through decision points to select an appropriate Azure hybrid solution. The three deployment choices are existing or custom hardware, other public clouds, or Microsoft-specified deployments.
 
 [ ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png) ](./images/hybrid-decision-tree.png#lightbox)
-
 
 For **existing or custom** deployments:
 
@@ -94,7 +97,7 @@ The following hybrid solution decision tree starts with Azure services, and desc
 - [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 - [Introduction to hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid)
-- [Introduction to Azure hybrid cloud services (Training module)](/training/modules/intro-to-azure-hybrid-services)
+- [Introduction to Azure hybrid cloud services (Learn module)](/training/modules/intro-to-azure-hybrid-services)
 
 ## Related resources
 
