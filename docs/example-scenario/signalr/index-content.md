@@ -16,11 +16,11 @@ This scenario describes how to architect a solution that processes changes to un
 
 ### Alternatives
 
-Alternatives exist to address this scenario, including [Pusher](https://pusher.com/). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
+Alternatives exist to address this scenario, including [Pusher](https://pusher.com). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
 
-There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
+There's also [PubNub](https://pubnub.com). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
 
-[Ably](https://ably.com/) is another alternative. Serverless pub/sub messaging, which scales reliably with your needs, delivered at the edge over WebSockets. The Ably platform provides a highly available, elastically scalable & globally distributed realtime infrastructure - at the call of an API. 
+[Ably](https://ably.com) is another alternative. It provides serverless publish/subsccribe (pub/sub) messaging, which scales reliably with your needs. The messaging is delivered at the edge using WebSockets. The Ably platform provides a highly available, elastically scalable, and globally distributed real-time infrastructure, at the call of an API.
 
 Although Pusher, PubNub, and Ably are the most widely adopted platforms for real-time messaging, for this scenario, you'll do everything in Azure. We recommend SignalR as the go-to platform, because it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9&nbsp;thousand GitHub stars and 2.2&nbsp;thousand GitHub forks.
 
