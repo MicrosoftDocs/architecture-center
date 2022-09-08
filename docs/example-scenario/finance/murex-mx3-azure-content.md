@@ -33,7 +33,7 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. Th
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy): Use Azure Policy to create, assign, and manage policy definitions in your Azure environment.
 - [Azure Backup](https://azure.microsoft.com/services/backup): Azure Backup is a cost-effective, secure, one-click backup solution that’s scalable based on your backup storage needs.
 
-## Scenario Details
+## Scenario details
 
 Murex is a leading global software provider of trading, risk management, processing operations, and post-trade solutions for capital markets. Many banks deploy Murex's third generation platform MX.3 to manage risk, accelerate transformation, and simplify compliance, all while driving revenue growth. The Murex platform enables customers to gain greater control of their operations, improve efficiency, and reduce operational cost.
 
