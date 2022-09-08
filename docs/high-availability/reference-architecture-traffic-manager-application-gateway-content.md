@@ -19,7 +19,7 @@ This is reference architecture for highly-resilient, multi-tier applications. It
 
 - The business tier processes the user interactions and determines the next steps. It connects the web and data tiers. The VMs in the business tier route traffic to the availability group listener of the databases.
 
-- The data tier stores the application data, typically in a database, object storage, or files. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+- The data tier stores the application data, typically in a database, object storage, or files. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
 
 ### Components
 
@@ -208,7 +208,7 @@ The benefits of VMSSs are:
 - Allows your application to automatically scale as resource demand changes
 - Works at large-scale
 
-For more information, see [virtual machine scale sets](azure/virtual-machine-scale-sets)
+For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview)
 
 ## Next steps
 
