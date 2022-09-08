@@ -157,9 +157,10 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
 ## Related resources
+
 Explore related architectures: 
-- [Manage configurations for Azure Arc-enabled servers](https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes)
+- [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
 
 [agent-prerequisites]: /azure/azure-arc/servers/prerequisites#azure-resource-providers
 [agent-overview]: /azure/azure-arc/servers/agent-overview
