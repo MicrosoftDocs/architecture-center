@@ -1,5 +1,5 @@
 
-This is reference architecture for highly-resilient, multi-tier applications. It uses cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
+This reference architecture is for highly resilient, multi-tier applications. It describes cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
 
 ## Architecture
 
@@ -186,7 +186,7 @@ You can use [service tags](/azure/virtual-network/service-tags-overview) to defi
 
 ## Cost optimization
 
-Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have a hourly charge but only charge on outbound data.  virtual network peering over a VPN gateway. Peering  high-availability deployment that uses multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
+Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.  virtual network peering over a VPN gateway. Peering  high-availability deployment that uses multiple Azure Regions makes use of virtual network peering. The charges for virtual network peering within the same region aren't the same as charges for global virtual network peering.
 
 Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
