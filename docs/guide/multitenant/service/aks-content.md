@@ -10,17 +10,13 @@ The first step to determining how to share an AKS cluster across multiple tenant
 
 ### Multiple teams
 
-A common form of multitenancy is to share a cluster between multiple teams within an organization, each of whom can deploy, monitor, and operate one or more solutions. These workloads frequently need to communicate with each other and with other internal or external applications located on the same cluster or other hosting platforms.
-
-In addition, these workloads need to communicate with services such as a relational database, a NoSQL repository, or a messaging system hosted in the same cluster or running as PaaS services on Azure.
-
-In this scenario, members of the teams often have direct access to Kubernetes resources via tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/), or indirect access through GitOps controllers, such as [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/en/stable/), or other types of release automation tools.
+Multiple teams or divisions within an organization share a Kubernetes cluster to deploy, run, and monitor their workloads. Team users have direct access to their Kubernetes resources, usually organized and segregated in separate namespaces, using tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/) and [Helm](https://helm.sh/), DevOps systems such as [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) or [GitHub Actions](https://docs.github.com/en/actions), or indirect access using GitOps systems such as [Argo CD](https://argo-cd.readthedocs.io/en/stable/) or [Flux](https://fluxcd.io/).
 
 For more information on this scenario, see [Multiple teams](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-teams) under Kubernetes documentation.
 
 ### Multiple customers
 
-Another common form of multitenancy frequently involves a Software-as-a-Service (SaaS) vendor or a service provider running multiple instances of a workload for their customers, which are considered separate tenants. In this scenario, the customers do not have direct access to the AKS cluster but only to their application. Moreover, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern, and service providers use Kubernetes policies such as [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to ensure that the workloads are strongly isolated from each other. 
+A Kubernetes cluster is shared by multiple per-customer instances of a software-as-a-service (SaaS) application. Tenants do not have direct access to the cluster and Kubernetes resources.
 
 For more information on this scenario, see [Multiple customers](https://kubernetes.io/docs/concepts/security/multi-tenancy/#multiple-customers) under Kubernetes documentation.
 
@@ -32,7 +28,7 @@ Cluster multitenancy is an alternative to managing many single-tenant dedicated 
 
 When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
 
-Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy. 
+Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy.
 
 - Soft multitenancy is suitable within a single enterprise where tenants are different teams or departments that trust each other. In this scenario, isolation aims to guarantee workloads integrity, orchestrate cluster resources across different internal user groups, and defend against possible security attacks.
 - Hard multi tenancy is used to describe scenarios where heterogeneous tenants do not trust each other, often from security and resource-sharing perspectives.
@@ -47,7 +43,7 @@ When you plan to build a multitenant [Azure Kubernetes Service](/azure/aks/intro
 
 In addition, you should consider the security implications of sharing different resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent specific workloads from being collocated. For example, you might not allow untrusted code from outside your organization to run on the same node as containers that process sensitive information.
 
-Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac) (RBAC) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
+Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that could be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their namespaces. You can then use [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac) (RBAC) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
 ![Multitenancy](./media/aks/namespaces.png)
 
@@ -59,7 +55,7 @@ Isolation at the control plane level guarantees that different tenants cannot ac
 
 ### Namespaces
 
-According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces), a [namespace](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-namespace) is an abstraction used to support isolation of groups of resources within a single cluster. This isolation has two main dimensions:
+According to the [Kubernetes documentation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#namespaces), a [namespace](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-namespace) is an abstraction used to support isolation of groups of resources within a single cluster. Resources in different names can share the same name without the risk of ambiguity. 
 
 1. Object names within a namespace can overlap with names in other namespaces, similar to files in folders. This feature allows tenants to name their resources without worrying about any name collisions with other tenants sharing the same cluster. This happens for example when multiple instances of the same application, one for each tenant, are deployed on the same cluster.
 2. Many Kubernetes security policies are scoped to namespaces. For example, [RBAC Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) are namespace-scoped resources. Using RBAC, Users and Service Accounts can be restricted to a namespace.
