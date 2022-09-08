@@ -44,7 +44,7 @@ For other extended or different scenarios, concerns such as transaction privacy 
 - Quorum
 - Hyperledger
 
-## Scenario Details
+## Scenario details
 
 This example scenario is useful for banks or any other institutions that want to establish a trusted environment for information sharing without resorting to a centralized database. In this example, we will describe the scenario in the context of maintaining credit score information between banks, but the architecture can be applied to any scenario where a consortium of organizations want to share validated information with one another without resorting to the use of a central system ran by one single party.
 
