@@ -1,12 +1,12 @@
 
 
-This article compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
+This article compares three options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
 ## VPN connection
 
 A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location. The encrypted traffic goes over the public Internet.
 
-This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you are willing to trade slightly extended latency for the flexibility and processing power of the cloud.
+This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you're willing to trade slightly extended latency for the flexibility and processing power of the cloud.
 
 :::image type="content" source="./images/vpngateway-multisite-connection-diagram.png" alt-text="Diagram of a VPN gateway" lightbox="./images/vpngateway-multisite-connection-diagram.png" :::
 
@@ -32,6 +32,8 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
+:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway" lightbox="./images/expressroute-connection-overview.png" :::
+
 ### Benefits
 
 - Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
@@ -51,11 +53,9 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 ## ExpressRoute with VPN failover
 
-This option combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there is a loss of connectivity in the ExpressRoute circuit.
+This option combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit.
 
 This architecture is suitable for hybrid applications that need the higher bandwidth of ExpressRoute, and also require highly available network connectivity.
-
-:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway" lightbox="./images/expressroute-connection-overview.png" :::
 
 ### Benefits
 
