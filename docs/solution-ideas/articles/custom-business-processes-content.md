@@ -1,13 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface rich user experience. Employ Azure API management and Azure Functions to connect custom APIs, which tap into your legacy systems. By using Azure managed databases and low-code approach to automate tasks, you can lower the overall solution costs while easily building apps that are real-time, resilient, and scalable by default.
+This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface a rich user experience. Employ Azure API management and Azure Functions to connect custom APIs, which tap into your legacy systems. By using Azure-managed databases and a low-code approach to automating tasks, you can lower the overall solution costs while quickly building apps that are real-time, resilient, and scalable by default.
 
 ## Potential use cases
 
-The use of digital workflows isn't limited to any one industry. Document-based digital workflows use the same components but arrange them differently to meet the requirements of a process. Some industries that can benefit from automated processes include:
+The use of digital workflows isn't limited to any one industry. Document-based digital workflows use the same components but arrange them differently to meet the requirements of a process. Examples of industries that can benefit from automated processes include, but are not limited to:
 
 - Manufacturing
 - Healthcare
+- Education
 - Finance
 - Law Firms
 - Airlines (aerospace)
@@ -22,11 +23,11 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 
 The data flows through the solution as follows:
 
-1. The airline system assigns flights to Teams channel, which are also displayed in [Power Apps](/power-apps).
+1. The airline system assigns flights to a Teams channel and displays them in [Power Apps](/power-apps).
 1. Custom API Coordinator hosted in [Azure API Management](/azure/api-management) receives notifications and handles incoming messages from the airline system.
-1. When a user selects a flight to monitor or the system assigns the user to a flight, Graph API call is queued for coordinator to process.
+1. When a user selects a flight to monitor or the system assigns the user to a flight, the system queues a Graph API call for a coordinator to process.
 1. [Azure Functions](/azure/azure-functions) runs the Graph API calls, which are stored in [Azure Storage](/azure/storage).
-1. Notifications from airline system are managed by a custom bot messaging service that employs [Azure Bot Service](/azure/bot-service).
+1. The airline's notification system is managed by a custom bot messaging service that employs [Azure Bot Service](/azure/bot-service).
 1. Custom bots send flight updates to users in Teams.
 1. Power BI generates reports from the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction), based on Teams activity.
 
