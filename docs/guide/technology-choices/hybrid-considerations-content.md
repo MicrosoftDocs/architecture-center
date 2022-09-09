@@ -1,4 +1,4 @@
-Azure offers several hybrid solutions that can host applications and workloads, extend Azure services, and provide security and operational tooling for hybrid environments. Hybrid solutions range from hardware that hosts traditional IT apps and databases to integrated platform-as-a-service (PaaS) solutions for on-premises, edge, and multicloud scenarios. This guide helps you choose a hybrid solution that meets your business requirements.
+Azure offers several hybrid solutions that can host applications and workloads, extend Azure services, and provide security and operational tooling for hybrid environments. Azure hybrid services range from virtualized hardware that hosts traditional IT apps and databases to integrated platform-as-a-service (PaaS) solutions for on-premises, edge, and multicloud scenarios. This guide helps you choose a hybrid solution that meets your business requirements.
 
 ## Hybrid concepts
 
@@ -14,48 +14,49 @@ Hybrid solutions encompass a system's [control plane and data plane](/azure/azur
 
 - The *control plane* refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane.
 
-- The *data plane* uses the capabilities of resource instances that the control plane creates. For example, you use the data plane when you access Azure VMs over remote desktop protocol (RDP).
+- The *data plane* uses the capabilities of resource instances that the control plane creates, such as accessing Azure VMs over remote desktop protocol (RDP).
 
-Azure hybrid solutions can expand Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances, to extend data plane capabilities.
+Azure hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances, to provide data plane capabilities.
 
 ## Hybrid considerations
 
-A hybrid solution must consider hardware requirements and constraints, hosting and deployment location, application or workload type, and developer operations (DevOps). Hybrid solutions must also meet organizational and industry standards and regulations, and follow guidelines for cost, reliability, security, and performance.
-
-Hybrid solution considerations include:
+A hybrid solution decision must consider hardware, hosting and deployment, and application or workload requirements and constraints. Hybrid solutions must also support developer operations (DevOps) and comply with organizational and industry standards and regulations.
 
 ### Hardware
 
-Depending on the type of workload, you might need traditional datacenter hardware where you can run VMs, containers, and databases. For other scenarios, like IoT deployments, a restricted hardware device is a better fit and can run on rack, portable, or ruggedized servers.
+Depending on workload type, you might need traditional datacenter hardware that can run VMs, containers, and databases. For other scenarios, like IoT deployments, restricted hardware devices are a better fit and can run on rack, portable, or ruggedized servers.
 
-Consider whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios buy new hardware or use hardware as a service with a monthly fee.
+Consider whether to refresh, repurpose, or replace existing hardware. Brownfield scenarios use existing hardware in modern hybrid workload approaches. Greenfield scenarios acquire new hardware or use hardware as a service with a monthly fee.
 
 ### Hosting and deployment
 
 Consider whether to use on-premises datacenter, edge, Azure cloud, or multicloud hosting with a consistent cloud-native technology approach. Business, compliance, cost, or security requirements might determine hosting location.
-A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments on containers or to distributed devices.
 
-Complex, large-scale deployments must be designed with the ability to massively scale implementation. These types of deployments might address concerns like business continuity differently from traditional IT.
+A large-scale application deployment is different from smaller-scale implementations. A traditional IT deployment to VMs and databases is different from deployments to containers or distributed devices.
+
+Distributed, complex, large-scale deployments must be able to massively scale service implementation, and might address concerns like business continuity differently than in traditional IT.
 
 ### Application or workload
 
-Consider whether the workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside of Azure datacenters can host hybrid workloads.
+Consider whether applications or workloads are distributed, containerized, or traditional IT hosted on VMs or databases. [Azure IoT Hub](/azure/iot-hub), [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) clusters, or PaaS solutions outside Azure datacenters can host hybrid workloads.
 
-Traditional applications that runs on VMs benefit from hyperconverged infrastructure (HCI) and Azure operational, security, and management tooling for day-two operations. Cloud-native applications are better suited to run on container orchestrators like AKS and use Azure PaaS solutions.
+Traditional applications that run on VMs benefit from hyperconverged infrastructure (HCI) and Azure operational, security, and management tooling for day-two operations. Cloud-native applications are better suited to run on container orchestrators like AKS and use Azure PaaS solutions.
 
 If you need to deploy models built and trained in the cloud and run them on-premises, monitor IoT devices at scale, or provide Azure data transfer options, consider edge deployments and solutions.
 
 ## Choose a hybrid solution
 
-All the preceding factors are important for the final solution, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different perspectives. Some organizations and teams might start with their hardware and hosting requirements and constraints. Others might start by investigating Azure services from an application and workload perspective. DevOps teams might focus on mass deployments and restricted or purpose-built hardware, while systems administrators might emphasize hosting location or hardware and hypervisor usage.
+All the preceding factors are important for the final solution, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different perspectives. Organizations might start with their hardware and hosting requirements and constraints, or by investigating Azure services from an application and workload perspective. DevOps teams might focus on mass deployments and restricted or purpose-built hardware, while systems administrators might emphasize hosting location or hardware and hypervisor usage.
 
-The following sections present a hybrid solution decision tree based on deployment model, and an Azure hybrid service matrix that describing supported workloads, hardware types, and deployment models. The results of these exercises give you a starting point for consideration. Next, carry out a detailed evaluation of the chosen service to see if it meets your needs.
+The following sections present a hybrid solution decision tree based on deployment model, and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to get a starting point for consideration. Carry out a detailed evaluation of the chosen service to see if it meets your needs.
 
 ### Hybrid solution decision tree
 
-The following decision tree starts with choosing a deployment and hosting model: Existing or custom, multicloud, or Azure-specific. The tree proceeds through decision points to select an appropriate Azure hybrid solution.
+The following decision tree starts with choosing from an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid solution.
 
 [ ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png) ](./images/hybrid-decision-tree.png#lightbox)
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/hybrid-decision-tree.pptx) of the diagrams in this article.*
 
 For **existing or custom** deployments:
 
@@ -65,7 +66,9 @@ For **existing or custom** deployments:
 
 1. For **datacenters** and **other public cloud** deployments, determine whether the workload type uses **containers** or traditional IT deployment in **VMs** or **SQL** databases.
 
-1. **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled services. **Container-based** deployments can use Azure Arc-enabled Kubernetes, and **VM-based** deployments can use Azure Arc-enabled servers. **Restricted devices** can use rack, portable, or ruggedized servers for traditional or cloud deployments.
+1. Existing and custom **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Existing and custom traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled servers and services.
+
+1. Multicloud **container-based** deployments can use Azure Arc-enabled Kubernetes, **VM-based** deployments can use Azure Arc-enabled servers. **SQL** database deployments can use Azure Arc-enabled data services.
 
 For **Microsoft-specified** deployments:
 
@@ -110,7 +113,7 @@ The following decision matrix presents supported workloads, hardware capabilitie
 
 **Principal authors:**
 
-- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer | Sr Service Engineer
+- [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Sr Service Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Sr Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

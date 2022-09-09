@@ -19,6 +19,6 @@ products:
   - azure-stack-hub
 name: Azure hybrid options
 summary: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
-thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-choices.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-decision-tree.png
 content: |
   [!include[](hybrid-considerations-content.md)]
