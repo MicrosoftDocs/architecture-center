@@ -2,11 +2,6 @@ Digital forensics is a science that addresses the recovery and investigation of 
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
-## Potential use cases
-
-- A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence
-- Investigators can attach disk copies obtained with this technique on a computer dedicated to forensic analysis, without re-creating, powering on, or accessing the original source VM
-
 ## Architecture
 
 :::image type="content" alt-text="Diagram showing the chain of custody architecture." source="media/chain-of-custody.png" lightbox="media/chain-of-custody.png":::
@@ -79,6 +74,14 @@ If the VM is behind a Firewall (Network Virtual Appliance (NVA), Azure Firewall,
 
 An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) in Azure Monitor stores activity logs to audit all the events on the SOC subscription.
 
+## Scenario details
+
+### Potential use cases
+
+- A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence
+- Investigators can attach disk copies obtained with this technique on a computer dedicated to forensic analysis, without re-creating, powering on, or accessing the original source VM
+
+
 ## Regulatory Compliance
 
 One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
@@ -96,6 +99,8 @@ As an example, the report [Cohasset Assessment - Microsoft Azure WORM Storage](h
 It is Cohasset's opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Consider the following requirements when proving the validity of a CoC:
 

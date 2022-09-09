@@ -363,7 +363,7 @@ You can implement end-to-end TLS traffic all at every hop the way through to the
 
 ### Egress traffic flow
 
-In this architecture, we recommend all egress traffic from the cluster communicating through through Azure Firewall or your own similar network virtual appliance, over other options such as [NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource) or [HTTP proxy](/azure/aks/http-proxy). For zero-trust control and the ability to inspect traffic, all egress traffic from the cluster moves through Azure Firewall. You can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
+In this architecture, we recommend all egress traffic from the cluster communicating through Azure Firewall or your own similar network virtual appliance, over other options such as [NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource) or [HTTP proxy](/azure/aks/http-proxy). For zero-trust control and the ability to inspect traffic, all egress traffic from the cluster moves through Azure Firewall. You can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
 
 An alternative to using Azure Firewall is to utilize AKS's [HTTP Proxy](/azure/aks/http-proxy) feature. All traffic egressing the cluster is set first to the IP address of the HTTP Proxy, which decides to forward the traffic or drop it.
 
@@ -379,7 +379,7 @@ If Private Link or service endpoints aren't an option, you can reach other servi
 
 ### Pod-to-pod traffic
 
-By default, a pod can accept traffic from any other pod in the cluster. Kubernetes `NetworkPolicy` is used to restrict network traffic between pods. Apply policies judiciously, otherwise you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see Network policies.
+By default, a pod can accept traffic from any other pod in the cluster. Kubernetes `NetworkPolicy` is used to restrict network traffic between pods. Apply policies judiciously, otherwise you might have a situation where a critical network flow is blocked. *Only* allow specific communication paths, as needed, such as traffic between the ingress controller and workload. For more information, see [Network policies](/azure/aks/use-network-policies).
 
 Enable network policy when the cluster is provisioned because it can't be added later. There are a few choices for technologies that implement `NetworkPolicy`. Azure Network Policy is recommended, which requires Azure Container Networking Interface (CNI), see the note below. Other options include Calico Network Policy, a well-known open-source option. Consider Calico if you need to manage cluster-wide network policies. Calico isn't covered under standard Azure support.
 
@@ -588,7 +588,7 @@ With AKS, Azure manages some core Kubernetes services and the logs for the AKS c
 
 Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, might be considered an unnecessary cost to ingest and store in Azure Monitor.
 
-While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save amd reuse log queries using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries help enable additional observability into the health and performance of your AKS clusters, and support your service level objectives (SLOs).
+While Azure Monitor includes a set of existing log queries to start with, you can also use them as a foundation to help build your own queries. As your library grows, you can save and reuse log queries using one or more [query packs](/azure/azure-monitor/logs/query-packs). Your custom library of queries help enable additional observability into the health and performance of your AKS clusters, and support your service level objectives (SLOs).
 
 For more information about our monitoring best practices for AKS, see [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
 
