@@ -1,9 +1,5 @@
 Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
 ## Architecture
 
 ![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
@@ -32,6 +28,14 @@ This solution is optimized for the retail industry.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
+
+## Scenario details
+
+For more information about Magento, see [Magento - Get the software](https://devdocs.magento.com/guides/v2.4/install-gde/bk-install-guide.html).
+
+### Potential use cases
+
+This solution is optimized for the retail industry.
 
 ## Considerations
 
