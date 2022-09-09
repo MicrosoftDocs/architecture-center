@@ -6,7 +6,7 @@ This reference architecture illustrates how to design a hybrid update management
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-## Workflow
+### Workflow
 
 The architecture consists of the following services:
 
