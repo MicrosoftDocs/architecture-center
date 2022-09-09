@@ -40,7 +40,7 @@ This solution demonstrates real-time asset tracking and management.
 
 This solution uses Azure IoT Central to receive data from IoT sensors and export it to Azure Event Hubs, which creates data streams. Other Azure services—such as Azure Stream Analytics, Azure Functions, and Azure Notification Hubs—receive the streams. They transform and analyze the streamed data, and create rule-based alerts. They also store the data for use by reporting tools and custom applications.
 
-## Potential use cases
+### Potential use cases
 
 This solution is ideal for the manufacturing and automotive industries. These other use cases have similar design patterns:
 
