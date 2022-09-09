@@ -9,9 +9,9 @@ This architecture gives guidance for building highly resilient, multi-tier appli
 
 ### Workflow
 
-- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway endpoints. The public endpoints of the Application Gateways are the backend endpoints of Traffic Manager . Traffic Manager resolves DNS queries based on your routing method choice. For example, you might direct requests to the user's closest endpoints to improve responsiveness. Traffic Manager load balances through the distribution of endpoint IP addresses. The web browser connects directly to the endpoint. [It doesn't connect through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway endpoints. The public endpoints of the Application Gateways are the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on your routing method choice. For example, you might direct requests to the user's closest endpoints to improve responsiveness. Traffic Manager load balances through the distribution of endpoint IP addresses. The web browser connects directly to the endpoint. [It doesn't connect through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. We deployed the AppGWs to all three zones, so they are zone redundant. The AppGWs distribute traffic across the three zones in the web tier. The Web Application Firewalls (WAFs) inspect traffic and protect the application from web exploits and vulnerabilities.
+- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. We deployed the AppGWs to all three zones, so they're zone redundant. The AppGWs distribute traffic across the three zones in the web tier. The Web Application Firewalls (WAFs) inspect traffic and protect the application from web exploits and vulnerabilities.
 
 - The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateways distribute traffic to each of the three availability zones. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
@@ -68,25 +68,20 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 ### Availability
 
-- Configure the Application Gateway with a minimum of two instances for higher availability.
-
-- Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
-
-- Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations.
+- Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also helps to avoid application downtime if a subsystem of the application fails.
 
 - Use Traffic Manager to fail over to the secondary region if the primary region fails.
-
-- Use multiple regions to avoid application downtime if a subsystem of the application fails.
 
 - Use Region Pairs for the most resiliency. Here are the benefits of Region Pairs:
 
   - Prioritizes one region out of every pair to help reduce the time to restore for applications.
-
   - Roles out planned Azure updates to paired regions one at a time to minimize downtime and risk of application outage.
-
   - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
+  - Make sure that both Region Pairs support all the Azure services that your application needs (see [Services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
 
-- Make sure that both Region Pairs support all the Azure services that your application needs (see [Services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
+- Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
+
+- Configure the Application Gateway with a minimum of two instances to avoid downtime.
 
 - For more information, see:
   - [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
@@ -144,7 +139,6 @@ Familiarize yourself with the health probe policies of the Application Gateway a
 - Load Balancer can evaluate either HTTP or TCP.
 
   - Use an HTTP probe if a VM runs an HTTP server.
-
   - Use TCP for everything else.
 
 - HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application.
@@ -153,9 +147,7 @@ Familiarize yourself with the health probe policies of the Application Gateway a
 For more information, see:
 
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
-
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
-
 - [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ## Operational excellence
