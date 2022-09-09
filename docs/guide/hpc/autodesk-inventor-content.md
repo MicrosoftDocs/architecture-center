@@ -100,3 +100,95 @@ The following table provides results for various BenchMark HD performance indice
 Overall, performance is better on NVadsA10 v5 VMs. The following graphs provide details.
 
 ![Graph that shows the IPI performance details.](media/ipi.png)
+
+![Graph that shows the SPI performance details.](media/spi.png)
+
+![Graph that shows the MPI performance details.](media/mpi.png)
+
+### Results for Inventor Professional 2022, using InvMark
+
+The following table shows the scores of InvMark tests on various sizes of NCasT4 and NVadsA10 v5 VMs:
+
+|VM series|	VM size|	Graphics|	Drawing|	FEA|	Dynamic simulation|	Assembly constraint|	Ray tracing|	Data translation|	Assembly pattern|
+|--|--|--|--|--|--|--|--|--|--|
+|NCasT4|	4 vCPU (1 GPU)	|1412|	567|	901|	1100|	1108|	458	|362	|1003|
+|NCasT4|	8 vCPU (1 GPU)|	1440|	733|	928|	1239	|1144|	897|	622|	1047|
+|NCasT4|	16 vCPU (1 GPU)|	1358|	800|	915|	1217|	1167|	1655	|650	|947|
+|NCasT4|	64 vCPU (4 GPU)|	1060|	848|	810|	953|	1090|	4016|	596|	905|
+|NVadsA10 v5	|6 vCPU (1/6 GPU)|	1629|	844|	1122|	1495|	1439|	695|	891|	1308|
+|NVadsA10 v5	|	18 vCPU (1/2 GPU)|	2934|	1097|	1080|	1588|	1468|	1768|	934|	1145|
+|NVadsA10 v5	|	36 vCPU (1 GPU)	|3180|	1213|	1098|	1608|	1602|	2987|	980|	1252|
+
+ The following table provides results for various InvMark performance indices. A higher number indicates better performance.
+
+|VM series|	VM size|InvMark	|ST score|MT score|
+|--|--|--|--|--|
+|NCasT4	|4 vCPU (1 GPU)|	25300|	9030|	3008|
+|NCasT4	|	8 vCPU (1 GPU)|	32011|	10261|	4833|
+|NCasT4	|	16 vCPU (1 GPU)|	32829|	10107|	5992|
+|NCasT4	|	64 vCPU (4 GPU)|	30353|	8903|	6824|
+|NVadsA10 v5	|6 vCPU (1/6 GPU)|	39439	|12860|	5010|
+|NVadsA10 v5	|	18 vCPU (1/2 GPU)|	43887	|13318|	7789|
+|NVadsA10 v5	|	36 vCPU (1 GPU)|	46389|	13795|	9312|
+
+#### Comparisons, InvMark
+
+Overall, performance is better on NVadsA10 v5 VMs. The following graphs provide details.
+
+![Graph that shows the InvMark performance details.](media/invmark.png)
+![Graph that shows the ST score details.](media/st-score.png)
+![Graph that shows the MT score details.](media/mt-score.png)
+
+## Azure cost
+
+Only total elapsed times, as measured by BenchMark HD, are considered for these cost calculations. Application installation time isn't considered.  
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM series|	VM size|	Number of GPUs|	Total time|
+|--|--|--|--|
+|NCasT4	|NC4as_T4_v3|	1	|6 minutes|
+|NCasT4	|	NC8as_T4_v3|	1	|4 minutes|
+|NCasT4	|	NC16as_T4_v3|	1	|3 minutes, 44 seconds|
+|NCasT4	|	NC64as_T4_v3|	4	|3 minutes, 31 seconds|
+|NVadsA10 v5|	6 vCPU	|1/6|	4 minutes, 2 seconds|
+|NVadsA10 v5|	18 vCPU|	1/2	|2 minutes, 38 seconds|
+|NVadsA10 v5|	36 vCPU	|1	|2 minutes, 19 seconds|
+
+You can use the total time and the Azure hourly cost to compute the cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+## Summary
+
+- Inventor Professional was successfully tested on NCasT4_v3 and NVadsA10 v5 series VMs on Azure.
+- Performance is better on NVadsA10 v5 VMs than it is on NCasT4_v3 VMs. NVadsA10 v5 VMs are also less expensive.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources 
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
+- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
