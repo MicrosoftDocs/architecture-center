@@ -8,9 +8,11 @@ This reference architecture outlines an end-to-end modernization plan for mainfr
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
+### Dataflow
+
 Data modernization involves the following steps. Throughout the process, an on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services (1).
 
-### Object conversion
+#### Object conversion
 
 The object conversion process extracts object definitions from sources. The definitions are then converted into corresponding objects on the target data store (2).
 
@@ -22,11 +24,11 @@ The object conversion process extracts object definitions from sources. The defi
   - Mapping the copybooks to C# objects that .NET applications use.
 - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-### Data ingestion and transformation
+#### Data ingestion and transformation
 
 In the next step, the process migrates data.
 
-#### File data
+##### File data
 
 - Data Provider connects remotely to IBM host file system servers (3a). With non-mainframe systems, Data Provider reads data offline.
 
@@ -40,7 +42,7 @@ In the next step, the process migrates data.
 
 - FTP converts and transfers mainframe and midrange datasets with single layouts and unpacked fields to Azure (3b).
 
-#### Database data
+##### Database data
 
 - IBM mainframe and midrange systems store data in relational databases including:
 
@@ -64,7 +66,7 @@ In the next step, the process migrates data.
 
 Azure services like Data Factory and AzCopy load data into Azure databases and data storage (4). Third-party solutions and custom loading solutions can also load data.
 
-### Data storage
+#### Data storage
 
 Azure offers many managed data storage solutions (5):
 
@@ -82,17 +84,17 @@ Azure offers many managed data storage solutions (5):
   - Azure Data Lake Storage
   - Azure Storage
 
-### Data tier
+#### Data tier
 
 - A range of Azure Services use the modernized data tier for computing, analytics, storage, and networking (6).
 
 - Existing client applications also use the modernized data tier (7).
 
-## Components
+### Components
 
 The solution uses the following components.
 
-### Tools
+#### Tools
 
 - [SSMA for Db2][SQL Server Migration Assistant for Db2] automates migration from Db2 to Microsoft database services. While running on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
 
@@ -111,7 +113,7 @@ The solution uses the following components.
 
 - [Azure Services][Azure Services overview] provide environments, tools, and processes for developing and scaling new applications in the public cloud.
 
-### Data integrators
+#### Data integrators
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
@@ -123,7 +125,7 @@ The solution uses the following components.
   - Cleansing and mining data
   - Managing SQL Server objects and data
 
-### Data store
+#### Data store
 
 - [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL family][Azure SQL] and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
@@ -141,7 +143,7 @@ The solution uses the following components.
 
 - [Azure Storage][Azure Storage] is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
-### Networking
+#### Networking
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 
