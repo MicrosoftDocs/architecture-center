@@ -3,9 +3,9 @@ This architecture gives guidance for building highly resilient, multi-tier appli
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region-2.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+:::image type="content" source="images/high-availability-multi-region-v-4.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-4.vsdx) of this architecture.*
 
 ### Workflow
 
