@@ -6,11 +6,13 @@ This architecture represents a sample end-to-end workflow for predicting hospita
 
 This framework makes use of native Azure analytics services for data ingestion, storage, data processing, analysis, and model deployment.
 
-:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Diagram demonstrates the architecture of a multi-tier app.":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/predict-hospital-readmission-07-23-21.pptx) of this architecture.*
 
-The architecture is described in terms of the roles of the participants.
+### Workflow
+
+The workflow of this architecture is described in terms of the roles of the participants.
 
 1. **Data Engineer:** Responsible for ingesting the data from the source systems and orchestrating data pipelines to move data from the source to the target. May also be responsible for performing data transformations on the raw data.
    - In this scenario, historical hospital readmissions data is stored in an on-premises SQL Server database.
@@ -85,8 +87,6 @@ To achieve these objectives, healthcare and life science organizations should ai
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
