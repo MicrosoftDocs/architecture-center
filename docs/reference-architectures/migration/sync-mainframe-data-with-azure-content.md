@@ -1,5 +1,3 @@
-Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
-
 This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
 
 - Extraction: Connecting to and extracting from a source database.
@@ -121,7 +119,11 @@ The solution uses the following components:
 
 - An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines).
 
-## Potential use cases
+## Scenario details
+
+Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+
+### Potential use cases
 
 Data replication and sync scenarios that can benefit from this solution include:
 
@@ -134,6 +136,8 @@ Data replication and sync scenarios that can benefit from this solution include:
 When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when considering this architecture.
 
