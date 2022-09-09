@@ -7,8 +7,6 @@ Inventor is a 3D CAD application that provides professional-grade mechanical des
 - Accesses the Forge Design Automation API for running job processes in the cloud.
 - Enables Fusion 360/Revit/MCAD interoperability.
  
-Inventor was originally designed as 3D CAD software. iLogic extensions now incorporate modeling from customized form to rapid configuration of new designs.
-
 Inventor software is primarily used by mechanical engineers to quickly model, simulate, and communicate design ideas. It's well-suited to engineers who need automated and specialized tools to design components and prepare them for manufacturing. One of the main use cases is GPU ray tracing, which supports the hardware ray tracing that's used on recent graphics cards (GPUs).
 
 ## Why deploy Inventor on Azure?
@@ -33,7 +31,7 @@ Inventor software is primarily used by mechanical engineers to quickly model, si
 
 ## Compute sizing and drivers
 
-[NCasT4_v3](/azure/virtual-machines/nct4-v3-series) and [NVadsA10](/azure/virtual-machines/nva10v5-series) v5 series VMs were used to test the performance of Inventor on Azure. The Windows operating system was used.  The following table provides the configuration details:
+[NCasT4_v3](/azure/virtual-machines/nct4-v3-series) and [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) series VMs were used to test the performance of Inventor on Azure. The Windows operating system was used.  The following table provides the configuration details:
 
 |VM size|	vCPU|	Memory, in GiB|	Temporary storage (SSD), in GiB|	Number of GPUs|	GPU memory, in GiB|	Maximum data disks|
 |--|--|--|--|--|--|--|
@@ -67,7 +65,7 @@ For installation instructions, see the [Autodesk download and install page](http
 
 Inventor 2022.2.2 Professional and the free trial version of Inventor Professional 2023 were tested.
 
-[BenchMark HD](https://apps.autodesk.com/INVNTOR/en/Detail/Index?id=4347689425693068386&appLang=en&os=Win64&autostart=true) and [InvMark ](https://invmark.cadac.com/#) Inventor add-ons were used to measure specific performance parameters of Inventor Professional on Azure.
+The [BenchMark HD](https://apps.autodesk.com/INVNTOR/en/Detail/Index?id=4347689425693068386&appLang=en&os=Win64&autostart=true) and [InvMark ](https://invmark.cadac.com/#) Inventor add-ons were used to measure specific performance parameters of Inventor Professional on Azure.
 
 ### Results for Inventor Professional 2022, using BenchMark HD
 
@@ -83,7 +81,7 @@ The following table shows elapsed times in seconds for tests on various sizes of
 |NVadsA10 v5|	18 vCPU (1/2 GPU)|	33.811|	23.957|	33.96	|36.669|	23.915|	6.547|
 |NVadsA10 v5|	36 vCPU (1 GPU)|	33.599|	24.426|	33.163|	19.324|	23.134|	6.139|
 
-The following table provides results for various BenchMark HD performance indices. A higher number indicates better performance:
+The following table provides results for various BenchMark HD performance indices. A higher number indicates better performance.
 
 |VM series|	VM size| Inventor PC Index (IPI)| Single-core Performance Index (SPI))| Multi-core Performance Index (MPI)|
 |--|--|--|--|	--|
@@ -155,12 +153,12 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |NVadsA10 v5|	18 vCPU|	1/2	|2 minutes, 38 seconds|
 |NVadsA10 v5|	36 vCPU	|1	|2 minutes, 19 seconds|
 
-You can use the total time and the Azure hourly cost to compute the cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+You can use the total time and the Azure hourly cost to compute the total cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 ## Summary
 
-- Inventor Professional was successfully tested on NCasT4_v3 and NVadsA10 v5 series VMs on Azure.
-- Performance is better on NVadsA10 v5 VMs than it is on NCasT4_v3 VMs. NVadsA10 v5 VMs are also less expensive.
+- Inventor Professional was successfully tested on NCasT4_v3 and NVadsA10_v5 series VMs on Azure.
+- Performance is better on NVadsA10_v5 VMs than it is on NCasT4_v3 VMs. NVadsA10_v5 VMs are also less expensive.
 
 ## Contributors
 
@@ -182,10 +180,10 @@ Other contributors:
 
 ## Next steps
 
-- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Learning path: Run HPC applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources 
 
