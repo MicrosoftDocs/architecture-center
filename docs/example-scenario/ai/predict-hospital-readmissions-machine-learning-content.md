@@ -92,7 +92,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Providing real-time clinical data and insights is critical for many healthcare organizations. Here are ways to minimize downtime and keep data safe:
 
-- Data Lake Storage is always [replicated three times](/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally-redundant storage (LRS) or zone-redundant storage (ZRS).
+- Data Lake Storage is always [replicated three times](/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally redundant storage (LRS) or zone-redundant storage (ZRS).
 - Synapse Analytics provides [database restore points and disaster recovery](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
 - Data Factory data is stored and replicated in an [Azure paired region](/azure/data-factory/concepts-data-redundancy) to ensure business continuity and disaster recovery.
 - Databricks provides [disaster recovery guidance](/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
