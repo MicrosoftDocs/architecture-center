@@ -65,7 +65,9 @@ You can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-
 - You could [allow only Azure services](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services) access the server. However, the allowed traffic would include all Azure regions and other customers.
 - You can also add a more restrictive firewall rule to allow only your app's [outbound IP address](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) access the database. But App Service is a multi-tenant service, and IP addresses are shared with other customers on the same [deployment stamp](../../patterns/deployment-stamp.yml). This configuration would allow traffic from customers that use the same outbound IP address.
 
-## Potential use cases
+## Scenario details
+
+### Potential use cases
 
 - Private connectivity from an Azure App Service to Azure Platform-as-a-Service (PaaS) services.
 - Private connectivity from an Azure App Service to Azure PaaS services that aren't natively deployed in isolated Azure Virtual Networks.
