@@ -62,7 +62,7 @@ The recommended solution described in this reference architecture document isn't
    > [!Note]
   > As of July 2020, using disk snapshots for VM in a running state isn't  supported. Creating a snapshot of a disk attached to a running VM might degrade the performance or impact the availability of the operating system or application in the VM.
 
-- Backup and restore VMs using an external backup solution in the same datacenter followed by the replication of backups to another location. This allows you to restore Azure Stack Hub VMs to the same or a different Azure Stack Hub instance, or to Azure.
+- Back up and restore VMs using an external backup solution in the same datacenter followed by the replication of backups to another location. This allows you to restore Azure Stack Hub VMs to the same or a different Azure Stack Hub instance, or to Azure.
 
 ## Scenario details
 
