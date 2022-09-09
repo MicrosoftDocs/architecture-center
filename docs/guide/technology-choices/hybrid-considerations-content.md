@@ -48,11 +48,11 @@ If you need to deploy models built and trained in the cloud and run them on-prem
 
 All the preceding factors are important for the final solution, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different perspectives. Organizations might start with their hardware and hosting requirements and constraints, or by investigating Azure services from an application and workload perspective. DevOps teams might focus on mass deployments and restricted or purpose-built hardware, while systems administrators might emphasize hosting location or hardware and hypervisor usage.
 
-The following sections present a hybrid solution decision tree based on deployment model, and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to get a starting point for consideration. Carry out a detailed evaluation of the chosen service to see if it meets your needs.
+The following sections present a hybrid solution decision tree based on deployment model, and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to get a starting point for consideration. Then, carry out a detailed evaluation of the chosen service to see if it meets your needs.
 
 ### Hybrid solution decision tree
 
-The following decision tree starts with choosing from an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid solution.
+The following decision tree starts with choosing from an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid service.
 
 [ ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.png) ](./images/hybrid-decision-tree.png#lightbox)
 
@@ -64,13 +64,13 @@ For **existing or custom** deployments:
 
 1. For **restricted** hardware, decide whether the deployment is **mass** or **low scale**.
 
-1. For **datacenters** and **other public cloud** deployments, determine whether the workload type uses **containers** or traditional IT deployment in **VMs** or **SQL** databases.
+1. For **datacenter** and **multicloud** deployments, determine whether the workload type uses **containers** or traditional IT deployment in **VMs** or **SQL** databases.
 
 1. Existing and custom **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Existing and custom traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled servers and services.
 
-1. Multicloud **container-based** deployments can use Azure Arc-enabled Kubernetes, **VM-based** deployments can use Azure Arc-enabled servers. **SQL** database deployments can use Azure Arc-enabled data services.
+1. **Container-based** deployments can use Azure Arc-enabled Kubernetes, **VM-based** deployments can use Azure Arc-enabled servers. **SQL** database deployments can use Azure Arc-enabled data services.
 
-For **Microsoft-specified** deployments:
+For **Azure-specified** deployments:
 
 1. Decide whether you want **hardware as a service** or **Azure datacenter-like** deployments. Azure **datacenter-like** deployments can use [Azure Stack Hub](/azure-stack/operator/azure-stack-overview).
 
