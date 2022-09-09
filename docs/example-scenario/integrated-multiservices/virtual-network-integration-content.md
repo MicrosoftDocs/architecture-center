@@ -73,9 +73,13 @@ Each function app stores its data in an independent [Azure Cosmos DB](https://az
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Consider the following aspects when implementing this solution.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Due to the sensitivity of the data, security is paramount in this solution. The solution uses several mechanisms to protect the data:
 - APIM gateway management
@@ -146,6 +150,8 @@ In this solution, APIM and the function apps use Azure [system-assigned managed 
 - The Audit API function app can get the Cosmos DB connection string for its data store.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 One of the primary benefits of serverless applications like Azure Functions is the cost savings of paying only for consumption, rather than paying up front for dedicated servers. Virtual network support requires the [Azure Functions Premium](https://azure.microsoft.com/pricing/details/functions) plan, at additional charge. Azure Functions Premium has support for regional virtual network integration, while still supporting dynamic scaling. The Azure Functions Premium SKU includes virtual network integration on APIM.
 
