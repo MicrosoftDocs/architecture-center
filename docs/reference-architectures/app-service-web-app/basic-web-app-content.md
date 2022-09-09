@@ -1,4 +1,4 @@
-This reference architecture shows best practices for creating a web application for a single environment. The architecture provides a framework for any basic web application that you can customize to your needs.
+This architecture shows the fundamental components of a basic web application. You can use the architecture to build any basic web application and then customize the application to your needs.
 
 ## Architecture
 
