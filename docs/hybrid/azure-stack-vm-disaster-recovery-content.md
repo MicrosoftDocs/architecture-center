@@ -56,7 +56,7 @@ The recommended solution described in this reference architecture document isn't
    > [!Note]
   > As of July 2020, Azure Site Recovery doesn't support this scenario, which means that the implementation would need to rely on a third party or in-house solution.
 
-- Backup and restore. Backing up your applications and datasets enables you to recover quickly from downtime because of data corruption, accidental deletions, or localized outages. For Azure Stack Hub VM-based applications, you can use an in-guest agent to protect application data, operating system configuration, and data stored on volumes. Backing up a VM using a guest OS agent typically includes capturing operating system configuration, files, folders, volumes, application binaries, and application data. Recovering an application from an agent requires recreating the VM, followed by installing the operating system and the guest agent. At that point, you can restore data into the guest OS.
+- Back up and restore. Backing up your applications and datasets enables you to recover quickly from downtime because of data corruption, accidental deletions, or localized outages. For Azure Stack Hub VM-based applications, you can use an in-guest agent to protect application data, operating system configuration, and data stored on volumes. Backing up a VM using a guest OS agent typically includes capturing operating system configuration, files, folders, volumes, application binaries, and application data. Recovering an application from an agent requires recreating the VM, followed by installing the operating system and the guest agent. At that point, you can restore data into the guest OS.
 - Backup of disk snapshots. It's possible to use snapshots to capture an Azure Stack Hub VM configuration and the disks attached to a stopped VM. This requires backup products that integrate with Azure Stack Hub APIs to capture VM configuration and create disk snapshots.
 
    > [!Note]
@@ -163,7 +163,7 @@ To minimize potential data loss, you might consider:
 
 The primary method of minimizing failover time involves the use of Azure Site Recovery recovery plans. A recovery plan orchestrates a failover between the primary and secondary sites, defining the sequence in which protected servers fail over. You can customize a plan by adding manual instructions and automated tasks. Its purpose is to make the process consistent, accurate, repeatable, and automated.
 
-When creating a recovery plan, you assign protected servers to recovery groups for the purpose of failover. Servers in each group fail over together. This helps you to divide the failover process into smaller, easier to manage units, representing sets of servers which can fail over without relying on external dependencies.
+When creating a recovery plan, you assign protected servers to recovery groups for the purpose of failover. Servers in each group failover together. This helps you to divide the failover process into smaller, easier to manage units, representing sets of servers which can fail over without relying on external dependencies.
 
 To minimize failover time, as part of creating a recovery plan, you should:
 
@@ -204,7 +204,7 @@ In Azure Site Recovery-based scenarios, failback, if properly implemented, doesn
 1. Attach the uploaded VHDs to new or existing Azure Stack Hub VMs.
 1. Start the Azure Stack Hub VMs.
 
-The optimal approach to minimizing the failback time, is to automate it.
+The optimal approach to minimizing the failback time is to automate it.
 
 > [!Note]
 > For more information regarding automating the failback procedure described in this section, refer to [Create VM disk storage in Azure Stack Hub](/azure-stack/user/azure-stack-manage-vm-disks?view=azs-2002#use-powershell-to-add-multiple-disks-to-a-vm).
@@ -236,11 +236,11 @@ When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to cons
 
   *Table 1: Configuration and process server sizing requirements*
 
-| CPU                                      | Memory | Cache disk | Data change rate | Protected machines  |
-|------------------------------------------|--------|------------|------------------|---------------------|
-| 8 vCPUs 2 sockets \* 4 cores @ 2\.5 GHz  | 16GB   | 300 GB     | 500 GB or less   | < 100 machines      |
-| 12 vCPUs 2 sockets \* 6 cores @ 2\.5 GHz | 18 GB  | 600 GB     | 500 GB\-1 TB     | 100 to 150 machines |
-| 16 vCPUs 2 sockets \* 8 cores @ 2\.5 GHz | 32 GB  | 1 TB       | 1\-2 TB          | 150\-200 machines   |
+   | CPU                                      | Memory | Cache disk | Data change rate | Protected machines  |
+   |------------------------------------------|--------|------------|------------------|---------------------|
+   | 8 vCPUs 2 sockets \* 4 cores @ 2\.5 GHz  | 16GB   | 300 GB     | 500 GB or less   | < 100 machines      |
+   | 12 vCPUs 2 sockets \* 6 cores @ 2\.5 GHz | 18 GB  | 600 GB     | 500 GB\-1 TB     | 100 to 150 machines |
+   | 16 vCPUs 2 sockets \* 8 cores @ 2\.5 GHz | 32 GB  | 1 TB       | 1\-2 TB          | 150\-200 machines   |
 
 - Implement horizontal scaling. This involves provisioning or deprovisioning Azure Stack Hub VMs with the process server installed to match processing demands of protected Azure Stack Hub VMs. In general, if you have to scale your deployment to more than 200 source machines, or you have a total daily churn rate of more than two terabytes (TB), you need additional process servers to handle replication traffic. To estimate the number and configuration of additional process servers, refer to [Size recommendations for the process server](/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-process-server).
 
@@ -288,7 +288,7 @@ Planning for and implementing disaster recovery of Azure Stack Hub VM-based work
 - Azure Stack Hub tenant IT staff designs, implements, and manages Azure Site Recovery, including failover and failback.
 - Azure Stack Hub users need to provide RPO and RTO requirements and submit requests to implement disaster recovery for their workloads.
 
-Make sure there'sa clear understanding of the roles and responsibilities attributed to application owners and operators in the context of protection and recovery. Users are responsible for protecting VMs. Operators are responsible for the operational status of the Azure Stack Hub infrastructure.
+Make sure there's a clear understanding of the roles and responsibilities attributed to application owners and operators in the context of protection and recovery. Users are responsible for protecting VMs. Operators are responsible for the operational status of the Azure Stack Hub infrastructure.
 
 > [!Note]
 > For guidance regarding fine-grained delegation of permissions in Azure Site Recovery scenarios, refer to [Manage Site Recovery access with Azure role-based access control (Azure RBAC)](/azure/site-recovery/site-recovery-role-based-linked-access-control).
