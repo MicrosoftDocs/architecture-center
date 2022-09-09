@@ -1,17 +1,5 @@
 [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
 
-## Potential use cases
-
-The greatest demand for enterprise virtual desktop solutions comes from:
-
-- Security and regulation applications, such as financial services, healthcare, and government.
-
-- Elastic workforce needs, such as remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
-
-- Specific employees, such as bring your own device (BYOD) and mobile users, call centers, and branch workers.
-
-- Specialized workloads, such as design and engineering, legacy apps, and software development testing.
-
 ## Architecture
 
 A typical architectural setup for Azure Virtual Desktop is illustrated in the following diagram:
@@ -74,6 +62,20 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Azure Virtual Desktop workspace**: The Azure Virtual Desktop workspace or tenant is a management construct for managing and publishing host pool resources.
 
+## Scenario details
+
+### Potential use cases
+
+The greatest demand for enterprise virtual desktop solutions comes from:
+
+- Security and regulation applications, such as financial services, healthcare, and government.
+
+- Elastic workforce needs, such as remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
+
+- Specific employees, such as bring your own device (BYOD) and mobile users, call centers, and branch workers.
+
+- Specialized workloads, such as design and engineering, legacy apps, and software development testing.
+
 ## Personal and pooled desktops
 
 By using personal desktop solutions, sometimes called *persistent desktops*, users can always connect to the same specific session host. Users can ordinarily modify their desktop experience to meet personal preferences, and they can save files in the desktop environment. Personal desktop solutions:
@@ -126,6 +128,8 @@ The relationships between host pools, workspaces, and other key logical componen
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 The numbers in the following sections are approximate. They're based on a variety of large customer deployments and are subject to change over time.
 
 Also, note that:
@@ -164,11 +168,9 @@ For more information about Azure subscription limitations, see [Azure subscripti
 
 Use simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
 
-## Deploy this scenario
+### Cost optimization
 
-Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
-
-## Cost optimization
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 You can architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
@@ -176,6 +178,11 @@ You can architect your Azure Virtual Desktop solution to realize cost savings. H
 - **Azure Hybrid Benefit**: If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
 - **Azure Reserved VM Instances**: You can prepay for your VM usage and save money. Combine [Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
 - **Session-host load-balancing**: When you're setting up session hosts, *breadth-first* mode, which spreads users randomly across the session hosts, is the standard default mode. Alternatively, you can use *depth-first* mode to fill up a session-host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
+
+## Deploy this scenario
+
+Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
+
 
 ## Contributors
 
