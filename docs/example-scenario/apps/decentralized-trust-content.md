@@ -1,15 +1,5 @@
 This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
-## Potential use cases
-
-Other relevant use cases include:
-
-- Movement of allocated budgets between different business units of a multinational corporation
-- Cross-border payments
-- Trade finance scenarios
-- Loyalty systems involving different companies
-- Supply chain ecosystems
-
 ## Architecture
 
 ![Architecture diagram showing back-end components for a private enterprise blockchain network.](./media/architecture-decentralized-trust.png)
@@ -48,9 +38,19 @@ For other extended or different scenarios, concerns such as transaction privacy 
 
 This example scenario is useful for banks or any other institutions that want to establish a trusted environment for information sharing without resorting to a centralized database. In this example, we will describe the scenario in the context of maintaining credit score information between banks, but the architecture can be applied to any scenario where a consortium of organizations want to share validated information with one another without resorting to the use of a central system ran by one single party.
 
-Traditionally, banks within a financial system rely on centralized sources such as credit bureaus for information on an individual's credit score and history. A centralized approach presents a concentration of operational risk and sometimes an unnecessary third party.
+Traditionally, banks within a financial system rely on centralized sources, such as credit bureaus, for information on an individual's credit score and history. A centralized approach presents a concentration of operational risk and sometimes an unnecessary third party.
 
 With DLTs (distributed ledger technology), a consortium of banks can establish a decentralized system that can be more efficient, less susceptible to attack, and serve as a new platform where innovative structures can be implemented to solve traditional challenges with privacy, speed, and cost.
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Movement of allocated budgets between different business units of a multinational corporation
+- Cross-border payments
+- Trade finance scenarios
+- Loyalty systems involving different companies
+- Supply chain ecosystems (such as manufacturing)
 
 ## Considerations
 
