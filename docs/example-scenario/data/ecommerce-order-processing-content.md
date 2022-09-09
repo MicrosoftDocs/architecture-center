@@ -1,8 +1,9 @@
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
 ## Architecture
+:::image type="content" alt-text="Diagram of example architecture for a scalable order processing pipeline." source="./media/architecture-ecommerce-order-processing.png" lightbox="./media/architecture-ecommerce-order-processing.png":::
 
-![Example architecture for a scalable order processing pipeline][architecture]
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-order-processing.vsdx)* of this architecture.
 
 ### Dataflow
 

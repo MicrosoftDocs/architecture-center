@@ -1,4 +1,4 @@
-If you are looking to run Kubernetes at the edge and notice that managed
+If you're looking to run Kubernetes at the edge and notice that managed
 solutions aren't quite meeting your requirements, you may be [exploring bare-metal as an option](./choose-kubernetes-edge-compute-option.md). This document helps you find the best available option for your use case when configuring Kubernetes clusters at the edge.
 
 > [!NOTE]
@@ -12,7 +12,7 @@ Reference the following tree when deciding between the options presented below f
 
 -   [MicroK8s](https://microk8s.io/docs): Conformant "Low Ops" Kubernetes by Canonical
 
--   [K3s](https://rancher.com/docs/k3s): Certified Kubernetes distribution built for IoT and edge computing
+-   [K3s](https://k3s.io): Certified Kubernetes distribution built for IoT and edge computing
 
 -   [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm): Kubernetes tool for creating ground-up Kubernetes clusters; good for standard compute (Linux/Windows)
 
@@ -21,15 +21,15 @@ Reference the following tree when deciding between the options presented below f
 
 ## MicroK8s by Canonical
 
-MicroK8s is delivered as a single **snap** package that can be easily installed on Linux machines with snap support. Alternative installs are available for Windows, macOS, and raspberry PI/ARM. When installed, microk8s creates a single-node cluster which can be managed with the MicroK8s tooling. It is packaged with its own kubectl, and certain add-ons may be enabled (for example, helm, dns, ingress, metallb, and [more](https://microk8s.io/docs/addons#heading--list)). Multinode, Windows nodes, and high-availability (HA) scenarios are also supported.
+MicroK8s is delivered as a single **snap** package that can be easily installed on Linux machines with snap support. Alternative installs are available for Windows, macOS, and raspberry PI/ARM. When installed, MicroK8s creates a single-node cluster, which can be managed with the MicroK8s tooling. It's packaged with its own kubectl, and certain add-ons may be enabled (for example, helm, dns, ingress, metallb, and [more](https://microk8s.io/docs/addons#heading--list)). Multinode, Windows nodes, and high-availability (HA) scenarios are also supported.
 
 ### Considerations:
 
 -   There are various resource requirements depending on where you want to run MicroK8s. Reference the [product docs](https://microk8s.io/docs) for minimum resource requirements. For example:
 
-    -   Ubuntu: 4 GB RAM, 20 GB disk space
+    -   Ubuntu: 4-GB RAM, 20-GB disk space
 
-    -   Windows: 4 GB RAM, 40 GB disk space
+    -   Windows: 4-GB RAM, 40-GB disk space
 
 -   Windows workloads are only supported for MicroK8s clusters with Calico CNI.
 
@@ -47,7 +47,7 @@ K3s is a lightweight distribution of Kubernetes. K3s is deployed as a single bin
 
 -   SQLite3 is the default storage system, though [other options](https://rancher.com/docs/k3s/latest/en/installation/datastore/) are supported.
 
--   Windows nodes are not currently supported for K3s.
+-   Windows nodes aren't currently supported for K3s.
 
 -   HA can be achieved with either an [external database](https://rancher.com/docs/k3s/latest/en/installation/ha/) or an [embedded database](https://rancher.com/docs/k3s/latest/en/installation/ha-embedded/). K3s has added full support for embedded etcd as of release v1.19.5+k3s1.
 
@@ -63,17 +63,17 @@ Kubeadm is a plain vanilla installation of Kubernetes from the ground up.
 
 -   The control-plane node must be a machine running a deb/rpm-compatible Linux OS.
 
--   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to kubeadm as well as to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
+-   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to _kubeadm_ and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
 
 ## Management/Automation
 
 When it comes to automation and management of the provisioning of bare-metal clusters, there are a couple of options to explore: Ansible and Metal3.
 
-[Ansible](https://docs.ansible.com/) provides an easy way to manage remote resources and therefore is a prime candidate to manage and join remote nodes to a Kubernetes cluster. All you need is the Ansible binary, running on a Linux machine, and SSH on remote machines. This provides a flexible mechanism to run arbitrary scripts on target machines. This means you could leverage Ansible with any of the tools mentioned above.
+[Ansible](https://docs.ansible.com) provides an easy way to manage remote resources and therefore is a prime candidate to manage and join remote nodes to a Kubernetes cluster. All you need is the Ansible binary, running on a Linux machine, and SSH on remote machines. This method provides a flexible mechanism to run arbitrary scripts on target machines, which means you could use Ansible with any of the tools mentioned above.
 
-[Metal3](https://metal3.io/documentation.html) takes a different approach to solve this problem by utilizing similar concepts to [Cluster API](https://cluster-api.sigs.k8s.io/). You'll need to instantiate an ephemeral cluster to provision and manage bare-metal clusters using native Kubernetes objects. At the time of writing, Metal3 uses kubeadm and therefore does not support lightweight Kubernetes distributions.
+[Metal3](https://metal3.io/documentation.html) takes a different approach to solve this problem by utilizing similar concepts to [Cluster API](https://cluster-api.sigs.k8s.io). You'll need to instantiate an ephemeral cluster to provision and manage bare-metal clusters using native Kubernetes objects. At the time of writing, Metal3 uses kubeadm and therefore doesn't support lightweight Kubernetes distributions.
 
-For management beyond cluster provisioning, consider learning about [Azure Arc](/azure/azure-arc/)–enabled clusters to manage your clusters in Azure.
+For management beyond cluster provisioning, consider learning about [Azure Arc](/azure/azure-arc)–enabled clusters to manage your clusters in Azure.
 
 ## Next steps
 

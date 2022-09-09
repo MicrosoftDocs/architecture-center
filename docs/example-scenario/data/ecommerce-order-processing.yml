@@ -25,6 +25,6 @@ summary: This example demonstrates a highly scalable, resilient architecture for
 products:
   - azure-cosmos-db
   - azure-hdinsight
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-order-processing.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-order-processing-thumbnail.png
 content: |
    [!include[](ecommerce-order-processing-content.md)]

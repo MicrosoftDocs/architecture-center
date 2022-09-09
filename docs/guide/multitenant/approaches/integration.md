@@ -73,7 +73,7 @@ For real-time integrations, you might measure volume as the number of transactio
 
 ### Data formats
 
-Consider the following formats:
+When data is exchanged between two parties, it's important they both have a clear understanding of how the data will be formatted and structured. Consider the following parts of the data format:
 
 - The file format, such as JSON, Parquet, CSV, or XML.
 - The schema, such as the list of fields that will be included, date formats, and nullability of fields.
@@ -86,7 +86,7 @@ Some integrations require you to make a connection to your tenant's systems or d
 
 #### Network access
 
-Consider the network topology for accessing your tenant's system. which might include the following options:
+Consider the network topology for accessing your tenant's system, which might include the following options:
 
 - **Connect across the internet.** If you connect across the internet, how will the connection be secured, and how will the data be encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses, if necessary.
 - [**Agents**](../approaches/networking.md#agents), which are deployed into a tenant's environment, can provide a flexible approach and can help you avoid the need for your tenants to allow inbound connections.
@@ -205,7 +205,7 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 Principal authors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributor:

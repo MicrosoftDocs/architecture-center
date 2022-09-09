@@ -167,7 +167,7 @@ For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](
 
 For information about hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
-### Performance
+### Performance efficiency
 
 Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
@@ -205,16 +205,7 @@ For information about the resiliency of the components in this architecture, see
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
-## Deploy this scenario
-
-To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
-Here are the high-level steps:
-
-1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
-2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication)
-3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 
-
-## Pricing
+### Cost optimization
 
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. The total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
@@ -228,13 +219,24 @@ For more pricing information, see these resources:
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
+## Deploy this scenario
+
+To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
+Here are the high-level steps:
+
+1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication)
+3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Pavel Kondrashov](/) | Senior Customer Engineer
+* [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
