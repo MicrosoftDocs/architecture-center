@@ -6,7 +6,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 > Architecture diagram goes here. Use the following format:
 
-![Diagram of the <solution name> architecture.](./images/<file-name>.png)
+
 
 > Under the architecture diagram, include this sentence and a link to the Visio file or the PowerPoint file: 
 

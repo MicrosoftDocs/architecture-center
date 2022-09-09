@@ -18,12 +18,12 @@
     {
       "source_path": "docs/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml",
       "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml",
       "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },    
     {
       "source_path": "docs/compliance/fedramp/index.md",
