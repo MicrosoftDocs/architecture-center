@@ -134,60 +134,6 @@ You have the option to orchestrate a failover by creating recovery plans that co
 
 After the primary site becomes available again, Azure Site Recovery supports reversing the direction of replication, allowing you to perform a failback with minimized downtime and without data loss. However, with Azure Stack Hub, this approach isn't  available. Instead, to fail back, it's necessary to download Azure VM disk files, upload them into Azure Stack Hub, and attach them to existing or new VMs.
 
-## Prerequisites
-
-Implementing the recommended solution is contingent on satisfying the following prerequisites:
-
-- Access to an Azure subscription, with permissions sufficient to provision and manage all cloud components of the Azure Site Recovery components, including:
-  - Azure Recovery Services vault in the Azure region designated as the disaster recovery site for the Azure Stack Hub production environment.
-  - An Azure Storage account hosting content of replicated disks of Azure Stack Hub VMs.
-  - An Azure virtual network representing the disaster recovery environment to which hydrated Azure VMs will be connected following a planned or unplanned failover.
-  - An isolated Azure virtual network representing the test environment to which hydrated Azure VMs will be connected following a test failover.
-  - An Azure ExpressRoute-based connectivity between the on-premises environment, Azure virtual networks, and the Azure storage account used for hosting copies of VHD files with content replicated from disks of protected Azure Stack Hub VMs.
-- An Azure Stack Hub user subscription. All Azure Stack Hub VMs protected by an individual Azure Site Recovery configuration server must belong to the same Azure Stack Hub user subscription.
-- An Azure Stack Hub virtual network. All protected VMs must have direct connectivity to the VMs hosting the process server component (by default this is the configuration server VM).
-- An Azure Stack Hub Windows Server VM that will host the configuration server and a process server. The VM must belong to the same subscription and be attached to the same virtual network as the Azure Stack Hub VMs that need to be protected. In addition, the VM needs to:
-
-   - comply with [Site Recovery configuration server software and hardware requirements](/azure/site-recovery/vmware-physical-azure-support-matrix#site-recovery-configuration-server)
-   - satisfy external connectivity [network requirements](/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
-
-   > [!Note]
-   > Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
-
-   - satisfy internal connectivity requirements. In particular, Azure Stack Hub VMs that you want to protect need to be able to communicate with:
-
-      - the configuration server via TCP port **443** (HTTPS) inbound for replication management
-      - the process server via TCP port **9443** to deliver replication data.
-
-   > [!Note]
-  > You can change the port used by the process server for both external and internal connectivity as part of its configuration when running Azure Site Recovery Unified Setup.
-
-- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
-  - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
-  - Enable File and Printer Sharing and Windows Management Instrumentation rules in Microsoft Defender firewall.
-- To protect Azure Stack Hub VMs that are running Linux operating systems, you must:
-  - Create a root user account. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service.
-  - Install the latest openssh, openssh-server, and openssl packages.
-  - Enable and run Secure Shell (SSH) port **22**.
-  - Enable Secure FTP subsystem and password authentication.
-
-## High-level implementation steps
-
-At a high level, the implementation of Azure Site Recovery-based disaster recovery on Azure Stack Hub consists of the following stages:
-
-1. Prepare Azure Stack Hub VMs to be protected by Azure Site Recovery. Ensure that the VMs satisfy Azure Site Recovery prerequisites listed in the previous section.
-1. Create and configure an Azure Recovery Services vault. Set up an Azure Recovery Services vault and specify what you want to replicate. Azure Site Recovery components and activities are configured and managed by using the vault.
-1. Set up the source replication environment. Provision an Azure Site Recovery configuration server and process server by installing Azure Site Recovery Unified Setup binaries and register it with the vault.
-
-   > [!Note]
-   > You can rerun the Azure Site Recovery Unified Setup to implement additional process servers on Azure Stack Hub VMs.
-
-1. Set up the target replication environment. Create or select an existing Azure storage account and an Azure virtual network in the Azure region that will host the disaster recovery site. During replication, the content of the disks for the protected Azure Stack Hub VMs is copied to the Azure Storage account. During failover, Azure Site Recovery automatically provisions Azure VMs serving as replicas of protected Azure Stack Hub VMs and connects them to the Azure virtual network.
-1. Enable replication. Configure replication setting and enable replication for Azure Stack Hub VMs. The mobility service is installed automatically on each Azure Stack Hub VM for which replication is enabled. Azure Site Recovery initiates replication of each Azure Stack Hub VM, according to the policy settings you defined.
-1. Perform a test failover. After replication is established, verify that failover will work as expected by performing a test failover.
-1. Perform a planned or unplanned failover. Following a successful test failover, you are ready to conduct either a planned or unplanned failover to Azure. You have the option to designate which Azure Stack Hub VMs to include in the failover.
-1. Perform a failback. When you are ready to fail back, stop the Azure VMs corresponding to the Azure Stack Hub VMs you failed, download their disk files to on-premises storage, upload them into Azure Stack Hub, and attach them to an existing or new VM.
-
 ## Considerations
 
 ### Availability
@@ -420,6 +366,62 @@ Azure-related charges are associated with the use of the following resources:
 
    > [!Note]
   > For details regarding pricing, refer to [Azure Pricing](https://azure.microsoft.com/pricing/).
+
+## Deploy this scenario
+
+### Prerequisites
+
+Implementing the recommended solution is contingent on satisfying the following prerequisites:
+
+- Access to an Azure subscription, with permissions sufficient to provision and manage all cloud components of the Azure Site Recovery components, including:
+  - Azure Recovery Services vault in the Azure region designated as the disaster recovery site for the Azure Stack Hub production environment.
+  - An Azure Storage account hosting content of replicated disks of Azure Stack Hub VMs.
+  - An Azure virtual network representing the disaster recovery environment to which hydrated Azure VMs will be connected following a planned or unplanned failover.
+  - An isolated Azure virtual network representing the test environment to which hydrated Azure VMs will be connected following a test failover.
+  - An Azure ExpressRoute-based connectivity between the on-premises environment, Azure virtual networks, and the Azure storage account used for hosting copies of VHD files with content replicated from disks of protected Azure Stack Hub VMs.
+- An Azure Stack Hub user subscription. All Azure Stack Hub VMs protected by an individual Azure Site Recovery configuration server must belong to the same Azure Stack Hub user subscription.
+- An Azure Stack Hub virtual network. All protected VMs must have direct connectivity to the VMs hosting the process server component (by default this is the configuration server VM).
+- An Azure Stack Hub Windows Server VM that will host the configuration server and a process server. The VM must belong to the same subscription and be attached to the same virtual network as the Azure Stack Hub VMs that need to be protected. In addition, the VM needs to:
+
+   - comply with [Site Recovery configuration server software and hardware requirements](/azure/site-recovery/vmware-physical-azure-support-matrix#site-recovery-configuration-server)
+   - satisfy external connectivity [network requirements](/azure/site-recovery/vmware-azure-deploy-configuration-server#network-requirements) documentation.
+
+   > [!Note]
+   > Additional storage and performance considerations for the configuration and process servers are described in more detail later in this architecture.
+
+   - satisfy internal connectivity requirements. In particular, Azure Stack Hub VMs that you want to protect need to be able to communicate with:
+
+      - the configuration server via TCP port **443** (HTTPS) inbound for replication management
+      - the process server via TCP port **9443** to deliver replication data.
+
+   > [!Note]
+  > You can change the port used by the process server for both external and internal connectivity as part of its configuration when running Azure Site Recovery Unified Setup.
+
+- Azure Stack Hub VMs to be protected, running any of the [supported operating systems](/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
+  - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
+  - Enable File and Printer Sharing and Windows Management Instrumentation rules in Microsoft Defender firewall.
+- To protect Azure Stack Hub VMs that are running Linux operating systems, you must:
+  - Create a root user account. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service.
+  - Install the latest openssh, openssh-server, and openssl packages.
+  - Enable and run Secure Shell (SSH) port **22**.
+  - Enable Secure FTP subsystem and password authentication.
+
+### High-level implementation steps
+
+At a high level, the implementation of Azure Site Recovery-based disaster recovery on Azure Stack Hub consists of the following stages:
+
+1. Prepare Azure Stack Hub VMs to be protected by Azure Site Recovery. Ensure that the VMs satisfy Azure Site Recovery prerequisites listed in the previous section.
+1. Create and configure an Azure Recovery Services vault. Set up an Azure Recovery Services vault and specify what you want to replicate. Azure Site Recovery components and activities are configured and managed by using the vault.
+1. Set up the source replication environment. Provision an Azure Site Recovery configuration server and process server by installing Azure Site Recovery Unified Setup binaries and register it with the vault.
+
+   > [!Note]
+   > You can rerun the Azure Site Recovery Unified Setup to implement additional process servers on Azure Stack Hub VMs.
+
+1. Set up the target replication environment. Create or select an existing Azure storage account and an Azure virtual network in the Azure region that will host the disaster recovery site. During replication, the content of the disks for the protected Azure Stack Hub VMs is copied to the Azure Storage account. During failover, Azure Site Recovery automatically provisions Azure VMs serving as replicas of protected Azure Stack Hub VMs and connects them to the Azure virtual network.
+1. Enable replication. Configure replication setting and enable replication for Azure Stack Hub VMs. The mobility service is installed automatically on each Azure Stack Hub VM for which replication is enabled. Azure Site Recovery initiates replication of each Azure Stack Hub VM, according to the policy settings you defined.
+1. Perform a test failover. After replication is established, verify that failover will work as expected by performing a test failover.
+1. Perform a planned or unplanned failover. Following a successful test failover, you are ready to conduct either a planned or unplanned failover to Azure. You have the option to designate which Azure Stack Hub VMs to include in the failover.
+1. Perform a failback. When you are ready to fail back, stop the Azure VMs corresponding to the Azure Stack Hub VMs you failed, download their disk files to on-premises storage, upload them into Azure Stack Hub, and attach them to an existing or new VM.
 
 ## Summary
 
