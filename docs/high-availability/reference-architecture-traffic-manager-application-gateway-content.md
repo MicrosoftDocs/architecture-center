@@ -77,7 +77,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
   - Prioritizes one region out of every pair to help reduce the time to restore for applications.
   - Roles out planned Azure updates to paired regions one at a time to minimize downtime and risk of application outage.
   - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
-  - Make sure that both Region Pairs support all the Azure services that your application needs (see [Services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
+  - Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
 
 - Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
 
@@ -128,7 +128,7 @@ When Traffic Manager initiates a failover, some time passes when clients can't r
 - The health probe must detect that the primary region has become unreachable.
 - DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-For more information, see [About Traffic Manager Monitoring](/azure/traffic-manager/traffic-manager-monitoring).
+For more information, see [Traffic Manager monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
 #### Application Gateway and Load Balancer
 
