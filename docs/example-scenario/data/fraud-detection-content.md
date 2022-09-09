@@ -1,4 +1,4 @@
-This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
+This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity. Also, see [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution).
 
 ## Architecture
 
@@ -99,6 +99,7 @@ More complex fraud detection scenarios can benefit from a machine learning model
 
 ## Related resources
 
+- [Detect mobile bank fraud](/azure/architecture/guide/ai/bank-fraud-solution)
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
