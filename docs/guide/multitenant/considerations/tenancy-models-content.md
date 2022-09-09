@@ -42,7 +42,7 @@ Sometimes, you'll see deployments referred to as _supertenants_ or _stamps_.
 
 When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as illustrated below:
 
-![Diagram showing the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png) <!-- TODO update diagram -->
+![Diagram showing the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png)
 
 ## Tenant isolation
 
