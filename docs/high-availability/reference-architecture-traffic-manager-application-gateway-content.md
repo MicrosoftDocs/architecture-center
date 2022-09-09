@@ -1,5 +1,5 @@
 
-This reference architecture is for highly resilient, multi-tier applications. It describes cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
+This architecture gives guidance for building highly resilient, multi-tier applications. It uses cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones. The benefit is high availability and responsive disaster recovery.
 
 ## Architecture
 
@@ -9,9 +9,9 @@ This reference architecture is for highly resilient, multi-tier applications. It
 
 ### Workflow
 
-- Azure Traffic Manager uses DNS-based routing to balance incoming HTTP(S) traffic across regions. It directs application traffic according to your choice of routing method. For example, you might direct requests to the closest endpoints to improve responsiveness. It sends traffic to the public IP address of the Application Gateway. The public endpoints of the Application Gateways are configured as the Traffic Manager backends.
+- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway endpoints. The public endpoints of the Application Gateways are the backend endpoints of Traffic Manager . Traffic Manager resolves DNS queries based on your routing method choice. For example, you might direct requests to the user's closest endpoints to improve responsiveness. Traffic Manager load balances through the distribution of endpoint IP addresses. The web browser connects directly to the endpoint. [It doesn't connect through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-- The Application Gateway receives HTTP(S) traffic from Azure Traffic Manager and load balances requests across the backend pool of virtual machines (VMs) in the web tier. It's zone redundant and includes a Web Application Firewall (WAF) that protects the application from web exploits and vulnerabilities.
+- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. We deployed the AppGWs to all three zones, so they are zone redundant. The AppGWs distribute traffic across the three zones in the web tier. The Web Application Firewalls (WAFs) inspect traffic and protects the application from web exploits and vulnerabilities.
 
 - The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateway distributes traffic to each zone. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
@@ -32,7 +32,6 @@ This reference architecture is for highly resilient, multi-tier applications. It
 - [Azure DNS](https://azure.microsoft.com/services/dns/) is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 - [Private DNS zones](/azure/dns/private-dns-overview) are supported by Azure DNS. Azure DNS Private Zones provide name resolution within a virtual network, and between virtual networks. The records contained in a private DNS zone aren't resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) provides secure Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
 - [SQL Server on VMs](https://azure.microsoft.com/services/virtual-machines/sql-server/#overview) lets you use full versions of SQL Server in the cloud without having to manage any on-premises hardware.
 
 ### Alternatives
@@ -47,18 +46,17 @@ This reference architecture is for highly resilient, multi-tier applications. It
 
 ## Solution Details
 
-We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts as endpoint latencies change.
+- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts as endpoint latencies change.
 
-The combination of Traffic Manager and Application Gateway gives you the following capabilities:
+- The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
+- The combination of Traffic Manager and Application Gateway gives you the following capabilities:
 
-- Web Application Firewall (WAF).
-- Transport Layer Security (TLS) termination.
-- Path-based routing.
-- Cookie-based session affinity.
+  - Web Application Firewall (WAF).
+  - Transport Layer Security (TLS) termination.
+  - Path-based routing.
+  - Cookie-based session affinity.
 
-The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
-
-In this scenario, the virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
+- The virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
 
 ## Recommendations
 
@@ -69,6 +67,8 @@ The following recommendations apply to most scenarios. Follow these recommendati
 ## Reliability
 
 ### Availability
+
+- Configure the Application Gateway with a minimum of 2 instances to avoid downtime in case of incidents.
 
 - Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
 
@@ -86,7 +86,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
   - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
 
-  - Make sure that both regions support all of the Azure services that your application needs (see [Services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
+- Make sure that both Region Pairs support all of the Azure services that your application needs (see [Services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
 
 - For more information, see:
   - [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
@@ -172,7 +172,7 @@ For more information, see:
 
 - Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 
-- Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier and the Bastion subnet, not from the web front end.
+- Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end.
 
  Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
@@ -186,7 +186,7 @@ You can use [service tags](/azure/virtual-network/service-tags-overview) to defi
 
 ## Cost optimization
 
-Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data. 
+Use a VPN Gateway for environments with large amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
 
 Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
@@ -199,7 +199,7 @@ For more information, see:
 
 ## Performance efficiency
 
-Use Virtual Machine Scale Sets (VMSSs) for automated scalability. VMSSs are available on all Windows VM sizes. You're only charged for the Azure VMs you deploy and the underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
+Use Virtual Machine Scale Sets (VMSSs) for automated scalability. VMSSs are available on all Windows VM sizes. You're only charged for the Azure VMs deployed and the underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
 
 The benefits of VMSSs are:
 
