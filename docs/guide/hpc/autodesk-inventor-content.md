@@ -26,12 +26,12 @@ Inventor software is primarily used by mechanical engineers to quickly model, si
   - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
-  - A public IP address connects the internet to the virtual machine.  
+  - A public IP address connects the internet to the VM.  
 - A physical SSD is used on the host for storage.  
 
 ## Compute sizing and drivers
 
-[NCasT4_v3](/azure/virtual-machines/nct4-v3-series) and [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) series VMs were used to test the performance of Inventor on Azure. The Windows operating system was used.  The following table provides the configuration details:
+[NCasT4_v3](/azure/virtual-machines/nct4-v3-series) and [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) series VMs running Windows were used to test the performance of Inventor on Azure. The following table provides the configuration details:
 
 |VM size|	vCPU|	Memory, in GiB|	Temporary storage (SSD), in GiB|	Number of GPUs|	GPU memory, in GiB|	Maximum data disks|
 |--|--|--|--|--|--|--|
@@ -83,7 +83,7 @@ The following table shows elapsed times in seconds for tests on various sizes of
 
 The following table provides results for various BenchMark HD performance indices. A higher number indicates better performance.
 
-|VM series|	VM size| Inventor PC Index (IPI)| Single-core Performance Index (SPI))| Multi-core Performance Index (MPI)|
+|VM series|	VM size| Inventor PC Index (IPI)| Single-core Performance Index (SPI)| Multi-core Performance Index (MPI)|
 |--|--|--|--|	--|
 |NCasT4	|4 vCPU (1 GPU)|	6.29|	7.17|	2.28|
 |NCasT4	|	8 vCPU (1 GPU)|	8.65|	7.16|	5.34|
