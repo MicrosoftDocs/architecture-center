@@ -1,4 +1,4 @@
-This architecture shows the fundamental components of a basic web application. You can use the architecture to build any basic web application and then customize the application to your needs.
+This architecture shows the fundamental components of a basic web application. You can use the architecture to build a web application and then customize the application to your needs.
 
 ## Architecture
 
