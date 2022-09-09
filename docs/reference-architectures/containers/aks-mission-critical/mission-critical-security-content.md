@@ -136,7 +136,7 @@ Securing container images (also referred to as 'hardening') is important aspect 
 
 The application Docker containers, used in the reference implementation, are based on **runtime images**, not SDK, to minimize footprint and potential attack surface.
 
-The application runs under a **non-root user**:
+The application runs under a non-privileged user `workload`, created as part of the image build process:
 
 ```dockerfile
 RUN groupadd -r workload && useradd --no-log-init -r -g workload workload
@@ -173,6 +173,8 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 - Front Door WAF, TLS-encrypted.
 - NGINX, header check, can only receive traffic from front door.
 
+Only requests that came through Azure Front Door will be routed to the API container.
+
 ### Authentication and authorization
 
 - System managed identities in compute cluster (kublet, managed control plane).
@@ -182,12 +184,49 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 - RBAC controls to provide right permissions to data plane.
 
+Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that every pod has only the minimum access required to fulfil its function.
+
 ## Assume breach
 
 
 
 - Sanctity of the pipeline. Completely automated.
 - Policies on resources, inherited polices from the subscription.
+
+## Code defensively
+
+API calls can fail - be it because of code errors, malfunctioned deployments, infrastructure failures, or any other reason. If that happens, the caller (client application) should not receive extensive debugging information, because that could provide adversaries with helpful data points about the inner workings of the application.
+
+The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `X-Server-Location` header) an operator is able to investigate the incident using Application Insights
+
+```csharp
+//
+// Example ASP.NET Core middleware which adds the Correlation ID to every API response.
+//
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+   // ...
+
+    app.Use(async (context, next) =>
+    {
+        context.Response.OnStarting(o =>
+        {
+            if (o is HttpContext ctx)
+            {
+                context.Response.Headers.Add("X-Server-Name", Environment.MachineName);
+                context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
+                context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
+                context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+            }
+            return Task.CompletedTask;
+        }, context);
+        await next();
+    });
+    
+    // ...
+}
+```
+
 
 ## Next
 
