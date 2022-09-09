@@ -75,6 +75,21 @@ When you build your multitenant solution in Azure, there are many elements that 
 * Determine how you'll scale your [compute](./approaches/compute.md), [storage](./approaches/storage-data.yml), [networking](./approaches/networking.md), and other Azure resources to match the demands of your tenants.
 * Consider each Azure resource's scale limits. [Organize your resources](./approaches/resource-organization.yml) appropriately, in order to avoid [resource organization antipatterns](./approaches/resource-organization.yml#antipatterns-to-avoid). For example, don't over-architect your solution to work within unrealistic scale requirements.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+
+Other contributor:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 * Review [architectural considerations for multitenant solutions](./considerations/overview.yml).

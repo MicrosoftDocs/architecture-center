@@ -90,6 +90,22 @@ However, this becomes prohibitively complex in most modern multitenant solutions
 
 Some Azure services provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/use-multiple-node-pools), where each tenant is allocated a node pool with [node pool tags](/azure/aks/use-multiple-node-pools#setting-nodepool-azure-tags), which are used to attribute costs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+
+Other contributors:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Consider the [update deployment model you will use](updates.md).
