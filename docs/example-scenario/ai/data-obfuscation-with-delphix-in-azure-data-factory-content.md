@@ -9,7 +9,7 @@ Breaking down data silos is difficult:
 
 ### What is Azure Data Factory (ADF)?
 
-[Azure Data Factory](/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.  Data factory pipelines are also available in Azure Synapse Analytics.
+[Azure Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.  Data factory pipelines are also available in Azure Synapse Analytics.
 
 ### What is Delphix Continuous Compliance (Delphix CC)?
 
