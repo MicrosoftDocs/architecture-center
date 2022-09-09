@@ -99,6 +99,23 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault, new values are mounted on the cluster. **This  doesn't guarantee secret rotation in the application**. The implementation uses singleton Cosmos DB client instance that causes the pod to restart to apply the change.
 
+## Certificates
+
+Web applications should use HTTPS everywhere to prevent man-in-the-middle attacks on all interaction levels (client - API, API - API).
+
+The reference implementation uses Jetstack's `cert-manager` to auto-provision SSL/TLS certificates (from Let's Encrypt) for ingress rules. Additional configuration settings like the `ClusterIssuer` (used to request certificates from Let's Encrypt) is deployed via a separate `cert-manager-config` helm chart stored in [src/config/cert-manager/chart](https://github.com/Azure/Mission-Critical-Online/tree/main/src/config/cert-manager/chart/cert-manager-config).
+
+This implementation is using `ClusterIssuer` instead of `Issuer` as documented [here](https://cert-manager.io/docs/concepts/issuer/) and [here](https://docs.cert-manager.io/en/release-0.7/tasks/issuing-certificates/ingress-shim.html) to avoid having issuers per namespaces.
+
+```yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+```
+
 ## Configuration
 
 **All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. You can use a configuration store, such as Azure App Configuration, to store the settings. However, for mission critical applications, an additional component will introduce another point of failure. Using Key Vault for runtime configuration simplifies the overall implementation.
@@ -126,10 +143,17 @@ RUN groupadd -r workload && useradd --no-log-init -r -g workload workload
 USER workload
 ```
 
-Read-only filesystem and non-privileged execution is configured with Helm:
+The reference implementation uses Helm to package the YAML manifests needed to deploy individual components together, including their Kubernetes deployment, services, auto-scaling (HPA) configuration, and security context. All Helm charts contain foundational security measures following Kubernetes best practices. These security measures are:
+
+- `readOnlyFilesystem`: The root filesystem `/` in each container is set to **read-only**. This is to prevent the container from accidentally writing to the host filesystem. Directories that require read-write access are mounted as volumes.
+- `privileged`: All containers are set to run as **non-privileged**. Running a container as privileged gives all capabilities to the container, and it also lifts all the limitations enforced by the device cgroup controller.
+- `allowPrivilegeEscalation`: Prevents the inside of a container from gaining more privileges than its parent process.
+
+These security measures are also configured for 3rd-party containers and Helm charts (i.e. `cert-manager`) when possible and audited by Azure Policy.
 
 ```yaml
 #
+# Example:
 # /src/app/charts/backgroundprocessor/values.yaml
 #
 containerSecurityContext:
@@ -138,9 +162,9 @@ containerSecurityContext:
   allowPrivilegeEscalation: false
 ```
 
+Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azure Container Registry**, with global replication to each of the regions where stamps are deployed.
 
 - container scanning
-- using private registry
 
 
 
@@ -160,13 +184,14 @@ containerSecurityContext:
 
 ## Assume breach
 
+
+
 - Sanctity of the pipeline. Completely automated.
 - Policies on resources, inherited polices from the subscription.
-- Containers are hardened.
 
 ## Next
 
-Deploy the reference implementation to get a full understanding of reources and their configuration. 
+Deploy the reference implementation to get a full understanding of resources and their configuration.
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
