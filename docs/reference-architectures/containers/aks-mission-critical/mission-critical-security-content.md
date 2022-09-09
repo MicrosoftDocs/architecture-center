@@ -171,9 +171,39 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 ## Verify explicitly
 
 - Front Door WAF, TLS-encrypted.
-- NGINX, header check, can only receive traffic from front door.
 
-Only requests that came through Azure Front Door will be routed to the API container.
+Only requests coming through Azure Front Door will be routed to the API containers (`CatalogService` and `HealthService`). This is enforced by using an Nginx ingress configuration which checks the `X-Azure-FDID` header - not just the presence of it, but also if it's the right one for the global Front Door instance of a particular environment.
+
+```yml
+#
+# /src/app/charts/catalogservice/templates/ingress.yaml
+#
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # ...
+  annotations:
+    # To restric traffic coming only through our Front Door instance, we use a header check on the X-Azure-FDID
+    # The value gets injected by the pipeline. Hence, this ID should be treated as a senstive value
+    nginx.ingress.kubernetes.io/modsecurity-snippet: |
+      SecRuleEngine On
+      SecRule &REQUEST_HEADERS:X-Azure-FDID \"@eq 0\"  \"log,deny,id:106,status:403,msg:\'Front Door ID not present\'\"
+      SecRule REQUEST_HEADERS:X-Azure-FDID \"@rx ^(?!{{ .Values.azure.frontdoorid }}).*$\"  \"log,deny,id:107,status:403,msg:\'Wrong Front Door ID\'\"
+  # ...
+```
+
+Deployment pipelines ensure that this header is properly populated, but there's also a need to **bypass this restriction for smoke tests**, because they probe each cluster directly, not through Front Door. The reference implementation uses the fact that smoke tests are triggered as part of the deployment and therefore the header value is known and can be added to smoke test HTTP requests:
+
+```powershell
+#
+# /.ado/pipelines/scripts/Run-SmokeTests.ps1
+#
+$header = @{
+  "X-Azure-FDID" = "$frontdoorHeaderId"
+  "X-TEST-DATA"  = "true" # Header to indicate that posted comments and rating are just for test and can be deleted again by the app
+}
+```
+
 
 ### Authentication and authorization
 
