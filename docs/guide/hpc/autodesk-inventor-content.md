@@ -51,7 +51,7 @@ Inventor software is primarily used by mechanical engineers to quickly model, si
 
 ### Required drivers
  
-To use Inventor on an Azure VM, you need to install NVIDIA and AMD drivers.
+To use Inventor on NCasT4_v3 and NVadsA10_v5 VMs, you need to install NVIDIA and AMD drivers.
 
 ## Inventor installation
 
@@ -189,6 +189,6 @@ Other contributors:
 
 ## Related resources 
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
