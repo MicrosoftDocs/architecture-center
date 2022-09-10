@@ -61,7 +61,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 All of the components in this scenario are managed, so at a regional level they are all resilient automatically.
 
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+For general guidance on designing resilient solutions, see [Reliability design principles][resiliency].
 
 ## Next steps
 
