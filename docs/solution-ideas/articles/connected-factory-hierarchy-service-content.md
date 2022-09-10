@@ -121,7 +121,6 @@ The hierarchy service acts as the single point of integration with ERP systems, 
 - Identify machines that can fulfill a given order.
 - Aggregate machine data.
 
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
