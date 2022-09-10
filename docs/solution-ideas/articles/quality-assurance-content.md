@@ -1,9 +1,5 @@
 Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.
 
-## Potential use cases
-
-This solution shows how to predict failures using the example of manufacturing pipelines (assembly lines). This is done by utilizing test systems already in place and failure data, specifically looking at returns and functional failures at the end of assembly line. By combining these with domain knowledge and root cause analysis within a modular design that encapsulates main processing steps, we provide a generic advanced analytics solution that uses machine learning to predict failures before they happen. Early prediction of future failures allows for less expensive repairs or even discarding, which are usually more cost efficient than going through recall and warranty cost.
-
 ## Architecture
 
 ![Architecture diagram shows data into Azure Event Hub, then to Data Lake, then processes with Stream Analytics, finally to Power B I visualization.](../media/quality-assurance.png)
@@ -37,7 +33,15 @@ This solution shows how to predict failures using the example of manufacturing p
 * [Azure Functions](/azure/azure-functions/functions-overview) provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 * [IoT Hub](/azure/iot-hub/about-iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
 
+## Scenario details
+
+### Potential use cases
+
+This solution shows how to predict failures using the example of manufacturing pipelines (assembly lines). This is done by utilizing test systems already in place and failure data, specifically looking at returns and functional failures at the end of assembly line. By combining these with domain knowledge and root cause analysis within a modular design that encapsulates main processing steps, we provide a generic advanced analytics solution that uses machine learning to predict failures before they happen. Early prediction of future failures allows for less expensive repairs or even discarding, which are usually more cost efficient than going through recall and warranty cost.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scalability
 
@@ -47,6 +51,8 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 [Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
@@ -55,7 +61,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 All of the components in this scenario are managed, so at a regional level they are all resilient automatically.
 
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+For general guidance on designing resilient solutions, see [Reliability design principles][resiliency].
 
 ## Next steps
 
