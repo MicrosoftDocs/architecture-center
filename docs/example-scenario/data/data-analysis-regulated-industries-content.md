@@ -1,4 +1,4 @@
-This pattern is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met.
+This solution is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met.
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -10,13 +10,13 @@ The following diagram shows a high-level overview of the architecture for the In
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-analysis-architecture-2.vsdx) of this architecture.*
 
-You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
+You can see the capabilities of the solution in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
 
 The bottom section shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
 
 The architecture provides state-of-the-art data analysis without sacrificing governance or security.
 
-Implementation of this pattern requires these skills:
+Implementation of this solution requires these skills:
 
 - An understanding of how to configure, monitor, and operate solutions in the Azure cloud. This includes governance models, security, policies, landing zones, and automation.
 - An understanding of how to configure and monitor cloud networking, private links, DNS, routing, access control lists, firewalls, and VPN integrations.
