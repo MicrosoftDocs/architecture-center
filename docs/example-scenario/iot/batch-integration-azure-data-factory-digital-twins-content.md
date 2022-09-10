@@ -120,15 +120,7 @@ Other contributors:
 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-* [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect
 
 ## Next steps
 
