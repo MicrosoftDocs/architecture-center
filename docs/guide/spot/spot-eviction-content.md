@@ -6,7 +6,7 @@ This guide is meant to walk you through Azure Spot Eviction fundamentals and hel
 
 <!--- NOTE: Team will add a diagram here after publishing to further clarify this solution. --->
 
-## Cost optimization
+## Cost optimization/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machines-limits
 
 Azure provisions its spare capacity along all its offered regions so it can respond on demand when new resources are created. While that capacity remains idle, you have an opportunity to deploy VMs in your subscription at [discount prices and capped at pay-as-you-go prices using Azure Spot VMs and virtual machine scale sets](https://azure.microsoft.com/pricing/spot-advisor/).
 
@@ -138,7 +138,7 @@ There are several conditions that affect an eviction. When architecting solution
 
 ## The workload
 
-One common workload type for Azure Spot VMs is queue processing applications. The reference implementation guide contains a simple, asynchronous queue-processing worker (C#, .NET) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This implementation demonstrates how to query the [Azure Scheduled Events REST](/azure/azure/virtual-machines/linux/scheduled-events) endpoint, as mentioned above.
+One common workload type for Azure Spot VMs is queue processing applications. The reference implementation guide contains a simple, asynchronous queue-processing worker (C#, .NET) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This implementation demonstrates how to query the [Azure Scheduled Events REST](/azure/virtual-machines/linux/scheduled-events) endpoint, as mentioned above.
 
 ### Planning for workload interruption
 
