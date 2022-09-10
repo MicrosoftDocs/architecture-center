@@ -6,6 +6,8 @@ This example scenario is relevant to organizations building solutions that integ
 
 *Download a [Visio file][visio-download] of this architecture.*
 
+### Dataflow
+
 The data flows through the solution as follows:
 
 1. Construction equipment collects sensor data and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines.
