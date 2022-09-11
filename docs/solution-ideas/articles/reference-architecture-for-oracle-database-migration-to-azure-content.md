@@ -33,6 +33,12 @@ This solution applies when migrating Oracle DB to Azure.
 
 If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
 
+#### SQL Server Migration Assistant for Oracle
+
+Microsoft SQL Server Migration Assistant (SSMA) for Oracle is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server.
+
+* [Microsoft SQL Server Migration Assistant (SSMA) for Oracle](https://docs.microsoft.com/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql)
+
 ## Considerations
 
 ### Migration
