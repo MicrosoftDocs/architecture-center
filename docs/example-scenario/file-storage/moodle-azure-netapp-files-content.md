@@ -10,6 +10,8 @@ This article outlines a solution that meets Moodle's needs. At the core of the s
 - Data warehouse workloads
 - High-performance computing applications
 
+Apache® is either a registered trademark or trademark of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of this mark.
+
 ## Architecture
 
 In a single region, this solution provides highly available access to the Moodle app and other components. For detailed information on availability, see [Availability][Availability section of this article], later in this article.
@@ -70,7 +72,6 @@ Since the emergence of COVID-19, Moodle has seen a surge in growth. The company 
 
 By providing a high-bandwidth, low-latency solution for workloads, Azure NetApp Files meets Moodle's performance requirements. This solution is also flexible. Deployments can grow or shrink on demand to make your configuration cost effective.
 
-Apache® is either a registered trademark or trademark of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of this mark.
 
 ### Potential use cases
 
