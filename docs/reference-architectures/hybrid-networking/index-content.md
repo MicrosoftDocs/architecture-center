@@ -8,7 +8,7 @@ A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of v
 
 This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you're willing to trade slightly extended latency for the flexibility and processing power of the cloud.
 
-:::image type="content" source="./images/vpngateway-multisite-connection-diagram.png" alt-text="Diagram of a VPN gateway" lightbox="./images/vpngateway-multisite-connection-diagram.png" :::
+:::image type="content" source="./images/vpn-gateway-multisite-connection-diagram.png" alt-text="Diagram of a VPN gateway." lightbox="./images/vpn-gateway-multisite-connection-diagram.png" :::
 
 ### Benefits
 
