@@ -40,7 +40,7 @@ This diagram shows a single-node configuration:
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create Linux and Windows VMs. 
+    used to create Linux VMs. 
     -   For information about deploying the VM and installing the
         drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 -   [Azure Virtual
@@ -57,7 +57,7 @@ This diagram shows a single-node configuration:
 
 ## Compute sizing 
 
-[HBv3-series](/azure/virtual-machines/hbv3-series) series VMs were used to test the performance of AcuSolve on Azure. The following table provides configuration details:
+[HBv3-series](/azure/virtual-machines/hbv3-series) VMs were used to test the performance of AcuSolve on Azure. The following table provides configuration details:
 
 |Size|	vCPU	|RAM memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
 |--|--|--|--|--|--|--|--|--|
@@ -139,7 +139,7 @@ Two models were used to test the single-node configuration:
 
 -   Impinging nozzle (7.6 million elements)
 
-> ![Image that shows an impinging nozzle.](media/impinging-nozzle.png)
+![Image that shows an impinging nozzle.](media/impinging-nozzle.png)
 
 The following table provides details about the backward-facing step
 model:
@@ -167,6 +167,7 @@ for varying numbers of CPUs on Standard_HB120rs_v3 VMs:
 |Standard_HB120rs_v3    |    64*         |            188.7|
 |Standard_HB120rs_v3     |   32*          |           196.4|
 |Standard_HB120rs_v3      |  16*           |          322.9|
+
 \* *In these cases, the number of processors was artificially limited. This VM has 120 processors.*  
   
 The following graph shows the relative speed increases on the
@@ -183,6 +184,7 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 |Standard_HB120-64rs_v3     |    64         |   127.7         |
 | Standard_HB120-64rs_v3    |   32*          |     199.88      |
 | Standard_HB120-64rs_v3      |  16*           |  266.2        |
+
 *\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
 
 The following graph shows the relative speed increases on the
@@ -207,6 +209,7 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 |Standard_HB120-64rs_v3   | 16*|                     13.48|
 |Standard_HB120-64rs_v3 |   32*                     |8.95|
 |Standard_HB120-64rs_v3  |  64                    | 7.7|
+
 *\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
 
 The following graph shows the relative speed increases on the
