@@ -225,7 +225,7 @@ For more information, see the DevOps section in [Microsoft Azure Well-Architecte
 
 In both scenarios above, the end result was a change in Azure resource state via direct Azure Resource Manager interaction. While this was the intended outcome, consider the impact doing so might have on your environment if the modified resources were originally deployed declaratively, such as by Bicep or Terraform templates. Unless those changes are replicated back into your source templates, the next usage of those templates might undo the changes made by this automation. Consider the impact of mixing imperative changes to Azure resources that are routinely deployed via templates.
 
-## Deploy the solution
+## Deploy this scenario
 
 To deploy the cost center scenario, see the [deployment steps on GitHub](https://github.com/mspnp/serverless-automation).
 
