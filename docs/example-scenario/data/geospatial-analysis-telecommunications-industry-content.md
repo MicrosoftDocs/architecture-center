@@ -112,7 +112,7 @@ Principal authors:
 - [Apache Sedona programming guides](https://sedona.apache.org/tutorial/core-python)
 - [Getting Started](https://geopandas.org/en/stable/getting_started.html) with GeoPandas
 - [Getting started](https://www.geomesa.org/documentation/stable/user/getting_started) with GeoMesa
-- [Processing Geospatial Data at Scale With Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks)
+- [Processing Geospatial Data at Scale With Databricks](https://www.databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html)
 - [GIS file formats](https://en.wikipedia.org/wiki/GIS_file_formats)
 - [Apache Sedona reference](https://sedona.apache.org/archive/api/sql/GeoSparkSQL-Function)
 - [Overview of the H3 Geospatial Indexing System](https://h3geo.org/docs/core-library/overview)
