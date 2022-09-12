@@ -2,14 +2,6 @@
 
 Customer Churn Prediction uses Azure AI platform to predict churn probability, and it helps find patterns in existing data that are associated with the predicted churn rate.
 
-Keeping existing customers is five times cheaper than the cost of getting new customers. For this reason, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.
-
-## Potential use cases
-
-This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. By using both historical and near real-time data, users are able to create predictive models to analyze characteristics and identify predictors of the existing audience. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
-
-This solution is optimized for the retail industry.
-
 ## Architecture
 
 ![Architecture diagram: predicting customer churn with machine learning.](../media/customer-churn-prediction.png)
@@ -17,7 +9,7 @@ This solution is optimized for the retail industry.
 
 ### Dataflow
 
-1. Use [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) to stream all live data into Azure.
+1. Use [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) to stream all live data into Azure.
 
 1. Process real-time data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics can output processed data into [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) . This allows customers to combine existing and historical data to create dashboards and reports in Power BI.
 
@@ -37,6 +29,16 @@ This solution is optimized for the retail industry.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
 * [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
 * [Power BI](https://powerbi.microsoft.com) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
+
+## Scenario details
+
+Keeping existing customers is five times cheaper than the cost of getting new customers. For this reason, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.
+
+### Potential use cases
+
+This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. By using both historical and near real-time data, users are able to create predictive models to analyze characteristics and identify predictors of the existing audience. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
+
+This solution is optimized for the retail industry.
 
 ## Deploy this scenario
 
