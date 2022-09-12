@@ -32,7 +32,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
-:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway" lightbox="./images/expressroute-connection-overview.png" :::
+:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.png" :::
 
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
