@@ -9,7 +9,7 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 ### Dataflow
 
-1. Use [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) to stream all live data into Azure.
+1. Use [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) to stream all live data into Azure.
 
 1. Process real-time data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics can output processed data into [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) . This allows customers to combine existing and historical data to create dashboards and reports in Power BI.
 
