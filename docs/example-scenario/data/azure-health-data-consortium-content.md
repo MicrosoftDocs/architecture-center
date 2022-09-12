@@ -1,12 +1,3 @@
-Traditional clinical trials can be complex, time consuming, and costly. To address these issues, a growing number of healthcare organizations are partnering to build data consortiums for conducting clinical trials.
-
-Data consortiums benefit healthcare in many ways:
-
-- Make research data available.
-- Provide new revenue streams.
-- Lead to cost-effective regulatory decisions by providing quick access to data.
-- Keep patients safer and healthier by accelerating innovation.
-
 This solution for a data consortium uses Azure components. It meets these goals:
 
 - Provide a way for multiple organizations to share data.
@@ -15,15 +6,6 @@ This solution for a data consortium uses Azure components. It meets these goals:
 - Guarantee patient privacy.
 - Support data interoperability.
 - Offer customization options to meet specific organizations' requirements.
-
-## Potential use cases
-
-Many types of healthcare professionals can benefit from this solution:
-
-- Organizations that use real-world observational data like patient outcomes to determine treatments.
-- Physicians who specialize in personalized or precision medicine.
-- Telemedicine providers who need easy access to patient data.
-- Researchers who work with genomic data.
 
 ## Architecture
 
@@ -125,11 +107,35 @@ With Data Share, [many alternatives exist for data storage][Supported data store
 
 If Data Share isn't an option, consider a virtual private network (VPN) instead. You can use a site-to-site VPN to transfer data between member and consortium data stores.
 
+## Scenario details
+
+Traditional clinical trials can be complex, time consuming, and costly. To address these issues, a growing number of healthcare organizations are partnering to build data consortiums for conducting clinical trials.
+
+Data consortiums benefit healthcare in many ways:
+
+- Make research data available.
+- Provide new revenue streams.
+- Lead to cost-effective regulatory decisions by providing quick access to data.
+- Keep patients safer and healthier by accelerating innovation.
+
+### Potential use cases
+
+Many types of healthcare professionals can benefit from this solution:
+
+- Organizations that use real-world observational data like patient outcomes to determine treatments.
+- Physicians who specialize in personalized or precision medicine.
+- Telemedicine providers who need easy access to patient data.
+- Researchers who work with genomic data.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 The technologies in this solution meet most companies' requirements for security, scalability, and availability.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Because of the sensitivity of medical information, several components play a role in securing data:
 
@@ -172,6 +178,8 @@ This solution uses a single-region deployment. Some scenarios require a multi-re
 - [Azure Data Explorer offers high availability][High availability of Azure Data Explorer] through a persistence layer, a compute layer, and a leader-follower configuration.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Pricing for this solution depends on several factors:
 

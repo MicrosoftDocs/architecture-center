@@ -101,7 +101,11 @@ Consider Azure DevOps and CI/CD processes for:
 - Building quality and consistency into an automated build and release process.
 - Increasing application stability and uptime.
 
-## Security and Operational Excellence considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security and operational excellence
 
 - Consider using one of the [tokenization tasks](https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance) available in the VSTS marketplace.
 
@@ -115,7 +119,9 @@ Consider Azure DevOps and CI/CD processes for:
 
 - Consider using [YAML Templates](/azure/devops/pipelines/process/templates?view=azure-devops) to promote reuse and simplify pipelines. For example, PR and CI pipelines are similar. A single parameterized template could be used for both pipelines.
 
-## Cost optimization
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of test users. For more information, see [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/visual-studio-team-services).
 
@@ -135,3 +141,6 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 ## Related resources
 
 - [DevOps Checklist](../../checklist/dev-ops.md)
+- [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)
+- [CI/CD for Containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
+- [Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)

@@ -1,6 +1,4 @@
-The worldwide COVID-19 pandemic changed business, as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked.
-
-The Infrastructure Accelerator pattern is designed to resolve this issue by tackling data analysis workloads in regulated industries. This pattern is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met. It uses configurable, template-based service-deployment automation. And it's all built on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high-quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, pluggable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
+This solution is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met.
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -12,13 +10,13 @@ The following diagram shows a high-level overview of the architecture for the In
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-analysis-architecture-2.vsdx) of this architecture.*
 
-You can see the capabilities of the pattern in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
+You can see the capabilities of the solution in the upper part of the diagram. These capabilities include elements like target data sources (cloud or on-premises), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption.
 
 The bottom section shows the responsibilities of the various IT roles that are typically involved with cloud-data analysis workloads.
 
 The architecture provides state-of-the-art data analysis without sacrificing governance or security.
 
-Implementation of this pattern requires these skills:
+Implementation of this solution requires these skills:
 
 - An understanding of how to configure, monitor, and operate solutions in the Azure cloud. This includes governance models, security, policies, landing zones, and automation.
 - An understanding of how to configure and monitor cloud networking, private links, DNS, routing, access control lists, firewalls, and VPN integrations.
@@ -57,6 +55,10 @@ The functionality provided by this pattern overlaps with functionality that's av
 See [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) for an alternative solution to this pattern.
 
 ## Scenario details
+
+The worldwide COVID-19 pandemic changed business, as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked.
+
+The Infrastructure Accelerator pattern is designed to resolve this issue by tackling data analysis workloads in regulated industries. It uses configurable, template-based service-deployment automation. And it's all built on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high-quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, pluggable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
 
 In recent years, the demand for business users to be able to consume, transform, model, and visualize large amounts of complex data from multiple heterogeneous sources has increased dramatically. To meet this demand in a cost-effective, scalable way, many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to take advantage of the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this. These companies need to store and process vast amounts of highly sensitive data (for example, protected health information) every day. However, because of the sensitive nature of this data, there are many regulations (like HIPAA) in place that constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries are hesitant to adopt cloud-based data platforms because of the large financial penalties for regulatory violations and the perceived loss of control that comes from moving to a cloud-based platform.
 
@@ -171,6 +173,8 @@ SQL Database implements Row-Level Security at the database-engine level, which m
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 In general, avoid configuring Azure policies to prevent creating resources when Azure Policy rules aren't met. Instead, use Azure Policy audit mode to monitor resources that aren't compliant, or use Azure policies with automatic remediation steps.
 
 Provide users enough autonomy. Specifically, users should be able to be productive and demonstrate value quickly instead of dealing with troubleshooting permissions, network connectivity, blocked network ports, Azure endpoints, and so on.
@@ -216,6 +220,8 @@ The address range or size of the virtual network for the Data Analytical Workspa
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Consider following security practices:
 
 - Use Azure AD Identity Protection, configure multi-factor authentication and Conditional Access, and monitor Azure AD.
@@ -230,6 +236,8 @@ Consider following security practices:
 This pattern uses Azure PaaS services that are hosted in one region. You might want to use additional Azure regions to increase resiliency, but that also increases complexity. Geo-redundancy is currently out of scope for this pattern.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Most of the components in this architecture are based on Azure services that use a pay-as-you-go model.
 Services like Azure Databricks, Data Factory, Key Vault, Azure Virtual Network, and Azure Monitor incur no cost or negligible costs until you start certain operations.
