@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
- An Internet of Things (IoT) solution might require that an on-premises edge network provide computing and data collecting, rather than the cloud. Edge devices often meet these needs better than the cloud:
-
-- Quick analysis of real-time data
-- High availability
-- High bandwidth
+This Internet of Things (IoT) solution demonstrates an on-premises edge network for computing and data collecting.
 
 ## Architecture
 
@@ -25,6 +21,12 @@ The architecture uses the following Azure services:
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fast NoSQL database with open APIs for any scale.
 
 ## Scenario details
+
+An Internet of Things (IoT) solution might require that an on-premises edge network provide computing and data collecting, rather than the cloud. Edge devices often meet the following needs better than the cloud:
+
+- Quick analysis of real-time data
+- High availability
+- High bandwidth
 
 ### Potential use cases
 
