@@ -325,7 +325,7 @@ Other contributors:
     sizes](/azure/virtual-machines/sizes-gpu)
 -   [Linux virtual machines on
     Azure](/azure/virtual-machines/linux/overview)
--   [Virtual networks and virtual machines in
+-   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
     Azure](/learn/paths/run-high-performance-computing-applications-azure)
