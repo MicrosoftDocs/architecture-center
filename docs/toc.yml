@@ -3107,6 +3107,8 @@ items:
                 items:
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
+                  - name: Altair AcuSolve
+                    href: guide/hpc/hpc-altair-acusolve.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor

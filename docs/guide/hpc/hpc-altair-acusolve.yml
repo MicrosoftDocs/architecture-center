@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Altair AcuSolve on an Azure virtual machine
+  description: Learn how the Altair AcuSolve computational fluid dynamics (CFD) solver performs on an Azure virtual machine.  
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 09/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+   - azure-virtual-machines
+   - azure-virtual-network
+   - azure-cyclecloud
+name: Deploy Altair AcuSolve on an Azure virtual machine
+summary: Learn how the Altair AcuSolve computational fluid dynamics (CFD) solver performs on an Azure virtual machine.  
+thumbnailUrl: /azure/architecture/browse/thumbs/acusolve-cluster-thumb.png
+content: |
+  [!include[](hpc-altair-acusolve-content.md)]

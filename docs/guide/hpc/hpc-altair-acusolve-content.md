@@ -10,11 +10,10 @@ thermal analysis, aerodynamics, and noise reduction. AcuSolve:
 - Is finite-element based and uses distinct methods to solve all fluid problems: Navier-Stokes, smoothed-particle hydrodynamic, and Lattice Boltzmann.
 - Enables simulations that involve flow, heat transfer, turbulence,
     and non-Newtonian materials.
-- Validates physical models on fully sewed unstructured meshes.
 
 ## Why deploy AcuSolve on Azure?
 
-- Modern and diverse compute options to align to your workload\'s
+- Modern and diverse compute options to align to your workload's
     needs 
 - The flexibility of virtualization without the need to buy and
     maintain physical hardware 
@@ -112,10 +111,10 @@ the path to the installation directory:
     so that the directory is accessible for all nodes.
 -   The shared folder path depends on your network attached storage
     service, like an NFS server, BeeGFS cluster, [Azure NetApp
-    Files](https://azure.microsoft.com/en-us/services/netapp/), [Azure
+    Files](https://azure.microsoft.com/services/netapp), [Azure
     HPC Cache](https://azure.microsoft.com/en-us/services/hpc-cache/),
     or [Azure Active Directory Domain
-    Services](https://azure.microsoft.com/en-us/services/active-directory-ds/).
+    Services](https://azure.microsoft.com/services/active-directory-ds).
 -   To authorize multi-node VMs to access License Manager, you need to
     include your authorization code in the job script. For more
     information about installing AcuSolve, see [Altair One
@@ -165,9 +164,10 @@ for varying numbers of CPUs on Standard_HB120rs_v3 VMs:
 |VM size           |         Number of processors |  Wall-clock time                                               (seconds)|
 |-|-|-|
 |Standard_HB120rs_v3  |      120       |             130.8|
-|Standard_HB120rs_v3    |    64         |            188.7|
-|Standard_HB120rs_v3     |   32          |           196.4|
-|Standard_HB120rs_v3      |  16           |          322.9|
+|Standard_HB120rs_v3    |    64*         |            188.7|
+|Standard_HB120rs_v3     |   32*          |           196.4|
+|Standard_HB120rs_v3      |  16*           |          322.9|
+\* *In these cases, the number of processors was artificially limited. This VM has 120 processors.*  
   
 The following graph shows the relative speed increases on the
 Standard_HB120rs_v3 VM:
@@ -181,8 +181,9 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 |VM size           |         Number of processors |  Wall-clock time                                               (seconds)|
 |-|-|-|
 |Standard_HB120-64rs_v3     |    64         |   127.7         |
-| Standard_HB120-64rs_v3    |   32          |     199.88      |
-| Standard_HB120-64rs_v3      |  16           |  266.2        |
+| Standard_HB120-64rs_v3    |   32*          |     199.88      |
+| Standard_HB120-64rs_v3      |  16*           |  266.2        |
+*\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
@@ -203,15 +204,15 @@ CPUs on Standard_HB120-64rs_v3 VMs:
  
 |VM size|                   Number of processors|    Wall-clock time  (hours)|
 |-|-|-|
-|Standard_HB120-64rs_v3   | 16|                     13.48|
-|Standard_HB120-64rs_v3 |   32                     |8.95|
+|Standard_HB120-64rs_v3   | 16*|                     13.48|
+|Standard_HB120-64rs_v3 |   32*                     |8.95|
 |Standard_HB120-64rs_v3  |  64                    | 7.7|
+*\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
 
-![Graph that shows the relative speed increases on the
-Standard_HB120-64rs_v3 VM.](media/impinging-nozzle-graph.png)
+![Graph that shows the relative speed increases for the impinging nozzle model.](media/impinging-nozzle-graph.png)
 
 ### Results for a multi-node configuration
 
@@ -330,9 +331,6 @@ Other contributors:
 
 ## Related resources
 
--   [Run a Linux VM on
-    Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
--   [HPC system and big-compute
-    solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
--   [HPC cluster deployed in the
-    cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
+-   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
