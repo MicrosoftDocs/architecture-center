@@ -1,9 +1,5 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Vehicle data ingestion, processing, and visualization are key capabilities needed to create connected car solutions. By capturing and analyzing this data, we can decipher valuable insights and create new solutions.
-
-For example, with vehicles equipped with telematics devices, we can monitor the live location of vehicles, plan optimized routes, provide assistance to drivers, and support industries that consume or benefit from telematics data such as insurers, etc. For vehicle manufacturers, diagnostic information can provide important information for vehicle servicing and warranties.
-
 Imagine a car manufacturing company that wants to create a solution to:
 
 - Securely send real-time data to the cloud from sensors and onboard computers installed in its vehicles.
@@ -74,6 +70,12 @@ The data flows through the solution as follows:
 ### Alternatives
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
+## Scenario details
+
+Vehicle data ingestion, processing, and visualization are key capabilities needed to create connected car solutions. By capturing and analyzing this data, we can decipher valuable insights and create new solutions.
+
+For example, with vehicles equipped with telematics devices, we can monitor the live location of vehicles, plan optimized routes, provide assistance to drivers, and support industries that consume or benefit from telematics data such as insurers, etc. For vehicle manufacturers, diagnostic information can provide important information for vehicle servicing and warranties.
 
 ## Contributors
 
