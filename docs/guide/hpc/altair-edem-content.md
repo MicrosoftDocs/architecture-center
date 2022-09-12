@@ -8,7 +8,7 @@ simulation. EDEM uses discrete element method (DEM) to simulate and
 analyze the behavior of coal, mined ores, soils, fibers, grains,
 tablets, and powders. EDEM:
 
--   Shows crucial insight to bulk material interaction with equipment
+-   Provides crucial insight into bulk material interaction with equipment
     during a range of operation and process conditions.
 -   Creates simulations of real-world materials like large rocks, fine
     powders, grains, fibers, and tablets, representing material
@@ -27,7 +27,7 @@ mining, agriculture, space exploration, and process industries.
 -   The flexibility of virtualization without the need to buy and
     maintain physical hardware 
 -   Rapid provisioning 
--   Ability to solve simulations in a few hours with A100 GPUs
+-   Ability to solve simulations in a few hours (with A100 GPUs)
 
 ## Architecture
 
@@ -213,11 +213,11 @@ Other contributors:
 
 ## Next steps
 
--   [GPU optimized virtual machine
+-   [GPU-optimized virtual machine
     sizes](/azure/virtual-machines/sizes-gpu)
--   [Windows virtual machines in
+-   [Windows virtual machines on
     Azure](/azure/virtual-machines/windows/overview)
--   [Virtual networks and virtual machines in
+-   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
     Azure](/learn/paths/run-high-performance-computing-applications-azure)
