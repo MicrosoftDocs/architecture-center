@@ -6,7 +6,7 @@ This reference architecture illustrates how to design a hybrid update management
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-## Workflow
+### Workflow
 
 The architecture consists of the following services:
 
@@ -169,6 +169,8 @@ Each Windows computer managed by Update Management is listed in the **Hybrid Wor
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Manageability
 
 #### Manage updates for Azure VMs and non-Azure machines
@@ -281,6 +283,8 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Update Management permissions: The Update Management component of Automation and the Log Analytics workspace component of Monitor can use Azure role-based access control (Azure RBAC) with built-in roles from Azure Resource Manager. For segregation of the duties, these roles can be assigned to different users, groups, and security principals. For a list of the roles in Automation accounts, refer to [Manage role permissions and security][32].
 - Encryption of sensitive assets in Automation: An Automation account can contain sensitive assets such as credentials, certificates, and encrypted variables that runbooks might use. Each secure asset is encrypted by default using a data encryption key that's generated for each Automation account. These keys are encrypted and stored in Automation with an account encryption key that can be stored in the Azure Key Vault for customers who want to manage encryption with their own keys. By default, an account encryption key is encrypted by using Microsoft-managed keys. Use the following guidelines to [apply encryption of secure assets in Azure Automation][33].
 - Runbook permissions for a Hybrid Runbook Worker: By default, runbook permissions for a Hybrid Runbook Worker run in a system context on the machine where they're deployed. A runbook provides its own authentication to local resources. Authentication can be configured using managed identities for Azure resources or by specifying a Run As account to provide a user context for all runbooks.
@@ -294,6 +298,8 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 - For more information about how to integrate Automation with your source control environment, refer to [Use source control integration][37].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator][38] to estimate costs. For more information about Automation pricing models, refer to [Automation pricing][39].
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Moodle deployment with Azure NetApp Files
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.
   author: arntdg
   ms.author: b-arntdegier

@@ -1,23 +1,4 @@
-A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.
-
-This connected factory signal processing pipeline simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) gateway. OPC UA-capable greenfield devices connect to the pipeline directly.
-
-The signal processing pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
-
-Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. The pipeline has built-in traceability, versioning, and rollback functionality.
-
-The connected factory signal processing pipeline can help manufacturing organizations to:
-
-- Digitize previously manual management processes and data gathering.
-- Easily migrate to on-premises and cloud IoT solutions.
-- Quickly identify and react to issues on factory floors.
-- Streamline processes and improve efficiency.
-
-## Potential use cases
-
-- Track status of all connected machines and devices on the shop floor.
-- Enable connectivity of on-premises assets to enhance productivity across a plant or factory.
-- Predictive maintenance.
+This connected factory signal processing pipeline simplifies device interconnection.
 
 ## Architecture
 
@@ -93,17 +74,44 @@ This architecture uses AKS for running the Pipeline Configuration API, the Pipel
 
 As an alternative to Azure Stream Analytics, you could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview) or [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) to do streaming analytics.
 
+## Scenario details
+
+A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.
+
+ A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) gateway. OPC UA-capable greenfield devices connect to the pipeline directly.
+
+The signal processing pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
+
+Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. The pipeline has built-in traceability, versioning, and rollback functionality.
+
+The connected factory signal processing pipeline can help manufacturing organizations to:
+
+- Digitize previously manual management processes and data gathering.
+- Easily migrate to on-premises and cloud IoT solutions.
+- Quickly identify and react to issues on factory floors.
+- Streamline processes and improve efficiency.
+
+### Potential use cases
+
+- Track status of all connected machines and devices on the shop floor.
+- Enable connectivity of on-premises assets to enhance productivity across a plant or factory.
+- Predictive maintenance.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 - [Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones).
 
 - IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Consider using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
@@ -112,6 +120,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
   Azure Policy can also enforce built-in security policies to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
