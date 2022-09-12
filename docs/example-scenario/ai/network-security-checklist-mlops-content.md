@@ -36,7 +36,9 @@ The sample MLOps solution consists of the following components:
 
 In addition to these components, this example scenario uses additional security services to protect the MLOps solution:
 
-- [Virtual Network](/services/virtual-network)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy/)
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
 
 
 ## Scenario details
@@ -72,7 +74,7 @@ You can use all or part of this example scenario for any similar scenario that h
 
 When you implement an MLOps solution, you might want to secure the following resources:
 
-- Devops pipelines
+- DevOps pipelines
 - Machine learning training data
 - Machine learning pipelines
 - Machine learning models
@@ -106,7 +108,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security deters deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Consider how to secure your MLOps solution from the beginning of the architecture design. Development environments might not need significant security, but it's very important in the staging and production environments. 
+Consider how to secure your MLOps solution from the beginning of the architecture design. Development environments might not need significant security, but it's important in the staging and production environments. 
 
 ### Cost optimization
 
@@ -211,7 +213,7 @@ resource "azurerm_machine_learning_workspace" "aml_ws" {
   }
 }
 
-# Private DNS Zones
+# Configure private DNS zones
 
 resource "azurerm_private_dns_zone" "ws_zone_api" {
   name                = "privatelink.api.azureml.ms"
@@ -223,7 +225,7 @@ resource "azurerm_private_dns_zone" "ws_zone_notebooks" {
   resource_group_name = var.RESOURCE_GROUP
 }
 
-# Linking of DNS zones to Virtual Network
+# Link DNS zones to the virtual network
 
 resource "azurerm_private_dns_zone_virtual_network_link" "ws_zone_api_link" {
   name                  = "ws_zone_link_api"
@@ -239,7 +241,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "ws_zone_notebooks_link
   virtual_network_id    = azurerm_virtual_network.aml_vnet.id
 }
 
-# Private Endpoint configuration
+# Configure private endpoints
 
 resource "azurerm_private_endpoint" "ws_pe" {
   name                = "my_aml_ws_pe"
@@ -259,14 +261,14 @@ resource "azurerm_private_endpoint" "ws_pe" {
     private_dns_zone_ids = [azurerm_private_dns_zone.ws_zone_api.id, azurerm_private_dns_zone.ws_zone_notebooks.id]
   }
 
-  # Add Private Link after we configured the workspace
+  # Add the private link after we configured the workspace
   depends_on = [azurerm_machine_learning_compute_instance.compute_instance, azurerm_machine_learning_compute_cluster.compute_cluster]
 }
 ```
 
 #### Private DNS zone
 
-Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use custom domain names rather than the names provided by Azure. Note that DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
+Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use custom domain names rather than the names provided by Azure. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 
 This sample solution uses private endpoints for the Azure Machine Learning workspace and also for its associated resources such as Azure Storage, Azure Key Vault, or Azure Container Registry. Because of this, you must configure your DNS settings to resolve the IP addresses of the private endpoints from the fully qualified domain name (FQDN) of the connection string.
 You can link a private DNS zone to a virtual network to resolve specific domains.
@@ -280,10 +282,10 @@ As you can see in the Terraform snippet in [Azure Private Link and Azure Private
 
 Virtual network peering enables the access of the jump host VM or self-hosted agent VMs in BASTION VNET to the resources in AML VNET. For connectivity purposes, the two virtual networks work as one. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Azure backbone infrastructure. Traffic between the virtual networks is routed through Azure's private network.
 
-The following Terraform script sets up virtual network peering between AML VNET and BASTION VNET.
+The following Terraform snippet sets up virtual network peering between AML VNET and BASTION VNET.
 
 ```terraform
-# Virtual network peering for amlvnet and basvnet
+# Virtual network peering for AML VNET and BASTION VNET
 resource "azurerm_virtual_network_peering" "vp_amlvnet_basvnet" {
   name                      = "vp_amlvnet_basvnet"
   resource_group_name       = "my_resource_group"
@@ -319,11 +321,11 @@ Azure Pipelines automatically builds and tests code projects to make them availa
 
 #### Azure-hosted agents vs. self-hosted agents
 
-The MLOps solution in this example scenario consists of two pipelines, which can trigger Azure Machine Learning pipelines and access associated resources. Since the Azure Machine Learning workspace and its associated resource are in a virtual network, this scenario must provide a way for an Azure Pipeline Agent to access them. (Azure Pipeline Agent is the computing infrastructure with installed agent software that runs jobs of the Azure Pipeline one at a time.) There are a multiple ways to implement access:
+The MLOps solution in this example scenario consists of two pipelines, which can trigger Azure Machine Learning pipelines and access associated resources. Since the Azure Machine Learning workspace and its associated resource are in a virtual network, this scenario must provide a way for an Azure Pipeline Agent to access them. (Azure Pipeline Agent is the computing infrastructure with installed agent software that runs jobs of the Azure Pipeline one at a time.) There are multiple ways to implement access:
 
 - Use self-hosted agents in the same virtual network or the peering virtual network, as shown in [architecture diagram](#architecture).
 
-- Use Azure-hosted agents and add its IP address ranges to an allow list in the firewall settings of the targeted Azure services.
+- Use Azure-hosted agents and add its IP address ranges to an allowlist in the firewall settings of the targeted Azure services.
 
 - Use Azure-hosted agents (as VPN clients) and VPN Gateway.
 
@@ -376,38 +378,39 @@ SETTINGS
 }
 ```
 
-As shown in the code above, the Terraform script calls agent_init.sh to install agent software and needed libraries on the agent VM per the customer's requirements. The shell script looks like the following:
+As shown in the preceding code block, the Terraform script calls agent_init.sh, shown in the following code block, to install agent software and required libraries on the agent VM per the customer's requirements.
 
 ```bash
 #!/bin/sh
-# Install other needed libraries 
+# Install other required libraries 
 ...
 
-# Creates directory & download ADO agent install files
+# Creates directory and downloads Azure DevOps agent installation files
 sudo mkdir /myagent 
 cd /myagent
 sudo wget https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
 sudo tar zxvf ./vsts-agent-linux-x64-2.194.0.tar.gz
 sudo chmod -R 777 /myagent
 
-# Unattended install
+# Unattended installation
 sudo runuser -l ${AGENT_USERNAME} -c '/myagent/config.sh --unattended  --url ${ADO_ORG_SERVICE_URL} --auth pat --token ${ADO_PAT} --pool ${AGENT_POOL}'
 
 cd /myagent
 #Configure as a service
 sudo ./svc.sh install ${AGENT_USERNAME}
-#Start svc
+#Start service
 sudo ./svc.sh start
 ```
 
 #### Use Azure Container Registry in the virtual network
 
-Azure Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models. Note that there are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites).
+Azure Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models. There are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites).
 
-In this example scenario, to ensure the self-hosted agent can access the Azure Container Registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to BASTION VNET. The following Terraform snippet shows the implementation:
+In this example scenario, to ensure the self-hosted agent can access the Azure Container Registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to BASTION VNET. The following Terraform snippet shows the implementation.
 
 ```terraform
-# AML ACR is for private access by AML WS
+# Azure Machine Learning Azure Container Registry is for private access 
+# by the Azure Machine Learning workspace
 resource "azurerm_container_registry" "acr" {
   name                     = "my_acr"
   resource_group_name      = "my_resource_group"
@@ -453,9 +456,9 @@ In this example scenario, we also ensure that the Azure Container Registry has a
 
 #### Use a compute cluster or instance in the virtual network
 
-An Azure Machine Learning compute cluster or instance in a virtual network requires a network security group (NSG) with some specific rules for its subnet. For more information, see [limitations of Azure Machine Learning compute cluster/instance](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#limitations).
+An Azure Machine Learning compute cluster or instance in a virtual network requires a network security group (NSG) with some specific rules for its subnet. For a list of those rules, see [Limitations](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#limitations).
 
-Also note that for the compute cluster or instance, it's now possible to remove the public IP address. This provides better protection for compute resources in the MLOps solution.
+Also note that for the compute cluster or instance, it's now possible to remove the public IP address. This provides better protection for compute resources in the MLOps solution. For more information, see [No public IP for compute instances](/azure/machine-learning/how-to-secure-training-vnet?tabs=ipaddress&branch=main#no-public-ip).
 
 ## Contributors
 
@@ -475,17 +478,12 @@ Other contributors:
 ## Next steps
 
 - [Terraform on Azure documentation](https://docs.microsoft.com/en-us/azure/developer/terraform) for code and guidance on building network security for MLOps.
-
 - [Azure Machine Learning Enterprise Terraform Example](https://github.com/csiebler/azure-machine-learning-terraform)
 
 ## Related resources
 
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
-
 - [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe)
-
 - [Azure Virtual Network Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
-
 - [Azure Pipelines agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
-
 - [Azure DevOps Pricing](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services) 
