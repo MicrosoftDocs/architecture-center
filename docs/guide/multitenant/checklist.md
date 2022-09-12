@@ -79,7 +79,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
