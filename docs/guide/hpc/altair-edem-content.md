@@ -93,7 +93,7 @@ Azure VMs. Particle simulations were tested. Here are the details:
 
 | Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
 |---------|---------|---------|---------|--|--|--|--|
-|   Description  |Cylinder angle of repose         |  Bed of material with tillage tool      |Hopper emptying into container         |Powder mixer|Screw augur|Mill| Transfer chute with dynamic factory|
+|   Description  |Cylinder angle of repose         |  Bed of material with tillage tool      |Hopper emptying into container         |Powder mixer operation|Screw augur operation|Mill operation| Transfer chute with dynamic factory|
 |     |   ![Image that shows the angle of repose model.](media/angle-repose.png)      |     ![Image that shows the bed of material model.](media/bed-material.png)    |   ![Image that shows the hopper discharge model.](media/hopper-discharge.png)        |![Image that shows the powder mixer model.](media/powder-mixer.png) |![Image that shows the screw augur model.](media/screw-augur.png) |![Image that shows the mill model.](media/mill.png) |![Image that shows the transfer chute model.](media/transfer-chute.png) |
 |  Particle radius (m)| 0.0005 - 0.001|0.002 - 0.004 |0.003|0.0005|0.001|0.005|0.0045 - 0.009|
 | Number of spheres    | 3        |3         |3         |1|1|1|3|
