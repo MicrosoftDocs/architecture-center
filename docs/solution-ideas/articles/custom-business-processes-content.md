@@ -23,13 +23,13 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 
 The data flows through the solution as follows:
 
-1. The airline system assigns flights to a Teams channel and displays them in [Power Apps](/power-apps).
-1. Custom API Coordinator hosted in [Azure API Management](/azure/api-management) receives notifications and handles incoming messages from the airline system.
-1. When a user selects a flight to monitor or the system assigns the user to a flight, the system queues a Graph API call for a coordinator to process.
-1. [Azure Functions](/azure/azure-functions) runs the Graph API calls, which are stored in [Azure Storage](/azure/storage).
+1. The airline system communicates with a custom API, hosted in [Azure API Management](/azure/api-management).
+1. A custom API coordinator receives notifications and handles incoming messages from the airline system, assigning flights to Microsoft Teams channels, which are also displayed in [Power Apps](/power-apps).
+1. When a user selects a flight to monitor, or when the system assigns the user to a flight, the system queues a Graph API call in an Azure Storage Account queue for further processing.
+1. [Azure Functions](/azure/azure-functions) runs the Graph API calls based on the incoming messages in the storage queue, sending notifications to Teams and further streams all events to an [Azure Event Hubs](/azure/event-hubs/) for further analytics.
 1. The airline's notification system is managed by a custom bot messaging service that employs [Azure Bot Service](/azure/bot-service).
 1. Custom bots send flight updates to users in Teams.
-1. Power BI generates reports from the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction), based on Teams activity.
+1. An [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) storage is offering long-term retention and micro-batch processing of events from Event Hubs, ultimately generating insightful reports with Power BI.
 
 ### Components
 
