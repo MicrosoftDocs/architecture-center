@@ -2,21 +2,6 @@ Machine Learning DevOps (MLOps), first highlighted in [Hidden Technical Debt in 
 
 This article describes how to protect MLOps solutions by using Azure network security capabilities such as Azure Virtual Network, network peering, Azure Private Link, and Azure Private DNS. It also introduces how to use Azure Pipelines to access resources in the virtual network and the required configurations of Azure Container Registry and Azure Machine Learning compute instances and clusters in a virtual network. Finally, it describes the costs of using the network security services.
 
-- **Network Security**
-
-  - Use Virtual Network to partially or fully isolate the environment from the public internet to reduce the attack surface and data exfiltration
-
-- Data Encryption
-
-  - Encrypt training data in transit and at rest by using Microsoft-managed or customer-managed keys
-
-- Policy and Monitoring
-
-  - Use Azure Policy and the Azure Security Center to enforce policies
-
-  - Use Azure Monitor to collect and aggregate data (metrics, logs) from various sources into a common data platform where it can be used for analysis, visualization, and alerting.
-
-
 ## Architecture
 
 :::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-architecture.svg" lightbox="./media/network-security-checklist-mlops-architecture.svg":::
@@ -24,15 +9,16 @@ This article describes how to protect MLOps solutions by using Azure network sec
 
 ### Dataflow
 
-The architecture diagram shows a sample MLOps solution. The Azure Machine Learning workspace, and its associated resources, are protected by the virtual network named **AML VNET**.
+The architecture diagram shows a sample MLOps solution. 
 
-The jump host, **Azure Bastion**, and self-hosted agents are in another virtual network named **BASTION VNET**. This arrangement simulates having another solution that requires access to the resources within AML VNET.
+- The Azure Machine Learning workspace and its associated resources are protected by the virtual network named **AML VNET**.
 
-With the support of virtual network peering and private DNS zones, Azure Pipelines can execute on self-host agents and trigger the Azure Machine Learning pipelines that are published in the Azure Machine Learning workspace to train, evaluate, and register the machine learning models.
+- The jump host, Azure Bastion, and self-hosted agents are in another virtual network named **BASTION VNET**. This arrangement simulates having another solution that requires access to the resources within AML VNET.
 
-Finally, the model is deployed to online endpoints or batch endpoints that are supported by Azure Machine Learning compute or Azure Kubernetes Service clusters.
+- With the support of virtual network peering and private DNS zones, Azure Pipelines can execute on self-host agents and trigger the Azure Machine Learning pipelines that are published in the Azure Machine Learning workspace to train, evaluate, and register the machine learning models.
 
-This is how the Azure Pipelines and Azure Machine Learning pipelines work in this MLOps solution.
+- Finally, the model is deployed to online endpoints or batch endpoints that are supported by Azure Machine Learning compute or Azure Kubernetes Service clusters.
+
 
 ### Components
 
@@ -48,12 +34,20 @@ The sample MLOps solution consists of the following components:
 
 - MLOps pipelines: [Azure DevOps](https://azure.microsoft.com/services/devops/) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-In addition to these components, this example scenario uses additional network security services to protect the MLOps solution.
+In addition to these components, this example scenario uses additional security services to protect the MLOps solution:
+
+- [Virtual Network](/services/virtual-network)
 
 
 ## Scenario details
 
-**About MLOps security**
+<!--
+This should be an explanation of the business problem and why this scenario was built to solve it.
+  What prompted them to solve the problem?
+  What services were used in building out this solution?
+  What does this example scenario show? What are the customer's goals?
+  What were the benefits of implementing the solution? 
+-->
 
 MLOps is a set of practices at the intersection of Machine Learning, DevOps, and data engineering that aims to deploy and maintain machine learning models in production reliably and efficiently.
 
@@ -61,39 +55,97 @@ The following diagram shows a simplified MLOps process model. This model offers 
 
 :::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="./media/network-security-checklist-mlops-process-pipeline-flow.png":::
 
-**How to Secure Your MLOps Environment**
+### Potential use cases
 
-When you implement an MLOps solution, you may have the challenges of securing the following resources:
+This solution fits scenarios in which a customer uses an MLOps solution to deploy and maintain machine learning models in a secured environment. Such customers can be in various industries, such as manufacturing, telecommunications, retail, healthcare, and so on. For example:
+
+  - A telco carrier protects a customer's pictures, data, and machine learning models in its video monitoring system for retail stores. 
+
+  - An engine manufacture needs a secured solution to protect the data and machine learning models of its factories and products for its system of defect detection in parts that uses computer vision. 
+
+The MLOps solutions for these scenarios and others might use Azure Machine Learning workspaces, Azure blob storage, Azure Kubernetes Service, Azure Container Registry, and other Azure services.
+
+You can use all or part of this example scenario for any similar scenario that has an MLOps environment that is deployed on Azure and uses Azure security capabilities to protect the relevant resources. The original customer for this solution is in telecommunications industry.
+
+
+### How to secure your MLOps environment
+
+When you implement an MLOps solution, you might want to secure the following resources:
 
 - Devops pipelines
 - Machine learning training data
 - Machine learning pipelines
 - Machine learning models
 
-To address these challenges, you need to consider the following aspects to protect the MLOps solution:
+To secure these resources, consider the following methods:
 
-- Authentication and Authorization
+- Authentication and authorization
 
-  - Use Azure service principals or managed identities instead of interactive authentication
+  - Use [service principals](/azure/active-directory/fundamentals/service-accounts-principal) or [managed identities](/azure/media-services/latest/concept-managed-identities) instead of interactive authentication.
+  - Use [role-based access control](/azure/role-based-access-control/overview) to define the scope of a user's access to resources.
 
-  - Use RBAC to define the user's access scope of the resources
+- Network Security
+
+  - Use [Virtual Network](/azure/virtual-network/virtual-networks-overview) to partially or fully isolate the environment from the public internet to reduce the attack surface and the potential for data exfiltration.
+
+- Data Encryption
+
+  - Encrypt training data in transit and at rest by using [platform-managed](/azure/security/fundamentals/key-management) or [customer-managed](/azure/storage/common/customer-managed-keys-overview) access keys.
+
+- Policy and Monitoring
+
+  - Use [Azure Policy](/products/azure-policy) and Azure Security Center to enforce policies.
+  - Use [Azure Monitor](/services/monitor) to collect and aggregate data (such as metrics and logs) from various sources into a common data platform for analysis, visualization, and alerting.
 
 
-### Potential use cases
+## Considerations
 
-- The original customer for this solution is in telecommunications industry.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload when applied. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- This solution fits scenarios in which a customer wants to use an MLOps solution to deploy and maintain machine learning models while also securing the MLOps environment. Such customers can be in various industries, such as manufacturing, telecommunications, retail, healthcare, and so on. For example:
+### Security
 
-  - A telco carrier wants to protect the customer's pictures, data, and machine learning models in its 'Retail Store Video Monitoring System' supported by a MLOps solution that is based on an Azure Machine Learning workspace, Azure blob storage, Azure Kubernetes Service, and Azure container registry, and so on.
+Security deters deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-  - An engine manufacture needs a secured solution to protect the data and machine learning models of its factories and products in the MLOps solution, which is the backbone for its 'Computer Vision Part Defect Detection'. The MLOps solution is based on Azure Machine Learning workspace, Azure blob storage, Azure kubernetes service and Azure container registry etc.
+Consider how to secure your MLOps solution from the beginning of the architecture design. Development environments might not need significant security, but it's very important in the staging and production environments. 
 
-- It can be fully or partially reused for any similar scenario as the MLOps environment is deployed on Azure, being allowed to use Azure network security capabilities to protect the MLOps relevant   resources.
+### Cost optimization
 
-**Secure Azure Machine Learning Workspace and Its Associated Resources**
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-As the core component of a MLOps solution, the Azure Machine Learning workspace is the top-level resource for Azure Machine Learning that provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+Configuring Virtual Networks is free of charge, but there are charges for the additional services that your scenario might require. For example, your solution might require private links, DNS zones, and virtual network peering. The following table describes the charges for those service and others that might be required.
+
+| Azure Service | Pricing |
+|---------------|---------|
+| Virtual Network | Free of charge. |
+| Private Link    | Pay only for private endpoint resource hours and the data that is processed through your private endpoint. |
+| Azure DNS private zone | Billing is based on the number of DNS zones that are hosted in Azure and the number of DNS queries that are received. |
+| Virtual Network peering | Inbound and outbound traffic is charged at both ends of the peered networks. |
+| VPN gateway     | Charges are based on the amount of time that the gateway is provisioned and available. |
+| ExpressRoute    | Charges are for ExpressRoute and ExpressRoute Gateways. |
+| Azure Bastion   | Billing involves a combination of hourly pricing that is based on SKU, scale units, and data transfer rates. |
+
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+To streamline continuous integration and continuous delivery (CI/CD), the best practice is to use tools and services for infrastructure as code (IaC), such as Terraform or Azure Resource Manager templates, Azure DevOps, and Azure Pipelines.
+
+## Deploy this scenario
+
+<!--
+> Is there an example deployment that can show me this in action? 
+> What would I need to change to run this in production?
+
+
+Code snippets and practical processes go here
+Can you make a distinction between what are deployment details and what are Scenario details?
+Add anything from Scenario details if more applicable here
+-->
+
+### Secure the Azure Machine Learning workspace and its resources
+
+The Azure Machine Learning workspace is the top-level resource for Azure Machine Learning and the core component of an MLOps solution. The workspace provides a centralized place to work with all the artifacts that you create when you use Azure Machine Learning.
 
 When you create a new workspace, it automatically creates the following Azure resources that are used by the workspace:
 
@@ -102,15 +154,13 @@ When you create a new workspace, it automatically creates the following Azure re
 - Azure Key Vault
 - Azure Storage Account
 
-The first step of securing the MLOps environment is to protect Azure Machine Learning workspace and its associated resources. One of the effective ways of achieving this is to use Virtual Network.
+#### Azure Virtual Network
 
-**Azure Virtual Network**
+The first step in securing the MLOps environment is to protect the Azure Machine Learning workspace and its associated resources. One of the effective ways of doing this is to use Virtual Network. Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks.
 
-Virtual Network is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Azure virtual machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+Putting the Azure Machine Learning workspace and its associated resources into a virtual network ensures that components are able to communicate with each other without exposing them to the public internet. This reduces their attack surface and helps to prevent data exfiltration.
 
-By putting Azure Machine Learning workspace and its associated resources into a virtual network, we can ensure that components are able to communicate with each other without exposing them in the public internet. In this way, we can significantly reduce our MLOps solution' attack surface and data exfiltration.
-
-The following Terraform snippet shows how to create an AML compute cluster, attach it to an AML workspace and put it into a subnet of a virtual network.
+The following Terraform snippet shows how to create a compute cluster for Azure Machine Learning, attach it to a workspace, and put it into a subnet of a virtual network.
 
 ```terraform
 resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
@@ -132,13 +182,18 @@ resource "azurerm_machine_learning_compute_cluster" "compute_cluster" {
 }
 ```
 
-**Azure Private Link and Azure Private Endpoint**
+#### Azure Private Link and Azure Private Endpoint
 
-Private Link enables you to access Azure PaaS Services (for example, Azure Machine Learning Workspace, Azure Storage etc.) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. A private endpoint is a network interface which only tied to the specific chosen Azure resources thereby protecting data exfiltration.
+Private Link enables access over a private endpoint in your virtual network to Azure platform as a service (PaaS) options, such as Azure Machine Learning Workspace and Azure Storage, and to Azure-hosted customer-owned and partner-owned services. A private endpoint is a network interface that connects only to specific resources, thereby protecting against data exfiltration.
 
-In Figure 3, there are four private endpoints tied to the corresponding Azure PaaS services (Azure Machine Learning workspace, Azure Blob Storage, Azure Container Registry and Azure Key Vault) that are managed by a subnet in AML VNET. Therefore, these Azure PaaS services are only accessible to the resources within the same virtual network, that is, AML VNET.
+In this example scenario, there are four private endpoints that are tied to Azure PaaS options that are managed by a subnet in AML VNET, as shown in the [architecture diagram](#architecture). Therefore, these services are only accessible to the resources within the same virtual network, AML VNET. Those services are:
 
-The following Terraform script snippet shows how to use private endpoint to link to an Azure Machine Learning workspace thus it can be protected by the virtual network. About the usage of the private DNS zones, you may refer to the next section for the details.
+- Azure Machine Learning workspace
+- Azure Blob Storage
+- Azure Container Registry
+- Azure Key Vault
+
+The following Terraform snippet shows how to use a private endpoint to link to an Azure Machine Learning workspace, which is protected by the virtual network as a result. The snippet also shows use of a private DNS zone, which is described in the next section, [Private DNS Zones](#private-dns-zones).
 
 ```terraform
 resource "azurerm_machine_learning_workspace" "aml_ws" {
@@ -209,25 +264,23 @@ resource "azurerm_private_endpoint" "ws_pe" {
 }
 ```
 
-**Private Azure DNS Zone**
+#### Private DNS zone
 
-In the sample solution, the private endpoints are used for not only Azure Machine Learning workspace, but also its associated resources such as Azure Storage, Azure Key Vault, or Azure Container Registry. For this reason, you must correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
+Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use custom domain names rather than the names provided by Azure. Note that DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 
-You can use Azure private DNS zones to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
+This sample solution uses private endpoints for the Azure Machine Learning workspace and also for its associated resources such as Azure Storage, Azure Key Vault, or Azure Container Registry. Because of this, you must configure your DNS settings to resolve the IP addresses of the private endpoints from the fully qualified domain name (FQDN) of the connection string.
+You can link a private DNS zone to a virtual network to resolve specific domains.
 
-Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Note that the DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
-
-As you can see in the Terraform script snippet above, we created two private DNS zones by using the [recommended zone names for Azure services](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration):
+As you can see in the Terraform snippet in [Azure Private Link and Azure Private Endpoint](#azure-private-link-and-azure-private-endpoint), we created two private DNS zones by using the zone names that are recommended in [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration):
 
 - privatelink.api.azureml.ms
-
 - privatelink.notebooks.azure.net
 
-**Azure Virtual Network Peering**
+#### Azure Virtual Network Peering
 
-In Figure 3, in order to enable the jump host VM or self-hosted agent VMs (in BASTION VNET)'s access to the resources in AML VNET, we use virtual network peering to seamlessly connect these two virtual networks. Thus the two virtual networks appear as one for connectivity purposes. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between them in the same network, traffic is routed through Microsoft's private network only.
+Virtual network peering enables the access of the jump host VM or self-hosted agent VMs in BASTION VNET to the resources in AML VNET. For connectivity purposes, the two virtual networks work as one. The traffic between VMs and Azure Machine Learning resources in peered virtual networks uses the Azure backbone infrastructure. Traffic between the virtual networks is routed through Azure's private network.
 
-The following Terraform script sets up the virtual network peering between AML VNET and BASTION VNET.
+The following Terraform script sets up virtual network peering between AML VNET and BASTION VNET.
 
 ```terraform
 # Virtual network peering for amlvnet and basvnet
@@ -250,53 +303,52 @@ resource "azurerm_virtual_network_peering" "vp_basvnet_amlvnet" {
 }
 ```
 
-**Access the Resources in the virtual network**
+### Access the resources in the virtual network
 
-As Azure Machine Learning workspace's been put into AML VNET, how could data scientists or data engineers access it? You can do it in the following ways:
+To access the Azure Machine Learning workspace in a virtual network, like AML VNET in this scenario, use one of the following methods:
 
 - Azure VPN gateway
-
 - Azure ExpressRoute
-
 - Azure Bastion and the jump host virtual machine
 
-For the details, see [How to create a secure workspace](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace#connect-to-the-workspace).
+For more information, see [How to create a secure workspace](/azure/machine-learning/tutorial-create-secure-workspace#connect-to-the-workspace).
 
-**Run Azure Pipelines Which Access the Resources in virtual network**
+### Run Azure Pipelines that access the resources in virtual network
 
-Azure Pipelines automatically builds and tests code projects to make them available to others. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
+Azure Pipelines automatically builds and tests code projects to make them available to others. Azure Pipelines combines CI/CD to test and build your code and ship it to any target.
 
-**Microsoft-hosted Agents vs Self-hosted Agents**
+#### Azure-hosted agents vs. self-hosted agents
 
-As mentioned in the previous section, the MLOps solution consists of a couple of Azure Pipelines, which can trigger Azure Machine Learning pipelines and access associated resources. Since the Azure Machine Learning workspace and its associated resource are behind a virtual network, we need to figure out a way for an Azure Pipeline Agent (the computing infrastructure with installed agent software that runs one job of the Azure Pipeline at a time) to access them. There are a couple of ways to implement it:
+The MLOps solution in this example scenario consists of two pipelines, which can trigger Azure Machine Learning pipelines and access associated resources. Since the Azure Machine Learning workspace and its associated resource are in a virtual network, this scenario must provide a way for an Azure Pipeline Agent to access them. (Azure Pipeline Agent is the computing infrastructure with installed agent software that runs jobs of the Azure Pipeline one at a time.) There are a multiple ways to implement access:
 
-- Use self-hosted agents in the same virtual network or the peering virtual network, as shown in architecture diagram.
+- Use self-hosted agents in the same virtual network or the peering virtual network, as shown in [architecture diagram](#architecture).
 
-- Use Microsoft-hosted agents and allowlist its IP ranges in the firewall settings of target Azure services
+- Use Azure-hosted agents and add its IP address ranges to an allow list in the firewall settings of the targeted Azure services.
 
-- Use Microsoft-hosted agents (as VPN clients) and VPN Gateway
+- Use Azure-hosted agents (as VPN clients) and VPN Gateway.
 
-Each of the choices above has its pros and cons. First, let's compare Microsoft-hosted agents with self-hosted agents in the following table.
+Each of these choices has pros and cons. The following table compares Azure-hosted agents with self-hosted agents.
 
 > [!NOTE]
 > The prices in the following table were current at the time of writing. For current pricing, see [Pricing for Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
-|                 | Microsoft-hosted Agent | Self-hosted Agent |
-|-----------------|------------------------|-------------------|
-| **Cost** | Start free for one parallel job with 1,800 minutes per month, $40 per extra Microsoft-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month, $15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
+|                 | Azure-hosted Agent | Self-hosted Agent |
+|-----------------|--------------------|-------------------|
+| **Cost** | Start free for one parallel job with 1,800 minutes per month, $40 per extra Azure-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month, $15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
 | **Maintenance** | Taken care of for you by Microsoft. | Maintained by yourself with more control of installing any software you like. |
-| **Build Time** | More time consuming because it completely freshes every time you start a build and you always build from scratch | More time saving as it keeps all your files and caches. |
+| **Build Time** | More time consuming because it completely refreshes every time you start a build, and you always build from scratch. | Saves time because it keeps all your files and caches. |
 
+Based on the comparisons in the table, plus the consideration of security and complexity, we choose to use a self-hosted agent for the Azure Pipeline to trigger Azure Machine Learning pipelines in the virtual network. 
 
-Based on the comparison above, plus the consideration of security and complexity, we choose to use a self-hosted agent for the Azure Pipeline to trigger AML pipelines in the virtual network. To set up a self-hosted agent, we have the following options:
+To configure a self-hosted agent, there are the following options:
 
-- To install the agent on Azure Virtual Machines
+- Install the agent on Azure Virtual Machines.
 
-- To install the agents on Azure virtual machine scale set that can be auto-scaled to meet the customer's demands
+- Install the agents on an Azure virtual machine scale set, which can be auto-scaled to meet demand.
 
-- To install the agent on Docker container. This isn't feasible as we may need run Docker container within the agent for machine learning model training.
+- Install the agent on a Docker container. This isn't feasible for this scenario, because we might need to run the Docker container within the agent for machine learning model training.
 
-Here's the sample code for provisioning two self-hosted agents by creating Azure virtual machines and extensions:
+The following sample code provisions two self-hosted agents by creating Azure virtual machines and extensions:
 
 ```terraform
 resource "azurerm_linux_virtual_machine" "agent" {
@@ -348,11 +400,11 @@ sudo ./svc.sh install ${AGENT_USERNAME}
 sudo ./svc.sh start
 ```
 
-**Use Azure Container Registry in VNet**
+#### Use Azure Container Registry in the virtual network
 
-Azure Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models. While securing the Azure Machine Learning workspace with virtual networks, please note that there are some [prerequisites about Azure Container Registry](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites).
+Azure Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models. Note that there are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites).
 
-In the sample solution, to ensure the self-hosted agent can access the Azure Container Registry in the virtual network, you need to use virtual network peering, and add virtual network link to link the private DNS zone (privatelink.azurecr.io) to BASTION VNET. Refer to the Terraform script snippet below for the implementation:
+In this example scenario, to ensure the self-hosted agent can access the Azure Container Registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to BASTION VNET. The following Terraform snippet shows the implementation:
 
 ```terraform
 # AML ACR is for private access by AML WS
@@ -397,56 +449,13 @@ resource "azurerm_private_endpoint" "acr_ep" {
 }
 ```
 
-In the meantime, you should ensure that the Azure Container Registry has a contributor role for the system assigned managed identity of Azure Machine Learning workspace.
+In this example scenario, we also ensure that the Azure Container Registry has a contributor role for the system-assigned managed identity of the Azure Machine Learning workspace.
 
-**Use Compute Cluster/Instance in virtual network**
+#### Use a compute cluster or instance in the virtual network
 
-When putting an Azure Machine Learning compute cluster/instance into a virtual network, you need to create network security group (NSG) with some specific rules for its subnet. You may refer to [limitations of Azure Machine Learning compute cluster/instance](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-training-virtual network?tabs=azure-studio%2Cipaddress#limitations) for the detailed information.
+An Azure Machine Learning compute cluster or instance in a virtual network requires a network security group (NSG) with some specific rules for its subnet. For more information, see [limitations of Azure Machine Learning compute cluster/instance](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#limitations).
 
-Also note that for the compute cluster or instance, it's now possible to remove the public IP address (a preview feature). This provides better protection of your compute resources in the MLOps solution.
-
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-MLOps solution security should be considered in the very beginning of the architecture design. When developing a solution, even though you can think less about security in the development environment, still it's highly recommended you should take security into consideration in the staging and production environments. 
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-Configuring Virtual Networks is free of charge, but there are charges for the additional services that might be required to secure your solution. For example, your solution might require private links, DNS zones, and virtual network peering. The following table describes the charges for those service and others that might be required.
-
-| Azure Service | Pricing |
-|---------------|---------|
-| Virtual Network | Free of charge. |
-| Private Link    | Pay only for private endpoint resource hours and the data that is processed through your private endpoint. |
-| Azure DNS private zone | Billing is based on the number of DNS zones that are hosted in Azure and the number of DNS queries that are received. |
-| Virtual Network peering | Inbound and outbound traffic is charged at both ends of the peered networks. |
-| VPN gateway     | Charges are based on the amount of time that the gateway is provisioned and available. |
-| ExpressRoute    | Charges are for ExpressRoute and ExpressRoute Gateways. |
-| Azure Bastion   | Billing involves a combination of hourly pricing that is based on SKU, scale units, and data transfer rates. |
-
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-To streamline continuous integration and continuous delivery (CI/CD), the best practice is to use tools and services for infrastructure as code (IaC), such as Terraform or Azure Resource Manager templates, Azure DevOps, and Azure Pipelines.
-
-## Deploy this scenario
-
-<!--
-Code snippets and practical processes go here
-Can you make a distinction between what are deployment details and what are Scenario details?
-Add anything from Scenario details if more applicable here
--->
-
+Also note that for the compute cluster or instance, it's now possible to remove the public IP address. This provides better protection for compute resources in the MLOps solution.
 
 ## Contributors
 
@@ -465,15 +474,15 @@ Other contributors:
 
 ## Next steps
 
-Refer to [Terraform on Azure documentation](https://docs.microsoft.com/en-us/azure/developer/terraform/) and code snippets in this article to build your network security solution for MLOps.
+- [Terraform on Azure documentation](https://docs.microsoft.com/en-us/azure/developer/terraform) for code and guidance on building network security for MLOps.
+
+- [Azure Machine Learning Enterprise Terraform Example](https://github.com/csiebler/azure-machine-learning-terraform)
 
 ## Related resources
 
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
 
-- [Secure an Azure Machine Learning workspace with virtual networks](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe)
-
-- [Azure Machine Learning Enterprise Terraform Example](https://github.com/csiebler/azure-machine-learning-terraform)
+- [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe)
 
 - [Azure Virtual Network Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
 
