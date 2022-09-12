@@ -2,7 +2,7 @@ This example scenario builds on the [Analytics end-to-end with Azure Synapse][e2
 
 ## Architecture
 
-![Diagram of Enterprise BI architecture with Azure Synapse.](./images/aac-scoped-architecture-new-grayed.png)
+![Diagram of Enterprise BI architecture with Azure Synapse.](./media/aac-scoped-architecture-new.png)
 
 *Download a [Visio file]() of this architecture.*
 
@@ -29,14 +29,14 @@ This example scenario builds on the [Analytics end-to-end with Azure Synapse][e2
 This scenario uses the following components:
 
 - [Azure SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server)
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
-- [Power BI](https://powerbi.microsoft.com/)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD)
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+- [Power BI](https://powerbi.microsoft.com)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD)
 
 ### Architecture diagram
 
-![Diagram of the enterprise BI pipeline.](./images/enterprise-bi-small-architecture.png)
+![Diagram of the enterprise BI pipeline.](./media/enterprise-bi-small-architecture.png)
 
 
 ## Scenario details
@@ -76,7 +76,7 @@ This scenario uses the [Adventure Works DW][adventureworksdw-sample-link] sample
 
 This architecture uses the built-in [metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Synapse Pipelines to incrementally load all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines, and SQL scripts to generate the control table required to store data for the incremental loading process (for example, high watermark value/column for each table). Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
 
-![Screenshot of metadata-driven copy tool in Synapse Analytics.](./images/metadata-copy.png)
+![Screenshot of metadata-driven copy tool in Synapse Analytics.](./media/metadata-copy.png)
 
 The tool will create three pipelines to iterate over all the tables in the database, before loading the data.
 
@@ -121,7 +121,7 @@ This scenario is delivered with DirectQuery dashboard, because the amount of dat
 
 Import mode provides the fastest query response time, and should be considered when the model will fit entirely within Power BI’s memory, the data latency between data refreshes can be tolerated, and there might be some complex transformations between the source system and the final model. In this case, the reporting end users want full access to the most recent data with no delays in Power BI refreshing, and all historical data, which is larger than what a Power BI dataset can handle&mdash;between 25-400 GB, depending on the capacity size. As the data model in the dedicated SQL pool is already in a star schema and needs no transformation, DirectQuery is an appropriate choice.
 
-![Screenshot of dashboard in Power BI.](./images/AdventureWorksDWDashboard.png)
+![Screenshot of dashboard in Power BI.](./media/adventure-works-dashboard.png)
 
 Using [Power BI Premium Gen2](/power-bi/enterprise/service-premium-gen2-what-is) gives you ability to handle large models, paginated reports, PBI deployment pipelines and built-in Analysis Services endpoint, and to have dedicated [capacity](/power-bi/admin/service-premium-what-is#reserved-capacities) with unique value proposition.
 When the BI Model grows or dashboard complexity increases, you could switch to composite models and start importing parts of look-up tables (via [Hybrid Tables](/power-bi/connect-data/service-dataset-modes-understand#hybrid-tables)) and some pre-aggregated data. Enabling [query caching](/power-bi/connect-data/power-bi-query-caching) within Power BI for imported datasets is an option, as well as utilizing [dual tables](/power-bi/transform-model/desktop-storage-mode) for storage mode property. Within Composite model, datasets act as virtual pass through layer. When the user interacts with visualizations, Power BI generates SQL queries to Synapse SQL Pools Dual Storage: in memory or direct query depending on which one is more efficient. The engine decides when to switch from in-memory to direct query and pushes the logic to the Synapse SQL Pool. Depending on the context of the query tables, they can act as either cached (imported) or not cached Composite Models: pick and choose which table to cache into memory, combine data from one or more DirectQuery sources, and/or combine data from a mix of DirectQuery sources and imported data.
@@ -177,7 +177,7 @@ Pricing details for Synapse Pipelines can be found under the 'Data Integration' 
 
 Depending on the components/activities you choose, frequency and number of Integration Runtime units, the price would vary.
 
-For the sample dataset, we have picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the entities (tables) in the source database. The reference architecture contains no data flows. There are no operational costs, as we have less than one million operations with pipelines a month.
+For the sample dataset, we've picked standard Azure Hosted Integration Runtime, Copy Data Activity for the core of the pipeline, which is triggered on a daily schedule for all of the entities (tables) in the source database. The reference architecture contains no data flows. There are no operational costs, as we have less than one million operations with pipelines a month.
 
 #### Azure Synapse Dedicated Pool and Storage
 
@@ -279,17 +279,18 @@ Other contributors:
 
 ## Next steps
 
-- add new
-
-[Power BI](/power-bi/fundamentals/power-bi-overview)
-
-[Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction) OR [Azure Data Lake Gen2](/azure/databricks/data/data-sources/azure/adls-gen2/)
+- [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Accessing Azure Data Lake Storage Gen2 and Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
+- [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 
 ## Related resources
 
-[Azure example scenarios](/azure/architecture/example-scenario) describes other helpful architectures that demonstrate specific solutions using some of the same technologies:
-
-- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
+- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end-experiment)
+- [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
 
 [AAF-devops]: /azure/architecture/framework/devops/overview

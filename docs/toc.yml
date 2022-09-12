@@ -2956,6 +2956,8 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Enterprise business intelligence
+                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data analytics on confidential computing
@@ -4615,8 +4617,6 @@ items:
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
-              - name: Enterprise business intelligence
-                href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
