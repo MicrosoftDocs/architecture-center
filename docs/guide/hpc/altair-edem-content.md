@@ -35,7 +35,7 @@ mining, agriculture, space exploration, and process industries.
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-edem.vsdx) of this architecture.*
 
-## Components
+### Components
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
@@ -79,8 +79,7 @@ For information about eligible Windows images, see [How to deploy Windows 10 on 
 > NVIDIA Fabric Manager installation is required for VMs
 that use NVLink or NVSwitch.
 
-For information about deploying the VM and installing the drivers, see: [Run a Windows VM on
-    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 To install EDEM, you need to download EDEM from Altair One Marketplace,
 install License Manager, and then install EDEM. For detailed
@@ -140,7 +139,7 @@ the V100 GPU, as compared to 96 CPUs:
 | Mill                | 1           | 16.10            | 11.50        |
 | Transfer chute      | 1           | 12.44            | 8.81         |
 
-This graphs shows the relative speeds:
+This graph shows the relative speeds:
 
 ![Chart, bar chart Description automatically
 generated](media/comparison-chart.png)
@@ -215,19 +214,16 @@ Other contributors:
 ## Next steps
 
 -   [GPU optimized virtual machine
-    sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
+    sizes](/azure/virtual-machines/sizes-gpu)
 -   [Windows virtual machines in
-    Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)
+    Azure](/azure/virtual-machines/windows/overview)
 -   [Virtual networks and virtual machines in
-    Azure](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview)
+    Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](https://docs.microsoft.com/en-us/learn/paths/run-high-performance-computing-applications-azure)
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
--   [Run a Windows VM on
-    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
--   [HPC system and big-compute
-    solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
--   [HPC cluster deployed in the
-    cloud](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
+-   [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
