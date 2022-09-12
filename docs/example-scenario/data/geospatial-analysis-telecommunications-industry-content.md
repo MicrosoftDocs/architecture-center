@@ -103,7 +103,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
 
