@@ -1,17 +1,17 @@
 
-This architecture gives guidance for building highly resilient, multi-tier applications. It uses cross-region data replication and three forms of load balancing to distribute traffic across two regions and three availability zones. The benefit is high availability and responsive disaster recovery.
+This architecture provides guidance for building internet-facing applications that use HTTP(S), TCP, and UDP protocols. Cross-region data replication and three forms of load balancing distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region-v-4.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-4.png":::
+:::image type="content" source="images/high-availability-multi-region-v-5.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-5.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-4.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-5.vsdx) of this architecture.*
 
 ### Workflow
 
-- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway endpoints. The public endpoints of the Application Gateways are the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on your routing method choice. For example, you might direct requests to the user's closest endpoints to improve responsiveness. Traffic Manager load balances through the distribution of endpoint IP addresses. The web browser connects directly to the endpoint. [It doesn't connect through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods you configure. The browser connects directly to the endpoint, [not through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. We deployed the AppGWs to all three zones, so they're zone redundant. The AppGWs distribute traffic across the three zones in the web tier. The Web Application Firewalls (WAFs) inspect traffic and protect the application from web exploits and vulnerabilities.
+- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAFs) that inspects traffic and protects the application from web exploits and vulnerabilities.
 
 - The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateways distribute traffic to each of the three availability zones. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
@@ -36,60 +36,53 @@ This architecture gives guidance for building highly resilient, multi-tier appli
 
 ### Alternatives
 
-- Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or application-layer processing, see the [Application Gateway overview](/azure/application-gateway/overview).
-
-- You can use Azure load balancer for regional load balancing. For more information, see [Azure Load Balancer overview](/azure/load-balancer/load-balancer-overview).
-
-- Your end-to-end scenarios might benefit from combining Azure Application Gateway and Azure Load Balancer solutions in different configurations as needed.
-
-- The backend can be public or private endpoints, virtual machines, Azure Virtual Machine Scale Sets, app services, or AKS clusters. You can route traffic based on attributes of an HTTP request, such as host name and URI path.
+- Azure Front Door is a preferable global load balancing solution for web applications that only use HTTP(S). It's a layer-7 load balancer that provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities.
 
 ## Solution Details
 
-- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts as endpoint latencies change.
+- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts as endpoint latency changes.
+
+- Traffic manager provides automatic failover if there's a regional outage. It using priority routing and regular health checks to determine where traffic should be routed.
 
 - The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
-- The combination of Traffic Manager and Application Gateway gives you the following capabilities:
 
-  - Web Application Firewall (WAF).
-  - Transport Layer Security (TLS) termination.
-  - Path-based routing.
-  - Cookie-based session affinity.
+- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door at a regional level:
 
-- The virtual networks are peered via Global virtual network peering to allow data replication from the primary region to the secondary region.
+  - Web Application Firewall (WAF)
+  
+  - Transport Layer Security (TLS) termination
+  
+  - Path-based routing
+  
+  - Cookie-based session affinity
+
+- The virtual networks are peered. Peering across regions is called global virtual network (vnet) peering. Peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
 
 ## Recommendations
 
-These considerations implement the pillars of the Azure Well-Architected Framework (WAF). WAF is a set of guiding tenets available to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-The following recommendations apply to most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+The following recommendations adhere to the pillars of the Azure Well-Architected Framework (WAF). The WAF pillars are guiding tenets that help ensure the quality of the cloud workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ## Reliability
 
-### Availability
+- *Regions:* Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also helps to avoid application downtime if a subsystem of the application fails. Traffic Manager will automatically fail over to the secondary region if the primary region fails.
 
-- Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also helps to avoid application downtime if a subsystem of the application fails.
-
-- Use Traffic Manager to fail over to the secondary region if the primary region fails.
-
-- Use Region Pairs for the most resiliency. Here are the benefits of Region Pairs:
+- *Region pairs:* Use Region Pairs for the most resiliency. Here are the benefits of Region Pairs:
 
   - Prioritizes one region out of every pair to help reduce the time to restore for applications.
   - Roles out planned Azure updates to paired regions one at a time to minimize downtime and risk of application outage.
   - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
   - Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
 
-- Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
+- *Availability zones:* Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
 
-- Configure the Application Gateway with a minimum of two instances to avoid downtime.
+- *Application gateway:* Configure the Application Gateway with a minimum of two instances to avoid downtime.
 
-- For more information, see:
-  - [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
-  - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+For more information, see:
 
-### Traffic Manager configuration
+- [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
+- [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
-#### Routing
+### Routing
 
 - Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
 
@@ -99,7 +92,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
   - [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
   - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 
-#### Traffic View
+### Traffic View
 
 - Enable Traffic View in Traffic Manager to understand which regions have a large amount of traffic but suffer from higher latencies.
 
@@ -152,11 +145,11 @@ For more information, see:
 
 ## Operational excellence
 
-- **Resource groups:** Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
+- *Resource groups:* Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
-- **Virtual network peering:** Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
+- *Virtual network peering:* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
-- **Virtual network and subnets:** Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
+- *Virtual network and subnets:* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
 
 ## Security
 
