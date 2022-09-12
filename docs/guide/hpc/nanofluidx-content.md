@@ -1,13 +1,6 @@
-title: Deploy Altair nanoFluidX on an Azure virtual machine
-
-description: Learn how the Altair nanoFluidX particle-based (SPH) fluid
-dynamics simulation tool performs on an Azure virtual machine. 
-
-# Deploy Altair nanoFluidX on a virtual machine
-
 This article briefly describes the steps for running [Altair
 nanoFluidX](https://www.altair.com/altair-cfd-capabilities) (NFX) on a
-virtual machine (VM) that\'s deployed on Azure. It also presents the
+virtual machine (VM) that's deployed on Azure. It also presents the
 performance results of running nanoFluidX on Azure.
 
 Altair nanoFluidX simulates single-phase and multiphase flows. It's
@@ -16,7 +9,6 @@ hydrodynamics (SPH) formulation. Altair nanoFluidX:
 
 -   Enables easy treatment of high-density ratio multiphase flows, like
     water-air.
-
 -   Provides rotating-motion options to prescribe different types of
     motion. These options enable simulation of rotating gears,
     crankshafts, and connecting rods in powertrain applications.
@@ -32,66 +24,49 @@ suited for simulation of free surface oiling, sloshing, and mixing.
 
 -   Modern and diverse compute options to align to your workload\'s
     needs 
-
 -   The flexibility of virtualization without the need to buy and
     maintain physical hardware 
-
 -   Rapid provisioning 
-
 -   Complex problems solved within a few hours
 
 ## Architecture
 
-![Diagram Description automatically
-generated](media/image1.png){width="6.1963429571303585in"
-height="4.813825459317585in"}
+:::image type="content" source="media/hpc-nanofluidx.png" alt-text="Diagram that shows an architecture for deploying Altair nanoFluidX." lightbox="media/hpc-nanofluidx.png" border="false":::
 
 *Download a [Visio
 file](https://arch-center.azureedge.net/hpc-nanofluidx.vsdx) of this
 architecture.*
 
-## Components
+### Components
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
     used to create Linux VMs. 
-
     -   For information about deploying the VM and installing the
-        drivers, see [Linux VMs on
-        Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm).
-
+        drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 -   [Azure Virtual
     Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud. 
-
     -   [Network security
-        groups](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
+        groups](/azure/virtual-network/network-security-groups-overview)
         are used to restrict access to the VMs.  
-
     -   A public IP address connects the internet to the VM.   
-
 -   A physical SSD is used for storage.   
 
 ## Compute sizing and drivers
 
 [ND A100
-v4](https://docs.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) and [NVv3
-M60](https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series) series VMs,
+v4](/azure/virtual-machines/nda100-v4-series) and [NVv3
+M60](/azure/virtual-machines/nvv3-series) series VMs,
 running Linux, were used to test the performance of nanoFluidX on Azure.
 The following table provides the configuration details:
 
-  ---------------------------------------------------------------------------------
-  VM size               vCPU   Memory,   SSD, in Number of GPU memory, Maximum data
-                               in GiB    GiB     GPUs      in GiB      disks
-  --------------------- ------ --------- ------- --------- ----------- ------------
-  Standard_ND96asr_v4   96     900       6,000   8 A100    40          32
-
-  Standard_NV12s_v3     12     112       320     1         8           12
-
-  Standard_NV24s_v3     24     224       640     2         16          24
-
-  Standard_NV48s_v3     48     448       1,280   4         32          32
-  ---------------------------------------------------------------------------------
+|VM size|  vCPU|   Memory, in GiB  | SSD, in GiB| Number of GPUs |GPU memory, in GiB|  Maximum data disks|
+|-|-|-|-|-|-|-|
+|  Standard_ND96asr_v4|   96|     900 |      6,000 |  8 A100 |   40|          32|
+ | Standard_NV12s_v3   |  12 |    112  |     320    | 1  |       8  |         12|
+  |Standard_NV24s_v3    | 24  |   224   |    640     |2 |        16  |        24|
+  |Standard_NV48s_v3     |48   |  448    |   1,280   |4|         32   |       32|
 
 ### Required drivers
 
@@ -121,7 +96,7 @@ You also need to install License Manager. For more information, see
 [Altair One
 Marketplace](https://altairone.com/Marketplace?queryText=nanofluidx&app=nanoFluidX&tab=Info).
 
-# nanoFluidX performance results
+## nanoFluidX performance results
 
 Particle-based (SPH) fluid dynamics simulations were run to test
 nanoFluidX. Because nanoFluidX is GPU-based, the results are provided
