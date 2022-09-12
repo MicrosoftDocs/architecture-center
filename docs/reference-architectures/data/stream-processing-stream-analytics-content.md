@@ -244,7 +244,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [IoT and data analytics in the construction industry](../../example-scenario/data/big-data-with-iot.yml)
 - [Real-time fraud detection](../../example-scenario/data/fraud-detection.yml)
