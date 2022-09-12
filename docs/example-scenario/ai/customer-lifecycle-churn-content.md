@@ -1,25 +1,4 @@
-This scenario shows a solution for creating predictive models of [customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value) and [churn rate](https://en.wikipedia.org/wiki/Churn_rate) by using Azure AI technologies. Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. *Churn* or *churn rate* measures the number of individuals or items moving out of a group over a period.
-
-This retail customer scenario classifies your customers based on marketing and economic measures. This scenario also creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
-
-This solution demonstrates how to interconnect the following Azure AI technologies:
-
-- Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
-- Use Azure Databricks to do exploratory data analysis.
-- Do batch experiment training of an [Sklearn](https://www.adamsmith.haus/python/docs/sklearn) machine learning model on Azure Databricks.
-- Use MLflow to track machine learning experiments.
-- Batch score machine learning models on Azure Databricks.
-- Use Azure Machine Learning to model registration and deployment.
-- Use Azure Data Factory and Azure Databricks notebooks to orchestrate the MLOps pipeline.
-
-## Potential use cases
-
-This solution is ideal for the retail industry. It's helpful in the following use cases:
-
-- In marketing, to determine how much to spend to acquire a customer.
-- For product teams, to tailor products and services for their best customers.
-- For customer support, to decide how much to spend to service and keep a customer.
-- For sales representatives, to decide what types of customers to spend the most time trying to acquire.
+This scenario shows a solution for creating predictive models of [customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value) and [churn rate](https://en.wikipedia.org/wiki/Churn_rate) by using Azure AI technologies.
 
 ## Architecture
 
@@ -67,7 +46,34 @@ This solution is ideal for the retail industry. It's helpful in the following us
 
 - Some business intelligence tools may not support Azure Analysis Services. The curated data can instead be accessed directly from Azure SQL Database. Data is stored using Azure Data Lake Storage and accessed using Azure Databricks storage for data processing.
 
+## Scenario details
+
+Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. *Churn* or *churn rate* measures the number of individuals or items moving out of a group over a period.
+
+This retail customer scenario classifies your customers based on marketing and economic measures. This scenario also creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
+
+This solution demonstrates how to interconnect the following Azure AI technologies:
+
+- Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
+- Use Azure Databricks to do exploratory data analysis.
+- Do batch experiment training of an [Sklearn](https://www.adamsmith.haus/python/docs/sklearn) machine learning model on Azure Databricks.
+- Use MLflow to track machine learning experiments.
+- Batch score machine learning models on Azure Databricks.
+- Use Azure Machine Learning to model registration and deployment.
+- Use Azure Data Factory and Azure Databricks notebooks to orchestrate the MLOps pipeline.
+
+### Potential use cases
+
+This solution is ideal for the retail industry. It's helpful in the following use cases:
+
+- In marketing, to determine how much to spend to acquire a customer.
+- For product teams, to tailor products and services for their best customers.
+- For customer support, to decide how much to spend to service and keep a customer.
+- For sales representatives, to decide what types of customers to spend the most time trying to acquire.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -85,6 +91,8 @@ This scenario uses Azure Databricks clusters, which enable autoscaling by defaul
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Protect assets by using controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. For instance, Azure self-hosted integration runtime securely moves data from on-premises data storage to Azure.
 
 Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) and Databricks scoped secret to access data in Azure Data Lake Storage.
@@ -92,6 +100,8 @@ Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) and Databr
 Azure services are either deployed in a secure virtual network or accessed using the Azure Private Link feature. If necessary, row-level security provides granular access to individual users in Azure Analysis Services or SQL Database.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Azure Databricks is a premium Apache Spark offering with an associated cost.
 
