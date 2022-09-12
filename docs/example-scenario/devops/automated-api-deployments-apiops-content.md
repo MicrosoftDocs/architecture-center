@@ -1,4 +1,4 @@
-APIOps applies GitOps and [DevOps](/devops) to API deployment. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. API developers can review and audit APIs earlier and more frequently. This process lets them catch and resolve deviations from API standards faster. The result is better specifications and API quality. The more APIs that you build and deploy by following this approach, the greater the consistency between APIs. With greater consistency, it's less likely that the service will be consumed.
+APIOps applies GitOps and [DevOps](/devops) to API deployments. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. With APIOps, API developers can review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster for better specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
 
 This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/?view=azure-devops) provides Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) creates the CI/CD pipeline.
 
@@ -17,7 +17,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-2. If an API in the API Management instance has been changed, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
+2. If a developer changes an API in the API Management instance, it creates a pull request (PR) for operators to review and merge the changes in the Git repository.
 
 3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
@@ -25,13 +25,13 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 5. The PR can be automatically approved or reviewed, depending on the level of control that's required.
 
-6. After changes are approved and merged, the publishing pipeline deploys the latest changes to the API Management instance.
+6. After approving and merging the changes, the publishing pipeline deploys the latest changes to the API Management instance.
 
 7. API operators create and modify API Management policies, diagnostics, products, and other relevant objects, and then commit the changes.
 
 8. The changes are reviewed, and they're merged after approval.
 
-9. After the changes are merged, the publishing pipeline deploys the changes by using the same process that was used for API definitions.
+9. After merging the changes, the publishing pipeline deploys the changes by using the API-definitions process.
 
 ### Components
 
@@ -45,13 +45,13 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 ### Alternatives
 
-The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). Utilities like the extractor and the creator were extended to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
+The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). We extended the utilities, such as the extractor and the creator, to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
-This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. Any similar technology could be used to provide those services.
+This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. You can use any comparable technologies.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework (WAF). WAF gives you guiding tenets to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Performance efficiency
 
@@ -59,7 +59,7 @@ APIOps has many benefits, but as API Management landscapes grow, so does the com
 
 - Keeping an overview of all environments and API Management instances.
 - Tracking critical changes to APIs and policies.
-- Ensuring that all changes that have been deployed also have an audit trail.
+- Creating an audit trail for all deployed changes.
 
 ### Security
 
@@ -99,7 +99,7 @@ Deploying this solution involves these steps:
 - Develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
   - If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
   
-  - Optionally, use the [Create pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script, which is written in Azure DevOps CLI, to create new PRs.
+  - Optionally, use the Azure DevOps CLI to [create a new pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request).
 
 - The extractor workflow includes the following steps that you take:
 
@@ -124,19 +124,19 @@ Deploying this solution involves these steps:
 
     - _Create template branch_
 
-      After the artifact is generated, this stage creates a PR with the changes extracted for the platform team to review.
+      After generating the artifact, this stage creates a PR with the changes extracted for the platform team to review.
 
       The first time you run the extractor, it pulls everything from the Git repository. The PR that's created will have all the APIs, policies, artifacts, and so on.
 
-      Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
+      Later extractions have only changes made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
 
       :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
 
-- A reviewer goes to **Pull Requests** and views the pull requests to be reviewed. This step can also be automatically approved if the changes that are discovered by the extractor should always be pulled in.
+- A reviewer goes to **Pull Requests** to view the updated pull requests. You can also configure automatic approvals to automate this step.
 
   :::image type="content" alt-text="Screenshot of an example pull request that shows changes to content in 'policy.xml' and changes only to whitespace in other files." source="media/automated-api-deployment-merging-artifacts-pr.png" lightbox="media/automated-api-deployment-merging-artifacts-pr.png":::
 
-- After the PR is approved, it triggers another pipeline that publishes from API Management to the portal. In our example, <!--we named this pipeline _apim-publish-to-portal_, and--> it has the following stages: _build creator_, _build terminator_, and _publish APIM instances_.
+- After approving the PR, it triggers another pipeline that publishes from API Management to the portal. In our example, <!--we named this pipeline _apim-publish-to-portal_, and--> it has the following stages: _build creator_, _build terminator_, and _publish APIM instances_.
 
   :::image type="content" alt-text="Screenshot of the stages in APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-stages-of-api-management-publish.png":::
 
@@ -146,7 +146,7 @@ Deploying this solution involves these steps:
 
   :::image type="content" alt-text="Screenshot that shows the jobs in an example run of APIM-publish-to-portal, a pipeline." source="media/automated-api-deployment-jobs-in-api-management-publish.png" lightbox="media/automated-api-deployment-jobs-in-api-management-publish.png":::
 
-  After this pipeline runs successfully, all the changes are published into the API Management instance.
+  After this pipeline runs successfully, it publishes the changes in the API Management instance.
 
 ## Contributors
 
@@ -156,7 +156,7 @@ Principal author:
 
 - [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign into LinkedIn.*
 
 ## Next steps
 
