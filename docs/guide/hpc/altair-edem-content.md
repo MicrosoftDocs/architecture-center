@@ -1,10 +1,3 @@
-title: Deploy Altair EDEM on an Azure virtual machine
-
-description: Learn how Altair EDEM discrete element method (DEM)
-software performs on an Azure virtual machine (VM). 
-
-# Deploy Altair EDEM on a virtual machine
-
 This article briefly describes the steps for running [Altair
 EDEM](https://www.altair.com/edem) on a virtual machine (VM) that\'s
 deployed on Azure. It also presents the performance results of running
@@ -30,62 +23,43 @@ mining, agriculture, space exploration, and process industries.
 
 ## Why deploy EDEM on Azure?
 
--   Modern and diverse compute options to align to your workload\'s
+-   Modern and diverse compute options to align to your workload's
     needs 
-
 -   The flexibility of virtualization without the need to buy and
     maintain physical hardware 
-
 -   Rapid provisioning 
-
 -   Ability to solve simulations in a few hours with A100 GPUs
 
 ## Architecture
 
-![Diagram Description automatically
-generated](media/image1.png){width="7.751081583552056in"
-height="6.021673228346457in"}
+:::image type="content" source="media/hpc-edem.png" alt-text="Diagram that shows an architecture for deploying Altair EDEM." lightbox="media/hpc-edem.png" border="false":::
 
-## *Download a [Visio file](https://arch-center.azureedge.net/hpc-edem.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-edem.vsdx) of this architecture.*
 
 ## Components
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create Linux and Windows VMs. 
-
+    used to create Windows VMs. 
     -   For information about deploying the VM and installing the
-        drivers, see [Windows VMs on
-        Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-        or [Linux VMs on
-        Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm).
-
+        drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 -   [Azure Virtual
     Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud. 
-
     -   [Network security
-        groups](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
+        groups](/azure/virtual-network/network-security-groups-overview)
         are used to restrict access to the VMs.  
-
     -   A public IP address connects the internet to the VM.   
-
 -   A physical SSD is used for storage.   
 
 ## Compute sizing and drivers
 
-# [ND A100 v4](https://docs.microsoft.com/en-us/azure/virtual-machines/nda100-v4-series) and [NCv3](https://docs.microsoft.com/en-us/azure/virtual-machines/ncv3-series) series VMs, running the Windows operating system, were used to test the performance of EDEM on Azure. The following table provides the configuration details:
+[ND A100 v4](/azure/virtual-machines/nda100-v4-series) and [NCv3](/azure/virtual-machines/ncv3-series) series VMs, running the Windows operating system, were used to test the performance of EDEM on Azure. The following table provides the configuration details:
 
-  ---------------------------------------------------------------------------------
-  VM size               vCPU     Memory,   Temporary   GPUs     GPU       Maximum
-                                 in GiB    storage              memory,   data
-                                           (SSD), in            in GiB    disks
-                                           GiB                            
-  --------------------- -------- --------- ----------- -------- --------- ---------
-  Standard_ND96asr_v4   96       900       6,000       8 A100   40        32
-
-  Standard_NC6s_v3      6        112       736         1 V100   16        12
-  ---------------------------------------------------------------------------------
+|  VM size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|
+|--|--|--|--|--|--|--|
+|Standard_ND96asr_v4|   96   |    900|       6,000|       8 A100|   40|        32|
+|  Standard_NC6s_v3   |   6 |       112     |  736         |1 V100   |16        |12|
 
 ### Required drivers
 
@@ -100,31 +74,39 @@ Before you install EDEM, you need to deploy and connect a VM and install
 the NVIDIA drivers. On Standard_ND96asr_v4 VMs, you need to install the
 AMD drivers.
 
-**Important:** NVIDIA Fabric Manager installation is required for VMs
+> [!IMPORTANT]
+> NVIDIA Fabric Manager installation is required for VMs
 that use NVLink or NVSwitch.
 
-For information about deploying the VM and installing the drivers, see
-one of these articles:
-
--   [Run a Windows VM on
-    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-
--   [Run a Linux VM on
-    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
+For information about deploying the VM and installing the drivers, see: [Run a Windows VM on
+    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm).
 
 To install EDEM, you need to download EDEM from Altair One Marketplace,
 install License Manager, and then install EDEM. For detailed
 installation instructions, see [Altair One
 Marketplace](https://altairone.com/Marketplace?__hstc=142694250.005b507352b9e4107a39c334591c181a.1662053255169.1662498072969.1662503447214.4&__hssc=142694250.2.1662503447214&__hsfp=886166656).
 
-# EDEM performance results
+## EDEM performance results
 
 Seven real-world scenarios were used to test the performance of EDEM on
 Azure VMs. Particle simulations were tested. Here are the details:
 
-![Table Description automatically generated with medium
-confidence](media/image2.png){width="9.240624453193352in"
-height="4.295063429571304in"}
+| Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
+|---------|---------|---------|---------|--|--|--|--|
+|   Description  |Cylinder angle of repose         |  Bed of material with tillage tool      |Hopper emptying into container         |Powder mixer|Screw augur|Mill| Transfer chute with dynamic factory|
+|     |   ![Image that shows the angle of repose model.](media/angle-repose.png)      |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+|     |         |         |         |
+
 
 This table shows the elapsed wall-clock time needed to complete each of
 the simulations, in seconds:
