@@ -282,7 +282,7 @@ the costs for your configuration.
 -   On a single node, on Standard_HB120rs_v3 VMs with 120 vCPUs,
     performance increases as much as 2.47 times over that of 16 CPUs,
     based on wall-clock time.
--   On a single node on Standard_HB120-64rs_v3 VMs with 64 vCPUs,
+-   On a single node, on Standard_HB120-64rs_v3 VMs with 64 vCPUs,
     performance increases as much as 2.08 times over that of 16 CPUs,
     based on wall-clock time.
 -   AcuSolve scales up linearly with impressive numbers up to 8 nodes on
@@ -321,9 +321,9 @@ Other contributors:
 
 ## Next steps
 
--   [GPU optimized virtual machine
+-   [GPU-optimized virtual machine
     sizes](/azure/virtual-machines/sizes-gpu)
--   [Linux virtual machines in
+-   [Linux virtual machines on
     Azure](/azure/virtual-machines/linux/overview)
 -   [Virtual networks and virtual machines in
     Azure](/azure/virtual-network/network-overview)
