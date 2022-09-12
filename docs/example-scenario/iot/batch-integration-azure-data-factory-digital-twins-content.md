@@ -48,6 +48,8 @@ This solution is ideal for the manufacturing, automotive, and transportation ind
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 - Custom activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
 
 - Consider archiving the files, after they've been processed, for historical purposes.
@@ -87,6 +89,8 @@ Depending on the complexity and size of data in the source system, consider the 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 This scenario relies on managed identities for security of the data.  Data Factory requires the storage account key to generate shared access signatures.  To help protect that key, store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault), and grant the data factory access to it through managed identity.
 
 ### DevOps
@@ -95,6 +99,8 @@ This scenario relies on managed identities for security of the data.  Data Facto
 - Data Factory supports an end-to-end DevOps lifecycle.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
@@ -114,15 +120,7 @@ Other contributors:
 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-* [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect
 
 ## Next steps
 

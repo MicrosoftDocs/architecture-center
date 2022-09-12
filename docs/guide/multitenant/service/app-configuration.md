@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/12/2022
+ms.date: 09/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -31,6 +31,17 @@ A *store* refers to a single instance of the Azure App Configuration service.
 In a multitenant solution, it's common to have some settings that you share among multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.yml#deployment-stamps-pattern). Global settings are often best stored within a shared App Configuration store. By following this approach, you minimize the number of places that you need to update when the value of a setting changes. This approach also minimizes the risk that settings could get out of sync.
 
 Commonly, you will also have tenant-specific settings. For example, you might need to store each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem that's reported by a specific tenant and you need to collect diagnostic logs from that one tenant. You can choose whether to combine the tenant-specific settings for multiple tenants into a single store, or to deploy a store for each tenant. This decision should be based on your requirements. If your solution uses a single shared application tier for multiple tenants, there's likely to be minimal benefit to using tenant-specific stores. But if you deploy tenant-specific application instances, you might choose to mirror the same approach by deploying tenant-specific configuration stores.
+
+The following table summarizes the differences between the main tenancy isolation models for Azure App Configuration:
+
+| Consideration | Shared store | Store per tenant |
+|---|---|---|
+| **Data isolation** | Low. Use key prefixes or labels to identify each tenant's data | High |
+| **Performance isolation** | Low | High |
+| **Deployment complexity** | Low | Medium-high |
+| **Operational complexity** | Low | Medium-high |
+| **Resource cost** | Low | Medium-high |
+| **Example scenario** | Large multitenant solution with a shared application tier | Premium tier tenants with fully isolated deployments |
 
 ### Shared stores
 

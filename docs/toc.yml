@@ -87,8 +87,10 @@ items:
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
                 href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
-          - name: Choose a hybrid option
+          - name: Choose a hybrid service
             items:
+              - name: Hybrid options
+                href: guide/technology-choices/hybrid-considerations.yml
               - name: Compare Azure Stack Hub and Azure
                 href: /azure-stack/user/azure-stack-considerations
                 maintainContext: true
@@ -3107,11 +3109,13 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: HPC deployments 
                 items:
-                  - name: Deploy ADS CFD Code Leo
+                  - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
-                  - name: Deploy Autodesk Civil 3D
+                  - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
-                  - name: Deploy Autodesk VRED
+                  - name: Autodesk Inventor
+                    href: guide/hpc/autodesk-inventor.yml
+                  - name: Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
               - name: Industry guidance
                 items:

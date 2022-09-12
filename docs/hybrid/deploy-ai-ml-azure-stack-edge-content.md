@@ -1,13 +1,5 @@
 This reference architecture illustrates how to use [Azure Stack Edge][azure-stack-edge] to extend rapid machine learning inference from the cloud to on-premises or edge scenarios. Azure Stack Hub delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location.
 
-## Potential use cases
-
-This solution is ideal for the telecommunications industry. Typical uses for extending inference include when you need to:
-
-- Run local, rapid machine learning inference against data as it's ingested and you have a significant on-premises hardware footprint.
-- Create long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.
-- Build software applications that need to make inferences about users, both at a physical location and online.
-
 ## Architecture
 
 ![Architecture diagram: on-premises data training a model in Azure Machine Learning, with model deployed back to the edge for inference.][architectural-diagram]
@@ -30,6 +22,16 @@ The architecture consists of the following steps:
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+
+## Scenario details
+
+### Potential use cases
+
+This solution is ideal for the telecommunications industry. Typical uses for extending inference include when you need to:
+
+- Run local, rapid machine learning inference against data as it's ingested and you have a significant on-premises hardware footprint.
+- Create long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.
+- Build software applications that need to make inferences about users, both at a physical location and online.
 
 ## Recommendations
 
@@ -69,6 +71,8 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 - Consider placing your Azure Stack Edge resource in the same Azure region as other Azure services that will access it. To optimize upload performance, consider placing your Azure Blob storage account in the region where your appliance has the best network connection.
@@ -86,6 +90,8 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 - The Azure Machine Learning workspace will automatically register and manage Docker container images for machine learning models and IoT Edge modules.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - [Azure Stack Edge pricing][azure-stack-edge-pricing] is calculated as a flat-rate monthly subscription with a one-time shipping fee.

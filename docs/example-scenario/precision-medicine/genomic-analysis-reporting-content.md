@@ -114,6 +114,8 @@ Most Azure services are scalable by design:
 
 ### Security considerations
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 The technologies in this solution meet most companies' requirements for security.
 
 #### Guidelines
@@ -146,7 +148,9 @@ Several components also secure data in other ways:
   - Azure role-based access control (RBAC)
   - Portable Operating System Interface (POSIX) access control lists (ACLs)
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 With most Azure services, you can reduce costs by only paying for what you use:
 

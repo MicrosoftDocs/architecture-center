@@ -1,22 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud) ecosystem that helps detect and prevent COVID-19 infection in large group spaces.
-
 This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
-
-- Thermal cameras and contactless thermometers take temperatures of people entering the park.
-- Portable, interactive virus testing centers provide rapid, discreet onsite virus testing for people who fail temperature checks.
-- Anomaly detecting smart cones monitor safe social distancing in groups and lines.
-- Smart, connected hand sanitizer dispensers monitor usage and supply levels.
-- Speakers and interactive bots deliver automated alerts, reminders, and instructions to employees and guests.
-- Data driven messaging and reporting let stakeholders monitor events and overall trends.
-
-## Potential use cases
-
-- Large, high-usage spaces with controlled entry and access.
-- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, theme parks, and tourist attractions.
-
-This solution is ideal for the healthcare and facilities industries.
 
 ## Architecture
 
@@ -46,6 +30,26 @@ This solution is ideal for the healthcare and facilities industries.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a managed, serverless Kubernetes platform for microservices apps. Kubernetes is open-source orchestration software for deploying, managing, and scaling containerized apps.
 - Azure [API Management](https://azure.microsoft.com/services/api-management) deploys Azure, third-party, and external APIs side by side to optimize traffic flow, provide unified control and visibility, and ensure security and compliance.
 - [Microsoft Power BI](https://powerbi.microsoft.com) visualizations enable well-informed and data-driven reporting and decision making.
+
+## Scenario details
+
+Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud) ecosystem that helps detect and prevent COVID-19 infection in large group spaces.
+
+This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
+
+- Thermal cameras and contactless thermometers take temperatures of people entering the park.
+- Portable, interactive virus testing centers provide rapid, discreet onsite virus testing for people who fail temperature checks.
+- Anomaly detecting smart cones monitor safe social distancing in groups and lines.
+- Smart, connected hand sanitizer dispensers monitor usage and supply levels.
+- Speakers and interactive bots deliver automated alerts, reminders, and instructions to employees and guests.
+- Data driven messaging and reporting let stakeholders monitor events and overall trends.
+
+### Potential use cases
+
+- Large, high-usage spaces with controlled entry and access.
+- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, theme parks, and tourist attractions.
+
+This solution is ideal for the healthcare and facilities industries.
 
 ## Next steps
 
