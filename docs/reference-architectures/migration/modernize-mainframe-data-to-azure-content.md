@@ -1,21 +1,4 @@
-Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
-
-Successful modernizations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data, rather than the new system. Data management is no longer merely an item on the modernization checklist. Instead, the data becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
-
-This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources. The solution uses Azure data platform components in a data-first approach. Specifically, the plan involves:
-
-- **Object conversion**: Converting object definitions from the source data store to corresponding objects in the target data store.
-- **Data ingestion**: Connecting to the source data store and extracting data.
-- **Data transformation**: Transforming extracted data into appropriate target data store structures.
-- **Data storage**: Loading data from the source data store to the target data store, both initially and continually.
-
-## Potential use cases
-
-Mainframe and midrange customers can benefit from this solution, especially when targeting these goals:
-
-- Modernize mission-critical workloads.
-- Acquire business intelligence to improve operations and gain a competitive advantage.
-- Escape the high costs and rigidity associated with mainframe and midrange data stores.
+This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources.
 
 ## Architecture
 
@@ -25,9 +8,11 @@ Mainframe and midrange customers can benefit from this solution, especially when
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
+### Dataflow
+
 Data modernization involves the following steps. Throughout the process, an on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services (1).
 
-### Object conversion
+#### Object conversion
 
 The object conversion process extracts object definitions from sources. The definitions are then converted into corresponding objects on the target data store (2).
 
@@ -39,11 +24,11 @@ The object conversion process extracts object definitions from sources. The defi
   - Mapping the copybooks to C# objects that .NET applications use.
 - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-### Data ingestion and transformation
+#### Data ingestion and transformation
 
 In the next step, the process migrates data.
 
-#### File data
+##### File data
 
 - Data Provider connects remotely to IBM host file system servers (3a). With non-mainframe systems, Data Provider reads data offline.
 
@@ -57,7 +42,7 @@ In the next step, the process migrates data.
 
 - FTP converts and transfers mainframe and midrange datasets with single layouts and unpacked fields to Azure (3b).
 
-#### Database data
+##### Database data
 
 - IBM mainframe and midrange systems store data in relational databases including:
 
@@ -81,7 +66,7 @@ In the next step, the process migrates data.
 
 Azure services like Data Factory and AzCopy load data into Azure databases and data storage (4). Third-party solutions and custom loading solutions can also load data.
 
-### Data storage
+#### Data storage
 
 Azure offers many managed data storage solutions (5):
 
@@ -99,17 +84,17 @@ Azure offers many managed data storage solutions (5):
   - Azure Data Lake Storage
   - Azure Storage
 
-### Data tier
+#### Data tier
 
 - A range of Azure Services use the modernized data tier for computing, analytics, storage, and networking (6).
 
 - Existing client applications also use the modernized data tier (7).
 
-## Components
+### Components
 
 The solution uses the following components.
 
-### Tools
+#### Tools
 
 - [SSMA for Db2][SQL Server Migration Assistant for Db2] automates migration from Db2 to Microsoft database services. While running on a virtual machine (VM), this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. SSMA for Db2 then migrates data from Db2 to the following services:
 
@@ -128,7 +113,7 @@ The solution uses the following components.
 
 - [Azure Services][Azure Services overview] provide environments, tools, and processes for developing and scaling new applications in the public cloud.
 
-### Data integrators
+#### Data integrators
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
@@ -140,7 +125,7 @@ The solution uses the following components.
   - Cleansing and mining data
   - Managing SQL Server objects and data
 
-### Data store
+#### Data store
 
 - [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL family][Azure SQL] and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
@@ -158,7 +143,7 @@ The solution uses the following components.
 
 - [Azure Storage][Azure Storage] is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
-### Networking
+#### Networking
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 
@@ -169,7 +154,30 @@ The solution uses the following components.
 - When you use the Data Provider for Host Files client to convert data, [turn on connection pooling][Configure HIS component for performance] to reduce connection startup time.
 - When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
+## Scenario details
+
+Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
+
+Successful modernizations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data, rather than the new system. Data management is no longer merely an item on the modernization checklist. Instead, the data becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
+
+The solution uses Azure data platform components in a data-first approach. Specifically, the plan involves:
+
+- **Object conversion**: Converting object definitions from the source data store to corresponding objects in the target data store.
+- **Data ingestion**: Connecting to the source data store and extracting data.
+- **Data transformation**: Transforming extracted data into appropriate target data store structures.
+- **Data storage**: Loading data from the source data store to the target data store, both initially and continually.
+
+## Potential use cases
+
+Mainframe and midrange customers can benefit from this solution, especially when targeting these goals:
+
+- Modernize mission-critical workloads.
+- Acquire business intelligence to improve operations and gain a competitive advantage.
+- Escape the high costs and rigidity associated with mainframe and midrange data stores.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when considering this architecture.
 
@@ -177,12 +185,17 @@ Keep these points in mind when considering this architecture.
 
 When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
-### Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files Security and Protection][Data Providers for Host Files Security and Protection] to improve security.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 09/05/2022
+ms.date: 09/12/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,8 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Troubleshoot virtual node problems in AKS clusters](./operator-guides/aks/troubleshoot-virtual-nodes-aks.md)
+- [Deploy Autodesk Civil 3D on an Azure virtual machine](./guide/hpc/civil-3d.yml)
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml)
 - [Oracle on Azure architecture design](./solution-ideas/articles/oracle-on-azure-start-here.md)
 - [Media architecture design](./guide/media/start-here.md)
@@ -33,15 +35,53 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Azure App Configuration considerations for multitenancy](./guide/multitenant/service/app-configuration.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
+- [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#19503b747](https://github.com/MicrosoftDocs/architecture-center/commit/19503b747))
+- [Azure Database for PostgreSQL intelligent apps](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#5ce3eccc3](https://github.com/MicrosoftDocs/architecture-center/commit/5ce3eccc3))
+- [Anomaly detector process in near-real-time](./solution-ideas/articles/anomaly-detector-process.yml)  ([#0d4600bff](https://github.com/MicrosoftDocs/architecture-center/commit/0d4600bff))
+- [Connected factory hierarchy service](./solution-ideas/articles/connected-factory-hierarchy-service.yml)  ([#87d01ac7a](https://github.com/MicrosoftDocs/architecture-center/commit/87d01ac7a))
+- [IoT Edge railroad maintenance and safety system](./example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)  ([#a1da5e3c0](https://github.com/MicrosoftDocs/architecture-center/commit/a1da5e3c0))
+- [Connected factory signal processing pipeline](./example-scenario/iot/connected-factory-signal-pipeline.yml)  ([#afe74ff4a](https://github.com/MicrosoftDocs/architecture-center/commit/afe74ff4a))
+- [End-to-end computer vision at the edge for manufacturing](./reference-architectures/ai/end-to-end-smart-factory.yml)  ([#17220ebe2](https://github.com/MicrosoftDocs/architecture-center/commit/17220ebe2))
+- [Data analysis for regulated industries](./example-scenario/data/data-analysis-regulated-industries.yml)  ([#6118d6869](https://github.com/MicrosoftDocs/architecture-center/commit/6118d6869))
+- [IoT and data analytics](./example-scenario/data/big-data-with-iot.yml)  ([#bd56e78e8](https://github.com/MicrosoftDocs/architecture-center/commit/bd56e78e8))
+- [Quality assurance](./solution-ideas/articles/quality-assurance.yml)  ([#347e1edef](https://github.com/MicrosoftDocs/architecture-center/commit/347e1edef))
+- [Design a CI/CD pipeline using Azure DevOps](./example-scenario/apps/devops-dotnet-webapp.yml)  ([#70b2db642](https://github.com/MicrosoftDocs/architecture-center/commit/70b2db642))
+- [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#49c93d4b5](https://github.com/MicrosoftDocs/architecture-center/commit/49c93d4b5))
+- [Decentralized trust between banks](./example-scenario/apps/decentralized-trust.yml)  ([#43bc50b97](https://github.com/MicrosoftDocs/architecture-center/commit/43bc50b97))
+- [Modernize mainframe and midrange data](./reference-architectures/migration/modernize-mainframe-data-to-azure.yml)  ([#9a9825a48](https://github.com/MicrosoftDocs/architecture-center/commit/9a9825a48))
+- [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#0a3e6c99e](https://github.com/MicrosoftDocs/architecture-center/commit/0a3e6c99e))
+- [Build a telehealth system on Azure](./example-scenario/apps/telehealth-system.yml)  ([#1d0ea4131](https://github.com/MicrosoftDocs/architecture-center/commit/1d0ea4131))
+- [Automate COVID-19 test forms](./example-scenario/ai/form-recognizer-covid.yml)  ([#6865a41e9](https://github.com/MicrosoftDocs/architecture-center/commit/6865a41e9))
+- [Clinical insights with Microsoft Cloud for Healthcare](./example-scenario/mch-health/medical-data-insights.yml)  ([#22ca6e895](https://github.com/MicrosoftDocs/architecture-center/commit/22ca6e895))
+- [Virtual health on Microsoft Cloud for Healthcare](./example-scenario/mch-health/virtual-health-mch.yml)  ([#22ca6e895](https://github.com/MicrosoftDocs/architecture-center/commit/22ca6e895))
+- [Scalable order processing](./example-scenario/data/ecommerce-order-processing.yml)  ([#e5f7bb556](https://github.com/MicrosoftDocs/architecture-center/commit/e5f7bb556))
+- [Predict hospital readmissions with machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)  ([#b7bda91ce](https://github.com/MicrosoftDocs/architecture-center/commit/b7bda91ce))
+- [Automate document processing with Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)  ([#0e3a23d39](https://github.com/MicrosoftDocs/architecture-center/commit/0e3a23d39))
+- [Healthcare platform confidential computing](./example-scenario/confidential/healthcare-inference.yml)  ([#ff7c7d6f7](https://github.com/MicrosoftDocs/architecture-center/commit/ff7c7d6f7))
+- [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#492774849](https://github.com/MicrosoftDocs/architecture-center/commit/492774849))
+- [Health data consortium on Azure](./example-scenario/data/azure-health-data-consortium.yml)  ([#5d5317826](https://github.com/MicrosoftDocs/architecture-center/commit/5d5317826))
+- [Azure Automation in a hybrid environment](./hybrid/azure-automation-hybrid.yml)  ([#57313809d](https://github.com/MicrosoftDocs/architecture-center/commit/57313809d))
+- [Virtual network integrated serverless microservices](./example-scenario/integrated-multiservices/virtual-network-integration.yml)  ([#41be71843](https://github.com/MicrosoftDocs/architecture-center/commit/41be71843))
+- [Azure Automation update management](./hybrid/azure-update-mgmt.yml)  ([#5d3b336b7](https://github.com/MicrosoftDocs/architecture-center/commit/5d3b336b7))
+- [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#f596cfa25](https://github.com/MicrosoftDocs/architecture-center/commit/f596cfa25))
+- [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#c33152aca](https://github.com/MicrosoftDocs/architecture-center/commit/c33152aca))
+- [Azure Arc-enabled server configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#91bc6b15d](https://github.com/MicrosoftDocs/architecture-center/commit/91bc6b15d))
+- [Archive on-premises data to the cloud](./solution-ideas/articles/backup-archive-on-premises.yml)  ([#91bc6b15d](https://github.com/MicrosoftDocs/architecture-center/commit/91bc6b15d))
+- [Interactive price analytics](./solution-ideas/articles/interactive-price-analytics.yml)  ([#d8368bfff](https://github.com/MicrosoftDocs/architecture-center/commit/d8368bfff))
+- [Azure App Configuration considerations for multitenancy](./guide/multitenant/service/app-configuration.md)  ([#ff2ba08b4](https://github.com/MicrosoftDocs/architecture-center/commit/ff2ba08b4))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#ff2ba08b4](https://github.com/MicrosoftDocs/architecture-center/commit/ff2ba08b4))
+- [Azure Cache for Redis considerations for multitenancy](./guide/multitenant/service/cache-redis.md)  ([#ff2ba08b4](https://github.com/MicrosoftDocs/architecture-center/commit/ff2ba08b4))
+- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#ff2ba08b4](https://github.com/MicrosoftDocs/architecture-center/commit/ff2ba08b4))
+- [Microservices CI/CD pipeline on Kubernetes with Azure DevOps and Helm](./microservices/ci-cd-kubernetes.yml)  ([#43f960d3c](https://github.com/MicrosoftDocs/architecture-center/commit/43f960d3c))
+- [Build a real-time recommendation API on Azure](./reference-architectures/ai/real-time-recommendation.yml)  ([#1623f3178](https://github.com/MicrosoftDocs/architecture-center/commit/1623f3178))
+- [Run CFD simulations](./example-scenario/infrastructure/hpc-cfd.yml)  ([#635f32efd](https://github.com/MicrosoftDocs/architecture-center/commit/635f32efd))
+- [Azure landing zones - Bicep modules design considerations](./landing-zones/bicep/landing-zone-bicep.md)  ([#06b3c1255](https://github.com/MicrosoftDocs/architecture-center/commit/06b3c1255))
 - [Azure Cosmos DB considerations for multitenancy](./guide/multitenant/service/cosmos-db.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 - [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 - [Azure NAT Gateway considerations for multitenancy](./guide/multitenant/service/nat-gateway.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 - [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 - [Azure Resource Manager considerations for multitenancy](./guide/multitenant/service/resource-manager.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 - [Azure SQL Database considerations for multitenancy](./guide/multitenant/service/sql-database.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
 
 ## August 2022
 
