@@ -3,8 +3,8 @@ metadata:
   title: Deploy Altair EDEM on an Azure virtual machine
   description: Learn how Altair EDEM discrete element method (DEM)
 software performs on an Azure virtual machine (VM).
-  author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
-  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
+  author: 
+  ms.author: 
   ms.date: <Publish or major update date - mm/dd/yyyy>
   ms.topic: conceptual
   ms.service: architecture-center
