@@ -1,17 +1,7 @@
-Hosting applications at the edge can make them more responsive and ease network bandwidth requirements. Azure public multi-access edge compute (Azure public MEC) is an edge computing solution that brings together a portfolio of Microsoft compute, networking, and application services that are managed from the cloud. You can use it to exploit the speed of 5G and unlock key low-latency and high-bandwidth scenarios.
-
-However, Azure public MEC isn't meant to host your entire application stack at the edge. It's critical to understand which pieces of your application should run in Azure public MEC and which should run instead in an Azure region or on-premises.
-
-Live streaming of events requires fast video processing to provide users a real-time and personalized view, so it's a good candidate for an edge solution. This article presents a hybrid architecture for video streaming and analytics. It runs latency-sensitive applications in Azure public MEC, and runs other services, such as control-plane, AI, and machine learning services, in an Azure region.
+This article presents a hybrid architecture for video streaming and analytics. It runs latency-sensitive applications in Azure public MEC, and runs other services, such as control-plane, AI, and machine learning services, in an Azure region.
 
 > [!Note]
 > The low-latency streaming that this architecture provides to web users applies only to those users that are routed to the Azure public MEC that does the video processing and hosts the web app. In general, this doesn't include users in other geographical areas.
-
-## Potential use cases
-
-Organizations needing fast application response, even in high-demand situations, should consider using Azure public MEC to host latency-sensitive parts of the application.
-
-In particular, video analytics based on computer vision models is used by various industries, including next-gen retail, smart cities, connected vehicles. Such applications are candidates for this architecture.
 
 ## Architecture
 
@@ -61,7 +51,23 @@ An alternative to deploying AKS is to deploy [Azure IOT Edge](https://azure.micr
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to deploy analytics services on the streamed video.
 - [Azure Functions](https://azure.microsoft.com/services/functions) to run actions on the analysis and the insights.
 
+## Scenario details
+
+Hosting applications at the edge can make them more responsive and ease network bandwidth requirements. Azure public multi-access edge compute (Azure public MEC) is an edge computing solution that brings together a portfolio of Microsoft compute, networking, and application services that are managed from the cloud. You can use it to exploit the speed of 5G and unlock key low-latency and high-bandwidth scenarios.
+
+However, Azure public MEC isn't meant to host your entire application stack at the edge. It's critical to understand which pieces of your application should run in Azure public MEC and which should run instead in an Azure region or on-premises.
+
+Live streaming of events requires fast video processing to provide users a real-time and personalized view, so it's a good candidate for an edge solution. 
+
+### Potential use cases
+
+Organizations needing fast application response, even in high-demand situations, should consider using Azure public MEC to host latency-sensitive parts of the application.
+
+In particular, video analytics based on computer vision models is used by various industries, including next-gen retail, smart cities, connected vehicles. Such applications are candidates for this architecture.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 To improve the quality of your Azure solutions, follow the recommendations and guidelines in the [Azure Well-Architected Framework](/azure/architecture/framework). The framework consists of five pillars of architectural excellence:
 
@@ -91,7 +97,9 @@ Azure public MEC provides various virtual machine SKUs, including GPU-specific S
 
 Azure public MEC doesn’t support Azure Storage accounts, so the blob Storage can only reside in the Azure region.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - See [Azure pricing](https://azure.microsoft.com/pricing) for pricing information.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
