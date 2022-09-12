@@ -94,18 +94,18 @@ Azure VMs. Particle simulations were tested. Here are the details:
 | Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
 |---------|---------|---------|---------|--|--|--|--|
 |   Description  |Cylinder angle of repose         |  Bed of material with tillage tool      |Hopper emptying into container         |Powder mixer|Screw augur|Mill| Transfer chute with dynamic factory|
-|     |   ![Image that shows the angle of repose model.](media/angle-repose.png)      |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
-|     |         |         |         |
+|     |   ![Image that shows the angle of repose model.](media/angle-repose.png)      |     ![Image that shows the bed of material model.](media/bed-material.png)    |   ![Image that shows the hopper discharge model.](media/hopper-discharge.png)        |![Image that shows the powder mixer model.](media/powder-mixer.png) |![Image that shows the screw augur model.](media/screw-augur.png) |![Image that shows the mill model.](media/mill.png) |![Image that shows the transfer chute model.](media/transfer-chute.png) |
+|  Particle radius (m)| 0.0005 - 0.001|0.002 - 0.004 |0.003|0.0005|0.001|0.005|0.0045 - 0.009|
+| Number of spheres    | 3        |3         |3         |1|1|1|3|
+|   Size distribution  |Random         |Random         |Fixed|Fixed |    Fixed|Fixed|Random
+| Number of particles    |  1,000,000 |  1,000,000 | 1,000,000 | 1,000,000| 1,000,000| 1,000,000| 1,000,000|
+|  Physics|Hertz-Mindlin  |Hertz-Mindlin with JKR |Hertz-Mindlin  |Hertz-Mindlin|Hertz-Mindlin|Hertz-Mindlin|Hertz-Mindlin with JKR|
+|Time steps|5.73E-06 |5.00E-05 |4.00E-05 |9.20E-06|1.40E-05|0.00016|5.97E-05|
+| Total time |   0.5 | 1 |1 |1|1 |1|1 |
+|Save interval |0.1|0.1|0.1  |0.1 |0.1 |0.1 |0.1|
+| Grid cell size (x Rmin)| 3|3|3|3| 3 |3 |3|
+| Factory |No|No| No|No|No|No|Yes|
+|  Periodic boundaries   |No|No| No|No|No|No|No|
 
 
 This table shows the elapsed wall-clock time needed to complete each of
