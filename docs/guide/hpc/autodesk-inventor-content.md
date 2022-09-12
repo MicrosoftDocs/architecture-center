@@ -97,11 +97,11 @@ The following table provides results for various BenchMark HD performance indice
 
 Overall, performance is better on NVadsA10 v5 VMs. The following graphs provide details.
 
-![Graph that shows the IPI performance details.](media/ipi.png)
+![Graph that shows the IPI performance details.](media/inventor-pc-index.png)
 
-![Graph that shows the SPI performance details.](media/spi.png)
+![Graph that shows the SPI performance details.](media/single-core-performance-index.png)
 
-![Graph that shows the MPI performance details.](media/mpi.png)
+![Graph that shows the MPI performance details.](media/multi-core-performance-index.png)
 
 ### Results for Inventor Professional 2022, using InvMark
 
