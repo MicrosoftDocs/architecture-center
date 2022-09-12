@@ -77,6 +77,8 @@ The alternatives listed in [Virtual health on Microsoft Cloud for Healthcare](vi
 
 The healthcare industry has traditionally struggled to effectively use the vast amount of data it creates. Most of the medical data is unstructured and inaccessible for data driven decisions. When looking for insights, providers spend a considerable amount of time on data ingestion and unification. Healthcare organizations also face security and compliance pressures and risks of data breaches.
 
+This solution uses Azure Data Lake to store the large amounts of data required for reporting and analytics. This data is analyzed by using Azure Synapse, for use by the machine learning module and Power BI visualizations. Synapse can also pull in unstructured data, such as X-ray images, and feed it into the machine learning algorithm to generate interpretations. These interpretations are stored in a Microsoft Word document, along with a snapshot of the image. This document is stored as a blob or file in Dataverse, for future reference.
+
 ### Potential use cases
 
 This solution is ideal for the healthcare industry. The scenario also demonstrates the following capabilities, which are applicable to many industries:
