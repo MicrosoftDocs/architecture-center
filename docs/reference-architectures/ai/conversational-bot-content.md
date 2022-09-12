@@ -239,7 +239,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  * Robert Alexander | Senior Software Engineer
 
