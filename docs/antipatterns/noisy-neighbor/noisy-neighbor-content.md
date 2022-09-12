@@ -67,6 +67,7 @@ Principal author:
 Other contributors:
 
  * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+ * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure * TODO Paolo
  * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
