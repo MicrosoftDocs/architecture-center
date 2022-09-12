@@ -1,40 +1,8 @@
-Automotive manufacturing relies on automated guided vehicles (AGVs) to deliver
-parts to assembly lines. AGVs are a mission-critical part of just-in-time
-manufacturing and automated shop-floor logistics. Shop floors using AGVs
-commonly face three challenges:
-
--   Availability. Any service interruption disrupts production.
--   Connectivity. Shop floors frequently lack a reliable connection to the
-    public cloud.
--   Vendor lock-in. Traditional AGV solutions rely on proprietary communication
-    protocols.
-
 This example architecture shows an end-to-end approach for an automotive
 original equipment manufacturer (OEM) and includes a reference architecture and
 several published supporting open-source libraries that can be reused. Microsoft
 rearchitected the fleet control software to be highly available, geo-redundant,
 and vendor neutral and to run in a hybrid cloud context.
-
-This example architecture is divided into three operational areas:
-
--   An Azure-based fleet control reference architecture with geo-redundancy,
-    zero-downtime failover, 99.9% availability, and efficient disaster recovery.
--   A datacenter-agnostic and on-premises deployment built on Kubernetes and
-    RabbitMQ.
--   Vendor-neutral AGV communication built on top of the common VDA 5050
-    specification.
-
-## Potential use cases
-
-This solution is ideal for the manufacturing, automotive, and transportation industries. It applies to the following scenarios:
-
--   The customer is currently using AGVs in its manufacturing process.
--   The customer experiences low availability with the AGVs, which impacts their
-    return on investment (ROI).
--   The shop floor has an inconsistent connection with the public cloud.
--   The customer is a member of the Open Manufacturing Platform (OMP).
--   The customer is a member of the OMP Autonomous Transport System (OMP ATS)
-    working group.
 
 ## Architecture
 
@@ -233,7 +201,43 @@ or
 [Bicep](/azure/azure-resource-manager/bicep/overview)
 for creating scripts.
 
+## Scenario details
+
+Automotive manufacturing relies on automated guided vehicles (AGVs) to deliver
+parts to assembly lines. AGVs are a mission-critical part of just-in-time
+manufacturing and automated shop-floor logistics. Shop floors using AGVs
+commonly face three challenges:
+
+-   Availability. Any service interruption disrupts production.
+-   Connectivity. Shop floors frequently lack a reliable connection to the
+    public cloud.
+-   Vendor lock-in. Traditional AGV solutions rely on proprietary communication
+    protocols.
+    
+This example architecture is divided into three operational areas:
+
+-   An Azure-based fleet control reference architecture with geo-redundancy,
+    zero-downtime failover, 99.9% availability, and efficient disaster recovery.
+-   A datacenter-agnostic and on-premises deployment built on Kubernetes and
+    RabbitMQ.
+-   Vendor-neutral AGV communication built on top of the common VDA 5050
+    specification.
+
+### Potential use cases
+
+This solution is ideal for the manufacturing, automotive, and transportation industries. It applies to the following scenarios:
+
+-   The customer is currently using AGVs in its manufacturing process.
+-   The customer experiences low availability with the AGVs, which impacts their
+    return on investment (ROI).
+-   The shop floor has an inconsistent connection with the public cloud.
+-   The customer is a member of the Open Manufacturing Platform (OMP).
+-   The customer is a member of the OMP Autonomous Transport System (OMP ATS)
+    working group.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability and scalability
 
@@ -247,6 +251,8 @@ by implementing redundancies in almost all layers of the service.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use Azure Active Directory for identity and access control and use Azure Key
 Vault to manage keys and secrets.
 
@@ -258,7 +264,9 @@ Consider using a solution such as Azure DevOps or GitHub Actions, as described
 in the [Azure DevOps Starter](/azure/devops-project/overview)
 documentation.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs,
 and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
