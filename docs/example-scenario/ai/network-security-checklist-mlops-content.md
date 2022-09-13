@@ -337,7 +337,7 @@ Each of these choices has pros and cons. The following table compares Azure-host
 |                 | Azure-hosted Agent | Self-hosted Agent |
 |-----------------|--------------------|-------------------|
 | **Cost** | Start free for one parallel job with 1,800 minutes per month, $40 per extra Azure-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month, $15 per extra self-hosted CI/CD parallel job with unlimited minutes (offering a cheaper solution when adding parallel jobs is needed). |
-| **Maintenance** | Taken care of for you by Microsoft. | Maintained by yourself with more control of installing any software you like. |
+| **Maintenance** | Taken care of for you by Microsoft. | Maintained by you with more control of installing any software you like. |
 | **Build Time** | More time consuming because it completely refreshes every time you start a build, and you always build from scratch. | Saves time because it keeps all your files and caches. |
 
 Based on the comparisons in the table, plus the consideration of security and complexity, we choose to use a self-hosted agent for the Azure Pipeline to trigger Azure Machine Learning pipelines in the virtual network. 
