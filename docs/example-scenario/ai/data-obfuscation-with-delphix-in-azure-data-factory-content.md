@@ -64,7 +64,7 @@ By using the data source connectors offered by ADF, we've created two ETL pipeli
 
 ### Potential use cases
 
-#### Safely activate Azure Data Services for industry specific solutions
+#### Safely activate Azure Data Services for industry-specific solutions
 
 - Identify and mask sensitive data in large and complex applications, where customer content would otherwise be difficult to identify. Delphix enables end users to automatically move compliant data from sources like SAP, Salesforce, and Oracle EBS to high-value service layers, like Microsoft Synapse.
 - Use the powerful and comprehensive connectors provided by Microsoft Azure to safely unlock, mask, and migrate your data - no matter where it originates. 
@@ -168,7 +168,7 @@ Other contributors:
 - [Doug Smith](https://www.linkedin.com/in/doug-smith-b2324b5/) | Global Practice Director, DevOps, CI/CD
 - [Michael Torok](https://www.linkedin.com/in/michaelatorok/) | Senior Director, Community Management & Experience
 
-## Next Steps
+## Next steps
 
 See the following Delphix resources:
 
