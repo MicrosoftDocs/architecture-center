@@ -3,9 +3,9 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region-v-5.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-5.png":::
+:::image type="content" source="images/high-availability-multi-region-v-8.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-5.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-5.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-8.vsdx) of this architecture.*
 
 ### Workflow
 
