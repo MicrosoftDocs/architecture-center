@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. The architecture uses Azure Sphere and Azure IoT Hub tomanage telematics messages, and Azure Stream Analytics processes the messages.
+This solution builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. The architecture uses Azure Sphere and Azure IoT Hub to manage telematics messages, and Azure Stream Analytics processes the messages.
 
 ## Architecture
 
