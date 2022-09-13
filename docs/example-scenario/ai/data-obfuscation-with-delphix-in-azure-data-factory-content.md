@@ -139,7 +139,7 @@ Masking streams can be increased to engage multiple CPU cores in a job. (Configu
 
 For optimal performance for datasets larger than 1 TB in size, Delphix Hyperscale Masking (https://hyperscale-compliance.delphix.com/3.0.0/) breaks the large and complex datasets into numerous modules and then orchestrates the masking jobs across multiple Continuous Compliance Engines.
 
-## Deploy this solution
+## Deploy this scenario
 
 1. [Deploy the Delphix CC Engine on Azure](https://maskingdocs.delphix.com/Getting_Started/Installation/Azure_Installation/)
 1. In ADF, deploy both the Delphix Continuous Compliance: Profiling (Delphix CC Profiling) and Delphix Continuous Compliance: Masking (Delphix CC Masking) ADF templates. These templates work for both Azure Synapse Analytics and Azure Data Factory pipelines.
@@ -168,6 +168,8 @@ Other contributors:
 - [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) | Senior Content Developer
 - [Doug Smith](https://www.linkedin.com/in/doug-smith-b2324b5/) | Global Practice Director, DevOps, CI/CD
 - [Michael Torok](https://www.linkedin.com/in/michaelatorok/) | Senior Director, Community Management & Experience
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
