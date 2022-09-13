@@ -93,7 +93,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual Cosmos DB RU provisioning is fast.
 
-![Reliability in automation function](./_images/automation-function-reliability.png)
+![Diagram that shows reliability in an automation function.](./_images/automation-function-reliability.png)
 
 [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which maintain state between invocations, provide an alternative to the above approach. Durable Functions only support [specific languages](/azure/azure-functions/durable/durable-functions-overview?#language-support).
 
