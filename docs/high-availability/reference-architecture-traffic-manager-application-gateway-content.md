@@ -146,7 +146,7 @@ For more information, see:
 
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
-- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml)
 
 ## Operational excellence
 
