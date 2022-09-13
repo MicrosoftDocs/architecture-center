@@ -98,7 +98,7 @@ http {
 }
 ```
 
-## Related guidance
+## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)

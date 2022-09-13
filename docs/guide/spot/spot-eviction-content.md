@@ -199,7 +199,7 @@ Another important orchestration related aspect to understand is how to scale you
 
     ![A diagram depicting the Azure Spot VM infrastructure orchestration scale out strategy.](./media/spot-orchestration-scale-out-diagram.png)
 
-## Deploy this solution
+## Deploy this scenario
 
 ![GitHub logo](../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
 
