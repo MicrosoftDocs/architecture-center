@@ -14,7 +14,9 @@ This article provides AWS identity architects, administrators, and security anal
 
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
-![Diagram showing the benefits of implementing Azure security for AWS.](media/benefits.png)
+:::image source="./media/aws-azure-security-solutions-architecture.png" alt-text="Architecture diagram that shows the benefits of implementing Azure security for AWS." border="false":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this architecture.*
 
 ### Workflow
 
