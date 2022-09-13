@@ -1,21 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
-
-This article showcases a COVID-19 safe solution that is being implemented in workplace facilities across Europe, North America, and Latin America. The solution applies across industries as diverse as steel manufacturing, building construction, and automotive assembly. The goals of the solution are to:
-
-- Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
-- Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
-- Increase visibility and control through efficient reporting and interactive dashboards.
-- Deliver alerts and notifications so health and safety stakeholders could address safety violations and concerns.
-- Improve compliance, reduce violations, and enable well-informed safety decisions over time.
-
-## Potential use cases
-
-- Spaces with existing CCTV infrastructure.
-- Public areas including stores, restaurants, public transportation, hospitals, schools, and entertainment and recreation spaces.
-- Work areas including offices, factories, and warehouses.
-- Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
+This article showcases a COVID-19 safe solution that is being implemented in workplace facilities across Europe, North America, and Latin America.
 
 ## Architecture
 
@@ -47,6 +32,25 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 - By integrating with the Azure cloud, the solution can use services like [Azure Monitor](https://azure.microsoft.com/services/monitor), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center), and [Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 - Integration with Microsoft [Teams](https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d) allows automated notifications of relevant stakeholders like HR and Security.
 - [Microsoft Power BI](https://powerbi.microsoft.com) visualizations enable well-informed and data-driven reporting and decision making.
+
+## Solution details
+
+As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
+
+This solution applies across industries as diverse as steel manufacturing, building construction, and automotive assembly. The goals of the solution are to:
+
+- Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
+- Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
+- Increase visibility and control through efficient reporting and interactive dashboards.
+- Deliver alerts and notifications so health and safety stakeholders could address safety violations and concerns.
+- Improve compliance, reduce violations, and enable well-informed safety decisions over time.
+
+### Potential use cases
+
+- Spaces with existing CCTV infrastructure.
+- Public areas including stores, restaurants, public transportation, hospitals, schools, and entertainment and recreation spaces.
+- Work areas including offices, factories, and warehouses.
+- Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
 
 ## Next steps
 
