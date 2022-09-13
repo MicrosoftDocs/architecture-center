@@ -123,8 +123,7 @@ the simulations, in seconds.
 This graph shows the elapsed seconds for A100 GPUs, compared to the
 results for 96 CPUs.
 
-![Chart, bar chart Description automatically
-generated](media/a100-results.png)
+![Graph that compares A100 GPUs to 96 CPUs.](media/altair-edem/a100-results.png)
 
 The following table shows the relative speed increases for A100 GPUs and
 the V100 GPU, as compared to 96 CPUs.
