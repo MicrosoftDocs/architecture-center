@@ -693,7 +693,7 @@
 						gHDQs0F4FGcAAAAASUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="555.162" width="20.8383" height="20.8383" class="st19"/>
 		</g>
-		<g id="shape42-109" v:mID="42" v:groupContext="shape" transform="translate(128.558,-506.262)">
+		<g id="shape42-109" v:mID="42" v:groupContext="shape" transform="translate(133.058,-507.387)">
 			<title>Sheet.42</title>
 			<rect v:rectContext="foreign" x="0" y="533.735" width="43.4077" height="42.2654" class="st19"/>
 			<image x="0" y="533.735" width="43.4077" height="42.2654" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -791,14 +791,14 @@
 						HDQLjOYBowXQNf9aYPZeBcAUswq5oR+wUmEE6UHiHMxcaI/KPWs2RplmgzF3yzE3/z+2Rx555JH/BWKqKgjy40cUAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="533.735" width="43.4077" height="42.2654" class="st19"/>
 		</g>
-		<g id="shape43-113" v:mID="43" v:groupContext="shape" transform="translate(93.6226,-474.453)">
+		<g id="shape43-113" v:mID="43" v:groupContext="shape" transform="translate(99.5625,-475.578)">
 			<title>Sheet.43</title>
-			<desc>Azure Machine Learing workspace</desc>
+			<desc>Azure Machine Learning workspace</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="55.2763" cy="560.652" width="110.56" height="30.6951"/>
-			<rect x="0" y="545.305" width="110.553" height="30.6951" class="st19"/>
-			<text x="19.12" y="557.35" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Machine <tspan
-						x="10.28" dy="1.2em" class="st16">Learing workspace</tspan></text>		</g>
+			<v:textRect cx="56.5312" cy="560.652" width="113.07" height="30.6951"/>
+			<rect x="0" y="545.305" width="113.062" height="30.6951" class="st19"/>
+			<text x="20.38" y="557.35" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Machine <tspan
+						x="8.43" dy="1.2em" class="st16">Learning workspace</tspan></text>		</g>
 		<g id="shape44-117" v:mID="44" v:groupContext="shape" transform="translate(95.7697,-373.121)">
 			<title>Sheet.44</title>
 			<desc>Private endpoints</desc>
@@ -806,7 +806,7 @@
 			<v:textRect cx="85.0496" cy="569.511" width="170.1" height="12.9778"/>
 			<rect x="0" y="563.022" width="170.099" height="12.9778" class="st19"/>
 			<text x="42.72" y="572.81" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private endpoints</text>		</g>
-		<g id="shape46-120" v:mID="46" v:groupContext="shape" transform="translate(16.6463,-486.342)">
+		<g id="shape46-120" v:mID="46" v:groupContext="shape" transform="translate(13.2713,-486.342)">
 			<title>Sheet.46</title>
 			<desc>Azure Blob Storage</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -814,7 +814,7 @@
 			<rect x="0" y="565.495" width="87.4247" height="10.5047" class="st19"/>
 			<text x="17.33" y="567.45" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Blob <tspan
 						x="24.88" dy="1.2em" class="st16">Storage</tspan></text>		</g>
-		<g id="group47-124" transform="translate(315.645,-506.262)" v:mID="47" v:groupContext="group">
+		<g id="group47-124" transform="translate(315.645,-505.137)" v:mID="47" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT4(True)"/>
 			</v:userDefs>
@@ -870,9 +870,9 @@
 				<text x="-5.85" y="585.9" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Key <tspan
 							x="5.8" dy="1.2em" class="st16">Vault</tspan></text>			</g>
 		</g>
-		<g id="shape55-145" v:mID="55" v:groupContext="shape" v:layerMember="0" transform="translate(247.854,-398.073)">
+		<g id="shape55-145" v:mID="55" v:groupContext="shape" v:layerMember="0" transform="translate(242.016,-408.516)">
 			<title>Dynamic connector.124</title>
-			<path d="M0 576 L81.71 576 L81.71 506.51" class="st24"/>
+			<path d="M0 576 L91.55 576 L91.55 514.71" class="st24"/>
 		</g>
 		<g id="group56-151" transform="translate(437.76,-378.106)" v:mID="56" v:groupContext="group">
 			<title>Virtual Machine.126</title>
@@ -1167,7 +1167,7 @@
 						class="st10"/>
 			</g>
 		</g>
-		<g id="shape91-238" v:mID="91" v:groupContext="shape" transform="translate(715.367,-309.511)">
+		<g id="shape91-238" v:mID="91" v:groupContext="shape" transform="translate(701.491,-309.511)">
 			<title>Sheet.91</title>
 			<rect v:rectContext="foreign" x="0" y="533.364" width="42.636" height="42.636" class="st19"/>
 			<image x="0" y="533.364" width="42.636" height="42.636" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -1218,9 +1218,9 @@
 			<v:textRect cx="42.1084" cy="566.44" width="84.22" height="19.1201"/>
 			<rect x="0" y="556.88" width="84.2167" height="19.1201" class="st19"/>
 			<text x="5.16" y="569.74" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Pipelines</text>		</g>
-		<g id="shape93-245" v:mID="93" v:groupContext="shape" v:layerMember="0" transform="translate(715.367,-327.096)">
+		<g id="shape93-245" v:mID="93" v:groupContext="shape" v:layerMember="0" transform="translate(701.491,-327.096)">
 			<title>Dynamic connector.175</title>
-			<path d="M0 567 L-233.11 567" class="st24"/>
+			<path d="M0 567 L-219.24 567" class="st24"/>
 		</g>
 		<g id="shape95-250" v:mID="95" v:groupContext="shape" transform="translate(431.691,-463.288)">
 			<title>Sheet.95</title>
@@ -1367,13 +1367,13 @@
 							 576 L2.44 566.49 L2.46 566.49 Z" class="st32"/>
 			</g>
 		</g>
-		<g id="shape119-310" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(145.699,-411.481)">
+		<g id="shape119-310" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(145.617,-411.891)">
 			<title>Dynamic connector.312</title>
-			<path d="M9 576 L9 521.07" class="st24"/>
+			<path d="M9 576 L9 520.35" class="st24"/>
 		</g>
-		<g id="shape120-315" v:mID="120" v:groupContext="shape" v:layerMember="0" transform="translate(205.005,-401.046)">
+		<g id="shape120-315" v:mID="120" v:groupContext="shape" v:layerMember="0" transform="translate(194.695,-412.031)">
 			<title>Dynamic connector.315</title>
-			<path d="M0 576 L25.52 576 L25.52 539.97 L54.18 539.97 L54.18 508.88" class="st24"/>
+			<path d="M0 576 L0 555.05 L64.49 555.05 L64.49 519.87" class="st24"/>
 		</g>
 		<g id="shape123-320" v:mID="123" v:groupContext="shape" transform="translate(71.7809,-85.0481)">
 			<title>Sheet.123</title>
@@ -1382,9 +1382,9 @@
 			<v:textRect cx="83.8615" cy="559.541" width="167.73" height="32.9185"/>
 			<rect x="0" y="543.082" width="167.723" height="32.9185" class="st35"/>
 			<text x="13.02" y="563.14" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>network-security-mlops-rg</text>		</g>
-		<g id="shape124-323" v:mID="124" v:groupContext="shape" v:layerMember="0" transform="translate(107.453,-401.046)">
+		<g id="shape124-323" v:mID="124" v:groupContext="shape" v:layerMember="0" transform="translate(114.117,-408.586)">
 			<title>Dynamic connector.124</title>
-			<path d="M0 576 L-51.64 576 L-51.64 509.48" class="st24"/>
+			<path d="M0 576 L-58.31 576 L-58.31 517.02" class="st24"/>
 		</g>
 		<g id="group125-328" transform="translate(165.115,-236.705)" v:mID="125" v:groupContext="group">
 			<title>Kubernetes Services.125</title>
@@ -1838,7 +1838,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="group1026-438" transform="translate(39.5484,-506.262)" v:mID="1026" v:groupContext="group">
+		<g id="group1026-438" transform="translate(36.1734,-506.262)" v:mID="1026" v:groupContext="group">
 			<title>Sheet.1026</title>
 			<g id="group1027-439" v:mID="1027" v:groupContext="group">
 				<title>Page-1</title>
