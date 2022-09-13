@@ -8,6 +8,8 @@ This solution describes how buildings and campuses can securely and reliably con
 
 *Download a [Visio file](https://arch-center.azureedge.net/healthcare-architecture.vsdx) of this architecture.*
 
+### Workflow
+
 1. Hospital buildings use various connected devices to monitor both patient health and facility performance.
 
    - Health-tracking devices include patient monitors, CT scanners, and blood pressure monitors.
