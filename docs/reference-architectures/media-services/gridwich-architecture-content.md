@@ -1,23 +1,4 @@
-A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
-
-- Ingest raw video files, process and publish them, and fulfill media requests.
-- Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
-- Implement continuous integration and delivery (CI/CD) for the media asset management (MAM) pipeline.
-
-To meet these goals, the Microsoft engineering team developed Gridwich, a stateless event-processing framework driven by an external [saga workflow orchestration system](gridwich-saga-orchestration.yml). The Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Azure Event Grid Sandwich* and the *Terraform Sandwich*.
-
-## Potential use cases
-
-The engineering team developed Gridwich to align with principles and industry standards for:
-
-- [Clean monolith architecture](gridwich-clean-monolith.yml)
-- [Project structure and naming](gridwich-project-names.yml)
-- [CI/CD](gridwich-cicd.yml)
-- [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.yml)
-- [Azure Storage usage and scaling](gridwich-storage-service.yml)
-- [Logging](gridwich-logging.yml)
-
-The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
+The Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Azure Event Grid Sandwich* and the *Terraform Sandwich*.
 
 ## Gridwich sandwiches
 
@@ -197,6 +178,29 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.yml) means that refactoring the solution for 1:1 wouldn't be difficult.
 
 - For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
+
+## Scenario details
+
+A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
+
+- Ingest raw video files, process and publish them, and fulfill media requests.
+- Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
+- Implement continuous integration and delivery (CI/CD) for the media asset management (MAM) pipeline.
+
+To meet these goals, the Microsoft engineering team developed Gridwich, a stateless event-processing framework driven by an external [saga workflow orchestration system](gridwich-saga-orchestration.yml).
+
+### Potential use cases
+
+The engineering team developed Gridwich to align with principles and industry standards for:
+
+- [Clean monolith architecture](gridwich-clean-monolith.yml)
+- [Project structure and naming](gridwich-project-names.yml)
+- [CI/CD](gridwich-cicd.yml)
+- [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.yml)
+- [Azure Storage usage and scaling](gridwich-storage-service.yml)
+- [Logging](gridwich-logging.yml)
+
+The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
 
 ## Deploy this scenario
 
