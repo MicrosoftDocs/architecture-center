@@ -85,7 +85,7 @@ Imagine a car manufacturing company that wants to create a solution to:
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Kevin Hilscher](https://ca.linkedin.com/in/kevinhilscher) | Principal Product Manager
 
