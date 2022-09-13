@@ -4,7 +4,7 @@ This article describes how to protect MLOps solutions by using Azure network sec
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-architecture.svg" lightbox="./media/network-security-checklist-mlops-architecture.svg":::
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-mlops-architecture.svg" lightbox="./media/network-security-mlops-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/network-security-mlops-architecture.vsdx) of this architecture.*
 
@@ -56,7 +56,7 @@ MLOps is a set of practices at the intersection of Machine Learning, DevOps, and
 
 The following diagram shows a simplified MLOps process model. This model offers a solution that automates data preparation, model training, model evaluation, model registration, model deployment, and monitoring.
 
-:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-process-pipeline-flow.png" lightbox="./media/network-security-checklist-mlops-process-pipeline-flow.png":::
+:::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-mlops-process-pipeline-flow.png" lightbox="./media/network-security-mlops-process-pipeline-flow.png":::
 
 ### Potential use cases
 
