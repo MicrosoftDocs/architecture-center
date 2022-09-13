@@ -52,6 +52,8 @@ Relevant use cases include:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 This scenario is designed specifically to provide high-performance storage for an HPC workload, whether it is deployed on Windows or Linux. In general, the storage configuration of the HPC workload should match the appropriate best practices used for on-premises deployments.
 
 Deployment considerations depend on the applications and services used, but a few notes apply:
@@ -63,6 +65,8 @@ Deployment considerations depend on the applications and services used, but a fe
 - To isolate the HPC workload from the storage resources, deploy each in its own virtual network, then use virtual network [peering](/azure/virtual-network/virtual-network-peering-overview) to connect the two. Peering creates a low-latency, high-bandwidth connection between resources in different virtual networks and routes traffic through the Microsoft backbone infrastructure through private IP addresses only.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 This example focuses on deploying a high-performance storage solution for an HPC workload and is not a security solution. Make sure to involve your security team for any changes.
 
@@ -76,6 +80,8 @@ Consider the following options to further improve security in this scenario:
 - Use [Azure Key Vault](/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The cost of running this scenario can vary greatly depending on multiple factors.  The number and size of VMs, how much storage is required, and the amount of time to complete a job will determine your cost.
 
