@@ -11,7 +11,7 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ### Components
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from Azure Event Hubs. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
 * [HDInsight](https://azure.microsoft.com/services/hdinsight) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
