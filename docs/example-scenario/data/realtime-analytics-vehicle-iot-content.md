@@ -1,15 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Imagine a car manufacturing company that wants to create a solution to:
-
-- Securely send real-time data to the cloud from sensors and onboard computers installed in its vehicles.
-
-- Create value-added services for its customers and dealers by analyzing vehicle location, and other sensor data (such as engine-related sensors and environment-related sensors).
-
-- Store the data for additional downstream processing to provide actionable insights (For example, maintenance alerts for vehicle owners, accident information for insurance agencies, etc.).
-
-- Allow dealer service technicians to interact with vehicles using a mixed reality application to aid in troubleshooting and repair (For example, using a HoloLens application to view real-time data and view/clear diagnostic codes available through a vehicle's
-    [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view repair procedures, or to view an exploded 3D parts diagram).
+This solution builds a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure. The architecture uses Azure Sphere and Azure IoT Hub tomanage telematics messages, and Azure Stream Analytics processes the messages.
 
 ## Architecture
 
@@ -21,13 +12,13 @@ Imagine a car manufacturing company that wants to create a solution to:
 
 The data flows through the solution as follows:
 
-1.  Telematics messages (speed, location, etc.) are sent by an Azure Sphere cellular-enabled device to Azure IoT Hub. In a greenfield scenario, the vehicle manufacturer might include a Sphere module in each vehicle at time of manufacture. In a brownfield scenario, the vehicle is retrofitted with an after-market telematics solution.
+1.  Telematics messages (speed, location, and so on) are sent by an Azure Sphere cellular-enabled device to Azure IoT Hub. In a greenfield scenario, the vehicle manufacturer might include a Sphere module in each vehicle at time of manufacture. In a brownfield scenario, the vehicle is retrofitted with an after-market telematics solution.
 
 1. Azure Stream Analytics picks up the message in real time from Azure IoT Hub, processes the message based on the business logic and sends the data to the serving layer for storage.
 
 1. Different databases are used depending on the data. Azure Cosmos DB stores the messages, while Azure SQL DB stores relational and transactional data, and acts as a data source for the presentation and action layer. Azure Synapse contains aggregated data and acts as the data source for Business Intelligence (BI) tools.
 
-1. Web, mobile, BI, and mixed reality applications can be built on the serving layer. For example, you can expose serving layer data using APIs for third-party uses (for example, insurance companies, suppliers, etc.).
+1. Web, mobile, BI, and mixed reality applications can be built on the serving layer. For example, you can expose serving layer data using APIs for third-party uses (for example, insurance companies, suppliers, and so on).
 
 1. When a vehicle requires servicing at a dealer service center, an Azure Sphere device is connected to the vehicle's OBD-II port by a service technician.
 
@@ -65,7 +56,7 @@ The data flows through the solution as follows:
 
 - [Azure App Services](https://azure.microsoft.com/services/app-service) can be used to build web and mobile applications. [Azure API Management](https://azure.microsoft.com/services/api-management) can be used to expose data to third parties, based on the data stored in the Serving Layer.
 
-- [Microsoft HoloLens](https://www.microsoft.com/hololens) can be used by service technicians to view vehicle data (for example, service history, OBD-II data, part diagrams, etc.) holographically to aid in troubleshooting and repair.
+- [Microsoft HoloLens](https://www.microsoft.com/hololens) can be used by service technicians to view vehicle data (for example, service history, OBD-II data, part diagrams, and so on) holographically to aid in troubleshooting and repair.
 
 ### Alternatives
 
@@ -75,7 +66,20 @@ The data flows through the solution as follows:
 
 Vehicle data ingestion, processing, and visualization are key capabilities needed to create connected car solutions. By capturing and analyzing this data, we can decipher valuable insights and create new solutions.
 
-For example, with vehicles equipped with telematics devices, we can monitor the live location of vehicles, plan optimized routes, provide assistance to drivers, and support industries that consume or benefit from telematics data such as insurers, etc. For vehicle manufacturers, diagnostic information can provide important information for vehicle servicing and warranties.
+For example, with vehicles equipped with telematics devices, we can monitor the live location of vehicles, plan optimized routes, provide assistance to drivers, and support industries that consume or benefit from telematics data such as insurers. For vehicle manufacturers, diagnostic information can provide important information for vehicle servicing and warranties.
+
+### Potential use cases
+
+Imagine a car manufacturing company that wants to create a solution to:
+
+- Securely send real-time data to the cloud from sensors and onboard computers installed in its vehicles.
+
+- Create value-added services for its customers and dealers by analyzing vehicle location, and other sensor data (such as engine-related sensors and environment-related sensors).
+
+- Store the data for additional downstream processing to provide actionable insights (For example, maintenance alerts for vehicle owners, accident information for insurance agencies, and so on).
+
+- Allow dealer service technicians to interact with vehicles using a mixed reality application to aid in troubleshooting and repair (For example, using a HoloLens application to view real-time data and view/clear diagnostic codes available through a vehicle's
+    [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view repair procedures, or to view an exploded 3D parts diagram).
 
 ## Contributors
 
