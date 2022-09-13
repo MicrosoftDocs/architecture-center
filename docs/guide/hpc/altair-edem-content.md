@@ -31,7 +31,7 @@ mining, agriculture, space exploration, and process industries.
 
 ## Architecture
 
-:::image type="content" source="media/hpc-edem.png" alt-text="Diagram that shows an architecture for deploying Altair EDEM." lightbox="media/hpc-edem.png" border="false":::
+:::image type="content" source="media/altair-edem/hpc-edem.png" alt-text="Diagram that shows an architecture for deploying Altair EDEM." lightbox="media/altair-edem/hpc-edem.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-edem.vsdx) of this architecture.*
 
@@ -94,7 +94,7 @@ Azure VMs. Particle simulations were tested. The following table provides the de
 | Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
 |---------|---------|---------|---------|--|--|--|--|
 |   Description  |Cylinder angle of repose         |  Bed of material with tillage tool      |Hopper emptying into container         |Powder mixer operation|Screw augur operation|Mill operation| Transfer chute with dynamic factory|
-|     |   ![Image that shows the angle of repose model.](media/angle-repose.png)      |     ![Image that shows the bed of material model.](media/bed-material.png)    |   ![Image that shows the hopper discharge model.](media/hopper-discharge.png)        |![Image that shows the powder mixer model.](media/powder-mixer.png) |![Image that shows the screw augur model.](media/screw-augur.png) |![Image that shows the mill model.](media/mill.png) |![Image that shows the transfer chute model.](media/transfer-chute.png) |
+|     |   ![Image that shows the angle of repose model.](media/altair-edem/angle-repose.png)      |     ![Image that shows the bed of material model.](media/altair-edem/bed-material.png)    |   ![Image that shows the hopper discharge model.](media/altair-edem/hopper-discharge.png)        |![Image that shows the powder mixer model.](media/altair-edem/powder-mixer.png) |![Image that shows the screw augur model.](media/altair-edem/screw-augur.png) |![Image that shows the mill model.](media/altair-edem/mill.png) |![Image that shows the transfer chute model.](media/altair-edem/transfer-chute.png) |
 |  Particle radius (m)| 0.0005 - 0.001|0.002 - 0.004 |0.003|0.0005|0.001|0.005|0.0045 - 0.009|
 | Number of spheres    | 3        |3         |3         |1|1|1|3|
 |   Size distribution  |Random         |Random         |Fixed|Fixed |    Fixed|Fixed|Random
@@ -141,8 +141,7 @@ the V100 GPU, as compared to 96 CPUs.
 
 This graph shows the relative speeds:
 
-![Chart, bar chart Description automatically
-generated](media/comparison-chart.png)
+![Graph that shows the relative speeds.](media/altair-edem/comparison-chart.png)
 
 ## Azure cost
 
