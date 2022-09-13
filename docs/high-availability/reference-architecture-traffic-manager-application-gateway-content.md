@@ -1,5 +1,5 @@
 
-This architecture provides guidance for building internet-facing applications that use HTTP(S), TCP, and UDP protocols. Cross-region data replication and three forms of load balancing distribute traffic across two regions and three availability zones for high availability and responsive disaster recovery.
+This architecture is for global, internet-facing applications that use HTTP(S) and TCP protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a high availability architecture that can withstand a regional outage.
 
 ## Architecture
 
@@ -9,9 +9,9 @@ This architecture provides guidance for building internet-facing applications th
 
 ### Workflow
 
-- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods you configure. The browser connects directly to the endpoint, [not through Traffic Manager](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S)traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-- The Application Gateways (AppGWs) receive HTTP(S) traffic from the client browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAFs) that inspects traffic and protects the application from web exploits and vulnerabilities.
+- The Application Gateways (AppGWs) receive HTTP(S) traffic from the browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAFs) that inspects traffic and protects the application from web exploits and vulnerabilities.
 
 - The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateways distribute traffic to each of the three availability zones. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
@@ -19,7 +19,7 @@ This architecture provides guidance for building internet-facing applications th
 
 - The business tier processes the user interactions and determines the next steps. It connects the web and data tiers. The VMs in the business tier route traffic to the availability group listener of the databases.
 
-- The data tier stores the application data, typically in a database, object storage, or files. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+- The data tier stores the application data, typically in a database, object storage, or file share. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
 
 ### Components
 
@@ -40,13 +40,13 @@ This architecture provides guidance for building internet-facing applications th
 
 ## Solution Details
 
-- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts as endpoint latency changes.
+- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts its load balancing algorithm as endpoint latency changes.
 
-- Traffic manager provides automatic failover if there's a regional outage. It using priority routing and regular health checks to determine where traffic should be routed.
+- Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
 
 - The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
 
-- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door at a regional level:
+- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door at the regional level such as:
 
   - Web Application Firewall (WAF)
   
@@ -56,82 +56,83 @@ This architecture provides guidance for building internet-facing applications th
   
   - Cookie-based session affinity
 
-- The virtual networks are peered. Peering across regions is called global virtual network (vnet) peering. Peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
+- Global virtual network (vnet) peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
 
 ## Recommendations
 
-The following recommendations adhere to the pillars of the Azure Well-Architected Framework (WAF). The WAF pillars are guiding tenets that help ensure the quality of the cloud workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+The following recommendations adhere to the pillars of the Azure Well-Architected Framework (WAF). The WAF pillars are guiding tenets that help ensure the quality of cloud workloads. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ## Reliability
 
-- *Regions:* Use at least two Azure regions for higher availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also helps to avoid application downtime if a subsystem of the application fails. Traffic Manager will automatically fail over to the secondary region if the primary region fails.
+- *Regions:* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails. Traffic Manager will automatically fail over to the secondary region if the primary region fails.
 
-- *Region pairs:* Use Region Pairs for the most resiliency. Here are the benefits of Region Pairs:
+- *Region pairs:* Use Region Pairs for the most resiliency. Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)). Here are two benefits of Region Pairs:
 
-  - Prioritizes one region out of every pair to help reduce the time to restore for applications.
-  - Roles out planned Azure updates to paired regions one at a time to minimize downtime and risk of application outage.
+  - Planned Azure updates roll out to paired regions one at a time to minimize downtime and risk of application outage.
+  
   - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
-  - Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)).
 
 - *Availability zones:* Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
 
-- *Application gateway:* Configure the Application Gateway with a minimum of two instances to avoid downtime.
+- *Application gateway instances:* Configure the Application Gateway with a minimum of two instances to avoid downtime.
 
 For more information, see:
 
-- [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
+- [Regions and availability zones in Azure](/azure/availability-zones/az-overview).
 - [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 ### Routing
 
-- Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
+- *Routing method:* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
 
-- Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
+- *Nested configuration:* Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
 
-- For more information, see:
-  - [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
-  - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
+For more information, see:
+
+- [Configure the performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
+- [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 
 ### Traffic View
 
-- Enable Traffic View in Traffic Manager to understand which regions have a large amount of traffic but suffer from higher latencies.
+Use Traffic View in Traffic Manager to see traffic patterns and latency metrics. Traffic View can help you plan your footprint expansion to new Azure regions.
 
-- Use the Traffic View information to plan your footprint expansion to new Azure regions. That way your users will have a lower latency experience. See [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) for details.
+See [Traffic Manager Traffic View](/azure/traffic-manager/traffic-manager-traffic-view-overview) for details.
 
 ### Application Gateway
 
-Use Application Gateway v2 SKU for automated resiliency.
+Use Application Gateway v2 SKU for out-of-the-box automated resiliency.
 
 - Application Gateway v2 SKU automatically ensures that new instances spawn across fault domains and update domains. If you choose zone redundancy, the newest instances also spawn across availability zones to give fault tolerance.
 
-- Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+- Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
 
 ### Health probes
 
 #### Traffic Manager
 
-- Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path.
+*Endpoint health:* Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
 
-- Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
+For more information, see [health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
-For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+*Failover delay:* Traffic Manager has a failover delay. The following factors determine the duration of the delay:
 
-When Traffic Manager initiates a failover, some time passes when clients can't reach the application. The following factors affect the duration of the unavailability:
-
-- The health probe must detect that the primary region has become unreachable.
-- DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
+- Probing intervals: How often the probe checks the health of the endpoint.
+- Tolerated number of failures: How many failures the probe tolerates before marking the endpoint unhealthy.
+- Probe timeout: how long before Traffic Manager considers the endpoint unhealthy.
+- Time-to-live (TTL): DNS servers must update the cached DNS records for the IP address. The time it takes depends on the DNS TTL. The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
 For more information, see [Traffic Manager monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
 #### Application Gateway and Load Balancer
 
-Familiarize yourself with the health probe policies of the Application Gateway and Load Balancer to ensure you understand the health of your VMs. Here's a brief overview:
+Familiarize yourself with the health probe policies of the Application Gateway and load balancer to ensure you understand the health of your VMs. Here's a brief overview:
 
 - Application Gateway always uses an HTTP probe.
 
 - Load Balancer can evaluate either HTTP or TCP.
 
   - Use an HTTP probe if a VM runs an HTTP server.
+  
   - Use TCP for everything else.
 
 - HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application.
@@ -141,11 +142,11 @@ For more information, see:
 
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
-- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+- [Health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ## Operational excellence
 
-- *Resource groups:* Use [Resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
+- *Resource groups:* Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
 - *Virtual network peering:* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
@@ -153,11 +154,9 @@ For more information, see:
 
 ## Security
 
-- Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
+*Distributed Denial of Service (DDoS):* Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 
-- Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end.
-
- Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
+*Network security groups (NSGs):* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
 1. Deny all inbound traffic from the virtual network, using the VIRTUAL_NETWORK tag in the rule).
 1. Allow inbound traffic from the business-tier subnet.
@@ -165,24 +164,25 @@ For more information, see:
 
 Create rules 2 – 3 with higher priority than the first rule, so they override it.
 
-You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall. See [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups) for details on Application Gateway NSG requirements.
+You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall.
+
+For more information, see [application gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ## Cost optimization
 
-Use a VPN Gateway for environments with substantial amounts of data replicated between regions. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
-
-Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
+*Data transfer:* Use a VPN Gateway for environments with substantial amounts of data replicated between regions instead of virtual network peering. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
 
 For more information, see:
 
 - [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
-- [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
-- [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+- [Virtual network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
+- [Application gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 - [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
+- [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Performance efficiency
 
-Use Virtual Machine Scale Sets (VMSSs) for automated scalability. VMSSs are available on all Windows VM sizes. You're only charged for the Azure VMs deployed and the underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
+*Virtual Machine Scale Sets (VMSSs):* Use VMSSs to automate the scalability of your VMs. VMSSs are available on all Windows VM sizes. You're only charged for the Azure VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges for the VMSS.
 
 The benefits of VMSSs are:
 
