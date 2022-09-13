@@ -184,14 +184,11 @@ For more information, see:
 
 ## Performance efficiency
 
-*Virtual Machine Scale Sets (VMSSs):* Use VMSSs to automate the scalability of your VMs. VMSSs are available on all Windows VM sizes. You're only charged for the Azure VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges for the VMSS.
+*Virtual machine scale sets:* Use virtual machine scale sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of virtual machine scale sets are:
 
-The benefits of VMSSs are:
-
-- Easy to create and manage multiple VMs.
-- Provides high availability and application resiliency
-- Allows your application to automatically scale as resource demand changes
-- Works at large-scale
+- Create and manage multiple VMs easily
+- High availability and application resiliency
+- Automated scaling as resource demand changes
 
 For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
