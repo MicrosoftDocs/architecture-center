@@ -266,6 +266,8 @@ The following considerations apply to this solution.
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 #### Scalability
 
 Solutions for smart places solutions can be relatively simple, low-volume implementations. They can also be sophisticated implementations that handle a high volume of data. A solution that aggregates heating, ventilation, and air conditioning (HVAC) telemetry across a large campus is an example of a high-volume implementation.
@@ -304,7 +306,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 Principal author:
 - [Mark Kottke](https://www.linkedin.com/in/markkottke) | Senior Architect
 
-Other contributors:
+Other contributor:
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
 
 ## Next steps
