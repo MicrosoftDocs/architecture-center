@@ -6,33 +6,6 @@ and vendor neutral and to run in a hybrid cloud context.
 
 ## Architecture
 
-Low-cost production of goods relies on automation of the manufacturing process
-and just-in-time delivery of parts to assembly lines. By automatically
-transporting parts to assembly lines, automated guided vehicles contribute both
-to just-in-time manufacturing and to the automation of shop-floor logistics. In
-a typical mass production plant of passenger cars, for example, one passenger
-car is rolled out every minute. Therefore, every minute of interruption of an
-assembly line in a production plant causes a financial loss—in the order of tens
-of thousands of US dollars. Automotive OEMs require a high level of reliability
-and availability for their automated systems, and they face a number of
-challenges:
-
--   Availability problem. Existing AGV fleet control software does not fulfill
-    the 99.9% availability requirement.
--   Connectivity problem. Some production plants do not have a sufficiently
-    stable internet connection with the required bandwidth to enable the
-    communication between the AGV fleet control software hosted in Azure public
-    cloud and the AGVs on the shop floor. Therefore, hosting the AGV fleet
-    control software in a datacenter that is outside the intranet of such a
-    production plant was not an option.
--   AGV vendor lock-in problem. It was not possible to swap the existing AGVs
-    with new ones from a different vendor, because the AGV fleet control
-    software depended on the proprietary communication protocol of the existing
-    AGVs.
-
-An architecture supporting geo-redundancy with zero-downtime failover for 99.9%
-availability and disaster recovery can solve these issues.
-
 ### Geo-redundancy with zero-downtime failover for 99.9% availability and disaster recovery
 
 :::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB." border="false":::
@@ -234,6 +207,35 @@ This solution is ideal for the manufacturing, automotive, and transportation ind
 -   The customer is a member of the Open Manufacturing Platform (OMP).
 -   The customer is a member of the OMP Autonomous Transport System (OMP ATS)
     working group.
+
+### Key problems
+
+Low-cost production of goods relies on automation of the manufacturing process
+and just-in-time delivery of parts to assembly lines. By automatically
+transporting parts to assembly lines, automated guided vehicles contribute both
+to just-in-time manufacturing and to the automation of shop-floor logistics. In
+a typical mass production plant of passenger cars, for example, one passenger
+car is rolled out every minute. Therefore, every minute of interruption of an
+assembly line in a production plant causes a financial loss—in the order of tens
+of thousands of US dollars. Automotive OEMs require a high level of reliability
+and availability for their automated systems, and they face a number of
+challenges:
+
+-   Availability problem. Existing AGV fleet control software does not fulfill
+    the 99.9% availability requirement.
+-   Connectivity problem. Some production plants do not have a sufficiently
+    stable internet connection with the required bandwidth to enable the
+    communication between the AGV fleet control software hosted in Azure public
+    cloud and the AGVs on the shop floor. Therefore, hosting the AGV fleet
+    control software in a datacenter that is outside the intranet of such a
+    production plant was not an option.
+-   AGV vendor lock-in problem. It was not possible to swap the existing AGVs
+    with new ones from a different vendor, because the AGV fleet control
+    software depended on the proprietary communication protocol of the existing
+    AGVs.
+
+An architecture supporting geo-redundancy with zero-downtime failover for 99.9%
+availability and disaster recovery can solve these issues.
 
 ## Considerations
 
