@@ -35,9 +35,7 @@ If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recover
 
 #### SQL Server Migration Assistant for Oracle
 
-Microsoft SQL Server Migration Assistant (SSMA) for Oracle is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
-
-* [Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql)
+[Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
 
 ## Considerations
 
