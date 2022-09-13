@@ -3,7 +3,7 @@ title: "High-performance computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: SMBrook
 ms.author: sibrook
-ms.date: 01/03/2022
+ms.date: 08/08/2022
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -153,7 +153,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-- [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
+- [GlusterFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
@@ -445,14 +445,14 @@ There are many customers who have seen great success by using Azure for their HP
 
 ## Next steps
 
-For the latest announcements, see:
+For the latest announcements, see the following resources:
 
 - [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples
 
-These tutorials will provide you with details on running applications on Microsoft Batch
+These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)

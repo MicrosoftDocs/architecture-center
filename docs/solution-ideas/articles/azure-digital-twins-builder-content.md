@@ -70,9 +70,12 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
-* [Marcus Farquhar](https://www.linedin.com/in/marcusfarquhar) | Technology Innovation and Experimentation Lead
+- [Marcus Farquhar](https://www.linkedin.com/in/marcusfarquhar) | Technology Innovation and Experimentation Lead
+- [Kian Lutu](https://www.linkedin.com/in/kianlutu) | Program Manager for the Center of Innovation
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

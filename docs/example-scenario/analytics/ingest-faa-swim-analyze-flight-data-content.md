@@ -124,17 +124,17 @@ The following steps summarize deployment of this scenario after the environment 
 
 Principal author:
 
- * [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
+- [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
 
 Other contributors:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps
 
 - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Microsoft Learn: Introduction to Power BI](/learn/modules/introduction-power-bi)
+- [Introduction to Power BI](/learn/modules/introduction-power-bi)
 
 ## Related resources
 

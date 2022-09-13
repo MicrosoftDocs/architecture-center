@@ -33,7 +33,13 @@ The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Se
 
 ## Next steps
 
-- [Triage practices for AKS operations](/azure/architecture/operator-guides/aks/aks-triage-practices)
-- [Patch and upgrade AKS worker nodes](/azure/architecture/operator-guides/aks/aks-upgrade-practices)
+> [!div class="nextstepaction"]
+> [Triage practices for AKS operations](./aks-triage-practices.md)
+
+### Other articles in this series
+
+- [Patch and upgrade AKS worker nodes](./aks-upgrade-practices.md)
+- [Troubleshoot AKS networking](./troubleshoot-network-aks.md)
+- [Troubleshoot virtual nodes](./troubleshoot-virtual-nodes-aks.md)
 - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks?bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&toc=%2Fazure%2Farchitecture%2Ftoc.json)
 - [AKS troubleshooting](/azure/aks/troubleshooting?bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&toc=%2Fazure%2Farchitecture%2Ftoc.json)

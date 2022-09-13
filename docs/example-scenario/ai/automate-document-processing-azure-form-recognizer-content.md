@@ -140,6 +140,8 @@ This solution is ideal for the finance industry. The following tasks can benefit
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Keep these points in mind when you use this solution.
 
 ### Availability
@@ -185,6 +187,8 @@ The availability of the architecture depends on the Azure services that make up 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 * Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
 * To improve App Service security, consider these options:
@@ -217,6 +221,8 @@ The availability of the architecture depends on the Azure services that make up 
 * Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The cost of implementing this solution depends on which components you use and which options you choose for each component.
 
@@ -327,7 +333,7 @@ Principal author:
 [Set up authentication for Azure Machine Learning resources and workflows]: /azure/machine-learning/how-to-setup-authentication
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
-[SLA for Azure Applied AI Services]: https://azure.microsoft.com/en-gb/support/legal/sla/azure-applied-ai-services/v1_0
+[SLA for Azure Applied AI Services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0/
 [SLA for Azure Cognitive Services]: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1

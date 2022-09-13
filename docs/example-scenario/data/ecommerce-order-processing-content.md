@@ -1,8 +1,9 @@
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
 ## Architecture
+:::image type="content" alt-text="Diagram of example architecture for a scalable order processing pipeline." source="./media/architecture-ecommerce-order-processing.png" lightbox="./media/architecture-ecommerce-order-processing.png":::
 
-![Example architecture for a scalable order processing pipeline][architecture]
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-order-processing.vsdx)* of this architecture.
 
 ### Dataflow
 
@@ -36,6 +37,8 @@ Other relevant use cases include:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
@@ -56,6 +59,8 @@ For other scalability considerations, see the [performance efficiency checklist]
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/azure/cosmos-db/database-security).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security/).
@@ -65,6 +70,8 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/reliability-patterns).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
@@ -82,11 +89,11 @@ We have provided three sample cost profiles based on amount of activity you expe
 
 Principal authors:
 
-* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+- [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
 ## Next steps
 
-This example scenario is based on a more extensive version of this architecture built by [Jet.com](https://jet.com), for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
+This example scenario is based on a more extensive version of this architecture built by jet.com for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
 
 See this other content:
 

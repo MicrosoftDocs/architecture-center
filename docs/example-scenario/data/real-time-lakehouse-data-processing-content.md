@@ -131,7 +131,7 @@ Principal author:
 
 - [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala) | Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Rajesh Mittal](https://www.linkedin.com/in/rajeshmittalpmp) | Cloud Solution Architect
 

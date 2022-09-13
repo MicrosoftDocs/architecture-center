@@ -19,9 +19,9 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 
 ## Architecture
 
-![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
+:::image type="content" alt-text="Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge." source="../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png" lightbox="../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png":::
 
-*Download the [Visio file][visio-download] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -61,7 +61,7 @@ Product documentation:
 - [Azure Stream Analytics on IoT Edge](/azure/stream-analytics/stream-analytics-edge)
 - [Store data at the edge with Azure Blob Storage on IoT Edge](/azure/iot-edge/how-to-store-data-blob)
 
-Microsoft Learn paths:
+Learning paths:
 
 - [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
 - [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)

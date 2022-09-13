@@ -1,18 +1,10 @@
 This reference architecture illustrates how to use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
 
+## Architecture
+
 ![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-## Potential use cases
-
-Typical uses for this architecture include:
-
-- Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads
-- How to integrate Microsoft Defender for Cloud with Azure Stack
-- How to integrate Microsoft Defender for Cloud with Microsoft Sentinel
-
-## Architecture
 
 ### Workflow
 
@@ -35,15 +27,23 @@ The architecture consists of the following workflow:
 - [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this architecture include:
+
+- Best practices for integrating on-premises security and telemetry monitoring with Azure-based workloads
+- How to integrate Microsoft Defender for Cloud with Azure Stack
+- How to integrate Microsoft Defender for Cloud with Microsoft Sentinel
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Microsoft Defender for Cloud upgrade
 
-This reference architecture uses **Microsoft Defender for Cloud** to monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. To support that functionality, the **standard fee-based tier** of Microsoft Defender for Cloud is needed. We recommend that you use the 30-day free trial to validate your requirements.
-
-Details about Microsoft Defender for Cloud pricing can be found [here][azure-security-center-pricing].
+This reference architecture uses **Microsoft Defender for Cloud** to monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. Details about Microsoft Defender for Cloud pricing can be found [here][azure-security-center-pricing].
 
 ### Customized Log Analytics Workspace
 
@@ -52,15 +52,19 @@ Details about Microsoft Defender for Cloud pricing can be found [here][azure-sec
 > [!NOTE]
 > Microsoft Sentinel can run on workspaces in any general availability (GA) region of Log Analytics except the China and Germany (Sovereign) regions. Data that Microsoft Sentinel generates, such as incidents, bookmarks, and alert rules, which may contain some customer data sourced from these workspaces, is saved either in Europe (for Europe-based workspaces), in Australia (for Australia-based workspaces), or in the East US (for workspaces located in any other region).
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 The Log Analytics Agent for Windows and Linux is designed to have very minimal impact on the performance of VMs or physical systems.
 
 Microsoft Defender for Cloud operational process won't interfere with your normal operational procedures. Instead, it passively monitors your deployments and provides recommendations based on the security policies you enable.
 
-## Manageability considerations
+### Manageability
 
-### Microsoft Defender for Cloud roles
+#### Microsoft Defender for Cloud roles
 
 Defender for Cloud assesses your resources' configuration to identify security issues and vulnerabilities, and displays information related to a resource when you are assigned the role of owner, contributor, or reader for the subscription or resource group to which a resource belongs.
 
@@ -72,13 +76,13 @@ In addition to these roles, there are two specific Defender for Cloud roles:
 
 - The security roles, **Security Reader** and **Security Admin**, have access only in Defender for Cloud. The security roles don't have access to other Azure service areas, such as storage, web, mobile, or IoT.
 
-### Microsoft Sentinel subscription
+#### Microsoft Sentinel subscription
 
 - To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.
 - To use Microsoft Sentinel, you need contributor or reader permissions on the resource group to which the workspace belongs.
 - Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
-## Security considerations
+### Security
 
 A **security policy** defines the set of controls that are recommended for resources within a specified subscription. In Microsoft Defender for Cloud, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or data sensitivity for each subscription.
 
@@ -87,7 +91,16 @@ The security policies that you enable in Microsoft Defender for Cloud drive secu
 > [!NOTE]
 > Part one of the reference architecture details how to enable Microsoft Defender for Cloud to monitor Azure resources, on-premises systems, and Azure Stack systems.
 
-## Deploy the solution
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+As previously described, costs beyond your Azure subscription might include:
+  1. Microsoft Defender for Cloud costs. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
+  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
+  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
+
+## Deploy this scenario
 
 ### Create a Log Analytics workspace in the Azure portal
 
@@ -109,17 +122,14 @@ While you're still signed into the Azure portal as a user with Security Admin pr
 
 Defender for Cloud automatically enables the Free tier for any of the Azure subscriptions not previously onboarded by you or another subscription user.
 
-### Upgrade to the Standard tier
-
-> [!IMPORTANT]
-> This reference architecture uses the 30-day free trial of Defender for Cloud Standard tier.
+### Upgrade Microsoft Defender for Cloud
 
 1. On the Defender for Cloud main menu, select **Getting Started**.
-1. Select the **Upgrade Now** button. Defender for Cloud lists your subscriptions and workspaces that are eligible for use in the Standard tier.
+1. Select the **Upgrade Now** button. Defender for Cloud lists your subscriptions and workspaces that are eligible for use.
 1. You can select eligible workspaces and subscriptions to start your trial. Select the previously created workspace, **ASC-SentinelWorkspace.** from the drop-down menu.
 1. In the Defender for Cloud main menu, select **Start trial**.
 1. The **Install Agents** dialog box should display.
-1. Select the **Install Agents** button. The **Defender for Cloud - Coverage** blade displays and you should observe your selected subscription in the **Standard coverage** tab.
+1. Select the **Install Agents** button. The **Defender for Cloud - Coverage** blade displays and you should observe your selected subscription.
     ![Security Coverage blade showing your subscriptions should be open][screenshot-coverage]
 
 You've now enabled automatic provisioning and Defender for Cloud will install the Log Analytics Agent for Windows (**HealthService.exe**) and the **omsagent** for Linux on all supported Azure VMs and any new ones that you create. You can turn off this policy and manually manage it, although we strongly recommend automatic provisioning.
@@ -229,7 +239,7 @@ To onboard Microsoft Sentinel, you need to enable it, and then connect your data
 
 1. A Microsoft Azure Subscription
 1. A Log Analytics workspace that isn't the default workspace created when you enable Microsoft Defender for Cloud.
-1. Microsoft Defender for Cloud with Defender for Cloud Standard tier enabled.
+1. Microsoft Defender for Cloud.
 
 All three requirements should be in place if you worked through the previous section.
 
@@ -250,7 +260,7 @@ All three requirements should be in place if you worked through the previous sec
 1. In Microsoft Sentinel, select **Data connectors** from the **navigation** menu.
 1. From the data connectors gallery, select **Microsoft Defender for Cloud**, and select the **Open connector page** button.
     ![In Microsoft Sentinel showing the open Collectors page][screenshot-collectdata]
-1. Under **Configuration**, select **Connect** next to those subscriptions for which you want alerts to stream into Microsoft Sentinel. The **Connect** button will be available only if you have the required permissions and the Defender for Cloud Standard tier subscription.
+1. Under **Configuration**, select **Connect** next to those subscriptions for which you want alerts to stream into Microsoft Sentinel. The **Connect** button will be available only if you have the required permissions and the Defender for Cloud subscription.
 1. You should now observe the **Connection Status** as **Connecting**. After connecting, it will switch to **Connected**.
 1. After confirming the connectivity, you can close Defender for Cloud **Data Connector** settings and refresh the page to observe alerts in Microsoft Sentinel. It might take some time for the logs to start syncing with Microsoft Sentinel. After you connect, you'll observe a data summary in the Data received graph and the connectivity status of the data types.
 1. You can select whether you want the alerts from Microsoft Defender for Cloud to automatically generate incidents in Microsoft Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the **Active rules** tab.
@@ -265,13 +275,6 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 
 - [Quickstart][azure-sentinel-quickstart]: Get started with Microsoft Sentinel
 - [Tutorial][azure-sentinel-tutorial]: Detect threats out-of-the-box
-
-## Cost considerations
-
-- As previously described, costs beyond your Azure subscription might include:
-  1. Microsoft Defender for Cloud Standard tier. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
-  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
-  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
 ## Next steps
 

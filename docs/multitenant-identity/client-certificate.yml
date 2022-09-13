@@ -3,8 +3,8 @@ metadata:
   title: Client certificate for an Azure AD access token
   description: Learn how to use client certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 06/23/2022
+  ms.author: architectures
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

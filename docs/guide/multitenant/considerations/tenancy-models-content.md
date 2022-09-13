@@ -28,21 +28,21 @@ If you expect that your business is going to scale to a large number of customer
 
 Conversely, if you expect that your business is only going to have a few customers, it might be worth considering to have single-tenant resources that are dedicated to each customer. Similarly, if your customers' isolation requirements are high, a single-tenant infrastructure might be appropriate.
 
-## Logical and physical tenants
+## Tenants and deployments
 
 Next, you need to determine what a tenant means for your particular solution, and whether you should distinguish between _logical_ and _physical_ tenants.
 
-For example, consider a music streaming service. Initially, you might build a solution that can easily cope with thousands (or even tens of thousands) of users. As you continue to grow, though, you might find that you need to duplicate your solution or some of its components, in order to scale to your new customer demand. This means that you'll need to work out how to assign specific customers to specific instances of your solution. You might do this randomly, or geographically, or by filling up a single instance and then spilling over to another. However, you will probably need to maintain a record of which customers you have and which infrastructure their data and applications are available on, so that you can route their traffic to the correct infrastructure. In this example, you might represent each user as a separate logical tenant, and then map the users to physical tenants that represent the different instances you've deployed. You have a one-to-many mapping between logical and physical tenants, and you can move logical tenants between physical tenants at your own discretion.
+For example, consider a music streaming service. Initially, you might build a solution that can easily cope with thousands (or even tens of thousands) of users. As you continue to grow, though, you might find that you need to duplicate your solution or some of its components, in order to scale to your new customer demand. This means that you'll need to work out how to assign specific customers to specific instances of your solution. You might do this randomly, or geographically, or by filling up a single instance and then spilling over to another. However, you will probably need to maintain a record of which customers you have and which infrastructure their data and applications are available on, so that you can route their traffic to the correct infrastructure. In this example, you might represent each customer as a separate tenant, and then map the users to the deployment that contains their data. You have a one-to-many mapping between tenants and deployments, and you can move tenants between deployments at your own discretion.
 
-In contrast, consider a company that builds cloud software for legal firms. Your customers might insist on their own dedicated infrastructure to maintain their compliance standards. Therefore, you need to be prepared to deploy and manage many different instances of your solution, right from the start. In this example, a logical and physical tenant is the same thing.
+In contrast, consider a company that builds cloud software for legal firms. Your customers might insist on their own dedicated infrastructure to maintain their compliance standards. Therefore, you need to be prepared to deploy and manage many different instances of your solution, right from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to their own dedicated deployment.
 
-A key difference between logical and physical tenants is how isolation is enforced. When multiple logical tenants share a single set of infrastructure, you typically rely on your application code and a tenant identifier in a database, to keep each tenant's data separate. When you have physical tenants, they have their own infrastructure, and so it may be less important for your code to be aware that it's operating in a multitenant environment.
+A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (set of infrastructure), you typically rely on your application code and a tenant identifier in a database, to keep each tenant's data separate. When you have tenants with their own dedicated deployments, they have their own infrastructure, and so it may be less important for your code to be aware that it's operating in a multitenant environment.
 
-Sometimes, you'll see physical tenants referred to as _deployments_, _supertenants_, or _stamps_. In the rest of this document, we use the terms _deployments_ and _physical deployments_, to avoid confusion between logical and physical tenants.
+Sometimes, you'll see deployments referred to as _supertenants_ or _stamps_.
 
-When you receive a request for a specific logical tenant, you need to map it to the physical deployment that holds that tenant's data, as illustrated below:
+When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as illustrated below:
 
-![Diagram showing the mapping between logical and physical tenants. A tenant mapping layer refers to a table that stores the relationship between logical tenants and physical deployments.](media/tenancy-models/map-logical-physical.png)
+![Diagram showing the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png) <!-- TODO update diagram -->
 
 ## Tenant isolation
 
@@ -74,7 +74,7 @@ You can consider mixing and matching different levels of isolation at each tier.
 
 ## Common tenancy models
 
-Once you've established your requirements, evaluate them against some common tenancy models and patterns.
+Once you've established your requirements, evaluate them against some common tenancy models and corresponding deployment patterns.
 
 ### Automated single-tenant deployments
 
@@ -94,7 +94,7 @@ At the opposite extreme, you can consider a fully multitenant deployment, where 
 
 ![Diagram showing three tenants, all using a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
 
-**Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data into another logical tenant, you don't have to migrate data between two separate deployments.
+**Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data to another tenant, you might be able to update tenant identifiers and keys, and you might not have to migrate data between two separate deployments.
 
 **Risks:**
 
@@ -119,7 +119,7 @@ Here's an example that illustrates a shared deployment for some tenants, and a s
 
 **Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trying your service with a trial. You can even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
 
-**Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments. If you plan to allow migration between infrastructures, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to have a clear understanding of which of your logical tenants are on which sets of physical infrastructure, so that you can communicate information about system issues or upgrades to the relevant customers.
+**Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments. If you plan to allow migration between infrastructures, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to have a clear understanding of which of your tenants are on which deployments, so that you can communicate information about system issues or upgrades to the relevant customers.
 
 ### Horizontally partitioned deployments
 

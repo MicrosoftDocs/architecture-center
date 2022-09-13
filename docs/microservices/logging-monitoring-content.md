@@ -3,6 +3,8 @@ This article describes best practices for monitoring a microservices application
 
 ![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/design-microservice-drone-delivery-imp.vsdx) of this architecture.*
+
 ## Telemetry collection
 
 In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into _logs_, _traces_, and _metrics_.

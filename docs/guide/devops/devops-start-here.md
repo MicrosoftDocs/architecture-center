@@ -3,8 +3,8 @@ title: DevOps architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 3/31/2022
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -43,7 +43,7 @@ After you're familiar with Azure, you can decide whether to follow learning path
 - [Build applications with Azure DevOps](/learn/paths/build-applications-with-azure-devops)
 
 > [!div class="nextstepaction"]
-> [Browse other Microsoft Learn training materials for DevOps](/search/?terms=devops&category=Learn)
+> [Browse other training materials for DevOps](/search/?terms=devops&category=Learn)
 
 ## Path to production
 

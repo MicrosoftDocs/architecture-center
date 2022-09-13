@@ -1,20 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how manufacturers can use high-performance, low-latency 5G Standalone networks to scale up industrial automation and productivity. 5G Standalone networks reliably connect machines to other machines or controllers. 5G-enabled Internet of Things (IoT) devices like robots can communicate and operate autonomously on the factory or warehouse floors.
-
-The 5G Standalone network is deployed as a Non-Public Network (NPN), with all data remaining on premises. The NPN configuration offers security, privacy, and reliability. Azure deploys and manages the network and devices.
-
-## Potential use cases
-
-Use this approach for scenarios like:
-
-- Picking shipments efficiently in a warehouse.
-- Dispersing seeds from an autonomous seed sprayer machines on a farm, based on information from soil sensors.
-- Conserving energy in commercial buildings by shutting off lights when no motion is detected in a room.
+This solution describes how manufacturers can use high-performance, low-latency 5G Standalone networks to scale up industrial automation and productivity.
 
 ## Architecture
 
-:::image type="content" source="../media/low-latency-network.png" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server. Azure Network Function Manager controls the private multi-access edge compute nodes on Azure Stack Edge." border="false":::
+:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="../media/low-latency-network.png" lightbox="../media/low-latency-network.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/low-latency-network.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -31,6 +23,20 @@ This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+
+## Scenario details
+
+5G Standalone networks reliably connect machines to other machines or controllers. 5G-enabled Internet of Things (IoT) devices like robots can communicate and operate autonomously on the factory or warehouse floors.
+
+The 5G Standalone network is deployed as a Non-Public Network (NPN), with all data remaining on premises. The NPN configuration offers security, privacy, and reliability. Azure deploys and manages the network and devices.
+
+### Potential use cases
+
+Use this approach for scenarios like:
+
+- Picking shipments efficiently in a warehouse.
+- Dispersing seeds from an autonomous seed sprayer machines on a farm, based on information from soil sensors.
+- Conserving energy in commercial buildings by shutting off lights when no motion is detected in a room.
 
 ## Contributors
 

@@ -40,15 +40,13 @@ Direct connections between spokes typically offer better throughput, latency, an
   - Hub and spoke with spokes that are directly connected to each other, without any hop in the middle.
   - A meshed group of virtual networks that are interconnected.
   
-  
-  
     :::image type="content" source="media/virtual-network-manager-connectivity-options.png" alt-text="Network diagram that shows the topologies that are supported by Azure Virtual Network Manager." lightbox="media/virtual-network-manager-connectivity-options.png" border="false":::
     
     *Download [all Visio diagrams](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) in this article.*
   
     When you create a hub-and-spoke topology with Azure Virtual Network Manager in which spokes are connected to each other, direct connectivity between spoke virtual networks in the same [network group][avnm_network_group] are automatically created bi-directionally. By using Azure Virtual Network Manager, you can statically or dynamically make spoke virtual networks members of a specific network group, which automatically creates the connectivity for any virtual network.
   
-    You can create multiple network groups to isolate clusters of spoke virtual networks from direct connectivity. Each network group provides the same region and multi-region support for spoke-to-spoke connectivity. Currently, Azure Virtual Network Manager doesn't provide connectivity across tenants. Be sure to stay below the maximum limits for Azure Virtual Network Manager that are described in the [Azure Virtual Network Manager FAQ][avnm_limits].
+    You can create multiple network groups to isolate clusters of spoke virtual networks from direct connectivity. Each network group provides the same region and multi-region support for spoke-to-spoke connectivity. Be sure to stay below the maximum limits for Azure Virtual Network Manager that are described in the [Azure Virtual Network Manager FAQ][avnm_limits].
 
 - **VPN tunnels connecting virtual networks.** You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][vnet_to_vnet] or third-party VPN NVAs. The advantage of this option is that spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or connectivity cross-cloud providers. Also, if there are software-defined wide area network (SD-WAN) NVAs in each spoke virtual network, this configuration can facilitate using the third-party provider's control plane and feature set to manage virtual network connectivity. 
 
@@ -85,14 +83,14 @@ Instead of connecting spoke virtual networks directly to each other, you can use
 
 - **Azure VPN Gateway.** You can use an Azure VPN gateway as a next hop type of user-defined route, but Microsoft doesn't recommend using VPN virtual network gateways to route spoke-to-spoke traffic. They're designed for encrypting traffic to on-premises sites or VPN users. For example, there's no guarantee of the bandwidth between spokes that a VPN gateway can route.
 
-- **ExpressRoute.** In certain configurations, an ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication, sending traffic to the Microsoft edge router, where it's routed to the destination spoke. Microsoft strongly discourages this scenario because it introduces latency by sending traffic to the Microsoft backbone edge and back. This scenario also presents multiple problems caused by putting extra pressure on the ExpressRoute infrastructure (the gateway and physical routers). This additional pressure can cause packet drops.
+- **ExpressRoute.** In certain configurations, an ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication, sending traffic to the Microsoft edge router, where it's routed to the destination spoke. Microsoft strongly discourages this scenario because it introduces latency by sending traffic to the Microsoft backbone edge and back. On top of that, Microsoft does not recommend this approach, due to the single point of failure and the large blast radius. This scenario also presents multiple problems caused by putting extra pressure on the ExpressRoute infrastructure (the gateway and physical routers). This additional pressure can cause packet drops.
 
 In hub-and-spoke network designs that have centralized NVAs, the appliance is typically placed in the hub. Virtual network peerings between hub-and-spoke virtual networks need to be created manually or automatically with Azure Virtual Network Manager:
 
 - **Manual virtual network peerings.** This approach is sufficient when you have a low number of spoke virtual networks, but it creates management overhead at scale.
 - **[Azure Virtual Network Manager.][avnm_hns]** As noted earlier, Azure Virtual Network Manager provides features to manage virtual network environments and peerings at scale. Peering configurations between hub-and-spoke virtual networks are automatically configured bi-directionally for network groups. 
  
-  Azure Virtual Network Manager provides the ability to statically or dynamically add spoke virtual network memberships to a specific [network group][avnm_network_group], which automatically creates the peering connection for new members. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity][avnm_hub_as_gw]. Azure Virtual Network Manager doesn't support cross-tenant virtual network connectivity. Be sure to stay below the maximum [limits for Azure Virtual Network Manager][avnm_limits].
+  Azure Virtual Network Manager provides the ability to statically or dynamically add spoke virtual network memberships to a specific [network group][avnm_network_group], which automatically creates the peering connection for new members. Spoke virtual networks in network groups can [use the hub VPN or ExpressRoute gateways for connectivity][avnm_hub_as_gw]. Be sure to stay below the maximum [limits for Azure Virtual Network Manager][avnm_limits].
 
 #### Pattern 2: Single region
 

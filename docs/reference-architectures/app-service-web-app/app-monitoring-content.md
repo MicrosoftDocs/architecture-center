@@ -70,7 +70,7 @@ This scenario focuses on PaaS solutions for monitoring in large part because the
 
 Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent throttling, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
-High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](./basic-web-app.yml#scalability) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
+High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [scalability considerations](../app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency) in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
 ### Security
 
@@ -150,12 +150,12 @@ Check out these resources designed to help you get started with your own monitor
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [Sampling in Application Insights]: /azure/application-insights/app-insights-sampling
 [Live Metrics Stream]: /azure/application-insights/app-insights-live-stream
-[Basic web application reference architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#scalability
+[Basic web application reference architecture]: ../app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency  
 [Start monitoring your ASP.NET Web Application]: /azure/application-insights/quick-monitor-portal
 [Collect data about Azure Virtual Machines]: /azure/log-analytics/log-analytics-quick-collect-azurevm
 [Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview
 [Find and diagnose run-time exceptions with Azure Application Insights]: /azure/application-insights/app-insights-tutorial-runtime-exceptions
-[data-dog]: https://www.datadoghq.com/blog/azure-monitoring-enhancements
+[data-dog]: <https://www.datadoghq.com/blog/azure-monitoring-enhancements>
 [app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling

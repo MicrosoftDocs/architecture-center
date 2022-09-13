@@ -1,23 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. The project helps these teams capture and analyze the data they need to preserve critical species and ecosystems which is backed by the power of Azure and an Internet of Things (IoT) open platform.
-
-A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
-
-By getting teams roughly 80 percent of the way to finished solutions, the Project 15 Open Platform helps meet these goals:
-
-- **Close the skill gap**. The ready-made platform boosts innovation. Scientific developers can expand into specific use cases.
-- **Increase speed to deployment**. By helping teams overcome technical challenges, the platform reduces the time needed to build crucial insights.
-- **Lower the development cost**. The platform reduces complexity, resulting in lower overall development costs. It also opens up opportunities for partnering with open-source developer communities and universities.
-
-## Potential use cases
-
-With its Open Platform, Project 15 contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
-
-- Species tracking and observation
-- Poaching prevention
-- Ecosystem monitoring
-- Pollution detection
+The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. The project helps these teams capture and analyze the data they need to preserve critical species and ecosystems which are backed by the power of Azure and an Internet of Things (IoT) open platform.
 
 ## Architecture
 
@@ -117,6 +100,25 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure Maps][Azure Maps] offers geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
 
+## Scenario details
+
+A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
+
+By getting teams roughly 80 percent of the way to finished solutions, the Project 15 Open Platform helps meet these goals:
+
+- **Close the skill gap**. The ready-made platform boosts innovation. Scientific developers can expand into specific use cases.
+- **Increase speed to deployment**. By helping teams overcome technical challenges, the platform reduces the time needed to build crucial insights.
+- **Lower the development cost**. The platform reduces complexity, resulting in lower overall development costs. It also opens up opportunities for partnering with open-source developer communities and universities.
+
+### Potential use cases
+
+With its Open Platform, Project 15 contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
+
+- Species tracking and observation
+- Poaching prevention
+- Ecosystem monitoring
+- Pollution detection
+
 ## Deploy this scenario
 
 - Deployment to Azure happens with the push of a button. The main components of the infrastructure for a standard IoT solution are then up and running.
@@ -136,7 +138,7 @@ Principal author:
 - Visit [Project 15 on GitHub][Project 15 on GitHub] to deploy to Azure and learn more about customizing conservation and ecological sustainability solutions.
 - [Microsoft & Sustainability][Microsoft & Sustainability]
 - [AI for Earth][AI for Earth]
-- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft learning channels][Microsoft learning channels].
+- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft channels](/learn).
 - See [Introduction to Azure IoT][Introduction to Azure IoT].
 
 ## Related resources
@@ -163,7 +165,6 @@ Principal author:
 [IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Logic Apps]: https://azure.microsoft.com/services/logic-apps
 [Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
-[Microsoft learning channels]: /learn
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview

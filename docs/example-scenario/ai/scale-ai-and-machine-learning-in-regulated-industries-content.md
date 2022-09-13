@@ -1,22 +1,4 @@
-Scaling AI and machine learning initiatives in regulated environments poses significant challenges to organizations, no matter their digital maturity and size. In this article, we discuss key architectural decisions to consider when adopting Azure's data engineering and machine learning services in regulated industries. These decisions are based on what was learned from a recent implementation in a Fortune 500 global life sciences and healthcare company.
-
-The architecture presented in this article follows the Enterprise Scale Analytics and AI reference architecture design and was one of its first implementations.
-
-Setup of data science projects and development of machine learning models in life sciences and healthcare environments will, in almost all cases, require access to high business impact data sources. For example, these sources can be clinical trial protocol information (without patient data), molecule's chemical formulae, or manufacturing process secrets.
-
-In regulated industries, IT systems are classified based on the classification of the data sources those systems access. AI and machine learning environments running on Azure are classified as high business impact (HBI), and are required to comply with an extensive set of information security risk management (ISRM) policies and controls.
-
-In this article, we discuss Azure architectural considerations related to the analysis and implementation of common high-risk tier classification ISRM controls.
-
-## Potential use cases
-
-The architectural considerations discussed in this article have their source in the life sciences and healthcare industries. However, they're also relevant for organizations in other regulated industries, including:
-
-- Financial services
-- Healthcare providers
-- Oil and gas
-
-Implementation of Enterprise Scale Analytics and AI reference architecture in regulated environments follows similar design patterns.
+In this article, we discuss Azure architectural considerations related to the analysis and implementation of common high-risk tier classification set of information security risk management (ISRM) controls.
 
 ## Architecture
 
@@ -24,13 +6,15 @@ The architecture is shown in the diagram below and follows the principle of [Ent
 
 [![Diagram of a scalable AI platform for regulated industries.](media/scale-ai-and-machine-learning-in-regulated-industries.png)](media/scale-ai-and-machine-learning-in-regulated-industries.png#lightbox)
 
-[Download a copy of this Visio.](https://arch-center.azureedge.net/scalable-ai-platform-regulated-industries-v1.vsdx)
+*Download a [Visio file](https://arch-center.azureedge.net/scalable-ai-platform-regulated-industries-v1.vsdx) of this architecture.*
+
+### Workflow
 
 The architecture consists of the workflow described below. Each component of the architecture has a corresponding number in the diagram. We describe the main purpose of the component, how it fits into the architecture, and any other important considerations that should be taken when adopting it:
 
 1. **Platform subscriptions** – Core Azure subscriptions that provide identity (through Azure AD), management, and connectivity. They aren't outlined here in more detail and are assumed to be ready and available as part of the core Enterprise Scale setup.
 
-### Data management
+#### Data management
 
 1. **Data Management Zone** – Responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the Data Landing Zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Azure Purview). Depending on metadata, different policies and access patterns are enforced. There's only one Data Management Zone subscription for the whole tenant. The Data Management Zone is peered (through VNET peering) with all other Data Landing Zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Management Zone are provisioned within this resource group.
@@ -43,7 +27,7 @@ The architecture consists of the workflow described below. Each component of the
 1. **Data visualization resource group** – Hosts data visualization solutions that are shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
 1. **Additional infrastructure controls & governance** – Microsoft Defender for Cloud and Azure Monitor are used as baseline security and monitoring solutions.
 
-### Data landing zone
+#### Data landing zone
 
 1. **Data Landing Zone** – A subscription that represents a unit of scale within the data platform. Data Landing Zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics & AI platform. There can be one or many Data Landing Zones within the environment. Azure Policies are applied to keep access and configurations of various Azure services secure. The Data Landing Zone is peered (through VNET peering) with all other Data Landing Zones and the Data Management Zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Landing Zone are provisioned within this resource group.
@@ -94,7 +78,27 @@ The architecture consists of the workflow described below. Each component of the
 
 In distributed organizations, business groups operate independently and with high degrees of autonomy. As such, they might consider an alternative solution design, with full isolation of use cases in Azure landing zones, sharing a minimal set of common services. Although this design allows a fast start, it requires high effort from IT and ISRM organizations, since design of individual use cases will quickly diverge from blueprint designs. Additionally, it requires independent ISRM processes, and audits, for each of the AI/ML "products" hosted in Azure.
 
-## Design principles
+## Scenario details
+
+Scaling AI and machine learning initiatives in regulated environments poses significant challenges to organizations, no matter their digital maturity and size. In this article, we discuss key architectural decisions to consider when adopting Azure's data engineering and machine learning services in regulated industries. These decisions are based on what was learned from a recent implementation in a Fortune 500 global life sciences and healthcare company.
+
+The architecture presented in this article follows the enterprise scale analytics and AI reference architecture design and was one of its first implementations.
+
+If you set up data science projects and develop machine learning models in life sciences and healthcare environments, then, in almost all cases, you'll need access to high business impact data sources. For example, these sources can be clinical trial protocol information (without patient data), molecule's chemical formulae, or manufacturing process secrets.
+
+In regulated industries, IT systems are classified based on the classification of the data sources those systems access. AI and machine learning environments running on Azure are classified as high business impact (HBI), and are required to comply with an extensive set of information security risk management (ISRM) policies and controls.
+
+### Potential use cases
+
+The architectural considerations discussed in this article have their source in the life sciences and healthcare industries. However, they're also relevant for organizations in other regulated industries, including the following:
+
+- Financial services
+- Healthcare providers
+- Oil and gas
+
+Implementation of Enterprise Scale Analytics and AI reference architecture in regulated environments follows similar design patterns.
+
+### Design principles
 
 This architecture is based on the following principles:
 
@@ -106,7 +110,7 @@ This architecture is based on the following principles:
 - Cross-functional teams take ownership of the design, development, and operations to shorten the time to market and the agility within the platform. Core principles like DevOps, Infrastructure as Code (IaC), and resilient designs are used to avoid human error and single points of failure.
 - Data Domains can be used by domain and data source subject matter experts (SMEs) to pull in data assets from Azure, third-party, or on-premises environments. A Data Domain is a resource group within a Data Landing Zone that can be used by cross-functional teams for custom data ingestion. There can be one or many Data Domains within a Data Landing Zone. Data Domains can be viewed similarly to domains in Domain Driven Design (DDD) where they provide a context boundary and are self-sufficient and isolated. An example of a Data Domain would be clinical trial data or supply chain data.
 
-## Measuring adoption and value
+### Measuring adoption and value
 
 To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPI) were evaluated:
 
@@ -141,6 +145,8 @@ To scale AI and machine learning in regulated environments, and drive rapid adop
 - Number of incidents reported related to performance availability
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 In this section, we discuss lessons learned from the implementation of the architecture described above in a life sciences and healthcare regulated environment. We also cover high-level design considerations to meet common ISRM controls and policies.
 
@@ -208,7 +214,9 @@ In regulated environments, IT systems must follow strict waterfall-style quality
 
 Azure environments and data science development follow iterative processes, anchored in a DevOps culture. A significant effort in scaling AI/ML initiatives will be spent communicating the pillars of a DevOps organization and creating automated end-to-end traceability mapping between Azure DevOps epics, features, user stories, test plans and CI/CD pipelines, and required quality control entities and evidence.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Cost management is an important part of design in the implementation of scalable AI/ML platforms, since running costs don't follow simple and predictable patterns. Cost is primarily driven by the number and size of the AI/ML experiments being executed in the platform, and more specifically, on the number and SKUs of the compute resources used in model training and inference.
 

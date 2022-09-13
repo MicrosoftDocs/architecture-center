@@ -1,39 +1,52 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
+Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Nowadays, marketing campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
+These days, marketing campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
 
 ## Potential use cases
-Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are forcing their investments regarding social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
 
-- **Measure Brand Health:** 
-    * Capture customer reactions and feedback for new products on social media.
-    * Analyze Sentiment on social media interactions for a newly introduced product.
+If you can extract information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
 
-- **Build & maintain customer relationships:**
-    * Identify quickly all customer concerns
-    * Listen to untagged brand mentions
+- **Measuring brand health:**
 
-- **Optimize marketing spends:**
-    * Extract insights from social media for campaign analysis.
+  - Capturing customer reactions and feedback for new products on social media.
+  - Analyzing sentiment on social media interactions for a newly introduced product.
+
+- **Building and maintaining customer relationships:**
+
+  - Quickly identifying customer concerns.
+  - Listening to untagged brand mentions.
+
+- **Optimizing marketing investments:**
+
+  - Extracting insights from social media for campaign analysis.
 
 ## Architecture
 
-![Diagram of this marketing optimization architecture.][architecture-png]
-*Download a [SVG file][architecture-svg] of this architecture.*
+![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.][architecture-png]
+*Download an [SVG file][architecture-svg] of this architecture.*
 
 ### Dataflow
 
-1. [Azure Synapse Analytics][synapse-overview] is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. In this solution, Azure Synapse Analytics will enrich data in dedicated SQL pools with the model registered in AML via a stored procedure.
-2. [Cognitive Services](https://azure.microsoft.com/en-gb/services/cognitive-services/#api) and [Azure Machine Learning (AML)][aml-overview].
-    - **Cognitive Services** brings AI within reach of every developer and data scientist. With leading models, a variety of use cases can be unlocked. All it takes is an API call to embed the ability to see, hear, speak, search, understand, and accelerate advanced decision-making into your apps. Enable developers and data scientists of all skill levels to easily add AI capabilities to their apps.
+1. [Azure Synapse Analytics][synapse-overview] enriches data in dedicated SQL pools with the model that's registered in Azure Machine Learning via a stored procedure.
+1. [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) enriches the data by running sentiment analysis, predicting overall meaning, extracting relevant information, and applying other AI features. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to develop a machine learning model and register the model in the Machine Learning registry.
+1. [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides storage for the machine learning data and a cache for training the machine learning model.
+1. The [Web Apps](/azure/app-service/overview) feature of Azure App Service is used to create and deploy scalable business-critical web applications. [Power BI][pbi-overview] provides an interactive dashboard with visualizations that use data that's stored in Azure Synapse Analytics to drive decisions on the predictions.
 
-    - **Azure Machine Learning Service (AML)** is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. In this solution, it's used to develop a machine learning model and register the model in the AML model registry.
-3. [Azure Data Lake Storage (ADLS)](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/#overview) is a massively scalable and secure data lake for your high-performance analytics workloads.
-4. [Power BI][pbi-overview] and [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/) 
-    - **Azure Web App** is used to create and deploy scalable mission-critical web applications.
-    - **Power BI** provides an interactive dashboard with visualizations that use data stored in Azure Synapse Analytics to drive decisions on the predictions.
+### Components
+
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
+
+- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services#api) consists of cloud-based services that provide AI functionality. The REST APIs and client library SDKs help you build cognitive intelligence into apps even if you don't have AI or data science skills.
+
+- [Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
+
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure data lake for high-performance analytics workloads.
+
+- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+
+- [Power BI](https://powerbi.microsoft.com) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
 ## Contributors
 
@@ -41,35 +54,39 @@ Organizations nowadays are capitalizing in various ways to extract knowledge and
 
 Principal author:
 
- * [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | AI Cloud Solution Architect
+- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki) | AI Cloud Solution Architect
 
 Other contributors:
 
- * [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
 
 ## Next steps
 
 Learn more with the following learning paths:
 
-* [Create machine learning models][ms-learn-create-ml]
-* [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
-* [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
-* [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
-* [Text Analytics with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+- [Create machine learning models][ms-learn-create-ml]
+- [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
+- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
+- [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
+- [Text Analytics with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
+For information about solution components, see these resources:
+
+- [Azure Machine Learning documentation][aml-docs]
+- [Azure Synapse Analytics documentation][synapse-docs]
+- [Cognitive Services Documentation](/azure/cognitive-services)
+- [Power BI documentation][pbi-docs]
+- [App Service overview](/azure/app-service/overview)
+- [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
+- [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
+- [Machine learning with Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-concept)
 
 ## Related resources
 
-* [Azure Machine Learning documentation][aml-docs]
-* [Azure Synapse Analytics documentation][synapse-docs]
-* [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-* [Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services/)
-* [Power BI documentation][pbi-docs]
-* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
-* [Azure Web App Service Documentation](/azure/app-service/overview)
-* [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
-* [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
-* [Machine learning with Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-concept)
+- [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
+- [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
+- [Customer churn prediction using real-time analytics](./customer-churn-prediction.yml)
+
 
 <!-- links -->
 [architecture-png]: ../media/optimize-marketing-with-machine-learning.png

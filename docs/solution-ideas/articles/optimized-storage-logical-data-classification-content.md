@@ -1,20 +1,4 @@
-Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
-
-:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::
-
-1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
-1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
-1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at low cost.
-
-## Potential use cases
-
-The following architecture can be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
-
-1. Running multiple campaigns or promotions
-1. Performing global surveys
-1. Running research experiments
-1. Running multiple projects, managing documents and resourcing
-1. Managing university enrollment and scheduling
+This architecture is for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.
 
 ## Architecture
 
@@ -55,6 +39,26 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) provides a quick and simple way to run tasks without having to manage infrastructure. It's useful during development or for running unscheduled tasks.
 - [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) is a platform for scaling and orchestrating containers and microservices.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+
+## Scenario details
+
+Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
+
+:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Diagram of data segregated by customer and category.":::
+
+1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
+1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
+1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at low cost.
+
+### Potential use cases
+
+The following architecture can be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
+
+1. Running multiple campaigns or promotions
+1. Performing global surveys
+1. Running research experiments
+1. Running multiple projects, managing documents and resourcing
+1. Managing university enrollment and scheduling
 
 ## Considerations
 
