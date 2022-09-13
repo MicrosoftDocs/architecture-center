@@ -1378,13 +1378,13 @@
 			<title>Dynamic connector.315</title>
 			<path d="M0 527.98 L0 493.24 L60.89 493.24 L60.89 475.41" class="st24"/>
 		</g>
-		<g id="shape123-320" v:mID="123" v:groupContext="shape" transform="translate(100,-65.3333)">
+		<g id="shape123-320" v:mID="123" v:groupContext="shape" transform="translate(120.937,-65.3333)">
 			<title>Sheet.123</title>
-			<desc>network-security-mlops-rg</desc>
+			<desc>Resource group</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="79.0937" cy="512.453" width="158.19" height="31.047"/>
-			<rect x="0" y="496.929" width="158.187" height="31.047" class="st35"/>
-			<text x="8.25" y="516.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>network-security-mlops-rg</text>		</g>
+			<v:textRect cx="46.6875" cy="512.453" width="93.38" height="31.047"/>
+			<rect x="0" y="496.929" width="93.375" height="31.047" class="st35"/>
+			<text x="4.81" y="516.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Resource group</text>		</g>
 		<g id="group125-323" transform="translate(188.028,-208.368)" v:mID="125" v:groupContext="group">
 			<title>Kubernetes Services.125</title>
 			<g id="shape126-324" v:mID="126" v:groupContext="shape" transform="translate(5.61982,-23.6051)">
@@ -2043,9 +2043,9 @@
 						SUVORK5CYII="/>
 			<rect v:rectContext="foreign" x="0" y="483.806" width="44.1704" height="44.1704" class="st19"/>
 			<text x="-12.7" y="538.67" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Monitor</text>		</g>
-		<g id="shape1059-499" v:mID="1059" v:groupContext="shape" v:layerMember="0" transform="translate(140.766,-370.547)">
+		<g id="shape1059-499" v:mID="1059" v:groupContext="shape" v:layerMember="0" transform="translate(140.414,-370.547)">
 			<title>Dynamic connector.1059</title>
-			<path d="M0 527.98 L-58.64 527.98 L-58.64 473.44" class="st24"/>
+			<path d="M0 527.98 L-58.29 527.98 L-58.29 473.44" class="st24"/>
 		</g>
 	</g>
 </svg>
