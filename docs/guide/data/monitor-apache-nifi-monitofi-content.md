@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]![image](https://user-images.githubusercontent.com/13895622/189763832-b766108c-99b4-41e4-842b-88ba1aabbfff.png)
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 [MonitoFi][MonitoFi] is a tool that monitors the health and performance of [Apache NiFi][Apache NiFi] clusters. When you run [NiFi on Azure][Apache NiFi on Azure] and use MonitoFi:
 
