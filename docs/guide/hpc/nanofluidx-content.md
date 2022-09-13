@@ -4,7 +4,7 @@ virtual machine (VM) that's deployed on Azure. It also presents the
 performance results of running nanoFluidX on Azure.
 
 Altair nanoFluidX simulates single-phase and multiphase flows. It's
-based on a weakly-compressible Lagrangian smoothed-particle
+based on a weakly compressible Lagrangian smoothed-particle
 hydrodynamics (SPH) formulation. Altair nanoFluidX:
 
 -   Enables easy treatment of high-density ratio multiphase flows, like
@@ -88,8 +88,7 @@ the AMD drivers.
 Standard_ND96asr_v4 VMs.
 
 For information about deploying the VM and installing the drivers, see
-[Run a Linux VM on
-Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm).
+[Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
 Altair nanoFluidX only runs on Linux. You can download nanoFluidX from
 [Altair One
@@ -209,7 +208,7 @@ time steps.
 ## Azure cost
 
 Only rendering time is considered for these cost calculations.
-Application installation time isn\'t considered.
+Application installation time isn't considered.
 
 You can use the wall-clock time presented in the following tables and
 the Azure hourly rate to calculate costs. For the current hourly costs,
@@ -234,137 +233,80 @@ Standard_ND96asr_v4 VMs, by number of GPUs.
  
  |VM size|  Model             |Time steps|   Number of GPUs| Wall-clock time, in seconds|
   |--------------------- |----------------- |-------| ----------| -------------|
-  Standard_ND96asr_v4   Aero_gbx          1,000   2          149.49
+  |Standard_ND96asr_v4|   Aero_gbx|          1,000|   2|          149.49|
+ |Standard_ND96asr_v4|  Altair_egbx       |1,000   |2     |     49.26|
+ |Standard_ND96asr_v4|  dambreak_dx0001   |1,000   |2|          243.03|
+ |Standard_ND96asr_v4|   dambreak_dx0002   |1,000   |2|          35.39|
+ |Standard_ND96asr_v4|   cuboid_192\^3     |1,000   |2 |         24.90|
+ |Standard_ND96asr_v4|  cuboid_198\^3     |1,000   |2   |       27.20|
 
-                        Altair_egbx       1,000   2          49.26
+|  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+  |Standard_ND96asr_v4 |  Aero_gbx        |  1,000  | 4    |      76.47|
+  |Standard_ND96asr_v4 |    Altair_egbx    |   1,000   |4   |       28.88|
+  |Standard_ND96asr_v4 |    dambreak_dx0001 |  1,000   |4    |      125.56|
+  |Standard_ND96asr_v4 |   dambreak_dx0002   |1,000   |4      |    19.90|
+  |Standard_ND96asr_v4 |    cuboid_192\^3     |1,000  | 4      |    13.25|
+  |Standard_ND96asr_v4 |   cuboid_198\^3     |1,000  | 4        |  14.41|
 
-                        dambreak_dx0001   1,000   2          243.03
-
-                        dambreak_dx0002   1,000   2          35.39
-
-                        cuboid_192\^3     1,000   2          24.90
-
-                        cuboid_198\^3     1,000   2          27.20
-  ------------------------------------------------------------------------
-
-##  
-
-  ------------------------------------------------------------------------
-  VM size               Model             Time    Number of  Wall-clock
-                                          steps   GPUs       time, in
-                                                             seconds
-  --------------------- ----------------- ------- ---------- -------------
-  Standard_ND96asr_v4   Aero_gbx          1,000   4          76.47
-
-                        Altair_egbx       1,000   4          28.88
-
-                        dambreak_dx0001   1,000   4          125.56
-
-                        dambreak_dx0002   1,000   4          19.90
-
-                        cuboid_192\^3     1,000   4          13.25
-
-                        cuboid_198\^3     1,000   4          14.41
-  ------------------------------------------------------------------------
-
-  ------------------------------------------------------------------------------
-  VM size               Model                      Time    Number   Wall-clock
-                                                   steps   of GPUs  time, in
-                                                                    seconds
-  --------------------- -------------------------- ------- -------- ------------
-  Standard_ND96asr_v4   Aero_gbx                   1,000   8        44.04
-
-                        Altair_egbx                1,000   8        17.67
-
-                        dambreak_dx0001            1,000   8        64.75
-
-                        dambreak_dx0002            1,000   8        12.43
-
-                        cuboid_192\^3              1,000   8        7.75
-
-                        cuboid_198\^3              1,000   8        8.36
-  ------------------------------------------------------------------------------
+|  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+|  Standard_ND96asr_v4  | Aero_gbx                   |1,000  | 8        |44.04|
+|  Standard_ND96asr_v4  |Altair_egbx               | 1,000   |    8    |17.67|
+|  Standard_ND96asr_v4  | dambreak_dx0001           | 1,000   |8       | 64.75|
+|  Standard_ND96asr_v4  | dambreak_dx0002            |1,000  | 8        |12.43|
+|  Standard_ND96asr_v4  | cuboid_192\^3            |  1,000 |  8        |7.75|
+|  Standard_ND96asr_v4  | cuboid_198\^3             | 1,000   |8        |8.36|
 
 These tables present the wall-clock time for the simulations on various
 NVv3 M60 VMs. Each VM has a different number of GPUs.
 
-  -----------------------------------------------------------------------------
-  VM size               Model             Time steps   Number of  Wall-clock
-                                                       GPUs       time, in
-                                                                  seconds
-  --------------------- ----------------- ------------ ---------- -------------
-  Standard_NV12s_v3\*   Aero_gbx          1,000        1          1,712
+|  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+ | Standard_NV12s_v3\* |  Aero_gbx         | 1,000   |     1         | 1,712|
+| Standard_NV12s_v3\* |  Altair_egbx      | 1,000     |   1         | 486|
+| Standard_NV12s_v3\* |cuboid_192\^3     |1,000        |1          |291|
+| Standard_NV12s_v3\* | dambreak_dx0002  | 1,000        |1         | 376|
 
-                        Altair_egbx       1,000        1          486
-
-                        cuboid_192\^3     1,000        1          291
-
-                        dambreak_dx0002   1,000        1          376
-  -----------------------------------------------------------------------------
 
 \*Because of GPU memory requirements, some test cases didn't complete on
-the Standard_NV12s_v3Nvv3 VM with 1 GPU.
+the Standard_NV12s_v3Nvv3 VM with one GPU.
 
-  --------------------------------------------------------------------------
-  VM size             Model             Time steps   Number of  Wall-clock
-                                                     GPUs       time, in
-                                                                seconds
-  ------------------- ----------------- ------------ ---------- ------------
-  Standard_NV24s_v3   Aero_gbx          1,000        2          962
+|  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+|  Standard_NV24s_v3 |  Aero_gbx          |1,000   |     2      |    962|
+|  Standard_NV24s_v3 |   Altair_egbx      | 1,000   |     2    |      275|
+|  Standard_NV24s_v3 |   cuboid_192\^3     |1,000    |    2   |       150|
+|  Standard_NV24s_v3 |   dambreak_dx0002   |1,000     |   2  |        213|
 
-                      Altair_egbx       1,000        2          275
+|  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+|  Standard_NV48s_v3 |  Aero_gbx         | 1,000   |     4        |  475|
+|  Standard_NV48s_v3 |   Altair_egbx    |   1,000   |     4      |    153|
+|  Standard_NV48s_v3 |cuboid_192\^3    | 1,000       | 4        |  76|
+|  Standard_NV48s_v3 | dambreak_dx0002|   1,000       | 4          |110|
 
-                      cuboid_192\^3     1,000        2          150
-
-                      dambreak_dx0002   1,000        2          213
-  --------------------------------------------------------------------------
-
-  --------------------------------------------------------------------------
-  VM size             Model             Time steps   Number of  Wall-clock
-                                                     GPUs       time, in
-                                                                seconds
-  ------------------- ----------------- ------------ ---------- ------------
-  Standard_NV48s_v3   Aero_gbx          1,000        4          475
-
-                      Altair_egbx       1,000        4          153
-
-                      cuboid_192\^3     1,000        4          76
-
-                      dambreak_dx0002   1,000        4          110
-  --------------------------------------------------------------------------
 
 Finally, this table consolidates some of the preceding information.
 Standard_ND96asr_v4 provides better performance.
 
-  ---------------------------------------------------------------------------
-  VM size               Number of test    Number of GPUs Wall-clock time, in
-                        cases                            hours
-  --------------------- ----------------- -------------- --------------------
-  Standard_ND96asr_v4   6                 1              0.25
-
-  Standard_ND96asr_v4   6                 2              0.15
-
-  Standard_ND96asr_v4   6                 4              0.08
-
-  Standard_ND96asr_v4   6                 8              0.04
-
-  Standard_NV12s_v3     4                 1              0.80
-
-  Standard_NV24s_v3     4                 2              0.44
-
-  Standard_NV48s_v3     4                 4              0.23
-  ---------------------------------------------------------------------------
+ | VM size  |Number of test cases  | Number of GPUs| Wall-clock time, in hours|
+|  --------------------- |-----------------| --------------| --------------------|
+ | Standard_ND96asr_v4  | 6      |           1|              0.25|
+|  Standard_ND96asr_v4   |6     |            2 |             0.15|
+|Standard_ND96asr_v4   |6    |             4  |            0.08|
+|  Standard_ND96asr_v4   |6   |              8   |           0.04|
+|  Standard_NV12s_v3     |4  |               1    |          0.80|
+|  Standard_NV24s_v3     |4 |                2     |         0.44|
+|  Standard_NV48s_v3     |4|                 4      |        0.23|
 
 ## Summary
 
 -   Altair nanoFluidX was successfully tested on ND A100 v4 and NVv3
     M60 series VMs on Azure.
-
 -   Standard_ND96asr_v4 provides the best performance.
-
 -   Simulations for complex workloads are solved within a few hours on
     ND A100 v4 VMs.
-
 -   Increasing the number of GPUs improves performance.
 
 ## Contributors
@@ -374,26 +316,22 @@ the following contributors.*
 
 Principal authors:
 
--   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) \|
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
     Senior Manager
-
--   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) \|
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
     Principal Program Manager
-
 -   [Vinod
-    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) \|
+    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
     HPC Performance Engineer
 
 Other contributors:
 
--   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) \|
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
     Technical Writer
-
--   [Guy Bursell](https://www.linkedin.com/in/guybursell) \| Director
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
     Business Strategy
-
 -   [Sachin
-    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) \|
+    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
     Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -401,24 +339,16 @@ Other contributors:
 ## Next steps
 
 -   [GPU optimized virtual machine
-    sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-
+    sizes](/azure/virtual-machines/sizes-gpu)
 -   [Linux virtual machines in
-    Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview)
-
+    Azure](/azure/virtual-machines/linux/overview)
 -   [Virtual networks and virtual machines in
-    Azure](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview)
-
+    Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](https://docs.microsoft.com/en-us/learn/paths/run-high-performance-computing-applications-azure)
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
--   [Run a Linux VM on
-    Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
-
--   [HPC system and big-compute
-    solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-
--   [HPC cluster deployed in the
-    cloud](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
+-   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

@@ -3111,6 +3111,8 @@ items:
                     href: guide/hpc/hpc-ads-cfd.yml 
                   - name: Altair EDEM
                     href: guide/hpc/altair-edem.yml
+                  - name: Altair nanoFluidX
+                    href: guide/hpc/nanofluidx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
