@@ -55,11 +55,11 @@ architecture.*
 
 ## Compute sizing and drivers
 
-[ND A100
+Performance tests of nanoFluidX on Azure used [ND A100
 v4](/azure/virtual-machines/nda100-v4-series) and [NVv3
-M60](/azure/virtual-machines/nvv3-series) series VMs,
-running Linux, were used to test the performance of nanoFluidX on Azure.
-The following table provides the configuration details:
+M60](/azure/virtual-machines/nvv3-series) series VMs
+running Linux.
+The following table provides the configuration details.
 
 |VM size|  vCPU|   Memory, in GiB  | SSD, in GiB| Number of GPUs |GPU memory, in GiB|  Maximum data disks|
 |-|-|-|-|-|-|-|
@@ -78,11 +78,13 @@ drivers.
 
 ## nanoFluidX installation
 
-Before you install nanoFluidX, you need to deploy and connect a VM and
+Before you install nanoFluidX, you need to deploy and connect a Linux VM and
 install the NVIDIA drivers. On Standard_ND96asr_v4, you need to install
 the AMD drivers.
 
-**Important:** NVIDIA Fabric Manager installation is required for
+
+> [!IMPORTANT]
+> NVIDIA Fabric Manager installation is required for
 Standard_ND96asr_v4 VMs.
 
 For information about deploying the VM and installing the drivers, see
@@ -105,152 +107,96 @@ for a specific number of GPUs.
 Six models of three different types were used to test nanoFluidX on
 Azure. This image shows some of the models:
 
-![Diagram Description automatically
-generated](media/image2.png){width="6.3029625984251965in"
-height="4.7402449693788276in"}
+![Image that shows some of the test case models.](media/test-cases.png)
 
 The following table shows the number of particles for each model tested:
 
-  -----------------------------------------------------------------------
-  Model                       Number of particles, in millions
-  --------------------------- -------------------------------------------
-  Aero_gbx                    21
-
-  Altair_egbx                 6.5
-
-  cuboid_192\^3               7
-
-  cuboid_198\^3               8
-
-  dambreak_dx0001             54
-
-  dambreak_dx0002             7
-  -----------------------------------------------------------------------
+|  Model|                       Number of particles, in millions|
+  --------------------------- |--|
+  |Aero_gbx                    |21|
+  |Altair_egbx                 |6.5|
+  |cuboid_192\^3               |7|
+  |cuboid_198\^3               |8|
+  |dambreak_dx0001             |54|
+  |dambreak_dx0002             |7|
 
 ### Results for ND A100 v4 
 
-This table provides the details of the ND A100 v4 VM that was used for
-testing:
+The following table provides the details of the ND A100 v4 VM that was used for
+testing.
 
-  ---------------------------------------------------------------------------
-  VM series         Operating    OS             GPU driver     Cuda version
-                    system       architecture   version        
-  ----------------- ------------ -------------- -------------- --------------
-  ND A100 v4        CentOS Linux x86-64         470.57.02      11.4
-                    release                                    
-                    8.1.1911                                   
-                    (Core)                                     
-
-  ---------------------------------------------------------------------------
+ | VM series | Operating system  | OS architecture  | GPU driver version | Cuda version|
+ | -----|------|------| -----|------|
+ | ND A100 v4 |       CentOS Linux  release 8.1.1911 (Core) | x86-64|    470.57.02   |   11.4|
 
 The following table presents the results in wall-clock time, in seconds,
-for 1,000 time steps:
+for 1,000 time steps.
 
-  -------------------------------------------------------------------------------
-  Model             Number of particles, in    1 GPU    2 GPUs   4 GPUs   8 GPUs
-                    millions                                              
-  ----------------- -------------------------- -------- -------- -------- -------
-  Altair_egbx       6.5                        81.62    49.26    28.88    17.67
-
-  dambreak_dx0002   7                          59.58    35.39    19.90    12.43
-
-  cuboid_192\^3     7                          47.24    24.90    13.25    7.75
-
-  cuboid_198\^3     8                          51.73    27.20    14.41    8.36
-
-  Aero_gbx          21                         263.76   149.49   76.47    44.04
-
-  dambreak_dx0001   54                         413.15   243.03   125.56   64.75
-  -------------------------------------------------------------------------------
-
+|  Model |Number of particles, in millions |   1 GPU  |  2 GPUs |  4 GPUs  | 8 GPUs|
+| -------|------------------------------------ |-------- |-------- |---------|------|
+|  Altair_egbx |      6.5|                        81.62|    49.26|    28.88|    17.67|
+ | dambreak_dx0002   |7              |            59.58    |35.39  |  19.90   | 12.43|
+|cuboid_192\^3     |7               |           47.24    |24.90   | 13.25  |  7.75|
+|  cuboid_198\^3    | 8                |          51.73   | 27.20    |14.41 |   8.36|
+|  Aero_gbx        |  21                |         263.76 |  149.49 |  76.47    |44.04|
+| dambreak_dx0001|   54                 |        413.15|   243.03  | 125.56  | 64.75|
+ 
 This graph shows the relative speed increases for each increase in GPU:
 
-![Chart, bar chart Description automatically
-generated](media/image3.png){width="7.761163604549432in"
-height="5.2329757217847765in"}
+![Graph that shows the relative speed increases.](media/relative-speed-a100.png)
 
 ### Results for NVv3 M60
 
-This table provides the details of the NVv3 M60 VM that was used for
-testing:
+The following table provides the details of the NVv3 M60 VM that was used for
+testing.
 
-  ---------------------------------------------------------------------------
-  VM series         Operating    OS             GPU driver     Cuda version
-                    system       architecture   version        
-  ----------------- ------------ -------------- -------------- --------------
-  NVv3 M60          Red Hat      x86-64         470.57.02      11.4
-                    Enterprise                                 
-                    Linux                                      
-                    release 8.2                                
-                    (Ootpa)                                    
-
-  ---------------------------------------------------------------------------
+|  VM series| Operating system | OS architecture  |GPU driver version|    Cuda version|
+|  ---------|------------------|----------------| --------------| --------------|
+  NVv3 M60         | Red Hat Enterprise Linux release  8.2 (Ootpa)  |  x86-64        | 470.57.02  |    11.4|
 
 The following table presents the results in wall-clock time, in seconds,
-for 1,000 time steps:
+for 1,000 time steps.
 
-  -----------------------------------------------------------------------
-  Model              Number of particles, in       1 GPU  2 GPUs  4 GPUs
-                     millions                                     
-  ------------------ ----------------------------- ------ ------- -------
-  Aero_gbx           21                            1712   962     475
+|  Model      |        Number of particles, in millions |    1 GPU|  2 GPUs|  4 GPUs|
+| --------------|--| -----------------------------| ------| -------| 
+|  Aero_gbx |          21   |                         1712   |962   |  475|
+ | Altair_egbx |       6.5   |                        486  |  275    | 153|
+  |cuboid_192\^3|      7      |                       291   | 150     |76|
+  |dambreak_dx0002|    7       |                      376|    213|     110|
 
-  Altair_egbx        6.5                           486    275     153
-
-  cuboid_192\^3      7                             291    150     76
-
-  dambreak_dx0002    7                             376    213     110
-  -----------------------------------------------------------------------
 
 This graph shows the relative speed increases for each increase in GPU:
 
-![Chart, bar chart Description automatically
-generated](media/image4.png){width="6.962264873140858in"
-height="2.743215223097113in"}
+![Graph that shows the relative speed increase for each increase in GPU.](media/relative-speed-m60.png)
 
-### ND A100 v4 vs. ND A100 v4 
+### ND A100 v4 vs. NVv3 M60
 
 This table compares the ND A100 v4 and NVv3 M60 results. Results are in
 wall time, in seconds, with 2 GPUs. 1,000 time steps were used.
 
-  ------------------------------------------------------------------------
-  Model                           NVV3 M60            NDV4 A100
-  ------------------------------- ------------------- --------------------
-  Altair_egbx                     275                 49.26
+|  Model                          | NVV3 M60  |          NDV4 A100
+  ------------------------------- |-------------------| --------------------|
+|  Altair_egbx      |               275       |          49.26|
+|dambreak_dx0002   |              213      |           35.39|
+ | cuboid_192\^3      |             150     |            24.90|
+  |Aero_gbx            |            962    |             149.49|
 
-  dambreak_dx0002                 213                 35.39
+This graph shows the relative speed increases of ND A100 v4 over NVV3 M60:
 
-  cuboid_192\^3                   150                 24.90
+![Graph that shows the relative speed increases of ND A100 v4 over NVV3 M60.](media/m60-vs-a100-2-gpu.png)
 
-  Aero_gbx                        962                 149.49
-  ------------------------------------------------------------------------
+Here's the same comparison with four GPUs:
 
-This graph shows the relative speed increases of ND A100 v4 over ND A100
-v4:
-
-![Chart, waterfall chart Description automatically
-generated](media/image5.png){width="6.0737642169728785in"
-height="3.594251968503937in"}
-
-Here's the same comparison with 4 GPUs:
-
-  ------------------------------------------------------------------------
-  Model                           NVV3 M60            NDV4 A100
-  ------------------------------- ------------------- --------------------
-  Altair_egbx                     153                 28.88
-
-  dambreak_dx0002                 110                 19.90
-
-  cuboid_192\^3                   76                  13.25
-
-  Aero_gbx                        475                 76.47
-  ------------------------------------------------------------------------
-
+|  Model                           |NVV3 M60|            NDV4 A100|
+|------------------------------- |-------------------| --------------------|
+ | Altair_egbx         |            153|                 28.88|
+|  dambreak_dx0002    |             110 |                19.90|
+|  cuboid_192\^3     |              76   |               13.25|
+|  Aero_gbx         |               475   |              76.47|
+ 
 And here's a graph that shows the performance increases:
 
-![Chart, waterfall chart Description automatically
-generated](media/image6.png){width="6.3825656167979in"
-height="3.582153324584427in"}
+![Graph that shows the relative speed increases of ND A100 v4 with four GPUs.](media/m60-vs-a100-4-gpu.png)
 
 ### Additional notes about tests
 
@@ -274,34 +220,20 @@ You can use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate
 the costs for your configuration.
 
-These tables present the wall-clock time for the simulations on
-Standard_ND96asr_v4 VMs, by number of GPUs:
+The following tables present the wall-clock time for the simulations on
+Standard_ND96asr_v4 VMs, by number of GPUs.
 
-  ------------------------------------------------------------------------
-  VM size               Model             Time    Number of  Wall-clock
-                                          steps   GPUs       time, in
-                                                             seconds
-  --------------------- ----------------- ------- ---------- -------------
-  Standard_ND96asr_v4   Aero_gbx          1,000   1          263.76
-
-                        Altair_egbx       1,000   1          81.62
-
-                        dambreak_dx0001   1,000   1          413.15
-
-                        dambreak_dx0002   1,000   1          59.58
-
-                        cuboid_192\^3     1,000   1          47.24
-
-                        cuboid_198\^3     1,000   1          51.73
-  ------------------------------------------------------------------------
-
-## 
-
-  ------------------------------------------------------------------------
-  VM size               Model             Time    Number of  Wall-clock
-                                          steps   GPUs       time, in
-                                                             seconds
-  --------------------- ----------------- ------- ---------- -------------
+|  VM size   | Model| Time steps |  Number of GPUs |Wall-clock time, in seconds|
+|  ---------------------| -----------------| -------| ----------| -------------|
+|  Standard_ND96asr_v4 |  Aero_gbx          |1,000  | 1|          263.76|
+|  Standard_ND96asr_v4 | Altair_egbx       |1,000  | 1        |  81.62|
+|  Standard_ND96asr_v4 |  dambreak_dx0001   |1,000   |1       |   413.15|
+|  Standard_ND96asr_v4 |dambreak_dx0002   |1,000   |1       |   59.58|
+|  Standard_ND96asr_v4 | cuboid_192\^3     |1,000   |1     |     47.24|
+|  Standard_ND96asr_v4 | cuboid_198\^3     |1,000   |1    |      51.73|
+ 
+ |VM size|  Model             |Time steps|   Number of GPUs| Wall-clock time, in seconds|
+  |--------------------- |----------------- |-------| ----------| -------------|
   Standard_ND96asr_v4   Aero_gbx          1,000   2          149.49
 
                         Altair_egbx       1,000   2          49.26
