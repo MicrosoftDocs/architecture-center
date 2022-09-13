@@ -267,7 +267,7 @@ resource "azurerm_private_endpoint" "ws_pe" {
 }
 ```
 
-#### Private DNS zone
+#### Private DNS zones
 
 Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use custom domain names rather than the names provided by Azure. DNS resolution against a private DNS zone works only from virtual networks that are linked to it.
 
