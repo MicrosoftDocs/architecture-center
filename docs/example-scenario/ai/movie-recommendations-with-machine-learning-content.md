@@ -60,6 +60,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - This scenario can use Azure Active Directory (Azure AD) to authenticate users for [access to the DSVM][dsvm-id], which contains your code, models, and (in-memory) data. Data is stored in Azure Storage prior to being loaded on a DSVM, where it is automatically encrypted using [Storage Service Encryption][storage-security]. Permissions can be managed via Azure AD authentication or role-based access control.
 
 ### Performance efficiency
