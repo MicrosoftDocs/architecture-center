@@ -6,6 +6,7 @@ This article describes how to protect MLOps solutions by using Azure network sec
 
 :::image type="content" alt-text="Diagram of the stages in the MLOps process, from preparing data to monitoring the model." source="./media/network-security-checklist-mlops-architecture.svg" lightbox="./media/network-security-checklist-mlops-architecture.svg":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/network-security-mlops-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
