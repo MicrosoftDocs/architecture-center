@@ -1,32 +1,28 @@
-
-
 This reference architecture implements an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.yml#extract-load-and-transform-elt) pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
+
+## Architecture
 
 ![Diagram showing the architecture for Enterprise BI in Azure with Azure Synapse.](./images/enterprise-bi-synapse.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-synapse.vsdx) of this architecture.*
 
-**Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.
+### Workflow
 
-This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with Azure Synapse and Azure Data Factory][adf-ra].
+The architecture consists of the following services and components.
 
-## Architecture
-
-The architecture consists of the following components.
-
-### Data source
+#### Data source
 
 **SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source data.
 
-### Ingestion and data storage
+#### Ingestion and data storage
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into Azure Synapse.
 
 **Azure Synapse**. [Azure Synapse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
 
-### Analysis and reporting
+#### Analysis and reporting
 
 **Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
 
@@ -34,9 +30,15 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
-### Authentication
+#### Authentication
 
 **Azure Active Directory (Azure AD)** authenticates users who connect to the Analysis Services server through Power BI.
+
+## Scenario details
+
+**Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use Azure Synapse to perform analysis using Power BI.
+
+This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with Azure Synapse and Azure Data Factory][adf-ra].
 
 ## Data pipeline
 
@@ -149,13 +151,15 @@ Avoid running BI dashboard queries directly against the data warehouse. BI dashb
 
 Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
 
-## Scalability considerations
+## Scenario details
 
-### Azure Synapse
+### Scalability
+
+#### Azure Synapse
 
 With Azure Synapse, you can scale out your compute resources on demand. The query engine optimizes queries for parallel processing based on the number of compute nodes, and moves data between nodes as necessary. For more information, see [Manage compute in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
-### Analysis Services
+#### Analysis Services
 
 For production workloads, we recommend the Standard Tier for Azure Analysis Services, because it supports partitioning and DirectQuery. Within a tier, the instance size determines the memory and processing power. Processing power is measured in Query Processing Units (QPUs). Monitor your QPU usage to select the appropriate size. For more information, see [Monitor server metrics](/azure/analysis-services/analysis-services-monitor).
 
@@ -163,13 +167,15 @@ Under high load, query performance can become degraded due to query concurrency.
 
 To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
-## Security considerations
+### Security
 
-### IP allow list of Analysis Services clients
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+#### IP allow list of Analysis Services clients
 
 Consider using the Analysis Services firewall feature to allow list client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules allow list the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
-### Authorization
+#### Authorization
 
 Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can:
 
@@ -178,7 +184,7 @@ Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate u
 
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 
-## DevOps considerations
+### DevOps
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
 
@@ -203,7 +209,7 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
-### Azure Synapse
+#### Azure Synapse
 
 - Choose **Compute Optimized Gen1** for frequent scaling operations. This option is priced as pay-as-you-go, based on Data warehouse units consumption (DWU).
 
@@ -213,7 +219,7 @@ Data storage is charged separately. Other services such as disaster recovery and
 
 For more information, see [Azure Synapse Pricing][az-synapse-pricing].
 
-### Azure Analysis Services
+#### Azure Analysis Services
 
 Pricing for Azure Analysis Services depends on the tier. The reference implementation of this architecture uses the **Developer** tier, which is recommended for evaluation, development, and test scenarios. Other tiers include, the **Basic** tier, which is recommended for small production environment; the **Standard** tier for mission-critical production applications. For more information, see [The right tier when you need it](/azure/analysis-services/analysis-services-overview#the-right-tier-when-you-need-it).
 
@@ -221,17 +227,17 @@ No charges apply when you pause your instance.
 
 For more information, see [Azure Analysis Services pricing][az-as-pricing].
 
-### Blob Storage
+#### Blob Storage
 
 Consider using the Azure Storage reserved capacity feature to lower cost on storage. With this model, you get a discount if you can commit to reservation for fixed storage capacity for one or three years. For more information, see [Optimize costs for Blob storage with reserved capacity][az-storage-reserved].
 
-### Power BI Embedded
+#### Power BI Embedded
 
 Power BI Embedded is a Platform-as-a-Service (PaaS) solution that offers a set of APIs to enable the integration of Power BI content into custom apps and websites. Users who publish BI content need to be licensed with [Power BI Pro][powerbi-pro-purchase]. For information about pricing, see [Power BI Embedded pricing][powerbi-embedded-pricing].
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-## Deploy the solution
+## Deploy this scenario
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following resources:
 

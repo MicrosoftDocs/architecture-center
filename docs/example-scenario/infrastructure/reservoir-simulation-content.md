@@ -2,22 +2,6 @@
 
 *Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on an Azure high-performance computing (HPC) infrastructure. Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
 
-The architecture in this example supports OPM Flow, a popular open-source oil and gas reservoir simulation package from the Open Porous Media (OPM) initiative. The OPM Flow software runs on Azure HPC virtual machines (VMs) that deliver performance near or better than current on-premises infrastructures.
-
-Users connect to a Linux head node VM to submit models to the HPC resources through PBS Pro 19.1 job-scheduling software. The HPC resources run OPM Flow and send calculated results to a file share. In this example, the file share is a 4-terabyte (TB) network file system (NFS) space on the head node VM. Depending on your model and your input and output (I/O) requirements, you can use other [storage](#storage) options.
-
-A Microsoft Azure VM running OPM ResInsight, an open-source visualization tool, accesses the file share to [model and visualize][model] the calculated results. Users can connect to the VM via remote desktop protocol (RDP) to view the visualizations.
-
-Using an Azure VM spares the expense of a high-end visualization workstation. The OPM applications benefit from HPC hardware and a shared storage location for the input and output files.
-
-## Potential use cases
-
-- Do 3D reservoir modeling and visualization of seismic data.
-
-- Test INTERSECT, a high-resolution reservoir simulator from Schlumberger. You can see a [sample INTERSECT implementation][intersect] on GitHub.
-
-- Test Nexus by Landmark-Halliburton using a similar setup on Azure.
-
 ## Architecture
 
 ![Architecture diagram][architecture]
@@ -47,7 +31,27 @@ Key technologies used to implement this architecture:
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux)
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 
+## Scenario details
+
+The architecture in this example supports OPM Flow, a popular open-source oil and gas reservoir simulation package from the Open Porous Media (OPM) initiative. The OPM Flow software runs on Azure HPC virtual machines (VMs) that deliver performance near or better than current on-premises infrastructures.
+
+Users connect to a Linux head node VM to submit models to the HPC resources through PBS Pro 19.1 job-scheduling software. The HPC resources run OPM Flow and send calculated results to a file share. In this example, the file share is a 4-terabyte (TB) network file system (NFS) space on the head node VM. Depending on your model and your input and output (I/O) requirements, you can use other [storage](#storage) options.
+
+A Microsoft Azure VM running OPM ResInsight, an open-source visualization tool, accesses the file share to [model and visualize][model] the calculated results. Users can connect to the VM via remote desktop protocol (RDP) to view the visualizations.
+
+Using an Azure VM spares the expense of a high-end visualization workstation. The OPM applications benefit from HPC hardware and a shared storage location for the input and output files.
+
+### Potential use cases
+
+- Do 3D reservoir modeling and visualization of seismic data.
+
+- Test INTERSECT, a high-resolution reservoir simulator from Schlumberger. You can see a [sample INTERSECT implementation][intersect] on GitHub.
+
+- Test Nexus by Landmark-Halliburton using a similar setup on Azure.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 This example uses the HB-series of [high-performance VMs][vm-size]. The HB-series is optimized for applications driven by memory bandwidth, such as computational fluid dynamics (CFD), and the Standard_HB120rs_v2 VM is the latest in the series. For Intel-based hardware, the [Standard_HC44rs][hc-series] VM is an option.
 
