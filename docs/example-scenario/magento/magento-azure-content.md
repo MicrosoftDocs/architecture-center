@@ -1,9 +1,5 @@
 Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
 ## Architecture
 
 ![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
@@ -33,7 +29,17 @@ This solution is optimized for the retail industry.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 
+## Scenario details
+
+For more information about Magento, see [Magento - Get the software](https://devdocs.magento.com/guides/v2.4/install-gde/bk-install-guide.html).
+
+### Potential use cases
+
+This solution is optimized for the retail industry.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
@@ -160,6 +166,8 @@ Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Do capacity planning based on performance testing.
 

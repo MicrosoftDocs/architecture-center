@@ -97,6 +97,27 @@ This article uses the fictional city of Contoso to describe the use case scenari
 
 [![Street Parking Availability](./media/street-parking-availability.png)](./media/street-parking-availability.png#lightbox)
 
+## Considerations
+
+The following list summarizes key learnings and best practices demonstrated by this solution:
+
+> [!NOTE]
+> Each item in the list below links out to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
+
+* [Use Data Tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
+
+* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
+
+* [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
+
+* [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#4-ensure-data-transformation-code-is-testable).
+
+* [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#5-have-a-cicd-pipeline).
+
+* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
+
+* [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
+
 ## Deploy this scenario
 
 The following list contains the high-level steps required to set up the Parking Sensors solution with corresponding Build and Release Pipelines. You can find detailed setup steps and prerequisites in this [Azure Samples repository](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#how-to-use-the-sample).
@@ -152,27 +173,6 @@ The solution includes support for both unit testing and integration testing. It 
 ### Observability and monitoring
 
 The solution supports observability and monitoring for Databricks and Data Factory. For more information, see the [Observability/Monitoring](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#observability--monitoring) section of the README.
-
-## Considerations
-
-The following list summarizes key learnings and best practices demonstrated by this sample solution:
-
-> [!NOTE]
-> Each item in the list below links out to the related **Key Learnings** section in the docs for the parking sensor solution example on GitHub.
-
-* [Use Data Tiering in your Data Lake](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#1-use-data-tiering-in-your-data-lake).
-
-* [Validate data early in your pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#2-validate-data-early-in-your-pipeline).
-
-* [Make your data pipelines replayable and idempotent](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#3-make-your-data-pipelines-replayable-and-idempotent).
-
-* [Ensure data transformation code is testable](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#4-ensure-data-transformation-code-is-testable).
-
-* [Have a CI/CD pipeline](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#5-have-a-cicd-pipeline).
-
-* [Secure and centralize configuration](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#6-secure-and-centralize-configuration).
-
-* [Monitor infrastructure, pipelines, and data](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/master/e2e_samples/parking_sensors#7-monitor-infrastructure-pipelines-and-data).
 
 ## Next steps
 
