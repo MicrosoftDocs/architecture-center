@@ -47,7 +47,7 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 - Healthcare
 - Education
 - Finance
-- Law Firms
+- Law firms
 - Airlines (aerospace)
 
 ## Next steps
