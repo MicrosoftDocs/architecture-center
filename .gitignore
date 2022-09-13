@@ -205,6 +205,8 @@ FakesAssemblies/
 *.ConsoleHost.config
 settings.config
 
+*.code-workspace
+
 #Java
 
 *.class
