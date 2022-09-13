@@ -64,7 +64,11 @@ The following recommendations adhere to the pillars of the Azure Well-Architecte
 
 ## Reliability
 
-- *Regions:* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails. Traffic Manager will automatically fail over to the secondary region if the primary region fails.
+- *Regions:* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails.
+
+  - Traffic Manager will automatically fail over to the secondary region if the primary region fails.
+
+  - Choosing the best regions for your needs must be based on technical, regulatory considerations, and availability-zone support.
 
 - *Region pairs:* Use Region Pairs for the most resiliency. Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)). Here are two benefits of Region Pairs:
 
@@ -199,3 +203,4 @@ For more reference architectures using the same technologies, see:
 
 - [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
+- [AKS baseline for multi-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
