@@ -46,7 +46,7 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 - The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
 
-- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door at the regional level such as:
+- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
 
   - Web Application Firewall (WAF)
   
