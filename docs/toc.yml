@@ -5779,7 +5779,7 @@ items:
                     href: /azure/storage/blobs/authorize-access-azure-active-directory
                     maintainContext: true
                   - name: Authorize access with role conditions
-                    href: /azure/storage/common/storage-auth-abac
+                    href: /azure/storage/blobs/storage-auth-abac
                     maintainContext: true
                   - name: Data protection
                     href: /azure/storage/blobs/data-protection-overview
