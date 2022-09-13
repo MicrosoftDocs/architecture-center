@@ -10,19 +10,19 @@ hydrodynamics (SPH) formulation. Altair nanoFluidX:
 -   Enables easy treatment of high-density ratio multiphase flows, like
     water-air.
 -   Provides rotating-motion options to prescribe different types of
-    motion. These options enable simulation of rotating gears,
+    motion. These options enable the simulation of rotating gears,
     crankshafts, and connecting rods in powertrain applications.
 
 Altair nanoFluidX is designed for use on clusters of graphical
 processing units (GPUs), so it's fast.
 
 It's primarily used in industries like construction, off-highway,
-mining, agriculture, space exploration and process industries. It's best
+mining, agriculture, space exploration, and process industries. It's best
 suited for simulation of free surface oiling, sloshing, and mixing.
 
 ## Why deploy nanoFluidX on Azure?
 
--   Modern and diverse compute options to align to your workload\'s
+-   Modern and diverse compute options to align to your workload's
     needs 
 -   The flexibility of virtualization without the need to buy and
     maintain physical hardware 
@@ -108,7 +108,7 @@ Azure. This image shows some of the models:
 
 ![Image that shows some of the test case models.](media/test-cases.png)
 
-The following table shows the number of particles for each model tested:
+The following table shows the number of particles for each model tested.
 
 |  Model|                       Number of particles, in millions|
   --------------------------- |--|
@@ -173,7 +173,7 @@ This graph shows the relative speed increases for each increase in GPU:
 This table compares the ND A100 v4 and NVv3 M60 results. Results are in
 wall time, in seconds, with 2 GPUs. 1,000 time steps were used.
 
-|  Model                          | NVV3 M60  |          NDV4 A100
+|  Model                          | NVv3 M60  |          NDV4 A100
   ------------------------------- |-------------------| --------------------|
 |  Altair_egbx      |               275       |          49.26|
 |dambreak_dx0002   |              213      |           35.39|
@@ -186,7 +186,7 @@ This graph shows the relative speed increases of ND A100 v4 over NVV3 M60:
 
 Here's the same comparison with four GPUs:
 
-|  Model                           |NVV3 M60|            NDV4 A100|
+|  Model                           |NVv3 M60|            NDV4 A100|
 |------------------------------- |-------------------| --------------------|
  | Altair_egbx         |            153|                 28.88|
 |  dambreak_dx0002    |             110 |                19.90|
@@ -338,11 +338,11 @@ Other contributors:
 
 ## Next steps
 
--   [GPU optimized virtual machine
+-   [GPU-optimized virtual machine
     sizes](/azure/virtual-machines/sizes-gpu)
--   [Linux virtual machines in
+-   [Linux virtual machines on
     Azure](/azure/virtual-machines/linux/overview)
--   [Virtual networks and virtual machines in
+-   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
     Azure](/learn/paths/run-high-performance-computing-applications-azure)
