@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
+This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
 
 ## Architecture
 
@@ -46,6 +46,8 @@ This solution uses the following Azure components:
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads.
 
 ## Scenario details
+
+Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
 
 ### Potential use cases
 
