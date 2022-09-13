@@ -113,7 +113,7 @@ The following are examples of costs that could be incurred for a job that comple
 
   10 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
-### Pricing for low-priority VMs
+#### Pricing for low-priority VMs
 
 Azure Batch also supports the use of low-priority VMs in the node pools, which can potentially provide a substantial cost saving. For more information, including a price comparison between standard VMs and low-priority VMs, see [Azure Batch Pricing][batch-pricing].
 
