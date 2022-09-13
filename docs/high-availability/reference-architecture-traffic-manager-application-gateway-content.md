@@ -82,8 +82,8 @@ The following recommendations adhere to the pillars of the Azure Well-Architecte
 
 For more information, see:
 
-- [Regions and availability zones in Azure](/azure/availability-zones/az-overview).
-- [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+- [Regions and availability zones in Azure](/azure/availability-zones/az-overview)
+- [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions)
 
 ### Routing
 
@@ -195,7 +195,7 @@ The benefits of VMSSs are:
 - Allows your application to automatically scale as resource demand changes
 - Works at large-scale
 
-For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview)
+For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
 
