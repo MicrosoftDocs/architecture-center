@@ -53,7 +53,7 @@ mining, agriculture, space exploration, and process industries.
 
 ## Compute sizing and drivers
 
-[ND A100 v4](/azure/virtual-machines/nda100-v4-series) and [NCv3](/azure/virtual-machines/ncv3-series) series VMs, running the Windows operating system, were used to test the performance of EDEM on Azure. The following table provides the configuration details:
+Performance tests of EDEM on Azure used [ND A100 v4](/azure/virtual-machines/nda100-v4-series) and [NCv3](/azure/virtual-machines/ncv3-series) series VMs running the Windows operating system. The following table provides the configuration details.
 
 |  VM size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|
 |--|--|--|--|--|--|--|
@@ -89,7 +89,7 @@ Marketplace](https://altairone.com/Marketplace?__hstc=142694250.005b507352b9e410
 ## EDEM performance results
 
 Seven real-world scenarios were used to test the performance of EDEM on
-Azure VMs. Particle simulations were tested. Here are the details:
+Azure VMs. Particle simulations were tested. The following table provides the details.
 
 | Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
 |---------|---------|---------|---------|--|--|--|--|
@@ -107,8 +107,8 @@ Azure VMs. Particle simulations were tested. Here are the details:
 | Factory |No|No| No|No|No|No|Yes|
 |  Periodic boundaries   |No|No| No|No|No|No|No|
 
-This table shows the elapsed wall-clock time needed to complete each of
-the simulations, in seconds:
+The following table shows the elapsed wall-clock time required to complete each of
+the simulations, in seconds.
 
 | Model               | 96 CPUs     | 8 A100 GPUs (ND96asr_v4)        | V100 GPU (NC6s_v3)     |
 |     --               |--         |--                  |--              |
@@ -121,13 +121,13 @@ the simulations, in seconds:
 | Transfer chute      | 3859.01     | 310.22           | 437.92       |
 
 This graph shows the elapsed seconds for A100 GPUs, compared to the
-results for 96 CPUs:
+results for 96 CPUs.
 
 ![Chart, bar chart Description automatically
 generated](media/a100-results.png)
 
 The following table shows the relative speed increases for A100 GPUs and
-the V100 GPU, as compared to 96 CPUs:
+the V100 GPU, as compared to 96 CPUs.
 
 | Model               | 96 CPUs     | 8 A100 GPUs (ND96asr_v4)      | V100 GPU (NC6s_v3)      |
 |   --                  | --         |    -              |    -          |
