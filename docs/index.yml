@@ -205,9 +205,6 @@ conceptualContent:
         - text: Automated enterprise BI with Azure Data Factory
           itemType: architecture
           url: reference-architectures/data/enterprise-bi-adf.yml
-        - text: Enterprise business intelligence
-          itemType: concept
-          url: ./example-scenario/analytics/enterprise-bi-synapse.yml
         - text: Stream processing with Azure Databricks
           itemType: architecture
           url: reference-architectures/data/stream-processing-databricks.yml
@@ -296,6 +293,9 @@ conceptualContent:
         - text: Basic enterprise integration
           itemType: architecture
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+        - text: Enterprise BI with SQL Data Warehouse
+          itemType: architecture
+          url: ./reference-architectures/data/enterprise-bi-synapse.yml
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: reference-architectures/enterprise-integration/queues-events.yml
