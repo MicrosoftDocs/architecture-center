@@ -9,7 +9,7 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ### Workflow
 
-- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S)traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+- Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
 - The Application Gateways (AppGWs) receive HTTP(S) traffic from the browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAFs) that inspects traffic and protects the application from web exploits and vulnerabilities.
 
