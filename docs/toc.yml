@@ -87,8 +87,10 @@ items:
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
                 href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
-          - name: Choose a hybrid option
+          - name: Choose a hybrid service
             items:
+              - name: Hybrid options
+                href: guide/technology-choices/hybrid-considerations.yml
               - name: Compare Azure Stack Hub and Azure
                 href: /azure-stack/user/azure-stack-considerations
                 maintainContext: true
@@ -3103,6 +3105,8 @@ items:
                 items:
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
+                  - name: Altair EDEM
+                    href: guide/hpc/altair-edem.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
@@ -5773,7 +5777,7 @@ items:
                     href: /azure/storage/blobs/authorize-access-azure-active-directory
                     maintainContext: true
                   - name: Authorize access with role conditions
-                    href: /azure/storage/common/storage-auth-abac
+                    href: /azure/storage/blobs/storage-auth-abac
                     maintainContext: true
                   - name: Data protection
                     href: /azure/storage/blobs/data-protection-overview

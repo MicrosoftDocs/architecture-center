@@ -55,6 +55,8 @@ This solution is ideal for the education industry. This architecture can be used
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Build your solution as per the five pillars of the [Azure Well Architected Framework](/azure/architecture/framework).
 
 ### Scalability
@@ -69,12 +71,16 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Lab VM’s are not provisioned in the customer’s subscription and are instead managed by Microsoft. Because of this, Azure services such as Azure Policy do not affect the VM or related objects like virtual network adapters (vNICs) and storage.
 - Each lab hosts VMs on a single virtual network, so all VMs can communicate with one another to the extent allowed by firewalls.
 - Lab VMs can egress to the internet. Ingress occurs only via managed load balancer or proxy, to RDP and SSH ports on the VMs.
 - Lab Services does not expose the Availability Zone configuration for lab VMs to the customer.
 
-## Cost optimization
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The two primary drivers of cost within Lab Services are how many hours the lab VMs are powered on, and what size they are. Larger sizes and GPU-enabled sizes are higher cost, so it makes sense to select the minimum size VM that's adequate for the labs.
 - Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
