@@ -44,7 +44,7 @@ There are two lists of components in this section, those that are in Azure publi
 
 ### Alternatives
 
-An alternative to deploying AKS is to deploy [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge) in Azure public MEC and run Azure modules that provide similar functionality to the services already mentioned. You can use:
+An alternative to deploying AKS is to deploy [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) in Azure public MEC and run Azure modules that provide similar functionality to the services already mentioned. You can use:
 
 - [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) to create the video processing pipeline.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to analyze the video to provide insights.
