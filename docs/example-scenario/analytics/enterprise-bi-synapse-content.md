@@ -1,10 +1,10 @@
 This example scenario shows how data can be ingested into a cloud environment from an on-premises data warehouse, then served using a business intelligence (BI) model. This approach could be an end goal or a first step toward full modernization with cloud-based components.
 
-This scenario builds on the [Azure Synapse Analytics end-to-end][e2e-analytics] reference pattern. It uses Azure Pipelines to ingest data from a SQL database into Synapse SQL pools, then transforms the data for analysis.
+This scenario builds on the [Azure Synapse Analytics end-to-end][e2e-analytics] reference pattern. It uses Azure Pipelines to ingest data from a SQL database into Azure Synapse SQL pools, then transforms the data for analysis.
 
 ## Architecture
 
-[ ![Diagram of Enterprise BI architecture with Azure Synapse.](./media/enterprise-bi-scoped-architecture.png) ](./media/enterprise-bi-scoped-architecture.png#lightbox)
+[ ![Diagram of enterprise BI architecture with Azure Synapse.](./media/enterprise-bi-scoped-architecture.png) ](./media/enterprise-bi-scoped-architecture.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-scoped-architecture.vsdx) of this architecture.*
 
@@ -12,19 +12,19 @@ This scenario builds on the [Azure Synapse Analytics end-to-end][e2e-analytics] 
 
 #### Data source
 
-1. The source data is located in an **Azure SQL Server database**. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL Database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
+1. The source data is located in an Azure SQL Server database. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
 
 #### Ingestion and data storage
 
-1. [Azure Data Lake Gen2](/azure/databricks/data/data-sources/azure/adls-gen2) is used as a temporary *staging* area during data ingestion, which allows us to use [PolyBase](/azure/data-factory/connector-azure-sql-data-warehouse?tabs=data-factory#use-polybase-to-load-data-into-azure-synapse-analytics) to copy data into a Azure Synapse dedicated SQL pool.
+1. [Azure Data Lake Gen2](/azure/databricks/data/data-sources/azure/adls-gen2) is used as a temporary *staging* area during data ingestion. You can then use [PolyBase](/azure/data-factory/connector-azure-sql-data-warehouse?tabs=data-factory#use-polybase-to-load-data-into-azure-synapse-analytics) to copy data into a Azure Synapse dedicated SQL pool.
 
 2. [Azure Synapse Analytics](/azure/synapse-analytics) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Azure Synapse dedicated SQL pool is a target for ongoing ingestion from on-premises. It can be used for further processing, as well as serving the data for [Power BI](/power-bi/fundamentals/power-bi-overview) through DirectQuery.
 
-3. [Azure Pipelines](/azure/data-factory/concepts-pipelines-activities) are used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
+3. [Azure Pipelines](/azure/data-factory/concepts-pipelines-activities) is used to orchestrate data ingestion and transformation within your Azure Synapse workspace.
 
 #### Analysis and reporting
 
-1. The data modeling approach in this scenario is presented by combining the enterprise and BI Semantic models. The [enterprise model][enterprise-model] is stored in a [Synapse dedicated SQL pool][synapse-dedicated-pool], and the [BI Semantic model][bi-model] is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
+1. The data-modeling approach in this scenario is presented by combining the enterprise and BI Semantic models. The [enterprise model][enterprise-model] is stored in an [Azure Synapse dedicated SQL pool][synapse-dedicated-pool], and the [BI Semantic model][bi-model] is stored in [Power BI Premium capacities][pbi-premium-capacities]. Power BI accesses the data via DirectQuery.
 
 ### Components
 
@@ -36,17 +36,17 @@ This scenario uses the following components:
 - [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD)
 
-### Pipeline diagram
+### Simplified architecture
 
-![Diagram of the enterprise BI pipeline.](./media/enterprise-bi-small-architecture.png)
+![Diagram of the enterprise BI simplified architecture.](./media/enterprise-bi-small-architecture.png)
 
 ## Scenario details
 
-An organization has a large on-premises data warehouse stored in a SQL database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
+An organization has a large on-premises data warehouse stored in a SQL database. The organization wants to use Azure Synapse to perform analysis, then serve these insights using Power BI.
 
 ### Authentication
 
-**Azure AD** authenticates users who connect to Power BI dashboards and apps. Single sign-on is used to connect to the data source in Azure Synapse Provisioned Pool. Authorization happens on the source.  
+Azure AD authenticates users who connect to Power BI dashboards and apps. Single sign-on is used to connect to the data source in Azure Synapse provisioned pool. Authorization happens on the source.  
 
 ### Incremental loading
 
@@ -73,7 +73,7 @@ This scenario uses the [AdventureWorks sample database][adventureworksdw-sample-
 
 ### Metadata-driven copy tool
 
-The built-in [metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Synapse Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
+The built-in [metadata-driven copy tool](/azure/data-factory/copy-data-tool-metadata-driven) within Azure Pipelines incrementally loads all tables contained within our relational database. By navigating through the wizard-based experience, we connect the Copy Data tool to our source database, and configure either incremental or full loading for each table. The Copy Data tool will then create both the pipelines and SQL scripts to generate the control table required to store data for the incremental loading process&mdash;for example, the high watermark value/column for each table. Once these scripts are run, the pipeline will be ready to load all tables in the source data warehouse into the Synapse dedicated pool.
 
 ![Screenshot of metadata-driven copy data tool in Synapse Analytics.](./media/metadata-copy.png)
 
@@ -91,7 +91,7 @@ The pipelines generated by this tool will:
 
 ### Copy activity: Loading data into Synapse SQL Pool
 
-The [copy activity](/azure/data-factory/copy-activity-overview) will copy data from the SQL database into the Synapse SQL pool. In this example, because our SQL database is in Azure, we use the Azure integration runtime to read data from the SQL database and write the data into the specified staging environment.
+The [copy activity](/azure/data-factory/copy-activity-overview) will copy data from the SQL database into the Azure Synapse SQL pool. In this example, because our SQL database is in Azure, we use the Azure integration runtime to read data from the SQL database and write the data into the specified staging environment.
 
 The copy statement is then used to load data from the staging environment into the Synapse dedicated pool.
 
@@ -130,7 +130,7 @@ When the BI model grows or dashboard complexity increases, you can switch to com
 When using DirectQuery over Azure Synapse Analytics provisioned pool:
 
 - Use Azure Synapse [result set caching](/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching) to cache query results in the user database for repetitive use, improve query performance down to milliseconds, and reduce compute resource usage. Queries using cached results set don't use any concurrency slots in Azure Synapse Analytics and thus don't count against existing concurrency limits.
-- Use Azure Synapse [materialized views](/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning) to pre-compute, store, and maintain data in SQL Data Warehouse just like a table. Queries that use all or a subset of the data in materialized views can get faster performance, and they don't need to make a direct reference to the defined materialized view to use it.
+- Use Azure Synapse [materialized views](/azure/synapse-analytics/sql/develop-materialized-view-performance-tuning) to pre-compute, store, and maintain data just like a table. Queries that use all or a subset of the data in materialized views can get faster performance, and they don't need to make a direct reference to the defined materialized view to use it.
 
 ## Considerations
 
@@ -142,20 +142,20 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. Enterprise customers need a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
 
-This scenario addresses the most demanding security concerns using a combination of layered security controls: network, identity, privacy, authorization. The bulk of the data is stored in Azure Synapse Provisioned Pool, with Power BI using DirectQuery through single sign-on. Azure AD is used for authentication, and we're using extensive security controls of Provisioned Pool for data authorization.
+This scenario addresses the most demanding security concerns using a combination of layered security controls: network, identity, privacy, authorization. The bulk of the data is stored in Azure Synapse provisioned pool, with Power BI using DirectQuery through single sign-on. You can use Azure AD for authentication. There are also extensive security controls for data authorization of provisioned pools.
 
 Some common security questions include:
 
 - How can I control who can see what data?
-  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. Synapse offers multiple [data protection capabilities](/azure/synapse-analytics/guidance/security-white-paper-data-protection) to achieve compliance.
+  - Organizations need to protect their data to comply with federal, local, and company guidelines to mitigate risks of data breach. Azure Synapse offers multiple [data protection capabilities](/azure/synapse-analytics/guidance/security-white-paper-data-protection) to achieve compliance.
 - What are the options for verifying a user's identity?
   - Azure Synapse supports a wide range of capabilities to control who can access what data via [access control](/azure/synapse-analytics/guidance/security-white-paper-access-control) and [authentication](/azure/synapse-analytics/guidance/security-white-paper-authentication).
 - What network security technology can I use to protect the integrity, confidentiality, and access of my networks and data?
   - To secure Azure Synapse, there are a range of [network security](/azure/synapse-analytics/guidance/security-white-paper-network-security) options available to consider.
 - What are the tools that detect and notify me of threats?
-  - Azure Synapse provides many [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities like: SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases.
+  - Azure Synapse provides many [threat detection](/azure/synapse-analytics/guidance/security-white-paper-threat-protection) capabilities like: SQL auditing, SQL threat detection, and vulnerability assessment to audit, protect, and monitor databases.
 - What can I do to protect data in my storage account?
-  - Azure Storage Accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input-output operations (IOP) per second. Storage accounts contain all your Azure Storage data objects, and have many options for [storage account security](/azure/architecture/framework/services/storage/storage-accounts/security).
+  - Azure Storage accounts are ideal for workloads that require fast and consistent response times, or that have a high number of input-output operations (IOP) per second. Storage accounts contain all your Azure Storage data objects, and have many options for [storage account security](/azure/architecture/framework/services/storage/storage-accounts/security).
 
 ### Cost optimization
 
@@ -181,7 +181,7 @@ For the sample dataset, we've picked standard Azure-hosted integration runtime, 
 
 #### Azure Synapse dedicated pool and storage
 
-Pricing details for Synapse dedicated pool can be found under the *Data Warehousing* tab on the [Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics). Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factor is data storage costs: size of your data at rest + snapshots + geo-redundancy, if any.
+Pricing details for Azure Synapse dedicated pool can be found under the *Data Warehousing* tab on the [Synapse pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics). Under Dedicated consumption model, customers are billed per DWU units provisioned, per hour of uptime. Another contributing factor is data storage costs: size of your data at rest + snapshots + geo-redundancy, if any.
 
 For the sample dataset, we have provisioned 500DWU, which guarantees good experience for analytical load. We keep compute up and running over business hours of reporting. If taken into production, reserved data warehouse capacity is an attractive option for cost management. Different techniques should be used to maximize cost/performance metrics, which are covered in the previous sections.
 
@@ -218,7 +218,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 #### Quick start
 
 - Portal: [Azure Synapse proof of concept](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.synapse/synapse-poc)
-- Azure CLI: [Create an Azure synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
+- Azure CLI: [Create an Azure Synapse workspace with Azure CLI](/azure/synapse-analytics/quickstart-create-workspace-cli)
 - Terraform: [Modern data warehousing with Terraform and Microsoft Azure](https://github.com/terraform-azurerm-examples/example-adf-synapse)
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
