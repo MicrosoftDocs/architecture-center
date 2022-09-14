@@ -26,6 +26,12 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
+## Components
+
+- [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+
+- [Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
