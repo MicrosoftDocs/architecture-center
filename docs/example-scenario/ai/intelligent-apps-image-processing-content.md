@@ -48,6 +48,8 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Consider these points when implementing this solution:
 
 ### Scalability
@@ -62,6 +64,8 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 [Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
@@ -72,7 +76,9 @@ All of the components in this scenario are managed, so at a regional level they 
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
