@@ -1,8 +1,4 @@
-When you deploy machine learning models to multiple data sources, you can't assume that one data source's model works for all the other data sources. Each data source has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple data sources.
-
-The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each data source is different. A process is needed to differentiate between each data source's data and each data source's model. By using this differentiation, the organization can train models and verify that each data source's model performs the best for its distribution as time passes.
-
-This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
+This solution uses a multiline-model architecture to deploy machine learning models to multiple data sources. 
 
 ## Architecture
 
@@ -46,6 +42,12 @@ In this scenario, the data resides in blob storage primarily because of the cons
 If your repo is in GitHub, you might consider [GitHub Actions](https://github.com/features/actions) as an alternative to the Azure DevOps pipeline.
 
 ## Scenario details
+
+When you deploy machine learning models to multiple data sources, you can't assume that one data source's model works for all the other data sources. Each data source has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple data sources.
+
+The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each data source is different. A process is needed to differentiate between each data source's data and each data source's model. By using this differentiation, the organization can train models and verify that each data source's model performs the best for its distribution as time passes.
+
+This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
 
 ### Potential use cases
 
