@@ -2,7 +2,7 @@
 metadata:
   title: Deploy Altair Radioss on an Azure virtual machine
   description: Learn how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine. 
-  author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  author: gauharjunnarkar
   ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
   ms.date: <Publish or major update date - mm/dd/yyyy>
   ms.topic: conceptual
@@ -18,4 +18,4 @@ name: <The H1 title at the top of the article>
 summary: <Write a summary. Can be same as description.>
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](<guide>-content.md)]
+  [!include[](altair-radioss-content.md)]
