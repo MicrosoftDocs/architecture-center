@@ -10,7 +10,7 @@ Radioss is used across industry sectors to provide multiphysics solutions to dyn
 
 ## Why deploy Radioss on Azure?
 
-- Modern and diverse compute options to align to your workload's needs  
+- Modern and diverse compute options to align with your workload's needs  
 - The flexibility of virtualization without the need to buy and maintain physical hardware  
 - Rapid provisioning  
 - On a single node, performance improvements of as much as 2.76 times over that of 16 CPUs
@@ -54,46 +54,136 @@ architecture.*
 
 Performance tests of Radioss on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
 
-|VM size|vCPU|RAM memory, in GiB|MEMORY BANDWIDTH GB/S| BASE CPU FREQUENCY (GHZ)|ALL-CORES FREQUENCY (GHZ, PEAK)|SINGLE-CORE FREQUENCY (GHZ, PEAK)|RDMA PERFORMANCE (GB/S)|MAX DATA DISKS|
+|VM size|vCPU|RAM memory (GiB)|Memory bandwidth (GBps)| Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (GBps)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|120|448|350|2.45|3.1|3.675|200|32|
-|Standard_HB120-96rs_v3|96|448|350|2.45|3.1|3.675|200|32|
-|Standard_HB120-64rs_v3|64|448|350|2.45|3.1|3.675|200|32|
+|Standard_HB120rs_v3|120|448|350|1.9|3.0|3.5|200|32|
+|Standard_HB120-96rs_v3|96|448|350|1.9|3.0|3.5|200|32|
+|Standard_HB120-64rs_v3|64|448|350|1.9|3.0|3.5|200|32|
+|Standard_HB120-32rs_v3|32|448|350|1.9|3.0|3.5|200|32|
+|Standard_HB120-16rs_v3|16|448|350|1.9|3.0|3.5|200|32| 
 
-Standard_HB120-32rs_v3
+HBv3-series VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite-element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
-32
-
-448
-
-350
-
-2.45
-
-3.1
-
-3.675
-
-200
-
-32
-
-Standard_HB120-16rs_v3
-
-16
-
-448
-
-350
-
-2.45
-
-3.1
-
-3.675
-
-200
-
-32 
+HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal configuration for Radioss test simulations on a single node. That optimal configuration was then tested in a multi-node cluster deployment.
 
 ### Required drivers
+
+To use the AMD CPUs on [HBv3-series](/azure/virtual-machines/hbv3-series) VMs, you need to install AMD drivers.
+
+## Radioss installation
+
+Before you install Radioss, you need to deploy and connect a Linux VM and install the required AMD drivers.
+
+For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+
+You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing AcuSolve and License Manager and activating your license on Altair One Marketplace. For multi-mode installation, see the next section.
+
+## Multi-mode configuration
+
+You can easily deploy an HPC cluster on Azure by using [Azure
+CycleCloud](/azure/cyclecloud/overview).
+
+Azure CycleCloud is a tool for orchestrating and managing HPC
+environments on Azure. You can use CycleCloud to provision
+infrastructure for HPC systems, deploy HPC schedulers, and automatically
+scale the infrastructure to run jobs efficiently at any scale.
+
+Azure CycleCloud is a Linux-based web application. We recommend that you
+set it up by deploying an Azure VM that\'s based on a preconfigured
+Azure Marketplace image.
+
+To set up an HPC cluster on Azure, complete these steps:
+
+1.  [Install and configure Azure
+    CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+2.  [Create an HPC cluster from built-in
+    templates](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+3.  [Connect to the head node (the
+    scheduler)](/azure/cyclecloud/how-to/connect-to-node)
+
+For multi-mode configurations, the AcuSolve installation process is the
+same as the process described previously for a single node, except for
+the path to the installation directory:
+
+-   You need to select **/shared** for the Installation directory path
+    so that the directory is accessible for all nodes.
+-   The shared folder path depends on your network attached storage
+    service, like an NFS server, BeeGFS cluster, [Azure NetApp
+    Files](https://azure.microsoft.com/services/netapp), [Azure
+    HPC Cache](https://azure.microsoft.com/services/hpc-cache),
+    or [Azure Active Directory Domain
+    Services](https://azure.microsoft.com/services/active-directory-ds).
+-   To authorize multi-node VMs to access License Manager, you need to
+    include your authorization code in the job script. For more
+    information about installing AcuSolve, see [Altair One
+    Marketplace](https://altairone.com/Marketplace?queryText=acusolve).
+
+## Radioss performance results
+
+Radioss was tested in single-node and multi-mode configurations. Computation time (wall-clock time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details. 
+
+|  Operating system version  | OS architecture     |  MPI|
+|---------|---------|---------|
+|    CentOS Linux release 8.1.1911 (Core) |  x86-64       |         Intel MPI    |
+
+The Neon and Taurus test case models were used as test cases. 
+
+### <Results for X>
+
+### <Results for Y etc>
+
+### Additional notes about tests
+
+<Include any additional notes about the testing process used.>
+Azure cost
+<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
+You can use the Azure pricing calculator, to estimate the costs for your configuration.
+<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
+Summary
+<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod
+    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin
+    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+-   [GPU-optimized virtual machine
+    sizes](/azure/virtual-machines/sizes-gpu)
+-   [Linux virtual machines on
+    Azure](/azure/virtual-machines/linux/overview)
+-   [Virtual networks and virtual machines on
+    Azure](/azure/virtual-network/network-overview)
+-   [Learning path: Run high-performance computing (HPC) applications on
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+-   [What is Azure
+    CycleCloud?](/azure/cyclecloud/overview)
+
+## Related resources
+
+-   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
