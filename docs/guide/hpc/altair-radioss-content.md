@@ -130,7 +130,7 @@ The Neon and Taurus test case models were used as test cases.
 
 This image shows the Neon model:
 
-:::image type="content" source="media/altair-radioss/neon.png" alt-text="Image that shows the Neon model.":::
+:::image type="content" source="media/altair-radioss/neon.png" alt-text="Figure that shows the Neon model.":::
 
 The following table provides the numbers of various elements in the the model.
 
@@ -140,7 +140,7 @@ The following table provides the numbers of various elements in the the model.
 
 This image shows the Taurus model:
 
-:::image type="content" source="media/altair-radioss/taurus.png" alt-text="Image that shows the Taurus model.":::
+:::image type="content" source="media/altair-radioss/taurus.png" alt-text="Figure that shows the Taurus model.":::
 
 The following table provides the numbers of various elements in the the model.
 
@@ -148,19 +148,70 @@ The following table provides the numbers of various elements in the the model.
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
 | 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
-### <Results for X>
+### Results for a single-node configuration
 
-### <Results for Y etc>
+Nonlinear finite-element analysis was performed to test Radioss on a single node for various numbers of CPUs. See the table in the [Compute sizing and drivers](#compute-sizing-and-drivers) section of this article for details about the VMs. The following table presents the results, in wall-clock time, in seconds.
 
-### Additional notes about tests
+|Model| Simulation time (ms) || 16 CPUs | 32 CPUs |64 CPUs|96 CPUs|120 CPUs|
+|-----|-|-|--|---------|-------|--|---------|
+| Neon    |    8     |   Starter      |20.27 | 22.91|    25.78   |29.18|31.46|
+| Neon    |     8    |   Engine      |   421.99      |246.65|147.31|131.74|128.74|
+|  Neon   |      8   |  Total runtime       |  442.26       |269.56|173.09|160.92|160.2|
 
-<Include any additional notes about the testing process used.>
-Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
-Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+The following table shows the relative speed increase for each increase in number of CPUs.
+
+
+| Model | 16 CPUs | 32 CPUs |64 CPUs|96 CPUs|120 CPUs|
+|-------|--|--|-------|---------|---------|
+|Neon| 1.00    |1.64 |2.56    |2.75     | 2.76        |
+
+:::image type="content" source="media/altair-radioss/relative-increase-neon.png" alt-text="Graph that shows the relative speed increases for the Neon model.":::
+
+### Results for a multi-node configuration
+
+As the preceding performance results show, a [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VM with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+
+The following table shows the elapsed wall-clock time, in hours, for the test runs.
+
+|Model|Simulation time (ms)   |  |1 node  | 4 nodes |8 nodes|16 nodes|
+|----|-----|---|------|----|-----|---------|
+| Taurus (T10M)  | 120   | Starter | 00:07:47  |00:11:12| 00:07:04 |00:08:13  |
+| Taurus (T10M)  | 120   | Engine |37:21:22  |10:23:02|08:18:28| 04:34:59  |
+| Taurus (T10M)  | 120  | Total runtime|    37:29:10     |10:34:14|08:25:32|04:43:13|
+
+## Azure cost
+
+Only rendering time is considered for these cost calculations. Application installation time isn't considered.
+
+You can use the wall-clock time and the Azure hourly cost to compute total costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+The following table provides the wall-clock times for single-node configurations.
+
+|VM size  | Model  |Number of CPUs  |Wall clock time (seconds)  |
+|---------|---------|---------|---------|
+| HB120rs_v3    |  Neon       |  16       |   442.26      |
+| HB120rs_v3      |   Neon      |  32       |    269.56     |
+| HB120rs_v3      |   Neon      |    64     |    173.09     |
+| HB120rs_v3      |   Neon      |      96   |   160.92      |
+| HB120rs_v3      |   Neon     |  120       | 160.2        |
+
+The following table provides the wall-clock times for multi-node configurations.
+
+|VM size  | Model  |Number of CPUs  |Number of nodes|Wall clock time (hours)  |
+|-|-|-|-|-|
+|HB120-64rs_v3|Taurus (T10M)|64|1|37:29:10|
+|HB120-64rs_v3|Taurus (T10M)|256|4|10:34:14|
+|HB120-64rs_v3|Taurus (T10M)|512|8|08:25:32|
+|HB120-64rs_v3|Taurus (T10M)|1024|16|04:43:13|
+
+## Summary
+
+- Radioss was successfully tested on HBv3-series VMs on Azure.
+- Radioss on an Azure VM can solve complex workloads.
+- In a single-node configuration, increasing the number of CPUs increases the relative speed. The optimal configuration is 64 CPUs.
+- Radioss scales impressively up to 16 nodes (1024 CPUs).
 
 ## Contributors
 
