@@ -4,13 +4,6 @@ The organization whose architecture is described in this article pushes edge dev
 
 This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
 
-## Potential use cases
-
- This example comes from the manufacturing and energy industry, but the solution can be used in many scenarios. When you have a set of data-emitting objects that mimic each other's distributions except for some slight skewness, this solution is a good fit. If each object's distribution looks vastly different, this solution won't work. This solution might apply to these industries:
-
-- Energy
-- Medicine
-
 ## Architecture
 
 ![Diagram that shows the architecture for the multiple-line machine learning model.](./media/multiline-deployment-pipeline.png)
@@ -52,7 +45,18 @@ In this scenario, the data resides in blob storage primarily because of the cons
 
 If your repo is in GitHub, you might consider [GitHub Actions](https://github.com/features/actions) as an alternative to the Azure DevOps pipeline.
 
+## Scenario details
+
+### Potential use cases
+
+ This example comes from the manufacturing and energy industry, but the solution can be used in many scenarios. When you have a set of data-emitting objects that mimic each other's distributions except for some slight skewness, this solution is a good fit. If each object's distribution looks vastly different, this solution won't work. This solution might apply to these industries:
+
+- Energy
+- Medicine
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 In the architecture described here, the Azure Machine Learning pipeline isn't run remotely. If the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to finish, run the Azure Machine Learning pipeline remotely. Doing so frees up an Azure DevOps agent while the Azure Machine Learning pipeline runs.
 
@@ -66,9 +70,13 @@ Optimize the compute that Azure Machine Learning uses for the algorithm. If you 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use managed identities to provide access to Azure resources.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
