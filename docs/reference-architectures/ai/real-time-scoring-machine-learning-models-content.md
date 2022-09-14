@@ -87,7 +87,11 @@ Use [Azure Monitor container insights][monitor-containers] to collect metrics an
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Enable Defender for Cloud on your subscriptions][get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
@@ -105,7 +109,9 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 
-### Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
