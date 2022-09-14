@@ -61,7 +61,9 @@ $hubVNet = Get-AzVirtualNetwork -Name $HubVNetName -ResourceGroupName $HubVNetRG
 #end
 
 #Remove All Hub VNet Peerings
-Remove-AzVirtualNetworkPeering -VirtualNetworkName $HubVNetName -ResourceGroupName $HubVNetRGName -name $hubPeerings.Name -Force
+foreach ($hubPeering in $hubPeerings) {
+    Remove-AzVirtualNetworkPeering -VirtualNetworkName $HubVNetName -ResourceGroupName $HubVNetRGName -name $hubPeering.Name -Force
+}
 #end
 
 #Add IP address range to the hub vnet
@@ -90,6 +92,9 @@ foreach ($vNetPeering in $hubPeerings)
 
     # Re-create peering on hub
     Add-AzVirtualNetworkPeering -Name $vNetPeering.Name -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vNetFullId -AllowGatewayTransit
+    
+    # Sync peering via remote vnet
+    Sync-AzVirtualNetworkPeering -Name $peeringName -VirtualNetworkName $vNetName -ResourceGroupName $HubVNetRGName
 }
 
 ```
