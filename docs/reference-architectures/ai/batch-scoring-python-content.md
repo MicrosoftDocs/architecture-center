@@ -8,14 +8,14 @@ This architecture guide shows how to build a scalable solution for batch scoring
 
 This architecture guide is applicable for both streaming and static data, provided that the ingestion process is adapted to the data type. The following steps and components describe the ingestion of these two types of data.
 
-**Streaming Data:**
+**Streaming data:**
 
 1. Streaming data originates from IoT Sensors, where new events are streamed at frequent intervals.
 2. Incoming streaming events are queued using Azure Event Hubs, and then pre-processed using Azure Stream Analytics.
     - [Azure Event Hubs][event-hubs]. This message ingestion service can ingest millions of event messages per second. In this architecture, sensors send a stream of data to the event hub.
     - [Azure Stream Analytics][stream-analytics]. An event-processing engine. A Stream Analytics job reads the data streams from the event hub and performs stream processing.
 
-**Static Data:**
+**Static data:**
 
 3. Static datasets can be stored as files within [Azure Data Lake Storage][adls] or in tabular form in [Azure Synapse][synapse] or [Azure SQL Database][sql].
 4. [Azure Data Factory][adf] can be used to aggregate or pre-process the stored dataset.
