@@ -1,19 +1,9 @@
-Many machine learning (ML) problems are too complex for a single ML model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many ML problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
-
-A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, every dataset will be for a unique item-store combination.
-
  This article describes an architecture for many models that uses Apache Spark in either Azure Databricks or Azure Synapse Analytics. Spark is a powerful tool for the large and complex data transformations that some solutions require.
 
 > [!Note]
 > Use Spark versions 3.0 and later for many models applications. The data transformation capabilities and support for Python and pandas are much better than in earlier versions.
 
 A companion article, [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
-
-## Potential use cases
-
-- **Retail:** A grocery store chain needs to create a separate revenue forecast model for each store and item, totaling over 1,000 models per store.
-- **Supply chain:** For each combination of warehouse and product, a distribution company needs to optimize inventory.
-- **Restaurants:** A chain with thousands of franchises needs to forecast the demand for each.
 
 ## Architecture
 
@@ -53,7 +43,21 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 - The source data can come from any database.
 - You can use a managed online endpoint or AKS to deploy real-time inferencing.
 
+## Scenario details
+
+Many machine learning (ML) problems are too complex for a single ML model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many ML problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+
+A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, every dataset will be for a unique item-store combination.
+
+### Potential use cases
+
+- **Retail:** A grocery store chain needs to create a separate revenue forecast model for each store and item, totaling over 1,000 models per store.
+- **Supply chain:** For each combination of warehouse and product, a distribution company needs to optimize inventory.
+- **Restaurants:** A chain with thousands of franchises needs to forecast the demand for each.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 - **Data partitions** Partitioning the data is the key to implementing the many models pattern. If you want one model per store, a dataset comprises all the data for one store, and there are as many datasets as there are stores. If you want to model products by store, there will be a dataset for every combination of product and store. Depending on the source data format, it might be easy to partition the data, or it can require extensive data shuffling and transformation. Spark and Synapse SQL scale very well for such tasks, while Python pandas doesn't, since it runs only on one node and process.
 - **Model management:** The training and scoring pipelines identify and invoke the right model for each dataset. To do this, they calculate tags that characterize the dataset, and then use the tags to find the matching model. The tags identify the data partition key and the model version, and might also provide other information.
@@ -68,7 +72,9 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 - **Training scalability:** By using Spark, you can train hundreds of thousands of models in parallel. Spark spins up multiple training processes in every VM in a cluster. Each core can run a separate process. While this means good utilization of resources, it's important to size the cluster accurately and choose the right SKU, especially if the training process is expensive and long running.
 - **Implementation details:** For detailed information on implementing a many models solution, see [Implement many models for ML in Azure](https://github.com/microsoft/csa-misc-utils/tree/master/sa-dsml-many-models).
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator). Good starting assumptions are:
 
