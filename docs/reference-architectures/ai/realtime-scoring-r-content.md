@@ -18,7 +18,11 @@ The architecture of this workflow includes the following components.
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Machine learning workloads tend to be compute-intensive, both when training and when scoring new data. As a rule of thumb, try not to run more than one scoring process per core. Azure Machine Learning lets you define the number of R processes running in each container. The default is five processes. When creating a relatively simple model, such as a linear regression with a small number of variables, or a small decision tree, you can increase the number of processes. Monitor the CPU load on your cluster nodes to determine the appropriate limit on the number of containers.
 
@@ -29,6 +33,8 @@ Some model types such as random forests are massively parallelizable on CPUs. In
 In general, open-source R models store all their data in memory, so ensure that your nodes have enough memory to accommodate the processes you plan to run concurrently. Also, monitor your nodes to ensure that your scoring processes are not memory-starved.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 #### Network encryption
 
@@ -48,6 +54,8 @@ The primary difference between keys and tokens is that keys are static and can b
 Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes: Output data Responses Request rates, response times, and failure rates Dependency rates, response times, and failure rates Exceptions
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times.
 
