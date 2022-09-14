@@ -83,6 +83,18 @@ You can also use a VPN gateway to route traffic between spokes, although this ch
 
 Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider your firewall solution's bandwidth limits when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
+### Components
+
+- [Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+
+- [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion/). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
+
+- [Azure Firewall](https://azure.microsoft.com/en-us/products/azure-firewall/). Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. The stateful firewall service has built-in high availability and unrestricted cloud scalability to help you create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
+
+- [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
+
+- [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/). Collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize performance and availability of your applications and proactively identify problems in seconds. 
+
 ## Considerations
 
 ### Management
