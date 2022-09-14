@@ -1,5 +1,3 @@
-Spaceborne data collection is increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for spaceborne data analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions. 
-
 This architecture is designed to show an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This article also shows how to integrate geospatial-specific [Azure Cognitive Services](/azure/cognitive-services) models, AI models from partners, bring-your-own-data, and AI models that use Azure Synapse Analytics.
 
 The intended audience for this document is users with intermediate skill levels in working with geospatial or spaceborne data.
@@ -7,18 +5,6 @@ The intended audience for this document is users with intermediate skill levels 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
 *Apache®, Apache Spark, Spark, the Spark logo, Apache Sedona, Apache Incubator, the Apache feather logo and the Apache Incubator project logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is ideal for the aerospace and aircraft industries. It addresses these scenarios:
-
-- Raster data ingestion and processing
-- Object detection via pre-trained AI models
-- Classification of land masses via AI models
-- Monitoring changes in the environment via AI models
-- Derived datasets from preprocessed imagery sets
-- Vector visualization / small-area consumption
-- Vector data filtering and cross-data joins
 
 ## Architecture
 
@@ -126,6 +112,22 @@ Here are some alternative libraries and frameworks that you can use for spacebor
 - [Apache Sedona](https://sedona.apache.org), formerly named GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Spark and Spark SQL with out-of-the-box Spatial Resilient Distributed Datasets and SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
 - [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
 
+## Scenario details
+
+Spaceborne data collection is increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for spaceborne data analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions. 
+
+### Potential use cases
+
+This solution is ideal for the aerospace and aircraft industries. It addresses these scenarios:
+
+- Raster data ingestion and processing
+- Object detection via pre-trained AI models
+- Classification of land masses via AI models
+- Monitoring changes in the environment via AI models
+- Derived datasets from preprocessed imagery sets
+- Vector visualization / small-area consumption
+- Vector data filtering and cross-data joins
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -145,9 +147,13 @@ If you collaborate by using Git for source control, you can use Synapse Studio t
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 For SLA information, see [Azure Synapse SLA](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 See these articles for security best practices: 
 
@@ -158,6 +164,8 @@ See these articles for security best practices:
 - [Azure Synapse Analytics: Network security](/azure/synapse-analytics/guidance/security-white-paper-network-security)
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 These resources provide information about pricing and cost optimization:
 
