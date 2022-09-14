@@ -5,10 +5,9 @@ results of running AcuSolve on Azure.
 
 AcuSolve is a computational fluid dynamics (CFD) analyzer. It provides
 comprehensive software and tools to solve fluid mechanics problems like
-thermal analysis, aerodynamics, and noise reduction. AcuSolve:
+thermal analysis, aerodynamics, and noise reduction. 
 
-- Is finite-element based and uses distinct methods to solve all fluid problems: Navier-Stokes, smoothed-particle hydrodynamic, and Lattice Boltzmann.
-- Enables simulations that involve flow, heat transfer, turbulence,
+AcuSolve is finite-element based and uses distinct methods to solve all fluid problems: Navier-Stokes, smoothed-particle hydrodynamic, and Lattice Boltzmann. It enables simulations that involve flow, heat transfer, turbulence,
     and non-Newtonian materials.
 
 ## Why deploy AcuSolve on Azure?
@@ -27,14 +26,14 @@ This diagram shows a multi-node configuration:
 
 :::image type="content" source="media/acusolve-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hpc-acusolve.vsdx) of this
-architecture.*
+*Download a* *[Visio file](https://arch-center.azureedge.net/acusolve-cluster-architecture.vsdx) of this architecture.*
 
 This diagram shows a single-node configuration:
 
 :::image type="content" source="media/hpc-acusolve.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.png" border="false":::
 
-*Download a* *[Visio file](https://arch-center.azureedge.net/acusolve-cluster-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-acusolve.vsdx) of this
+architecture.*
 
 ### Components
 
