@@ -38,6 +38,19 @@ The architecture consists of the following components:
     - **wkld2-pip**. This address is the public IP address that's used to access the sample workload from the public internet.
   - **Azure Bastion subnet**. The Azure Bastion service in the disconnected virtual network is used for remoting to VMs in the hub and spoke VNets from the public internet for maintenance purposes.
 
+## Components
+
+- [Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+
+- [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion/). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
+
+- [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
+
+- [Private Link](https://azure.microsoft.com/en-us/services/private-link/). Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
+
+- [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway/). Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
+
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
