@@ -90,7 +90,7 @@ infrastructure for HPC systems, deploy HPC schedulers, and automatically
 scale the infrastructure to run jobs efficiently at any scale.
 
 Azure CycleCloud is a Linux-based web application. We recommend that you
-set it up by deploying an Azure VM that\'s based on a preconfigured
+set it up by deploying an Azure VM that's based on a preconfigured
 Azure Marketplace image.
 
 To set up an HPC cluster on Azure, complete these steps:
@@ -111,7 +111,7 @@ the path to the installation directory:
 -   The shared folder path depends on your network attached storage
     service, like an NFS server, BeeGFS cluster, [Azure NetApp
     Files](https://azure.microsoft.com/services/netapp), [Azure
-    HPC Cache](https://azure.microsoft.com/en-us/services/hpc-cache/),
+    HPC Cache](https://azure.microsoft.com/services/hpc-cache),
     or [Azure Active Directory Domain
     Services](https://azure.microsoft.com/services/active-directory-ds).
 -   To authorize multi-node VMs to access License Manager, you need to
