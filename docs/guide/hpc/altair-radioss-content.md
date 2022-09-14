@@ -126,7 +126,21 @@ Radioss was tested in single-node and multi-mode configurations. Computation tim
 |---------|---------|---------|
 |    CentOS Linux release 8.1.1911 (Core) |  x86-64       |         Intel MPI    |
 
-The Neon and Taurus test case models were used as test cases. 
+The Neon and Taurus test case models were used as test cases.
+
+This image shows the Neon model:
+
+:::image type="content" source="media/altair-radioss/neon.png" alt-text="Image that shows the Neon model.":::
+
+The following table provides the numbers of various elements in the the model.
+
+|Modal points |Parts |Materials  |Property sets  |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Acceleromenters|Interfaces|Rigid walls|Rigid bodies|Added nodal masses|
+|---------|---------|---------|---------|-|-|-|-|-|-|-|-|-|-|
+|1,096,865 |340|21|148|2,860|1,054,611|63|4,180|176|7|18|1|694|273|
+
+This image shows the Taurus model:
+
+The following table provides details about that model.
 
 ### <Results for X>
 
