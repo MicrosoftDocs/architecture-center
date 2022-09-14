@@ -4665,8 +4665,6 @@ items:
                     href: example-scenario/iot/field-cloud-edge-gateways.yml
                   - name: Application-to-device commands
                     href: example-scenario/iot/cloud-to-device.yml
-                  - name: 'Builders, developers, and operators'
-                    href: example-scenario/iot/builders-developers-operators.yml
               - name: Computer vision with Azure IoT Edge
                 items:
                   - name: Overview
