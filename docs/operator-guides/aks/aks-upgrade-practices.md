@@ -117,7 +117,7 @@ Example output:
 ```output
 MasterVersion  Upgrades
 -------------  ---------------------------------
-1.17.9         1.17.11, 1.17.13, 1.18.8, 1.18.10
+1.21.14         1.22.6, 1.22.11
 ```
 
 Check the Kubernetes versions of the nodes in your node pools to determine the node pools that need to be upgraded.
@@ -133,9 +133,9 @@ Example output:
 ```output
 Name          K8version
 ------------  ------------
-systempool    1.16.13
-usernodepool  1.16.13
-usernp179     1.17.9
+systempool    1.21.14
+usernodepool  1.21.14
+usernp179     1.21.14
 ```
 
 You can upgrade the control plane first, and then upgrade the individual node pools.
@@ -159,6 +159,19 @@ You can upgrade the control plane first, and then upgrade the individual node po
 
 For information about validation rules for cluster upgrades, see [Validation rules for upgrades](/azure/aks/use-multiple-node-pools#validation-rules-for-upgrades).
 
+## Enroll clusters in auto-upgrade release channels
+
+Kubernetes often releases updates, to deliver security updates, fix known issues, and introduce new features. AKS release channels offer you the ability to balance between stability and feature set of the version deployed in the cluster. When you enroll a new cluster in a release channel, Microsoft automatically manages the version and upgrade cadence for the cluster and its node pools.
+
+To keep clusters up-to-date with the latest AKS and Kubernetes updates, here are some recommended environments and the respective release channels the clusters should be enrolled in:
+
+| Environment                     | Upgrade Channel    | Description                                                                                                                                                                                                                                            |
+|---------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Production                      | stable             | For stability and version maturity, use the stable or regular channel for production workloads.                                                                                                                                                        |
+| Staging , Testing , Development | same as production | To ensure your tests are indicative of the version your production will be upgraded to, use the same release channel as production.                                                                                                                    |
+| Canary                          | rapid              | To test the latest Kubernetes releases and to get ahead of the curve by testing new AKS features or APIs, use the rapid channel. You can improve your time to market when the version in rapid is promoted to the channel you're using for production. |
+|                                 |                    |                                                                                                                                                                                                                                                        |
+
 ## Considerations
 
 The following table describes characteristics of various AKS upgrade and patching scenarios:
@@ -179,6 +192,8 @@ The following table describes characteristics of various AKS upgrade and patchin
 - Node pool scale up uses the model that is currently associated with the virtual machine scale set. OS kernels upgrade when security patches are applied and the nodes reboot.
 - For more information on Cluster auto upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/auto-upgrade-cluster).
 - For more information on Node image auto upgrade, see [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade).
+- Node pool scale up uses the model associated with the virtual machine scale set at creation. OS kernels upgrade when security patches are applied and the nodes reboot.
+- Cluster auto upgrade. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
 ## See also
 
@@ -191,3 +206,9 @@ The following table describes characteristics of various AKS upgrade and patchin
 - [AKS product documentation](/azure/aks)
 - [AKS Roadmap](https://aka.ms/aks/roadmap)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
+
+## Contributors
+
+Principal authors:
+
+*[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | ("Principal Solution Architect")
