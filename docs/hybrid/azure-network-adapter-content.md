@@ -35,7 +35,7 @@ The architecture consists of:
 
 - [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
 
-- [Windows Admin Center](https://www.microsoft.com/en-ie/windows-server/windows-admin-center). Windows Admin Center is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production.
+- [Windows Admin Center](https://www.microsoft.com/en-us/windows-server/windows-admin-center). Windows Admin Center is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production.
 
 
 ## Recommendations
