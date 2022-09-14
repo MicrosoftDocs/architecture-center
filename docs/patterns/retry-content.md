@@ -155,12 +155,12 @@ private bool IsTransient(Exception ex)
 
 ## Next steps
 
-- For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
-
 - Before writing custom retry logic, consider using a general framework such as [Polly](https://github.com/App-vNext/Polly) for .NET or [Resilience4j](https://github.com/resilience4j/resilience4j) for Java.
 
-## Related guidance
+- When processing commands that change business data, be aware that retries can result in the action being performed twice, which could be problematic if that action is something like charging a customer's credit card. Using the Idempotence pattern described in [this blog post](https://particular.net/blog/what-does-idempotent-mean) can help deal with these situations.
+
+## Related resources
+
+- For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
 
 - [Circuit Breaker pattern](./circuit-breaker.yml). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
-
-- When processing commands that change business data, be aware that retries can result in the action being performed twice, which could be problematic if that action is something like charging a customer's credit card. Using the Idempotence pattern described in [this blog post](https://particular.net/blog/what-does-idempotent-mean) can help deal with these situations.

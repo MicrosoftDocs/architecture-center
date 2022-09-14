@@ -1,4 +1,4 @@
-The healthcare industry has traditionally struggled to effectively use the vast amount of data it creates. Most of the medical data is unstructured and inaccessible for data driven decisions. When looking for insights, providers spend a considerable amount of time on data ingestion and unification. Healthcare organizations also face security and compliance pressures and risks of data breaches. By using [Microsoft Cloud for Healthcare](/industry/healthcare/overview), you can build solutions to improve clinical and operational insights. This article discusses one such potential solution, and builds on the knowledge learned from [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml).
+By using [Microsoft Cloud for Healthcare](/industry/healthcare/overview), you can build solutions to improve clinical and operational insights. This article discusses one such potential solution, and builds on the knowledge learned from [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml).
 
 ## Architecture
 
@@ -75,6 +75,8 @@ The alternatives listed in [Virtual health on Microsoft Cloud for Healthcare](vi
 
 ## Scenario details
 
+The healthcare industry has traditionally struggled to effectively use the vast amount of data it creates. Most of the medical data is unstructured and inaccessible for data driven decisions. When looking for insights, providers spend a considerable amount of time on data ingestion and unification. Healthcare organizations also face security and compliance pressures and risks of data breaches.
+
 This solution uses Azure Data Lake to store the large amounts of data required for reporting and analytics. This data is analyzed by using Azure Synapse, for use by the machine learning module and Power BI visualizations. Synapse can also pull in unstructured data, such as X-ray images, and feed it into the machine learning algorithm to generate interpretations. These interpretations are stored in a Microsoft Word document, along with a snapshot of the image. This document is stored as a blob or file in Dataverse, for future reference.
 
 ### Potential use cases
@@ -91,6 +93,8 @@ This solution is ideal for the healthcare industry. The scenario also demonstrat
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The security considerations for any architecture that uses Microsoft Cloud for Healthcare apply here. For example, see the security considerations discussed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#security).
 

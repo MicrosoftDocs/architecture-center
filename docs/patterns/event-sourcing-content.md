@@ -127,12 +127,16 @@ As well as providing more scope for scalability, using an event store also provi
 
 - [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
 
+- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
+
+- [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
+
 - Martin Fowler's blog:
 
   - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
   - [Snapshot on Martin Fowler's Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
 
-## Related guidance
+## Related resources
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
@@ -141,7 +145,3 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Materialized View pattern](./materialized-view.yml). The data store used in a system based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes. Shows how this can be done.
 
 - [Compensating Transaction pattern](./compensating-transaction.yml). The existing data in an event sourcing store is not updated, instead new entries are added that transition the state of entities to the new values. To reverse a change, compensating entries are used because it isn't possible to simply reverse the previous change. Describes how to undo the work that was performed by a previous operation.
-
-- [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
-
-- [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
