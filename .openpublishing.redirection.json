@@ -30,6 +30,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/remote-patient-monitoring.md",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/remote-patient-monitoring",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/elasticsearch/automated-performance-tests.md",
       "redirect_url": "/azure/architecture"
     },
