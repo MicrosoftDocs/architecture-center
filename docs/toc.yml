@@ -2786,6 +2786,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Network security for MLOps
+                href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Predict student attrition
