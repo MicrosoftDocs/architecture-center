@@ -1,4 +1,4 @@
-This reference architecture shows how to build a scalable solution for batch scoring models [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
+This architecture guide shows how to build a scalable solution for batch scoring models [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
 
 ## Architecture
 
@@ -6,7 +6,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ### Workflow
 
-This reference architecture is applicable for both streaming and static data, provided that the ingestion process is adapted to the data type. The following steps and components describe the ingestion of these two types of data.
+This architecture guide is applicable for both streaming and static data, provided that the ingestion process is adapted to the data type. The following steps and components describe the ingestion of these two types of data.
 
 **Streaming Data:**
 
@@ -70,7 +70,7 @@ For convenience in this scenario, one scoring task is submitted within a single 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The most expensive components used in this reference architecture are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the [Python SDK][python-sdk] by modifying the compute's provisioning configuration. Or, use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
+The most expensive components used in this architecture guide are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the [Python SDK][python-sdk] by modifying the compute's provisioning configuration. Or, use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
 
 For work that doesn't require immediate processing, configure the automatic scaling formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting enables significant cost savings.
 
