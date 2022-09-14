@@ -134,11 +134,11 @@ Two models were used to test the single-node configuration:
 
 -   Backward-facing step (0.27 million elements)
 
-![Image that shows a backward-facing step.](media/backward-facing-step.png)
+![Figure that shows a backward-facing step.](media/backward-facing-step.png)
 
 -   Impinging nozzle (7.6 million elements)
 
-![Image that shows an impinging nozzle.](media/impinging-nozzle.png)
+![Figure that shows an impinging nozzle.](media/impinging-nozzle.png)
 
 The following table provides details about the backward-facing step
 model:
