@@ -22,7 +22,7 @@ suited for simulation of free surface oiling, sloshing, and mixing.
 
 ## Why deploy nanoFluidX on Azure?
 
--   Modern and diverse compute options to align to your workload's
+-   Modern and diverse compute options to align with your workload's
     needs 
 -   The flexibility of virtualization without the need to buy and
     maintain physical hardware 
@@ -171,7 +171,7 @@ This graph shows the relative speed increases for each increase in GPU:
 ### ND A100 v4 vs. NVv3 M60
 
 This table compares the ND A100 v4 and NVv3 M60 results. Results are in
-wall time, in seconds, with 2 GPUs. 1,000 time steps were used.
+wall-clock time, in seconds, with two GPUs. 1,000 time steps were used.
 
 |  Model                          | NVv3 M60  |          NDV4 A100
   ------------------------------- |-------------------| --------------------|
@@ -269,7 +269,7 @@ NVv3 M60 VMs. Each VM has a different number of GPUs.
 | Standard_NV12s_v3\* | dambreak_dx0002  | 1,000        |1         | 376|
 
 
-\*Because of GPU memory requirements, some test cases didn't complete on
+\*Because of GPU memory requirements, some test cases didn't run to completion on
 the Standard_NV12s_v3Nvv3 VM with one GPU.
 
 |  VM size|Model       |Time steps|    Number of GPUs |Wall-clock time, in seconds|
