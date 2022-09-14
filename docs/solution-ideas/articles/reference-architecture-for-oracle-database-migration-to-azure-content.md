@@ -115,3 +115,12 @@ Learn more about the various architectural components:
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)
 * [Licensing Oracle Software in the cloud](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
+
+## Related resources
+
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
+- [Add IP address spaces to peered virtual networks](/azure/architecture/networking/prefixes/add-ip-space-peered-vnet)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
