@@ -10,7 +10,7 @@ This reference architecture shows how to connect an on-premises standalone serve
 
 ### Workflow
 
-The architecture consists of the following components:
+The architecture consists of:
 
 - **On-premises network**. This component is an organization's private local area network (LAN).
 - **Branch office**. This component is a private LAN in a remote branch office that connects through a corporate wide area network (WAN).
@@ -26,6 +26,17 @@ The architecture consists of the following components:
 - **Cloud application**. This component is the application that's hosted in Azure. It can include many tiers with multiple subnets that connect through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][reference-architecture-windows-vm] and [Running Linux VM workloads][reference-architecture-linux-vm].
 - **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer, which is in the application's production subnet.
 - **Azure Bastion**. Azure Bastion lets you log into VMs in the Azure virtual network without exposing the VMs directly to the internet. It uses Secure Shell (SSH) or Remote Desktop Protocol (RDP). If you lose VPN connectivity, you can still use Azure Bastion to manage your VMs in the Azure virtual network. However, the management of on-premises servers through Azure Bastion isn't supported.
+
+## Components
+
+- [Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+
+- [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion/). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
+
+- [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
+
+- [Windows Admin Center](https://www.microsoft.com/en-ie/windows-server/windows-admin-center). Windows Admin Center is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production.
+
 
 ## Recommendations
 
