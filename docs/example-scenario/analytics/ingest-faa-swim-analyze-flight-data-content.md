@@ -6,12 +6,6 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 *Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
-## Potential use cases
-
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
-
-The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources. 
-
 ## Architecture
 
 :::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png":::
@@ -49,6 +43,14 @@ Both are managed services and offer multiple benefits, like SLAs, simplified con
 
 As an alternative to Power BI, you can use Tableau or another visualization option.
 
+## Scenario details
+
+### Potential use cases
+
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
+
+The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources.
+
 ## SWIM architecture
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging.
@@ -57,7 +59,11 @@ SWIM provides a single point of access for aviation data. Data producers publish
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 #### CI/CD pipeline architecture
 
@@ -85,6 +91,8 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
 
 - VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
@@ -94,6 +102,8 @@ A key requirement for this architecture is that all traffic must be internal and
 For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
