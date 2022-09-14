@@ -73,6 +73,14 @@ To secure these resources, consider the following methods:
   - Use [Azure Policy](https://azure.microsoft.com/products/azure-policy/) and Azure Security Center to enforce policies.
   - Use [Azure Monitor](https://azure.microsoft.com/services/monitor) to collect and aggregate data (such as metrics and logs) from various sources into a common data platform for analysis, visualization, and alerting.
 
+The Azure Machine Learning workspace is the top-level resource for Azure Machine Learning and the core component of an MLOps solution. The workspace provides a centralized place to work with all the artifacts that you create when you use Azure Machine Learning.
+
+When you create a new workspace, it automatically creates the following Azure resources that are used by the workspace:
+
+- Azure Application Insights
+- Azure Container Registry
+- Azure Key Vault
+- Azure Storage Account
 
 ### Potential use cases
 
@@ -122,26 +130,7 @@ To streamline continuous integration and continuous delivery (CI/CD), the best p
 
 ## Deploy this scenario
 
-<!--
-> Is there an example deployment that can show me this in action? 
-> What would I need to change to run this in production?
-
-
-Code snippets and practical processes go here
-Can you make a distinction between what are deployment details and what are Scenario details?
-Add anything from Scenario details if more applicable here
--->
-
-### Secure the Azure Machine Learning workspace and its resources
-
-The Azure Machine Learning workspace is the top-level resource for Azure Machine Learning and the core component of an MLOps solution. The workspace provides a centralized place to work with all the artifacts that you create when you use Azure Machine Learning.
-
-When you create a new workspace, it automatically creates the following Azure resources that are used by the workspace:
-
-- Azure Application Insights
-- Azure Container Registry
-- Azure Key Vault
-- Azure Storage Account
+The following sections describe how to deploy, secure, and access resources in this example scenario.
 
 #### Virtual Network
 
