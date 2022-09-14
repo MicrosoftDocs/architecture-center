@@ -106,7 +106,7 @@ for a specific number of GPUs.
 Six models of three different types were used to test nanoFluidX on
 Azure. This image shows some of the models:
 
-![Image that shows some of the test case models.](media/test-cases.png)
+![Photograph of some of the test case models.](media/test-cases.png)
 
 The following table shows the number of particles for each model tested.
 
