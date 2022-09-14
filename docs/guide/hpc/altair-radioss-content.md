@@ -146,7 +146,7 @@ The following table provides the numbers of various elements in the the model.
 
 |Nodal points |Parts |Materials  |Property sets |Boundary conditions |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Gravity loads|Initial velocities|Accelerometers|Sensors|Interfaces|Rigid bodies|Added nodal masses|Rayleigh damping groups|Monitored volumes|
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
-| 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712||901|5|4|8|
+| 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
 ### <Results for X>
 
