@@ -1,5 +1,5 @@
 ---
-title: Process Azure Blob data with advanced analytics
+title: Process Azure Blob Storage data with advanced analytics
 description: Explore data and generate features from data stored in Azure Blob Storage using advanced analytics.
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 09/11/2022
+ms.date: 09/15/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
