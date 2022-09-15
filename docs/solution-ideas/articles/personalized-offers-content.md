@@ -6,9 +6,20 @@ Surfacing offers that are customized for the user has become essential to buildi
 
 Marketers have the unique opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. However, building a reliable and scalable big data infrastructure, and developing sophisticated machine learning models that personalize to each user isn't trivial.
 
+Intelligent Recommendations offers capabilities to drive desired outcomes such as item based recommendations based on user interactions and Metadata. It can be used to promote and personalize any content type such as sellable products, media, documents, offers and more.
+
+Personalizer service can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This ensures that the service is learning continuously and enhances the Personalizer's ability to select the best items based on the contextual information received.
+
 ## Potential use cases
 
-This solution applies to marketing of goods and services based on customer data (products viewed and / or purchased).
+This solution applies to marketing of goods and services based on customer data (products viewed and / or purchased). This could be applicable in the following areas:
+
+* **E-commerce** - This is an area where personalization is very widely used with customer behavior and product recommendations
+
+* **Retail** - Based on prior purchase data, recommendations and offers can be provided on products
+
+* **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited
+
 
 ## Architecture
 
@@ -17,17 +28,17 @@ This solution applies to marketing of goods and services based on customer data 
 
 ### Dataflow
 
-1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
-1. Personalized offer functionality is implemented as an Azure Function.
-    * This is the key function that ties everything together to produce an offer and record activity.
-    * Data is read in from Azure Cache for Redis and Azure CosmosDB SQL API, product affinity scores are computed from Azure Machine Learning
-    * If no history for the user exists, pre-computed affinities are read in from Azure Cache for Redis.
-1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
-1. The offer is returned to the User.
-    * In our simulation, this process is done by writing to an Azure Storage Queue, which is picked up by an Azure Function in order to produce the next user action.
+1. Raw User activity(product and offer clicks) and offers made to users on the website is captured with an Azure Function app to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure cache for Redis.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub.
-    * The aggregated data is sent to Azure CosmosDB SQL API.
-    * The raw data is sent to Azure Data Lake Storage.
+1. The aggregated data is sent to Azure CosmosDB SQL API.
+1. Power BI is used to look for insights on the aggregated data.
+1. The raw data is sent to Azure Data Lake Storage.
+1. Intelligent Recommendations uses the raw data from Azure Data Lake Storage and provides recommendations to Personalizer Service.
+1. Personalizer Service serves the top contextual and personalized products and offers.
+1. Simulated user activity data is provided to Personalizer service to provide personalized products and offers.
+1. The results are provided on the web app that the user is accessing 
+1. User feedback is captured based on the reaction of the user to the displayed offers and products and the reward score is provided to the Personalizer service to make it perform better over time
+1. Retraining for Intelligent Recommendations for better recommendations can also be done by using refreshed data from Azure Data Lake Storage.
 
 ### Components
 
