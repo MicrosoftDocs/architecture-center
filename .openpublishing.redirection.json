@@ -1799,6 +1799,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/aws/aws-azure-security-solutions.yml",
+      "redirect_url": "/azure/architecture/guide/aws/aws-azure-security-solutions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
