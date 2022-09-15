@@ -18,8 +18,11 @@ ms.category:
 categories: featured
 ---
 
+# Security considerations for mission-critical workloads
+
 The focus of this architecture is to maximize reliability so that the application remains performant and available. Security controls are only applied for the purposes of mitigating threats that impact availability and reliability. <lifted from WAF>
 
+> [!NOTE]
 > Your business requirements might call for more security measures. We highly recommend that you extend the controls in your implementation as per the guidance provided in [Misson critical guidance in Well-architected Framework: Security](/azure/architecture/framework/mission-critical/mission-critical-security).
 
 ## Identity and access management
@@ -213,11 +216,11 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ## Traffic ingress
 
-**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are additional capabilities which mission-critical workloads should utilize (as long as they work with HTTP).
+**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are additional capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
 
 ### Web Application Firewall
 
-**Web Application Firewall (WAF)** is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
+An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic which is passing through. WAF is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
 
 > [!TIP]
 > When deploying Front Door with WAF it's recommended to start with the **Detection** mode, closely monitor it's behavior with natural end-user traffic and fine-tune the detection rules. Once false-positives are eliminated, or rare, it's safe to switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
