@@ -7,15 +7,17 @@ Many organizations deploy a virtual networking architecture that follows the [hu
 
 A single subscription use case, both hub and all spoke virtual networks are in the same subscription.
 
-![Single Sub.png](single-subscription.png)
+![Diagram that demonstrates a single subscription.](single-subscription.png)
 
 ## Multiple subscriptions
 
 Another use case can be where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. The subscriptions all share a single Azure Active Directory tenant.
 
-![Multi Sub.png](multiple-subscription.png)
+![Diagram that demonstrates multiple subscriptions.](multiple-subscription.png)
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 - Running the script will result in outage or disconnections between the hub and spoke virtual networks. Execute it during an approved maintenance window.
 - Run `Get-Module -ListAvailable Az` to find the installed version. The script requires the Azure PowerShell module version 1.0.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
@@ -23,6 +25,12 @@ Another use case can be where the hub virtual network is in one subscription and
 - Consider assigning accounts, used for virtual network peering, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network peering permissions](/azure/virtual-network/virtual-network-manage-peering#permissions).
 - Assign accounts used to add IP address spaces, to the [Network Contributor](/azure/role-based-access-control/built-in-roles?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](/azure/role-based-access-control/custom-roles) containing the necessary actions found under [virtual network permissions](/azure/virtual-network/manage-virtual-network#permissions).
 - The IP address space that you want to add to the hub virtual network must not overlap with any of the IP address spaces of the spoke virtual networks that you intend to peer with the hub virtual network.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. There is no change to existing pricing when adding an additional IP address space to an Azure Virtual Network. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## Add the IP address range
 
@@ -99,11 +107,23 @@ foreach ($vNetPeering in $hubPeerings)
 
 ```
 
-## Pricing
-
-There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. There is no change to existing pricing when adding an additional IP address space to an Azure Virtual Network. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
-
 ## Next steps
 
 - Learn more about [managing Virtual Network peerings](/azure/virtual-network/virtual-network-manage-peering).
 - Learn more about [managing IP Address ranges](/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks.
+
+## Related resources
+
+Read more about hub and spoke architecture:
+
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture)
+- [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
+- [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
+
+Read more about virtual network architecture:
+
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
