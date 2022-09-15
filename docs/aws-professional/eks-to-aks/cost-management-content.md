@@ -3,7 +3,7 @@ The following article will guide you on how the pricing for AKS works, how you c
 Cost Governance is the continuous process of implementing policies or controls to limit spending or costs. Both native Kubernetes tooling and Azure tools can allow you to have proactive monitoring and optimize the underlying infrastructure costs.
 
 > [!NOTE]
-> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+> This article is part of a [series of articles](../index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## EKS Costs Basics
 
@@ -16,7 +16,7 @@ To better understand AKS pricing model, it is essential to distinguish between t
 - Control plane: provides the [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components/) (e.g., API Server, Etcd, etc.) and orchestration of application workloads. The Azure platform manages the AKS control plane, and you only pay for the AKS nodes that run your applications. For more information, see [control plane](/azure/aks/concepts-clusters-workloads#control-plane).
 - Agent Nodes: the nodes that will host your workloads, also known as worker Nodes. As shown in the following picture, agent nodes are fully-managed by customers. For more information on agent nodes and node pools, see [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
-![AKS architecture](./media/AKS_architecture.png)
+![AKS architecture](./media/aks-architecture.png)
 
 The control plane layer is automatically provisioned and configured whenever you deploy an AKS cluster. If you opt for the free tier, this is provided at [no cost](https://azure.microsoft.com/pricing/details/kubernetes-service/). Alternatively, you can create an AKS cluster with the [Uptime SLA](/azure/aks/uptime-sla) that enables a financially backed, higher SLA for the control plane. Uptime SLA is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. Clusters with Uptime SLA, also regarded as Paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met. AKS recommends the use of Uptime SLA in production workloads to provide a higher availability of control plane components. Clusters on free tier by contrast come with fewer replicas and limited resources for the control plane and are not suitable for production workloads. Aside from the control plane, you will create agent or worker nodes as part of one or [multiple node pools](/azure/aks/use-multiple-node-pools), you only pay for these nodes attached to the AKS cluster.
 

@@ -595,34 +595,20 @@ items:
                     maintainContext: true
               - name: AKS for AWS
                 items:
-                  - name: Azure Kubernetes Service for EKS professionals
-                    href: aws-professional/eks-to-aks/index.yml
+                  - name: AKS for EKS professionals
+                    href: aws-professional/eks-to-aks/index.md
                   - name: Identity and access management
-                    items:
-                      - name: Workload Identity
-                        href: aws-professional/eks-to-aks/iam/workload-identity.yml
+                    href: aws-professional/eks-to-aks/workload-identity.yml
                   - name: Cluster observability and monitoring
-                    items:
-                      - name: Kubernetes Monitoring and Logging
-                        href: aws-professional/eks-to-aks/monitoring/monitoring.yml
-                  - name: Network topologies
-                    items:
-                    - name: Secure network access to Kubernetes API
-                      href: aws-professional/eks-to-aks/networking/private-clusters.yml
+                    href: aws-professional/eks-to-aks/monitoring.yml
+                  - name: Network topologies and security
+                    href: aws-professional/eks-to-aks/private-clusters.yml
                   - name: Storage options
-                    items:
-                      - name: Kubernetes Storage
-                        href: aws-professional/eks-to-aks/storage/storage.yml
-                  - name: Cost management and optimizations
-                    items:
-                      - name: Kubernetes Cost Management
-                        href: aws-professional/eks-to-aks/cost-management/cost-management.yml
-                  - name: Management
-                    items:
+                    href: aws-professional/eks-to-aks/storage.md
+                  - name: Cost management and optimization
+                    href: aws-professional/eks-to-aks/cost-management.yml
                   - name: Agent node management
-                    items:
-                      - name: Manage Kubernetes agent nodes
-                        href: aws-professional/eks-to-aks/nodes/node-pools.yml
+                    href: aws-professional/eks-to-aks/node-pools.yml
               - name: Migration from AWS
                 items:
                   - name: Azure Migrate

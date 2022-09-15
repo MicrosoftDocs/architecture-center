@@ -1,7 +1,7 @@
 The following article will guide you on how to establish a secure connection to the managed API Server of an Azure Kubernetes Service (AKS) cluster and the different options to restrict the public network access.
 
 > [!NOTE]
-> This article is an integral part of a [series of articles](../index.yml) whose goal is to help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS).
+> This article is part of a [series of articles](../index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS Networking Modes
 
@@ -31,7 +31,7 @@ Using a private AKS cluster, you can ensure that the network traffic between you
 
 The control plane or API server is hosted in an Azure Kubernetes Service (AKS) cluster in an Azure-managed subscription, while the AKS cluster and its node pools are in the customer's subscription.
 
-  ![Private AKS Cluster](./media/private_aks_cluster.png)
+![Private AKS Cluster](./media/private-aks-cluster.png)
 
 When you provision a private AKS cluster, the AKS resource provider creates a private FQDN within the [node resource group](/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group) with a private DNS zone and an additional public FQDN with a corresponding A record in the Azure public DNS zone. The agent nodes will use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. You can let the AKS resource provider create the private DNS Zone in the [node resource group](/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group) of your cluster or create your own private DNS zone and pass its resource id to the provisioning system no matter if you use [Terraform with Azure](/azure/developer/terraform/overview), [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [ARM templates](/azure/azure-resource-manager/templates/overview), [Azure CLI](/cli/azure/), [Azure PowerShell module](/powershell/azure/?view=azps-7.3.0), or [Azure REST API](/rest/api/azure/) to create the cluster.
 
