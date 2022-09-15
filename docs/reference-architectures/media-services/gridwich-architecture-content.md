@@ -8,6 +8,8 @@ The Gridwich architecture features two *sandwiches* that address the requirement
 
   ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
 
+  *Download a [Visio file](https://arch-center.azureedge.net/gridwich-architecture.vsdx) of this architecture.*
+
 - The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code). Separating infrastructure and software releases means the Azure Functions app must be released and running before Terraform can deploy the Event Grid subscription. To address this requirement, there are two Terraform jobs in the CI/CD pipeline:
 
   ![Diagram showing the Terraform sandwich jobs.](media/terraform-sandwich.png)
@@ -32,7 +34,6 @@ The following steps describe the request and response process between an externa
 
   ![Diagram showing the Gridwich request-response process.](media/gridwich-overview.png)
 
-  *Download a [Visio file](https://arch-center.azureedge.net/gridwich-architecture.vsdx) of this architecture.*
 
 1. The external system creates a request and sends it to the request broker.
 
