@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Enterprise business intelligence
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse and transforms the data for analysis.
   author: galinagpolyakova
   ms.author: gapolyak, costarnoah, gstevens
