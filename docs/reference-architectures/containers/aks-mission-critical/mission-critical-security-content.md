@@ -170,7 +170,44 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ## Verify explicitly
 
-- Front Door WAF, TLS-encrypted.
+**Azure Front Door** serves as the global load balancer in the reference implementation. Because web application traffic passes through Front Door (unlike Traffic Manager), it is able to provide additional capabilities that mission-critical workloads should utilize (as long as they work through HTTP).
+
+### Web Application Firewall
+
+**Web Application Firewall (WAF)** is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
+
+> [!TIP]
+> When deploying Front Door with WAF it's recommended to start with the **Detection** mode, closely monitor it's behavior with natural end-user traffic and fine-tune the detection rules. Once false-positives are eliminated, or rare, it's safe to switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
+
+### Custom domains and TLS
+
+The reference implementation fully supports custom domain names, e.g. `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
+
+To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these automatically to an Azure Front Door instance.
+
+**Front Door-managed SSL certificates** are also enabled, which means that there is no need for manual SSL certificate renewals.
+
+```terraform
+#
+# /src/infra/workload/globalresources/frontdoor.tf
+#
+resource "azurerm_frontdoor_custom_https_configuration" "custom_domain_https" {
+  count                             = var.custom_fqdn != "" ? 1 : 0
+  frontend_endpoint_id              = "${azurerm_frontdoor.main.id}/frontendEndpoints/${local.frontdoor_custom_frontend_name}"
+  custom_https_provisioning_enabled = true
+
+  custom_https_configuration {
+    certificate_source = "FrontDoor"
+  }
+}
+```
+
+Environments which are not provisioned with custom domains can be accessed through the default Front Door endpoint, for example `env123.azurefd.net`.
+
+> [!NOTE]
+> On the cluster ingress controllers, custom domains are not used in either case; instead an Azure-provided DNS name such as `[prefix]-cluster.[region].cloudapp.azure.com` is used with Let's Encrypt enabled to issue free SSL certificates for those endpoints. Jetstack's cert-manager is used to auto-provision SSL/TLS Let's encrypt certificates for ingress rules. It is installed via the `cert-manager` Helm chart as part of the configuration stage.
+
+### Routing
 
 Only requests coming through Azure Front Door will be routed to the API containers (`CatalogService` and `HealthService`). This is enforced by using an Nginx ingress configuration which checks the `X-Azure-FDID` header - not just the presence of it, but also if it's the right one for the global Front Door instance of a particular environment.
 
