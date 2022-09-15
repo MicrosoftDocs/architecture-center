@@ -2,10 +2,6 @@
 
 This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 
-## Potential use cases
-
-This specific scenario is based on a gaming scenario, for the game development industry. The design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
-
 ## Architecture
 
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
@@ -45,6 +41,12 @@ This architecture includes the following components:
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option that allows applications to run on-demand without having to manage infrastructure.
 
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+
+## Scenario details
+
+### Potential use cases
+
+This specific scenario is based on a gaming scenario, for the game development industry. The design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Next steps
 
