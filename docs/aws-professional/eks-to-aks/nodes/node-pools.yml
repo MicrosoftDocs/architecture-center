@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Manage Kubernetes agent nodes
+  description: Compare how to add, update, create, and delete agent nodes in Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS).
+  author: paolosalvatori
+  ms.author: paolos
+  ms.date: 07/08/22
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - containers
+  - compute
+products:
+  - azure-kubernetes-service
+  - azure-virtual-machines
+name: Manage Kubernetes agent nodes
+summary: Compare how to add, update, create, and delete agent nodes in Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS).
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+content: |
+   [!include[](node-pools-content.md)]

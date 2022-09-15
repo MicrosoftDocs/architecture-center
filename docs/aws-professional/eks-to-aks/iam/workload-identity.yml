@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title:  Kubernetes Workload Identity
+  description: Understand how pods can access PaaS services using a security token issued by Azure AD without the need of explicit credentials.
+  author: paolosalvatori
+  ms.author: paolos, mgjoshevski, gonzaloru
+  ms.date: 07/08/22
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - containers
+  - identity
+products:
+  - azure-kubernetes-service
+  - azure-active-directory
+name:  Kubernetes Workload Identity
+summary: Understand how pods can access PaaS services using a security token issued by Azure AD without the need of explicit credentials.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+content: |
+   [!include[](workload-identity-content.md)]

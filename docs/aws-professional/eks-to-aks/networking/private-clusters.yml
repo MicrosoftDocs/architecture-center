@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure network access to Kubernetes API
+  description: Understand how to secure network access to Kubernetes API.
+  author: paolosalvatori
+  ms.author: paolos, yherziger, mgjoshevski
+  ms.date: 07/08/22
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - containers
+  - compute
+products:
+  - azure-kubernetes-service
+  - azure-virtual-network
+  - azure-private-link
+  - azure-dns
+name: Secure network access to Kubernetes API
+summary: Understand how to secure network access to Kubernetes API.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+content: |
+   [!include[](private-clusters-content.md)]

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Kubernetes Service for EKS professionals
+  description: Learn about Azure Kubernetes Service as a managed solution, configurations, best practices, similarities and differences with AWS EKS.
+  author: lanicolas
+  ms.author: lanicola, paolos
+  ms.date: 07/19/22
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories: 
+  - containers
+  - compute
+products:
+  - azure-kubernetes-service
+name: Azure Kubernetes Service for EKS professionals
+summary: Learn about Azure Kubernetes Service as a managed solution, configurations, best practices, similarities and differences with AWS EKS.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+content: |
+   [!include[](index-content.md)]
