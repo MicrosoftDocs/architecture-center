@@ -179,7 +179,6 @@ During a load test it was identified that each instance is expected to handle ~2
 
 The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (this limit should be based on the number of partitions used in the Event Hubs - there's no benefit in having more workers than partitions).
 
-
 |Component           |`minReplicas`  |`maxReplicas`      |
 |--------------------|---------------|-------------------|
 |CatalogService      |3              |20                 |
