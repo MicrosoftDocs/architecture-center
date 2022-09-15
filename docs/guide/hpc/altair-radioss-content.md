@@ -76,7 +76,7 @@ Before you install Radioss, you need to deploy and connect a Linux VM and instal
 
 For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing AcuSolve and License Manager and activating your license on Altair One Marketplace. For multi-mode installation, see the next section.
+You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing Radioss and License Manager and activating your license on Altair One Marketplace. For multi-mode installation, see the next section.
 
 ## Multi-mode configuration
 
@@ -101,7 +101,7 @@ To set up an HPC cluster on Azure, complete these steps:
 3.  [Connect to the head node (the
     scheduler)](/azure/cyclecloud/how-to/connect-to-node)
 
-For multi-mode configurations, the AcuSolve installation process is the
+For multi-mode configurations, the Radioss installation process is the
 same as the process described previously for a single node, except for
 the path to the installation directory:
 
@@ -115,8 +115,8 @@ the path to the installation directory:
     Services](https://azure.microsoft.com/services/active-directory-ds).
 -   To authorize multi-node VMs to access License Manager, you need to
     include your authorization code in the job script. For more
-    information about installing AcuSolve, see [Altair One
-    Marketplace](https://altairone.com/Marketplace?queryText=acusolve).
+    information about installing Radioss, see [Altair One
+    Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info).
 
 ## Radioss performance results
 
@@ -126,31 +126,21 @@ Radioss was tested in single-node and multi-mode configurations. Computation tim
 |---------|---------|---------|
 |    CentOS Linux release 8.1.1911 (Core) |  x86-64       |         Intel MPI    |
 
-The Neon and Taurus test case models were used as test cases.
+### Results for a single-node configuration
 
-This image shows the Neon model:
+Nonlinear finite-element analysis was performed to test Radioss on a single node for various numbers of CPUs. See the table in the [Compute sizing and drivers](#compute-sizing-and-drivers) section of this article for details about the VMs.
+
+The Neon model was used as a test case:
 
 :::image type="content" source="media/altair-radioss/neon.png" alt-text="Figure that shows the Neon model.":::
 
-The following table provides the numbers of various elements in the the model.
+The following table provides the numbers of various elements in the model.
 
 |Nodal points |Parts |Materials  |Property sets  |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Accelerometers|Interfaces|Rigid walls|Rigid bodies|Added nodal masses|
 |---------|---------|---------|---------|-|-|-|-|-|-|-|-|-|-|
 |1,096,865 |340|21|148|2,860|1,054,611|63|4,180|176|7|18|1|694|273|
 
-This image shows the Taurus model:
-
-:::image type="content" source="media/altair-radioss/taurus.png" alt-text="Figure that shows the Taurus model.":::
-
-The following table provides the numbers of various elements in the the model.
-
-|Nodal points |Parts |Materials  |Property sets |Boundary conditions |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Gravity loads|Initial velocities|Accelerometers|Sensors|Interfaces|Rigid bodies|Added nodal masses|Rayleigh damping groups|Monitored volumes|
-|---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
-| 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
-
-### Results for a single-node configuration
-
-Nonlinear finite-element analysis was performed to test Radioss on a single node for various numbers of CPUs. See the table in the [Compute sizing and drivers](#compute-sizing-and-drivers) section of this article for details about the VMs. The following table presents the results, in wall-clock time, in seconds.
+The following table presents the results, in wall-clock time, in seconds.
 
 |Model| Simulation time (ms) || 16 CPUs | 32 CPUs |64 CPUs|96 CPUs|120 CPUs|
 |-----|-|-|--|---------|-------|--|---------|
@@ -159,7 +149,6 @@ Nonlinear finite-element analysis was performed to test Radioss on a single node
 |  Neon   |      8   |  Total runtime       |  442.26       |269.56|173.09|160.92|160.2|
 
 The following table shows the relative speed increase for each increase in number of CPUs.
-
 
 | Model | 16 CPUs | 32 CPUs |64 CPUs|96 CPUs|120 CPUs|
 |-------|--|--|-------|---------|---------|
@@ -170,6 +159,16 @@ The following table shows the relative speed increase for each increase in numbe
 ### Results for a multi-node configuration
 
 As the preceding performance results show, a [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VM with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+
+The Taurus model was used as a test case:
+
+:::image type="content" source="media/altair-radioss/taurus.png" alt-text="Figure that shows the Taurus model.":::
+
+The following table provides the numbers of various elements in the model.
+
+|Nodal points |Parts |Materials  |Property sets |Boundary conditions |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Gravity loads|Initial velocities|Accelerometers|Sensors|Interfaces|Rigid bodies|Added nodal masses|Rayleigh damping groups|Monitored volumes|
+|---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
+| 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
 The following table shows the elapsed wall-clock time, in hours, for the test runs.
 
