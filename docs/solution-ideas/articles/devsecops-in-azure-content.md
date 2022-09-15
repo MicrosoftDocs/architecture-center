@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Security is a prime concern for businesses that access or store any sort of customer or client data. The DevSecOps approach utilizes security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.
-
-## Potential use cases
-
-Some organizations utilize DevSecOps:
-
-- To help developers write more secure code, embracing security best practices.
-- To respond quickly to software supply chain vulnerabilities.
-- So teams can collaborate and release code faster and more securely.
+DevSecOps prioritizes security throughout the  development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
 
 ## Architecture
 
@@ -48,13 +40,19 @@ Some organizations utilize DevSecOps:
 - Using [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects logs and metrics from AKS. You get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 - Using [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
 
+## Potential use cases
+
+Some organizations utilize DevSecOps:
+
+- To help developers write more secure code, embracing security best practices.
+- To respond quickly to software supply chain vulnerabilities.
+- So teams can collaborate and release code faster and more securely.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
-
- * [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
+Principal author: [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
 ## Next steps
 
