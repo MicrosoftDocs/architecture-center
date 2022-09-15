@@ -1,4 +1,4 @@
-+tcVISION is a data replication solution. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
+tcVISION is a data replication solution from BOS Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
 
 ## Architecture
 
