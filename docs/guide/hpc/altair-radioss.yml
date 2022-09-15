@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy Altair Radioss on an Azure virtual machine
-  description: Learn how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine. 
+  description: Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine. 
   author: gauharjunnarkar
   ms.author: gajunnar
   ms.date: 9/16/2022
@@ -15,7 +15,7 @@ products:
   - azure-virtual-network
   - azure-cyclecloud
 name: Deploy Altair Radioss on an Azure virtual machine
-summary: Learn how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine. 
+summary: Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine. 
 thumbnailUrl: /azure/architecture/browse/thumbs/altair-radioss-thumb.png
 content: |
   [!include[](altair-radioss-content.md)]

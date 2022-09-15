@@ -35,7 +35,7 @@ architecture.*
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create Linux VMs. 
+    used to create a Linux VM. 
     -   For information about deploying the VM and installing the
         drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 -   [Azure Virtual
@@ -43,7 +43,7 @@ architecture.*
     used to create a private network infrastructure in the cloud. 
     -   [Network security
         groups](/azure/virtual-network/network-security-groups-overview)
-        are used to restrict access to the VMs.  
+        are used to restrict access to the VM.  
     -   A public IP address connects the internet to the VM.   
 -   [Azure
     CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud)
@@ -76,9 +76,9 @@ Before you install Radioss, you need to deploy and connect a Linux VM and instal
 
 For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing Radioss and License Manager and activating your license on Altair One Marketplace. For multi-mode installation, see the next section.
+You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing Radioss and License Manager and activating your license on Altair One Marketplace. For multi-node installation, see the next section.
 
-## Multi-mode configuration
+## Multi-node configuration
 
 You can easily deploy an HPC cluster on Azure by using [Azure
 CycleCloud](/azure/cyclecloud/overview).
@@ -95,13 +95,13 @@ Azure Marketplace image.
 To set up an HPC cluster on Azure, complete these steps:
 
 1.  [Install and configure Azure
-    CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+    CycleCloud.](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
 2.  [Create an HPC cluster from built-in
-    templates](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+    templates.](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
 3.  [Connect to the head node (the
-    scheduler)](/azure/cyclecloud/how-to/connect-to-node)
+    scheduler).](/azure/cyclecloud/how-to/connect-to-node)
 
-For multi-mode configurations, the Radioss installation process is the
+For multi-node configurations, the Radioss installation process is the
 same as the process described previously for a single node, except for
 the path to the installation directory:
 
@@ -113,14 +113,14 @@ the path to the installation directory:
     HPC Cache](https://azure.microsoft.com/services/hpc-cache),
     or [Azure Active Directory Domain
     Services](https://azure.microsoft.com/services/active-directory-ds).
--   To authorize multi-node VMs to access License Manager, you need to
+-   To authorize multi-node VMs to access License Manager, 
     include your authorization code in the job script. For more
     information about installing Radioss, see [Altair One
     Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info).
 
 ## Radioss performance results
 
-Radioss was tested in single-node and multi-mode configurations. Computation time (wall-clock time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details. 
+Radioss was tested in single-node and multi-node configurations. Computation time (wall-clock time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details. 
 
 |  Operating system version  | OS architecture     |  MPI|
 |---------|---------|---------|
