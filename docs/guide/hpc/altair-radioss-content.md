@@ -1,12 +1,12 @@
 This article briefly describes the steps for running Altair Radioss on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Radioss on Azure.
 
-Radioss is a multidisciplinary finite-element solver for linear and non-linear problems.  It’s used to predict crash response, dynamic, transient-loading effects on vehicles, structures, and other products. Radioss:
+Radioss is a multidisciplinary finite-element solver for linear and nonlinear problems.  It’s used to predict crash response and dynamic, transient-loading effects on vehicles, structures, and other products. Radioss:
 - Uses battery and module macro models for crash events, road debris impacts, and shocks to simulate mechanical failures that cause electrical short circuits, thermal runaway, and risk of fire.
 - Provides a composite shell element with delamination tracking and a fast parabolic tetra element.
 - Implements extensive material laws and rupture criteria for crack propagation in brittle materials like windshields.
-- Provides a fast solution for airbag deployment that uses finite volume method technology.
+- Provides a fast solution for airbag deployment that uses finite-volume method technology.
 
-Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems combining structures, mechanisms, fluids, thermal, and electromagnetic effects.
+Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects.
 
 ## Why deploy Radioss on Azure?
 
@@ -105,7 +105,7 @@ For multi-mode configurations, the Radioss installation process is the
 same as the process described previously for a single node, except for
 the path to the installation directory:
 
--   You need to select **/shared** for the Installation directory path
+-   You need to select **/shared** for the installation directory path
     so that the directory is accessible for all nodes.
 -   The shared folder path depends on your network attached storage
     service, like an NFS server, BeeGFS cluster, [Azure NetApp
@@ -128,7 +128,7 @@ Radioss was tested in single-node and multi-mode configurations. Computation tim
 
 ### Results for a single-node configuration
 
-Nonlinear finite-element analysis was performed to test Radioss on a single node for various numbers of CPUs. See the table in the [Compute sizing and drivers](#compute-sizing-and-drivers) section of this article for details about the VMs.
+Nonlinear finite-element analysis was performed to test Radioss on a single node with various numbers of CPUs. See the table in the [Compute sizing and drivers](#compute-sizing-and-drivers) section of this article for details about the VMs.
 
 The Neon model was used as a test case:
 
