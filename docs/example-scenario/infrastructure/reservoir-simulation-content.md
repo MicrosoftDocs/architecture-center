@@ -6,6 +6,8 @@
 
 ![Architecture diagram][architecture]
 
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-reservoir-simulation.vsdx) of this architecture.*
+
 ### Workflow
 
 This diagram offers a high-level overview of the architecture used in the example. The workflow is as follows:
