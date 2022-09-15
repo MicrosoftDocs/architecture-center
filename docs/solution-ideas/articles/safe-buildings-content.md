@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
-
-The solution monitors critical insights so you can act and respond to risks. It also builds confidence that you're focused on making sure people are safe. The measurements the solution reacts to are: human body temperature, effective physical distancing, hand sanitization compliance, and air quality tracking.
-
-By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. The solution collects biometric and environmental data from different devices. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
-
-## Potential use cases
-
-**Safe Buildings** adapts to stores, offices, factories, warehouses, recreation spaces, hotels, and restaurants. It's adaptable to any interior space where people congregate. This solution is ideal for the facilities, real estate, retail, travel and hospitality, and healthcare industries.
+By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. The solution collects biometric and environmental data from different devices. When the system detects any deviation to health and safety protocol in a building, the solution activates.
 
 ## Architecture
 
@@ -77,6 +69,18 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 * [Azure Functions](https://azure.microsoft.com/services/functions) lets you build and debug locally without another setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
 * In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure API Management](https://azure.microsoft.com/services/api-management), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs), [Azure Container Registry](https://azure.microsoft.com/services/container-registry), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Key Vault](https://azure.microsoft.com/services/key-vault), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs), [Azure VMs](https://azure.microsoft.com/services/virtual-machines), and [Azure Web Apps](https://azure.microsoft.com/services/app-service/web).
+
+## Scenario details
+
+The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
+
+The solution monitors critical insights so you can act and respond to risks. It also builds confidence that you're focused on making sure people are safe. The measurements the solution reacts to are: human body temperature, effective physical distancing, hand sanitization compliance, and air quality tracking.
+
+By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. The solution collects biometric and environmental data from different devices. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
+
+### Potential use cases
+
+**Safe Buildings** adapts to stores, offices, factories, warehouses, recreation spaces, hotels, and restaurants. It's adaptable to any interior space where people congregate. This solution is ideal for the facilities, real estate, retail, travel and hospitality, and healthcare industries.
 
 ## Next steps
 

@@ -165,7 +165,7 @@ export const protectedResourceMap: [string, string[]][] = [
 ];
 ```
 
-When your client application attempts to access the resource, the MSAL Client Library authenticates to Azure AD through a hidden iframe, and then returns a bearer token for the resource. The bearer token is only added for requests that match the endpoint, in this case https://localhost:5001/api/weatherforecast.
+When your client application attempts to access the resource, the MSAL Client Library authenticates to Azure AD through a hidden iframe, and then returns a bearer token for the resource. The bearer token is only added for requests that match the endpoint, in this case `https://localhost:5001/api/weatherforecast`.
 
 If the API you configured with the relevant app registrations receives a bearer token with an invalid application ID URI, it rejects the request and returns a 401 unauthorized message.
 

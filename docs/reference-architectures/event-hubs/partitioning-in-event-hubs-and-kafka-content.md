@@ -79,7 +79,7 @@ Use these guidelines to decide how many partitions to use:
 - To avoid starving consumers, use at least as many partitions as consumers. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that subscribe will have to wait. Alternatively, you can keep one or two consumers ready to receive events when an existing consumer fails.
 - Use more keys than partitions. Otherwise, some partitions won't receive any events, leading to unbalanced partition loads.
 - In both Kafka and Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, avoid making that change if you use keys to preserve event ordering. The reason involves the following facts:
-  - Customers rely on certain partitions and the order of the events they contain.
+  - Consumers rely on certain partitions and the order of the events they contain.
   - When the number of partitions changes, the mapping of events to partitions can change. For instance, when the partition count changes, this formula can produce a different assignment:
     `partition assignment = hash  key % number of partitions`
   - Kafka and Event Hubs don't attempt to redistribute events that arrived at partitions before the shuffle. As a result, the guarantee no longer holds that events arrive at a certain partition in publication order.

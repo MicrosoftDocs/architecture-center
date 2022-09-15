@@ -1,17 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates how end manufacturers can connect their assets to the cloud using [Open Platform Communication Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) and the [Microsoft Industrial Components](https://azure.github.io/Industrial-IoT/industrial-iot-components.html). They can monitor their equipment's key parameters to discover anomalies before they become critical issues. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
-
-## Potential use cases
-
-* Manufacturing
-* Electrical power and energy
-* Construction and facilities
-* Upstream oil and gas
+This solution idea demonstrates how end manufacturers can connect their assets to the cloud using [Open Platform Communication Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) and the [Microsoft Industrial Components](https://azure.github.io/Industrial-IoT/industrial-iot-components.html).
 
 ## Architecture
 
-[ ![Diagram showing the architecture.](../media/condition-monitoring.svg) ](../media/condition-monitoring.svg#lightbox)
+[ ![Diagram showing the architecture.](../media/condition-monitoring-new.png) ](../media/condition-monitoring.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/condition-monitoring.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -50,6 +45,17 @@ Data is loaded from these different data sources using several Azure components:
 - [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics and complex event-processing engine that is designed to analyze and process high volumes of fast streaming data from multiple sources simultaneously. Patterns and relationships can be identified in information extracted from many input sources including devices, sensors, clickstreams, social media feeds, and applications.
 - [Azure Functions](/azure/azure-functions) allows you to run small pieces of code called functions without worrying about application infrastructure. Azure Function is a great solution for processing bulk data, integrating systems, working with IoT, and building simple APIs and microservices.
+
+## Scenario details
+
+Manufacturers can monitor their equipment's key parameters to discover anomalies before they become critical issues. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
+
+### Potential use cases
+
+* Manufacturing
+* Electrical power and energy
+* Construction and facilities
+* Upstream oil and gas
 
 ## Next steps
 

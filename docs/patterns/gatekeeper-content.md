@@ -1,10 +1,10 @@
-Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. This can provide an additional layer of security, and limit the attack surface of the system.
+Protect applications and services using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. This can provide an additional layer of security and limit the system's attack surface.
 
 ## Context and problem
 
-Applications expose their functionality to clients by accepting and processing requests. In cloud-hosted scenarios, applications expose endpoints clients connect to, and typically include the code to handle the requests from clients. This code performs authentication and validation, some or all request processing, and is likely to accesses storage and other services on behalf of the client.
+Applications expose their functionality to clients by accepting and processing requests. In cloud-hosted scenarios, applications expose endpoints clients connect to, and typically include the code to handle the requests from clients. This code performs authentication and validation, some or all request processing, and is likely to access storage and other services on behalf of the client.
 
-If a malicious user is able to compromise the system and gain access to the application's hosting environment, the security mechanisms it uses such as credentials and storage keys, and the services and data it accesses, are exposed. As a result, the malicious user can gain unrestrained access to sensitive information and other services.
+If a malicious user can compromise the system and gain access to the application's hosting environment, the security mechanisms it uses, such as credentials and storage keys, and the services and data it accesses, are exposed. As a result, the malicious user can gain unrestricted access to sensitive information and other services.
 
 ## Solution
 
@@ -24,19 +24,19 @@ This pattern acts like a firewall in a typical network topography. It allows the
 
 Consider the following points when deciding how to implement this pattern:
 
-- Ensure that the trusted hosts the gatekeeper passes requests to expose only internal or protected endpoints, and connect only to the gatekeeper. The trusted hosts shouldn't expose any external endpoints or interfaces.
+- Ensure that the trusted hosts the gatekeeper passes requests to expose only internal or protected endpoints and connect only to the gatekeeper. The trusted hosts shouldn't expose any external endpoints or interfaces.
 - The gatekeeper must run in a limited privilege mode. Typically this means running the gatekeeper and the trusted host in separate hosted services or virtual machines.
-- The gatekeeper shouldn't perform any processing related to the application or services, or access any data. Its function is purely to validate and sanitize requests. The trusted hosts might need to perform additional validation of requests, but the core validation should be performed by the gatekeeper.
+- The gatekeeper shouldn't perform any processing related to the application or services or access any data. Its function is purely to validate and sanitize requests. The trusted hosts might need to perform additional requests validation, but the gatekeeper should perform the core validation.
 - Use a secure communication channel (HTTPS, SSL, or TLS) between the gatekeeper and the trusted hosts or tasks where this is possible. However, some hosting environments don't support HTTPS on internal endpoints.
-- Adding the extra layer to the application to implement the gatekeeper pattern is likely to have some impact on performance due to the additional processing and network communication it requires.
+- Adding the extra layer to the application to implement the gatekeeper pattern will likely impact performance due to the additional processing and network communication required.
 - The gatekeeper instance could be a single point of failure. To minimize the impact of a failure, consider deploying additional instances and using an autoscaling mechanism to ensure capacity to maintain availability.
 
 ## When to use this pattern
 
-This pattern is useful for:
+This pattern is helpful for:
 
 - Applications that handle sensitive information, expose services that must have a high degree of protection from malicious attacks, or perform mission-critical operations that shouldn't be disrupted.
-- Distributed applications where it's necessary to perform request validation separately from the main tasks, or to centralize this validation to simplify maintenance and administration.
+- Distributed applications where it's necessary to perform request validation separately from the main tasks or to centralize this validation to simplify maintenance and administration.
 
 ## Example
 
@@ -44,6 +44,6 @@ In a cloud-hosted scenario, this pattern can be implemented by decoupling the ga
 
 ![An example of the pattern using Cloud Services web and worker roles](./_images/gatekeeper-endpoint.png)
 
-## Related guidance
+## Related resources
 
-The [Valet Key pattern](./valet-key.yml) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes how to use a token or key that provides clients with restricted, direct access to a specific resource or service.
+The [Valet Key pattern](./valet-key.yml) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes using a token or key that provides clients with restricted, direct access to a specific resource or service.

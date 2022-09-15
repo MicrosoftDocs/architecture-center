@@ -2,28 +2,13 @@
 
 Your organization needs to ingest data of any format, size, and speed into the cloud in a consistent way. The solution in this article meets that need with an architecture that implements extract, transform, and load (ETL) from your data sources to a data lake. The data lake can hold all the data, including transformed and curated versions at various scales. The data can be used for SQL analytics, business intelligence (BI), reporting, data science, and machine learning.
 
-Ingestion, ETL, and stream processing with Azure Databricks is simple, open, and collaborative:
-
-- **Simple**: An open data lake with a curated layer in an open-source format simplifies the data architecture. Delta Lake, an open-source tool, provides access to the Azure Data Lake Storage data lake. Delta Lake on Data Lake Storage supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for efficient ingestion, processing, and queries.
-- **Open**: The solution supports open-source code, open standards, and open frameworks. It also works with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the solution works with a broad range of other services, too.
-- **Collaborative**: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
-
-Azure Databricks seamlessly integrates with other Azure services like Data Lake Storage, Azure Data Factory, Azure Event Hubs, and Azure IoT Hub.
-
-## Potential use cases
-
-This solution is inspired by the system that [Providence Health Care](https://customers.microsoft.com/story/862036-providence-health-provider-azure) built for real-time analytics. Any industry that ingests batch or streaming data could also consider this solution. Examples include:
-
-- Retail and e-commerce
-- Finance
-- Healthcare and life sciences
-- Energy suppliers
-
 ## Architecture
 
 :::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.png" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." border="false":::
 
-*Download an [SVG](../media/ingest-etl-and-stream-processing-with-azure-databricks.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ingest-etl-and-stream-processing-with-azure-databricks.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Data is ingested in the following ways:
 
@@ -45,7 +30,7 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
   - The **COPY INTO** command. Use the command to copy data directly from a source file or directory into Delta Lake.
   - The Azure Databricks Auto Loader. The Auto Loader grabs files when they arrive in the data lake and writes them to the Delta Lake format.
   - The Data Factory Copy Activity. Customers can use this option to convert the data from any of its supported formats into the Delta Lake format.
-- **Silver** tables store data while it's being optimized for BI and data science use cases. The Bronze layer ingests raw data, and then more ETL and stream processing tasks are done to filter, clean, transform, join, and aggregate the data into Silver curated datasets. Companies can use a consistent compute engine, like the open-standards [Delta Engine](/azure/databricks/delta/optimizations), when using Azure Databricks as the initial service for these tasks. They can then use familiar programming languages like SQL, Python, R, or Scala.  Companies can also use repeatable DevOps processes and ephemeral compute clusters sized to their individual workloads.
+- **Silver** tables store data while it's being optimized for BI and data science use cases. The Bronze layer ingests raw data, and then more ETL and stream processing tasks are done to filter, clean, transform, join, and aggregate the data into Silver curated datasets. Companies can use a consistent compute engine, like the open-standards [Delta Engine](/azure/databricks/optimizations), when using Azure Databricks as the initial service for these tasks. They can then use familiar programming languages like SQL, Python, R, or Scala.  Companies can also use repeatable DevOps processes and ephemeral compute clusters sized to their individual workloads.
 - **Gold** tables contain enriched data, ready for analytics and reporting. Analysts can use their method of choice, such as PySpark, Koalas, SQL, Power BI, and Excel to gain new insights and formulate queries.
 
 ### Components
@@ -56,6 +41,26 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 - [Azure Databricks](/azure/azure-databricks) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
 - [IoT Hub](https://azure.microsoft.com/services/iot-hub) gives you highly secure and reliable communication between your IoT application and devices.
 - [Delta Lake](https://delta.io) on Data Lake Storage supports ACID transactions for reliability and is optimized for efficient ingestion, processing, and queries.
+
+## Scenario details
+
+
+Ingestion, ETL, and stream processing with Azure Databricks is simple, open, and collaborative:
+
+- **Simple**: An open data lake with a curated layer in an open-source format simplifies the data architecture. Delta Lake, an open-source tool, provides access to the Azure Data Lake Storage data lake. Delta Lake on Data Lake Storage supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for efficient ingestion, processing, and queries.
+- **Open**: The solution supports open-source code, open standards, and open frameworks. It also works with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the solution works with a broad range of other services, too.
+- **Collaborative**: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
+
+Azure Databricks seamlessly integrates with other Azure services like Data Lake Storage, Azure Data Factory, Azure Event Hubs, and Azure IoT Hub.
+
+### Potential use cases
+
+This solution is inspired by the system that [Providence Health Care](https://customers.microsoft.com/story/862036-providence-health-provider-azure) built for real-time analytics. Any industry that ingests batch or streaming data could also consider this solution. Examples include:
+
+- Retail and e-commerce
+- Finance
+- Healthcare and life sciences
+- Energy suppliers
 
 ## Next steps
 

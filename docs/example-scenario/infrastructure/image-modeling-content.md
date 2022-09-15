@@ -1,22 +1,10 @@
 This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
-## Potential use cases
-
-Relevant use cases include:
-
-- Modeling and measuring buildings, engineering structures, and forensic accident scenes.
-- Creating visual effects for computer games and movies.
-- Using digital images to indirectly generate measurements of objects of various scales as in urban planning and other applications.
-
 ## Architecture
 
-This example describes the use of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry.
+![Diagram showing architecture of image-based modeling using Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.png)
 
-The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
-
-This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
-
-![architecture diagram](./media/architecture-image-modeling.png)
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-image-modeling.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -46,7 +34,25 @@ This architecture also includes Active Directory domain controllers to control a
 - Deploy the storage solution of your choice, such as GlusterFS, Lustre, or Windows Storage Spaces Direct. To do this, edit the [PhotoScan template](https://github.com/paulomarquesc/photoscan-template) to work with the storage solution you want.
 - Deploy the worker nodes with the Windows operating system instead of Linux, the default option. When choosing Windows nodes, storage integration options are not executed by the deployment templates. You must manually integrate the environment with an existing storage solution, or customize the PhotoScan template to provide such automation, as described in the [repository](https://github.com/paulomarquesc/photoscan-template/blob/master/docs/AverePostDeploymentSteps.md).
 
+## Scenario details
+
+This example describes the use of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry.
+
+The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
+
+This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
+
+### Potential use cases
+
+Relevant use cases include:
+
+- Modeling and measuring buildings, engineering structures, and forensic accident scenes.
+- Creating visual effects for computer games and movies.
+- Using digital images to indirectly generate measurements of objects of various scales as in urban planning and other applications.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 This scenario is designed specifically to provide high-performance storage for an HPC workload, whether it is deployed on Windows or Linux. In general, the storage configuration of the HPC workload should match the appropriate best practices used for on-premises deployments.
 
@@ -60,6 +66,8 @@ Deployment considerations depend on the applications and services used, but a fe
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 This example focuses on deploying a high-performance storage solution for an HPC workload and is not a security solution. Make sure to involve your security team for any changes.
 
 For added security, this example infrastructure enables all the Windows VMs to be domain-joined and uses Active Directory for central authentication. It also provides custom DNS services for all VMs. To help protect the environment, this template relies on [network security groups](/azure/virtual-network/security-overview). Network security group offer basic traffic filters and security rules.
@@ -72,6 +80,8 @@ Consider the following options to further improve security in this scenario:
 - Use [Azure Key Vault](/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The cost of running this scenario can vary greatly depending on multiple factors.  The number and size of VMs, how much storage is required, and the amount of time to complete a job will determine your cost.
 

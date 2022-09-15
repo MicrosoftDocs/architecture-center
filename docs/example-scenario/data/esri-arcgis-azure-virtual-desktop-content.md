@@ -45,7 +45,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and application virtualization service that runs on Azure. This service is free and managed by Microsoft as a platform as a service (PaaS) offering, saving you money on licensing and infrastructure costs. It's a flexible cloud virtual desktop infrastructure (VDI) platform that delivers virtual desktops and remote apps with maximum control and improved security.
 - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/database)  is a PaaS version of SQL Server. It's an intelligent and scalable relational database service.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller-as-a-service offering that provides layer-7 load balancing, security, and web application firewall functionality. 
-- [FSLogix](https://docs.microsoft.com/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
+- [FSLogix](/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
 
   For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) enables you to create your own private network infrastructure in the cloud. 
@@ -58,7 +58,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 
 ### Alternatives
 
-- You can use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine. 
+- You can use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine or multiple machines. 
 - Although Azure Files and Azure Blob Storage are fine for many enterprises, Azure NetApp Files might be better suited for GIS because of large raster image files, Portal for ArcGIS items, shapefiles, lidar datasets, file geodatabases, and other geospatial data types that require fast access.  
 - You can add other ArcGIS Enterprise server roles, like Raster Analytics Server, GeoAnalytics Server, GeoEvent Server, Knowledge Server, and Mission Server, to this base deployment as needed. You can also use newer technologies, like ArcGIS Enterprise on Kubernetes, as a replacement for or supplement to ArcGIS Enterprise. GPU-based VMs for Drone2Map, CityEngine, and SURE for ArcGIS can also take advantage of these VMs. For more information, see [ArcGIS Enterprise server roles](https://enterprise.arcgis.com/en/get-started/latest/windows/additional-server-deployment.htm#:~:text=In%20the%20base%20ArcGIS%20Enterprise%20deployment%2C%20ArcGIS%20GIS,reference%20your%20own%20data%20sources%2C%20such%20as%20geodatabases.).
 - To increase capacity, you can use multiple Azure subscriptions in a hub-and-spoke architecture and connect them via virtual network peering. Also, you can use Azure landing zones to lay down the initial services. For more information, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone).
@@ -132,7 +132,7 @@ Other contributor:
  
 - [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
 - [Prepare an Azure Virtual Desktop image with this script](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/shawntmeyer/WVD/tree/master/Image-Build/Customizations)
-- [Download and install FSLogix](https://docs.microsoft.com/FSLogix/install-ht)
+- [Download and install FSLogix](/FSLogix/install-ht)
 - [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)
 - [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql)

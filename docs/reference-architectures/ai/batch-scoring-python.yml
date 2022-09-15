@@ -3,9 +3,9 @@ metadata:
   title: Batch scoring of Python models on Azure
   titleSuffix: Azure Reference Architectures
   description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
-  author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 06/23/2022
+  author: carlosasantos
+  ms.author: cfernandesdo
+  ms.date: 09/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

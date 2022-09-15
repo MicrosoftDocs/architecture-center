@@ -1,18 +1,12 @@
 <!--cSpell:ignore njray precompute -->
 
-This reference architecture shows how to train a recommendation model by using Azure Databricks, and then deploy the model as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
-
-For a reference implementation of this architecture see [Building a Real-time Recommendation API][als-example] on GitHub.
-
-## Potential use cases
-
-**Scenario**: A media organization wants to provide movie or video recommendations to its users. By providing personalized recommendations, the organization meets several business goals, including increased click-through rates, increased engagement on its website, and higher user satisfaction.
-
-This solution is optimized for the retail industry and for the media and entertainment industries.
+This reference architecture shows how to train a recommendation model by using Azure Databricks, and then deploy the model as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). For a reference implementation of this architecture see [Building a Real-time Recommendation API][als-example] on GitHub.
 
 ## Architecture
 
-![Architecture of a machine learning model for training movie recommendations](_images/recommenders-architecture.png)
+![Diagram showing architecture of a machine learning model for training movie recommendations.](_images/recommenders-architecture.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ai-real-time-recommendation.vsdx) of this architecture.*
 
 This reference architecture is for training and deploying a real-time recommender service API that can provide the top 10 movie recommendations for a user.
 
@@ -35,7 +29,19 @@ This reference architecture is for training and deploying a real-time recommende
 - [Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 - [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
+## Scenario details
+
+This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
+
+### Potential use cases
+
+**Scenario**: A media organization wants to provide movie or video recommendations to its users. By providing personalized recommendations, the organization meets several business goals, including increased click-through rates, increased engagement on its website, and higher user satisfaction.
+
+This solution is optimized for the retail industry and for the media and entertainment industries.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 [Batch scoring of Spark models on Azure Databricks][batch-scoring] describes a reference architecture that uses Spark and Azure Databricks to execute scheduled batch scoring processes. We recommend this approach for generating new recommendations.
 
@@ -62,6 +68,8 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best practices for [partitioning and horizontal scaling][partition-data].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The main drivers of cost in this scenario are:
 

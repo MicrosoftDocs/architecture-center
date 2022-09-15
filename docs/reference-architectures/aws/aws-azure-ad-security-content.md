@@ -192,7 +192,7 @@ This procedure covers the following steps:
 
 The following links provide full detailed implementation steps and troubleshooting:
 
-- [Microsoft Docs tutorial: Azure AD SSO integration with AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
+- [Microsoft tutorial: Azure AD SSO integration with AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
 - [AWS tutorial: Azure AD to AWS SSO using the SCIM protocol](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
 
 ### Create a new Azure AD enterprise application

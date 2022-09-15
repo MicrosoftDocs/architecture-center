@@ -146,7 +146,7 @@ The following guidance might be relevant when implementing this pattern:
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 
-## Related guidance
+## Related resources
 
 The following patterns might also be relevant when implementing this pattern:
 

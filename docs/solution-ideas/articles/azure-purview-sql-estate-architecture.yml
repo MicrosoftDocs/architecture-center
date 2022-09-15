@@ -15,7 +15,7 @@ azureCategories:
  - databases
 products:
 - azure-sql-database
-- azure-purview
+- microsoft-purview
 - azure-sql-managed-instance
 - power-bi
 name:  Manage data across Azure SQL estate with Microsoft Purview

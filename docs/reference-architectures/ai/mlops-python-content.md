@@ -2,13 +2,15 @@ This reference architecture shows how to implement continuous integration (CI), 
 
 A reference implementation for this architecture is available on [GitHub][repo].
 
+## Architecture
+
 :::image type="content" border="false" source="./_images/ml-ops-python.png" alt-text="Diagram of the Machine Learning DevOps architecture." lightbox="./_images/ml-ops-python.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlops-python.vsdx) of this architecture.*
 
-## Architecture
+### Workflow
 
-This architecture consists of the following components:
+This architecture consists of the following services:
 
 **[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)**. This build and test system is based on Azure DevOps and used for the build and release pipelines. Azure Pipelines breaks these pipelines into logical steps called tasks. For example, the [Azure CLI](/cli/azure/) task makes it easier to work with Azure resources.
 
@@ -92,7 +94,11 @@ This pipeline shows how to operationalize the scoring image and promote it safel
 
 - **Test web service.** A simple API test makes sure the image is successfully deployed.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 A build pipeline on Azure DevOps can be scaled for applications of any size. Build pipelines have a maximum timeout that varies depending on the agent they are run on. Builds can run forever on self-hosted agents (private agents). For Microsoft-hosted agents for a public project, builds can run for six hours. For private projects, the limit is 30 minutes.
 
@@ -112,7 +118,7 @@ Scale the production environment according to the size of your Azure Kubernetes 
 
 Scale the retraining pipeline up and down depending on the number of nodes in your Azure Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/service/how-to-set-up-training-targets#persistent) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Azure Machine Learning Compute.
 
-## Management considerations
+### Management
 
 - **Monitor retraining job.** Machine learning pipelines orchestrate retraining across a cluster of machines and provide an easy way to monitor them. Use the [Azure Machine Learning UI](https://ml.azure.com/) and look under the pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -120,13 +126,15 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 - **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault).
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Azure DevOps is [free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) for open-source projects and small projects with up to five users. For larger teams, purchase a plan based on the number of users.
 
 Compute is the biggest cost driver in this architecture and its cost varies depending on the use case. This architecture uses Azure Machine Learning Compute, but other [options](/azure/machine-learning/concept-compute-target#train) are available. Azure Machine Learning does not add any surcharge on top of the cost of the virtual machines backing your compute cluster. Configure your compute cluster to have a minimum of 0 nodes, so that when not in use, it can scale down to 0 nodes and not incur any costs. The compute cost depends on the node type, a number of nodes, and provisioning mode (low-priority or dedicated). You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-## Deploy the solution
+## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) guide in the [GitHub repo][repo].
 
@@ -134,4 +142,4 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 ## Next steps
 
-- Want to learn more? Check out the related Learn pathway: [Microsoft Learn Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/)
+- Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/).

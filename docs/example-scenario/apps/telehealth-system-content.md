@@ -1,21 +1,4 @@
-This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
-
-There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it's impossible for a patient to get direct assistance when needed. For example, consider patients who:
-
-- Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which can't be reproduced in the hearing care professional's office.
-- Have mobility issues or reside long distances from their hearing care professional.
-- Live in an emerging country/region that has a limited number of hearing care professionals.
-
-To overcome these difficulties, it's important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
-
-## Potential use cases
-
-This solution is ideal for the healthcare industry. The following additional use cases have similar design patterns:
-
-- Any Bluetooth-enabled device can be accessed and remotely tuned using such a solution.
-- Communication (text, voice, video) or knowledge exchange (education, satisfaction surveys) in a remote setting/context.
-- Globally distributed web content management.
-- [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things)
+This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services.
 
 ## Architecture
 
@@ -61,6 +44,27 @@ The solution was set up in this way to:
 
 On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service or Azure Service Fabric.
 
+## Scenario details
+
+The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
+
+There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it's impossible for a patient to get direct assistance when needed. For example, consider patients who:
+
+- Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which can't be reproduced in the hearing care professional's office.
+- Have mobility issues or reside long distances from their hearing care professional.
+- Live in an emerging country/region that has a limited number of hearing care professionals.
+
+To overcome these difficulties, it's important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
+
+### Potential use cases
+
+This solution is ideal for the healthcare industry. The following additional use cases have similar design patterns:
+
+- Any Bluetooth-enabled device can be accessed and remotely tuned using such a solution.
+- Communication (text, voice, video) or knowledge exchange (education, satisfaction surveys) in a remote setting/context.
+- Globally distributed web content management.
+- [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things)
+
 ## Modes
 
 ### Standard mode
@@ -72,6 +76,8 @@ In Standard mode, the fitting software prepares a notification, which contains s
 In Advanced mode, the hearing aid professional uses the fitting software to push detailed configuration to the device. This requires a stable and reliable connection between the backend and the device, which SignalR achieves by using WebSockets. The end user's phone is on the receiving end of this channel. From the phone, the Bluetooth connection establishes the final communication link with the device.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, etc.) globally using a content delivery network (CDN) to improve speed through caching.
 
@@ -101,9 +107,13 @@ Using the TimescaleDB extension of PostgreSQL will enable more efficient handlin
 
 ### Security and compliance
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 This solution handles PHI and personal data. As such, it's important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 For a deployment in a single region, example pricing information is available in the [Pricing Calculator](https://www.azure.com/e/af6719a5700844aab6c8917b4908b8ab)
 

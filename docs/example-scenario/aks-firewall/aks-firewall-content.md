@@ -1,14 +1,4 @@
-In a production environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the internet.
-
 This article describes how to create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
-
-By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services that run in the AKS cluster to access external resources as needed. If you want to restrict egress traffic, a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks. The easiest way to provide security for the outbound traffic from a Kubernetes cluster like AKS is to use a software firewall that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the fully qualified domain name (FQDN) of the destination. You can also configure your firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in AKS](/azure/aks/limit-egress-traffic).
-
-Likewise, you can control ingress traffic and improve security by enabling [threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure firewall deployed to a shared perimeter network. This filtering can provide alerts and deny traffic to and from known malicious IP addresses and domains.
-
-## Potential use cases
-
-This architecture applies to scenarios in which you need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
 
 ## Architecture
 
@@ -92,7 +82,19 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 
 You can use a third-party firewall from Azure Marketplace instead of [Azure Firewall](/azure/firewall/overview). If you do, it's your responsibility to properly configure the firewall to inspect and allow or deny the inbound and outbound traffic from the AKS cluster.
 
-## Detailed scenarios
+## Scenario details
+
+In a production environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the internet.
+
+You can create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
+
+By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services that run in the AKS cluster to access external resources as needed. If you want to restrict egress traffic, a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks. The easiest way to provide security for the outbound traffic from a Kubernetes cluster like AKS is to use a software firewall that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the fully qualified domain name (FQDN) of the destination. You can also configure your firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in AKS](/azure/aks/limit-egress-traffic).
+
+Likewise, you can control ingress traffic and improve security by enabling [threat intelligence-based filtering](/azure/firewall/threat-intel) on an Azure firewall deployed to a shared perimeter network. This filtering can provide alerts and deny traffic to and from known malicious IP addresses and domains.
+
+### Potential use cases
+
+This architecture applies to scenarios in which you need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
 
 ### Avoid asymmetric routing
 
@@ -114,7 +116,7 @@ For more information, see:
 - [Restrict egress traffic from an AKS cluster using Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall)
 - [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb)
 
-### Deploying workloads to a private AKS cluster when using Azure DevOps
+### Deploy workloads to a private AKS cluster when using Azure DevOps
 
 If you use [Azure DevOps](/azure/devops), note that you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster. They don't have access to its API server. To deploy workloads to your private AKS cluster, you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) in the same virtual network as your private AKS cluster, or in a peered virtual network. In the latter case, be sure to create a virtual network link between the private DNS zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. 
 
@@ -221,7 +223,7 @@ The availability and reliability considerations here aren't specific to multiten
 
 ### DevOps
 
-- Deploy your workloads to AKS by using a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline. Use a DevOps system like [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- Deploy your workloads to AKS by using a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline. Use a DevOps system like [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - To properly test an application before you make it available to users, use A/B testing and canary deployments in your application lifecycle management. There are several techniques that you can use to split the traffic across different versions of the same service. As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see [Linkerd Traffic Split](https://linkerd.io/2.10/features/traffic-split) and [Istio Traffic Management](https://istio.io/latest/docs/concepts/traffic-management).
 - Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure Active Directory identity.
 - Test ingress and egress on your workloads in a separate pre-production environment that mirrors the network topology and firewall rules of your production environment. A staged rollout strategy will help you detect any networking or security problems before you release a new feature or network rule into production.
@@ -234,6 +236,17 @@ The following monitoring considerations aren't specific to multitenancy in AKS, 
 
 - Use [Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all PaaS services (like Container Registry and Key Vault) to collect diagnostic logs and metrics.
+
+### Cost optimization
+
+The cost of this architecture depends on the following configuration details:
+
+- Service tiers
+- Scalability (the number of instances that are dynamically allocated by services to support a given demand)
+- Automation scripts
+- Your disaster recovery level
+
+After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy this scenario
 
@@ -259,24 +272,13 @@ For online deployments, you need an Azure account. If you don't have one, create
 
 3. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/private-aks-cluster-terraform-devops/blob/master/README.md).
 
-## Pricing
-
-The cost of this architecture depends on the following configuration details:
-
-- Service tiers
-- Scalability (the number of instances that are dynamically allocated by services to support a given demand)
-- Automation scripts
-- Your disaster recovery level
-
-After you assess these configuration details, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. For more pricing optimization options, see the [principles of cost optimization](/azure/architecture/framework/#cost-optimization) in the Microsoft Azure Well-Architected Framework.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Paolo Salvatori](https://it.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
 ## Next steps
 

@@ -4,6 +4,8 @@ This example scenario walks you through an implementation of an e-commerce front
 
 ![Diagram that shows a sample scenario architecture for an e-commerce application.][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Dataflow
 
 This scenario covers purchasing tickets from an e-commerce site, the data flows through the scenario as follows:
@@ -166,3 +168,4 @@ Principal author:
 [service-bus]: /azure/service-bus-messaging
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redundancy]: /azure/storage/common/storage-redundancy-grs
+[visio-download]: https://arch-center.azureedge.net/architecture-ecommerce-scenario.vsdx

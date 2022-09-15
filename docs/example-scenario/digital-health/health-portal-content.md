@@ -1,15 +1,10 @@
-Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits. This article describes a typical architecture of such a portal, that aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index). You might choose to customize this architecture to meet your particular needs.
-
-## Potential use cases
-
-- Track statistics of a wearable device.
-- Gain access to medical records and engage with a medical provider.
-- Enter times and doses of medications, which can be used for refill data or self-tracking of medications.
-- Interact with a healthy eating coach for weight loss or diabetes.
+This article describes a typical architecture of a consumer health portal, that aligns with the pillars of the [Azure Well Architected Framework](/azure/architecture/framework/index). You might choose to customize this architecture to meet your particular needs.
 
 ## Architecture
 
-![Consumer health portal architecture](./images/consumer_health_portal.png)
+:::image type="content" alt-text="Diagram of consumer health portal architecture." source="./images/consumer-health-portal.png" lightbox="./images/consumer-health-portal.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/consumer-health-portal.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -63,7 +58,20 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](../../solution-ideas/articles/remote-patient-monitoring.yml) architecture.
 
+## Scenario details
+
+Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits. 
+
+### Potential use cases
+
+- Track statistics of a wearable device.
+- Gain access to medical records and engage with a medical provider.
+- Enter times and doses of medications, which can be used for refill data or self-tracking of medications.
+- Interact with a healthy eating coach for weight loss or diabetes.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -80,6 +88,8 @@ This solution is currently designed as a single-region deployment. If your scena
 - Multiple layers of [availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) are built in to the Azure Key Vault service.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The following sections describe the security best practices for each of the services used in this solution.
 
@@ -128,6 +138,8 @@ Any [personal data](/azure/azure-monitor/platform/personal-data-mgmt) should be 
 Additionally, see the [Security practices for Azure Notification Hub](/azure/notification-hubs/notification-hubs-push-notification-security).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Pricing for this architecture is largely variable based on the tiers of services you end up using, the capacity, throughput, types of queries being done on the data, number of users, as well as business continuity and disaster recovery. It can start from around $2,500/mo and scale from there.
 

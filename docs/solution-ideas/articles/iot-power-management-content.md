@@ -1,27 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. A large-scale telecommunications company based the solution on IoT devices that can act as energy and internet hubs for homes and small businesses.
-
-The IoT devices have an IoT gateway that acts as a hub for data transfer and customized service delivery. The devices use a rooftop solar panel to charge a battery, which delivers LED light, USB power, and cellular connectivity. The gateway collects and transmits telemetry data from the solar panel, battery, and output devices. The solution also includes an IoT device with an integrated SIM card and tablet to provide a user interface.
-
-The basic IoT device provides LED light, USB device charging, internet connectivity, and user support through alerts and chatbots. Users can get more services and content on demand or by subscription.
-
-The overall solution combines IoT connected devices with Azure platform-based mobile apps. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
-
-Azure supports two major workstreams in this IoT solution:
-
-- Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond via real-time chatbots and take device actions. For example, in low-power conditions, a device can reduce power usage for background or inactive features. The user continues to get a good experience with the services they're actively using.
-
-- Post-processing data analytics and machine learning evaluate usage and incidents to determine predictive maintenance and future needs. Alerts can notify customers about parts that are predicted to fail soon.
-
-## Potential use cases
-
-The following scenarios and industries could use this solution:
-
-- Locations with limited centralized power and internet connectivity.
-- News, entertainment, and educational organizations, to deliver content and programming.
-- Financial institutions, to provide online commerce and banking services.
-- Government and public health agencies, for emergency and support communications.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations.
 
 ## Architecture
 
@@ -33,6 +12,8 @@ The architecture consists of:
 ### Application solution
 
 [![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/iot-power-architecture.vsdx)* of this architecture.
 
 #### Dataflow
 
@@ -46,7 +27,8 @@ The architecture consists of:
 
 The business intelligence part of the process includes the following data analysis and control loop:
 
-![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
+![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)  
+*Download a [Visio file](https://arch-center.azureedge.net/iot-power-analytics.vsdx)* of this architecture.
 
 #### Dataflow
 
@@ -68,6 +50,31 @@ The business intelligence part of the process includes the following data analys
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
+
+## Scenario details
+
+ A large-scale telecommunications company based the solution on IoT devices that can act as energy and internet hubs for homes and small businesses.
+
+The IoT devices have an IoT gateway that acts as a hub for data transfer and customized service delivery. The devices use a rooftop solar panel to charge a battery, which delivers LED light, USB power, and cellular connectivity. The gateway collects and transmits telemetry data from the solar panel, battery, and output devices. The solution also includes an IoT device with an integrated SIM card and tablet to provide a user interface.
+
+The basic IoT device provides LED light, USB device charging, internet connectivity, and user support through alerts and chatbots. Users can get more services and content on demand or by subscription.
+
+The overall solution combines IoT connected devices with Azure platform-based mobile apps. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
+
+Azure supports two major workstreams in this IoT solution:
+
+- Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond via real-time chatbots and take device actions. For example, in low-power conditions, a device can reduce power usage for background or inactive features. The user continues to get a good experience with the services they're actively using.
+
+- Post-processing data analytics and machine learning evaluate usage and incidents to determine predictive maintenance and future needs. Alerts can notify customers about parts that are predicted to fail soon.
+
+### Potential use cases
+
+The following scenarios and industries could use this solution:
+
+- Locations with limited centralized power and internet connectivity.
+- News, entertainment, and educational organizations, to deliver content and programming.
+- Financial institutions, to provide online commerce and banking services.
+- Government and public health agencies, for emergency and support communications.
 
 ## Next steps
 

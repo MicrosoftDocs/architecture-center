@@ -2,12 +2,6 @@
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
-## Potential use cases
-
-By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
-
-This solution is ideal for the retail and marketing industries.
-
 ## Architecture
 
 ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
@@ -43,6 +37,12 @@ Marketers using intelligent systems and analyzing massive amounts of data can de
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
+### Potential use cases
+
+By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
+
+This solution is ideal for the retail and marketing industries.
+
 ## Next steps
 
 See the product documentation:
@@ -56,7 +56,7 @@ See the product documentation:
 * [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
 * [Learn about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
-Try a Microsoft Learn path:
+Try a learning path:
 
 * [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 * [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa)

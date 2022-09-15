@@ -1,26 +1,6 @@
-Moodle is one of the most popular and widely adopted free, open-source learning management systems. With more than 30 percent of the global market share, Moodle has more than 180,000 customers worldwide.
+Moodle is one of the most popular and widely adopted free, open-source learning management systems. With more than 30 percent of the global market share, Moodle has more than 180,000 customers worldwide. By providing a high-bandwidth, low-latency solution for workloads, Azure NetApp Files meets Moodle's performance requirements. This solution is also flexible. Deployments can grow or shrink on demand to make your configuration cost effective.
 
-Since the emergence of COVID-19, Moodle has seen a surge in growth. The company is now the market leader in learning management systems. This growth has forced Moodle to explore options for quickly expanding its business and enabling customers to quickly and efficiently deploy Moodle instances in the cloud. Moodle architecture relies on the Network File System (NFS) 3.0 protocol (NFSv3) for content storage.
-
-Moodle strives to meet the demands of home workers and to provide the best possible user experience. As a result, Moodle requires:
-
-- Consistent high-throughput, low-latency access to shared storage.
-- A way to scale up the solution to accommodate an increasing number of concurrent users. Customers prefer autoscaling configurations.
-
-This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party Azure file storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
-
-- Native Server Message Block (SMB) version 3, NFSv3, and NFSv4.1 file shares
-- Database workloads
-- Data warehouse workloads
-- High-performance computing applications
-
-By providing a high-bandwidth, low-latency solution for workloads, Azure NetApp Files meets Moodle's performance requirements. This solution is also flexible. Deployments can grow or shrink on demand to make your configuration cost effective.
-
-Apache® is either a registered trademark or trademark of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of this mark.
-
-## Potential use cases
-
-This solution applies to Moodle deployments. Organizations that use Moodle span many industries, including education, business, IT, and finance.
+*Apache® is either a registered trademark or trademark of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of this mark.*
 
 ## Architecture
 
@@ -74,7 +54,29 @@ You can also use two regions to implement this solution. With two regions, the s
 
 To deploy Moodle, you can use any NFS-based shared file service that meets requirements for very low latency, high IOPS, and high throughput. These conditions are especially important for high numbers of concurrent users. You can use an NFS service that's built on top of a set of Linux VMs. But this approach presents manageability, scalability, and performance challenges. In contrast, Azure NetApp Files offers a competitive, low-latency solution that delivers excellent performance and secure access to NFS shared storage.
 
+## Scenario details
+
+Since the emergence of COVID-19, Moodle has seen a surge in growth. The company is now the market leader in learning management systems. This growth has forced Moodle to explore options for quickly expanding its business and enabling customers to quickly and efficiently deploy Moodle instances in the cloud. Moodle architecture relies on the Network File System (NFS) 3.0 protocol (NFSv3) for content storage.
+
+Moodle strives to meet the demands of home workers and to provide the best possible user experience. As a result, Moodle requires:
+
+- Consistent high-throughput, low-latency access to shared storage.
+- A way to scale up the solution to accommodate an increasing number of concurrent users. Customers prefer autoscaling configurations.
+
+This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
+
+- Native Server Message Block (SMB) version 3, NFSv3, and NFSv4.1 file shares
+- Database workloads
+- Data warehouse workloads
+- High-performance computing applications
+
+### Potential use cases
+
+This solution applies to Moodle deployments. Organizations that use Moodle span many industries, including education, business, IT, and finance.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep the following points in mind when you implement this solution.
 
@@ -92,6 +94,8 @@ For the Azure NetApp Files availability guarantee, see [SLA for Azure NetApp Fil
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 For all deployment options, you need to provide a valid Secure Shell (SSH) protocol 2 (SSH-2) RSA public–private key pair. The length should be at least 2048 bits. Azure doesn't support other key formats such as ED25519 and ECDSA. For information about Azure NetApp Files security, see [Security FAQs for Azure NetApp Files][Security FAQs for Azure NetApp Files].
 
 ### Resiliency
@@ -102,11 +106,9 @@ Azure NetApp Files is built on a bare-metal fleet of redundant, solid-state hard
 
 As [Architecture][Architecture section of this article] explains earlier in this article, you can make the solution more resilient. You can provide disaster recovery by adding a secondary region and using Azure NetApp Files cross-region replication. This functionality efficiently replicates the NFS volumes to a secondary passive region. During the unlikely event of a complete region failure, the application runs in that secondary region.
 
-## Deploy the solution
+### Cost optimization
 
-For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle][Azure NetApp Files for NFS storage with Moodle].
-
-## Pricing
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Consider a medium-sized to large-sized Moodle deployment of approximately 5,000 users with a 10 percent concurrency ratio. The recommended throughput for this case is about 500 MBps. You can build this type of system on a Linux-based Standard_D32s_v4 VM that uses 8 TB of P60 managed disk.
 
@@ -115,6 +117,10 @@ Azure NetApp Files offers a more cost-effective solution. It achieves the recomm
 Use the [Azure pricing calculator][Pricing calculator] to estimate the cost of the Azure resources that your implementation requires. For more information on Azure NetApp Files cost modeling, see [Cost model for Azure NetApp Files][Cost model for Azure NetApp Files].
 
 For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files Performance Calculator][Azure NetApp Files Performance Calculator]. Use this calculator to find the optimal balance between capacity, performance, and cost.
+
+## Deploy this scenario
+
+For a deployment guide for Moodle on Azure NetApp Files, see [Azure NetApp Files for NFS storage with Moodle][Azure NetApp Files for NFS storage with Moodle].
 
 ## Contributors
 

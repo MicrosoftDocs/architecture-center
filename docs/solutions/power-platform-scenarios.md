@@ -2,8 +2,8 @@
 title: Azure and Power Platform scenarios
 description: Learn about architectures and solutions that use Azure together with Microsoft Power Platform. 
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 03/16/2022
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

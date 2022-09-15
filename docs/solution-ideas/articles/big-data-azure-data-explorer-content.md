@@ -1,18 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates big data analytics over large volumes of high velocity data from various sources.
-
-## Potential use cases
-
-This solution illustrates how Azure Data Explorer and Azure Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
-
-This solution is already being used by Microsoft customers. For example, the Singapore-based ride-hailing company, Grab, implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://www.youtube.com/watch?v=K9FYqprpzRE&t=1230&ab_channel=MicrosoftIgnite). Using this pattern, Grab processed more than a trillion events per day.
-
-This solution is optimized for the retail industry.
+This solution idea demonstrates big data analytics over large volumes of high-velocity data from various sources.
 
 ## Architecture
 
-:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Big data analytics with Azure Data Explorer" lightbox="../media/big-data-azure-data-explorer.png":::
+:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Diagram showing big data analytics with Azure Data Explorer." lightbox="../media/big-data-azure-data-explorer.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/big-data-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -31,6 +25,16 @@ This solution is optimized for the retail industry.
 - [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): Analytics service that brings together enterprise data warehousing and Big Data analytics.
 
+## Scenario details
+
+### Potential use cases
+
+This solution illustrates how Azure Data Explorer and Azure Synapse Analytics complement each other for near real-time analytics and modern data warehousing use cases.
+
+This solution is already being used by Microsoft customers. For example, the Singapore-based ride-hailing company, Grab, implemented real-time analytics over a huge amount of data collected from their taxi and food delivery services as well as merchant partner apps. The [team from Grab presented their solution at MS Ignite in this video (20:30 onwards)](https://www.youtube.com/watch?v=K9FYqprpzRE&t=1230&ab_channel=MicrosoftIgnite). Using this pattern, Grab processed more than a trillion events per day.
+
+This solution is optimized for the retail industry.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -41,4 +45,4 @@ Principal author:
 
 ## Next steps
 
-For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
+For more information, see the [Azure Data Explorer documentation](/azure/data-explorer).

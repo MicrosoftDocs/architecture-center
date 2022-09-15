@@ -3,8 +3,8 @@ title: Solutions for the game development industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the game development industry.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 01/18/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -102,7 +102,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Custom game server scaling](/gaming/azure/reference-architectures/multiplayer-custom-server-scaling?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Containerize your game server with Docker and build a reliable, automated deployment process for servers by using Azure Resource Manager templates, Azure Functions, and DevOps practices.|
 |[Multiplayer backend reference architectures](/gaming/azure/reference-architectures/multiplayer?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a variety of multiplayer backend use cases and implementations that can help you create a cloud solution that works for your game.|
 |[Multiplayer hosting with Azure Batch](/gaming/azure/reference-architectures/multiplayer-synchronous-batch?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Batch.|
-|[Multiplayer hosting with Service Fabric](/gaming/azure/reference-architectures/multiplayer-synchronous-sf?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a scalable game server that's hosted on Azure Service Fabric.|
+|[Multiplayer hosting with Service Fabric](/gaming/azure/reference-architectures/multiplayer-synchronous?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)|Build a scalable game server that's hosted on Azure Service Fabric.|
 |[Multiplayer with Azure Container Instances](/gaming/azure/reference-architectures/multiplayer-synchronous-aci?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Learn about a multiplayer solution that automatically scales on demand and is billed per seconds of usage.|
 |[Multiplayer with Azure Kubernetes Service](/gaming/azure/reference-architectures/multiplayer-synchronous-aks?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Manage containerized, dedicated game servers by using the Kubernetes orchestrator on Azure.|
 |[Serverless asynchronous multiplayer](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)|Build a serverless asynchronous multiplayer game on Azure.|

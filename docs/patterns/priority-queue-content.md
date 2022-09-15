@@ -125,7 +125,7 @@ The following guidance might also be relevant when implementing this pattern:
 
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
 
-## Related patterns and guidance
+## Related resources
 
 The following patterns might also be relevant when implementing this pattern:
 
