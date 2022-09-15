@@ -276,15 +276,15 @@ the costs for your configuration.
 
 ## Summary
 
--   AcuSolve was successfully tested on Standard_HB120rs_v3 and
+-  AcuSolve was successfully tested on Standard_HB120rs_v3 and
     Standard_HB120-64rs_v3 VMs.
--   On a single node, on Standard_HB120rs_v3 VMs with 120 vCPUs,
+-  On a single node, on Standard_HB120rs_v3 VMs with 120 vCPUs,
     performance increases as much as 2.47 times over that of 16 CPUs,
     based on wall-clock time.
--   On a single node, on Standard_HB120-64rs_v3 VMs with 64 vCPUs,
+-  On a single node, on Standard_HB120-64rs_v3 VMs with 64 vCPUs,
     performance increases as much as 2.08 times over that of 16 CPUs,
     based on wall-clock time.
--   AcuSolve scales up linearly with impressive numbers up to 8 nodes on
+-  AcuSolve scales up linearly with impressive numbers up to 8 nodes on
     an Azure HPC cluster with Standard_HB120-64rs_v3 VM instances that
     have 64 cores on each node. Performance increases 12.83 times with
     an 8-node (512-core) configuration on AMD Milan-X processors, an
