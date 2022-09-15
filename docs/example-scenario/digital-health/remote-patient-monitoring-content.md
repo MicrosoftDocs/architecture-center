@@ -2,11 +2,7 @@ Intro...
 
 ## Architecture
 
-> Architecture diagram goes here. Use the following format:
-
-
-
-> Under the architecture diagram, include this sentence and a link to the Visio file or the PowerPoint file: 
+:::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
