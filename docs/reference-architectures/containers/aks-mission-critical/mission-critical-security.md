@@ -31,24 +31,19 @@ At the application level, this architecture uses a simple authentication scheme 
 
 ### Least privilege access
 
-Every access policy should be evaluated
+Every access policy should be evaluated...
 
 Examples from the Azure Mission-critical reference implementation:
 
 - Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfil its function**.
 - The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
-- 
-
-- RBAC controls to provide right permissions to data plane.
-
-
-
+- The AKS Kubelet identity has only *AcrPull* permission to access the global Container Registry.
 
 ### Managed identities
 
 To improve security of a mission-critical workload, the use of service-based secrets (such as connection strings or API keys) should be avoided when possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
 
-The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, only the `AcrPull` role is assigned to the Kubelet identity:
+The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, this Terraform code assigns only the `AcrPull` role the Kubelet identity:
 
 ```
 resource "azurerm_role_assignment" "acrpull_role" {
