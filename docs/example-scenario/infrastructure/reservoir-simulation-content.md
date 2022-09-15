@@ -4,7 +4,7 @@
 
 ## Architecture
 
-![Architecture diagram][architecture]
+:::image type="content" alt-text="Architecture diagram" source="./media/architecture-hpc-reservoir-simulation.png" lightbox="./media/architecture-hpc-reservoir-simulation.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-reservoir-simulation.vsdx) of this architecture.*
 
@@ -109,7 +109,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 
 <!-- links -->
 
-[architecture]: ./media/architecture-hpc-reservoir-simulation.png
 [azurehpc]: https://github.com/Azure/azurehpc/tree/master/examples
 [azure-cyclecloud]: /azure/cyclecloud/overview
 [avere-vfxt]: /azure/avere-vfxt/avere-vfxt-overview
