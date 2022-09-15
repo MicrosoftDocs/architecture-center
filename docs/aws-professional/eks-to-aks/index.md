@@ -1,8 +1,8 @@
 ---
 title: AKS for Amazon EKS professionals
-description: Understand AKS as a managed solution, configurations, best practices, similarities and differences with Amazon EKS.
+description: Understand AKS as a managed solution, configurations, best practices, and similarities and differences with Amazon EKS.
 author: lanicolas
-ms.author: lanicola, paolos
+ms.author: lanicola
 ms.date: 09/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -14,7 +14,7 @@ products:
   - azure-kubernetes-service
 ---
 
-## AKS for Amazon EKS professionals
+# AKS for Amazon EKS professionals
 
 This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). The series highlights key similarities and differences between these two managed Kubernetes solutions.
 

@@ -36,7 +36,7 @@ When looking into the pricing of Azure virtual machines and associated storage, 
 - Service Pricing differs per region. For example, a VM in East US might be cheaper than in West Europe.
 - Not all services and VM sizes are available in each region.
 - There are multiple VM families optimized for different types of workloads.
-- Virtual machines are charged according to their size and usage. Review this article for additional information on [how Azure compute compares to AWS](../../compute.md).
+- Virtual machines are charged according to their size and usage. Review this article for additional information on [how Azure compute compares to AWS](../compute.md).
   - Generally speaking, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes.
   - Likewise, generally speaking, the more specialized (e.g., GPU enabled or memory-optimized) is the VM series used for a node pool, the more expensive will be the cost of the agent pool.
   - The more time agent nodes are up and running, the higher the total cost of ownership for a cluster. Development environments usually don't need to be running 24/7.
@@ -155,11 +155,11 @@ Examine open-source tools such as [KubeCost](https://www.kubecost.com/) to monit
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Agent node management](../nodes/node-pools.yml)
+> [Agent node management](node-pools.yml)
 
 The following references provide automation and documentation on AKS cost management:
 
 - [Governance disciplines for AKS](/azure/cloud-adoption-framework/scenarios/aks/eslz-security-governance-and-compliance)
-- [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management/)
-- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs/)
+- [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management)
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator)
+- [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs)

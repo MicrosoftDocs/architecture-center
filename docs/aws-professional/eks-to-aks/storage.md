@@ -160,12 +160,12 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 ### Cost optimization
 
-To optimize Azure Storage costs, use Azure Reservations. Make sure to [check the services that support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](../cost-management/cost-management.yml).
+To optimize Azure Storage costs, use Azure Reservations. Make sure to [check the services that support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cost management for a Kubernetes cluster](../cost-management/cost-management.yml)
+> [Cost management for a Kubernetes cluster](cost-management.yml)
 
 ## Related resources
 
