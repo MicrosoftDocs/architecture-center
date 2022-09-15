@@ -173,7 +173,7 @@ The following graph shows the relative speed increases on the
 Standard_HB120rs_v3 VM:
 
 ![Graph that shows the relative speed increases on the
-Standard_HB120rs_v3 VM.](media/backward-facing-hb120rs-v3.png)
+Standard_HB120rs_v3 VM.](media/backward-facing-step-hb120rs-v3.png)
 
 This table shows total consumption times for varying numbers of
 CPUs on Standard_HB120-64rs_v3 VMs:
