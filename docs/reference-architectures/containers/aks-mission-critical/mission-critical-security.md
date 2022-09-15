@@ -26,11 +26,26 @@ The focus of this architecture is to maximize reliability so that the applicatio
 
 At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope.
 
+### Least privilege access
+
+Every access policy should be evaluated
+
+Examples from the Azure Mission-critical reference implementation:
+
+- Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfil its function**.
+- The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
+- 
+
+- RBAC controls to provide right permissions to data plane.
+
+
+
+
 ### Managed identities
 
 To improve security of a mission-critical workload, the use of service-based secrets (such as connection strings or API keys) should be avoided when possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
 
-The reference implementation uses [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, only the `AcrPull` role is assigned to the Kubelet identity:
+The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, only the `AcrPull` role is assigned to the Kubelet identity:
 
 ```
 resource "azurerm_role_assignment" "acrpull_role" {
@@ -107,7 +122,7 @@ The reference implementation fully supports custom domain names, e.g. `contoso.c
 
 To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these automatically to an Azure Front Door instance.
 
-**Front Door-managed SSL certificates** are also enabled, which means that there is no need for manual SSL certificate renewals.
+**Front Door-managed SSL certificates** are also enabled, which means that there is no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
 
 ```terraform
 #
@@ -241,25 +256,27 @@ $header = @{
 }
 ```
 
-### Authentication and authorization
+## Secure deployments
 
-- System managed identities in compute cluster (kublet, managed control plane).
-- SAS keys, key rotation
+Following the baseline well-architected principles for operational excellence, **all deployments should be fully automated** and there shouldn't be manual steps required (except triggering the run, or approving a gate).
 
-## Use least privilege access
+The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift** (e.g. manual changes through the portal or CLI), maintaining integrity of the infrastructure and alignment with the application code. Any changes in any environment - malicious attempt to disable security measures, or simple accidental misconfiguration, are discarded on the next deploy.
 
-- RBAC controls to provide right permissions to data plane.
+Sensitive values for deployment are either generated during the pipeline run (i.e. by Terraform), or supplied as Azure DevOps secrets. These are protected with role-based access restrictions.
 
-Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that every pod has only the minimum access required to fulfil its function.
+> [!NOTE]
+> GitHub workflows offer [similar concept](https://docs.github.com/en/actions/security-guides/encrypted-secrets) of separate store for secret values. Secrets are encrypted environmental variables that can be used by GitHub Actions.
 
-## Assume breach
+However, there are two sensitive places...
 
 terraform state file
 
-- Sanctity of the pipeline. Completely automated.
-- Policies on resources, inherited polices from the subscription.
 
-## Code defensively
+## Dependency updates
+
+dependabot
+
+## Defensive coding
 
 API calls can fail - be it because of code errors, malfunctioned deployments, infrastructure failures, or any other reason. If that happens, the caller (client application) should not receive extensive debugging information, because that could provide adversaries with helpful data points about the inner workings of the application.
 
@@ -292,7 +309,6 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     // ...
 }
 ```
-
 
 ## Next
 
