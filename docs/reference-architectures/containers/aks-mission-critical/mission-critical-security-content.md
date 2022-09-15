@@ -28,7 +28,9 @@ At the application level, this architecture uses a simple authentication scheme 
 
 ### Managed identities
 
-**[Managed identities](/azure/aks/use-managed-identity) should be used** to access Azure resources from the AKS cluster. The implementation uses managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, the `AcrPull` role is assigned to the Kubelet identity:
+To improve security of a mission-critical workload, the use of service-based secrets (such as connection strings or API keys) should be avoided when possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
+
+The reference implementation uses [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, only the `AcrPull` role is assigned to the Kubelet identity:
 
 ```
 resource "azurerm_role_assignment" "acrpull_role" {
@@ -38,12 +40,12 @@ resource "azurerm_role_assignment" "acrpull_role" {
 }
 ```
 
-## Secrets
+### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator interacts with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator interacts with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
-> This workload doesn't use certificates, but the same principles apply.
+> This workload doesn't use custom certificates, but the same principles would apply.
 
 The [**Azure Key Vault Provider for Secrets Store**](/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secrets. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
 
@@ -191,12 +193,12 @@ containerSecurityContext:
 
 Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azure Container Registry**, with global replication to each of the regions where stamps are deployed.
 
-- container scanning
+> [!NOTE]
+> Current reference implementation doesn't use vulnerability scanning of Docker images. It is recommended to utilize [Microsoft Defender for container registries](/azure/container-registry/scan-images-defender), potentially [with GitHub Actions](/azure/container-registry/github-action-scan).
 
+## Traffic ingress
 
-## Verify explicitly
-
-**Azure Front Door** serves as the global load balancer in the reference implementation. Because web application traffic passes through Front Door (unlike Traffic Manager), it is able to provide additional capabilities that mission-critical workloads should utilize (as long as they work through HTTP).
+**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are additional capabilities which mission-critical workloads should utilize (as long as they work with HTTP).
 
 ### Web Application Firewall
 
@@ -204,7 +206,6 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 > [!TIP]
 > When deploying Front Door with WAF it's recommended to start with the **Detection** mode, closely monitor it's behavior with natural end-user traffic and fine-tune the detection rules. Once false-positives are eliminated, or rare, it's safe to switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
-
 
 ### Routing
 
@@ -240,7 +241,6 @@ $header = @{
 }
 ```
 
-
 ### Authentication and authorization
 
 - System managed identities in compute cluster (kublet, managed control plane).
@@ -254,7 +254,7 @@ Each component that works with Event Hubs is using a connection string with eith
 
 ## Assume breach
 
-
+terraform state file
 
 - Sanctity of the pipeline. Completely automated.
 - Policies on resources, inherited polices from the subscription.
