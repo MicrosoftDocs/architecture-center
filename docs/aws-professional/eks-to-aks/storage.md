@@ -16,6 +16,7 @@ products:
   - azure-managed-disks
   - azure-netapp-files
   - azure-storage
+---
 
 # Storage options for a Kubernetes cluster
 

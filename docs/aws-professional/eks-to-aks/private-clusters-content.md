@@ -141,7 +141,7 @@ As mentioned in the previous section, there are several options for establishing
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Kubernetes Storage options](../storage/storage.yml)
+> [Kubernetes Storage options](storage.md)
 
 The following references provide links to automation samples and documentation to deploy AKS clusters with a secured API:
 

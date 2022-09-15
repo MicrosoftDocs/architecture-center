@@ -20,12 +20,12 @@ This series of articles helps professionals who are familiar with Amazon Elastic
 
 The following articles compare AKS and Amazon EKS for specific Kubernetes design areas:
 
-- [Identity and access management](./iam/workload-identity.yml)
-- [Cluster observability and monitoring](./monitoring/monitoring.yml)
-- [Network topologies and security](./networking/private-clusters.yml)
-- [Storage options](./storage/storage.yml)
-- [Cost management and optimization](./cost-management/cost-management.yml)
-- [Agent node management](./nodes/node-pools.yml)
+- [Identity and access management](workload-identity.yml)
+- [Cluster observability and monitoring](monitoring.yml)
+- [Network topologies and security](private-clusters.yml)
+- [Storage options](storage.md)
+- [Cost management and optimization](cost-management.yml)
+- [Agent node management](node-pools.yml)
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Red Hat Openshift, Azure Container Instance, or Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate. For more information on the Azure services that can host containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
@@ -34,7 +34,7 @@ These articles provide best practices and recommended architectures to improve A
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Kubernetes identity and access management](./iam/workload-identity.yml)
+> [Kubernetes identity and access management](workload-identity.yml)
 
 ## Related resources
 

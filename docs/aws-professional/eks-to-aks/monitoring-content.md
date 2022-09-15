@@ -70,7 +70,7 @@ Before enabling Container insights it is important to estimate costs and underst
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Secure network access to Kubernetes API](../networking/private-clusters.yml)
+> [Secure network access to Kubernetes API](private-clusters.yml)
 
 The following references provide documentation on the deployment and automation of monitoring on AKS:
 
