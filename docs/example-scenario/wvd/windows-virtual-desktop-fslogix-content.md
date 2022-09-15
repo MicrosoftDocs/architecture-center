@@ -276,11 +276,24 @@ Principal author:
 
  * [Christiaan Brinkhoff](https://www.linkedin.com/in/christiaanbrinkhoff) | Principal PM and Community Lead, Windows 365
 
+Other contributor:
+
+* [Sven Aelterman](https://www.linkedin.com/in/svenaelterman) | Senior Cloud Solution Architect, Education
+
 ## Next steps
 
 Read the following articles for more information:
 
-- [Azure Virtual Desktop documentation](/azure/virtual-desktop/overview).
-- [FSLogix documentation](/fslogix/overview).
-- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile).
-- [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml).
+- [Azure Virtual Desktop documentation](/azure/virtual-desktop/overview)
+- [FSLogix documentation](/fslogix/overview)
+- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile)
+- [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files)
+- [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml)
+
+## Related resources
+
+- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
+- [Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest)
+- [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](/azure/architecture/example-scenario/data/esri-arcgis-azure-virtual-desktop)
+- [Multiple forests with AD DS, Azure AD, and Azure AD DS](/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
+- [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
