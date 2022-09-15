@@ -1,6 +1,6 @@
 Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments.
 
-AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](aws-azure-ad-security.yml), often without additional cost.
+AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](../../reference-architectures/aws/aws-azure-ad-security.yml), often without additional cost.
 
 Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts:
 
@@ -8,7 +8,7 @@ Other Microsoft security components can integrate with Azure AD to provide addit
 - Microsoft Defender for Cloud provides threat protection to AWS workloads. It also helps proactively strengthen security for AWS environments and uses an agentless approach to connect to those environments.
 - Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
 
-These Microsoft security solutions are extensible and offer multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
+These Microsoft security solutions are extensible and offer multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full-security architecture that protects current and future AWS deployments.
 
 ## Potential use cases
 
@@ -24,7 +24,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 ### Workflow
 
-- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](aws-azure-ad-security.yml).
+- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml).
 
 - Defender for Cloud Apps:
   - Integrates with the Azure AD conditional access feature to enforce additional restrictions.
@@ -119,7 +119,7 @@ To prepare for deployment of Azure security solutions, review and record current
    - **AWS regions** that are enabled or disabled to comply with data security policy
 
 1. In the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant:
-   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [advanced Azure AD identity management](aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
+   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [advanced Azure AD identity management](../../reference-architectures/aws/aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
 ### Deploy Defender for Cloud Apps
@@ -302,7 +302,7 @@ To protect your AWS-based resources, take these steps, which the following secti
 
 To connect your AWS account to Defender for Cloud by using a native connector, follow these steps:
 
-1. Review the [prerequisites](/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#prerequisites.yml) for connecting an AWS account. Ensure that you've completed them before you proceed.
+1. Review the [prerequisites](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#prerequisites) for connecting an AWS account. Ensure that you've completed them before you proceed.
 
 1. If you have any classic connectors, remove them by following the steps in [Remove classic connectors](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#remove-classic-connectors). Using both the classic and native connectors can produce duplicate recommendations.
 
@@ -426,12 +426,12 @@ Principal author:
 ## Next steps
 
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
-- For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
+- For the latest Microsoft security information, see [Microsoft Security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- For an overview of threats that can target AWS assets and corresponding protective measures, see [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
-- For information on connectors and how to establish connections, see these resources:
-  - [Connect your AWS accounts to Microsoft Defender for Cloud](/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings)
-  - [New AWS connector in Microsoft Defender for Cloud](/defender-for-cloud/episode-one)
+- For an overview of AWS asset threats and corresponding protective measures, see [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
+- For information about connectors and how to establish connections, see these resources:
+  - [Connect your AWS accounts to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings)
+  - [New AWS connector in Microsoft Defender for Cloud](/azure/defender-for-cloud/episode-one)
   - [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security)
   - [Connect Microsoft Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws)
 
