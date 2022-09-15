@@ -20,6 +20,6 @@ products:
   - azure-virtual-network
 name: Secure MLOps solutions with Azure network security
 summary: Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.
-thumbnailUrl: /azure/architecture/browse/thumbs/network-security-mlops-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/network-security-mlops-thumbnail.svg
 content: |
   [!include[](network-security-mlops-content.md)]
