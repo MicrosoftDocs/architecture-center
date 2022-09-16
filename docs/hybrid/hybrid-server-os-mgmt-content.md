@@ -15,7 +15,7 @@ The second diagram illustrates Windows Admin Center deployed on-premises.
 
 *Download a [Visio file][architectural-diagram-visio-source] of these architectures.*
 
-## Components
+### Components
 
 The architecture consists of the following components:
 
