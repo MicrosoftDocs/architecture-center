@@ -51,7 +51,7 @@ This solution consumes multiple data sources for flight data patterns. It's idea
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources.
 
-## SWIM architecture
+### SWIM architecture
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging.
 
@@ -136,7 +136,7 @@ Principal author:
 
 - [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
