@@ -36,27 +36,22 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ### Alternatives
 
-Azure Front Door is a preferable global load balancing solution for web applications that only use HTTP(S). It's a layer-7 load balancer that provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities.
+For web applications that only use HTTP(S), Azure Front Door is a better global load balancing solution than Traffic Manager. Front Door is a layer-7 load balancer that also provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities.
 
 ## Solution Details
 
-- We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts its load balancing algorithm as endpoint latency changes.
+*Traffic Manager -* We configured Traffic Manager to use performance routing. It routes traffic to the endpoint that has the lowest latency for the user. Traffic Manager automatically adjusts its load balancing algorithm as endpoint latency changes. Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
 
-- Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
+*Availability Zones -* The architecture uses three availability zones. The zones create a high-availability architecture for the Application Gateways, internal load balancers, and VMs in each tier.
 
-- The architecture uses three zones to support the Application Gateway, load balancer, and each application tier for high availability.
+*Traffic Manager & Application Gateway -* Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
 
-- Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as:
+- Web Application Firewall (WAF)
+- Transport Layer Security (TLS) termination
+- Path-based routing
+- Cookie-based session affinity
 
-  - Web Application Firewall (WAF)
-  
-  - Transport Layer Security (TLS) termination
-  
-  - Path-based routing
-  
-  - Cookie-based session affinity
-
-- Global virtual network (vnet) peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
+*Virtual network (vnet) peering -* We call vnet peering between regions "global vnet peering." Global vnet peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
 
 ## Recommendations
 
@@ -64,21 +59,19 @@ The following recommendations adhere to the pillars of the Azure Well-Architecte
 
 ## Reliability
 
-- *Regions:* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails.
+*Regions -* Use at least two Azure regions for high availability. You can deploy your application across multiple Azure regions in active/passive or active/active configurations. Multiple regions also help avoid application downtime if a subsystem of the application fails.
 
-  - Traffic Manager will automatically fail over to the secondary region if the primary region fails.
+- Traffic Manager will automatically fail over to the secondary region if the primary region fails.
+- Choosing the best regions for your needs must be based on technical, regulatory considerations, and availability-zone support.
 
-  - Choosing the best regions for your needs must be based on technical, regulatory considerations, and availability-zone support.
+*Region pairs -* Use Region Pairs for the most resiliency. Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)). Here are two benefits of Region Pairs:
 
-- *Region pairs:* Use Region Pairs for the most resiliency. Make sure that both Region Pairs support all the Azure services that your application needs (see [services by region](https://azure.microsoft.com/global-infrastructure/geographies/#services)). Here are two benefits of Region Pairs:
+- Planned Azure updates roll out to paired regions one at a time to minimize downtime and risk of application outage.
+- Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
 
-  - Planned Azure updates roll out to paired regions one at a time to minimize downtime and risk of application outage.
-  
-  - Data continues to reside within the same geography as its pair (except for Brazil South) for tax and legal purposes.
+*Availability zones -* Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
 
-- *Availability zones:* Use multiple availability zones to support your Application Gateway, load balancer, and application tiers when available.
-
-- *Application gateway instances:* Configure the Application Gateway with a minimum of two instances to avoid downtime.
+*Application gateway instances -* Configure the Application Gateway with a minimum of two instances to avoid downtime.
 
 For more information, see:
 
