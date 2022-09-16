@@ -153,7 +153,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server]: /sql/sql-server/azure-arc/overview?view=sql-server-ver15
-[kubernetes-open-source]: /learn/modules/intro-to-kubernetes/2-what-is-kubernetes
+[kubernetes-open-source]: /training/modules/intro-to-kubernetes/2-what-is-kubernetes
 [azure-kubernetes-service]: /azure/aks/intro-kubernetes
 [azs-hci]: /azure-stack/hci/overview
 [azure-kubernetes-service-on-azs-hci]: /azure-stack/aks-hci/overview

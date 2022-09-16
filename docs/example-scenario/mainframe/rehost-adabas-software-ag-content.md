@@ -115,7 +115,7 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure
 See these additional resources:
 
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Configure virtual networks](/learn/modules/configure-virtual-networks)
+- [Configure virtual networks](/training/modules/configure-virtual-networks)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)

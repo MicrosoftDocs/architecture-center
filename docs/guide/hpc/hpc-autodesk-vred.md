@@ -195,7 +195,7 @@ Other contributors:
 - [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines on Azure](/azure/virtual-machines/windows/overview)
 - [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
 - [VRED Render Settings and Modes](https://knowledge.autodesk.com/support/vred-products/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/VRED/files/GUID-281BFE63-D833-431C-95E3-4EA418201954-htm.html)
 

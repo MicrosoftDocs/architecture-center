@@ -172,8 +172,8 @@ Other contributors:
 - [Azure Virtual Network Manager][avnm]
 - [Virtual WAN][vwan]
 - [Azure Firewall][azfw]
-- [Secure network connectivity on Azure](/learn/modules/secure-network-connectivity-azure)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Secure network connectivity on Azure](/training/modules/secure-network-connectivity-azure)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 - [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)

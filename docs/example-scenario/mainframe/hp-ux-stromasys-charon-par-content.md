@@ -128,7 +128,7 @@ Other contributors:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
