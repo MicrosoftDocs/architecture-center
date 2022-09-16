@@ -434,8 +434,8 @@ Additional contributors:
 - [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview)
 - [Getting geospatial insights from big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
 - [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
-- [Explore Azure Synapse Studio](/learn/modules/explore-azure-synapse-studio)
-- [Create and consume Cognitive Services](/learn/modules/create-manage-cognitive-services)
+- [Explore Azure Synapse Studio](/training/modules/explore-azure-synapse-studio)
+- [Create and consume Cognitive Services](/training/modules/create-manage-cognitive-services)
 
 ## Related resources
 

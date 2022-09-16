@@ -291,7 +291,7 @@ Principal authors:
 ## Next steps
 - [Microservices on Azure](https://azure.microsoft.com/solutions/microservice-applications)
 - [Book: Embrace Microservices Design](https://www.amazon.com/Embracing-Microservices-Design-anti-patterns-architectural/dp/180181838X) 
-- [Introduction to deployment patterns](/learn/modules/introduction-to-deployment-patterns)
+- [Introduction to deployment patterns](/training/modules/introduction-to-deployment-patterns)
 - [Design a microservices-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
 
 ## Related resources

@@ -243,7 +243,7 @@ Other contributors:
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug/debug-application/)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking)
-- [Choose the best networking plugin for AKS](/learn/modules/choose-network-plugin-aks)
+- [Choose the best networking plugin for AKS](/training/modules/choose-network-plugin-aks)
 
 ## Related resources
 

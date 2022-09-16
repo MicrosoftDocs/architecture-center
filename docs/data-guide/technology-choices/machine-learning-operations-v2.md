@@ -255,7 +255,7 @@ Principal authors:
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Data in Azure Machine Learning](/azure/machine-learning/concept-data)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
-- [End-to-end machine learning operations (MLOps) with Azure Machine Learning](/learn/paths/build-first-machine-operations-workflow)
+- [End-to-end machine learning operations (MLOps) with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure DevOps documentation](/azure/devops)
 - [GitHub Docs](https://docs.github.com)

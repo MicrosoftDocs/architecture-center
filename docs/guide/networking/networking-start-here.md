@@ -38,13 +38,13 @@ Azure provides a wide range of networking tools and capabilities. These are just
 For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
 
 ## Introduction to networking on Azure
-If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here's a good introduction to Azure networking: 
-- [Explore Azure networking services](/learn/modules/azure-networking-fundamentals)
+- [Explore Azure networking services](/training/modules/azure-networking-fundamentals)
 
 And here's a comprehensive learning path: 
-- [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
+- [Configure and manage virtual networks for Azure administrators](/training/paths/azure-administrator-manage-virtual-networks)
 
 ## Path to production
 Consider these technologies and solutions as you plan and implement your deployment: 

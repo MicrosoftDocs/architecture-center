@@ -30,7 +30,7 @@ Organizations are at various points in their understanding, rationalizing, and a
 If you're new to Kubernetes or AKS, the best place to learn about the service is with Microsoft Learn. Microsoft Learn is a free, online training platform that provides interactive learning for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.
 
 > [!div class="nextstepaction"]
-> [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+> [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
 
 ## Path to production
 

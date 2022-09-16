@@ -24,7 +24,7 @@ The architecture consists of the following services:
 - [Azure Automation](https://azure.microsoft.com/services/automation)
 - [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc/)
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc)
 
 ## Scenario details
 
@@ -305,6 +305,15 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.
 - An Azure Log Analytics workspace might generate more costs related to the amount of log data that's stored in Azure Log Analytics. The pricing is based on consumption, and the costs are associated with data ingestion and data retention. For ingesting data into Azure Log Analytics, use the capacity reservation or pay-as-you-go model that includes 5 gigabytes (GB) free a month for each billing account. Data retention for the first 31 days is free of charge.
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

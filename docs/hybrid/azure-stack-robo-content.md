@@ -153,15 +153,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
-- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
-- [Design your site recovery solution in Azure](/learn/modules/design-your-site-recovery-solution-in-azure)
-- [Introduction to Azure Arc enabled servers](/learn/modules/intro-to-arc-for-servers)
-- [Introduction to Azure Arc-enabled data services](/learn/modules/intro-to-arc-enabled-data-services)
-- [Introduction to Azure Kubernetes Service](/learn/modules/intro-to-azure-kubernetes-service)
-- [Keep your virtual machines updated](/learn/modules/keep-your-virtual-machines-updated)
-- [Protect your virtual machine settings with Azure Automation State Configuration](/learn/modules/protect-vm-settings-with-dsc)
-- [Protect your virtual machines by using Azure Backup](/learn/modules/protect-virtual-machines-with-azure-backup)
+- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
+- [Configure Azure Monitor](/training/modules/configure-azure-monitor)
+- [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
+- [Introduction to Azure Arc enabled servers](/training/modules/intro-to-arc-for-servers)
+- [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
+- [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service)
+- [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
+- [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
+- [Protect your virtual machines by using Azure Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
 ## Related resources
 

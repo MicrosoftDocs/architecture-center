@@ -352,7 +352,7 @@ select * from metadata where transactionId = '123456'
 -   [Azure Synapse Analytics](/azure/synapse-analytics)
 -   [What is Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Azure Databricks Delta Lake and Delta Engine guide](/azure/databricks/delta)
--   [Describe Azure Databricks Delta Lake architecture](/learn/modules/describe-azure-databricks-delta-lake-architecture)
+-   [Describe Azure Databricks Delta Lake architecture](/training/modules/describe-azure-databricks-delta-lake-architecture)
 
 ## Related resources
 

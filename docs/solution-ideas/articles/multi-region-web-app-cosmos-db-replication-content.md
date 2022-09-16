@@ -74,11 +74,11 @@ Principal author:
 
 See the following Learn modules:
 
-- [Design a geographically distributed application](/learn/modules/design-a-geographically-distributed-application)
-- [Distribute your data globally with Azure Cosmos DB](/learn/modules/distribute-data-globally-with-cosmos-db)
-- [Choose the appropriate API for Azure Cosmos DB](/learn/modules/choose-api-for-cosmos-db)
-- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/learn/modules/store-access-data-cosmos-table-api)
-- [Work with NoSQL data in Azure Cosmos DB](/learn/paths/work-with-nosql-data-in-azure-cosmos-db)
+- [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
+- [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
+- [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
+- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/training/modules/store-access-data-cosmos-table-api)
+- [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
 
 See the following Azure Cosmos DB articles:
 

@@ -216,7 +216,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 
 <!-- links -->
 

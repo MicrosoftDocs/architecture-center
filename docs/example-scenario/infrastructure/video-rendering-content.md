@@ -156,8 +156,8 @@ Product documentation:
 
 Learn modules:
 
-- [Introduction to Azure Remote Rendering](/learn/modules/intro-to-azure-remote-rendering)
-- [Render a model with Azure Remote Rendering](/learn/modules/render-model-azure-remote-rendering-unity)
+- [Introduction to Azure Remote Rendering](/training/modules/intro-to-azure-remote-rendering)
+- [Render a model with Azure Remote Rendering](/training/modules/render-model-azure-remote-rendering-unity)
 
 ## Related resources
 

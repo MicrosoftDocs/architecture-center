@@ -146,8 +146,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
-- [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)
 
 ## Related resources
 

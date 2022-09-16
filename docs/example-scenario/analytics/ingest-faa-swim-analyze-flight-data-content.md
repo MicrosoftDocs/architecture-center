@@ -144,7 +144,7 @@ Other contributor:
 
 - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Introduction to Power BI](/learn/modules/introduction-power-bi)
+- [Introduction to Power BI](/training/modules/introduction-power-bi)
 
 ## Related resources
 

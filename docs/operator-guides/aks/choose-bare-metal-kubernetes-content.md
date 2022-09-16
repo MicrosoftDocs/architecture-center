@@ -83,7 +83,7 @@ For more information, see the following articles:
 
 -   [What is Azure IoT Edge](/azure/iot-edge/about-iot-edge)
 
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+-   [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
 
 -   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 

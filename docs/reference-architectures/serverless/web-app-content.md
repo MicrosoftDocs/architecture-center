@@ -322,8 +322,8 @@ Product documentation:
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 Learn modules:
-- [Choose the best Azure serverless technology for your business scenario](/learn/modules/serverless-fundamentals/)
-- [Create serverless logic with Azure Functions](/learn/modules/create-serverless-logic-with-azure-functions/)
+- [Choose the best Azure serverless technology for your business scenario](/training/modules/serverless-fundamentals/)
+- [Create serverless logic with Azure Functions](/training/modules/create-serverless-logic-with-azure-functions/)
 
 ## Related resources
 

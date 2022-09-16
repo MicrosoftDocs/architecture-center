@@ -98,7 +98,7 @@ Because of the nature of private data involved, [security](/industry/healthcare/
 
 This example also relies on the security rules set by Dynamics 365 and Teams:
 
-- [Dynamics 365 security](/learn/modules/recognize-dynamics-365-security/)
+- [Dynamics 365 security](/training/modules/recognize-dynamics-365-security/)
 - [Microsoft Teams security](/microsoftteams/security-compliance-overview)
 
 Individual services included in Microsoft Cloud for Healthcare provide their own layer of security and compliance:
@@ -168,7 +168,7 @@ Principal authors:
 - [What is Microsoft Dataverse?](/powerapps/maker/data-platform/data-platform-intro)
 - [What is the Azure Health Bot Service?](/azure/health-bot/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- Learn how you can use [Microsoft Dynamics 365](/learn/dynamics365/)
+- Learn how you can use [Microsoft Dynamics 365](/training/dynamics365/)
 
 ## Related resources
 

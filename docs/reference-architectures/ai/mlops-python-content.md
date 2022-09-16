@@ -142,4 +142,4 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 ## Next steps
 
-- Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/).
+- Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops/).
