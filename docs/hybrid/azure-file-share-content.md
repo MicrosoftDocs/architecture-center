@@ -1,17 +1,12 @@
 This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
 
+## Architecture
+
 ![Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Typical uses for this architecture include:
-
-- **Replace or supplement on-premises file servers**. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files. This migration can take the advantage of high availability and scalability while minimizing client changes.
-- **Lift and shift**. Azure Files makes it easy to "lift and shift" applications that expect a file share to store application or user data to the cloud.
-- **Backup and disaster recovery**. You can use Azure Files as storage for backups or for disaster recovery to improve business continuity. You can use Azure Files to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
-- **Azure File Sync**. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud. This replication improves performance and distributes caching of data to where it's being used.
-
-## Architecture
+### Components
 
 The architecture consists of the following components:
 
@@ -22,6 +17,15 @@ The architecture consists of the following components:
 - **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
+
+## Scenario details
+
+Typical uses for this architecture include:
+
+- **Replace or supplement on-premises file servers**. Azure Files can completely replace or supplement traditional on-premises file servers or network-attached storage devices. With Azure file shares and AD DS authentication, you can migrate data to Azure Files. This migration can take the advantage of high availability and scalability while minimizing client changes.
+- **Lift and shift**. Azure Files makes it easy to "lift and shift" applications that expect a file share to store application or user data to the cloud.
+- **Backup and disaster recovery**. You can use Azure Files as storage for backups or for disaster recovery to improve business continuity. You can use Azure Files to back up your data from existing file servers while preserving configured Windows discretionary access control lists. Data that's stored on Azure file shares isn't affected by disasters that might affect on-premises locations.
+- **Azure File Sync**. With Azure File Sync, Azure file shares can replicate to Windows Server, either on-premises or in the cloud. This replication improves performance and distributes caching of data to where it's being used.
 
 ## Recommendations
 
@@ -54,7 +58,11 @@ Many internet service providers block **Transmission Control Protocol (TCP) port
 
 The Azure File Sync service allows you to cache Azure file shares on an on-premises Windows Server file server. When you enable cloud tiering, File Sync helps ensure a file server always has free available space, even as it makes more files available than a file server could store locally. If you have on-premises Windows Server file servers, consider integrating file servers with Azure file shares by using Azure File Sync. For more information, see [Planning for an Azure File Sync deployment][Planning-for-Azure-File-Sync].
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 - Azure file share size is limited to 100 tebibytes (TiB). There's no minimum file share size and no limit on the number of Azure file shares.
 - Maximum size of a file in a file share is 1 TiB, and there's no limit on the number of files in a file share.
@@ -63,7 +71,7 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 - IOPS and throughput limits are per Azure storage account and are shared between Azure file shares in the same storage account.
 - For more information, see [Azure Files scalability and performance targets][Azure-Files-scalability-performance].
 
-## Availability considerations
+### Availability
 
 > [!NOTE]
 > Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
@@ -76,7 +84,7 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 - Premium file shares can be stored in locally redundant storage (LRS) and zone redundant storage (ZRS) only. Standard file shares can be stored in LRS, ZRS, geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS). For more information, see [Planning for an Azure Files deployment][Planning-for-Azure-Files] and [Azure Storage redundancy][Azure-Storage-redundancy].
 - Azure Files is a cloud service, and as with all cloud services, you must have internet connectivity to access Azure file shares. A redundant internet connection solution is highly recommended to avoid disruptions.
 
-## Manageability considerations
+### Manageability
 
 - You can manage Azure file shares by using the same tools as any other Azure service. These tools include Azure portal, Azure Command-Line Interface, and Azure PowerShell.
 - Azure file shares enforce standard Windows file permissions. You can configure directory or file-level permissions by mounting an Azure file share and configuring permissions using File Explorer, Windows **icacls.exe** command, or the **Set-Acl** Windows PowerShell cmdlet.
@@ -89,7 +97,9 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 > [!NOTE]
 > Both standard and premium file shares are billed on used capacity when soft deleted, rather than provisioned capacity.
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
@@ -100,12 +110,23 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 - All Azure storage accounts have encryption in transit enabled by default. This setup means that all communication with Azure file shares is encrypted. Clients that don't support encryption can't connect to Azure file shares. If you disable encryption in transit, clients that run older operating systems, such as Windows Server 2008 R2 or older Linux, can also connect. In such instances, data isn't encrypted in transit from Azure file shares.
 - By default, clients can connect to Azure file share from anywhere. To limit the networks from which clients can connect to Azure file shares, configure the Firewall, virtual networks, and private endpoint connections. For more information, see [Configure Azure Storage firewalls and virtual networks][Azure-Storage-firewalls] and [Configuring Azure Files network endpoints][Azure-Files-network-endpoints].
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure Files has two storage tiers and two pricing models:
   - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you need to pay for file operations, such as enumerating a directory or reading a file.
   - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes and you pay per provisioned storage space. When using premium storage, all file operations are free.
 - Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about the actual costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Andrew Coughlin](https://www.linkedin.com/in/andrew-coughlin-644a3a38) | Senior Cloud Solutions Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -114,6 +135,8 @@ Learn more about the component technologies:
 - [How to create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) for instructions on getting started with an SMB share.
 - [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with an NFS mount share.
 - [Enable and create large file shares](/azure/storage/files/storage-files-how-to-create-large-file-share) documentation on creating large file shares upto 100 TiB.
+
+## Related resources
 
 Explore related architectures:
 
