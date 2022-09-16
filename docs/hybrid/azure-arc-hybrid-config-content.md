@@ -165,7 +165,7 @@ Principal author:
 
 - [Learn more about Azure Arc][Azure Arc docs]
 - [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers docs]
-- [Azure Arc learning path on Microsoft Learn](/learn/paths/manage-hybrid-infrastructure-with-azure-arc/)
+- [Azure Arc learning path on Microsoft Learn](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 

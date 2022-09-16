@@ -56,14 +56,14 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images)
-- [Configure app service plans](/learn/modules/configure-app-service-plans)
-- [Create an Azure Cosmos DB database built to scale](/learn/modules/create-cosmos-db-for-scale)
-- [Create and connect to an Azure Database for PostgreSQL](/learn/modules/create-connect-to-postgres)
-- [Develop for Azure Cache for Redis](/learn/modules/develop-for-azure-cache-for-redis)
-- [Explore API Management](/learn/modules/explore-api-management)
-- [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service)
-- [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight)
+- [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images)
+- [Configure app service plans](/training/modules/configure-app-service-plans)
+- [Create an Azure Cosmos DB database built to scale](/training/modules/create-cosmos-db-for-scale)
+- [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres)
+- [Develop for Azure Cache for Redis](/training/modules/develop-for-azure-cache-for-redis)
+- [Explore API Management](/training/modules/explore-api-management)
+- [Implement Azure Kubernetes Service (AKS)](/training/modules/implement-azure-kubernetes-service)
+- [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 
 ## Related resources
 

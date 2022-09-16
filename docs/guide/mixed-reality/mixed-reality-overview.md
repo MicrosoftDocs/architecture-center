@@ -67,14 +67,14 @@ Microsoft Learn is a free, online training platform that provides interactive le
 If you're new to mixed reality, the best place to learn about the ecosystem is the Microsoft Learn **Introduction to mixed reality** learning path. This learning path provides foundational knowledge about the core concepts of mixed reality, virtual reality, augmented reality, holograms, and creating 3D applications.
 
 > [!div class="nextstepaction"]
-> [Introduction to mixed reality](/learn/modules/intro-to-mixed-reality)
+> [Introduction to mixed reality](/training/modules/intro-to-mixed-reality)
 
 ### Build a mixed-reality experience
 
 If you're an intermediate-to-advanced developer with previous experience with mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. With this tutorial, you can build a mixed-reality experience that lets users explore a hologram modeled after NASA's Mars Curiosity Rover. The tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
 
 > [!div class="nextstepaction"]
-> [HoloLens 2 fundamentals](/learn/paths/beginner-hololens-2-tutorials)
+> [HoloLens 2 fundamentals](/training/paths/beginner-hololens-2-tutorials)
 
 ## Mixed reality design and prototyping
 
@@ -138,4 +138,3 @@ Mixed reality is changing fast. Explore the expanding world of mixed reality app
 
 > [!div class="nextstepaction"]
 > [Mixed reality documentation](/windows/mixed-reality)
-

@@ -136,7 +136,7 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
 [mls]: /azure/machine-learning/service
 [mls-service]: https://azure.microsoft.com/services/machine-learning
-[ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine
+[ms-learn]: /training/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml

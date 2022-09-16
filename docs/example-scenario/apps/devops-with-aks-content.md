@@ -145,12 +145,12 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Build a containerized web application with Docker](/learn/modules/intro-to-containers)
-- [Create an Azure Cosmos DB database built to scale](/learn/modules/create-cosmos-db-for-scale)
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
-- [Deploy a containerized application on Azure Kubernetes Service](/learn/modules/aks-deploy-container-app)
-- [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service)
-- [Monitor the usage, performance, and availability of resources with Azure Monitor](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Build a containerized web application with Docker](/training/modules/intro-to-containers)
+- [Create an Azure Cosmos DB database built to scale](/training/modules/create-cosmos-db-for-scale)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
+- [Deploy a containerized application on Azure Kubernetes Service](/training/modules/aks-deploy-container-app)
+- [Implement Azure Kubernetes Service (AKS)](/training/modules/implement-azure-kubernetes-service)
+- [Monitor the usage, performance, and availability of resources with Azure Monitor](/training/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 

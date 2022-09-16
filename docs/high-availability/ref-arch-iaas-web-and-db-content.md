@@ -172,4 +172,4 @@ The Azure platform provides basic DDoS protection by default. This basic protect
 
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
