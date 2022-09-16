@@ -278,7 +278,7 @@ Principal author:
 
 Other contributor:
 
-* [Sven Aelterman](https://www.linkedin.com/in/svenaelterman) | Senior Cloud Solution Architect, Education
+  * [Sven Aelterman](https://www.linkedin.com/in/svenaelterman) | Senior Cloud Solution Architect, Education
 
 ## Next steps
 
