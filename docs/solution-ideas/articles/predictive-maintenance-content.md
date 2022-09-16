@@ -2,10 +2,6 @@
 
 This predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 
-## Potential use cases
-
-While it's customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
-
 ## Architecture
 
 ![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/predictive-maintenance.png)
@@ -32,11 +28,15 @@ While it's customized for aircraft monitoring, it can easily be generalized for 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 * [Power BI Dashboard](https://powerbi.microsoft.com)
 
-## Solution details
+## Scenario details
 
 This solution demonstrates how to combine real-time data from sensors with advanced analytics to monitor aircraft parts in real time. It predicts the remaining useful life of aircraft engine components.
 
 Air travel is central to modern life, however, aircraft engines are expensive and keeping them up and running requires frequent maintenance by highly skilled technicians. Modern aircraft engines are equipped with highly sophisticated sensors to track their functioning. With data from these sensors combined with advanced analytics, it's possible to both monitor the aircraft in real time, and predict the remaining useful life of an engine component. These predictions enable maintenance to be scheduled quickly to prevent mechanical failures.
+
+## Potential use cases
+
+While it's customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
 
 ## Deploy this scenario
 

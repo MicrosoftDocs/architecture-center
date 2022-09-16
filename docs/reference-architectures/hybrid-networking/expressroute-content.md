@@ -26,6 +26,12 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
+## Components
+
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
@@ -130,6 +136,8 @@ If your provider had already provisioned the circuit, and the `ProvisioningState
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
@@ -201,6 +209,8 @@ You can configure high availability for your Azure connection in different ways,
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
 ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources.
@@ -231,9 +241,11 @@ For more information, see the DevOps section in [Microsoft Azure Well-Architecte
 
 ### Cost optimization
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The services used in this architecture are charged as follows:
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
+
+The next sections explain the service charges that are used in this architecture.
 
 #### Azure ExpressRoute
 
@@ -295,4 +307,3 @@ Microsoft Learn modules:
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
 [visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx
-
