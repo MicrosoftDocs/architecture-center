@@ -76,7 +76,7 @@ Before you install Radioss, you need to deploy and connect a Linux VM and instal
 
 For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on Altair One Marketplace. You can find more information about installing Radioss and License Manager and activating your license on Altair One Marketplace. For multi-node installation, see the next section.
+You can install Radioss from [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You also need to install Altair License Manager and activate your license via Altair Units Licensing. See the Altair Units Licensing document on [Altair One Marketplace](https://altairone.com/Marketplace?queryText=radioss&app=Radioss&tab=Info). You can find more information about installing Radioss and License Manager and activating your license on Altair One Marketplace. For multi-node installation, see the next section.
 
 ## Multi-node configuration
 
