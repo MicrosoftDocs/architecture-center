@@ -54,7 +54,7 @@ The on-premises installation types are:
 
 Because Windows Admin Center has no cloud service dependencies, some organizations might choose to deploy Windows Admin Center to an on-premises system for managing on-premises computers and then enable hybrid services over time. However, many organizations prefer to take advantage of service offerings in Azure and other cloud platforms that are integrated with Windows Admin Center.
 
-Deploying Windows Admin Center on an Azure VM provides gateway functionality similar to Windows Server 2016 and Windows Server 2019. However, Azure also enables additional features for Azure VMs. Refer to [Availability considerations](#availability-considerations) for more information about the benefits of deploying Windows Admin Center to Azure VMs.
+Deploying Windows Admin Center on an Azure VM provides gateway functionality similar to Windows Server 2016 and Windows Server 2019. However, Azure also enables additional features for Azure VMs. Refer to [Availability considerations](#availability) for more information about the benefits of deploying Windows Admin Center to Azure VMs.
 
 ### Automated deployment
 
