@@ -23,7 +23,7 @@ categories: featured
 
 # Security considerations for mission-critical workloads
 
-The focus of this architecture is to maximize reliability so that the application remains performant and available. Security controls are only applied for the purposes of mitigating threats that impact availability and reliability.
+Mission-critical workloads are inherently required to be secured - if an application, or its infrastructure, is compromised, availability is at risk. The focus of this architecture is to maximize reliability so that the application remains performant and available under all circumstances. Security controls are applied primarily with the purposes of mitigating threats that impact availability and reliability.
 
 > [!NOTE]
 > Your business requirements might call for more security measures. We highly recommend that you extend the controls in your implementation as per the guidance provided in [Misson-critical guidance in Well-Architected Framework: Security](/azure/architecture/framework/mission-critical/mission-critical-security).
