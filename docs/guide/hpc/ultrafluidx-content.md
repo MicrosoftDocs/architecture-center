@@ -8,7 +8,7 @@ Altair ultraFluidX is a simulation tool for predicting the aerodynamic propertie
 - Handles rotating geometries via wall-velocity boundary conditions, a Moving Reference Frame (MRF) model, and truly rotating overset grids (OSM).
 - Provides automated volume mesh generation with low surface mesh requirements, local grid refinement, and support for intersecting/baffle parts.
  
-Altair ultraFluidX is used in the automotive, building, and environmental industry sectors.
+Altair ultraFluidX is used in the automotive, building, and environmental industries.
 
 ## Why deploy ultraFluidX on Azure?
 
@@ -85,7 +85,7 @@ The following table shows the wall-clock times, in seconds.
 |Model|1 GPU|2 GPUs|4 GPUs|8 GPUs|
 |-|-|-|-|-|
 |Roadster|1,571|1,097|731|539|
-|CX1 (short run)|NA*|NA*|6679|4743|
+|CX1 (short run)|NA*|NA*|6,679|4,743|
 |CX1 (production run)|NA*|NA*|39,115|23,518|
 
 This graph provides the same information for the Roadster model and the short run of the CX1 model:
@@ -140,7 +140,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |CX1 (production run)|4|39,115|
 |CX1 (production run)|8|23,518 |
 
-*\* NA indicates that the model requires more than 100 GB of GPU memory, so the simulation can't run with only one or two GPUs.*
+*\* The CX1 model requires more than 100 GB of GPU memory, so the simulation can't run with only one or two GPUs.*
 
 ## Summary
 
