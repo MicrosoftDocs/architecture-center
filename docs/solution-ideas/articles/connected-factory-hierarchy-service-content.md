@@ -166,8 +166,8 @@ Principal author:
 ## Next steps
 
 - [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
-- [Develop with Azure Digital Twins (Learning path)](/learn/paths/develop-azure-digital-twins)
-- [Introduction to Kubernetes on Azure (Learning path)](/learn/paths/intro-to-kubernetes-on-azure)
+- [Develop with Azure Digital Twins (Learning path)](/training/paths/develop-azure-digital-twins)
+- [Introduction to Kubernetes on Azure (Learning path)](/training/paths/intro-to-kubernetes-on-azure)
 
 ## Related resources
 
