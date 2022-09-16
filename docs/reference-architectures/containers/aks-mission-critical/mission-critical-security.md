@@ -36,17 +36,17 @@ Applications that require user authentication and account management should foll
 
 ### Least privilege access
 
-Access policies need to be chosen in a way that users and applications obtain only the minimal level of access needed to fulfill their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs don't always listen to messaging bus and backend workers don't necessarily send new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
+Configure access policies so that users and applications obtain only the minimal level of access needed to fulfill their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs don't always listen to messaging bus and backend workers don't necessarily send new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
 
 Examples from the Azure Mission-critical reference implementation:
 
-- Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfill its function**.
+- Each application component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfill its function**.
 - The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
 - The AKS Kubelet identity has only the *AcrPull* permission to access the global Container Registry.
 
 ### Managed identities
 
-To improve security of a mission-critical workload, the use of service-based secrets (such as connection strings or API keys) should be avoided when possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
+To improve security of a mission-critical workload avoid using service-based secrets (such as connection strings or API keys) where possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
 
 The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, this Terraform code assigns only the `AcrPull` role the Kubelet identity:
 
@@ -60,12 +60,12 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator interacts with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use custom certificates, but the same principles would apply.
 
-The [**Azure Key Vault Provider for Secrets Store**](/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secrets. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
+On the AKS cluster, the [**Azure Key Vault Provider for Secrets Store**](/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secrets. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
 
 ```yml
 #
@@ -117,15 +117,17 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
     });
 ```
 
-The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault, new values are mounted on the cluster. **This  doesn't guarantee secret rotation in the application**. The implementation uses singleton Cosmos DB client instance that causes the pod to restart to apply the change.
+The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault, new values are mounted on the cluster. **This  doesn't guarantee secret rotation in the application**. The implementation uses singleton Cosmos DB client instance that requires the pod to restart to apply the change.
 
 ## Custom domains and TLS
 
-The reference implementation fully supports custom domain names, for example, `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
+Every web-based workload should use HTTPS everywhere to prevent man-in-the-middle attacks on all interaction levels (client - API, API - API). There should be an automated process certificate rotation, because expired certificates are still a common cause of outages, or degraded experiences.
+
+The reference implementation fully supports HTTPS with custom domain names, for example, `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
 
 To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these records automatically to an Azure Front Door instance.
 
-**Front Door-managed SSL certificates** are also enabled, which means that there's no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
+**Front Door-managed SSL certificates** are enabled, which means that there's no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
 
 ```terraform
 #
@@ -147,10 +149,6 @@ Environments that aren't provisioned with custom domains can be accessed through
 > [!NOTE]
 > On the cluster ingress controllers, custom domains are not used in either case; instead an Azure-provided DNS name such as `[prefix]-cluster.[region].cloudapp.azure.com` is used with Let's Encrypt enabled to issue free SSL certificates for those endpoints.
 
-## Certificates
-
-Web applications should use HTTPS everywhere to prevent man-in-the-middle attacks on all interaction levels (client - API, API - API).
-
 The reference implementation uses Jetstack's `cert-manager` to auto-provision SSL/TLS certificates (from Let's Encrypt) for ingress rules. More configuration settings like the `ClusterIssuer` (used to request certificates from Let's Encrypt) are deployed via a separate `cert-manager-config` helm chart stored in [src/config/cert-manager/chart](https://github.com/Azure/Mission-Critical-Online/tree/main/src/config/cert-manager/chart/cert-manager-config).
 
 This implementation is using `ClusterIssuer` instead of `Issuer` as documented [here](https://cert-manager.io/docs/concepts/issuer/) and [here](https://docs.cert-manager.io/en/release-0.7/tasks/issuing-certificates/ingress-shim.html) to avoid having issuers per namespaces.
@@ -166,22 +164,22 @@ spec:
 
 ## Configuration
 
-**All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. You can use a configuration store, such as Azure App Configuration, to store the settings. However, for mission critical applications, another component will introduce another point of failure. Using Key Vault for runtime configuration simplifies the overall implementation.
+**All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. A configuration store, such as Azure App Configuration, could be used to store the settings, however, having a single store reduces the number of potential points of failure for mission-critical applications. Using Key Vault for runtime configuration simplifies the overall implementation.
 
 **Key Vaults are only populated by Terraform deployment**. The required values are either sourced directly from Terraform (such as database connection strings) or passed through as Terraform variables from the deployment pipeline.
 
 **Infrastructure and deployment configuration** of individual environments (`e2e`, `int`, `prod`) is stored in variable files that are part of the source code repository. This approach has two benefits:
 
-- All changes in environment are tracked and go through deployment pipelines before they're applied to the environment.
+- All changes in an environment are tracked and go through deployment pipelines before they're applied to the environment.
 - Individual e2e environments can be configured differently, because deployment is based on code in a branch.
 
-The exception is the storage of **sensitive values** for the pipelines. These values are stored as secrets in Azure DevOps variable groups.
+One exception is the storage of **sensitive values** for pipelines. These values are stored as secrets in Azure DevOps variable groups.
 
 ## Container security
 
-Securing container images (also referred to as 'hardening') is important aspect of every containerized workload.
+Securing container images (also referred to as 'hardening') is an important aspect of every containerized workload.
 
-The application Docker containers, used in the reference implementation, are based on **runtime images**, not SDK, to minimize footprint and potential attack surface.
+Workload Docker containers used in the reference implementation are based on **runtime images**, not SDK, to minimize footprint and potential attack surface. There are no additional tools installed (such as `ping`, `wget`, or `curl`).
 
 The application runs under a non-privileged user `workload`, created as part of the image build process:
 
@@ -190,9 +188,11 @@ RUN groupadd -r workload && useradd --no-log-init -r -g workload workload
 USER workload
 ```
 
-The reference implementation uses Helm to package the YAML manifests needed to deploy individual components together, including their Kubernetes deployment, services, auto-scaling (HPA) configuration, and security context. All Helm charts contain foundational security measures following Kubernetes best practices. These security measures are:
+The reference implementation uses Helm to package the YAML manifests needed to deploy individual components together, including their Kubernetes deployment, services, auto-scaling (HPA) configuration, and security context. All Helm charts contain foundational security measures following Kubernetes best practices.
 
-- `readOnlyFilesystem`: The root filesystem `/` in each container is set to **read-only** to prevent the container from accidentally writing to the host filesystem. Directories that require read-write access are mounted as volumes.
+These security measures are:
+
+- `readOnlyFilesystem`: The root filesystem `/` in each container is set to **read-only** to prevent the container from writing to the host filesystem. This restriction prevents attackers from downloading more tools and persisting code in the container. Directories that require read-write access are mounted as volumes.
 - `privileged`: All containers are set to run as **non-privileged**. Running a container as privileged gives all capabilities to the container, and it also lifts all the limitations enforced by the device control group controller.
 - `allowPrivilegeEscalation`: Prevents the inside of a container from gaining more privileges than its parent process.
 
@@ -216,7 +216,7 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ## Traffic ingress
 
-**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are more capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
+**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager, which is DNS-based), there are more capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
 
 ### Web Application Firewall
 
