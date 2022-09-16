@@ -1,24 +1,26 @@
-
-
 This reference architecture illustrates multiple local branches of an organization that's spread out geographically. Each location is using a Microsoft Azure Function App that's configured with the Premium plan in a nearby cloud region. The developers in this architecture are monitoring all the Azure Function Apps by using Azure Monitor as a single pane of glass.
+
+## Architecture
 
 ![The diagram illustrates multiple local virtual machines (VMs) that are connected to Azure Functions in different regions. Developers are monitoring their function apps by using Azure Monitor.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
+### Components
+
+The architecture consists of the following components:
+
+- **[Azure Functions][https://azure.microsoft.com/services/functions]**. Azure Functions is a serverless platform as a service (PaaS) in Azure that runs small, single-task code without requiring new infrastructure to be spun up. The [Azure Functions Premium plan][azure-functions-premium] adds the ability to communicate with Azure Functions privately over a virtual network.
+- **[Azure Virtual Network][https://azure.microsoft.com/services/virtual-network]**. Azure virtual networks are private networks built on the Azure cloud platform so that Azure resources can communicate with each other in a secure fashion. Azure virtual networks [service endpoints][azure-virtual-network-service-endpoints] ensure that Azure resources can only communicate over the secure virtual network backbone.
+- **On-premises network**. In this architecture, the organization has created a secure private network that connects the various branches. This private network is connected to their Azure virtual networks by using a [site-to-site][azure-virtual-network-s2s] connection.
+- **Developer workstations**. In this architecture, individual developers might work on code for Azure Functions entirely on the secure private network or from any remote location. In either scenario, developers have access to Azure Monitor to query or observe metrics and logs for the function apps.
+
+## Scenario details
+
 Typical uses for this architecture include:
 
 - Organizations with many physical locations that are connected to a virtual network in Azure to communicate with Azure Functions.
 - High-growth workloads that are using Azure Functions locally and maintaining the option to use Azure for any unexpected bursts in work.
-
-## Architecture
-
-The architecture consists of the following components:
-
-- **[Azure Functions][azure-functions]**. Azure Functions is a serverless platform as a service (PaaS) in Azure that runs small, single-task code without requiring new infrastructure to be spun up. The [Azure Functions Premium plan][azure-functions-premium] adds the ability to communicate with Azure Functions privately over a virtual network.
-- **[Azure Virtual Network][azure-virtual-network]**. Azure virtual networks are private networks built on the Azure cloud platform so that Azure resources can communicate with each other in a secure fashion. Azure virtual networks [service endpoints][azure-virtual-network-service-endpoints] ensure that Azure resources can only communicate over the secure virtual network backbone.
-- **On-premises network**. In this architecture, the organization has created a secure private network that connects the various branches. This private network is connected to their Azure virtual networks by using a [site-to-site][azure-virtual-network-s2s] connection.
-- **Developer workstations**. In this architecture, individual developers might work on code for Azure Functions entirely on the secure private network or from any remote location. In either scenario, developers have access to Azure Monitor to query or observe metrics and logs for the function apps.
 
 ## Recommendations
 
@@ -56,39 +58,74 @@ You should use either a [site-to-site][azure-virtual-network-s2s] or an [Azure E
 
 Additionally, each virtual network in Azure should also use [virtual network peering][azure-virtual-network-peering] to enable communication between individual function apps across regions.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 - Azure Functions code should be designed so that it can scale out endlessly. Consider race conditions, leased files, and other workloads that might cause one function run to block another. Also consider writing all Azure Functions code to be [stateless and defensive][azure-functions-best-practices] in its design.
 - For function apps that use [Azure Storage][azure-storage] accounts in triggers or bindings, don't reuse the same account that's used to store metadata about the function apps and their runs.
 
-## Availability considerations
+### Availability
 
 - Typically, Azure Functions on the consumption plan can scale down to zero instances. When a new event triggers a function app, a new instance must be created with your code running on it. The latency that's associated with this process is referred to as a *cold start*. The Azure Functions Premium plan offers the option to configure [pre-warmed instances][azure-functions-premium-warmed] that are ready for any new requests. You can configure the number of pre-warmed instances up to the minimum number of instances in your scale-out configuration.
 - Consider having multiple Premium plans in multiple regions and using [Azure Traffic Manager][azure-traffic-manager] to route requests appropriately.
 
-## Manageability considerations
+### Manageability
 
 - Azure Functions must be in an empty subnet that's a different subnet than your other Azure resources. This might require more planning when designing subnets for your virtual network.
 - Consider creating proxies for every on-premises resource that Azure Functions might need to access. This can protect your application integrity against any unanticipated on-premises networking changes.
 - Use Azure Monitor to [observe analytics and logs][azure-functions-monitor] for Azure Functions across your entire solution.
 
-## DevOps considerations
+### DevOps
 
 - Ideally, deployment operations should come from a single team (*Dev* or *DevOps*), not from each individual branch. Consider using a modern workflow system like Azure Pipelines or GitHub Actions to deploy function apps in a repeatable manner across all Azure regions and potentially on-premises.
 - Use your workflow system to automate the redeployment of code to Azure Functions as the code is updated and tagged for release.
 - Use [deployment slots][azure-functions-deployment-slots] to test Azure Functions prior to their final push to production.
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - The Azure Functions Premium plan is required for Azure Virtual Network connectivity, private site access, service endpoints, and pre-warmed instances.
 - The Azure Functions Premium plan bills on instances instead of consumption. The minimum of a single instance ensures there will be at least some monthly bill even without runs. You can set a maximum instance count to control costs for workloads that may burst in size.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
+- [Azure Functions documentation][azure-functions]
 - [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections)
 - [Managing hybrid environments with PowerShell](/azure/azure-functions/functions-hybrid-powershell)
 - [Azure Functions to connect to resources in an Azure virtual network](/azure/azure-functions/functions-create-vnet)
+- [Azure Virtual Network documentation][azure-virtual-network]
+
+## Related resources
+
+See the following architectural guidance for Azure Functions:
+
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
+- [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
+- [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+
+See the following architectural guidance for Azure Virtual Networks:
+
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
 
 [architectural-diagram]: ./images/azure-functions-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
