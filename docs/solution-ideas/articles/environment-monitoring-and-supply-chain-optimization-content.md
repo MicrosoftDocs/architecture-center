@@ -91,6 +91,8 @@ The table below provides a summary of common use cases and corresponding IoT sol
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Connectivity
 
 The solution's on-site devices and sensors need to send data to applications in the cloud, but reliable internet access may not be available for some locations, such as in rural areas.

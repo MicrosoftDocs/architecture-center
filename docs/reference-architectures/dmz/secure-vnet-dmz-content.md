@@ -35,7 +35,7 @@ This architecture requires a connection to your on-premises datacenter, using ei
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 - Infrastructure that requires granular control over traffic entering an Azure virtual network from an on-premises datacenter.
-- Applications that must audit outgoing traffic. This is often a regulatory requirement of many commercial systems and can help to prevent public disclosure of private information.
+- Applications that must audit outgoing traffic. Auditing is often a regulatory requirement of many commercial systems and can help to prevent public disclosure of private information.
 
 ## Recommendations
 
@@ -51,7 +51,7 @@ Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources
 
 - A security IT administrator role to manage secure network resources such as the firewall.
 
-The IT administrator role should not have access to the firewall resources. This should be restricted to the security IT administrator role.
+The IT administrator role shouldn't have access to the firewall resources. Access should be restricted to the security IT administrator role.
 
 ### Resource group recommendations
 
@@ -70,9 +70,9 @@ To accept inbound traffic from the internet, add a [Destination Network Address 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
 
-[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
+[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This design prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
-Don't completely block internet traffic from the resources in the spoke network subnets, as this will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
+Don't completely block internet traffic from the resources in the spoke network subnets. Blocking traffic will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
 Verify that outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark].
 
@@ -86,9 +86,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
+For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10-Gbps bandwidth with lower latency than a VPN connection.
 
-For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
+For more information about the scalability of Azure gateways, see the scalability consideration sections in:
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] 
+- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability]
 
 For details about managing virtual networks and NSGs at scale, see [Azure Virtual Network Manager (AVNM): Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke) to create new (and onboard existing) hub and spoke virtual network topologies for central management of connectivity and NSG rules.
 
@@ -98,7 +100,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 If you're using Azure ExpressRoute to provide connectivity between the virtual network and on-premises network, [configure a VPN gateway to provide failover][ra-vpn-failover] if the ExpressRoute connection becomes unavailable.
 
-For specific information on maintaining availability for VPN and ExpressRoute connections, see the availability considerations in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-availability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-availability].
+For information on maintaining availability for VPN and ExpressRoute connections, see the availability considerations in:
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-availability] 
+- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-availability]
 
 ### Operational excellence
 
@@ -120,7 +124,7 @@ This reference architecture implements multiple levels of security.
 
 #### Routing all on-premises user requests through Azure Firewall
 
-The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall, and these requests are passed on to the resources in the spoke virtual networks if they are allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
+The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall. The requests are passed on to the resources in the spoke virtual networks if they're allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
 
 #### Using NSGs to block/pass traffic to spoke virtual network subnets
 
@@ -128,7 +132,7 @@ Traffic to and from resource subnets in spoke virtual networks is restricted by 
 
 ### Use AVNM to create baseline Security Admin rules
 
-AVNM allows you to create baselines of security rules, which can take priority over network security group rules. [Security admin rules](/azure/virtual-network-manager/concept-security-admins) are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols. This will allow central IT to enforce a baseline of security rules, while allowing an independency of additional NSG rules by the spoke virtual network owners. To facilitate a controlled rollout of security rules changes, AVNM's [deployments](/azure/virtual-network-manager/concept-deployments) feature allows you to safely release of these configurations' breaking changes to the hub-and-spoke environments.
+AVNM allows you to create baselines of security rules, which can take priority over network security group rules. [Security admin rules](/azure/virtual-network-manager/concept-security-admins) are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols. AVNM allows central IT to enforce a baseline of security rules, while allowing an independency of additional NSG rules by the spoke virtual network owners. To facilitate a controlled rollout of security rules changes, AVNM's [deployments](/azure/virtual-network-manager/concept-deployments) feature allows you to safely release of these configurations' breaking changes to the hub-and-spoke environments.
 
 #### DevOps access
 
@@ -149,17 +153,17 @@ In this architecture, Azure Firewall is deployed in the virtual network to contr
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling.
 
-When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA][Firewall-NVA].
+When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information, see [Azure Firewall vs NVA][Firewall-NVA].
 
 #### Azure Bastion
 
 Azure Bastion securely connects to your virtual machine over RDP and SSH without having the need to configure a public IP on the virtual machine.
 
-Bastion billing is comparable to a basic, low-level virtual machine configured as a jump box. Comparing Bastion to a jump box, Bastion is more cost effective considering Bastion's built-in security features and no extra costs incurred for storage and managing a separate server.
+Bastion billing is comparable to a basic, low-level virtual machine configured as a jump box. Bastion is more cost effective than a jump box as it has built-in security features, and doesn't incur extra costs for storage and managing a separate server.
 
 #### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same virtual network are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. For example, VMs in the same virtual network that talk to each other don't incur network traffic charges.
 
 #### Internal load balancer
 
