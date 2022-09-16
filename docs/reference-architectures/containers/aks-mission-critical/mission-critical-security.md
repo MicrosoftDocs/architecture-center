@@ -10,6 +10,9 @@ ms.subservice: guide
 products:
 - azure-kubernetes-service
 - azure-front-door
+- azure-container-registry
+- azure-key-vault
+- azure-cosmos-db
 ms.category:
 - containers
 - networking
@@ -20,24 +23,26 @@ categories: featured
 
 # Security considerations for mission-critical workloads
 
-The focus of this architecture is to maximize reliability so that the application remains performant and available. Security controls are only applied for the purposes of mitigating threats that impact availability and reliability. <lifted from WAF>
+The focus of this architecture is to maximize reliability so that the application remains performant and available. Security controls are only applied for the purposes of mitigating threats that impact availability and reliability.
 
 > [!NOTE]
-> Your business requirements might call for more security measures. We highly recommend that you extend the controls in your implementation as per the guidance provided in [Misson critical guidance in Well-architected Framework: Security](/azure/architecture/framework/mission-critical/mission-critical-security).
+> Your business requirements might call for more security measures. We highly recommend that you extend the controls in your implementation as per the guidance provided in [Misson-critical guidance in Well-Architected Framework: Security](/azure/architecture/framework/mission-critical/mission-critical-security).
 
 ## Identity and access management
 
-At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope.
+At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope of the reference implementation.
+
+Applications that require user authentication and account management should follow the principles [outlined in Microsoft Well-Architected Framework](/azure/architecture/framework/security/design-identity-authentication) (i.e. use managed identity providers, don't implement custom identity management, use passwordless whenever possible, etc.).
 
 ### Least privilege access
 
-Every access policy should be evaluated...
+Access policies need to be chosen in a way that users and applications obtain only the minimal level of access needed to fulfil their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs doesn't always listen to messaging bus and backend workers don't necessarily send generate new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
 
 Examples from the Azure Mission-critical reference implementation:
 
 - Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfil its function**.
 - The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
-- The AKS Kubelet identity has only *AcrPull* permission to access the global Container Registry.
+- The AKS Kubelet identity has only the *AcrPull* permission to access the global Container Registry.
 
 ### Managed identities
 
@@ -45,7 +50,7 @@ To improve security of a mission-critical workload, the use of service-based sec
 
 The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, this Terraform code assigns only the `AcrPull` role the Kubelet identity:
 
-```
+```terraform
 resource "azurerm_role_assignment" "acrpull_role" {
   scope                = data.azurerm_container_registry.global.id
   role_definition_name = "AcrPull"
