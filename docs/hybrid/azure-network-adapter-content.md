@@ -157,6 +157,15 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - Egress costs:
   - There are extra costs associated with outbound Inter-VNet data transfers. Those costs are dependent on your VPN Gateway's SKU and the actual amount of data you're using. For more information, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for additional information about pricing.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Frank Migacz](https://www.linkedin.com/in/fmigacz) | App Innovation Specialist
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more about the component technologies:
