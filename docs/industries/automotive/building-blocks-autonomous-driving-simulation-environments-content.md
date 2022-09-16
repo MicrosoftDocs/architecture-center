@@ -186,15 +186,15 @@ Product documentation:
 
 Microsoft learning paths:
 
-- [Implement and manage storage for Azure administrators](/learn/paths/azure-administrator-manage-storage)
+- [Implement and manage storage for Azure administrators](/training/paths/azure-administrator-manage-storage)
 
-- [Deploy and manage compute resources for Azure administrators](/learn/paths/azure-administrator-manage-compute-resources)
+- [Deploy and manage compute resources for Azure administrators](/training/paths/azure-administrator-manage-compute-resources)
 
-- [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
+- [Configure and manage virtual networks for Azure administrators](/training/paths/azure-administrator-manage-virtual-networks)
 
-- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance)
+- [Manage identities and governance for Azure administrators](/training/paths/azure-administrator-manage-identities-governance)
 
-- [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
+- [Monitor and back up resources for Azure administrators](/training/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
 

@@ -64,9 +64,9 @@ Detect anomalies and identify a root cause for anomaly incidents.
 
 ## Next steps
 
-- [Explore Time Series Insights integration](/learn/modules/explore-time-series-insights-integration)
-- [Identify abnormal time-series data with Anomaly Detector](/learn/modules/identify-abnormal-time-series-data-anomaly-detector)
-- [Introduction to Azure Data Explorer](/learn/modules/intro-to-azure-data-explorer)
+- [Explore Time Series Insights integration](/training/modules/explore-time-series-insights-integration)
+- [Identify abnormal time-series data with Anomaly Detector](/training/modules/identify-abnormal-time-series-data-anomaly-detector)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
 
 ## Related resources
 

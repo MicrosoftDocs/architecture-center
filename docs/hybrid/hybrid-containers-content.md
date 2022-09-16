@@ -49,6 +49,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 - Customer-facing containerized web applications benefit from variable scales. You can use services such as Azure Container Instances and AKS to dynamically scale out to meet anticipated or measured demand. Additionally, you can use services such as [Azure Functions][azure-functions] and [Azure App Service][azure-app-service] to run container images at scale.
@@ -79,6 +81,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Use [Azure Private Link][azure-private-link] to communicate to and across services in your virtual network. This will route traffic through specific subnets to reach the individual Azure services directly and protect your data from inadvertent exposure to the public internet.
 
 ### Cost optimization
@@ -90,12 +94,31 @@ In this reference, Azure Container Instances container groups are utilized as *v
 - If you require a specific uptime service-level agreement (SLA), you can enable the [uptime SLA optional feature][azure-kubernetes-service-uptime-sla] of AKS.
 - Azure Container Instances resources are billed per second, based on an allocation of virtual CPU and memory resources, to the container group. Allocating unnecessary compute resources can exponentially increase the costs required to run this architecture solution. Cost monitoring and optimization is a continuous process that should be conducted at regular intervals throughout the lifetime of your deployment. For further guidance on minimizing Azure Container Instances operational costs, refer to the [cost optimization section][azure-well-architected-framework-performance] of the [Azure Well-Architected Framework][azure-well-architected-framework].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learn more about Azure Container Registry][azure-container-registry]
 - [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
 - [Learn more about Azure Policy][azure-policy]
 - [Learn more about Azure Monitor][azure-monitor]
+
+## Related resources
+
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](/azure/architecture/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
 
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx

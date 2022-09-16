@@ -44,10 +44,10 @@ Organizations can use this solution to provide:
 - To design an app that detects context that matters to you, see [Quickstart: Create an object detection project with the Custom Vision client library](/azure/cognitive-services/custom-vision-service/quickstarts/object-detection).
 - To explore the search capabilities that Bing provides, see [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison).
 - To build LUIS into your bot, see [Add natural language understanding to your bot](/azure/bot-service/bot-builder-howto-v4-luis).
-- To explore a Learn module about how LUIS works, see [Create a language model with Conversational Language Understanding](/learn/modules/create-language-model-with-language-understanding).
-- To learn how to build with Bot Service, see [Build a bot with the Language Service and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service).
-- To create a bot that incorporates QnA Maker and Bot Service, see [Create conversational AI solutions](/learn/paths/create-bots-with-the-azure-bot-service).
-- To solidify your understanding of LUIS, Bot Service, and the Bing Visual Search API, see [Exam AI-900: Microsoft Azure AI Fundamentals](/learn/certifications/exams/ai-900).
+- To explore a Learn module about how LUIS works, see [Create a language model with Conversational Language Understanding](/training/modules/create-language-model-with-language-understanding).
+- To learn how to build with Bot Service, see [Build a bot with the Language Service and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service).
+- To create a bot that incorporates QnA Maker and Bot Service, see [Create conversational AI solutions](/training/paths/create-bots-with-the-azure-bot-service).
+- To solidify your understanding of LUIS, Bot Service, and the Bing Visual Search API, see [Exam AI-900: Microsoft Azure AI Fundamentals](/certifications/exams/ai-900).
 - To certify your knowledge about Cognitive Services, see [Microsoft Certified: Azure AI Engineer Associate](/certifications/azure-ai-engineer).
 - To learn more about the components in this solution, see these resources:
 

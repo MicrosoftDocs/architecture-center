@@ -222,7 +222,7 @@ The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collectio
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  

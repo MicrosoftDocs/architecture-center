@@ -930,8 +930,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
-- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/training/modules/intro-to-logic-apps)
 
 ## Related resources
 

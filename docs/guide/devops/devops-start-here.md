@@ -34,13 +34,13 @@ DevOps includes these activities and operations:
 
 ## Introduction to DevOps on Azure
 
-If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn](/learn). It's a free, online platform that provides interactive training for Microsoft products and more. There are videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on job role, such as developer or data analyst. If you're not familiar with Learn you can take [a tour of Microsoft Learn](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
+If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn](/training). It's a free, online platform that provides interactive training for Microsoft products and more. There are videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on job role, such as developer or data analyst. If you're not familiar with Learn you can take [a tour of Microsoft Learn](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
 
 After you're familiar with Azure, you can decide whether to follow learning paths specific to DevOps, such as:
 
-- [Get started with Azure DevOps](/learn/paths/evolve-your-devops-practices)
-- [Deploy applications with Azure DevOps](/learn/paths/deploy-applications-with-azure-devops)
-- [Build applications with Azure DevOps](/learn/paths/build-applications-with-azure-devops)
+- [Get started with Azure DevOps](/training/paths/evolve-your-devops-practices)
+- [Deploy applications with Azure DevOps](/training/paths/deploy-applications-with-azure-devops)
+- [Build applications with Azure DevOps](/training/paths/build-applications-with-azure-devops)
 
 > [!div class="nextstepaction"]
 > [Browse other training materials for DevOps](/search/?terms=devops&category=Learn)

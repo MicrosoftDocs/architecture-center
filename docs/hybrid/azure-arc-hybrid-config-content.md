@@ -21,7 +21,9 @@ The architecture consists of the following components:
 - **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
 - **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
 
-## Potential use cases
+## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 
@@ -94,6 +96,8 @@ Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Reliability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be available.
@@ -148,11 +152,20 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 > [!div class="nextstepaction"]
 > [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learn more about Azure Arc][Azure Arc docs]
 - [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers docs]
-- [Azure Arc learning path on Microsoft Learn](/learn/paths/manage-hybrid-infrastructure-with-azure-arc/)
+- [Azure Arc learning path on Microsoft Learn](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 

@@ -76,10 +76,10 @@ Marketplace](https://altairone.com/Marketplace?queryText=acusolve). You
 also need to install Altair License Manager and activate your license
 via Altair Units Licensing. You can find more information about
 installing AcuSolve and License Manager and activating your license on
-Altair One Marketplace. For multi-mode installation, see the next
+Altair One Marketplace. For multi-node installation, see the next
 section.
 
-## Multi-mode configuration
+## Multi-node configuration
 
 You can easily deploy an HPC cluster on Azure by using [Azure
 CycleCloud](/azure/cyclecloud/overview).
@@ -96,13 +96,13 @@ Azure Marketplace image.
 To set up an HPC cluster on Azure, complete these steps:
 
 1.  [Install and configure Azure
-    CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+    CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
 2.  [Create an HPC cluster from built-in
-    templates](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+    templates](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
 3.  [Connect to the head node (the
     scheduler)](/azure/cyclecloud/how-to/connect-to-node)
 
-For multi-mode configurations, the AcuSolve installation process is the
+For multi-node configurations, the AcuSolve installation process is the
 same as the process described previously for a single node, except for
 the path to the installation directory:
 
@@ -121,7 +121,7 @@ the path to the installation directory:
 
 ## AcuSolve performance results
 
-AcuSolve was tested in single-node and multi-mode configurations. Computation time (wall-clock time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details:
+AcuSolve was tested in single-node and multi-node configurations. Computation time (wall-clock time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details:
 
 
 |  Operating system version  | OS architecture   |Processor  |  MPI|
@@ -327,7 +327,7 @@ Other contributors:
 -   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+    Azure](/training/paths/run-high-performance-computing-applications-azure)
 -   [What is Azure
     CycleCloud?](/azure/cyclecloud/overview)
 

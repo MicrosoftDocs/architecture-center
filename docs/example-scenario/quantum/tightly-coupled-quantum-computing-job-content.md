@@ -103,10 +103,10 @@ For the Azure Quantum service, consider these points:
 
 ## Next steps
 
-* For an overview of Microsoft Quantum, a full-stack, open-cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing) and complete the [Quantum computing foundations](/learn/paths/quantum-computing-fundamentals) learning path.
+* For an overview of Microsoft Quantum, a full-stack, open-cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing) and complete the [Quantum computing foundations](/training/paths/quantum-computing-fundamentals) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
 * For general information about Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
-* For information about running algorithms on quantum hardware, see the module [Run algorithms on quantum hardware by using Azure Quantum](/learn/modules/run-algorithms-quantum-hardware-azure-quantum).
+* For information about running algorithms on quantum hardware, see the module [Run algorithms on quantum hardware by using Azure Quantum](/training/modules/run-algorithms-quantum-hardware-azure-quantum).
 
 ## Related resources
 

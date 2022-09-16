@@ -105,7 +105,7 @@ Notes
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Apps][sla-azure-spring-apps]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] | Preview (No SLA) | [SLA for Azure Red Hat OpenShift][sla-aro] |
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported | | Not Supported | Not supported |
 
-For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
+For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
 ## Security
 
@@ -143,7 +143,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 ## Next steps
 
-- [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
+- [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows

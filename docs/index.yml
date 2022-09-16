@@ -533,14 +533,14 @@ additionalContent:
     - title: Build your skills with Microsoft Learn # < 60 chars (optional)
       items:
         - title: Build great solutions with the Microsoft Azure Well-Architected Framework
-          url: /learn/paths/azure-well-architected-framework/
+          url: /training/paths/azure-well-architected-framework/
         - title: Introduction to the Well Architected Framework
-          url: /learn/modules/azure-well-architected-introduction/
+          url: /training/modules/azure-well-architected-introduction/
         - title: Azure Fundamentals
-          url: /learn/paths/azure-fundamentals/
+          url: /training/paths/azure-fundamentals/
         - title: Security, responsibility, and trust in Azure
-          url: /learn/modules/intro-to-security-in-azure/
+          url: /training/modules/intro-to-security-in-azure/
         - title: Architect infrastructure operations in Azure
-          url: /learn/paths/architect-infrastructure-operations/
+          url: /training/paths/architect-infrastructure-operations/
         - title: Tour the N-tier architecture style
-          url: /learn/modules/n-tier-architecture/
+          url: /training/modules/n-tier-architecture/
