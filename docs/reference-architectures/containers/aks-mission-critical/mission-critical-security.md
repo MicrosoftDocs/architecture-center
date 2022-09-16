@@ -265,15 +265,14 @@ Following the baseline well-architected principles for operational excellence, *
 
 The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift** (e.g. manual changes through the portal or CLI), maintaining integrity of the infrastructure and alignment with the application code. Any changes in any environment - malicious attempt to disable security measures, or simple accidental misconfiguration, are discarded on the next deploy.
 
-Sensitive values for deployment are either generated during the pipeline run (i.e. by Terraform), or supplied as Azure DevOps secrets. These are protected with role-based access restrictions.
+Sensitive values for deployment are either generated during the pipeline run (by Terraform), or supplied as Azure DevOps secrets. These are protected with role-based access restrictions.
 
 > [!NOTE]
 > GitHub workflows offer [similar concept](https://docs.github.com/en/actions/security-guides/encrypted-secrets) of separate store for secret values. Secrets are encrypted environmental variables that can be used by GitHub Actions.
 
-However, there are two sensitive places...
+It's important to **pay attention to any artifacts produced by the pipeline**, because those can potentially contain secret values or information about inner workings of the application. The Azure DevOps deployment of the reference implementation generates two files with Terraform outputs: one for stamp and one for global infrastructure. These files don't contain passwords, which would allow direct compromise of the infrastructure, however they can be considered semi-sensitive, because they reveal information about the infrastructure - cluster IDs, IP addresses, Storage Account names, Key Vault names, Cosmos DB database name, Front Door header ID, and others.
 
-terraform state file
-
+For workloads that utilize **Terraform**, extra effort needs to be put into **protecting the state file**, as it contains full deployment context, **including secrets**. The state file is typically stored in a Storage Account which should have a completely separate lifecycle from the workload and should be accessible only from a deployment pipeline. Any other access to this file should be logged and alerts sent to appropriate security group.
 
 ## Dependency updates
 
