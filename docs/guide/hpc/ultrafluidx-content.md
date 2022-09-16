@@ -43,6 +43,8 @@ Performance tests of ultraFluidX on Azure used [ND A100 v4 series VMs](/azure/vi
 |-|-|-|-|-|-|-|
 |Standard_ND96asr_v4|96|900|6,000|8 A100|40|32|
 
+The Standard_ND96asr_v4 VM runs NVIDIA Ampere A100 Tensor Core GPUs and is supported by 96 AMD processor cores.
+
 ### Required drivers
 
 To use ultraFluidX on Standard_ND96asr_v4 VMs as described in this article, you need to install NVIDIA and AMD drivers.
@@ -60,9 +62,7 @@ Altair ultraFluidX only runs on Linux. You can download ultraFluidX from [Altair
 
 ## ultraFluidX performance results
 
-GPU-based fluid dynamics simulations were run to test ultraFluidX.
-
-The Roadster and CX1 models are used as test cases. This image shows the roadster model:
+The Roadster and CX1 models were used as test cases. This image shows the roadster model:
 
 :::image type="content" source="media/ultrafluidx/roadster.png" alt-text="Figure that shows the roadster model." border="false":::
 
@@ -70,27 +70,124 @@ This image shows the CX1 model:
 
 :::image type="content" source="media/ultrafluidx/cx1.png" alt-text="Figure that shows the CX1 model." border="false":::
 
-os details table 
+The amount of time it takes to complete the simulation by using GPUs was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image. The following table provides details about the operating system and NVIDIA drivers.
 
-The simulations were run for shortened test cases, not for full production-level test cases. The projected wall-clock times and computation times for a full production run of the CX1 are provided here. Because the workload per time step is constant, these times can be computed from the computation time of the short run via linear extrapolation.
+| Operating system version | OS architecture |GPU driver version  | Cuda version |
+|---------|---------|---------|---------|
+| CentOS Linux release 8.1.1911 (Core) | x86-64    |  470.57.02       |   11.4      |
+
+GPU-based fluid dynamics simulations were run to test ultraFluidX. The simulations were run for shortened test cases, not for full production-level test cases. The projected wall-clock times and computation times for a full production run of the CX1 are provided here. Because the workload per time step is constant, these times can be computed from the computation time of the short run via linear extrapolation.
 
 The total simulation consists of two phases: a mostly CPU-based pre-processing phase (independent of the physical simulation time) and the GPU-based computation phase. The purpose of the simulation is to test the performance of the GPU phase on the chosen VM: Standard_ND96asr_v4.
 
-tables 
+The following table shows the wall-clock times, in seconds.  
 
-### Additional notes about tests
+|Model|1 GPU|2 GPUs|4 GPUs|8 GPUs|
+|-|-|-|-|-|
+|Roadster|1,571|1,097|731|539|
+|CX1 (short run)|NA*|NA*|6679|4743|
+|CX1 (production run)|NA*|NA*|39,115|23,518|
+
+This graph provides the same information for the Roadster model and the short run of the CX1 model:
+
+:::image type="content" source="media/ultrafluidx/wall-clock-time.png" alt-text="Graph that shows the wall-clock times for simulations using various numbers of GPUs." border="false":::
+
+The following table shows the pre-processing times, in seconds.
+
+|Model|1 GPU|2 GPUs|4 GPUs|8 GPUs|
+|-|-|-|-|-|
+|Roadster|679|607|446|350|
+|CX1 |NA*|NA*|4,926|3,728|
+
+
+The following table shows the computation times, in seconds.
+
+|Model|1 GPU|2 GPUs|4 GPUs|8 GPUs|
+|-|-|-|-|-|
+|Roadster|782|433|257|174|
+|CX1 (short run)|NA*|NA*|1,560|903|
+|CX1 (production run)|NA*|NA*|33,996|19,678|
+
+Finally, the following table shows the relative speed increases when the number of GPUs is increased. The speed increases are calculated for the computation time (the phase when GPUs are used) to provide the GPU performance.
+
+|Model|1 GPU|2 GPUs|4 GPUs|8 GPUs|
+|-|-|-|-|-|
+|Roadster|1.00|1.81|3.04|4.49|
+|CX1 |NA*|NA*|1.00|1.73|
+
+*\* NA indicates that the model requires more than 100 GB of GPU memory, so the simulation can't run with only one or two GPUs.*
+
+Here's that information in graphical form:
+
+:::image type="content" source="media/ultrafluidx/relative-increase.png" alt-text="Graph that shows the relative speed increases as the number of GPUs increases." border="false":::
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
 
-You can use the [Azure pricing calculator] to estimate the costs for your configuration.
+The following table presents wall-clock times that you can use to calculate Azure costs. You can use the times presented here together with the Azure hourly rates for ND A100 v4-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
+Only wall-clock time is considered for these cost calculations. Application installation time isn't considered.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|Model| Number of GPUs*|Wall-clock time, in seconds|
+|-|-|-|
+|Roadster|1|1,571|
+|Roadster|2|1,097|
+|Roadster|4|731|
+|Roadster|8|539|
+|CX1 (short run)|4|6,679|
+|CX1 (short run)|8|4,743|
+|CX1 (production run)|4|39,115|
+|CX1 (production run)|8|23,518 |
+
+*\* NA indicates that the model requires more than 100 GB of GPU memory, so the simulation can't run with only one or two GPUs.*
 
 ## Summary
 
+- Altair ultraFluidX was successfully tested on ND A100 v4-series VMs on Azure.
+- Complex problems can be solved within a few hours on ND A100 v4 VMs.
+- Increasing the number of GPUs improves performance.
+
 ## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod
+    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin
+    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
+-   [GPU-optimized virtual machine
+    sizes](/azure/virtual-machines/sizes-gpu)
+-   [Linux virtual machines on
+    Azure](/azure/virtual-machines/linux/overview)
+-   [Virtual networks and virtual machines on
+    Azure](/azure/virtual-network/network-overview)
+-   [Learning path: Run high-performance computing (HPC) applications on
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
 ## Related resources
+
+-   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
