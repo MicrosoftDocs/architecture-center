@@ -132,7 +132,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Network ports for PowerShell remoting must be open if you want to use the WAC to deploy the Azure Network Adapter.
   - PowerShell Remoting uses [Windows Remote Management][10] (WinRM). For more information, see [PowerShell Remoting Security Considerations][11] and [PowerShell Remoting default settings][12].
   - In some scenarios, you're required to use extra authentication methods. WAC can use PowerShell with the Credential Security Support Provider protocol (CredSSP) to connect to remote servers. For more information, see [PowerShell Remoting and CredSSP][13] and how [Windows Admin Center uses CredSSP][14].
-  - PowerShell Remoting (and WinRM) use the following ports:
+  - PowerShell Remoting (and WinRM) uses the following ports:
 
     | Protocol | Port |
     | :-- | :-- |
