@@ -40,13 +40,13 @@ Azure provides a wide range of services to help you with management and governan
 
 ## Introduction to management and governance on Azure
 
-If you're new to management and governance on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to management and governance on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are some resources to get you started:
 
-- Learning path: [Manage information protection and governance](/learn/paths/m365-compliance-information) 
-- Module: [Design an enterprise governance strategy](/learn/modules/enterprise-governance)
-- Module: [Design a solution for backup and disaster recovery](/learn/modules/design-solution-for-backup-disaster-recovery)
+- Learning path: [Manage information protection and governance](/training/paths/m365-compliance-information) 
+- Module: [Design an enterprise governance strategy](/training/modules/enterprise-governance)
+- Module: [Design a solution for backup and disaster recovery](/training/modules/design-solution-for-backup-disaster-recovery)
 
 ## Path to production
 

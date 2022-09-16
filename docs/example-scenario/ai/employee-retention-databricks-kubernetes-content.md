@@ -124,11 +124,11 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Perform data science with Azure Databricks](/learn/paths/perform-data-science-azure-databricks)
-- [Build and operate machine learning solutions with Azure Databricks](/learn/paths/build-operate-machine-learning-solutions-azure-databricks)
-- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)
-- [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes)
-- [Automate your workflow with GitHub Actions](/learn/paths/automate-workflow-github-actions)
+- [Perform data science with Azure Databricks](/training/paths/perform-data-science-azure-databricks)
+- [Build and operate machine learning solutions with Azure Databricks](/training/paths/build-operate-machine-learning-solutions-azure-databricks)
+- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure)
+- [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes)
+- [Automate your workflow with GitHub Actions](/training/paths/automate-workflow-github-actions)
 
 ## Related resources
 

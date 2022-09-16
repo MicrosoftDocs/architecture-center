@@ -275,10 +275,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure ExpressRoute and Virtual WAN](/learn/modules/configure-expressroute-virtual-wan)
-- [Configure virtual network peering](/learn/modules/configure-vnet-peering)
-- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
-- [Explore the Microsoft 365 platform services](/learn/paths/explore-microsoft-365-platform-services)
+- [Configure ExpressRoute and Virtual WAN](/training/modules/configure-expressroute-virtual-wan)
+- [Configure virtual network peering](/training/modules/configure-vnet-peering)
+- [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)
+- [Explore the Microsoft 365 platform services](/training/paths/explore-microsoft-365-platform-services)
 
 ## Related resources
 

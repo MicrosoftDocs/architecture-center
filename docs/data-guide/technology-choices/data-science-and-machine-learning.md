@@ -181,4 +181,4 @@ Principal author:
 ## Next steps
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai).
-- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](/learn/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
+- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).

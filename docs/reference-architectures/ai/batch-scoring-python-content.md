@@ -98,12 +98,12 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
-- [Enable reliable messaging for Big Data applications using Azure Event Hubs](/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
-- [Explore Azure Event Hubs](/learn/modules/azure-event-hubs)
-- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
-- [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
-- [Manage container images in Azure Container Registry](/learn/modules/publish-container-image-to-azure-container-registry)
+- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
+- [Enable reliable messaging for Big Data applications using Azure Event Hubs](/training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
+- [Explore Azure Event Hubs](/training/modules/azure-event-hubs)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
+- [Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry)
 
 ## Related resources
 
