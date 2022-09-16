@@ -78,7 +78,7 @@ Principal author:
 
 ## Next steps
 
-- [Automate your workflow with GitHub Actions](/learn/paths/automate-workflow-github-actions)
+- [Automate your workflow with GitHub Actions](/training/paths/automate-workflow-github-actions)
 
 ## Related resources
 
