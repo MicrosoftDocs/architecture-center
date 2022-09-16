@@ -3,7 +3,7 @@ title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
-ms.date: 04/11/2022
+ms.date: 09/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -195,20 +195,24 @@ The following table describes characteristics of various AKS upgrade and patchin
 - Node pool scale up uses the model associated with the virtual machine scale set at creation. OS kernels upgrade when security patches are applied and the nodes reboot.
 - Cluster auto upgrade. For more information, see [Set auto-upgrade channel](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
-## See also
+## Contributors
 
-- [AKS day-2 operations guide](day-2-operations-guide.md)
-- [AKS triage practices](aks-triage-practices.md)
-- [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-## Related links
+Principal author:
+
+*[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | ("Principal Solution Architect")
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
 
 - [AKS product documentation](/azure/aks)
 - [AKS Roadmap](https://aka.ms/aks/roadmap)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
 
-## Contributors
+## Related resources
 
-Principal authors:
-
-*[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | ("Principal Solution Architect")
+- [AKS day-2 operations guide](day-2-operations-guide.md)
+- [AKS triage practices](aks-triage-practices.md)
+- [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
