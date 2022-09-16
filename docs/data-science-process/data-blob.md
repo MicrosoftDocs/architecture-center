@@ -190,7 +190,7 @@ For generating binned features, we proceed as follows:
 
 ## <a name="sql-featuregen"></a>Writing data back to Blob Storage and consuming in Azure Machine Learning
 
-After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to Blob Storage and consume it in Azure Machine Learning using the following steps: Additional features can be created in the Azure Machine Learning Studio (classic) as well.
+After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to Blob Storage and consume it in Azure Machine Learning using the following steps: Additional features can be created in the Azure Machine Learning studio (classic) as well.
 
 1. Write the data frame to local file
 
@@ -224,7 +224,7 @@ After you have explored the data and created the necessary features, you can upl
 
 3. Now the data can be read from the blob using the Azure Machine Learning [Import Data][import-data] module as shown in the screen below:
 
-![reader blob][1]
+    ![reader blob][1]
 
 [1]: ./media/data-blob/reader-blob.png
 
