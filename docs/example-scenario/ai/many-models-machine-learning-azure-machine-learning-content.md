@@ -6,6 +6,8 @@
 
 :::image type="content" source="media/many-models-machine-learning-azure.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="media/many-models-machine-learning-azure.png":::
 
+### Workflow
+
 1. **Data ingestion:**
    Azure Data Factory pulls data from a source database and copies it to Azure Data Lake Storage. It then stores it in a Machine Learning datastore as a tabular dataset.
 1. **Model-training pipeline:**
