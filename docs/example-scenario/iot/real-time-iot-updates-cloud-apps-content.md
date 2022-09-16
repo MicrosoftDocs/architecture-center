@@ -2,9 +2,11 @@ This guide outlines a way for clients like web pages or mobile apps to receive u
 
 ## Architecture
 
-:::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
+:::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" lightbox="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
    The diagram contains several boxes. A box in the lower right corner indicates that gray arrows represent data flow, and blue arrows, control flow. On the left, two boxes have the label Devices. A gray arrow points from the upper Device box to a box for Azure I O T Hub. Another gray arrow points from the other Device box to a box for Azure I O T Edge. A label above the Azure I O T Edge box reads Field gateway. A third gray arrow points from Azure I O T Edge to the Azure I O T Hub box. A fourth gray arrow points from Azure I O T Hub to a box for Azure Functions. A fifth gray arrow points from the Functions box to an Azure SignalR Service box. On the right is a large box that contains icons and labels for web and mobile apps. Above the large box is a label that reads Presentation and interaction. A gray arrow points from Azure SignalR Service to the large box. A bidirectional blue arrow connects the large box with the Azure SignalR Service box. Another bidirectional blue arrow connects the large box with the Functions box. Numbers in the diagram correspond with numbered steps in the document.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-iot-updates-cloud-apps.vsdx) of this architecture.*
 
 ### Workflow
 
