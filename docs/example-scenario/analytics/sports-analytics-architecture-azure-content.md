@@ -1,19 +1,6 @@
-*Sports analytics* is a field that applies data analytics techniques to team or individual performance data. Then you can use the data to create a competitive advantage over an opponent. In addition to analyzing traditional box score statistics, there has been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team. Examples of such data include player data collected from sensors and spatial data that captures player movement during a game. Traditional systems struggle to process and maintain these data sources because of the large volumes of data generated. These data sources also format data in several different ways and allow users to process data at different speeds, providing more challenges for traditional data processing solutions.
-
 The focus of this article is to show a practical architecture that uses Azure services to process and maintain data used by sports analytics solutions. It provides a framework for sports organizations to build highly scalable solutions with, while giving them the flexibility to add more services that meet the nuanced requirements of their use cases.
 
 *Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is ideal for the sports industry, and applies to the following scenarios:
-
-- Manage large volumes of data from several source systems in a centralized ecosystem.
-- Analyze player tracking and temporal data to gain insights into individual and team performance.
-- With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
-- Process and evaluate player performance data to optimize athlete training routines.
-- Analyze historical data to make well-informed personnel decisions during the draft or free agency.
-- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and balls.
 
 ## Architecture
 
@@ -72,6 +59,21 @@ Throughout the process:
 - You can use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) instead of Azure Databricks to process stream data.
 - You can use Machine Learning instead of Azure Databricks to train your machine learning models.
 - You can use GitHub instead of Azure DevOps to manage your code repositories and continuous integration and continuous delivery (CI/CD) pipelines.
+
+## Scenario details
+
+*Sports analytics* is a field that applies data analytics techniques to team or individual performance data. Then you can use the data to create a competitive advantage over an opponent. In addition to analyzing traditional box score statistics, there has been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team. Examples of such data include player data collected from sensors and spatial data that captures player movement during a game. Traditional systems struggle to process and maintain these data sources because of the large volumes of data generated. These data sources also format data in several different ways and allow users to process data at different speeds, providing more challenges for traditional data processing solutions.
+
+### Potential use cases
+
+This solution is ideal for the sports industry, and applies to the following scenarios:
+
+- Manage large volumes of data from several source systems in a centralized ecosystem.
+- Analyze player tracking and temporal data to gain insights into individual and team performance.
+- With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
+- Process and evaluate player performance data to optimize athlete training routines.
+- Analyze historical data to make well-informed personnel decisions during the draft or free agency.
+- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and balls.
 
 ## Considerations
 
