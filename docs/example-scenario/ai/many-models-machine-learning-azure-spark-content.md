@@ -11,6 +11,8 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 
 *Download a [PNG file](./media/many-models-machine-learning-azure-spark.png) of this architecture.*
 
+### Dataflow
+
 1. **Data ingestion:**
    Azure Data Factory pulls data from a source database and copies it to Azure Data Lake Storage.
 1. **Model-training pipeline:**
