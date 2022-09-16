@@ -221,6 +221,6 @@ Explore related architectures:
 - [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./run-sap-bw4hana-with-linux-virtual-machines.yml)
 - [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 - [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [SAP on Azure Architecture Guide](./sap-overview.yml)
