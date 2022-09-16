@@ -182,7 +182,7 @@ Microsoft Learn modules:
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
-- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 
 [architectural-diagram]: images/azure-stack-robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
