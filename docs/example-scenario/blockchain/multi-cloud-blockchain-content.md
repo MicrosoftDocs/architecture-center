@@ -73,7 +73,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ## Considerations
 
-For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml). You can find similar guidance for other cloud providers.
+For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks). You can find similar guidance for other cloud providers.
 
 ### Availability and scalability
 
@@ -113,7 +113,7 @@ Principal authors:
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Containers and container orchestrators for AWS professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)

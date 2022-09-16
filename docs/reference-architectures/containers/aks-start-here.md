@@ -39,7 +39,7 @@ You understand the benefits and trade-offs of Kubernetes, and have decided that 
 **Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+> [Microsoft's AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
 
@@ -75,7 +75,7 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 > [!div class="nextstepaction"]
 > [Kubernetes in the Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/kubernetes/)
 
-As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 

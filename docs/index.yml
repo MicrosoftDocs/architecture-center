@@ -110,7 +110,7 @@ conceptualContent:
     - title: Popular Articles
       links:
       - text: AKS Production Baseline
-        url: ./reference-architectures/containers/aks/secure-baseline-aks.yml
+        url: /azure/architecture/reference-architectures/containers/aks/baseline-aks
         itemType: reference
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
@@ -475,10 +475,10 @@ conceptualContent:
           url: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
         - text: SAP NetWeaver on Windows on Azure
           itemType: architecture
-          url: reference-architectures/sap/sap-netweaver.yml
+          url: /azure/architecture/guide/sap/sap-netweaver
         - text: SAP S/4HANA in Linux on Azure
           itemType: architecture
-          url: reference-architectures/sap/sap-s4hana.yml
+          url: /azure/architecture/guide/sap/sap-s4hana
         - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml

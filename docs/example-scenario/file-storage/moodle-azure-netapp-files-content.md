@@ -175,7 +175,7 @@ Product documentation:
 [Public preview: Automatic scaling with Azure Virtual Machine Scale Sets flexible orchestration mode]: https://azure.microsoft.com/updates/automatic-scaling-for-vms-with-azure-virtual-machine-scale-sets-flexible-orchestration-mode/
 [Redis cache store]: https://docs.moodle.org/311/en/Redis_cache_store
 [Resize a capacity pool or a volume]: /azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes
-[Run SAP NetWeaver in Windows on Azure]: ../../reference-architectures/sap/sap-netweaver.yml
+[Run SAP NetWeaver in Windows on Azure]: /azure/architecture/guide/sap/sap-netweaver
 [SAS on Azure architecture]: ../../guide/sas/sas-overview.yml
 [Security FAQs for Azure NetApp Files]: /azure/azure-netapp-files/faq-security
 [Server concepts in Azure Database for MySQL]: /azure/mysql/concepts-servers
