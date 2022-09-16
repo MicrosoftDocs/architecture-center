@@ -152,12 +152,12 @@ Other contributors:
 
 ## Next steps
 
-- [Defend against threats with Microsoft 365](/learn/paths/m365-security-threat-protection)
-- [Detect and respond to cyber attacks with Microsoft 365 Defender](/learn/paths/defender-detect-respond)
+- [Defend against threats with Microsoft 365](/training/paths/m365-security-threat-protection)
+- [Detect and respond to cyber attacks with Microsoft 365 Defender](/training/paths/defender-detect-respond)
 - [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
-- [Manage security with Microsoft 365](/learn/paths/m365-security-management)
-- [Protect against malicious threats with Microsoft Defender for Office 365](/learn/paths/defender-office-365-malicious-threats)
-- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/learn/paths/defender-identity-protect-on-premises)
+- [Manage security with Microsoft 365](/training/paths/m365-security-management)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
+- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
 
 ## Related resources
 

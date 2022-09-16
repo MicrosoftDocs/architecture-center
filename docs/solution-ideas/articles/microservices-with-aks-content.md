@@ -35,7 +35,7 @@ Use AKS to simplify the deployment and management of microservices-based archite
 ## Next steps
 
 - To learn about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
-- If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/paths/intro-to-kubernetes-on-azure).
+- If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
 
 ## Related resources
 

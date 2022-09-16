@@ -31,4 +31,4 @@ The data from Azure Database for MySQL read replicas along with Azure Cosmos DB 
 ## Next Steps
 
 - Learn how [HSBC built their digital payment platform](https://www.youtube.com/watch?v=KEYqG0IcUy8&feature=youtu.be) using Azure Database for MySQL and Azure Cosmos DB. (Video)
-- Learn how to [migrate MySQL workloads](/learn/paths/migrate-open-source-workloads) from on-premises to Azure.
+- Learn how to [migrate MySQL workloads](/training/paths/migrate-open-source-workloads) from on-premises to Azure.
