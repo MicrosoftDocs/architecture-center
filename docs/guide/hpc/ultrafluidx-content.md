@@ -60,11 +60,22 @@ Altair ultraFluidX only runs on Linux. You can download ultraFluidX from [Altair
 
 ## ultraFluidX performance results
 
-GPU-based fluid dynamics simulations were run to test ultraFluidX. 
+GPU-based fluid dynamics simulations were run to test ultraFluidX.
 
-Roadster and CX1
+The Roadster and CX1 models are used as test cases. This image shows the roadster model:
 
-The simulations were run for shortened test cases, not for full production-level test cases. The projected wall-clock times and computation times for a full production run of the CX1 with 3 s of physical time are provided here. Due to the constant workload per time step, these can be easily computed from the computation time of the short run via linear extrapolation.
+:::image type="content" source="media/ultrafluidx/roadster.png" alt-text="Figure that shows the roadster model." border="false":::
+
+
+This image shows the CX1 model:
+
+:::image type="content" source="media/ultrafluidx/cx1.png" alt-text="Figure that shows the CX1 model." border="false":::
+
+The simulations were run for shortened test cases, not for full production-level test cases. The projected wall-clock times and computation times for a full production run of the CX1 are provided here. Because the workload per time step is constant, these times can be computed from the computation time of the short run via linear extrapolation.
+
+The total simulation consists of two phases: a mostly CPU-based pre-processing phase (independent of the physical simulation time) and the GPU-based computation phase. The purpose of the simulation is to test the performance of the GPU phase on the chosen VM: Standard_ND96asr_v4.
+
+tables 
 
 <Results for X>
 <Results for Y etc>
