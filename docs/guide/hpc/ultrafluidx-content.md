@@ -66,19 +66,17 @@ The Roadster and CX1 models are used as test cases. This image shows the roadste
 
 :::image type="content" source="media/ultrafluidx/roadster.png" alt-text="Figure that shows the roadster model." border="false":::
 
-
 This image shows the CX1 model:
 
 :::image type="content" source="media/ultrafluidx/cx1.png" alt-text="Figure that shows the CX1 model." border="false":::
+
+os details table 
 
 The simulations were run for shortened test cases, not for full production-level test cases. The projected wall-clock times and computation times for a full production run of the CX1 are provided here. Because the workload per time step is constant, these times can be computed from the computation time of the short run via linear extrapolation.
 
 The total simulation consists of two phases: a mostly CPU-based pre-processing phase (independent of the physical simulation time) and the GPU-based computation phase. The purpose of the simulation is to test the performance of the GPU phase on the chosen VM: Standard_ND96asr_v4.
 
 tables 
-
-<Results for X>
-<Results for Y etc>
 
 ### Additional notes about tests
 
