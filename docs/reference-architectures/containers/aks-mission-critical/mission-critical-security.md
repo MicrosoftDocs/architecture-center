@@ -1,6 +1,6 @@
 ---
 title: Security considerations for mission-critical workloads on Azure
-description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Security.
+description: Reference architecture for a workload that is accessed over a public endpoint without dependencies to other company resources - Security.
 author: msimecek
 ms.author: prwilk
 ms.date: 09/01/2022
@@ -30,17 +30,17 @@ The focus of this architecture is to maximize reliability so that the applicatio
 
 ## Identity and access management
 
-At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope of the reference implementation.
+At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles aren't in scope of the reference implementation.
 
-Applications that require user authentication and account management should follow the principles [outlined in Microsoft Well-Architected Framework](/azure/architecture/framework/security/design-identity-authentication) (i.e. use managed identity providers, don't implement custom identity management, use passwordless whenever possible, etc.).
+Applications that require user authentication and account management should follow the principles [outlined in Microsoft Well-Architected Framework](/azure/architecture/framework/security/design-identity-authentication) (that is, use managed identity providers, don't implement custom identity management, use passwordless whenever possible, etc.).
 
 ### Least privilege access
 
-Access policies need to be chosen in a way that users and applications obtain only the minimal level of access needed to fulfil their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs doesn't always listen to messaging bus and backend workers don't necessarily send generate new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
+Access policies need to be chosen in a way that users and applications obtain only the minimal level of access needed to fulfill their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs don't always listen to messaging bus and backend workers don't necessarily send new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
 
 Examples from the Azure Mission-critical reference implementation:
 
-- Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfil its function**.
+- Each component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfill its function**.
 - The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
 - The AKS Kubelet identity has only the *AcrPull* permission to access the global Container Registry.
 
@@ -93,7 +93,7 @@ spec:
         {{- end }}
 ```
 
-The reference implementation uses Helm in conjunction with Azure Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to refresh mounted secrets if they change in Key Vault.
+The reference implementation uses Helm with Azure Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to refresh mounted secrets if they change in Key Vault.
 
 On the consumer end, both .NET applications use the built-in capability to read configuration from files (`AddKeyPerFile`):
 
@@ -121,11 +121,11 @@ The combination of CSI driver's auto reload and `reloadOnChange: true` ensures t
 
 ## Custom domains and TLS
 
-The reference implementation fully supports custom domain names, e.g. `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
+The reference implementation fully supports custom domain names, for example, `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
 
-To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these automatically to an Azure Front Door instance.
+To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these records automatically to an Azure Front Door instance.
 
-**Front Door-managed SSL certificates** are also enabled, which means that there is no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
+**Front Door-managed SSL certificates** are also enabled, which means that there's no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
 
 ```terraform
 #
@@ -142,7 +142,7 @@ resource "azurerm_frontdoor_custom_https_configuration" "custom_domain_https" {
 }
 ```
 
-Environments which are not provisioned with custom domains can be accessed through the default Front Door endpoint, for example `env123.azurefd.net`.
+Environments that aren't provisioned with custom domains can be accessed through the default Front Door endpoint, for example `env123.azurefd.net`.
 
 > [!NOTE]
 > On the cluster ingress controllers, custom domains are not used in either case; instead an Azure-provided DNS name such as `[prefix]-cluster.[region].cloudapp.azure.com` is used with Let's Encrypt enabled to issue free SSL certificates for those endpoints.
@@ -151,7 +151,7 @@ Environments which are not provisioned with custom domains can be accessed throu
 
 Web applications should use HTTPS everywhere to prevent man-in-the-middle attacks on all interaction levels (client - API, API - API).
 
-The reference implementation uses Jetstack's `cert-manager` to auto-provision SSL/TLS certificates (from Let's Encrypt) for ingress rules. Additional configuration settings like the `ClusterIssuer` (used to request certificates from Let's Encrypt) is deployed via a separate `cert-manager-config` helm chart stored in [src/config/cert-manager/chart](https://github.com/Azure/Mission-Critical-Online/tree/main/src/config/cert-manager/chart/cert-manager-config).
+The reference implementation uses Jetstack's `cert-manager` to auto-provision SSL/TLS certificates (from Let's Encrypt) for ingress rules. More configuration settings like the `ClusterIssuer` (used to request certificates from Let's Encrypt) are deployed via a separate `cert-manager-config` helm chart stored in [src/config/cert-manager/chart](https://github.com/Azure/Mission-Critical-Online/tree/main/src/config/cert-manager/chart/cert-manager-config).
 
 This implementation is using `ClusterIssuer` instead of `Issuer` as documented [here](https://cert-manager.io/docs/concepts/issuer/) and [here](https://docs.cert-manager.io/en/release-0.7/tasks/issuing-certificates/ingress-shim.html) to avoid having issuers per namespaces.
 
@@ -166,13 +166,13 @@ spec:
 
 ## Configuration
 
-**All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. You can use a configuration store, such as Azure App Configuration, to store the settings. However, for mission critical applications, an additional component will introduce another point of failure. Using Key Vault for runtime configuration simplifies the overall implementation.
+**All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. You can use a configuration store, such as Azure App Configuration, to store the settings. However, for mission critical applications, another component will introduce another point of failure. Using Key Vault for runtime configuration simplifies the overall implementation.
 
 **Key Vaults are only populated by Terraform deployment**. The required values are either sourced directly from Terraform (such as database connection strings) or passed through as Terraform variables from the deployment pipeline.
 
-**Infrastructure and deployment configuration** of individual environments (`e2e`, `int`, `prod`) is stored in variable files that are part of the source code repository. This has two benefits:
+**Infrastructure and deployment configuration** of individual environments (`e2e`, `int`, `prod`) is stored in variable files that are part of the source code repository. This approach has two benefits:
 
-- All changes in environment are tracked and go through deployment pipelines before they are applied to the environment.
+- All changes in environment are tracked and go through deployment pipelines before they're applied to the environment.
 - Individual e2e environments can be configured differently, because deployment is based on code in a branch.
 
 The exception is the storage of **sensitive values** for the pipelines. These values are stored as secrets in Azure DevOps variable groups.
@@ -192,11 +192,11 @@ USER workload
 
 The reference implementation uses Helm to package the YAML manifests needed to deploy individual components together, including their Kubernetes deployment, services, auto-scaling (HPA) configuration, and security context. All Helm charts contain foundational security measures following Kubernetes best practices. These security measures are:
 
-- `readOnlyFilesystem`: The root filesystem `/` in each container is set to **read-only**. This is to prevent the container from accidentally writing to the host filesystem. Directories that require read-write access are mounted as volumes.
-- `privileged`: All containers are set to run as **non-privileged**. Running a container as privileged gives all capabilities to the container, and it also lifts all the limitations enforced by the device cgroup controller.
+- `readOnlyFilesystem`: The root filesystem `/` in each container is set to **read-only** to prevent the container from accidentally writing to the host filesystem. Directories that require read-write access are mounted as volumes.
+- `privileged`: All containers are set to run as **non-privileged**. Running a container as privileged gives all capabilities to the container, and it also lifts all the limitations enforced by the device control group controller.
 - `allowPrivilegeEscalation`: Prevents the inside of a container from gaining more privileges than its parent process.
 
-These security measures are also configured for 3rd-party containers and Helm charts (i.e. `cert-manager`) when possible and audited by Azure Policy.
+These security measures are also configured for 3rd-party containers and Helm charts (that is, `cert-manager`) when possible and audited by Azure Policy.
 
 ```yaml
 #
@@ -216,18 +216,18 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ## Traffic ingress
 
-**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are additional capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
+**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager), there are more capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
 
 ### Web Application Firewall
 
-An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic which is passing through. WAF is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
+An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic, which is passing through. WAF is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
 
 > [!TIP]
 > When deploying Front Door with WAF it's recommended to start with the **Detection** mode, closely monitor it's behavior with natural end-user traffic and fine-tune the detection rules. Once false-positives are eliminated, or rare, it's safe to switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
 
 ### Routing
 
-Only requests coming through Azure Front Door will be routed to the API containers (`CatalogService` and `HealthService`). This is enforced by using an Nginx ingress configuration which checks the `X-Azure-FDID` header - not just the presence of it, but also if it's the right one for the global Front Door instance of a particular environment.
+Only those requests that come through Azure Front Door will be routed to the API containers (`CatalogService` and `HealthService`). This behavior is enforced by using an Nginx ingress configuration, which checks the `X-Azure-FDID` header - not just the presence of it, but also if it's the right one for the global Front Door instance of a particular environment.
 
 ```yml
 #
@@ -263,32 +263,53 @@ $header = @{
 
 Following the baseline well-architected principles for operational excellence, **all deployments should be fully automated** and there shouldn't be manual steps required (except triggering the run, or approving a gate).
 
-The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift** (e.g. manual changes through the portal or CLI), maintaining integrity of the infrastructure and alignment with the application code. Any changes in any environment - malicious attempt to disable security measures, or simple accidental misconfiguration, are discarded on the next deploy.
+The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift** (for example, manual changes through the portal or CLI), maintaining integrity of the infrastructure and alignment with the application code. Any changes in any environment - malicious attempt to disable security measures, or simple accidental misconfiguration, are discarded on the next deploy.
 
-Sensitive values for deployment are either generated during the pipeline run (by Terraform), or supplied as Azure DevOps secrets. These are protected with role-based access restrictions.
+Sensitive values for deployment are either generated during the pipeline run (by Terraform), or supplied as Azure DevOps secrets. These values are protected with role-based access restrictions.
 
 > [!NOTE]
 > GitHub workflows offer [similar concept](https://docs.github.com/en/actions/security-guides/encrypted-secrets) of separate store for secret values. Secrets are encrypted environmental variables that can be used by GitHub Actions.
 
-It's important to **pay attention to any artifacts produced by the pipeline**, because those can potentially contain secret values or information about inner workings of the application. The Azure DevOps deployment of the reference implementation generates two files with Terraform outputs: one for stamp and one for global infrastructure. These files don't contain passwords, which would allow direct compromise of the infrastructure, however they can be considered semi-sensitive, because they reveal information about the infrastructure - cluster IDs, IP addresses, Storage Account names, Key Vault names, Cosmos DB database name, Front Door header ID, and others.
+It's important to **pay attention to any artifacts produced by the pipeline**, because those can potentially contain secret values or information about inner workings of the application. The Azure DevOps deployment of the reference implementation generates two files with Terraform outputs: one for stamp and one for global infrastructure. These files don't contain passwords, which would allow direct compromise of the infrastructure. However they can be considered semi-sensitive, because they reveal information about the infrastructure - cluster IDs, IP addresses, Storage Account names, Key Vault names, Cosmos DB database name, Front Door header ID, and others.
 
-For workloads that utilize **Terraform**, extra effort needs to be put into **protecting the state file**, as it contains full deployment context, **including secrets**. The state file is typically stored in a Storage Account which should have a completely separate lifecycle from the workload and should be accessible only from a deployment pipeline. Any other access to this file should be logged and alerts sent to appropriate security group.
+For workloads that utilize **Terraform**, extra effort needs to be put into **protecting the state file**, as it contains full deployment context, **including secrets**. The state file is typically stored in a Storage Account that should have a separate lifecycle from the workload and should be accessible only from a deployment pipeline. Any other access to this file should be logged and alerts sent to appropriate security group.
 
 ## Dependency updates
 
 Libraries, frameworks and tools used by the application get updated over time and it's important to follow these updates regularly, because they often contain security fixes, which could allow attackers unauthorized access into the system.
 
-The reference implementation uses GitHub's **Dependabot** for NuGet, Docker, NPM, Terraform and GitHub Actions dependency updates. The `dependabot.yml` configuration file is automatically generated with a PowerShell script, because of the complexity of the various parts of the application (e.g. each Terraform module needs a separate entry).
+The reference implementation uses GitHub's **Dependabot** for NuGet, Docker, NPM, Terraform and GitHub Actions dependency updates. The `dependabot.yml` configuration file is automatically generated with a PowerShell script, because of the complexity of the various parts of the application (for example, each Terraform module needs a separate entry).
+
+```yml
+#
+# /.github/dependabot.yml
+#
+version: 2
+updates:
+- package-ecosystem: "nuget"
+  directory: "/src/app/AlwaysOn.HealthService"
+  schedule:
+    interval: "monthly" 
+  target-branch: "component-updates" 
+
+- package-ecosystem: "docker"
+  directory: "/src/app/AlwaysOn.HealthService"
+  schedule:
+    interval: "monthly" 
+  target-branch: "component-updates" 
+
+# ... the rest of the file...
+```
 
 - **Updates are triggered monthly** as a compromise between having the most up-to-date libraries and keeping the overhead maintainable. Additionally, key tools (Terraform) are monitored continuously and important updates are executed manually.
 - **Pull requests** are targeting the `component-updates` branch, instead of `main`.
-- **NPM libraries** are configured to check only dependencies which go to the compiled application, not the supporting tools like `@vue-cli`.
+- **NPM libraries** are configured to check only dependencies that go to the compiled application, not the supporting tools like `@vue-cli`.
 
 Dependabot creates a separate pull request (PR) for each update, which can get overwhelming for the operations team. The reference implementation first collects a batch of updates in the `component-updates` branch, then runs tests in the `e2e` environment and if successful, another PR is created into the `main` branch.
 
 ## Defensive coding
 
-API calls can fail - be it because of code errors, malfunctioned deployments, infrastructure failures, or any other reason. If that happens, the caller (client application) should not receive extensive debugging information, because that could provide adversaries with helpful data points about the inner workings of the application.
+API calls can fail - be it because of code errors, malfunctioned deployments, infrastructure failures, or any other reason. If that happens, the caller (client application) shouldn't receive extensive debugging information, because that could provide adversaries with helpful data points about the inner workings of the application.
 
 The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `X-Server-Location` header) an operator is able to investigate the incident using Application Insights
 
