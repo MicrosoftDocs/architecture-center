@@ -254,6 +254,16 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - [Contact Astadia][Contact Astadia] for pricing information on OpenTS, OpenMCS, and OpenDMS.
 - [Contact Micro Focus][Contact Micro Focus] for pricing on Micro Focus COBOL.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
