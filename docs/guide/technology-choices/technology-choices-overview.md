@@ -3,7 +3,7 @@ title: Technology choices for Azure solutions
 description: View a list of resources that can help you make informed decisions about the technologies you choose for your Azure solutions.
 author: EdPrice-MSFT
 ms.author: architectures
-ms.date: 07/25/2022
+ms.date: 09/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -41,7 +41,7 @@ The term *compute* refers to the hosting model for the computing resources that 
 |[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service best suits your application.        |
 |[High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  | Learn about high availability (HA) and disaster recovery (DR) options for multitier infrastructure as a service (IaaS) apps in Azure.        |
 |[Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)|     Learn about two compute options for microservices: service orchestrator and serverless architecture.    |
-|[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
+|[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
 |[Choose an Azure multiparty computing service](multiparty-computing-service.yml)  |   Decide which multiparty computing services to use for your solution.      |
 
 ## Choose a container option
@@ -60,11 +60,12 @@ Many organizations need a hybrid approach to analytics, automation, and services
 
 |Article |Summary  |
 |---------|---------|
-|[Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations)     |    Learn the differences between Azure and Azure Stack Hub.     |
-|[Compare Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack)   |    Learn the differences between Azure, Azure Stack Hub, and Azure Stack HCI.     |
-|[Compare Azure Stack HCI to Azure Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub)     |    Determine whether Azure Stack HCI or Azure Stack Hub is right for your organization.     |
-|[Compare Azure Stack HCI to Windows Server](/azure-stack/hci/concepts/compare-windows-server)|     Determine whether Azure Stack HCI or Windows Server is right for your organization.    |
-|[Choose drives for Azure Stack HCI and Windows Server clusters](/azure-stack/hci/concepts/choose-drives)     |    Learn how to choose drives for Azure Stack HCI and Windows Server clusters to meet performance and capacity requirements.     |
+|[Azure hybrid options](hybrid-considerations.yml)     |    Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.     |
+|[Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn the differences between Azure and Azure Stack Hub.     |
+|[Compare Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)   |    Learn the differences between Azure, Azure Stack Hub, and Azure Stack HCI.     |
+|[Compare Azure Stack HCI to Azure Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Determine whether Azure Stack HCI or Azure Stack Hub is right for your organization.     |
+|[Compare Azure Stack HCI to Windows Server](/azure-stack/hci/concepts/compare-windows-server?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)|     Determine whether Azure Stack HCI or Windows Server is right for your organization.    |
+|[Choose drives for Azure Stack HCI and Windows Server clusters](/azure-stack/hci/concepts/choose-drives?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn how to choose drives for Azure Stack HCI and Windows Server clusters to meet performance and capacity requirements.     |
 
 ## Choose an identity service
 
@@ -73,7 +74,7 @@ Identity solutions help you protect your data and resources. These articles can 
 |Article |Summary  |
 |---------|---------|
 |[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Compare the identity services that are provided by Active Directory Domain Services, Azure Active Directory (Azure AD), and Azure Active Directory Domain Services.     |
-|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
+|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)      |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
 
 ## Choose a storage service
 
@@ -165,4 +166,4 @@ IoT solutions use a combination of technologies to connect devices, events, and 
 
 |Article |Summary  |
 |---------|---------|
-|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine)     |    Learn about the engine choices for mixed reality development for HoloLens and virtual reality.    |
+|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Learn about the engine choices for mixed reality development for HoloLens and virtual reality.    |
