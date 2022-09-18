@@ -1,25 +1,8 @@
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and Micro Focus products, without rewriting code, switching data models, or updating screens.
 
-This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
+## Architecture
 
-- Rewriting application code.
-- Redesigning data architecture or switching from a network-based to a relational-based model.
-- Changing application screens.
-
-## Potential use cases
-
-Many cases can benefit from the Astadia and Micro Focus pattern:
-
-- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
-- Organizations looking for approaches to modernizing workloads that offer these capabilities:
-
-  - A way to migrate application layer source code.
-  - Modern platform as a service (PaaS) services, including:
-
-    - Azure SQL Database with its built-in high availability.
-    - Azure Data Factory with its automated and serverless file routing and transformation.
-
-## Legacy architecture
+### Legacy architecture
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
@@ -29,7 +12,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 *Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
 
-### Workflow
+#### Workflow
 
 - On-premises users interact with the mainframe (**A**):
 
@@ -63,7 +46,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
-## Azure Architecture
+### Azure Architecture
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 
@@ -73,7 +56,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-### Workflow
+#### Workflow
 
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
@@ -114,7 +97,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 
 1. Azure Site Recovery provides disaster recovery capabilities. This service mirrors the VMs to a secondary Azure region. In the rare case of an Azure datacenter failure, the system then provides quick failover.
 
-### Components
+#### Components
 
 This architecture uses the following components:
 
@@ -157,11 +140,34 @@ This architecture uses the following components:
 
 - An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases] manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
 
+## Scenario details
+
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+
+This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
+
+- Rewriting application code.
+- Redesigning data architecture or switching from a network-based to a relational-based model.
+- Changing application screens.
+
+### Potential use cases
+
+Many cases can benefit from the Astadia and Micro Focus pattern:
+
+- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
+- Organizations looking for approaches to modernizing workloads that offer these capabilities:
+
+  - A way to migrate application layer source code.
+  - Modern platform as a service (PaaS) services, including:
+
+    - Azure SQL Database with its built-in high availability.
+    - Azure Data Factory with its automated and serverless file routing and transformation.
+
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution.
 
-### Availability considerations
+### Availability
 
 - Availability sets for VMs ensure enough VMs are available to meet mission-critical batch process needs.
 - Load Balancer improves reliability by rerouting traffic to a spare VM set if the active set fails.
@@ -172,7 +178,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage redundancy
   - Azure Files redundancy
 
-### Operational considerations
+### Operational
 
 - Besides scalability and availability, these Azure PaaS components also provide updates to services:
 
@@ -190,7 +196,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
   - Network component management through [Azure Network Watcher][What is Azure Network Watcher?].
 
-### Performance considerations
+### Performance efficiency
 
 - SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
 
@@ -200,7 +206,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
 
-### Scalability considerations
+### Scalability
 
 Various Azure PaaS components provide scalability:
 
@@ -209,11 +215,15 @@ Various Azure PaaS components provide scalability:
 - Azure Storage
 - Azure Files
 
-### Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 All the components in this architecture work with Azure security components as needed. Examples include network security groups, virtual networks, and TLS encryption.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
