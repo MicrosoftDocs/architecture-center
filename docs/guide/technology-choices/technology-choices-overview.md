@@ -74,7 +74,7 @@ Identity solutions help you protect your data and resources. These articles can 
 |Article |Summary  |
 |---------|---------|
 |[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Compare the identity services that are provided by Active Directory Domain Services, Azure Active Directory (Azure AD), and Azure Active Directory Domain Services.     |
-|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)      |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
+|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
 
 ## Choose a storage service
 
