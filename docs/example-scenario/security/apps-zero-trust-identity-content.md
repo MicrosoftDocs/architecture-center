@@ -169,5 +169,5 @@ Other contributor:
 ## Related resources
 
 - [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
-- [Microsoft security best practices for identity and access management](/security/compass/identity?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Microsoft security best practices for identity and access management](/security/compass/identity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

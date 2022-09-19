@@ -155,7 +155,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [service-principal]: /azure/active-directory/develop/active-directory-application-objects
 [secure-jenkins]: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure
 [security-center]: /azure/security-center/security-center-intro
-[sizes-linux]: /azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[sizes-linux]: /azure/virtual-machines/linux/sizes
 [solution]: https://azure.microsoft.com/blog/announcing-the-solution-template-for-jenkins-on-azure
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet

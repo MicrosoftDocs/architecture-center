@@ -307,7 +307,6 @@ The MLOps solution in this example scenario consists of two pipelines, which can
 
 Each of these choices has pros and cons. The following table compares Azure-hosted agents with self-hosted agents.
 
-
 |                 | Azure-hosted Agent | Self-hosted Agent |
 |-----------------|--------------------|-------------------|
 | **Cost** | Start free for one parallel job with 1,800 minutes per month and a charge for each Azure-hosted CI/CD parallel job. | Start free for one parallel job with unlimited minutes per month and a charge for each additional self-hosted CI/CD parallel job with unlimited minutes. This option offers less-expensive parallel jobs. |
@@ -317,7 +316,7 @@ Each of these choices has pros and cons. The following table compares Azure-host
 > [!NOTE]
 > For current pricing, see [Pricing for Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services).
 
-Based on the comparisons in the table and the considerations of security and complexity, this example scenario uses a self-hosted agent for the Azure Pipeline to trigger Azure Machine Learning pipelines in the virtual network. 
+Based on the comparisons in the table and the considerations of security and complexity, this example scenario uses a self-hosted agent for the Azure Pipeline to trigger Azure Machine Learning pipelines in the virtual network.
 
 To configure a self-hosted agent, there are the following options:
 
@@ -381,7 +380,7 @@ sudo ./svc.sh start
 
 #### Use Container Registry in the virtual network
 
-There are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites). Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models. 
+There are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites). Container Registry is a required service when you use Azure Machine Learning workspace to train and deploy the models.
 
 In this example scenario, to ensure the self-hosted agent can access the container registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to BASTION VNET. The following Terraform snippet shows the implementation.
 
@@ -439,18 +438,17 @@ Also note that for the compute cluster or instance, it's now possible to remove 
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang) | Principal Software Engineer
+- [Gary Wang](https://www.linkedin.com/in/gang-gary-wang) | Principal Software Engineer
 
 Other contributors:
 
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
