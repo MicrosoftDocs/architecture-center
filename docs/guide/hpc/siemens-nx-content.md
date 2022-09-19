@@ -92,7 +92,7 @@ The following table shows ATS test results.
 |AT-09	|Verifies the display section|Display Section|	4 minutes, 35 seconds	|2 minutes, 8 seconds	|1 minute, 52 seconds|
 |AT-10	|Verifies display modes|	Display Modes|	17 minutes	|45 seconds	|43 seconds|
 |AT-11	|Activates HD3D and representation status with tags	|HD3D|	1 minute |37 seconds	|47 seconds|	47 seconds|
-|AT-12	|Activates face analysis and verifies displays with reflection	|Face Analysis|	52 minutes|	41 minutes	|40 minutes| 33 seconds|
+|AT-12	|Activates face analysis and verifies displays with reflection	|Face Analysis|	52 minutes|	41 minutes	|40 minutes, 33 seconds|
 |AT-13	|Rotates views in sync	|Synchronize View	|18 seconds|	16 seconds	|15 seconds|
 
 ## Azure cost
