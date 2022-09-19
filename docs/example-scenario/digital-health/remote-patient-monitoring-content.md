@@ -1,31 +1,30 @@
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
-> - cull intro content from Janna and Mustafa's doc contributions; intro is typically *"1-2 sentences to briefly explain this architecture. 
->   The full scenario info will go in the "Scenario details" section"*
+> - cull/reconcile intro content from Janna and Mustafa's doc contributions
+> - intro is typically *"1-2 sentences to briefly explain this architecture. The full scenario info will go in the "Scenario details" section"*
 
-### Janna:
-
+[Janna:]
 Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. Combining single or multiple Internet of Things (IoT) devices allows for a more holistic health data picture to optimize treatment plans and clinician workflows. The stack of Azure Health Data Services and features within can support the remote monitoring of health data allowing for sense making and health data analytics  
 
 This article provides an overview of the Azure Health Data Services that support solutions for remote patient monitoring.  You'll learn about the different data processing stages within the Health Data services that transforms device data into Fast Healthcare Interoperability Resources (FHIR®)-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. The [MedTech service](/azure/healthcare-apis/iot/iot-connector-overview) feature will be the first step in setting up remote patient monitoring. 
 
-### Mustafa: 
 
-Health Systems, hospitals, and large physician practices are shifting to hospital@home initiatives (aka remote patient monitoring). Many of these enterprise clients are already integrated with the Microsoft Cloud for Healthcare platform to help implementing remote pateint monitoring at scale, in a secured and cost-effective manner. One of the corner stones of the Microsoft Cloud for Healthcare is the MedTech service in Azure Health Data Services – which is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR®) service format. 
+[Mustafa:]
+Health Systems, hospitals, and large physician practices are shifting to hospital@home initiatives (also known as remote patient monitoring). Many of these enterprise clients are already integrated with the Microsoft Cloud for Healthcare platform to help implementing remote patient monitoring at scale, in a secured and cost-effective manner. One of the corner stones of the Microsoft Cloud for Healthcare is the MedTech service in Azure Health Data Services. MedTech is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR®) service format. 
 
-The MedTech service provides the ability to translate many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. 
+FHIR enables MedTech to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. 
 
 ## Architecture
 
-The following example provides an intelligent remote patient monitoring solution. It will help elevate many of the device integration challenges your organization is bound to face when building such a solution at scale. 
-
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - diagram: decide whether to pursue trademark/logo usage perms from Apple/Google/fitbit, or replace with generic mobile device icons
 > - diagram: review/complete the Visio; when final upload to blob storage and create new .png
 > - dataflow: review/complete steps 1 thru 8
-> - components: complete after dataflow is completed
+> - components: complete after dataflow section is completed
 > - alternatives: TBD
+
+The following example provides an intelligent remote patient monitoring solution. It will help alleviate many of the device integration challenges your organization is bound to face when building such a solution at scale. 
 
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
@@ -38,7 +37,7 @@ The following example provides an intelligent remote patient monitoring solution
    - The [Fit on FHIR](https://github.com/microsoft/fit-on-fhir) OSS SDK supports Google Fit devices.
    - The [HealthKitToFhir Swift Library](https://github.com/microsoft/healthkit-to-fhir) OSS SDK supports Apple devices.
 
-1. [Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) supports over 400 FDA approved bluetooth devices. Data from the devices is transmitted to the Life365.health API, then extracted and ingested by Azure Event Hubs.
+1. [Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) supports over 400 FDA approved bluetooth devices. FHIR-compliant health measurement/reading data is generated from the devices and transmitted to the Life365.health API for storage, then extracted and ingested by Azure Event Hubs.
 
 1. The Azure [MedTech service](/azure/healthcare-apis/iot/) pulls the FIHR-compliant data collected by Azure Event Hubs, and passes it into the [Azure FHIR service](/azure/healthcare-apis/fhir/). Both of these services are part of [Azure Health Data Services](https://azure.microsoft.com/services/health-data-services/), and are instantiated through an [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview). The Azure Health Data Services workspace is a logical container for all of your healthcare service instances, such as the FHIR and MedTech services. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
 
@@ -51,7 +50,7 @@ The following example provides an intelligent remote patient monitoring solution
    - [Azure Databricks](https://azure.microsoft.com/products/databricks/)
    - [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/)  
 
-1. Use [SQL Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for creating native SQL queries agains Azure Synapse Analytics SQL pools.
+1. Use [SQL Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for creating native SQL queries against Azure Synapse Analytics SQL pools.
 
 1. [Power BI](https://powerbi.microsoft.com/) also provides multiple options for querying and analyzing FHIR data:  
    **TODO: Need links: PowerBI Template for FHIR Observation; also are the others Power BI or [Power Query connectors](/power-query/connectors/)?**
@@ -62,32 +61,40 @@ The following example provides an intelligent remote patient monitoring solution
 
 ### Components
 
-**TBD: Will build out after the Dataflow section is done**
-
 #### Devices
 
-#### Azure 
+**Consumer devices**
 
-**MedTech service** [Janna]
+**Life365.health devices**
 
-MedTech service is an integral feature within Azure Health Data Services to support remote patient monitoring. MedTech service feature is a Platform as a service (PaaS) that enables you to gather data from desperate medical devices and IoMT devices to convert the health data into a Fast Healthcare Interoperability Resources (FHIR®) service format to be stored in a FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment. 
+#### Azure services
+
+**MedTech service** 
+
+[Janna:]
+MedTech service is an integral feature within Azure Health Data Services to support remote patient monitoring. MedTech service is a Platform as a service (PaaS) that enables you to gather data from desperate medical devices and IoMT devices. The health data is converted into a Fast Healthcare Interoperability Resources (FHIR®) service format to be stored in a FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment. 
 
 MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
 
-#### Analytics
+#### Analytics tools
+
+**Power BI**
+
+**SQL Server Management Studio**
 
 ### Alternatives
 
 > Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. Customers find this valuable because they want to know what other services or technologies they can use as part of this architecture.
 > What alternative technologies were considered and why didn't we use them?
 
-## Scenario details [Mustafa]
+## Scenario details
 
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - TBD
 
-There is a plentitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
+[Mustafa:]
+There's a plenitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
 
 ### Problem statement
 
@@ -95,9 +102,9 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 ### Potential use cases
 
-- **Clinical trials and research** – Help clinical research teams integrate and offer a wide range of in-home and wearable medical devices to the study participant. In other words, offer a quasi Bring-Your-Own-Device BYOD option to your study participants.
+- **Clinical trials and research** – Help clinical research teams integrate and offer a wide range of in-home and wearable medical devices to the study participant. In other words, offer a quasi-Bring-Your-Own-Device (BYOD) option to your study participants.
 
-- **Data scientist and population health analytics** – The physiological dataset (i.e. the readings and measurements from those devices) will be available in the industry FHIR standard as well as other open-source data formats (JSON and Parquet). In addition to the data format, native connectors are provided to help with the data analysis and transformation, such as the Power BI connector for FHIR, Synapse Serverless SQL views and Spark clusters in Synapse.
+- **Data scientist and population health analytics** – The physiological dataset (the readings and measurements from those devices) will be available in the industry FHIR standard as well as other open-source data formats (JSON and Parquet). In addition to the data format, native connectors are provided to help with the data analysis and transformation. Including connectors such as the Power BI connector for FHIR, Synapse Serverless SQL views and Spark clusters in Synapse.
 
 - **Enable healthcare providers** - to: 
    - gain better insights into patient health status
@@ -107,7 +114,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 ## Considerations
 
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - complete the Cost Optimization section
 > - determine which 2 of the other sections we will include and complete them
@@ -142,7 +149,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 > How much will this cost to run? See if you can answer this without dollar amounts.
 > Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
+> If it scales linearly, then we should break it down by cost/unit. If it does not, why?
 > What are the components that make up the cost?
 > How does scale affect the cost?
 
@@ -172,7 +179,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Contributors
 
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - TBD
 
@@ -198,12 +205,12 @@ Other contributors: > Include contributing (but not primary) authors, major edit
 
 ## Next steps
 
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - add links to other articles that would be next in sequence: Docs and Learn articles, third-party documentation
  
 ## Related resources
 
-> [!NOTES]
+> [!NOTE]
 > **SECTION TODOS**
 > - add links to related healthcare example workloads
