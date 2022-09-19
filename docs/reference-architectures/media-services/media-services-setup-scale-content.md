@@ -155,8 +155,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
 
 ## Related resources
 

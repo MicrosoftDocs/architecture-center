@@ -41,4 +41,4 @@ Principal author:
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/paths/intro-to-kubernetes-on-azure).
+If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).

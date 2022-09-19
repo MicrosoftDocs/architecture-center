@@ -117,7 +117,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 ## Related resources
 
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
-- [Build a content-based recommendation system](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)
+- [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 - [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)

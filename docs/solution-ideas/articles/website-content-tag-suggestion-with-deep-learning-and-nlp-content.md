@@ -56,9 +56,9 @@ See the product documentation:
 
 Try these Microsoft Learn modules:
 
-* [Introduction to Natural Language Processing with PyTorch](/learn/modules/intro-natural-language-processing-pytorch)
-* [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models)
-* [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)
+* [Introduction to Natural Language Processing with PyTorch](/training/modules/intro-natural-language-processing-pytorch)
+* [Train and evaluate deep learning models](/training/modules/train-evaluate-deep-learn-models)
+* [Implement knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search)
 
 ## Related resources
 

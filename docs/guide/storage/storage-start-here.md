@@ -36,8 +36,8 @@ The Azure Storage platform includes the following data services:
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Block-level storage volumes for Azure VMs.
 
 ## Introduction to storage on Azure
-If you're new to storage on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive learning for Microsoft products and more. Check out the 
-[Store data in Azure](/learn/paths/store-data-in-azure) learning path. 
+If you're new to storage on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive learning for Microsoft products and more. Check out the 
+[Store data in Azure](/training/paths/store-data-in-azure) learning path. 
 
 ## Path to production
 - Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json). 

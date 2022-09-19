@@ -67,8 +67,8 @@ Product documentation:
 
 Learning paths:
 
-- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
-- [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+- [Build the intelligent edge with Azure IoT Edge](/training/paths/build-intelligent-edge-with-azure-iot-edge)
+- [Implement a data streaming solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
 
 [visio-download]: https://arch-center.azureedge.net/bosch-cctv-mask-detection.vsdx
 
@@ -78,4 +78,3 @@ Learning paths:
 - [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)
-

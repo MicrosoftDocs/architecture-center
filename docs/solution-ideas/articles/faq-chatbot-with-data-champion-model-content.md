@@ -36,8 +36,8 @@ This solution is optimized for the retail industry.
 
 Microsoft Learn modules:
 
-* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
-* [Manage your Language Understanding Intelligent Service (LUIS) Apps](/learn/modules/manage-language-understanding-intelligent-service-apps)
+* [Build a bot with QnA Maker and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+* [Manage your Language Understanding Intelligent Service (LUIS) Apps](/training/modules/manage-language-understanding-intelligent-service-apps)
 
 ## Related resources
 

@@ -27,16 +27,16 @@ These are just some of the key migration services available on Azure:
 
 ## Introduction to migration on Azure
 
-If you're new to migration on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to migration on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are some learning paths and modules to get you started:
 
-- [Learning path: Best practices for Azure migration and modernization](/learn/paths/best-practices-azure-migration)
-- [Learning path: Migrate virtual machines and apps using Azure Migrate](/learn/paths/m365-azure-migrate-virtual-machine)
-- [Learning path: Migrate SQL workloads to Azure](/learn/paths/migrate-sql-workloads-azure)
-- [Module: Design migrations](/learn/modules/design-migrations)
-- [Module: Applications and infrastructure migration and modernization](/learn/modules/app-and-infra-migration-and-modernization)
-- [Module: Migrate to Azure through repeatable processes and common tools](/learn/modules/cloud-adoption-framework-migrate)
+- [Learning path: Best practices for Azure migration and modernization](/training/paths/best-practices-azure-migration)
+- [Learning path: Migrate virtual machines and apps using Azure Migrate](/training/paths/m365-azure-migrate-virtual-machine)
+- [Learning path: Migrate SQL workloads to Azure](/training/paths/migrate-sql-workloads-azure)
+- [Module: Design migrations](/training/modules/design-migrations)
+- [Module: Applications and infrastructure migration and modernization](/training/modules/app-and-infra-migration-and-modernization)
+- [Module: Migrate to Azure through repeatable processes and common tools](/training/modules/cloud-adoption-framework-migrate)
 
 ## Path to production
 

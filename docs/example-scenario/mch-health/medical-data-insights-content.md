@@ -133,7 +133,7 @@ The following are the additional components that are created specifically for th
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Health data consortium on Azure](..//data/azure-health-data-consortium.yml)
 - [Confidential computing on a healthcare platform](../confidential/healthcare-inference.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
 - [Predict length of stay and patient flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
 - [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)

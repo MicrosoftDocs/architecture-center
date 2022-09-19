@@ -129,12 +129,12 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
-- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
-- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
-- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Create a long-running serverless workflow with Durable Functions](/training/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Event Grid](/training/modules/azure-event-grid)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/training/modules/intro-to-logic-apps)
 
 ## Related resources
 

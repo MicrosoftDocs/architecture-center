@@ -28,10 +28,10 @@ Azure provides these virtual desktop solutions:
 
 ## Introduction to virtual desktop architecture on Azure
 
-If you're new to virtual desktops on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. 
+If you're new to virtual desktops on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. 
 Here's a learning path to get you started:
 
-- [Deliver remote desktops and apps with Azure Virtual Desktop](/learn/paths/m365-wvd)
+- [Deliver remote desktops and apps with Azure Virtual Desktop](/training/paths/m365-wvd)
 
 ## Path to production
 

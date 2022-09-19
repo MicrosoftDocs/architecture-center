@@ -41,11 +41,11 @@ If you're new to Azure, the best place to start learning about Azure is with Mic
 
 If you have an SAP workload that depends on an Oracle database, the Learn modules in the following table can help you understand what Azure has to offer for Oracle databases and SAP.
 
-- [Explore Azure for SAP databases](/learn/modules/explore-azure-databases). This module explores SAP databases on Azure and best practices for Azure for SAP workloads, including recommendations from Oracle.
+- [Explore Azure for SAP databases](/training/modules/explore-azure-databases). This module explores SAP databases on Azure and best practices for Azure for SAP workloads, including recommendations from Oracle.
 
-- [Implement high availability for SAP workloads in Azure](/learn/modules/implement-high-availability-for-sap-workloads-azure). This module explores high availability and disaster recovery support of Azure for SAP workloads, including use of Oracle Data Guard for high availability of Oracle databases that support SAP workloads.
+- [Implement high availability for SAP workloads in Azure](/training/modules/implement-high-availability-for-sap-workloads-azure). This module explores high availability and disaster recovery support of Azure for SAP workloads, including use of Oracle Data Guard for high availability of Oracle databases that support SAP workloads.
 
-- [Perform backups and restores for SAP workloads on Azure](/learn/modules/perform-backups-restores). This module explores backup and restoration of Azure VMs and examines the steps and considerations in backing up and restoring SAP workloads on Azure, including the Oracle databases that support them.
+- [Perform backups and restores for SAP workloads on Azure](/training/modules/perform-backups-restores). This module explores backup and restoration of Azure VMs and examines the steps and considerations in backing up and restoring SAP workloads on Azure, including the Oracle databases that support them.
 
 > [!div class="nextstepaction"]
 > [Search Learn for current offerings about Oracle](/search/?terms=Oracle&category=Learn)

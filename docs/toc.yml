@@ -3117,6 +3117,8 @@ items:
                     href: guide/hpc/altair-edem.yml
                   - name: Altair nanoFluidX
                     href: guide/hpc/nanofluidx.yml
+                  - name: Altair Radioss
+                    href: guide/hpc/altair-radioss.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
@@ -3312,7 +3314,7 @@ items:
               - name: Advanced microservices on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
               - name: AKS baseline cluster
-                href: reference-architectures/containers/aks/secure-baseline-aks.yml
+                href: /azure/architecture/reference-architectures/containers/aks/baseline-aks
               - name: AKS baseline for multi-region clusters
                 href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: AKS cluster for a PCI-DSS workload
