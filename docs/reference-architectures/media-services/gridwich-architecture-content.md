@@ -34,7 +34,6 @@ The following steps describe the request and response process between an externa
 
   ![Diagram showing the Gridwich request-response process.](media/gridwich-overview.png)
 
-
 1. The external system creates a request and sends it to the request broker.
 
 1. The request broker is responsible for dispatching requests to Gridwich request listeners in a traditional publication-subscription model. In this solution, the request broker is Azure Event Grid. All requests are encapsulated using the [Event Grid event schema](/azure/event-grid/event-schema).
