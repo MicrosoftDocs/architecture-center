@@ -50,8 +50,8 @@ AKS uses several [user-assigned managed identities](/azure/active-directory/mana
 | Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
-| Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+| Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances | Contributor role for node resource group | No
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Azure Active Directory (Azure AD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
 
 For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 

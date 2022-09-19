@@ -38,8 +38,11 @@ In Amazon EKS, after Kubernetes version 1.11, the cluster has a default [Storage
 By adding drivers and storage classes, you can use storage services such as:
 
 - Elastic Block Storage (EBS), a block-level storage solution used with Amazon Elastic Compute Cloud (EC2) instances to store persistent data. This service is similar to Azure Disk Storage, which has several SKUs like Standard SSD, Premium, or Ultra, depending on needed performance.
+
 - Elastic File System (EFS), which provides Network File System (NFS) access to external file systems that can be shared across instances. The equivalent Azure solution is Azure Files and Azure Files Premium with both Server Message Block 3.0 (SMB) and NFS access.
+
 - Lustre, an open-source file system commonly used in high performance computing (HPC). In Azure, you can use Azure Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
+
 - NetApp ONTAP, fully managed ONTAP shared storage in AWS. Azure NetApp Files is a similar Azure file storage service built on NetApp technology.
 
 ## AKS storage options
@@ -95,7 +98,7 @@ Azure Files has the following storage account replication SKUs to keep you cover
 
 - Standard_LRS with [LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - Standard_GRS with [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage)
-- Standard_ZRS with [zone redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
+- Standard_ZRS with [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 - Standard_RAGRS with [read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
 - Premium_LRS premium LRS
 - Premium_ZRS premium ZRS

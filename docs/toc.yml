@@ -595,11 +595,11 @@ items:
                     maintainContext: true
               - name: AKS for AWS
                 items:
-                  - name: AKS for EKS professionals
+                  - name: AKS for Amazon EKS professionals
                     href: aws-professional/eks-to-aks/index.md
                   - name: Identity and access management
                     href: aws-professional/eks-to-aks/workload-identity.yml
-                  - name: Cluster observability and monitoring
+                  - name: Cluster monitoring and logging
                     href: aws-professional/eks-to-aks/monitoring.yml
                   - name: Network topologies and security
                     href: aws-professional/eks-to-aks/private-clusters.yml
