@@ -249,7 +249,7 @@ Other contributors:
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Lift and shift to containers with AKS](../../solution-ideas/articles/migrate-existing-applications-with-aks.yml)
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
   - [Triage practices](../../operator-guides/aks/aks-triage-practices.md)

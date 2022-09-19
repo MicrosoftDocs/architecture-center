@@ -91,7 +91,7 @@ For more information, see the following articles:
 
 -   [Choosing a Kubernetes at the edge compute option](./choose-kubernetes-edge-compute-option.md)
 
--   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+-   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 -   [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 

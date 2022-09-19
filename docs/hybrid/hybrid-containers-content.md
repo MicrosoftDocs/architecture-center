@@ -152,7 +152,7 @@ Principal author:
 [azure-key-vault-arm-templates]: /azure/key-vault/secrets/quick-create-template
 [azure-kubernetes-service]: /azure/aks/
 [azure-kubernetes-service-arm-templates]: /azure/aks/kubernetes-walkthrough-rm-template
-[azure-kubernetes-service-baseline]: ../reference-architectures/containers/aks/secure-baseline-aks.yml
+[azure-kubernetes-service-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [azure-kubernetes-service-gitops]: /azure/aks/kubernetes-action
 [azure-kubernetes-service-uptime-sla]: /azure/aks/uptime-sla
 [azure-kubernetes-service-virtual-nodes]: /azure/aks/virtual-nodes-portal

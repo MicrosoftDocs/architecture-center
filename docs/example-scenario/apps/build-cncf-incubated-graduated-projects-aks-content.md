@@ -1,25 +1,16 @@
 This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after you deploy Azure Kubernetes Service (AKS). The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
 
-You can deploy this architecture on any Kubernetes cluster, not just AKS. It provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
-
-After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
-
-## Potential use cases
-
-These other uses cases have similar design patterns:
-
-- Creating a CI/CD pipeline for container-based workloads
-- Using GitOps for AKS
-
 ## Architecture
 
 :::image type="content" source="./media/cncf-architecture.png" alt-text="Diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.png":::
 
-Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.
+*Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.*
 
 The workload is a simple web application that employees can use to submit and view expense reports. When an employee submits an expense report, the employee's manager receives an email.
 
-### Application flow
+### Workflow
+
+#### Application flow
 
 **1.** The employee accesses a web app via NGINX Ingress to submit expenses.
 
@@ -35,7 +26,7 @@ The workload is a simple web application that employees can use to submit and vi
 
 **7.** SendGrid sends an email to the retrieved manager for review.
 
-### DevOps flow
+#### DevOps flow
 
 **a.** Developers write or update the code in Visual Studio Code.
 
@@ -53,9 +44,9 @@ The workload is a simple web application that employees can use to submit and vi
 
 **h.** DevOps engineers monitor the Grafana Dashboard.
 
-### Infrastructure
+#### Infrastructure
 
-**i.** AKS cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+**i.** AKS cluster that's based on the infrastructure presented in the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 **ii.** Rook Ceph that's used for cluster storage.
 
@@ -63,7 +54,7 @@ The workload is a simple web application that employees can use to submit and vi
 
 **iv.** Jaeger for overall application tracing on the Kubernetes cluster.
 
-### Cluster operations
+#### Cluster operations
 
 You might find it beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator. It's often paired with GitHub Actions to enable validation on updated manifests and Helm charts. 
 
@@ -107,7 +98,22 @@ You can consider various Azure services as alternatives. For example, Applicatio
 
 Microsoft also supports OSS projects, including Open Service Mesh.
 
+## Scenario details
+
+You can deploy this architecture on any Kubernetes cluster, not just AKS. It provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
+
+After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
+
+### Potential use cases
+
+These other uses cases have similar design patterns:
+
+- Creating a CI/CD pipeline for container-based workloads
+- Using GitOps for AKS
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 * For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.
@@ -115,45 +121,42 @@ Microsoft also supports OSS projects, including Open Service Mesh.
 * The Jaeger setup takes about 5 minutes. 
 * It takes about 12 minutes for Linkerd to appear in the dashboard.
 
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Following are some pricing considerations for running this project in Azure. A negligible bandwidth cost applies.
+
+#### Virtual Machine Scale Sets
+
+VMs that are used in Azure Virtual Machine Scale Sets for the AKS cluster incur a charge. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
+
+#### Storage
+
+Storage costs apply for each data disk that's required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node: a 1-GB disk and a 200-GB disk. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+
+#### Load balancer
+
+The load balancer that's associated with this AKS cluster incurs a charge. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
+
+#### Virtual network
+
+The virtual network that's used by the AKS cluster incurs a charge. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+
 ## Deploy this scenario
 
 Deploy this scenario from the [Azure/cloud-native-app](https://github.com/Azure/cloud-native-app) GitHub repo. Follow the [setup instructions](https://github.com/Azure/cloud-native-app/blob/main/notes.md) in the provided sequence to deploy the CNCF Projects App in your environment.
 
 This repo is a community project. It accepts and approves pull requests (PRs) for enhancements and modifications from the community.
 
-## Pricing
-
-You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Following are some pricing considerations for running this project in
-Azure. A negligible bandwidth cost applies.
-
-### Virtual Machine Scale Sets
-
-VMs that are used in Azure Virtual Machine Scale Sets for the AKS cluster incur a charge. For more information, see [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux).
-
-### Storage
-
-Storage costs apply for each data disk that's required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node: a 1-GB disk and a 200-GB disk. For more information, see [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-### Load balancer
-
-The load balancer that's associated with this AKS cluster incurs a charge. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer).
-
-### Virtual network
-
-The virtual network that's used by the AKS cluster incurs a charge. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
-
 ## Next steps
 
 - [Quickstart: Deploy an AKS cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
-
-- [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
+- [Introduction to AKS](/learn/modules/intro-to-azure-kubernetes-service)
 
 ## Related resources
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
-
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
-
+- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml) 
-
 - [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
