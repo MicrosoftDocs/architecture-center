@@ -49,27 +49,110 @@ For information about eligible Windows images, see [How to deploy Windows 10 on 
 
 For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-After you install the drivers, install license server and the NX application.
+After you install the drivers, install Siemens PLM License Server and the NX application. You can download these applications and get download instructions from the [Siemens website](https://support.sw.siemens.com/en-US/product).
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
+> [!NOTE]
+> You need to install the [Java Runtime Environment (64-bit) for NX](https://www.java.com/en) before you install NX.
 
-<Workload> performance results
-<Give a short intro to how performance was tested>
+## NX performance results
 
-<Results for X>
+Siemens Automated Testing Studio (ATS) and NXCP were used to test NX.
+For information about installing and using these tools, see the [Siemens website](https://support.sw.siemens.com/en-US/product).
 
-<Results for Y etc>
+### NXCP test results  
 
-Additional notes about tests
-<Include any additional notes about the testing process used.>
+The Siemens NXCP tool was used to run these tests. Test cases are grouped to demonstrate various capabilities. Each test group consists multiple test cases.
+
+The following table shows the test results.
+
+|Test group name|Number of test cases|1 GPU (NV12s_v3)|2 GPUs (NV24s_v3)|1 GPU (NCasT4, 16 CPU)|
+|-|-|-|-|-|
+|GDAT_LEGACY|15|Pass|Pass|Pass|
+|TCVIS 2007|10|Pass|Pass|Pass|
+|TECNOMATIX_OpenGL Display|2|Pass|Pass|Pass|
+|TECNOMATIX_OpenGL Buffer|2|Pass|Pass|Pass|
+|NX1847_Manual|7|Pass|Pass|Pass|
+|NX1899_Manual|7|Pass|Pass|Pass|
+|NX 1899 Mark|6|Pass|Pass|Pass|
+
+### ATS test results
+
+The following table shows ATS test results.
+
+|Case number|Description|Case ID|	1 GPU (NV12s_v3) |	2 GPUs (NV24s_v3)|1 GPU (NCasT4, 16 CPU)|
+|-|-|-|-|-|-|
+|AT-01|	Verifies that Listing Window shows data correctly|	Listing Window	|1 minute, 11 seconds|	31 seconds	|18 seconds|
+|AT -02|Verifies correct mirror display in various views	|Mirror Display|	1 minute, 40 seconds|	1 minute, 8 seconds|	1 minute, 10 seconds|
+|AT-03|	Verifies de-emphasis displays|	Deemphasis	|1 minute, 13 seconds|	1 minute	|57 seconds|
+|AT-04|	Verifies grid displays|	Grid Display	|1 minute, 47 seconds	|1 minute, 16 seconds	|51 seconds|
+|AT-05|	Verifies correct display of raster images in various view ports|	Raster Image	|20 seconds|	19 seconds|	23 seconds|
+|AT-06|	Shows multiple views in one window|	Multiple Views	|23 seconds|	26 seconds|	25 seconds|
+|AT-07|	Verifies the background setting in the wireframe view|	Background Setting Wireframe	|45 seconds	|29 seconds	|34 seconds|
+|AT-08|	Verifies correct display of light and shadow in Advanced Studio	|Light Direction	|21 seconds	|20 seconds|	23 seconds|
+|AT-09	|Verifies the display section|Display Section|	4 minutes, 35 seconds	|2 minutes, 8 seconds	|1 minute, 52 seconds|
+|AT-10	|Verifies display modes|	Display Modes|	17 minutes	|45 seconds	|43 seconds|
+|AT-11	|Activates HD3D and representation status with tags	|HD3D|	1 minute |37 seconds	|47 seconds|	47 seconds|
+|AT-12	|Activates face analysis and verifies displays with reflection	|Face Analysis|	52 minutes|	41 minutes	|40 minutes| 33 seconds|
+|AT-13	|Rotates views in sync	|Synchronize View	|18 seconds|	16 seconds	|15 seconds|
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
+
+The following table presents wall-clock times that you can use to calculate Azure costs. You can use the times presented here together with the Azure hourly rates for NVv3 and NCas_T4_v3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only elapsed running time of the tests is considered for these cost calculations. Application installation time isn't considered.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size| Number of GPUs|Wall-clock time|
+|-|-|-|
+|NV12s_v3|1|1 hour, 23 minutes, 10 seconds|
+|NV24s_v3|2|50 minutes, 25 seconds|
+|NC16as_T4_v3|1|49 minutes, 18 seconds|
 
 ## Summary
 
-- NX Application is successfully deployed and tested on NV_v3 & NCas_T4 series Azure Virtual Machines.
-- All test cases (both ATS and Cert) are successfully run on 1GPU VM (Standard_NV12s_v3), 2GPU VM (Standard_NV24s_v3) and 1GPU VM (Standard_NC16as_T4_v3) configurations.
+- NX was successfully tested on NVv3 and NCas_T4 series VMs on Azure.
+- All test cases, for both ATS and NXCP, ran successfully on 1-GPU Standard_NV12s_v3, 2-GPU Standard_NV24s_v3, and 1-GPU Standard_NC16as_T4_v3 configurations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod
+    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin
+    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+-   [GPU-optimized virtual machine
+    sizes](/azure/virtual-machines/sizes-gpu)
+-   [Windows virtual machines on Azure](/azure/virtual-machines/overview)
+-   [Virtual networks and virtual machines on
+    Azure](/azure/virtual-network/network-overview)
+-   [Learning path: Run high-performance computing (HPC) applications on
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+-   [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
