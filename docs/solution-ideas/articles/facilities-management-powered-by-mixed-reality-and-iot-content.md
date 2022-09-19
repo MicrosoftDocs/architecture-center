@@ -2,10 +2,6 @@
 
 Improve uptime and operations in travel and hospitality, manufacturing, retail, and more with mixed reality and IoT.
 
-## Potential use cases
-
-This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It's built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins).
-
 ## Architecture
 
 ![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
@@ -31,6 +27,12 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 * [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs): Receive telemetry from millions of devices.
 * [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Build next-generation IoT spatial intelligence solutions.
+
+## Scenario details
+
+### Potential use cases
+
+This scenario shows how you can visualize a virtual replica of your physical space with real-time data in the context of your environment. It's built on [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) and [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins).
 
 ## Next steps
 

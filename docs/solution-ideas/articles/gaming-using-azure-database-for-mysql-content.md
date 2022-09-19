@@ -2,10 +2,6 @@
 
 This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 
-## Potential use cases
-
-This solution is based on a gaming scenario. However, the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
-
 ## Architecture
 
 ![Architecture Diagram](../media/gaming-using-azure-database-for-mysql.png)
@@ -42,6 +38,12 @@ This architecture includes the following components:
 - [Azure HDInsight](https://azure.microsoft.com/free/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks, such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and so on.
 
 - (Optional) [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+
+## Scenario details
+
+### Potential use cases
+
+This solution is based on a gaming scenario. However, the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Next steps
 

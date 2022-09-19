@@ -2393,6 +2393,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/quantum/loosely-coupled-quantum-computing-job.yml",
       "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
       "redirect_document_id": false
@@ -2403,7 +2413,7 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "docs/solution-ideas/articles/cicd-for-quantum-computing-jobs.yml",
+      "source_path": "docs/solution-ideas/articles/cicd-for-quantum-computing-jobs.yml",
       "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
       "redirect_document_id": false
     }
