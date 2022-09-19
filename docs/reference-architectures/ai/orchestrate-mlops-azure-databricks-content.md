@@ -32,7 +32,7 @@ In the development environment, data scientists and engineers develop machine le
 
 In the staging environment, CI infrastructure tests changes to machine learning pipelines in an environment that mimics production.
 
-4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/?view=azure-devops) runs tests.
+4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/) runs tests.
 
 5. **Unit and CI tests**: Unit tests run in CI infrastructure, and integration tests run end-to-end [workflows](/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
 
@@ -93,6 +93,7 @@ By using this architecture, you can:
 ### Potential use cases
 
 This architecture applies to all types of machine learning, deep learning, and advanced analytics. Common machine learning / AI techniques used in this architecture include:
+
 - Classical machine learning, like linear models, tree-based models, and boosting.
 - Modern deep learning, like TensorFlow and PyTorch.
 - Custom analytics, like statistics, Bayesian methods, and graph analytics.
@@ -114,11 +115,11 @@ For examples, see the [Databricks website](https://databricks.com/customers).
 
 Principal author:
 
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect 
+- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect
 
 Other contributor:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -149,7 +150,7 @@ Other contributor:
 - [Share models across workspaces](/azure/databricks/applications/machine-learning/manage-model-lifecycle/multiple-workspaces)
 - [Notebooks](/azure/databricks/notebooks)
 - [Developer tools and guidance](/azure/databricks/dev-tools)
-- [Deploy MLflow models to online endpoints in Azure Machine Learning](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?tabs=endpoint%2Cstudio) 
+- [Deploy MLflow models to online endpoints in Azure Machine Learning](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?tabs=endpoint%2Cstudio)
 - [Deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-mlflow-models#deploy-to-azure-kubernetes-service-aks)
 
 ## Related resources
