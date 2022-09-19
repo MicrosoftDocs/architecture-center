@@ -62,7 +62,11 @@ This architecture consists of several Azure cloud services that scale resources 
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For scenario 1, each node is a Standard D4 v2 VM, which has four cores. This scenario uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each. For scenario 2, each node is a Standard NC6 with one GPU and each hyperparameter tuning run will use the single GPU on each node.
 
@@ -86,6 +90,8 @@ Use this page to monitor the status of the run and its child runs. Each child ru
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 The cost of a hyperparameter tuning run depends linearly on the choice of Machine Learning Compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
 
 Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs. Nodes are removed down to the requested minimum when they are no longer needed. If the cluster can autoscale down to zero nodes, it does not cost anything when it is not in use.
@@ -93,6 +99,8 @@ Ongoing costs when the cluster is not in use depend on the minimum number of nod
 For more information about Azure Machine Learning and costs, see [Plan to manage costs for Azure Machine Learning][mlcosts].
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 #### Restrict access to Azure Blob Storage
 
@@ -119,8 +127,8 @@ To deploy the reference implementation for this architecture, follow the steps d
 
 Learn more about training:
 
-- Microsoft Learn module - [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models)
-- Microsoft Learn module - [Tune hyperparameters with Azure Machine Learning](/learn/modules/tune-hyperparameters-with-azure-machine-learning/)
+- Microsoft Learn module - [Train and evaluate deep learning models](/training/modules/train-evaluate-deep-learn-models)
+- Microsoft Learn module - [Tune hyperparameters with Azure Machine Learning](/training/modules/tune-hyperparameters-with-azure-machine-learning/)
 - Machine Learning documentation - [Hyperparameter tuning a model with Azure Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
 
 ## Related resources

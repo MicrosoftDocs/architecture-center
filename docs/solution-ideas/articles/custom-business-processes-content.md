@@ -2,17 +2,6 @@
 
 This example demonstrates how you can deploy portals that automate manual or paper-based processes and surface a rich user experience. Employ Azure API management and Azure Functions to connect custom APIs, which tap into your legacy systems. By using Azure-managed databases and a low-code approach to automating tasks, you can lower the overall solution costs while quickly building apps that are real-time, resilient, and scalable by default.
 
-## Potential use cases
-
-The use of digital workflows isn't limited to any one industry. Document-based digital workflows use the same components but arrange them differently to meet the requirements of a process. Examples of industries that can benefit from automated processes include, but are not limited to:
-
-- Manufacturing
-- Healthcare
-- Education
-- Finance
-- Law Firms
-- Airlines (aerospace)
-
 ## Architecture
 
 :::image type="content" border="false" source="../media/custom-business-processes-2.svg" alt-text="Diagram that shows dataflow in airline system with Azure components." lightbox="../media/custom-business-processes.png":::
@@ -48,6 +37,19 @@ Data is loaded from these different data sources using several Azure components:
 - [Power Automate](https://flow.microsoft.com): Streamline repetitive tasks and paperless processes
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools to analyze data and share insights.
 
+## Scenario details
+
+### Potential use cases
+
+The use of digital workflows isn't limited to any one industry. Document-based digital workflows use the same components but arrange them differently to meet the requirements of a process. Examples of industries that can benefit from automated processes include, but are not limited to:
+
+- Manufacturing
+- Healthcare
+- Education
+- Finance
+- Law firms
+- Airlines (aerospace)
+
 ## Next steps
 
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
@@ -59,7 +61,7 @@ Data is loaded from these different data sources using several Azure components:
 - [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Bot Service](/azure/bot-service)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
-- [Introduction to Power Apps](/learn/modules/introduction-power-apps)
+- [Introduction to Power Apps](/training/modules/introduction-power-apps)
 
 ## Related resources
 

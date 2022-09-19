@@ -2396,6 +2396,16 @@
       "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
     }
   ]
 }

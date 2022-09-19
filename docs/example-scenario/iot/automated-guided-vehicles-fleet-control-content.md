@@ -303,11 +303,11 @@ Product documentation:
 
 Microsoft learning paths:
 
-- [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
-- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
-- [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
-- [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
-- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+- [Introduction to Azure IoT](/training/paths/introduction-to-azure-iot/)
+- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
+- [Administer containers in Azure](/training/paths/administer-containers-in-azure/)
+- [Create microservices with .NET and ASP.NET Core](/training/paths/create-microservices-with-dotnet/)
+- [Manage identities and governance for Azure administrators](/training/paths/azure-administrator-manage-identities-governance/)
 
 ## Related resources
 

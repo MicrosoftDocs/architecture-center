@@ -1,31 +1,14 @@
-A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
+The Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Azure Event Grid Sandwich* and the *Terraform Sandwich*.
 
-- Ingest raw video files, process and publish them, and fulfill media requests.
-- Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
-- Implement continuous integration and delivery (CI/CD) for the media asset management (MAM) pipeline.
+## Architecture
 
-To meet these goals, the Microsoft engineering team developed Gridwich, a stateless event-processing framework driven by an external [saga workflow orchestration system](gridwich-saga-orchestration.yml). The Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Azure Event Grid Sandwich* and the *Terraform Sandwich*.
-
-## Potential use cases
-
-The engineering team developed Gridwich to align with principles and industry standards for:
-
-- [Clean monolith architecture](gridwich-clean-monolith.yml)
-- [Project structure and naming](gridwich-project-names.yml)
-- [CI/CD](gridwich-cicd.yml)
-- [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.yml)
-- [Azure Storage usage and scaling](gridwich-storage-service.yml)
-- [Logging](gridwich-logging.yml)
-
-The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
-
-## Gridwich sandwiches
-
-Gridwich architecture features two *sandwiches* that address the requirements of asynchronous event processing and infrastructure as code:
+The Gridwich architecture features two *sandwiches* that address the requirements of asynchronous event processing and infrastructure as code:
 
 - The *Event Grid sandwich* abstracts away remote and long-running processes like media encoding from the external saga workflow system by sandwiching them between two Event Grid handlers. This sandwich lets the external system send a request event, monitor scheduled events, and wait for an eventual success or failure response that might arrive minutes or hours later.
 
   ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
+
+  *Download a [Visio file](https://arch-center.azureedge.net/gridwich-architecture.vsdx) of this architecture.*
 
 - The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code). Separating infrastructure and software releases means the Azure Functions app must be released and running before Terraform can deploy the Event Grid subscription. To address this requirement, there are two Terraform jobs in the CI/CD pipeline:
 
@@ -36,9 +19,9 @@ Gridwich architecture features two *sandwiches* that address the requirements of
 
   This way, Terraform can wholly manage and deploy the solution infrastructure, even when not all the [Azure resources](https://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
 
-## Workflow
+### Workflow
 
-The Gridwich request and response process covers request:
+The Gridwich request and response process covers the following requests:
 
 - Creation
 - Transport
@@ -69,15 +52,15 @@ The following steps describe the request and response process between an externa
 
 1. The event publisher in the Azure Function sends the response event to an Event Grid topic, which acts as a reliable message broker. The external system subscribes to the topic and consumes the messages. The Event Grid platform provides its normal retry logic for publication to the external system.
 
-### Message order
+#### Message order
 
 While an Acknowledgment precedes both the Success and Scheduled responses, Gridwich doesn't guarantee that a Scheduled response will always precede the corresponding Success response. A valid response sequence could be either **Acknowledged > Scheduled > Success** or **Acknowledged > Success > Scheduled**.
 
-### Request failures
+#### Request failures
 
 Request failures can be caused by bad requests, missing pre-conditions, processing failures, security exceptions, or unhandled exceptions. Almost all failures have the same message form, and include the original [operation context](#operation-context) value. The common [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class typically sends Failure responses to Event Grid via the Azure Function event publisher interface. [Application Insights](/azure/azure-monitor/app/app-insights-overview) also logs failures via [structured logging](gridwich-logging.yml).
 
-## Operation context
+### Operation context
 
 The external system might generate thousands of requests per day, per hour, or per second. Each [request event](https://github.com/mspnp/gridwich/blob/main//src/Gridwich.Core/src/DTO/Requests/RequestBaseDTO.cs) to Gridwich must include a JSON object property named `operationContext`.
 
@@ -93,7 +76,7 @@ Specifically, the external system has:
 
 - No JSON-formatting dependencies. For example, there are no assumptions about where whitespace padding may fall within the string representation of the JSON. Gridwich capitalizes on this lack of formatting dependency by compressing out unneeded whitespace in string representations of the JSON objects. See [JSONHelpers.SerializeOperationContext](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Helpers/JSONHelpers.cs).
 
-### Saga participants and operation context
+#### Saga participants and operation context
 
 In the Gridwich saga orchestration system, each [saga participant](gridwich-saga-orchestration.yml#saga-participants) contributes one or more work activities to the system. Each saga participant works independently of the other participants, and more than one saga participant might act on a single request.
 
@@ -106,7 +89,7 @@ Each of the saga participants must retain the operation context, but may impleme
 
 For more information about sagas and saga participants, see [Saga orchestration](gridwich-saga-orchestration.yml).
 
-## Synchronous and asynchronous handlers
+### Synchronous and asynchronous handlers
 
 Every event handler in the system uses a common [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs) class to provide generic services such as request acknowledgment, failure handling, and publication of response events. The event publication service communicates the Acknowledgment, Failure, Scheduled, or Success messages to the Event Grid request broker.
 
@@ -114,7 +97,7 @@ Any handler that plans to work with the current request must provide an acknowle
 
 ![Diagram showing the Acknowledgment message flow.](media/request-acknowledgement.png)
 
-### Synchronous event processing
+#### Synchronous event processing
 
 For requests that are easy to perform and fast to complete, the handler does the work synchronously and returns the Success event, with its operation context, almost immediately after the Acknowledgment is sent.
 
@@ -122,9 +105,9 @@ For requests that are easy to perform and fast to complete, the handler does the
 
 For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
 
-![Diagram showing the ChangeBlobTierHandler synchronous flow example.](media/sync-example.png)
+:::image type="content" border="false" source="media/sync-example.png" alt-text="Diagram showing the ChangeBlobTierHandler synchronous flow example." lightbox="media/sync-example.png":::
 
-### Asynchronous event processing
+#### Asynchronous event processing
 
 Some requests are long-running. For example, encoding media files can take hours. In these cases, an *asynchronous request handler* evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
 
@@ -134,13 +117,13 @@ On completing the work activity, the request handler is responsible for providin
 
 For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
 
-![Diagram showing the BlobCopyHandler asynchronous flow example with event scheduled.](media/async-example-scheduled.png)
+:::image type="content" border="false" source="media/async-example-scheduled.png" alt-text="Diagram showing the BlobCopyHandler asynchronous flow example with event scheduled." lightbox="media/async-example-scheduled.png":::
 
 To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
 
-![Diagram showing the BlobCopyHandler asynchronous flow example with event successful.](media/async-example-success.png)
+:::image type="content" border="false" source="media/async-example-success.png" alt-text="Diagram showing the BlobCopyHandler asynchronous flow example with event successful." lightbox="media/async-example-success.png":::
 
-## Long-running functions
+### Long-running functions
 
 When Gridwich deploys a new Functions App, it may drop current long-running processes. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
 
@@ -153,7 +136,7 @@ Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to mee
 
 The following diagram shows how most Gridwich jobs work. The green box represents a job that Gridwich passes to an external service. Gridwich then reacts in an event-driven way to the status. The red box shows a  function that is long-running on Gridwich itself.
 
-![Diagram showing short-running and long-running functions.](media/long-running-functions.png)
+:::image type="content" border="false" source="media/long-running-functions.png" alt-text="Diagram showing short-running and long-running functions." lightbox="media/long-running-functions.png":::
 
 The Functions runtime adds the cancellation token when the application is shutting down. Gridwich detects the token and returns error codes for all requests and currently running processes.
 
@@ -163,7 +146,7 @@ Gridwich waits 30 seconds after remapping the host names, so for HTTP-triggered 
 
 For more information, see [What happens during a slot swap for Azure Functions](/azure/azure-functions/functions-deployment-slots#swap-operations) and [Azure Functions deployment slots](/azure/azure-functions/functions-deployment-slots).
 
-## Components
+### Components
 
 The Gridwich media processing solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD and saga orchestration processes use Azure Repos, Azure Pipelines, and Terraform.
 
@@ -184,7 +167,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 
 - [Terraform](https://www.terraform.io/) is an open-source tool that uses Infrastructure as Code to provision and manage infrastructures and services.
 
-## Alternatives
+### Alternatives
 
 - [Durable Functions](/azure/azure-functions/durable/durable-functions-overview), which have a built-in state store for long-running operations, could also provide an opaque operation context. Durable Functions could create a series of tasks within an operation, and save the operation context as an input or output for the operation. In fact, Gridwich could use Durable Functions for all work activities, but this approach would increase code complexity.
 
@@ -197,6 +180,29 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.yml) means that refactoring the solution for 1:1 wouldn't be difficult.
 
 - For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
+
+## Scenario details
+
+A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
+
+- Ingest raw video files, process and publish them, and fulfill media requests.
+- Improve both encoding and new intake and distribution capabilities at scale, and with a cleanly architected approach.
+- Implement continuous integration and delivery (CI/CD) for the media asset management (MAM) pipeline.
+
+To meet these goals, the Microsoft engineering team developed Gridwich, a stateless event-processing framework driven by an external [saga workflow orchestration system](gridwich-saga-orchestration.yml).
+
+### Potential use cases
+
+The engineering team developed Gridwich to align with principles and industry standards for:
+
+- [Clean monolith architecture](gridwich-clean-monolith.yml)
+- [Project structure and naming](gridwich-project-names.yml)
+- [CI/CD](gridwich-cicd.yml)
+- [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.yml)
+- [Azure Storage usage and scaling](gridwich-storage-service.yml)
+- [Logging](gridwich-logging.yml)
+
+The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
 
 ## Deploy this scenario
 

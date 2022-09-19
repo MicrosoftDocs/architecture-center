@@ -159,7 +159,7 @@ With a finished deployment, you should also design and implement the monitoring 
 In addition to automating the initial deployment, you might want to automate changes to policies by using CI/CD pipelines. You could use Microsoft365DSC for this automation.
 
 ## Next steps
-- [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
+- [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
 - [Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policies)
 
 ## Related resources

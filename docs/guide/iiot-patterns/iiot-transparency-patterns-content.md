@@ -40,9 +40,9 @@ Calculate business metrics by using IoT telemetry and other business systems dat
 
 ## Next steps
 
-- [Integrate SQL and Apache Spark pools in Azure Synapse Analytics](/learn/modules/integrate-sql-apache-spark-pools-azure-synapse-analytics)
-- [Introduction to Azure IoT Hub](/learn/modules/introduction-to-iot-hub)
-- [Introduction to Azure Synapse Analytics](/learn/modules/introduction-azure-synapse-analytics)
+- [Integrate SQL and Apache Spark pools in Azure Synapse Analytics](/training/modules/integrate-sql-apache-spark-pools-azure-synapse-analytics)
+- [Introduction to Azure IoT Hub](/training/modules/introduction-to-iot-hub)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
 
 ## Related resources
 

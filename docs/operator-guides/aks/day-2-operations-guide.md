@@ -29,7 +29,7 @@ Day-2 operations help you:
 
 ## Prerequisites
 
-The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Service (AKS) baseline architecture](../../reference-architectures/containers/aks/secure-baseline-aks.yml) as an example of a production cluster.
+The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Service (AKS) baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) as an example of a production cluster.
 
 ## Next steps
 

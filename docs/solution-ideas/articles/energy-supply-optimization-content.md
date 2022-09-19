@@ -52,10 +52,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Create and connect to a Data Science Virtual Machine](/learn/modules/intro-to-azure-data-science-virtual-machine)
-- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
-- [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage)
-- [Run parallel tasks in Azure Batch with the Azure CLI](/learn/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli)
+- [Create and connect to a Data Science Virtual Machine](/training/modules/intro-to-azure-data-science-virtual-machine)
+- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
+- [Explore Azure Blob storage](/training/modules/explore-azure-blob-storage)
+- [Run parallel tasks in Azure Batch with the Azure CLI](/training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli)
 
 ## Related resources
 

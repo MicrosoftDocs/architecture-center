@@ -111,7 +111,7 @@ Principal authors:
 
 ## Next steps
 
-- [Data Engineer learning paths](/learn/roles/data-engineer)
+- [Data Engineer learning paths](/training/roles/data-engineer)
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 - [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
