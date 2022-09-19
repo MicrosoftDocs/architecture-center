@@ -30,9 +30,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Develop for Azure Cache for Redis](/learn/modules/develop-for-azure-cache-for-redis)
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service)
-- [Host a web application with Azure App Service](/learn/modules/host-a-web-app-with-azure-app-service)
+- [Develop for Azure Cache for Redis](/training/modules/develop-for-azure-cache-for-redis)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service)
+- [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service)
 
 ## Related resources
 

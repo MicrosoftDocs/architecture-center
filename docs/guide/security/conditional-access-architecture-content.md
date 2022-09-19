@@ -114,7 +114,7 @@ Review a [Conditional Access framework](/azure/architecture/guide/security/condi
 
 ## Next steps
 
-- [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
+- [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 - [Common Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 

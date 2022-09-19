@@ -212,9 +212,9 @@ Product documentation:
 
 Learn modules:
 
-- [Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
-- [Deploy PaaS solutions with Azure SQL](/learn/modules/deploy-paas-solutions-with-azure-sql/)
-- [Secure network connectivity on Azure](/learn/modules/secure-network-connectivity-azure/)
+- [Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/)
+- [Deploy PaaS solutions with Azure SQL](/training/modules/deploy-paas-solutions-with-azure-sql/)
+- [Secure network connectivity on Azure](/training/modules/secure-network-connectivity-azure/)
 
 ## Related resources
 

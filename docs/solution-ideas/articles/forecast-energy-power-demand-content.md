@@ -63,7 +63,7 @@ Learn more:
 
 * [Set up AutoML to train a time-series forecasting model with Python](/azure/machine-learning/how-to-auto-train-forecast)
 * Try the Machine Learning Notebook for [Forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
-* Try the Microsoft Learn module, [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning).
+* Try the Microsoft Learn module, [Use automated machine learning in Azure Machine Learning](/training/modules/use-automated-machine-learning).
 
 ## Related resources
 

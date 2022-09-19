@@ -477,7 +477,7 @@ The following table compares the onboarding methods.
 
 For more information on publishing managed service offers, see [Publish a managed service offer to Azure Marketplace](/azure/lighthouse/how-to/publish-managed-services-offers).
 
-For more information on how to create an ARM template, see [Create and deploy ARM templates](/learn/modules/create-deploy-azure-resource-manager-templates).
+For more information on how to create an ARM template, see [Create and deploy ARM templates](/training/modules/create-deploy-azure-resource-manager-templates).
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 

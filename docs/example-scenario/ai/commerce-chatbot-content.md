@@ -145,8 +145,8 @@ Microsoft Learn modules:
 [botservice-docs]: /composer/tutorial/tutorial-introduction
 [cognitive-docs]: /azure/cognitive-services
 [language-understanding]: /azure/cognitive-services/luis/what-is-luis
-[learn1]: /learn/paths/create-bots-with-the-azure-bot-service/
-[learn2]: /learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/
+[learn1]: /training/paths/create-bots-with-the-azure-bot-service/
+[learn2]: /training/modules/build-faq-chatbot-qna-maker-azure-bot-service/
 [security]: /azure/security
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
