@@ -3,13 +3,13 @@
 > - cull/reconcile intro content from Janna and Mustafa's doc contributions
 > - intro is typically *"1-2 sentences to briefly explain this architecture. The full scenario info will go in the "Scenario details" section"*
 
-[Janna:]
+[Janna:]  
 Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. Combining single or multiple Internet of Things (IoT) devices allows for a more holistic health data picture to optimize treatment plans and clinician workflows. The stack of Azure Health Data Services and features within can support the remote monitoring of health data allowing for sense making and health data analytics  
 
 This article provides an overview of the Azure Health Data Services that support solutions for remote patient monitoring.  You'll learn about the different data processing stages within the Health Data services that transforms device data into Fast Healthcare Interoperability Resources (FHIR®)-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. The [MedTech service](/azure/healthcare-apis/iot/iot-connector-overview) feature will be the first step in setting up remote patient monitoring. 
 
 
-[Mustafa:]
+[Mustafa:]  
 Health Systems, hospitals, and large physician practices are shifting to hospital@home initiatives (also known as remote patient monitoring). Many of these enterprise clients are already integrated with the Microsoft Cloud for Healthcare platform to help implementing remote patient monitoring at scale, in a secured and cost-effective manner. One of the corner stones of the Microsoft Cloud for Healthcare is the MedTech service in Azure Health Data Services. MedTech is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR®) service format. 
 
 FHIR enables MedTech to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. 
@@ -71,7 +71,7 @@ The following example provides an intelligent remote patient monitoring solution
 
 **MedTech service** 
 
-[Janna:]
+[Janna:]  
 MedTech service is an integral feature within Azure Health Data Services to support remote patient monitoring. MedTech service is a Platform as a service (PaaS) that enables you to gather data from desperate medical devices and IoMT devices. The health data is converted into a Fast Healthcare Interoperability Resources (FHIR®) service format to be stored in a FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment. 
 
 MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
@@ -91,9 +91,9 @@ MedTech service is important for remote patient monitoring because healthcare da
 
 > [!NOTE]
 > **SECTION TODOS**
-> - TBD
+> - review and complete
 
-[Mustafa:]
+[Mustafa:]  
 There's a plenitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
 
 ### Problem statement
@@ -116,8 +116,8 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 > [!NOTE]
 > **SECTION TODOS**
-> - complete the Cost Optimization section
-> - determine which 2 of the other sections we will include and complete them
+> - complete the mandatory Cost Optimization section
+> - determine which 2 of the other 4 sections to include, and complete them
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
@@ -173,6 +173,10 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
+> [!NOTE]
+> **SECTION TODOS**
+> - do we have a repo with a completed solution, that can be deployed?
+> 
 > (Optional, but greatly encouraged)
 
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
@@ -181,7 +185,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 > [!NOTE]
 > **SECTION TODOS**
-> - TBD
+> - do we want this section?
 
 > (Expected, but this section is optional if all the contributors would prefer to not be mentioned.)
 
