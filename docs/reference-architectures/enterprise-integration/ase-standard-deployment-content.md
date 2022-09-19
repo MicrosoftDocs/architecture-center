@@ -295,33 +295,36 @@ The following snippet in [services.json](https://github.com/mspnp/app-service-en
 These connection string values are accessed by the apps, by referencing the Key Vault key/value pair. This is done in the [sites.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.json) file as the following snippet shows for the Voting App:
 
 ```json
-   "properties": {
-        "enabled": true,
-        "name": "[variables('votingWebName')]",
-        "hostingEnvironment": "[variables('aseId')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('votingWebPlanName'))]",
-        "siteConfig": {
-          "appSettings": [
-            {
+{
+    "properties": {
+    "enabled": true,
+    "name": "[variables('votingWebName')]",
+    "hostingEnvironment": "[variables('aseId')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('votingWebPlanName'))]",
+    "siteConfig": {
+        "appSettings": [
 ...
 ...
-...
-            {
-              "name": "ConnectionStrings:sbConnectionString",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('serviceBusSenderConnectionStringSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            },
-...
-...
-            {
-              "name": "ConnectionStrings:RedisConnectionString",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('redisSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            },
+        {
+            "name": "ConnectionStrings:sbConnectionString",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('serviceBusSenderConnectionStringSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        },
 ...
 ...
-            {
-              "name": "ConnectionStrings:CosmosKey",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('cosmosKeySecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            }
+        {
+            "name": "ConnectionStrings:RedisConnectionString",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('redisSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        },
+...
+...
+        {
+            "name": "ConnectionStrings:CosmosKey",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('cosmosKeySecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        }
+...
+...
+    }
+}
 ```
 
 The function also accesses the Service Bus listener connection string in a similar manner.
