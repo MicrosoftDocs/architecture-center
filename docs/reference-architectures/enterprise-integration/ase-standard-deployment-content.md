@@ -327,7 +327,6 @@ These connection string values are accessed by the apps, by referencing the Key 
         }
 ...
 ...
-    }
 }
 ```
 
