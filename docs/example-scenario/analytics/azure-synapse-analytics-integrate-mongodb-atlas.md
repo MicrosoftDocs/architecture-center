@@ -1,6 +1,6 @@
 ## Architecture
 
-Somewhere mention that the solution proposes two options to trigger the Synapse pipeline.
+Somewhere mention that the solution proposes two options to trigger the Synapse pipeline. Also mention that the diagram shows the real-time sync approach.
 
 
 ### Dataflow
@@ -50,9 +50,9 @@ MongoDB Atlas serves as the operational data layer of many enterprise applicatio
 
 ### Batch integration
 
-In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Azure Data Factory.
+IIn Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Azure Data Factory.
 
-You can retrieve the entire historical data at once, or you can retrieve data incrementally for a period of time by using a filter in batch mode. Then you can use SQL pools and Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
+With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for a period of time by using a filter in batch mode. Then you can use SQL pools and Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
 
 For more information about how to set up and configure the connectors, see these resources:
 
@@ -61,12 +61,76 @@ For more information about how to set up and configure the connectors, see these
 
 The source connector provides a convenient way to run Azure Synapse Analytics on top of operational data that's stored in MongoDB or Atlas. After you use the source connector to retrieve data from Atlas, you can load the data into Data Lake Storage blob storage as a Parquet, Avro, JSON, text, or CSV file. You can then transform these files or join them with other files from other data sources in multi-database, multi-cloud or hybrid cloud environments.
 
-You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios: 
+You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
 - To retrieve all data as of a particular date from MongoDB in a batch. You then load the data into an Azure Data Lake dedicated SQL pool or use a serverless SQL pool or Spark pool for analysis. After you retrieve this batch, you can apply changes to the data as they occur. This capability makes real-time insights possible for just-in-time decision making and conclusions. This functionality is useful for analytics of sensitive and critical information such as financial transactions and fraud detection data. A *Storage-CopyPipeline_mdb_synapse_ded_pool_RTS* sample pipeline is available as part of this solution. You can export it from the gallery for this one-time load purpose.
 
 - To produce insights at a particular frequency such as a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data. This functionality is useful in retail scenarios such as updating inventory levels with daily sales data. In such cases, analytics reports and dashboards aren't of critical importance, and real-time analysis isn't worth the effort.
 
+### Real-time sync
+
+In today's competitive world, enterprises need insights that are based on real-time data, not stale data. A delay of a few hours in insight delivery can hold up the decision-making process and result in a loss of competitive advantage. This solution fuels critical decision making by propagating changes that occur in the MongoDB transactional database to the dedicated SQL pool in real time.
+
+This solution has three parts.
+
+#### Capture the MongoDB Atlas changes
+
+The MongoDB change stream captures changes that occur in the database. The change stream APIs make information about changes available to App Service web apps that subscribe to the change stream. These apps write the changes to the Data Lake Storage blob storage.
+
+#### Trigger a pipeline to propagate the changes to Azure Synapse Analytics
+
+The solution presents two options for triggering a Synapse pipeline after the blob is written to Data Lake Storage:
+
+- A storage-based trigger. Use this option if you need real-time analytics, because the pipeline gets triggered as soon as the blob with the change is written. But this option might not be the preferred approach when you have a high volume of data changes. Azure Synapse Analytics limits the number of pipelines that can run concurrently. When you have a large number of data changes, you might hit that limit.
+
+- An event-based custom trigger. This type of trigger has the advantage that it's outside Azure Synapse Analytics, so it's easier to control. The event grid version of the web app writes the changed data document to the blob storage. At the same time, it creates a new Event Grid event. The data in the event contains the file name of the blob. The pipeline that the event triggers receives the file name as a parameter and then uses the file to update the dedicated SQL pool.
+
+#### Propagate the changes to a dedicated SQL pool
+
+An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline in the gallery that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or event grid trigger.
+
+## Potential use cases
+
+The use cases for this solution span many industries and areas:
+
+- Retail
+  - Building intelligence into product bundling and product promotion
+  - Optimizing cold storage that uses IoT streaming
+  - Optimizing inventory replenishment
+  - Adding value to omnichannel distribution
+
+- Banking and finance
+  - Customizing customer financial services
+  - Detecting potentially fraudulent transactions
+
+- Telecommunications
+  - Optimizing next-generation networks
+  - Maximizing the value of edge networks
+
+- Automotive
+  - Optimizing parameterization of connected vehicles
+  - Detecting anomalies in IoT communication in connected vehicles
+
+- Manufacturing
+  - Providing predictive maintenance for machinery
+  - Optimizing storage and inventory management
+
+The following sections take a closer look at two retail industry use cases.
+
+### Product bundling
+
+To promote the sales of a product, you can sell the product as part of a bundle together with other related products.
+
+#### Objective
+
+Use sales pattern data to develop strategies for bundling a product into packages.
+
+#### Data ingestion
+
+
+### Product promotion
+
+As the objective, use the second bullet point from the Word doc.
 
 ## Considerations
 
