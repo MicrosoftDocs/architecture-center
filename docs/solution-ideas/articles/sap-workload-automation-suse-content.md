@@ -64,8 +64,8 @@ Principal author:
 ### SAP
 
 - [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [SAP S/4HANA in Linux on Azure](../..//reference-architectures/sap/sap-s4hana.yml)
 - [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)

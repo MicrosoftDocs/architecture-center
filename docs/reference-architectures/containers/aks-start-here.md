@@ -27,7 +27,7 @@ Organizations are at various points in their understanding, rationalizing, and a
 
 ## Introduction to Azure Kubernetes Service (AKS)
 
-If you're new to Kubernetes or AKS, the best place to learn about the service is with Microsoft Learn. Microsoft Learn is a free, online training platform that provides interactive learning for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.
+If you're new to Kubernetes or AKS, the best place to learn about the service is Microsoft Learn. This free online platform provides interactive training for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.
 
 > [!div class="nextstepaction"]
 > [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
@@ -75,7 +75,7 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 > [!div class="nextstepaction"]
 > [Kubernetes in the Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/kubernetes/)
 
-As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+As part of ongoing operations, you might want to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
