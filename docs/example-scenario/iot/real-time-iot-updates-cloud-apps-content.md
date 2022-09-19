@@ -57,7 +57,7 @@ Consider these points when you use this pattern:
 
 - Azure SignalR Service defines seven tiers that accommodate a range of performance capacities. Determine your scenario's inbound and outbound capacity by understanding the factors that affect these values. Then select the tier that best meets your requirements. For more information, see [Performance guide for Azure SignalR Service](/azure/azure-signalr/signalr-concept-performance).
 
-- Consider having your own message ACK mechanism when you need to guarantee message delivery when publishing messages to multiple clients. Azure SignalR builds upon SignalR protocol and follows publish-subscribe pattern when broadcasting messages to the clients.
+- Azure SignalR builds upon SignalR protocol and follows publish-subscribe pattern when broadcasting messages to multiple clients. Consider having your own message ACK mechanism when you need to guarantee message delivery in such scenario.
 
 - When you're displaying real-time data in Power BI visuals, consider [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming) as an alternative to this solution.
 
