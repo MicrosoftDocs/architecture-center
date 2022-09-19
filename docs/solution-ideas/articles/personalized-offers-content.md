@@ -9,17 +9,17 @@ This solution builds intelligent marketing systems that provide customer-tailore
 
 ### Dataflow
 
-1. Raw User activity(product and offer clicks) and offers made to users on the website is captured with an Azure Function app to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure cache for Redis.
-1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub.
-1. The aggregated data is sent to Azure CosmosDB SQL API.
+1. An Azure Function app captures the raw user activity (such as product and offer clicks) and offers that are made to users on the website. The activity is sent to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure Cache for Redis.
+1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hubs instance.
+1. The aggregated data is sent to the Azure Cosmos DB SQL API.
 1. Power BI is used to look for insights on the aggregated data.
 1. The raw data is sent to Azure Data Lake Storage.
-1. Intelligent Recommendations uses the raw data from Azure Data Lake Storage and provides recommendations to Personalizer Service.
-1. Personalizer Service serves the top contextual and personalized products and offers.
-1. Simulated user activity data is provided to Personalizer service to provide personalized products and offers.
-1. The results are provided on the web app that the user is accessing 
-1. User feedback is captured based on the reaction of the user to the displayed offers and products and the reward score is provided to the Personalizer service to make it perform better over time
-1. Retraining for Intelligent Recommendations for better recommendations can also be done by using refreshed data from Azure Data Lake Storage.
+1. Intelligent Recommendations uses the raw data from Azure Data Lake Storage and provides recommendations to Azure Personalizer.
+1. The Personalizer service serves the top contextual and personalized products and offers.
+1. Simulated user activity data is provided to the Personalizer service to provide personalized products and offers.
+1. The results are provided on the web app that the user accesses.
+1. User feedback is captured based on the reaction of the user to the displayed offers and products. The reward score is provided to the Personalizer service to make it perform better over time
+1. Retraining for Intelligent Recommendations can result in better recommendations. This process can also be done by using refreshed data from Azure Data Lake Storage.
 
 ### Components
 
