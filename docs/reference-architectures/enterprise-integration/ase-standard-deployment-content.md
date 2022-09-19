@@ -300,36 +300,28 @@ These connection string values are accessed by the apps, by referencing the Key 
 
 ```json
 {
-    "properties": {
+  "properties": {
     "enabled": true,
     "name": "[variables('votingWebName')]",
     "hostingEnvironment": "[variables('aseId')]",
     "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('votingWebPlanName'))]",
     "siteConfig": {
-        "appSettings": [
-...
-...
+      "appSettings": [
         {
             "name": "ConnectionStrings:sbConnectionString",
             "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('serviceBusSenderConnectionStringSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
         },
-...
-...
         {
             "name": "ConnectionStrings:RedisConnectionString",
             "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('redisSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
         },
-...
-...
         {
             "name": "ConnectionStrings:CosmosKey",
             "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('cosmosKeySecretName')), '2016-10-01').secretUriWithVersion, ')')]"
         }
-...
-...
-    ]
-...
-...
+      ]
+    }
+  }
 }
 ```
 
