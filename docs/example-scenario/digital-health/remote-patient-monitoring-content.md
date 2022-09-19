@@ -106,7 +106,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 - **Data scientist and population health analytics** – The physiological dataset (the readings and measurements from those devices) will be available in the industry FHIR standard as well as other open-source data formats (JSON and Parquet). In addition to the data format, native connectors are provided to help with the data analysis and transformation. Including connectors such as the Power BI connector for FHIR, Synapse Serverless SQL views and Spark clusters in Synapse.
 
-- **Enable healthcare providers** - to: 
+- **Enable healthcare providers** - Providers will be able to: 
    - gain better insights into patient health status
    - create proactive digital health care models
    - take more informed actions based on the physiological indicators/notifications
