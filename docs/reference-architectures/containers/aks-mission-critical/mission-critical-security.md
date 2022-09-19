@@ -177,7 +177,7 @@ One exception is the storage of **sensitive values** for pipelines. These values
 
 ## Container security
 
-Securing container images (also referred to as 'hardening') is an important aspect of every containerized workload.
+Securing container images is necessary for all containerized workloads.
 
 Workload Docker containers used in the reference implementation are based on **runtime images**, not SDK, to minimize footprint and potential attack surface. There are no additional tools installed (such as `ping`, `wget`, or `curl`).
 
