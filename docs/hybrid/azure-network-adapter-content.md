@@ -18,7 +18,7 @@ The architecture consists of:
 - **Windows Server with Windows Admin Center installed**. The server that you use to deploy the Azure Network Adapter.
 - **Windows Server (standalone)**. The server on which the Azure Network Adapter is installed. This server can be on a branch-office network or in a different cloud provider's network.
 - **Azure Virtual Network (VNet)**. The virtual servers, and other services and components, for the Azure VPN Gateway that are in the same virtual network inside Azure.
-- **Azure VPN Gateway**. The VPN Gateway service that enables you to connect the virtual network to the on-premises network or standalone servers through a VPN appliance or Azure Network Adapters. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][1]. There are several pricing tiers, or stock keeping units (SKUs), available for VPN gateways. Each SKU supports different requirements based on the types of workloads, throughputs, features, and service-level agreements (SLAs). The VPN gateway includes the following components:
+- **Azure VPN Gateway**. The VPN Gateway service that enables you to connect the virtual network to the on-premises network or standalone servers through a VPN appliance or Azure Network Adapters. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][1]. There are several pricing tiers, or stock keeping units (SKUs), available for VPN gateways. Each SKU supports different requirements based on the types of workloads, throughput, features, and service-level agreements (SLAs). The VPN gateway includes the following components:
   - **Virtual network gateway (active)**. This Azure resource provides a virtual VPN appliance for the virtual network, and it's responsible for routing traffic back and forth between the on-premises network and the virtual network.
   - **Virtual network gateway (passive)**. This Azure resource provides a virtual VPN appliance for the virtual network, and it's the standby instance of the active Azure VPN Gateway. For more information, see [About Azure VPN gateway redundancy][2].
   - **Gateway subnet**. The virtual network gateway is held in its own subnet, which is subject to various requirements that the following Recommendations section details.
@@ -36,7 +36,6 @@ The architecture consists of:
 - [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
 
 - [Windows Admin Center](https://www.microsoft.com/windows-server/windows-admin-center). Windows Admin Center is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production.
-
 
 ## Recommendations
 
@@ -82,7 +81,7 @@ When the Azure Network Adapter is installed and connected, you can use this new 
 
 ### Using a dedicated WAC server
 
-For a centralized administration, we recommend you use a dedicated Windows Admin Server installation, from which you can add other servers. This approach means no administered servers require extra software. For more information about WAC, see [Microsoft docs][5].
+For a centralized administration, we recommend you use a dedicated Windows Admin Server installation, from which you can add other servers. This approach means no administered servers require extra software. For more information, see [Windows Admin Center][5].
 
 ### Prepare a dedicated VNet
 
@@ -146,7 +145,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 ### DevOps
 
 - Azure Automation:
-  - The WAC gives you access to the PowerShell code that creates the Azure Network Adapter, and you can review it by selecting the **Network** tool, and then selecting the **View PowerShell scripts** icon at the top of the WAC page. The script's name is **Complete-P2SVPNConfiguration**, and it's implemented as a PowerShell function. The code is digitally signed and ready to be reused. You can integrate it into [Azure Automation][17] by configuring more services inside the Azure portal.
+  - The WAC gives you access to the PowerShell code that creates the Azure Network Adapter, and you can review it by selecting the **Network** tool, and then selecting the **View PowerShell scripts** icon at the top of the WAC page. The script's name is `Complete-P2SVPNConfiguration`, and it's implemented as a PowerShell function. The code is digitally signed and ready to be reused. You can integrate it into [Azure Automation][17] by configuring more services inside the Azure portal.
 
 ### Cost optimization
 
@@ -159,9 +158,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Frank Migacz](https://www.linkedin.com/in/fmigacz) | App Innovation Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
