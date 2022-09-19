@@ -8,42 +8,41 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ### Dataflow
 
--   [Azure Virtual Network](/azure/virtual-network) enables communications between Azure resources. The virtual network in this example uses the address space of 10.0.0.0/16, and contains three subnets for use by the scenario's required components:
+- [Azure Virtual Network](/azure/virtual-network) enables communications between Azure resources. The virtual network in this example uses the address space of 10.0.0.0/16, and contains three subnets for use by the scenario's required components:
 
-    -   *Azure Firewall Subnet* (10.0.1.0/26).
+  - *Azure Firewall Subnet* (10.0.1.0/26).
 
-    -   *Virtual Network Integration Subnet* (10.0.2.0/24), which is used to route traffic from the bot's private endpoint to the firewall.
+  - *Virtual Network Integration Subnet* (10.0.2.0/24), which is used to route traffic from the bot's private endpoint to the firewall.
 
-    -   *Private Endpoint Subnet* (10.0.3.0/24), which is used to route traffic from the firewall to the bot's private endpoint.
+  - *Private Endpoint Subnet* (10.0.3.0/24), which is used to route traffic from the firewall to the bot's private endpoint.
 
--   [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
+- [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
 
--   [Route table](/azure/virtual-network/virtual-networks-udr-overview) defines the routes that traffic takes within the virtual network. It ensures that traffic coming to and from the bot passes through the firewall.
+- [Route table](/azure/virtual-network/virtual-networks-udr-overview) defines the routes that traffic takes within the virtual network. It ensures that traffic coming to and from the bot passes through the firewall.
 
-    -   The default route with the 0.0.0.0/0 address prefix instructs Azure to route traffic that isn't within the address prefix of any other route to the subnet where the Azure Firewall instance is deployed. In this example, it's the only route.
+  - The default route with the 0.0.0.0/0 address prefix instructs Azure to route traffic that isn't within the address prefix of any other route to the subnet where the Azure Firewall instance is deployed. In this example, it's the only route.
 
-    -   The *Virtual Network Integration Subnet* and the *Private Endpoint Subnet* are associated with the route table, ensuring that any traffic passing through them is routed through the firewall.
+  - The *Virtual Network Integration Subnet* and the *Private Endpoint Subnet* are associated with the route table, ensuring that any traffic passing through them is routed through the firewall.
 
--   [Bot Service](/azure/bot-service/?view=azure-bot-service-4.0) consists of the bot [app service plan](/azure/app-service/overview-hosting-plans),
-    [app service](/azure/app-service), and [bot channels registration](/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
+- [Bot Service](/azure/bot-service/?view=azure-bot-service-4.0) consists of the bot [app service plan](/azure/app-service/overview-hosting-plans), [app service](/azure/app-service), and [bot channels registration](/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
-    -   The app service has a registered custom domain that points to the IP address of the firewall. This way, the app service can be accessed only through the firewall.
+  - The app service has a registered custom domain that points to the IP address of the firewall. This way, the app service can be accessed only through the firewall.
 
--   [Azure Private Link](/azure/private-link/private-link-overview) service for inbound access to the bot app service over an [Azure private endpoint](/azure/private-link/private-endpoint-overview).
+- [Azure Private Link](/azure/private-link/private-link-overview) service for inbound access to the bot app service over an [Azure private endpoint](/azure/private-link/private-endpoint-overview).
 
--   [Virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) connects the app service to the virtual network, ensuring that outbound traffic from the bot app service passes through the firewall.
+- [Virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) connects the app service to the virtual network, ensuring that outbound traffic from the bot app service passes through the firewall.
 
 ### Components
 
--   [Virtual Network](https://azure.microsoft.com/services/virtual-network)
--   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
--   [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
--   [Azure App Service](https://azure.microsoft.com/services/app-service)
--   [Azure Private Link](https://azure.microsoft.com/services/private-link)
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
+- [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure Private Link](https://azure.microsoft.com/services/private-link)
 
 ### Alternatives
 
--   An [App Service Environment](/azure/app-service/environment/intro) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of an App Service Environment to reduce costs, but the sample architecture could support it, with modifications.
+- An [App Service Environment](/azure/app-service/environment/intro) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of an App Service Environment to reduce costs, but the sample architecture could support it, with modifications.
 
 ## Scenario details
 
@@ -75,7 +74,7 @@ For other scalability topics, see the Azure Architecture Center [Performance eff
 
 ### DevOps
 
-It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
+It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
 
 ## Deploy this scenario
 
@@ -134,7 +133,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. Deploy an Azure Firewall instance into the firewall subnet that you created in step 1 by running the following CLI commands:
 
-    ```azurecli                                                                                                                                             
+    ```azurecli
     # Create a firewall
     az network firewall create \
         --name ${FIREWALL_NAME} \
@@ -174,14 +173,14 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. [Create a basic bot](/azure/bot-service/bot-builder-tutorial-create-basic-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs).
 
-1. [Deploy the basic bot](/azure/bot-service/bot-builder-deploy-az-cli) into the resource group that you created in step 1. 
+1. [Deploy the basic bot](/azure/bot-service/bot-builder-deploy-az-cli) into the resource group that you created in step 1.
 
     As part of this process, you'll create an app registration, which you need to interact with the bot via channels. During this process, you'll also deploy the necessary App Service plan, app service, and web app bot.
 
     > [!NOTE]
     > Select an App Service plan that supports Azure Private Link.
 
-1. [Map a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname) to the app service that you deployed to the resource group in step 3. 
+1. [Map a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname) to the app service that you deployed to the resource group in step 3.
 
     This step requires access to your domain registrar, and it requires you to add an A-record to the custom domain that points to the public IP of the firewall you created in step 2.
 
@@ -190,11 +189,11 @@ You must have an existing Azure account. If you don't have an Azure subscription
     You should now have a fully functional bot that you can add to a channel in Teams or test through Web Chat by using the directions found in the [Bot Framework SDK documentation](/azure/bot-service/bot-builder-deploy-az-cli#test-in-web-chat).
 
     > [!NOTE]
-    > At this point the bot's app service is still publicly accessible over both the azurewebsites.net URL and over the custom URL you configured. In the next steps, you'll use private endpoints to disable public access. You'll also configure the firewall to allow the bot service to communicate only with Teams clients.
+    > At this point the bot's app service is still publicly accessible over both the `azurewebsites.net` URL and over the custom URL you configured. In the next steps, you'll use private endpoints to disable public access. You'll also configure the firewall to allow the bot service to communicate only with Teams clients.
 
 1. Run the following Azure CLI script to [deploy and configure the private endpoint](/azure/app-service/scripts/cli-deploy-privateendpoint). This step also implements virtual network integration for the bot's app service, which connects it to your virtual network's integration subnet.
 
-   ```azurecli                                                                                       
+   ```azurecli
    # Disable private endpoint network policies (this step is not required if you're using the Azure portal)
    az network vnet subnet update \
      --name ${SUBNET_PVT_NAME} \
@@ -255,7 +254,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. Next, you create a route table to ensure that traffic to and from each subnet goes through the firewall. You'll need the private IP address of the firewall that you created in the previous step.
 
-   ```azurecli                                                                                                                                                       
+   ```azurecli
    # Create a route table
    az network route-table create \
      -g ${RG_NAME} \

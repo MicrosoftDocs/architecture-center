@@ -269,7 +269,7 @@ For information about the operational excellence pillar of the Well-Architected 
 
 #### Use a virtual network enabled self-hosted pipeline agent for CI/CD services
 
-  The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
+  The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](/azure/devops/pipelines/agents/v2-linux) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
 
 :::image type="content" source="media/secure-data-lakehouse-pipeline.png" alt-text="Diagram that shows Azure Synapse and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.png" :::
 
@@ -315,7 +315,7 @@ Other contributors:
   - [Serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview)
   - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
   - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
-](/azure/data-factory/concepts-pipelines-activities?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics)
+](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
   - [What is Azure Synapse Data Explorer? (Preview)](/azure/synapse-analytics/data-explorer/data-explorer-overview)
   - [Machine Learning capabilities in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
   - [What is Microsoft Purview?](/azure/purview/overview)
@@ -336,7 +336,7 @@ Other contributors:
   - [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery)
   - [Secure score in Microsoft Defender for Cloud](/azure/defender-for-cloud/secure-score-security-controls#:~:text=Defender%20for%20Cloud%20continually%20assesses,lower%20the%20identified%20risk%20level.)
   - [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
-  - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
+  - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Related resources
 

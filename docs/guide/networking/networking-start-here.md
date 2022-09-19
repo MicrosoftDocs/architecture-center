@@ -38,7 +38,7 @@ Azure provides a wide range of networking tools and capabilities. These are just
 For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
 
 ## Introduction to networking on Azure
-If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here's a good introduction to Azure networking: 
 - [Explore Azure networking services](/training/modules/azure-networking-fundamentals)
@@ -53,13 +53,13 @@ Consider these technologies and solutions as you plan and implement your deploym
 - [Build solutions for high availability by using availability zones](../../high-availability/building-solutions-for-high-availability.yml) 
 - [Add IP address spaces to peered virtual networks](../../networking/prefixes/add-ip-space-peered-vnet.yml)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
-- [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 
 ## Best practices
 The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles apply the pillars to the use of some Azure networking services: 
 - [Review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity) 
-- [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
+- [Review of Azure Firewall](/azure/architecture/framework/services/networking/azure-firewall) 
 - [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.yml) 
 
 The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these articles helpful as you plan and implement your networking solution: 
@@ -85,11 +85,11 @@ The following sections, organized by category, provide links to sample networkin
 - [Hub-and-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
 
 ### Virtual WAN
-- [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Interconnect with China using Azure Virtual WAN and Secure Hub](/azure/virtual-wan/interconnect-china?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Migrate to Azure Virtual WAN](/azure/virtual-wan/migrate-from-hub-spoke-topology?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [SD-WAN connectivity architecture with Azure Virtual WAN](/azure/virtual-wan/sd-wan-connectivity-architecture?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Virtual WAN network topology (Microsoft-managed)](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Global transit network architecture and Virtual WAN](/azure/virtual-wan/virtual-wan-global-transit-network-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Interconnect with China using Azure Virtual WAN and Secure Hub](/azure/virtual-wan/interconnect-china?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Migrate to Azure Virtual WAN](/azure/virtual-wan/migrate-from-hub-spoke-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [SD-WAN connectivity architecture with Azure Virtual WAN](/azure/virtual-wan/sd-wan-connectivity-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Virtual WAN network topology (Microsoft-managed)](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Virtual WAN architecture optimized for department-specific requirements](../../example-scenario/infrastructure/performance-security-optimized-vwan.yml)
 - [Hub-and-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
 
@@ -104,12 +104,12 @@ Get the [latest updates on Azure networking products and features](https://azure
 
 ### Example solutions 
 These are some additional sample networking architectures:
-- [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)
 - [Network-hardened web application with private connectivity to PaaS datastores](../../example-scenario/security/hardened-web-app.yml)
-- [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications](../../example-scenario/security/trusted-internet-connections.yml)
 - [Update route tables by using Azure Route Server](../../example-scenario/networking/manage-routing-azure-route-server.yml)
 

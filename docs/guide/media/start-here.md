@@ -32,11 +32,11 @@ Select the following links to learn more about media services that are available
 
 ## Path to production
 
-For a brief overview, start with [Media Services terminology and concepts](/azure/media-services/latest/concepts-overview?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
+For a brief overview, start with [Media Services terminology and concepts](/azure/media-services/latest/concepts-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 ## Best practices
 
-The Azure Security Benchmark provides recommendations on how you can improve the security of your Azure solutions. For information that's specific to Media Services, see [Azure security baseline for Azure Media Services](/security/benchmark/azure/baselines/media-services-security-baseline?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
+The Azure Security Benchmark provides recommendations on how you can improve the security of your Azure solutions. For information that's specific to Media Services, see [Azure security baseline for Azure Media Services](/security/benchmark/azure/baselines/media-services-security-baseline?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 ## Media architectures and solutions
 
@@ -72,13 +72,13 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 
 ### Live streaming
 
-- [Live streaming with Azure Media Services v3](/azure/media-services/latest/stream-live-streaming-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Live streaming with Azure Media Services v3](/azure/media-services/latest/stream-live-streaming-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Instant broadcasting with serverless code](../../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)
 - [Live stream digital media](../../solution-ideas/articles/digital-media-live-stream.yml)
 
 ### Video on demand
 
-- [High availability with Media Services and video on demand](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [High availability with Media Services and video on demand](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Video-on-demand digital media](../../solution-ideas/articles/digital-media-video.yml)
 
 ## Stay current with media workloads on Azure
@@ -91,9 +91,9 @@ Get the latest updates on [Azure media services and features](https://azure.micr
 
 Here are some additional articles about Azure media solutions:
 
-- [Encoding video and audio with Media Services](/azure/media-services/latest/encode-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Content protection with dynamic encryption and key delivery](/azure/media-services/latest/drm-content-protection-concept?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Encoding video and audio with Media Services](/azure/media-services/latest/encode-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Content protection with dynamic encryption and key delivery](/azure/media-services/latest/drm-content-protection-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ### AWS professionals
 

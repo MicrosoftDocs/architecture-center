@@ -184,7 +184,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 - [AKS day-2 operations guide](day-2-operations-guide.md)
 - [AKS triage practices](aks-triage-practices.md)
-- [AKS common issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
+- [AKS common issues](/azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Related links
 

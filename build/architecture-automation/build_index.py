@@ -61,7 +61,7 @@ def update_paths(text, base_path):
 
     # Function to replace URLs with absolute docs paths
     def url_update(match):
-        return match.group(1) + '="' + urljoin(urljoin("https://docs.microsoft.com", base_path), match.group(2)) + '"'
+        return match.group(1) + '="' + urljoin(urljoin("https://learn.microsoft.com", base_path), match.group(2)) + '"'
 
     return re.sub(r'(src|href)=\"([\.|\/][^\"]*)\"',url_update,text)
 
