@@ -64,7 +64,7 @@ Microsoft Learn is a free online platform that provides interactive learning for
 
 ### Introduction to mixed reality
 
-If you're new to mixed reality, the best place to learn about the ecosystem is the Microsoft Learn training **Introduction to mixed reality** learning path. This learning path provides foundational knowledge about the core concepts of mixed reality, virtual reality, augmented reality, holograms, and creating 3D applications.
+If you're new to mixed reality, the best place to learn about the ecosystem is the **Introduction to mixed reality** learning path, which provides foundational knowledge about the core concepts of mixed reality, virtual reality, augmented reality, holograms, and creating 3D applications.
 
 > [!div class="nextstepaction"]
 > [Introduction to mixed reality](/training/modules/intro-to-mixed-reality)
