@@ -220,7 +220,7 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ### Web Application Firewall
 
-An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic, which is passing through. WAF is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
+An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic, which is passing through. In the **Prevention** mode, all suspicious requests are blocked. In the implementation, two rulesets are configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
 
 > [!TIP]
 > When deploying Front Door with WAF it's recommended that you start with the **Detection** mode, closely monitor its behavior with natural end-user traffic, and fine-tune the detection rules. After false positives are eliminated, or rare, switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
