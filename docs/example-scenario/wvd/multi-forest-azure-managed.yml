@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Multiple forests with AD DS, Azure AD, and Azure AD DS
+  titleSuffix: Azure Example Scenarios
+  description: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.
+  author: nehalineogi
+  ms.author: tmaher
+  ms.date: 06/24/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Multiple forests with AD DS, Azure AD, and Azure AD DS
+azureCategories:
+  - windows-virtual-desktop
+summary: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.
+products:
+  - azure-active-directory
+  - azure-active-directory-domain
+  - azure-files
+  - azure-virtual-desktop
+thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-to-azure-no-private-connectivity.png
+content: |
+   [!include[](multi-forest-azure-managed-content.md)]

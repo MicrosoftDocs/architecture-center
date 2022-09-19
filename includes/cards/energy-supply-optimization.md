@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.</p>
+        <p class="card-content-description">This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

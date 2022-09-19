@@ -1,16 +1,23 @@
 ---
-title: Choosing a batch processing technology
+title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: zoinerTejada
-ms.date: 11/20/2019
+author: EdPrice-MSFT
+categories: azure
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+products:
+  - azure-synapse-analytics
+  - azure-data-lake
 ms.custom:
   - guide
 ---
 
-# Choosing a batch processing technology in Azure
+# Choose a batch processing technology in Azure
 
 Big data solutions often use long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage.
 
@@ -45,10 +52,10 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
-- Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](https://docs.azuredatabricks.net/data/data-sources/index.html#data-sources).
+- Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](/azure/databricks/data/data-sources/).
 - User authentication with Azure Active Directory.
-- Web-based [notebooks](https://docs.azuredatabricks.net/notebooks/index.html#notebooks) for collaboration and data exploration.
-- Supports [GPU-enabled clusters](https://docs.azuredatabricks.net/clusters/gpu.html#gpu-enabled-clusters)
+- Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
+- Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
 
 ### Azure Distributed Data Engineering Toolkit
 
@@ -79,15 +86,13 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | No |
 | Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
 
-[1] With manual configuration and scaling.
+[1] With manual configuration.
 
 [2] A Databricks Unit (DBU) is a unit of processing capability per hour.
 
@@ -95,7 +100,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
 | --- | --- | --- | --- | --- | --- | --- |
-| Autoscaling | No | No | No | No | No | Yes |
+| Autoscaling | No | No | Yes | Yes | Yes | Yes |
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
 | In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |
@@ -105,10 +110,23 @@ The following tables summarize the key differences in capabilities.
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
 | Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 
-<!-- markdownlint-enable MD033 -->
-
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
 [2] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 
 [3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
+
+- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
+- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+- [Choose a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
+- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

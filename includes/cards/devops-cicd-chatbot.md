@@ -17,7 +17,7 @@
             <li>3/25/2020</li>
             <li>9 min read</li>
         </ul>
-        <p class="card-content-description">Use Azure Pipelines with ARM templates to set up a CI/CD pipeline to Azure App Service and Azure Bot Service for a chatbot app.</p>
+        <p class="card-content-description">Use Azure Pipelines and ARM templates to set up a CI/CD pipeline to deploy a chatbot app and its infrastructure as code with Azure App and Azure Bot services.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Connect an on-premises network to Azure
+  description: Learn about the options for connecting an on-premises network to an Azure Virtual Network (VNet) by comparing reference architectures for each option.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 09/09/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - networking
+  ms.custom:
+    - networking
+    - reference-architecture
+    - e2e-hybrid
+    - internal-intro
+name: Connect an on-premises network to Azure
+azureCategories:
+  - hybrid
+  - networking
+summary: Compare reference architectures for connecting an on-premises network to Azure.
+products:
+  - azure-expressroute
+  - azure-virtual-network
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png
+content: |
+   [!include[](index-content.md)]

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Partitioning in Event Hubs and Kafka
+  description: Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.
+  author: rasavant-ms
+  ms.author: rasavant
+  ms.date: 06/20/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - analytics
+  ms.custom:
+    - fcp
+    - e2e-hybrid
+name: Partitioning in Azure Event Hubs and Kafka
+azureCategories:
+  - hybrid
+  - analytics
+summary: Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.
+products:
+  - azure-blob-storage
+  - azure-event-hubs
+thumbnailUrl: /azure/architecture/browse/thumbs/event-processing-service-thumbnail.png
+content: |
+   [!include[](partitioning-in-event-hubs-and-kafka-content.md)]

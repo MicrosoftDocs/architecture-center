@@ -1,13 +1,16 @@
 ---
-title: Performance tuning a distributed application
+title: Performance tuning a distributed app
 titleSuffix: Azure Architecture Center
-description: Performance tuning scenarios for cloud applications.
-author: doodlemania2
-ms.author: pnp
-ms.date: 08/27/2019
+description: Learn how to performance tune a distributed application by walking through several scenarios that use load tests and metrics to diagnose performance issues.
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: compute
+categories: compute
+products: azure
 ms.custom:
   - article
 ---
@@ -18,13 +21,13 @@ In this series, we walk through several cloud application scenarios, showing how
 
 Scenarios:
 
-- [Distributed business transaction](./distributed-transaction.md)
-- [Calling multiple backend services](./backend-services.md)
-- [Event stream processing](./event-streaming.md)
+- [Distributed business transaction](./distributed-transaction.yml)
+- [Calling multiple backend services](./backend-services.yml)
+- [Event stream processing](./event-streaming.yml)
 
-## What is performance? 
+## What is performance?
 
-Performance is frequently measured in terms of throughput, response time, and availability. Performance targets should be based on business operations. Customer-facing tasks may have more stringent requirements than operational tasks such as generating reports. 
+Performance is frequently measured in terms of throughput, response time, and availability. Performance targets should be based on business operations. Customer-facing tasks may have more stringent requirements than operational tasks such as generating reports.
 
 Define a service level objective (SLO) that defines performance targets for each workload. You typically achieve this by breaking a performance target into a set of Key Performance Indicators (KPIs), such as:
 
@@ -52,7 +55,7 @@ It can be especially challenging to diagnose performance issues in a distributed
 
 Performance tuning is both an art and a science, but it can be made closer to science by taking a systematic approach. Here are some best practices:
 
-- Enable telemetry to collect metrics. Instrument your code. Follow [best practices for monitoring](../best-practices/monitoring.md). Use correlated tracing so that you can view all the steps in a transaction.
+- Enable telemetry to collect metrics. Instrument your code. Follow [best practices for monitoring](../best-practices/monitoring.yml). Use correlated tracing so that you can view all the steps in a transaction.
 
 - Monitor the 90/95/99 percentiles, not just average. The average can mask outliers. The sampling rate for metrics also matters. If the sampling rate is too low, it can hide spikes or outliers that might indicate problems.
 
@@ -62,12 +65,12 @@ Performance tuning is both an art and a science, but it can be made closer to sc
 
 - Look for common [performance anti-patterns](../antipatterns/index.md).
 
-- Look for opportunities to parallelize. Two common sources of bottlenecks are message queues and databases. In both cases, sharding can help. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.md). Look for hot partitions that might indicate imbalanced read or write loads.
+- Look for opportunities to parallelize. Two common sources of bottlenecks are message queues and databases. In both cases, sharding can help. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml). Look for hot partitions that might indicate imbalanced read or write loads.
 
 ## Next steps
 
 Read the performance tuning scenarios
 
-- [Distributed business transaction](./distributed-transaction.md)
-- [Calling multiple backend services](./backend-services.md)
-- [Event stream processing](./event-streaming.md)
+- [Distributed business transaction](./distributed-transaction.yml)
+- [Calling multiple backend services](./backend-services.yml)
+- [Event stream processing](./event-streaming.yml)

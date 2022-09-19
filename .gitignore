@@ -205,6 +205,8 @@ FakesAssemblies/
 *.ConsoleHost.config
 settings.config
 
+*.code-workspace
+
 #Java
 
 *.class
@@ -245,3 +247,8 @@ _themes*/
 /build/architecture-automation/acom_data/resx/*
 .cspell.json
 *.bak
+.vscode/settings.json
+.vscode/settings.json
+docs/.vscode/settings.json
+.gitignore
+.temp

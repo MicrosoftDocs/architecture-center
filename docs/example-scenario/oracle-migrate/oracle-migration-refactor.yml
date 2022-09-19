@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: "Oracle database migration: Refactor"
+  titleSuffix: Azure Example Scenarios
+  description: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
+  author: amberz
+  ms.author: amberz
+  ms.date: 07/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - migration
+  ms.custom:
+    - fcp
+    - example-scenario
+name: 'Oracle database migration: Refactor'
+azureCategories:
+  - databases
+  - migration
+summary: Refactor your Oracle database with Azure Database Migration Service and move it to PostgreSQL.
+products:
+  - azure-database-postgresql
+  - azure-database-migration
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/refactor.png
+content: |
+   [!include[](oracle-migration-refactor-content.md)]

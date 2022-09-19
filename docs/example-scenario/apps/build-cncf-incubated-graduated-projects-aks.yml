@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Build CNCF projects by using Azure Kubernetes Service
+  titleSuffix: Azure Example Scenarios
+  description: Conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. 
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - "containers"
+products:
+  - "azure-kubernetes-service"
+name: Build CNCF projects by using Azure Kubernetes Service
+summary: Conceptualize, architect, build, and deploy an application that uses projects from the Cloud Native Computing Foundation after deployment of AKS.
+thumbnailUrl: /azure/architecture/browse/thumbs/cncf-architecture.png
+content: |
+  [!include[](build-cncf-incubated-graduated-projects-aks-content.md)]

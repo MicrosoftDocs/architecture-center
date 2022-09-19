@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise-scale disaster recovery
+  titleSuffix: Azure Solution Ideas
+  description: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
+  author: EdPrice-MSFT
+  ms.author: laclama
+  ms.date: 05/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - management-and-governance
+    - hybrid
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-recovery-enterprise-scale-dr.png
+name: Enterprise-scale disaster recovery
+azureCategories:
+  - management-and-governance
+  - hybrid
+summary: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
+products:
+  - azure-active-directory
+  - azure-site-recovery
+  - azure-traffic-manager
+  - azure-virtual-network
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/disaster-recovery-enterprise-scale-dr.png
+content: |
+   [!include[](disaster-recovery-enterprise-scale-dr-content.md)]

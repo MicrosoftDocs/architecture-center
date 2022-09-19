@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: IoT event routing
+  titleSuffix: Azure Example Scenarios
+  description: Learn about using rules to allow for fine-grained routing of events in an IoT solution.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 06/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+name: IoT event routing
+azureCategories:
+  - iot
+summary: Learn about using rules to allow for fine-grained routing of events in an IoT solution.
+products:
+  - azure-iot
+  - azure-iot-hub
+thumbnailUrl: /azure/architecture/browse/thumbs/event-routing.svg
+content: |
+   [!include[](event-routing-content.md)]

@@ -1,0 +1,38 @@
+### YamlMime:Architecture
+metadata:
+  title: HIPAA and HITRUST compliant health data AI
+  titleSuffix: Azure Solution Ideas
+  description: Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 06/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - storage
+  ms.custom:
+    - acom-architecture
+    - data
+    - medical records management
+    - medical records storage
+    - medical data solutions
+    - healthcare data storage
+    - cloud storage in healthcare
+    - medical data storage
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png
+name: HIPAA and HITRUST compliant health data AI
+azureCategories:
+  - storage
+summary: Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
+products:
+  - azure-blob-storage
+  - azure-event-grid
+  - azure-functions
+  - azure-machine-learning
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png
+content: |
+   [!include[](security-compliance-blueprint-hipaa-hitrust-health-data-ai-content.md)]

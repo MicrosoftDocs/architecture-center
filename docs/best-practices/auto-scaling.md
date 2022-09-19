@@ -1,14 +1,18 @@
 ---
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to autoscale to dynamically allocate resources required by an application.
-author: dragon119
+description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
+author: EdPrice-MSFT
 ms.date: 05/17/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+categories:
+  - compute
+products:
+  - azure-vm-scalesets
+  - azure-monitor
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -27,9 +31,9 @@ There are two main ways that an application can scale:
 Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.md), which is generally not automated.
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.yml), which is generally not automated.
 
-## Overview
+## Autoscaling components
 
 An autoscaling strategy typically involves the following pieces:
 
@@ -48,7 +52,7 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 
-- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale].
+- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
 
 - **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
 
@@ -62,7 +66,7 @@ Use the built-in autoscaling features of the platform, if they meet your require
 
 ## Use Azure Monitor autoscale
 
-[Azure Monitor autoscale][monitoring] provide a common set of autoscaling functionality for virtual machine scale sets, Azure App Service, and Azure Cloud Service. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. 
+[Azure Monitor autoscale][monitoring] provide a common set of autoscaling functionality for virtual machine scale sets, Azure App Service, and Azure Cloud Service. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage.
 
 Examples:
 
@@ -70,7 +74,7 @@ Examples:
 - Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
 - Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
 
-Scale up the resource when load increases to ensure availability. Similarly, at times of low usage, scale down, so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile. 
+Scale up the resource when load increases to ensure availability. Similarly, at times of low usage, scale down, so you can optimize cost. Always use a scale-out and scale-in rule combination. Otherwise, the autoscaling takes place only in one direction until it reaches the threshold (maximum or minimum instance counts) set in the profile.
 
 Select a default instance count that's safe for your workload. It's scaled based on that value if maximum or minimum instance counts are not set.
 
@@ -88,12 +92,11 @@ Consider the following points when using Azure autoscale:
 
 - Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. It also allows time for new instances that are automatically started to settle into running mode, preventing additional autoscaling actions from occurring while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes, so it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but periods of less than 25 minutes may cause unpredictable results. For Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
 
--	Avoid _flapping_ where scale-in and scale-out actions continually go back and forth. Suppose there are two instances, and upper limit is 80% CPU, lower limit is 60%. When the load is at 85%, another instance is added. After some time, the load decreases to 60%. Before scaling in, the autoscale service calculates the distribution of total load (of three instances) when an instance is removed, taking it to 90%. This means it would have to scale out again immediately. So, it skips scaling-in and you might never see the expected scaling results. 
+- Avoid *flapping* where scale-in and scale-out actions continually go back and forth. Suppose there are two instances, and upper limit is 80% CPU, lower limit is 60%. When the load is at 85%, another instance is added. After some time, the load decreases to 60%. Before scaling in, the autoscale service calculates the distribution of total load (of three instances) when an instance is removed, taking it to 90%. This means it would have to scale out again immediately. So, it skips scaling-in and you might never see the expected scaling results.
 
-    The flapping situation can be controlled by choosing an adequate margin between the scale-out and scale-in thresholds. 
+    The flapping situation can be controlled by choosing an adequate margin between the scale-out and scale-in thresholds.
 
-- Manual scaling is reset by maximum and minimum number of instances used for autoscaling.
-If you manually update the instance count to a value higher or lower than the maximum value, the autoscale engine automatically scales back to the minimum (if lower) or the maximum (if higher). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to three instances on its next run. Likewise, if you manually set the scale to eight instances, on the next run autoscale will scale it back to six instances on its next run. Manual scaling is temporary unless you reset the autoscale rules as well.
+- Manual scaling is reset by maximum and minimum number of instances used for autoscaling. If you manually update the instance count to a value higher or lower than the maximum value, the autoscale engine automatically scales back to the minimum (if lower) or the maximum (if higher). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to three instances on its next run. Likewise, if you manually set the scale to eight instances, on the next run autoscale will scale it back to six instances on its next run. Manual scaling is temporary unless you reset the autoscale rules as well.
 
 - The autoscale engine processes only one profile at a time. If a condition is not met, then it checks for the next profile. Keep key metrics out of the default profile because that profile is checked last. Within a profile, you can have multiple rules. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.
 
@@ -116,9 +119,9 @@ For details about how Azure Monitor scales, see [Best practices for Autoscale](/
 
 Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system will improve. Consider the following points when designing an autoscaling strategy:
 
-- The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity; do not design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or web site horizontally, don't assume that a series of requests from the same source will always be routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start additional instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.md) describes how to handle this scenario.
+- The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity; do not design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or web site horizontally, don't assume that a series of requests from the same source will always be routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start additional instances of a service as the queue length grows. The [Competing Consumers pattern](../patterns/competing-consumers.yml) describes how to handle this scenario.
 
-- If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without due care, such a task could prevent an instance of a process from being shut down cleanly when the system scales in, or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. The [Pipes and Filters pattern](../patterns/pipes-and-filters.md) provides an example of how you can achieve this.
+- If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without due care, such a task could prevent an instance of a process from being shut down cleanly when the system scales in, or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. The [Pipes and Filters pattern](../patterns/pipes-and-filters.yml) provides an example of how you can achieve this.
 
 - Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance.
 
@@ -130,7 +133,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - To prevent a system from attempting to scale out excessively, and to avoid the costs associated with running many thousands of instances, consider limiting the maximum number of instances that can be automatically added. Most autoscaling mechanisms allow you to specify the minimum and maximum number of instances for a rule. In addition, consider gracefully degrading the functionality that the system provides if the maximum number of instances have been deployed, and the system is still overloaded.
 
-- Keep in mind that autoscaling might not be the most appropriate mechanism to handle a sudden burst in workload. It takes time to provision and start new instances of a service or add resources to a system, and the peak demand may have passed by the time these additional resources have been made available. In this scenario, it may be better to throttle the service. For more information, see the [Throttling pattern](../patterns/throttling.md).
+- Keep in mind that autoscaling might not be the most appropriate mechanism to handle a sudden burst in workload. It takes time to provision and start new instances of a service or add resources to a system, and the peak demand may have passed by the time these additional resources have been made available. In this scenario, it may be better to throttle the service. For more information, see the [Throttling pattern](../patterns/throttling.yml).
 
 - Conversely, if you do need the capacity to process all requests when the volume fluctuates rapidly, and cost isn't a major contributing factor, consider using an aggressive autoscaling strategy that starts additional instances more quickly. You can also use a scheduled policy that starts a sufficient number of instances to meet the maximum load before that load is expected.
 
@@ -140,16 +143,16 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 The following patterns and guidance may also be relevant to your scenario when implementing autoscaling:
 
-- [Throttling pattern](../patterns/throttling.md). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
+- [Throttling pattern](../patterns/throttling.yml). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
 
-- [Competing Consumers pattern](../patterns/competing-consumers.md). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+- [Competing Consumers pattern](../patterns/competing-consumers.yml). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
 
-- [Monitoring and diagnostics](./monitoring.md). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
+- [Monitoring and diagnostics](./monitoring.yml). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
 
 <!-- links -->
 
 [monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
-[app-service-autoscale]: /azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
+[app-service-autoscale]: /azure/app-service/manage-scale-up
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [functions-scale]: /azure/azure-functions/functions-scale

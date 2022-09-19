@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Process real-time vehicle data using IoT
+  titleSuffix: Azure Example Scenarios
+  description: Build a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
+  author: khilscher
+  ms.author: kehilsch
+  ms.date: 07/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - IoT
+    - fcp
+    - example-scenario
+name: Process real-time vehicle data using IoT
+azureCategories:
+  - iot
+summary: Build a real-time data ingestion/processing pipeline to ingest and process messages from IoT devices into a big data analytic platform in Azure.
+products:
+  - azure-cosmos-db
+  - azure-iot-edge
+  - azure-sphere
+  - azure-stream-analytics
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-realtime-analytics-vehicle-data-1.png
+content: |
+   [!include[](realtime-analytics-vehicle-iot-content.md)]

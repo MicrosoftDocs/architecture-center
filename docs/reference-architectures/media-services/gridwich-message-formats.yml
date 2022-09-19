@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich request-response messages
+  titleSuffix: Azure Reference Architectures
+  description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich request-response messages
+summary: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
+products:
+  - azure-logic-apps
+  - azure-media-services
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-message-formats-content.md)]

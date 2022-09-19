@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Predictive maintenance for industrial IoT
+  titleSuffix: Azure Solution Ideas
+  description: Connect devices that use the Open Platform Communication Unified Architecture standard to the cloud, and use predictive maintenance to optimize production.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 05/31/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+    - analytics
+    - containers
+  ms.custom:
+    - acom-architecture
+  social_image_url: /azure/architecture/solution-ideas/media/iot-predictive-maintenance.png
+name: Predictive maintenance for industrial IoT
+azureCategories:
+  - iot
+  - analytics
+  - containers
+summary: Connect devices that use the Open Platform Communication Unified Architecture standard to the cloud, and use predictive maintenance to optimize production.
+products:
+  - azure-databricks
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-kubernetes-service
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-predictive-maintenance.png
+content: |
+   [!include[](iot-predictive-maintenance-content.md)]

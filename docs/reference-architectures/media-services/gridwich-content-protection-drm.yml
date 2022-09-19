@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich content protection and DRM
+  titleSuffix: Azure Reference Architectures
+  description: Learn about Gridwich audio and video content protection for publishing with Azure Media Services DRM, and how to create and update content protection policies.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich content protection and DRM
+summary: Learn about Gridwich audio and video content protection for publishing with Azure Media Services DRM, and how to create and update content protection policies.
+products:
+  - azure-devops
+  - azure-functions
+  - azure-media-services
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-content-protection-drm-content.md)]

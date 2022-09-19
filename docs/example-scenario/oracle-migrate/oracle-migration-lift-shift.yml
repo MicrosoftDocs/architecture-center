@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: "Oracle database migration: Lift and shift"
+  titleSuffix: Azure Example Scenarios
+  description: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.
+  author: amberz
+  ms.author: amberz
+  ms.date: 07/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - migration
+  ms.custom:
+    - fcp
+    - example-scenario
+name: 'Oracle database migration: Lift and shift'
+azureCategories:
+  - databases
+  - migration
+summary: Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.
+products:
+  - azure-backup
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/lift-shift-azure-vms.png
+content: |
+   [!include[](oracle-migration-lift-shift-content.md)]

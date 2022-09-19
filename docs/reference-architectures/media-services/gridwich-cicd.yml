@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich CI/CD pipeline
+  titleSuffix: Azure Reference Architectures
+  description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich CI/CD pipeline
+summary: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
+products:
+  - azure-active-directory
+  - azure-event-grid
+  - azure-functions
+  - azure-key-vault
+  - azure-pipelines
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-cicd-content.md)]

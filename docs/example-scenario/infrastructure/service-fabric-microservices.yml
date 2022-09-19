@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Service Fabric to decompose apps
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
+  author: timomta
+  ms.author: tomta
+  ms.date: 06/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - migration
+    - developer-tools
+  ms.custom:
+    - fasttrack
+    - application-development
+    - app-modernization
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
+name: Using Service Fabric to decompose applications
+azureCategories:
+  - migration
+  - developer-tools
+summary: Use Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
+products:
+  - azure-service-fabric
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-service-fabric-complete.png
+content: |
+   [!include[](service-fabric-microservices-content.md)]

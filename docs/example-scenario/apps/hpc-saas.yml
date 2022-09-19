@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Computer-aided engineering
+  titleSuffix: Azure Example Scenarios
+  description: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
+  author: alexbuckgit
+  ms.author: alex.buck
+  ms.date: 06/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - compute
+  ms.custom:
+    - HPC
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
+name: Computer-aided engineering
+azureCategories:
+  - compute
+summary: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
+products:
+  - azure-application-gateway
+  - azure-blob-storage
+  - azure-kubernetes-service
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-saas.png
+content: |
+   [!include[](hpc-saas-content.md)]

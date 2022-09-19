@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/content-research"><img src="/azure/architecture/browse/thumbs/content-research.png" class="diagram" alt="Thumbnail of Content Research Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/content-research"><img src="/azure/architecture/browse/thumbs/knowledge-mining-content-research.png" class="diagram" alt="Thumbnail of Content Research Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>2 min read</li>
         </ul>
-        <p class="card-content-description">Knowledge mining with a search index makes it easy for customers and employees to locate what they are looking for faster.</p>
+        <p class="card-content-description">Knowledge mining with a search index makes it easy for customers and employees to locate what they're looking for faster.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

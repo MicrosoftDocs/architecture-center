@@ -1,13 +1,18 @@
 ---
 title: Machine learning at scale
 description: Learn how machine learning uses mathematical algorithms to analyze data relationships, train predictive models, and deploy and iterate on models at scale.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
+categories:
+  - ai-machine-learning
 ---
 
 # Machine learning at scale
@@ -65,11 +70,19 @@ For a list of technology choices for ML in Azure, see:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 - [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
-- [Choosing a natural language processing technology](../technology-choices/natural-language-processing.md)
+- [Choosing a natural language processing technology](../technology-choices/natural-language-processing.yml)
 
-## Next steps
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
 
 The following reference architectures show machine learning scenarios in Azure:
 
-- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.md)
-- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)

@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Personalization using Cosmos DB
+  titleSuffix: Azure Solution Ideas
+  description: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 06/07/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - Cosmos DB
+    - ai-ml
+    - data
+    - "https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db"
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/personalization-using-cosmos-db.png
+name: Personalization using Cosmos DB
+azureCategories:
+  - databases
+  - ai-machine-learning
+summary: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
+products:
+  - azure-api-apps
+  - azure-container-instances
+  - azure-cosmos-db
+thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.png
+content: |
+  [!include[](personalization-using-cosmos-db-content.md)]

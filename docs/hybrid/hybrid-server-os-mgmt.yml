@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Manage hybrid Azure workloads using Windows Admin Center
+  description: Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure.
+  author: t2kx
+  ms.author: mimar
+  ms.date: 04/16/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Manage hybrid Azure workloads using Windows Admin Center
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure.
+products:
+  - azure-active-directory
+  - azure-key-vault
+  - azure-portal
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-server-os-mgmt-wac-azure.png
+content: |
+   [!include[](hybrid-server-os-mgmt-content.md)]

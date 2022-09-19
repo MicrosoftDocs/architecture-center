@@ -7,6 +7,10 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories: management-and-governance
+categories: management-and-governance
+products:
+  - azure-active-directory
 ms.custom:
   - fcp
   - guide
@@ -14,7 +18,7 @@ ms.custom:
 # Application assessment
 
 [Cloud rationalization](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization) is the process of evaluating applications to determine the best way to migrate or modernize them for the cloud.
- 
+
 Rationalization methods include:
 
 - **Rehost**. Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.
@@ -31,7 +35,7 @@ Each of the following factors adds to complexity, risk, or both.
 
 ### Architecture
 
-Define the high-level architecture, such as web application, web services, data storage, or caching. 
+Define the high-level architecture, such as web application, web services, data storage, or caching.
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
@@ -136,7 +140,7 @@ If the app does need code changes, determine the complexity and extent of the ne
 
 - If there are applications serving similar needs in your portfolio, this might be an opportunity to rearchitect or rebuild the entire solution.
 
-- If you want to [implement multi-tier or microservices architecture](../microservices/migrate-monolith.md) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
+- If you want to [implement multi-tier or microservices architecture](../microservices/migrate-monolith.yml) for a monolithic app, you must rearchitect or rebuild the app. If you don't mind retaining the monolithic structure, you might be able to rehost or refactor.
 
 - Rearchitect or rebuild the app to take advantage of cloud capabilities if you plan to update the app more often than yearly, if the app has peak or variable usage times, or if you expect the app to handle high traffic.
 

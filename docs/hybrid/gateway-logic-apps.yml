@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: On-premises data gateway for Logic Apps
+  description: This reference architecture illustrates a logic app that&apos;s running in Microsoft Azure, which is triggered by Azure Spring Apps.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - integration
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: On-premises data gateway for Azure Logic Apps
+azureCategories:
+  - hybrid
+  - integration
+summary: This reference architecture illustrates a logic app that&apos;s running in Microsoft Azure, which is triggered by Azure Spring Apps.
+products:
+  - azure-expressroute
+  - azure-logic-apps
+  - azure-resource-manager
+  - azure-spring-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/gateway-logic-apps.png
+content: |
+   [!include[](gateway-logic-apps-content.md)]

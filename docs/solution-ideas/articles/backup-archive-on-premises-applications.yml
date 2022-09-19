@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Back up on-premises applications and data to the cloud
+  titleSuffix: Azure Archtitecture Center
+  description: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - storage
+    - hybrid
+  ms.custom:
+    - acom-architecture
+    - bcdr
+    - e2e-hybrid
+    - "https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications"
+    - internal-intro
+name: Back up on-premises applications and data to the cloud
+azureCategories:
+  - storage
+  - hybrid
+summary: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
+products:
+  - azure-backup
+  - azure-blob-storage
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/backup-archive-cloud-application.png
+content: |
+   [!include[](backup-archive-on-premises-applications-content.md)]

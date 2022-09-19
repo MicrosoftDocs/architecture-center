@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Contactless IoT interfaces with Azure intelligent edge
+  titleSuffix: Azure Architecture Center
+  description: Create solutions with touch-free interfaces and other intelligent and perceptive IoT devices. The solutions are backed by the storage, compute, AI, and machine learning capabilities of the Azure cloud.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - iot
+    - ai-machine-learning
+  ms.custom:
+    - iot
+    - fcp
+    - ai-machine-learning
+    - aml-project-improvement
+name: Contactless IoT interfaces with Azure intelligent edge
+azureCategories:
+  - iot
+  - ai-machine-learning
+summary: Create solutions with touch-free interfaces and other intelligent and perceptive IoT devices. The solutions are backed by the storage, compute, AI, and machine learning capabilities of the Azure cloud.
+products:
+  - azure-cognitive-services
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-storage
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/avanade-contactless-interface-iot-edge-thumbnail.png
+content: |
+  [!include[](contactless-interfaces-content.md)]

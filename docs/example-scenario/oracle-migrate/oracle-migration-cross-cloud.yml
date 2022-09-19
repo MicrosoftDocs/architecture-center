@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: "Oracle database migration: Cross-cloud connectivity"
+  titleSuffix: Azure Example Scenarios
+  description: Create a connection between your existing Oracle Database and your Azure applications.
+  author: amberz
+  ms.author: amberz
+  ms.date: 07/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - migration
+  ms.custom:
+    - fcp
+    - example-scenario
+name: 'Oracle database migration: Cross-cloud connectivity'
+azureCategories:
+  - databases
+  - migration
+summary: Create a connection between your existing Oracle Database and your Azure applications.
+products:
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/cross-cloud-connectivity.png
+content: |
+   [!include[](oracle-migration-cross-cloud-content.md)]

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Apache NiFi monitoring with MonitoFi
+  titleSuffix: Azure Architecture Center
+  description: Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
+  author: MuazmaZ
+  ms.author: muzahid
+  ms.date: 10/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+    - guide
+azureCategories:
+  - containers
+  - management-and-governance
+products:
+  - azure-application-insights
+  - azure-container-instances
+  - azure-container-registry
+  - azure-monitor
+name: Apache NiFi monitoring with MonitoFi
+summary: Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-apache-nifi-monitofi-architecture-thumbnail.png
+content: |
+  [!include[](monitor-apache-nifi-monitofi-content.md)]

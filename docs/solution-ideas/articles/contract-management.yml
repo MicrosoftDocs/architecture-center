@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Knowledge mining in contract management
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/22/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-contract-management.png
+name: Knowledge mining in contract management
+azureCategories:
+  - ai-machine-learning
+summary: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
+products:
+  - azure-cognitive-search
+  - azure-form-recognizer
+  - azure-text-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-contract-management.png
+content: |
+  [!include[](contract-management-content.md)]

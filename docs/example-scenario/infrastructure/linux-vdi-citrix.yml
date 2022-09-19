@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Linux virtual desktops with Citrix
+  titleSuffix: Azure Example Scenarios
+  description: Use a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
+  author: miguelangelopereira
+  ms.author: v-mpereirado
+  ms.date: 06/16/2012
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - compute
+  ms.custom:
+    - fasttrack
+    - Linux
+    - hpc
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png
+name: Linux virtual desktops with Citrix
+azureCategories:
+  - compute
+summary: Use a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
+products:
+  - azure-load-balancer
+  - azure-sql-database
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-citrix-sample-diagram.png
+content: |
+   [!include[](linux-vdi-citrix-content.md)]

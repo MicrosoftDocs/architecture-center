@@ -1,18 +1,29 @@
 ---
-title: Choosing a data transfer technology
+title: Choose a data transfer technology
 description: Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.
-author: zoinerTejada
-ms.date: 11/20/2019
+author: EdPrice-MSFT
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - compute
+  - databases
+  - storage
+products:
+  - azure-cloud-services
+  - azure-sql-database
+  - azure-storage
 ms.custom:
   - guide
 ---
 
 <!-- cSpell:ignore SATA HDDs SDDs Distcp WASB Sqoop -->
 
-# Transferring data to and from Azure
+# Transfer data to and from Azure
 
 There are several options for transferring data to and from Azure, depending on your needs.
 
@@ -28,7 +39,7 @@ If your primary concern is how long it will take to transfer your data, you may 
 
 There are two main options for physically transporting data to Azure:
 
-- **Azure Import/Export**. The [Azure Import/Export service](/azure/storage/common/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have these shipped to you for loading on-premises.
+- **Azure Import/Export**. The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have these shipped to you for loading on-premises.
 
 - **Azure Data Box**. [Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Azure Import/Export service. Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Azure Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer files to each one. Azure Data Box is supported by a number of industry-leading Azure partners to make it easier to seamlessly use offline transport to the cloud from their products.
 
@@ -40,7 +51,7 @@ Consider these options when you want scripted and programmatic data transfer.
 
 - **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux) command-line to easily copy data to and from Azure Blob, File, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also use AzCopy to copy data from AWS to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It is provided as a .NET Core library.
 
-- **PowerShell**. The [`Start-AzureStorageBlobCopy` PowerShell cmdlet](/powershell/module/azure.storage/start-azurestorageblobcopy?view=azurermps-5.0.0) is an option for Windows administrators who are used to PowerShell.
+- **PowerShell**. The [`Start-AzureStorageBlobCopy` PowerShell cmdlet](/powershell/module/azure.storage/start-azurestorageblobcopy?view=azurermps-5.0.0&preserve-view=true) is an option for Windows administrators who are used to PowerShell.
 
 - **AdlCopy**. [AdlCopy](/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) enables you to copy data from Azure Storage Blobs into Data Lake Store. It can also be used to copy data between two Azure Data Lake Store accounts. However, it cannot be used to copy data from Data Lake Store to Storage Blobs.
 
@@ -86,8 +97,6 @@ The following tables summarize the key differences in capabilities.
 
 ### Physical transfer
 
-<!-- markdownlint-enable MD033 -->
-
 | Capability | Azure Import/Export service | Azure Data Box |
 | --- | --- | --- |
 | Form factor | Internal SATA HDDs or SDDs | Secure, tamper-proof, single hardware appliance |
@@ -111,8 +120,6 @@ The following tables summarize the key differences in capabilities.
 
 **Other:**
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse |
@@ -123,8 +130,6 @@ The following tables summarize the key differences in capabilities.
 | Copy from Blob storage | Yes | Yes | Yes | Yes | Yes |
 | Copy to Data Lake Store | No | Yes | Yes | Yes |  Yes |
 | Copy from Data Lake Store | No | No | Yes | Yes | Yes |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] AdlCopy is optimized for transferring big data when used with a Data Lake Analytics account.
 
@@ -148,3 +153,11 @@ The following tables summarize the key differences in capabilities.
 | Pricing model | Free | Free | Pay per usage |
 
 \* Azure portal in this case means using the web-based exploration tools for Blob storage and Data Lake Store.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

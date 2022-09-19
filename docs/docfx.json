@@ -9,7 +9,8 @@
           "**/toc.yml",
           "**/toc.experimental.yml",
           "**/*context.yml",
-          "**/index.yml"
+          "**/index.yml",
+          "**/*.yml"
         ],
         "exclude": [
           "**/obj/**",
@@ -17,7 +18,8 @@
           "**/_css/**",
           "**/includes/**",
           "**/_bread/**",
-          "**/_themes/**"
+          "**/_themes/**",
+          "**/**/*-content.md"
         ]
       },
       {
@@ -91,6 +93,10 @@
           "binaryRatingUpdate"
         ]
       },
+      "open_to_public_contributors": {
+        "**/*.yml": true,
+        "**/*.md": true
+      },                               
       "searchScope": { 
         "guide/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
         "best-practices/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],

@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Finance management apps using Azure Database for PostgreSQL
+  titleSuffix: Azure Solution Ideas
+  description: Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.
+  author: JonDobrzeniecki
+  ms.author: jodobrze
+  ms.date: 05/27/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - analytics
+  ms.custom:
+    - acom-architecture
+    - postgresql
+    - use cases
+    - azure
+    - solutions
+    - analytics
+    - "https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-postgresql"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/finance-management-apps-using-azure-database-for-postgresql.svg
+name: Finance management apps using Azure Database for PostgreSQL
+azureCategories:
+  - databases
+  - analytics
+summary: Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.
+products:
+  - azure-app-service
+  - azure-database-postgresql
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/finance-management-apps-using-azure-database-for-postgresql.png
+content: |
+   [!include[](finance-management-apps-using-azure-database-for-postgresql-content.md)]

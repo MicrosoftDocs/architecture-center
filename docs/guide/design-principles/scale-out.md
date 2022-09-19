@@ -2,11 +2,14 @@
 title: Design to scale out
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
-author: doodlemania2
+author: EdPrice-MSFT
+categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+products:
+  - azure-devops
 ms.custom:
   - seojan19
   - guide
@@ -43,4 +46,4 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
-[pipes-filters-pattern]: ../../patterns/pipes-and-filters.md
+[pipes-filters-pattern]: ../../patterns/pipes-and-filters.yml

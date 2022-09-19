@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: Loan chargeoff prediction with SQL Server
+  titleSuffix: Azure Architecture Center
+  description: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
+  author: PRASADA1207
+  ms.author: prasada
+  ms.date: 07/29/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - finance
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-sql-server"
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/loan-chargeoff-prediction-with-sql-server.png
+name: Loan chargeoff prediction with SQL Server
+azureCategories:
+  - databases
+  - ai-machine-learning
+summary: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
+products:
+  - azure-data-science-vm
+  - power-bi
+  - sql-server
+thumbnailUrl: /azure/architecture/browse/thumbs/loan-chargeoff-prediction-with-sql-server.png
+content: |
+  [!include[](loan-chargeoff-prediction-with-sql-server-content.md)]

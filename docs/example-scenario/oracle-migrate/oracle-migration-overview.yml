@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Overview of Oracle database migration
+  titleSuffix: Azure Example Scenarios
+  description: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
+  author: amberz
+  ms.author: amberz
+  ms.date: 07/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - databases
+    - migration
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Overview of Oracle database migration
+azureCategories:
+  - databases
+  - migration
+summary: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
+products:
+  - azure-database-migration
+  - azure-managed-applications
+  - azure-sql-database
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/oracle-migration-process-to-sql-pg.png
+content: |
+   [!include[](oracle-migration-overview-content.md)]

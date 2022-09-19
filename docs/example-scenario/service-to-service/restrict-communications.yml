@@ -1,0 +1,25 @@
+### YamlMime:Architecture 
+metadata: 
+  title: Restrict interservice communications
+  titleSuffix: Azure Example Scenario
+  description: Restrict communications between two Azure App Service backend services on both the application and network layers.
+  author: xstof
+  ms.author: christoc
+  ms.date: 07/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - fasttrack-new
+azureCategories:
+  - security
+products:
+  - azure
+  - azure-active-directory
+  - azure-app-service
+name: Restrict interservice communications
+summary: Restrict communications between Azure backend services on both the application and network layers.
+thumbnailUrl: /azure/architecture/browse/thumbs/service-to-service-architecture.png
+content: | 
+  [!include[](restrict-communications-content.md)] 

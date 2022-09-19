@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Buy online, pick up in store (retail)
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use Azure IoT to enhance a retail solution for stores implementing buy online, pick up in store scenarios.
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 06/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Buy online, pick up in store (retail)
+azureCategories:
+  - iot
+summary: Learn how to use Azure IoT to enhance a retail solution for stores implementing buy online, pick up in store scenarios.
+products:
+  - azure-cosmos-db
+  - azure-event-hubs
+  - azure-functions
+  - azure-iot
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/bopis.png
+content: |
+   [!include[](vertical-buy-online-pickup-in-store-content.md)]

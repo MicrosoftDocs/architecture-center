@@ -1,0 +1,39 @@
+### YamlMime:Architecture
+metadata:
+  title: Immutable infrastructure CI/CD using Jenkins and Terraform on Azure
+  titleSuffix: Azure Solution Ideas
+  description: When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 05/27/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - developer-tools
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - devops
+    - interactive-diagram
+    - is-deployable
+    - "https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
+name: Immutable infrastructure CI/CD using Jenkins and Terraform on Azure
+azureCategories:
+  - devops
+  - developer-tools
+summary: When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.
+products:
+  - azure-log-analytics
+  - azure-managed-disks
+  - azure-vm-scalesets
+  - github
+thumbnailUrl: /azure/architecture/browse/thumbs/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
+content: |
+   [!include[](immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview-content.md)]

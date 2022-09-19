@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Securely managed web applications
+  titleSuffix: Azure Architecture Center
+  description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
+  author: fmustaf
+  ms.author: faisalm
+  ms.date: 09/07/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - security
+    - web
+  ms.custom:
+    - fasttrack
+    - security
+    - web-apps
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
+name: Securely managed web applications
+azureCategories:
+  - security
+  - web
+summary: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
+products:
+  - azure-app-service
+  - azure-application-gateway
+  - azure-sql-database
+  - azure-vpn-gateway
+  - azure-web-application-firewall
+thumbnailUrl: /azure/architecture/browse/thumbs/ilb-ase-architecture.png
+content: |
+   [!include[](fully-managed-secure-apps-content.md)]

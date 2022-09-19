@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Run reservoir simulation software on Azure
+  titleSuffix: Azure Example Scenarios
+  description: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.
+  author: EdPrice
+  ms.author: architectures
+  ms.date: 07/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - compute
+  ms.custom:
+    - fcp
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-reservoir-simulation.png
+name: Run reservoir simulation software on Azure
+azureCategories:
+  - compute
+summary: Run OPM Flow reservoir simulation software and OPM ResInsight visualization software on an Azure HPC compute cluster and visualization VM.
+products:
+  - azure-cyclecloud
+  - azure-key-vault
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-reservoir-simulation.png
+content: |
+   [!include[](reservoir-simulation-content.md)]

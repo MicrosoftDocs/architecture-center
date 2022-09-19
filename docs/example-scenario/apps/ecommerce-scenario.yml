@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: E-commerce front end
+  titleSuffix: Azure Architecture Center
+  description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
+  author: chrismason
+  ms.author: chmason
+  ms.date: 07/11/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - web
+  ms.custom:
+    - fasttrack
+    - web-apps
+    - ecommerce
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
+name: E-commerce front end
+azureCategories:
+  - web
+summary: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
+products:
+  - azure-active-directory-b2c
+  - azure-cdn
+  - azure-cognitive-services
+  - azure-traffic-manager
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png
+content: |
+   [!include[](ecommerce-scenario-content.md)]

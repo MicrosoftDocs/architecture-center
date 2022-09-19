@@ -13,7 +13,7 @@
                 },
                 {
                     "title": "Microservices architecture style",
-                    "url": "../guide/architecture-styles/microservices.md",
+                    "url": "../guide/architecture-styles/microservices.yml",
                     "summary": "High-level overview of the microservices architecture style"
                 }
             ]
@@ -23,7 +23,7 @@
             "cards": [
                 {
                     "title": "Use Service Fabric to decompose monolithic applications",
-                    "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
+                    "url": "../example-scenario/infrastructure/service-fabric-microservices.yml",
                     "summary": "An iterative approach to decomposing an ASP.NET web site into microservices."
                 },
                 {
@@ -48,7 +48,7 @@
                 },
                 {
                     "title": "Reference architecture for Azure Service Fabric",
-                    "url": "../reference-architectures/microservices/service-fabric.md",
+                    "url": "../reference-architectures/microservices/service-fabric.yml",
                     "summary":"This reference architecture shows recommended configuration that can be the starting point for most deployments."
                 },
                 {

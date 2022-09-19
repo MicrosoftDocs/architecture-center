@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate a web app using Azure APIM
+  description: In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management.
+  author: begim
+  ms.author: begim
+  ms.date: 08/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - web
+    - migration
+    - integration
+  ms.custom:
+    - fasttrack
+    - web-apps
+    - app-modernization
+    - example-scenario
+    - internal-intro
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-apim-api-scenario.png
+name: Migrate a web app using Azure API Management
+azureCategories:
+  - web
+  - migration
+  - integration
+summary: In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management.
+products:
+  - azure-api-management
+  - azure-application-insights
+  - azure-monitor
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
+content: |
+   [!include[](apim-api-scenario-content.md)]

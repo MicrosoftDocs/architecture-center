@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Messaging
+  titleSuffix: Azure Solution Ideas
+  description: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 05/30/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+  ms.custom:
+    - acom-architecture
+    - app-dev
+    - data
+    - "https://azure.microsoft.com/solutions/architecture/messaging"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/messaging.png
+name: Messaging
+azureCategories:
+  - databases
+summary: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
+products:
+  - azure-api-apps
+  - azure-cache-redis
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/messaging.png
+content: |
+   [!include[](messaging-content.md)]

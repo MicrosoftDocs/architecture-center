@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: Create personalized marketing solutions
+  titleSuffix: Azure Architecture Center
+  description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - acom-architecture
+    - personalized marketing
+    - ai-ml
+    - marketing personalization
+    - targeted marketing
+    - "https://azure.microsoft.com/solutions/architecture/personalized-marketing"
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
+name: Create personalized marketing solutions in near real time
+azureCategories:
+  - ai-machine-learning
+summary: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
+products:
+  - azure-cosmos-db
+  - azure-event-hubs
+  - azure-functions
+  - azure-machine-learning
+  - azure-stream-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/personalized-marketing.png
+content: |
+  [!include[](personalized-marketing-content.md)]

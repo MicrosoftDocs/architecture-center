@@ -7,6 +7,10 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories: management-and-governance
+categories: management-and-governance
+products:
+  - azure-active-directory
 ms.custom:
   - fcp
   - guide
@@ -74,7 +78,6 @@ After the customer agrees on the architecture, clearly define and document next 
 
 Send a follow-up email that includes:
 - The agreed-upon project goals, requirements, and concerns.
-- Descriptions of the existing situation and proposed solution. 
+- Descriptions of the existing situation and proposed solution.
 - Next steps and action items per the key decisions.
 - A formalized Visio or PowerPoint illustration from the ADS presentation board.
-

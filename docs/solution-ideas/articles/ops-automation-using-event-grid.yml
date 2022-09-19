@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Ops automation using Event Grid
+  titleSuffix: Azure Solution Ideas
+  description: Event Grid can speed up automation and simplify policy enforcement by covering tasks that range from checking service configurations to filing work items.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 06/06/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - databases
+  ms.custom:
+    - acom-architecture
+    - event-grid
+    - ap-dev
+    - devops
+    - azure
+    - "https://azure.microsoft.com/solutions/architecture/ops-automation-using-event-grid"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/ops-automation-using-event-grid.png
+name: Ops automation using Event Grid
+azureCategories:
+  - databases
+summary: Event Grid can speed up automation and simplify policy enforcement by covering tasks that range from checking service configurations to filing work items.
+products:
+  - azure-automation
+  - azure-event-grid
+thumbnailUrl: /azure/architecture/browse/thumbs/ops-automation-using-event-grid.png
+content: |
+   [!include[](ops-automation-using-event-grid-content.md)]

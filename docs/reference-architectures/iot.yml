@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure IoT reference architecture
+  titleSuffix: Azure Reference Architectures
+  description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
+  author: mcosner
+  ms.author: mcosner
+  ms.date: 06/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - iot
+    - featured
+  ms.custom:
+    - internal-intro
+azureCategories:
+  - iot
+  - featured
+products:
+  - azure-functions
+  - azure-iot-hub
+  - azure-iot-dps
+  - azure-stream-analytics
+  - azure-digital-twins
+name: Azure IoT reference architecture
+summary: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
+content: |
+   [!include[](iot-content.md)]

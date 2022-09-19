@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: On-premises network using ExpressRoute
+  description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - networking
+  ms.custom:
+    - networking
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Extend an on-premises network using ExpressRoute
+azureCategories:
+  - hybrid
+  - networking
+summary: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
+products:
+  - azure-expressroute
+  - azure-virtual-network
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/expressroute.png
+content: |
+   [!include[](expressroute-content.md)]

@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Serverless event processing
+  description: This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - developer-tools
+    - analytics
+  ms.custom:
+    - serverless
+    - reference-architecture
+    - internal-intro
+    - fcp
+    - cse
+name: Serverless event processing
+azureCategories:
+  - developer-tools
+  - analytics
+summary: This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.
+products:
+  - azure-cosmos-db
+  - azure-functions
+  - azure-monitor
+  - azure-pipelines
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing.png
+content: |
+   [!include[](event-processing-content.md)]

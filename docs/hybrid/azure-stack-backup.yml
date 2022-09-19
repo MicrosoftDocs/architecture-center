@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Back up files and apps on Azure Stack Hub
+  description: This solution delivers an optimized approach to backing up and restoring files and applications of VM-based user workloads hosted on Azure Stack Hub.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Back up files and applications on Azure Stack Hub
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: This solution delivers an optimized approach to backing up and restoring files and applications of VM-based user workloads hosted on Azure Stack Hub.
+products:
+  - azure-active-directory
+  - azure-backup
+  - azure-expressroute
+  - azure-stack-hub
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-backup.png
+content: |
+   [!include[](azure-stack-backup-content.md)]

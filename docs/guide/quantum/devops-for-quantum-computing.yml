@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: DevOps for quantum computing
+  description: Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
+  author: hsirtl
+  ms.author: hsirtl
+  ms.date: 01/06/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+  - compute
+  - hybrid
+products:
+  - azure-quantum
+  - azure-devops
+  - azure-repos
+  - azure-pipelines
+name: DevOps for quantum computing
+summary: Learn about DevOps requirements for quantum-based apps. DevOps provides a repeatable, high-quality process for building, deploying, and monitoring software.
+thumbnailUrl: /azure/architecture/browse/thumbs/inner-outer-loop-quantum-devops.png
+content: |
+  [!include[](devops-for-quantum-computing-content.md)]

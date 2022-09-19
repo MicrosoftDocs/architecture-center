@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich operations for Azure Storage
+  titleSuffix: Azure Reference Architectures
+  description: Learn about the characteristics of the Gridwich Azure Storage Service.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/28/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich operations for Azure Storage
+summary: Learn about the characteristics of the Gridwich Azure Storage Service.
+products:
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-storage-service-content.md)]

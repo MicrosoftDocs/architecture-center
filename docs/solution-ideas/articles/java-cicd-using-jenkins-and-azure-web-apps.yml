@@ -1,0 +1,41 @@
+### YamlMime:Architecture
+metadata:
+  title: Java CI/CD using Jenkins and Azure Web Apps
+  titleSuffix: Azure Solution Ideas
+  description: Create web apps in Azure App Service. Use the continuous integration and continuous deployment (CI/CD) pipeline to deliver value to customers faster.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 05/31/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - web
+    - containers
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - interactive-diagram
+    - is-deployable
+    - "https://azure.microsoft.com/solutions/architecture/java-cicd-using-jenkins-and-azure-web-apps"
+  social_image_url: /azure/architecture/solution-ideas/articles/media/java-cicd-using-jenkins-and-azure-web-apps.png
+name: Java CI/CD using Jenkins and Azure Web Apps
+azureCategories:
+  - devops
+  - web
+  - containers
+summary: Create web apps in Azure App Service. Use the continuous integration and continuous deployment (CI/CD) pipeline to deliver value to customers faster.
+products:
+  - azure-app-service
+  - azure-container-instances
+  - azure-database-mysql
+  - azure-web-apps
+  - github
+thumbnailUrl: /azure/architecture/browse/thumbs/java-cicd-using-jenkins-and-azure-web-apps.png
+content: |
+   [!include[](java-cicd-using-jenkins-and-azure-web-apps-content.md)]

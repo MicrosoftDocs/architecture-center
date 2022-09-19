@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Unified logging for microservices apps
+  titleSuffix: Azure Example Scenarios
+  description: Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.
+  author: lanallai
+  ms.author: lanallai
+  ms.date: 06/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - devops
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Unified logging for microservices applications
+azureCategories:
+  - devops
+summary: Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.
+products:
+  - azure-blob-storage
+  - azure-data-lake-storage
+  - azure-event-hubs
+  - azure-logic-apps
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/paas-tracing-logging.png
+content: |
+   [!include[](unified-logging-content.md)]

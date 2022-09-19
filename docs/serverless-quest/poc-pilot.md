@@ -1,17 +1,20 @@
 ---
-title: Conduct a Proof of Concept or pilot
-titleSuffix: Azure Example Scenarios
+title: Conduct a proof of concept or pilot
+titleSuffix: Azure Architecture Center
 description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories: developer-tools
+products:
+  - azure-functions
 ms.custom:
   - fcp
   - guide
 ---
-# Proof of Concept or pilot
+# Proof of concept or pilot
 
 When driving a technical and security decision for your company or customer, a *Proof of Concept (PoC)* or *pilot* is an opportunity to deliver evidence that the proposed solution solves the business problems. The PoC or pilot increases the likelihood of a successful adoption.
 
@@ -19,7 +22,7 @@ A PoC:
 - Demonstrates that a business model or idea is feasible and will work to solve the business problem
 - Usually involves one to three features or capabilities
 - Can be in one or multiple technologies
-- Is usually geared toward a particular scenario, and proves what the customer needs to know to make the technical or security decision
+- Is geared toward a particular scenario, and proves what the customer needs to know to make the technical or security decision
 - Is used only as a demonstration and won't go into production
 - Is IT-driven and enablement-driven
 
@@ -34,10 +37,10 @@ A pilot:
 
 Be aware of compliance issues when working in a customer's environment, and make sure your actions are always legal and compliant.
 - Touching or altering the customer's environment usually requires a contract, and may involve a partner or Microsoft services. Without a contract, your company may be liable for issues or damages.
-- Governance may require Legal department approval. Your company may not be able to give intellectual property (IP) away for free. You may need a legal contract or contracts to specify whether your company or the customer pays for the IP.
+- Governance may require Legal department approval. Your company may not be able to give away intellectual property (IP) for free. You may need a legal contract or contracts to specify whether your company or the customer pays for the IP.
 - Get disclosure guidance when dealing with non-disclosure agreements (NDAs), product roadmaps, NDA features, or anything not released to the general public.
 - In a pilot, don't use a trial Microsoft Developers Network (MSDN) environment, or any environment that you own.
-- Use properly-licensed software, and ask the opportunity owner to make sure to handle software licensing correctly.
+- Use properly licensed software, and ask the opportunity owner to make sure to handle software licensing correctly.
 
 The customer, partner, or your company may pay for the PoC or pilot. Depending on the size of the contract, the ROI, and the cost of sale, one group may cover it all, or a combination of all three parties may cover the cost. Ensure that your company or customer has some investment in the PoC or pilot. If they don't, this can be a red flag signaling that your company or customer doesn't yet see value in the solution.
 
@@ -89,7 +92,7 @@ Ideally, a pilot includes a cross-section of users, to address any potential iss
 
 This understanding is part of a pilot, and addresses everyone who has a stake in the project.  A pilot is better than a PoC, because the customer is more involved, so they're more likely to implement the change.
 
-The pilot includes a detailed follow up through surveys or focus groups. The feedback can prove and improve the change.
+The pilot includes a detailed follow-up through surveys or focus groups. The feedback can prove and improve the change.
 
 ## Next steps
 
@@ -99,4 +102,3 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 ## Related resources
 [Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program)
-

@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Active Directory IDaaS in security operations
+  titleSuffix: Azure Architecture Center
+  description: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 08/23/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - security
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Azure Active Directory IDaaS in security operations
+azureCategories:
+  - security
+summary: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
+products:
+  - azure-active-directory
+  - azure-sentinel
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture.png
+content: |
+   [!include[](azure-ad-security-content.md)]

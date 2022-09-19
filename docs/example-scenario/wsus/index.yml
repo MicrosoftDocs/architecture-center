@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Plan deployment for updating Windows VMs in Azure
+  titleSuffix: Azure Example Scenarios
+  description: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
+  author: vpaulreed
+  ms.author: preed
+  ms.date: 06/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Plan deployment for updating Windows VMs in Azure
+azureCategories:
+  - management-and-governance
+summary: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
+products:
+  - azure
+  - azure-firewall
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/wsus-vnet.png
+content: |
+   [!include[](index-content.md)]

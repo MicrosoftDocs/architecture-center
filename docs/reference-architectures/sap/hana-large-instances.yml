@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Run SAP HANA Large Instances
+  titleSuffix: Azure Reference Architectures
+  description: Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
+  author: bqtrinh
+  ms.author: bentrin
+  ms.date: 04/02/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - databases
+    - compute
+  ms.custom:
+    - SAP
+    - reference-architecture
+    - e2e-sap
+name: Run SAP HANA on Azure (Large Instances)
+azureCategories:
+  - databases
+  - compute
+summary: Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
+products:
+  - azure-expressroute
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-hana-large-instances.png
+content: |
+   [!include[](hana-large-instances-content.md)]

@@ -1,28 +1,29 @@
 ---
-title: Choosing a stream processing technology
+title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-databricks
+  - azure-app-service
 ms.custom:
   - guide
 ---
 
 <!-- cSpell:ignore HDFS -->
 
-# Choosing a stream processing technology in Azure
+# Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
 
-Real-time stream processing consumes messages from either queue or file-based storage, process the messages, and forward the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume an endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.md).
-
-<!-- markdownlint-disable MD026 -->
+Real-time stream processing consumes messages from either queue or file-based storage, processes the messages, and forwards the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.yml).
 
 ## What are your options when choosing a technology for real-time processing?
-
-<!-- markdownlint-enable MD026 -->
 
 In Azure, all of the following data stores will meet the core requirements supporting real-time processing:
 
@@ -42,7 +43,7 @@ For real-time processing scenarios, begin choosing the appropriate service for y
 
 - Do you need built-in support for temporal processing or windowing?
 
-- Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options support any format using custom code.
+- Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options that support any format using custom code.
 
 - Do you need to scale your processing beyond 1 GB/s? If yes, consider the options that scale with the cluster size.
 
@@ -54,9 +55,9 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- |
-| Programmability | Stream analytics query language, JavaScript | [C#/F#][dotnet-spark], Java, Python, Scala | [C#/F#][dotnet-spark], Java, Python, R, Scala | C#, Java | C#, F#, Java, Node.js, Python | C#, Java, Node.js, PHP, Python |
+| Programmability | SQL, JavaScript | [C#/F#][dotnet-spark], Java, Python, Scala | [C#/F#][dotnet-spark], Java, Python, R, Scala | C#, Java | C#, F#, Java, Node.js, Python | C#, Java, Node.js, PHP, Python |
 | Programming paradigm | Declarative | Mixture of declarative and imperative | Mixture of declarative and imperative | Imperative | Imperative | Imperative |
-| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks/) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |  
+| Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |
 
 ### Integration capabilities
 
@@ -74,10 +75,18 @@ The following tables summarize the key differences in capabilities.
 | Scalability | [Query partitions](/azure/stream-analytics/stream-analytics-parallelization) | Bounded by cluster size | Bounded by Databricks cluster scale configuration | Bounded by cluster size | Up to 200 function app instances processing in parallel | Bounded by app service plan capacity |
 | Late arrival and out of order event handling support | Yes | Yes | Yes | Yes | No | No |
 
-See also:
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
 
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
-- [Real time processing](../big-data/real-time-processing.md)
+- [Real time processing](../big-data/real-time-processing.yml)
 
 <!-- links -->
 

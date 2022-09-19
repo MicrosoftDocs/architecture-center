@@ -1,0 +1,37 @@
+### YamlMime:Architecture
+metadata:
+  title: Energy supply optimization
+  titleSuffix: Azure Solution Ideas
+  description: This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 05/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+    - integration
+  ms.custom:
+    - acom-architecture
+    - artificial intelligence
+    - solution architectures
+    - Azure
+    - ai gallery
+    - "https://azure.microsoft.com/solutions/architecture/energy-supply-optimization"
+    - ai-machine-learning
+  social_image_url: /azure/architecture/solution-ideas/articles/media/energy-supply-optimization.png
+name: Energy supply optimization
+azureCategories:
+  - ai-machine-learning
+  - integration
+summary: Use Azure resources and external open-source tools to determine the optimal energy unit commitments that various resources can supply for an energy grid.
+products:
+  - azure-batch
+  - azure-blob-storage
+  - azure-data-science-vm
+  - azure-queue-storage
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/energy-supply-optimization.png
+content: |
+  [!include[](energy-supply-optimization-content.md)]

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Vision classifier model with Azure Custom Vision Cognitive Service
+  titleSuffix: Azure Architecture Center
+  description: Create an image classifier with a solution architecture that includes Microsoft AirSim Drone simulator and Azure Custom Vision Cognitive Service.
+  author: jocontr
+  ms.author: jocontr
+  ms.date: 06/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - fcp
+    - example-scenario
+    - ai-machine-learning
+name: Vision classifier model with Azure Custom Vision Cognitive Service
+azureCategories:
+  - ai-machine-learning
+summary: Create an image classifier with a solution architecture that includes Microsoft AirSim Drone simulator and Azure Custom Vision Cognitive Service.
+products:
+  - azure
+  - github
+thumbnailUrl: /azure/architecture/browse/thumbs/drone-rescue.png
+content: |
+  [!include[](vision-classifier-model-with-custom-vision-content.md)]

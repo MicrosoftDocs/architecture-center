@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Build a speech-to-text transcription pipeline to analyze recorded conversations
+  titleSuffix: Azure Architecture Center
+  description: Build a pipeline to transcribe and analyze audio conversations by using the Azure Cognitive Services Speech and Language APIs. 
+  author: bdleavitt
+  ms.author: bleavitt, christinas
+  ms.date: 07/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - integration
+products:
+  - azure-speech-text
+  - azure-text-analytics
+  - azure-cognitive-services
+  - azure-synapse-analytics
+  - azure-logic-apps
+name: Use a speech-to-text transcription pipeline to analyze recorded conversations
+summary: Build a pipeline to transcribe and analyze audio conversations by using the Azure Cognitive Services Speech and Language APIs. 
+thumbnailUrl: /azure/architecture/browse/thumbs/speech-to-text-analytics-nlp-pipeline-thumb.png
+content: |
+  [!include[](speech-to-text-transcription-analytics-content.md)]

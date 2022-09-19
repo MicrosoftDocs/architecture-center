@@ -1,11 +1,15 @@
 ---
 title: Failure mode analysis
-description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
-author: doodlemania2
+description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
+author: EdPrice-MSFT
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+azureCategories: management-and-governance
+categories: management-and-governance
+products:
+  - azure-app-service
 ms.custom:
   - resiliency
   - article
@@ -29,8 +33,6 @@ Here is the general process to conduct an FMA:
 As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
 
 ## App Service
-
-<!-- markdownlint-disable MD026 -->
 
 ### App Service app shuts down.
 
@@ -134,7 +136,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ## Cloud Service
 
-### Web or worker roles are unexpectedly  being shut down.
+### Web or worker roles are unexpectedly  being shut down.
 
 **Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
 
@@ -338,7 +340,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Detection**. A cancellation token is passed to the service's `RunAsync` method. Service Fabric cancels the task before shutting down the node.
 
-**Recovery**. Use the cancellation token to detect shutdown. When Service Fabric requests cancellation, finish any work and exit `RunAsync` as quickly as possible.
+**Recovery**. Use the cancellation token to detect shutdown. When Service Fabric requests cancellation, finish any work and exit `RunAsync` as quickly as possible.
 
 **Diagnostics**. Application logs
 
@@ -434,13 +436,12 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
-:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions:
 
-- 429 - Throttling 
-- 408 - Timeout 
+- 429 - Throttling
+- 408 - Timeout
 - 401 - Unauthorized
-- 503 or 5xx - Service unavailable 
-
+- 503 or 5xx - Service unavailable
 
 ### One of the operations in a workflow or distributed transaction fails.
 
@@ -470,8 +471,6 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 For more information about the FMA process, see [Resilience by design for cloud services][resilience-by-design-pdf] (PDF download).
 
-<!-- markdownlint-enable MD026 -->
-
 <!-- links -->
 
 [api-management]: /azure/api-management
@@ -485,19 +484,19 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [azure-activity-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal
 [azure-log-analytics]: /azure/log-analytics/log-analytics-overview
-[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet
+[BrokeredMessage.TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true
 [cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: /previous-versions/msp-n-p/dn589784(v=pandp.10)
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
-[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
+[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.yml
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
 [new-relic]: https://newrelic.com
 [priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
 [queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
-[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet
-[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
+[QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
+[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
@@ -506,12 +505,12 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/
 [sb-dead-letter-queue]: /azure/service-bus-messaging/service-bus-dead-letter-queues/
 [sb-georeplication-sample]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/GeoReplication
-[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet
+[sb-messagingexception-class]: /dotnet/api/microsoft.servicebus.messaging.messagingexception?view=azure-dotnet&preserve-view=true
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning
 [sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
-[search-sdk]: /dotnet/api/overview/azure/search?view=azure-dotnet
+[search-sdk]:  /dotnet/api/overview/azure/search?view=azure-dotnet&preserve-view=true
 [scheduler-agent-supervisor]: /previous-versions/msp-n-p/dn589780(v=pandp.10)
 [search-analytics]: /azure/search/search-traffic-analytics
 [sql-db-audit]: /azure/sql-database/sql-database-auditing-get-started
@@ -522,7 +521,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [storage-metrics]: /azure/storage/common/monitor-storage
 [storage-replication]: /azure/storage/storage-redundancy
 [Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
-[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current
+[sys.event_log]: /sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database?view=azuresqldb-current&preserve-view=true
 [throttling-pattern]: /previous-versions/msp-n-p/dn589798(v=pandp.10)
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs
 [web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens

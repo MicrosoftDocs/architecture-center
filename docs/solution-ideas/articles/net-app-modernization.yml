@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Modernize .NET applications
+  titleSuffix: Azure Solution Ideas
+  description: Modernize .NET applications with Azure SQL DB and Azure App Service. Make the apps secure, flexible, available, and scalable by migrating them to Azure.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 06/06/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - integration
+    - databases
+  ms.custom:
+    - fcp
+name: Modernize .NET applications
+azureCategories:
+  - integration
+  - databases
+summary: Modernize .NET applications with Azure SQL DB and Azure App Service. Make the apps secure, flexible, available, and scalable by migrating them to Azure.
+products:
+  - azure-app-service
+  - azure-database-migration
+  - azure-devops
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/net-app-modernization.png
+content: |
+   [!include[](net-app-modernization-content.md)]

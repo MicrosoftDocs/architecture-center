@@ -17,7 +17,7 @@
             <li>12/16/2019</li>
             <li>3 min read</li>
         </ul>
-        <p class="card-content-description">Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.</p>
+        <p class="card-content-description">Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

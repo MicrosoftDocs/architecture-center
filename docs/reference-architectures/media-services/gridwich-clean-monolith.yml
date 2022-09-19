@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich clean monolith architecture
+  titleSuffix: Azure Reference Architectures
+  description: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
+  author: bgener
+  ms.author: bogenera
+  ms.date: 11/30/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich clean monolith architecture
+summary: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
+products:
+  - azure-event-grid
+  - azure-functions
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-clean-monolith-content.md)]

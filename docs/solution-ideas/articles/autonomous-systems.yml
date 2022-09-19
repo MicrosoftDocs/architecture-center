@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Machine teaching with Project Bonsai autonomous systems
+  titleSuffix: Azure Architecture Center
+  description: Learn how Project Bonsai builds and deploys autonomous systems using machine teaching, deep reinforcement learning, and simulations.
+  author: jocontr
+  ms.author: jocontr
+  ms.date: 08/22/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - pcp
+    - ai-machine-learning
+name: Machine teaching with Project Bonsai autonomous systems 
+azureCategories:
+  - ai-machine-learning
+summary: Learn how Project Bonsai builds and deploys autonomous systems using machine teaching, deep reinforcement learning, and simulations.
+products:
+  - azure-container-instances
+  - azure-container-registry
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-2.png
+content: |
+  [!include[](autonomous-systems-content.md)]

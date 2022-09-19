@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Gridwich saga orchestration
+  titleSuffix: Azure Reference Architectures
+  description: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
+  author: bgener
+  ms.author: bogenera
+  ms.date: 11/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+name: Gridwich saga orchestration
+summary: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
+products:
+  - azure-media-services
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](gridwich-saga-orchestration-content.md)]
