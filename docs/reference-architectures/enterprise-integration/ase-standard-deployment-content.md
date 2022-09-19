@@ -186,7 +186,8 @@ az deployment group create --resource-group $RGNAME --template-file templates/as
 When the firewall is created, the [firewall.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/firewall.json) configuration file updates this route table with the ASE management IPs, followed by the firewall IP. This drives the remaining traffic through the firewall IP:
 
 ```json
-"variables": {
+{
+  "variables": {
     "firewallSubnetName": "AzureFirewallSubnet",
     "firewallPublicIpName": "[concat('firewallIp', '-', uniqueString(resourceGroup().id))]",
     "firewallName": "[concat('firewall', '-', uniqueString(resourceGroup().id))]",
@@ -220,7 +221,9 @@ When the firewall is created, the [firewall.json](https://github.com/mspnp/app-s
       "properties": {
         "routes": "[concat(variables('aseManagementIpRoutes'), array(json(concat('{ \"name\": \"Firewall\", \"properties\": { \"addressPrefix\": \"0.0.0.0/0\", \"nextHopType\": \"VirtualAppliance\", \"nextHopIpAddress\": \"', reference(concat('Microsoft.Network/azureFirewalls/', variables('firewallName')),'2019-09-01','Full').properties.ipConfigurations[0].properties.privateIPAddress, '\" } }'))))]"
       }
-    },
+    }
+  ]
+}
 ```
 
 The management IP list may change after the route table is deployed, in which case this route table will need to be redeployed.
