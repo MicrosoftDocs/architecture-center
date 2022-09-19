@@ -52,9 +52,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
-* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
+* [How to build a basic chatbot](/training/modules/how-build-basic-chatbot)
+* [Build a bot with QnA Maker and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+* [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
 
 ## Related resources
 

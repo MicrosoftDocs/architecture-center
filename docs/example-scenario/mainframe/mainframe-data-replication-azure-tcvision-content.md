@@ -122,7 +122,7 @@ Other contributors:
 ## Next steps
 
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [Architect a data platform in Azure](/learn/paths/architect-data-platform/)
+* [Architect a data platform in Azure](/training/paths/architect-data-platform/)
 * [Azure AD](https://azure.microsoft.com/services/active-directory/)
 * [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts/)
 * [Azure Boards](https://azure.microsoft.com/services/devops/boards/)
@@ -141,8 +141,8 @@ Other contributors:
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/#overview)
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
 * [Data migration guide](https://datamigration.microsoft.com/)
-* [Data platform modernization](/learn/modules/introduction-data-platform-modernization/)
-* [Design your data migration to Azure](/learn/modules/design-your-migration-to-azure/)
+* [Data platform modernization](/training/modules/introduction-data-platform-modernization/)
+* [Design your data migration to Azure](/training/modules/design-your-migration-to-azure/)
 * [Log Analytics](/azure/azure-monitor/log-query/log-query-overview)
 
 ## Related resources

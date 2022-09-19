@@ -27,7 +27,7 @@ The architecture consists of:
 - **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer, which is in the application's production subnet.
 - **Azure Bastion**. Azure Bastion lets you log into VMs in the Azure virtual network without exposing the VMs directly to the internet. It uses Secure Shell (SSH) or Remote Desktop Protocol (RDP). If you lose VPN connectivity, you can still use Azure Bastion to manage your VMs in the Azure virtual network. However, the management of on-premises servers through Azure Bastion isn't supported.
 
-## Components
+### Components
 
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
 

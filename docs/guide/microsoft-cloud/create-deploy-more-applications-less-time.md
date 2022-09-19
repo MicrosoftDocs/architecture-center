@@ -111,7 +111,7 @@ When appropriate, professional and citizen developers can work together to creat
 >
 > An important example of this is deploying applications within Microsoft Teams. Pro-code applications created by using Azure can use this option, as can low-code applications that are built on Power Platform. Teams is used by hundreds of millions of people every month, so why not connect your applications to this popular technology?
 >
-> For low-code applications, there’s another powerful option: using [Dataverse for Teams](/learn/paths/work-power-platform-teams). It's part of Microsoft Teams, which is part of Microsoft 365, so typically there's no extra license required to use it. Dataverse for Teams also includes subsets of Power Automate, Power Virtual Agents, and Power BI.
+> For low-code applications, there’s another powerful option: using [Dataverse for Teams](/training/paths/work-power-platform-teams). It's part of Microsoft Teams, which is part of Microsoft 365, so typically there's no extra license required to use it. Dataverse for Teams also includes subsets of Power Automate, Power Virtual Agents, and Power BI.
 >
 > Here are some benefits of using Dataverse for Teams:
 >

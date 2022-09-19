@@ -56,7 +56,7 @@ This section includes the following articles:
 - [Conditional Access framework and policies](./conditional-access-framework.md) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
 
 ## Next steps 
-- [Learning path: Implement and manage identity and access](/learn/paths/implement-manage-identity-access)
+- [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 - [Common Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 

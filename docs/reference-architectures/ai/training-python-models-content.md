@@ -127,8 +127,8 @@ To deploy the reference implementation for this architecture, follow the steps d
 
 Learn more about training:
 
-- Microsoft Learn module - [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models)
-- Microsoft Learn module - [Tune hyperparameters with Azure Machine Learning](/learn/modules/tune-hyperparameters-with-azure-machine-learning/)
+- Microsoft Learn module - [Train and evaluate deep learning models](/training/modules/train-evaluate-deep-learn-models)
+- Microsoft Learn module - [Tune hyperparameters with Azure Machine Learning](/training/modules/tune-hyperparameters-with-azure-machine-learning/)
 - Machine Learning documentation - [Hyperparameter tuning a model with Azure Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
 
 ## Related resources

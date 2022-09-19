@@ -66,8 +66,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Train a machine learning model with Azure Machine Learning](/learn/modules/train-local-model-with-azure-mls)
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
+- [Train a machine learning model with Azure Machine Learning](/training/modules/train-local-model-with-azure-mls)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
 
 ## Related resources
 

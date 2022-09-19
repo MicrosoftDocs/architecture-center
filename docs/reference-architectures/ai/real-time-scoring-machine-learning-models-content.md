@@ -196,8 +196,8 @@ Try these learning paths:
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
 [mlops-ra]: ./mlops-python.yml
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
-[mslearn-aks-deploy]: /learn/paths/develop-deploy-applications-kubernetes/
-[mslearn-aks-intro]: /learn/paths/intro-to-kubernetes-on-azure/
+[mslearn-aks-deploy]: /training/paths/develop-deploy-applications-kubernetes/
+[mslearn-aks-intro]: /training/paths/intro-to-kubernetes-on-azure/
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/role-based-access-control/overview
 [registry-intro]: /azure/container-registry/container-registry-intro

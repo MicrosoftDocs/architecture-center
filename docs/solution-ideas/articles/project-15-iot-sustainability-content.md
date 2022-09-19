@@ -138,7 +138,7 @@ Principal author:
 - Visit [Project 15 on GitHub][Project 15 on GitHub] to deploy to Azure and learn more about customizing conservation and ecological sustainability solutions.
 - [Microsoft & Sustainability][Microsoft & Sustainability]
 - [AI for Earth][AI for Earth]
-- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft channels](/learn).
+- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft channels](/training).
 - See [Introduction to Azure IoT][Introduction to Azure IoT].
 
 ## Related resources
@@ -161,7 +161,7 @@ Principal author:
 [Event Hubs]: /azure/event-hubs/event-hubs-about
 [Event Grid]: https://azure.microsoft.com/services/event-grid
 [Functions]: https://azure.microsoft.com/services/functions
-[Introduction to Azure IoT]: /learn/paths/introduction-to-azure-iot
+[Introduction to Azure IoT]: /training/paths/introduction-to-azure-iot
 [IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Logic Apps]: https://azure.microsoft.com/services/logic-apps
 [Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml

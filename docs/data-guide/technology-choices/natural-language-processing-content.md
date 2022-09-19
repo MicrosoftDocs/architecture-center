@@ -190,8 +190,8 @@ Principal authors:
 
 - Learn resources:
 
-  - [Microsoft Azure AI Fundamentals: Explore natural language processing](/learn/paths/explore-natural-language-processing)
-  - [Create a Language Understanding solution](/learn/paths/create-language-understanding-solution)
+  - [Microsoft Azure AI Fundamentals: Explore natural language processing](/training/paths/explore-natural-language-processing)
+  - [Create a Language Understanding solution](/training/paths/create-language-understanding-solution)
 
 ## Related resources
 

@@ -66,8 +66,8 @@ For general guidance on designing resilient solutions, see [Reliability design p
 ## Next steps
 
 * [Build a serverless web app in Azure][serverless]
-* [Learn how to Create Predictive models on Azure](/learn/paths/create-no-code-predictive-models-azure-machine-learning)
-* [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+* [Learn how to Create Predictive models on Azure](/training/paths/create-no-code-predictive-models-azure-machine-learning)
+* [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
 * [Quality Assurance Workshop](https://github.com/Azure/iot-workshop-quality-assurance)
 
 ## Related resources
@@ -82,7 +82,7 @@ For general guidance on designing resilient solutions, see [Reliability design p
 [small-pricing]: https://azure.com/e/ee2cac4c69e84a328b578fcd3a398653
 [medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
-[serverless]: /learn/paths/create-serverless-applications/
+[serverless]: /training/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security

@@ -35,14 +35,14 @@ Azure provides a wide range of tools and capabilities for creating, hosting, and
 
 ## Introduction to web apps on Azure
 
-If you're new to creating and hosting web apps on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more. 
+If you're new to creating and hosting web apps on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more. 
 
 These are a few good starting points to consider:
 - Learning path: 
-   - [Create Azure App Service web apps](/learn/paths/create-azure-app-service-web-apps)
+   - [Create Azure App Service web apps](/training/paths/create-azure-app-service-web-apps)
 - Individual modules: 
-   - [Deploy and run a containerized web app with Azure App Service](/learn/modules/deploy-run-container-app-service)
-   - [Azure Static Web Apps](/learn/paths/azure-static-web-apps)
+   - [Deploy and run a containerized web app with Azure App Service](/training/modules/deploy-run-container-app-service)
+   - [Azure Static Web Apps](/training/paths/azure-static-web-apps)
 
 ## Path to production
 
