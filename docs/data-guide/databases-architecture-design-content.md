@@ -19,8 +19,7 @@ We also provide solution ideas for you to build on, which include links to all t
 
 ## Learn about databases on Azure
 
-If you're new to databases on Azure, the best place to start is Microsoft Learn training.
-On this free online training platform, you'll find videos and tutorials that offer hands-on learning.
+If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online provides videos and tutorials for hands-on learning.
 Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
 [You can browse Azure data modules](/training/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals).
