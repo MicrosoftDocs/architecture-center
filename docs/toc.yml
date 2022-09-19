@@ -3672,8 +3672,6 @@ items:
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Build cloud native applications
                 href: solution-ideas/articles/cloud-native-apps.yml
-              - name: Campaign optimization with HDInsight
-                href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
                 href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
               - name: Data streaming

@@ -2391,6 +2391,11 @@
       "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
       "redirect_document_id": true
-    }
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+     }
   ]
 }
