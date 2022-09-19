@@ -164,9 +164,9 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [ntwkcons]: /azure/app-service/environment/network-info
 [apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
 [apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
-[hosted-agent]: /azure/devops/pipelines/agents/v2-windows?view=azure-devops
+[hosted-agent]: /azure/devops/pipelines/agents/v2-windows
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
+[devops]: /azure/devops/index
 [appinsights]: /azure/azure-monitor/app/app-insights-overview
 [cosmos-db]: /azure/cosmos-db/introduction
 [dnsguide]: /azure/dns/private-dns-getstarted-cli
