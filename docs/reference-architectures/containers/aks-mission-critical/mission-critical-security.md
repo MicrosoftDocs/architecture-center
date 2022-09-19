@@ -30,23 +30,23 @@ Mission-critical workloads are inherently required to be secured - if an applica
 
 ## Identity and access management
 
-At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. More advanced scenarios such as user authentication and user roles aren't in scope of the reference implementation.
+At the application level, this architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating catalog items or deleting comments. Advanced scenarios such as user authentication and user roles are beyond the scope of the [**baseline architecture**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
-Applications that require user authentication and account management should follow the principles [outlined in Microsoft Well-Architected Framework](/azure/architecture/framework/security/design-identity-authentication) (that is, use managed identity providers, don't implement custom identity management, use passwordless whenever possible, etc.).
+If your application requires user authentication and account management, follow the principles [outlined in Microsoft Well-Architected Framework](/azure/architecture/framework/security/design-identity-authentication). Some strategies include, using managed identity providers, avoiding custom identity management, using passwordless authentication whenever possible, and so on.
 
 ### Least privilege access
 
-Configure access policies so that users and applications obtain only the minimal level of access needed to fulfill their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline requires full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs don't always listen to messaging bus and backend workers don't necessarily send new messages. These decisions depend on the workload and each component's functionality should be reflected when deciding which access level should be assigned.
+Configure access policies such that users and applications get the minimal level of access needed to fulfill their function. Developers typically don't need access to the production infrastructure, but the deployment pipeline needs full access. Kubernetes clusters don't push container images into a registry, but GitHub workflows might. Frontend APIs don't usually get messages from the message broker and backend workers don't necessarily send new messages to the broker. Those decisions depend on the workload and each component's functionality should be reflected when deciding the access level that should be assigned.
 
 Examples from the Azure Mission-critical reference implementation:
 
-- Each application component that works with Event Hubs is using a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That ensures that **every pod has only the minimum access required to fulfill its function**.
+- Each application component that works with Event Hubs uses a connection string with either *Listen* (`BackgroundProcessor`), or *Send* (`CatalogService`) permissions. That access level ensures that **every pod has only the minimum access required to fulfill its function**.
 - The service principal for AKS agent pool has only *Get* and *List* permissions for *Secrets* in Key Vault, no more.
 - The AKS Kubelet identity has only the *AcrPull* permission to access the global Container Registry.
 
 ### Managed identities
 
-To improve security of a mission-critical workload avoid using service-based secrets (such as connection strings or API keys) where possible. Microsoft Azure is gradually increasing the support of **managed identities** across services and this approach should be preferred.
+To improve the security of a mission-critical workload, where possible, avoid using service-based secrets, such as connection strings or API keys. Using **managed identities** is preferred if the Azure service supports that capability.
 
 The reference implementation uses service-assigned [managed identity](/azure/aks/use-managed-identity) of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp's Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, this Terraform code assigns only the `AcrPull` role the Kubelet identity:
 
@@ -121,13 +121,13 @@ The combination of CSI driver's auto reload and `reloadOnChange: true` ensures t
 
 ## Custom domains and TLS
 
-Every web-based workload should use HTTPS everywhere to prevent man-in-the-middle attacks on all interaction levels (client - API, API - API). There should be an automated process certificate rotation, because expired certificates are still a common cause of outages, or degraded experiences.
+Web-based workload should use HTTPS to prevent man-in-the-middle attacks on all interaction levels. For example, communication from the client to API, API to API. Certificate rotation should be automated because expired certificates are still a common cause of outages, or degraded experiences.
 
 The reference implementation fully supports HTTPS with custom domain names, for example, `contoso.com`, and applies appropriate configuration to the `int` and `prod` environments. For `e2e` environments, custom domains can also be added, however, it was decided not to use custom domain names in the reference implementation due to the short-lived nature of `e2e` and the increased deployment time when using custom domains with SSL certificates in Front Door.
 
 To enable full automation of the deployment, the custom domain is expected to be managed through an **Azure DNS Zone**. Infrastructure deployment pipeline dynamically creates CNAME records in the Azure DNS zone and maps these records automatically to an Azure Front Door instance.
 
-**Front Door-managed SSL certificates** are enabled, which means that there's no need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
+**Front Door-managed SSL certificates** are enabled, which removes the need for manual SSL certificate renewals. **TLS 1.2** is configured as the minimum version.
 
 ```terraform
 #
@@ -147,7 +147,7 @@ resource "azurerm_frontdoor_custom_https_configuration" "custom_domain_https" {
 Environments that aren't provisioned with custom domains can be accessed through the default Front Door endpoint, for example `env123.azurefd.net`.
 
 > [!NOTE]
-> On the cluster ingress controllers, custom domains are not used in either case; instead an Azure-provided DNS name such as `[prefix]-cluster.[region].cloudapp.azure.com` is used with Let's Encrypt enabled to issue free SSL certificates for those endpoints.
+> On the cluster ingress controller, custom domains aren't used in either case. Instead an Azure-provided DNS name such as `[prefix]-cluster.[region].cloudapp.azure.com` is used with Let's Encrypt enabled to issue free SSL certificates for those endpoints.
 
 The reference implementation uses Jetstack's `cert-manager` to auto-provision SSL/TLS certificates (from Let's Encrypt) for ingress rules. More configuration settings like the `ClusterIssuer` (used to request certificates from Let's Encrypt) are deployed via a separate `cert-manager-config` helm chart stored in [src/config/cert-manager/chart](https://github.com/Azure/Mission-Critical-Online/tree/main/src/config/cert-manager/chart/cert-manager-config).
 
@@ -166,7 +166,7 @@ spec:
 
 **All application runtime configuration is stored in Azure Key Vault** including secrets and non-sensitive settings. A configuration store, such as Azure App Configuration, could be used to store the settings, however, having a single store reduces the number of potential points of failure for mission-critical applications. Using Key Vault for runtime configuration simplifies the overall implementation.
 
-**Key Vaults are only populated by Terraform deployment**. The required values are either sourced directly from Terraform (such as database connection strings) or passed through as Terraform variables from the deployment pipeline.
+**Key Vaults should be populated by the deployment pipeline**. In the implementation, the required values are either sourced directly from Terraform, such as database connection strings, or passed through as Terraform variables from the deployment pipeline.
 
 **Infrastructure and deployment configuration** of individual environments (`e2e`, `int`, `prod`) is stored in variable files that are part of the source code repository. This approach has two benefits:
 
@@ -216,14 +216,14 @@ Each environment (*prod*, *int*, every *e2e*) has a **dedicated instance of Azur
 
 ## Traffic ingress
 
-**Azure Front Door** functions as the global load balancer in the reference implementation - before any web request reaches the AKS cluster or application code, it has to go through Front Door first, which then chooses the right backend to respond. And because web application traffic passes through Front Door (unlike Traffic Manager, which is DNS-based), there are more capabilities besides global traffic routing, which mission-critical workloads should utilize (as long as they work with HTTP).
+**Azure Front Door** is the global load balancer in this architecture. All web requests are routed through Front Door, which selects the appropriate backend. Mission-critical application should take advantage of other capabilities of Front Door, such as Web Application Firewall (WAF). 
 
 ### Web Application Firewall
 
 An important Front Door capability is the **Web Application Firewall (WAF)**, because Front Door is able to inspect traffic, which is passing through. WAF is enabled in the **Prevention** mode, which actively blocks suspicious requests. There are two rulesets configured: `Microsoft_DefaultRuleSet` and `Microsoft_BotManagerRuleSet`.
 
 > [!TIP]
-> When deploying Front Door with WAF it's recommended to start with the **Detection** mode, closely monitor it's behavior with natural end-user traffic and fine-tune the detection rules. Once false-positives are eliminated, or rare, it's safe to switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
+> When deploying Front Door with WAF it's recommended that you start with the **Detection** mode, closely monitor its behavior with natural end-user traffic, and fine-tune the detection rules. After false positives are eliminated, or rare, switch to **Prevention** mode. This is necessary, because every application is different and some payloads can be considered malicious, while completely legitimate for that particular workload.
 
 ### Routing
 
@@ -261,9 +261,9 @@ $header = @{
 
 ## Secure deployments
 
-Following the baseline well-architected principles for operational excellence, **all deployments should be fully automated** and there shouldn't be manual steps required (except triggering the run, or approving a gate).
+Following the baseline well-architected principles for operational excellence, **all deployments should be fully automated** and there shouldn't be manual steps required except triggering the run, or approving a gate.
 
-The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift** (for example, manual changes through the portal or CLI), maintaining integrity of the infrastructure and alignment with the application code. Any changes in any environment - malicious attempt to disable security measures, or simple accidental misconfiguration, are discarded on the next deploy.
+Malicious attempts or accidental misconfiguration that can disable security measures must be prevented.  The reference implementation uses the same pipeline for both infrastructure and application deployment, which forces an **automated rollback of any potential configuration drift**, maintaining the integrity of the infrastructure and alignment with the application code. Any change is discarded on the next deploy.
 
 Sensitive values for deployment are either generated during the pipeline run (by Terraform), or supplied as Azure DevOps secrets. These values are protected with role-based access restrictions.
 
@@ -309,7 +309,7 @@ Dependabot creates a separate pull request (PR) for each update, which can get o
 
 ## Defensive coding
 
-API calls can fail - be it because of code errors, malfunctioned deployments, infrastructure failures, or any other reason. If that happens, the caller (client application) shouldn't receive extensive debugging information, because that could provide adversaries with helpful data points about the inner workings of the application.
+API calls can fail due to various reasons, code errors, malfunctioned deployments, infrastructure failures, or others. In that case, the caller (client application) shouldn't receive extensive debugging information, because that could provide adversaries with helpful data points about the application.
 
 The reference implementation demonstrates this principle by **returning only the correlation ID** in the failed response and doesn't share the failure reason (like exception message or stack trace). Using this ID (and with the help of `X-Server-Location` header) an operator is able to investigate the incident using Application Insights
 
