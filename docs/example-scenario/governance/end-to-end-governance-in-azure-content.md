@@ -70,11 +70,11 @@ The numbering reflects the order in which IT administrators and enterprise archi
    To understand the reasoning behind the individual role assignments, see the [considerations section](#considerations) later in this article.
 
 5. **Security group assignments in Azure DevOps**  
- Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles) for developers. Admins get assigned to the [Project Administrator](/azure/devops/user-guide/roles?view=azure-devops#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
+ Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](/azure/devops/user-guide/roles#contributor-roles) for developers. Admins get assigned to the [Project Administrator](/azure/devops/user-guide/roles#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
 
    Note that Azure DevOps and Resource Manager have _different_ permissions models:
     - Azure Resource Manager uses an [_additive_ permissions](/azure/role-based-access-control/overview#multiple-role-assignments) model.
-    - Azure DevOps uses a [_least_ permissions](/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page) model.
+    - Azure DevOps uses a [_least_ permissions](/azure/devops/organizations/security/about-permissions?tabs=preview-page) model.
 
     For this reason, membership to the `-admins` and `-devs` groups must be mutually exclusive. Otherwise, the affected persons would have less access than expected in Azure DevOps.
 
@@ -95,12 +95,12 @@ The numbering reflects the order in which IT administrators and enterprise archi
     To understand the reasoning behind the individual role assignments, refer to the [considerations section](#considerations) later in this article.
 
 6. **Service connections**  
- In Azure DevOps, a [Service Connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
-   - Admins must configure [pipeline permissions](/azure/devops/pipelines/security/resources?view=azure-devops#pipeline-permissions) to control which pipelines can access the credentials.
-   - Admins must also configure a [branch control check](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`.
+ In Azure DevOps, a [Service Connection](/azure/devops/pipelines/library/service-endpoints?tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](/azure/devops/pipelines/security/resources#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
+   - Admins must configure [pipeline permissions](/azure/devops/pipelines/security/resources#pipeline-permissions) to control which pipelines can access the credentials.
+   - Admins must also configure a [branch control check](/azure/devops/pipelines/process/approvals?tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`.
 
 7. **Git repositories**  
- Because our service connections are tied to branches via [branch controls](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
+ Because our service connections are tied to branches via [branch controls](/azure/devops/pipelines/process/approvals?tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](/azure/devops/repos/git/branch-policies). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
 
 ### Components
 
@@ -125,21 +125,21 @@ To achieve end-to-end governance in Azure, it's important to understand the secu
 [![Diagram illustrating a baseline CI/CD workflow with Azure DevOps](media/e2e-governance-devsecops-workflow-inline.png)](media/e2e-governance-devsecops-workflow-lrg.png#lightbox)  
 *Download an [SVG of this workflow](media/e2e-governance-devsecops-workflow.svg).*
 
-To successfully secure your workloads, you must use a combination of security permission configurations and human checks in your workflow. It's important that any RBAC model must also extend to both pipelines and code. These often run with privileged identities and will destroy your workloads if instructed to do so. To prevent this from happening, you should configure [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops) on your repository to require human approval before accepting changes that trigger automation pipelines.
+To successfully secure your workloads, you must use a combination of security permission configurations and human checks in your workflow. It's important that any RBAC model must also extend to both pipelines and code. These often run with privileged identities and will destroy your workloads if instructed to do so. To prevent this from happening, you should configure [branch policies](/azure/devops/repos/git/branch-policies) on your repository to require human approval before accepting changes that trigger automation pipelines.
 
 | Deployment stages | Responsibility | Description |
 |:--|:--|:--|
 | **Pull requests** | User | Engineers should peer review their work, including the Pipeline code itself. |
-| **Branch protection** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure [Azure DevOps](/azure/devops/repos/git/branch-policies?view=azure-devops) to reject changes that do not meet certain standards, such as CI checks and peer reviews (via pull requests). |
+| **Branch protection** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure [Azure DevOps](/azure/devops/repos/git/branch-policies) to reject changes that do not meet certain standards, such as CI checks and peer reviews (via pull requests). |
 | **Pipeline as code** | User | A build server will delete your entire production environment if the pipeline code instructs it to do so. Help prevent this by using a combination of pull requests and branch protection rules, such as human approval. |
-| **[Service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure Azure DevOps to restrict access to these credentials. |
+| **[Service connections](/azure/devops/pipelines/library/service-endpoints?tabs=yaml)** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure Azure DevOps to restrict access to these credentials. |
 | **Azure Resources** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure RBAC in Resource Manager. |
 
 The following concepts and questions are important to consider when designing a governance model. Bear in mind the [potential use cases](#potential-use-cases) of this example organization.
 
 ### 1. Safeguard your environments with branch policies
 
-Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](/azure/devops/repos/git/about-pull-requests) in combination with [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops), which define checks and requirements before code can be accepted.
+Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](/azure/devops/repos/git/about-pull-requests) in combination with [branch policies](/azure/devops/repos/git/branch-policies), which define checks and requirements before code can be accepted.
 
 When planning your end-to-end governance model, privileged users (`veggies-admins`) will be responsible for configuring branch protection. Common branch protection checks used to secure your deployments include:
 
@@ -234,9 +234,9 @@ Principal author:
   - [Contributor (built-in)](/azure/role-based-access-control/built-in-roles#contributor)
   - [Reader (built-in)](/azure/role-based-access-control/built-in-roles#reader)
   - [Custom Role](/azure/role-based-access-control/custom-roles)
-- [Azure DevOps security groups](/azure/devops/organizations/security/permissions?view=azure-devops&tabs=preview-page#groups)
-  - [Project Administrators](/azure/devops/user-guide/roles?view=azure-devops#project-administrators)
-  - [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles)
+- [Azure DevOps security groups](/azure/devops/organizations/security/permissions?tabs=preview-page#groups)
+  - [Project Administrators](/azure/devops/user-guide/roles#project-administrators)
+  - [Contributor](/azure/devops/user-guide/roles#contributor-roles)
   - [Reader](/azure/role-based-access-control/built-in-roles#reader)
 
 ## Related resources

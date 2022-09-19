@@ -70,7 +70,7 @@ If you enable continuous integration in the `triggers` section of your build pip
 
 ### Continuous deployment and release
 
-A [multi-stage YAML pipeline](/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops) executes all the defined stages such as build and deploy. While another option is to use an Azure Pipelines [release pipeline](/azure/devops/pipelines/release) to automate your deployment process. In both cases, the result is the same since it enables continuous deployment.
+A [multi-stage YAML pipeline](/azure/devops/pipelines/get-started/multi-stage-pipelines-experience) executes all the defined stages such as build and deploy. While another option is to use an Azure Pipelines [release pipeline](/azure/devops/pipelines/release) to automate your deployment process. In both cases, the result is the same since it enables continuous deployment.
 
 In the deploy stage or release pipeline, you define tasks to deploy your app to the underlying infrastructure. You can define many variables for the overall pipeline, so you don't have to input them for every task.
 

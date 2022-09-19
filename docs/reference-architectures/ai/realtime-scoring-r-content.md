@@ -73,7 +73,7 @@ The main cost consideration in this architecture is the Kubernetes cluster's com
 [aml-docs]: /azure/machine-learning/
 [acr]: /azure/container-registry/container-registry-intro
 [aks]: /azure/aks/intro-kubernetes
-[aks-baseline]: ../containers/aks/secure-baseline-aks.yml
+[aks-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [docker]: https://docs.docker.com/registry/spec/api
 [r-sdk]: https://azure.github.io/azureml-sdk-for-r/index.html
 [0]: ./_images/realtime-scoring-r.png

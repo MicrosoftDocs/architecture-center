@@ -11,9 +11,9 @@ DevSecOps prioritizes security throughout the  development and operations. The f
 ### Dataflow
 
 1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authentication security.
-1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops).
+1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github).
 1. GitHub Enterprise integrates automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
-1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops).
+1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 1. The CI build in Azure Pipelines generates a Docker container image that is stored to [Azure Container Registry](/azure/container-registry/container-registry-concepts). It's used at release time by [Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 1. Microsoft Defender for Cloud will scan the image for Azure-native vulnerabilities and for security recommendations for the pushed image upon uploading to the Azure Container Registry.
 1. A release on Azure Pipelines integrates the [Terraform](/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks) tool. It manages both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview), and [Azure Cosmos DB](/azure/cosmos-db/introduction).

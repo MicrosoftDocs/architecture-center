@@ -12,7 +12,7 @@ That network architecture is based on a hub-spoke topology. The hub virtual netw
 
 > [!IMPORTANT]
 >
-> The architecture and the implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
+> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
 
 ## Components
 

@@ -8,6 +8,8 @@ The Gridwich architecture features two *sandwiches* that address the requirement
 
   ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
 
+  *Download a [Visio file](https://arch-center.azureedge.net/gridwich-architecture.vsdx) of this architecture.*
+
 - The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code). Separating infrastructure and software releases means the Azure Functions app must be released and running before Terraform can deploy the Event Grid subscription. To address this requirement, there are two Terraform jobs in the CI/CD pipeline:
 
   ![Diagram showing the Terraform sandwich jobs.](media/terraform-sandwich.png)
@@ -103,7 +105,7 @@ For requests that are easy to perform and fast to complete, the handler does the
 
 For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/ChangeBlobTierHandler.cs) is a simple synchronous flow. The handler gets a Request data transfer object (DTO), calls and awaits a single service to do the work, and returns a Success or Failure response.
 
-![Diagram showing the ChangeBlobTierHandler synchronous flow example.](media/sync-example.png)
+:::image type="content" border="false" source="media/sync-example.png" alt-text="Diagram showing the ChangeBlobTierHandler synchronous flow example." lightbox="media/sync-example.png":::
 
 #### Asynchronous event processing
 
@@ -115,11 +117,11 @@ On completing the work activity, the request handler is responsible for providin
 
 For example, the [BlobCopyHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCopyHandler.cs) shows a simple asynchronous flow. The handler gets a Request DTO, calls and awaits a single service to initiate the work, and publishes a Scheduled or Failure response.
 
-![Diagram showing the BlobCopyHandler asynchronous flow example with event scheduled.](media/async-example-scheduled.png)
+:::image type="content" border="false" source="media/async-example-scheduled.png" alt-text="Diagram showing the BlobCopyHandler asynchronous flow example with event scheduled." lightbox="media/async-example-scheduled.png":::
 
 To complete the long-running request flow, the [BlobCreatedHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs) consumes the platform event `Microsoft.Storage.BlobCreated`, extracts the original operation context, and publishes a Success or Failure completion response.
 
-![Diagram showing the BlobCopyHandler asynchronous flow example with event successful.](media/async-example-success.png)
+:::image type="content" border="false" source="media/async-example-success.png" alt-text="Diagram showing the BlobCopyHandler asynchronous flow example with event successful." lightbox="media/async-example-success.png":::
 
 ### Long-running functions
 
@@ -134,7 +136,7 @@ Gridwich uses Azure Functions *slot deployment* and *cancellation tokens* to mee
 
 The following diagram shows how most Gridwich jobs work. The green box represents a job that Gridwich passes to an external service. Gridwich then reacts in an event-driven way to the status. The red box shows a  function that is long-running on Gridwich itself.
 
-![Diagram showing short-running and long-running functions.](media/long-running-functions.png)
+:::image type="content" border="false" source="media/long-running-functions.png" alt-text="Diagram showing short-running and long-running functions." lightbox="media/long-running-functions.png":::
 
 The Functions runtime adds the cancellation token when the application is shutting down. Gridwich detects the token and returns error codes for all requests and currently running processes.
 

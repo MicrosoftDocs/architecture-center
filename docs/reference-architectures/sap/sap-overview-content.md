@@ -163,9 +163,9 @@ The scalability pillar of the SAP on Azure Architecture Guide describes performa
 
 [SAP Note \#1928533](https://launchpad.support.sap.com/#/notes/1928533) details the [SAPS](https://www.sap.com/about/benchmark/measuring.html) value for the virtual machines that are supported to run SAP applications. (To access this SAP note, an SAP Service Marketplace account is required.) For more information about the network and storage throughput per Azure virtual machine type, see these resources:
 
-- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-n...)
+- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
 
-- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-net...)
+- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes)
 
 The agility of Azure allows you to scale your SAP system with ease. For example, you can increase the compute capacity of the database server or scale horizontally by adding application servers when demand arises. You can also temporarily bulk up your infrastructure to accelerate your SAP migration throughput and reduce the downtime.
 
