@@ -46,7 +46,7 @@ The workload is a simple web application that employees can use to submit and vi
 
 #### Infrastructure
 
-**i.** AKS cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+**i.** AKS cluster that's based on the infrastructure presented in the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 **ii.** Rook Ceph that's used for cluster storage.
 
@@ -157,6 +157,6 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 ## Related resources
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml) 
 - [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)

@@ -241,4 +241,4 @@ Explore the following related architectures:
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

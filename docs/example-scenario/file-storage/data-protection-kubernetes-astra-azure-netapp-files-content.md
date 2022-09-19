@@ -179,7 +179,7 @@ Principal authors:
 [Azure NetApp Files service page]: https://azure.microsoft.com/services/netapp
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
-[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: ../../reference-architectures/containers/aks/secure-baseline-aks.yml
+[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Create an Azure service principal]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#create-an-azure-service-principal-2

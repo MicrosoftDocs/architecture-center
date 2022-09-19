@@ -59,7 +59,7 @@ Consider these technologies and solutions as you plan and implement your deploym
 ## Best practices
 The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles apply the pillars to the use of some Azure networking services: 
 - [Review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity) 
-- [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
+- [Review of Azure Firewall](/azure/architecture/framework/services/networking/azure-firewall) 
 - [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.yml) 
 
 The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these articles helpful as you plan and implement your networking solution: 
