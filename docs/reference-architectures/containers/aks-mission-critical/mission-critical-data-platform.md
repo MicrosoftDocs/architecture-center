@@ -4,7 +4,7 @@ description: Data decisions for the baseline reference architecture for a missio
 author: msimecek
 categories: database
 ms.author: csiemens
-ms.date: 08/18/2022
+ms.date: 09/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -157,8 +157,16 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
   - If an acknowledgment isn't received by the broker in the allotted time period, or the handler explicitly abandons the message, the exclusive lock is released. The message is then available for other consumers to process the message.
   - If a message is not successfully processed a configurable number of times, or the handler forwards the message to the dead-letter queue.
 - Because messages can potentially be processed more than one time, message handlers should be made idempotent.
+  - In [RFC 7231](https://tools.ietf.org/html/rfc7231#section-4), the Hypertext Transfer Protocol states, "A ... method is considered _idempotent_ if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request."
+  - One common technique of making message handling idempotent is to check a persistent store, like a database, if the message has already been processed. If it has been processed, you wouldn't run the logic to process it again. 
+  - There might be situations where the processing of the message includes database operations, specifically the insertion of new records with database-generated identifiers. New messages can be emitted to the broker, which contain those identifiers. Because there aren't distributed transactions that encompass both the database and the message broker, there can be a number of complications that can occur if the process running the code happens to fail. See the following example situations:
+    - The code emitting the messages might run before the database transaction is committed, which is how many developers work using the [Unit of Work pattern](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern). Those messages can _escape_, if the failure occurs between calling the broker and asking that the database transaction be committed. As the transaction rolls back, those database-generated IDs are also undone, which leaves them available to other code that might be running at the same time. This can cause recipients of the _escaped_ messages to processes the wrong database entries, which hurts the overall consistency and correctness of your system.
+    - If developers put the code that emits the message *after* the database transaction completes, the process can still fail between these operations (transaction commited - message sent). When that happens, the message will go through processing again, but this time the idempotence guard clause will see that it has already been processed (based on the data stored in the database). The clause will skip the message emitting code, believing that everything was done successfully last time. Downstream systems, which were expecting to receive notifications about the completed process, do not receive anything. This situation again results in an overall state of inconsistency.
+  - The solution to the above problems involves using the [Transactional Outbox pattern](/azure/architecture/best-practices/transactional-outbox-cosmos), where the outgoing messages are stored _off to the side_, in the same transactional store as the business data. The messages are then transmitted to the message broker, when the initial message has been successfully processed.
+  - Since many developers are unfamiliar with these problems or their solutions, in order to guarantee that these techniques are applied consistenty in a mission-critical system, we suggest you have the functionality of the outbox and the interaction with the message broker wrapped in some kind of library. All code processing and sending transactionally-significant messages should make use of that library, rather than interacting with the message broker directly.
+    - Libraries that implement this functionality in .NET include [NServiceBus](https://docs.particular.net/nservicebus/outbox) and [MassTransit](https://masstransit-project.com/advanced/transactional-outbox.html).
 - To ensure that messages sent to the dead-letter queue are acted upon, the dead-letter queue should be monitored, and alerts should be set.
-- The system should have tooling for operators to be able to inspect, correct and resubmit messages.
+- The system should have tooling for operators to be able to inspect, correct, and resubmit messages.
 
 ### High availability and disaster recovery
 
