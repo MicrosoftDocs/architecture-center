@@ -61,6 +61,16 @@ This solution applies to the marketing of goods and services based on customer d
 
 * **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mahi Sundararajan](https://www.linkedin.com/in/mahalakshmi-sundararajan-5b013b16) | Senior Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Detailed information about the classifiers that this model uses](https://github.com/Azure/cortana-intelligence-personalization-data-science-playbook/blob/master/Personalized_Offers_from_Classifiers_Use_Case.md#types)
