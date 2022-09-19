@@ -111,9 +111,9 @@ Product documentation:
 
 Learn modules:
 
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service/)
-- [Deploy a website to Azure with Azure App Service](/learn/paths/deploy-a-website-with-azure-app-service/)
-- [Protect your APIs on Azure API Management](/learn/modules/protect-apis-on-api-management/)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service/)
+- [Deploy a website to Azure with Azure App Service](/training/paths/deploy-a-website-with-azure-app-service/)
+- [Protect your APIs on Azure API Management](/training/modules/protect-apis-on-api-management/)
 
 ## Related resources
 

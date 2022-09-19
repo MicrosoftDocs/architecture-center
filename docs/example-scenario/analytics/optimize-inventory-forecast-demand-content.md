@@ -101,7 +101,7 @@ The implemented reference solution uses advanced machine learning and deep learn
 
 ## Considerations
 
-Consider following the Microsoft Azure Well-Architected Framework when deploying the solution to production. The Well-Architected Framework provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected](/learn/paths/azure-well-architected-framework/).
+Consider following the Microsoft Azure Well-Architected Framework when deploying the solution to production. The Well-Architected Framework provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected](/training/paths/azure-well-architected-framework/).
 
 Follow MLOps guidelines to standardize and manage end to end a scalable Machine Learning lifecycle across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. For more information about implementing MLOps in Azure, see [Machine learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2), a project on GitHub.
 

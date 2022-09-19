@@ -38,13 +38,13 @@ Azure provides a wide range of networking tools and capabilities. These are just
 For information about more Azure networking services, see [Azure networking](https://azure.microsoft.com/product-categories/networking).
 
 ## Introduction to networking on Azure
-If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to networking on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here's a good introduction to Azure networking: 
-- [Explore Azure networking services](/learn/modules/azure-networking-fundamentals)
+- [Explore Azure networking services](/training/modules/azure-networking-fundamentals)
 
 And here's a comprehensive learning path: 
-- [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
+- [Configure and manage virtual networks for Azure administrators](/training/paths/azure-administrator-manage-virtual-networks)
 
 ## Path to production
 Consider these technologies and solutions as you plan and implement your deployment: 
@@ -59,7 +59,7 @@ Consider these technologies and solutions as you plan and implement your deploym
 ## Best practices
 The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles apply the pillars to the use of some Azure networking services: 
 - [Review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity) 
-- [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
+- [Review of Azure Firewall](/azure/architecture/framework/services/networking/azure-firewall) 
 - [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.yml) 
 
 The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection of documentation, implementation guidance, best practices, and tools that are designed to accelerate your cloud adoption. You might find these articles helpful as you plan and implement your networking solution: 

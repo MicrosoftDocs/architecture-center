@@ -99,6 +99,6 @@ For information about solution components, see these resources:
 [apache-spark-machine-learning-training]: /azure/synapse-analytics/spark/apache-spark-machine-learning-training
 [tutorial-sql-pool-model-scoring-wizard]: /azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard
 [pbi-overview]: /power-bi/fundamentals/power-bi-overview
-[ms-learn-create-ml]: /learn/paths/create-machine-learn-models
-[ms-learn-build-ai-solutions]: /learn/paths/build-ai-solutions-with-azure-ml-service
-[ms-learn-synapse-data-integration]: /learn/paths/data-integration-scale-azure-data-factory
+[ms-learn-create-ml]: /training/paths/create-machine-learn-models
+[ms-learn-build-ai-solutions]: /training/paths/build-ai-solutions-with-azure-ml-service
+[ms-learn-synapse-data-integration]: /training/paths/data-integration-scale-azure-data-factory

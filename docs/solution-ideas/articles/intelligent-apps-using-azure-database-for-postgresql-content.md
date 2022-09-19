@@ -41,7 +41,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
 
-Depending on the volume and velocity of data being ingressed, you can select one of three deployment modes: single server, flexible, and Hyperscale (Citus). Assuming that you would be mining large workloads of customer opinions and reviews, Hyperscale is a recommended solution. Explore the [When to use Azure Database for PostgreSQL Learn Module](/learn/modules/intro-to-postgres/5-when-to-use-azure-database-postgres) to understand when to use each deployment mode.
+Depending on the volume and velocity of data being ingressed, you can select one of three deployment modes: single server, flexible, and Hyperscale (Citus). Assuming that you would be mining large workloads of customer opinions and reviews, Hyperscale is a recommended solution. Explore the [When to use Azure Database for PostgreSQL Learn Module](/training/modules/intro-to-postgres/5-when-to-use-azure-database-postgres) to understand when to use each deployment mode.
 
 ### Security
 
@@ -74,5 +74,5 @@ Azure Cognitive Services Text Analytics API pricing is determined by the instanc
 
 ## Related resources
 
-* Follow along with this Learn Module and apply the [Text Analytics API](/learn/modules/classify-user-feedback-with-the-text-analytics-api)
-* Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/learn/certifications/azure-ai-engineer)
+* Follow along with this Learn Module and apply the [Text Analytics API](/training/modules/classify-user-feedback-with-the-text-analytics-api)
+* Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/certifications/azure-ai-engineer)

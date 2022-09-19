@@ -121,7 +121,7 @@ Other contributor:
 - [Use Geth to attach to Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Geth/)
 - [Using Truffle - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Truffle/)
 - [Migrate - Quorum Blockchain Service](https://consensys.net/docs/qbs/latest/Get-Started/)
-- [Introduction to blockchain on Azure](/learn/modules/intro-to-blockchain/)
+- [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
 

@@ -271,10 +271,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure resources with tools](/learn/modules/configure-azure-resources-tools)
-- [Configure VPN Gateway](/learn/modules/configure-vpn-gateway)
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
-- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
+- [Configure Azure resources with tools](/training/modules/configure-azure-resources-tools)
+- [Configure VPN Gateway](/training/modules/configure-vpn-gateway)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/training/modules/create-windows-virtual-machine-in-azure)
 
 ## Related resources
 

@@ -67,7 +67,7 @@ Principal author:
 
 ## Next steps
 
-- [Microsoft Learn: Unlock customer intent with Dynamics 365 audience insights](/learn/paths/build-customer-insights)
+- [Microsoft Learn: Unlock customer intent with Dynamics 365 audience insights](/training/paths/build-customer-insights)
 - [Tutorial: Explore and analyze data lakes with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-data-analyst)
 - [Tutorial: Create a Logical Data Warehouse with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse)
 - [Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)

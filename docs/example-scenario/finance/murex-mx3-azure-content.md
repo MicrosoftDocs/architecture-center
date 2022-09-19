@@ -177,8 +177,8 @@ Other contributors:
 
 ## Next steps
 
-- [Centralize your core services by using hub and spoke Azure virtual network architecture](/learn/modules/hub-and-spoke-network-architecture)
-- [Get started with Finance and Operations apps](/learn/paths/get-started-finance-operations)
+- [Centralize your core services by using hub and spoke Azure virtual network architecture](/training/modules/hub-and-spoke-network-architecture)
+- [Get started with Finance and Operations apps](/training/paths/get-started-finance-operations)
 - [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
 - [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture)
 - [Recommended Practices for Success with Oracle on Azure IaaS](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
