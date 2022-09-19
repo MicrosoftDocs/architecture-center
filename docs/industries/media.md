@@ -56,7 +56,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) | Build a high-performance and scalable image-based modeling architecture using Azure infrastructure-as-a-service (IaaS). | Compute |
 | [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml) | Quickly build an architecture to process, classify, and analyze images, using Azure Computer Vision API. | AI/ML |
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations-with-machine-learning.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
-| [Scalable personalization on Azure](../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
+| [Scalable personalization on Azure](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
 | [Analyze news feeds with near real-time analytics](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml) | Build a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds using Azure services. | Analytics |
 
 ## Solution ideas for media and entertainment

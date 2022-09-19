@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Security is a prime concern for businesses that access or store any sort of customer or client data. The DevSecOps approach utilizes security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.
-
-## Potential use cases
-
-Some organizations utilize DevSecOps:
-
-- To help developers write more secure code, embracing security best practices.
-- To respond quickly to software supply chain vulnerabilities.
-- So teams can collaborate and release code faster and more securely.
+DevSecOps prioritizes security throughout the  development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
 
 ## Architecture
 
@@ -19,9 +11,9 @@ Some organizations utilize DevSecOps:
 ### Dataflow
 
 1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authentication security.
-1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops).
+1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github).
 1. GitHub Enterprise integrates automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
-1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops).
+1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 1. The CI build in Azure Pipelines generates a Docker container image that is stored to [Azure Container Registry](/azure/container-registry/container-registry-concepts). It's used at release time by [Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 1. Microsoft Defender for Cloud will scan the image for Azure-native vulnerabilities and for security recommendations for the pushed image upon uploading to the Azure Container Registry.
 1. A release on Azure Pipelines integrates the [Terraform](/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks) tool. It manages both the cloud infrastructure as code, provisioning resources such as Azure Kubernetes Service, [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview), and [Azure Cosmos DB](/azure/cosmos-db/introduction).
@@ -48,13 +40,19 @@ Some organizations utilize DevSecOps:
 - Using [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects logs and metrics from AKS. You get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
 - Using [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
 
+## Potential use cases
+
+Some organizations utilize DevSecOps:
+
+- To help developers write more secure code, embracing security best practices.
+- To respond quickly to software supply chain vulnerabilities.
+- So teams can collaborate and release code faster and more securely.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
-
- * [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
+Principal author: [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
 ## Next steps
 

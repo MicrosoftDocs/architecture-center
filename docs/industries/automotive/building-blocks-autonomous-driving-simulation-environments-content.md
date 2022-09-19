@@ -128,6 +128,8 @@ This solution is ideal for the automotive and transportation industries. Typical
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability and resiliency
 
 Consider deploying VMs [across availability sets or availability zones](/azure/virtual-machines/availability), which help protect applications against planned maintenance events and unplanned outages.
@@ -144,6 +146,8 @@ For container deployments, [Azure Containers Instances](/azure/container-instanc
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 As with any other type of application, the simulation environment can be designed to handle sensitive data. Therefore, you should restrict who can sign in and use it, and you should also limit what data can be accessed based on the user's identity or role. Use [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and use [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 For general guidance on designing secure solutions, see the [Azure security documentation](/azure/security).
@@ -154,6 +158,8 @@ For deploying fresh simulation environments, it's best to use CI/CD processes us
 [Azure DevOps Starter](/azure/devops-project/overview) documentation.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. You can also optimize your costs by following the process to right-size the capacity of your VMs from the beginning, along with simplified resizing as needed. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
@@ -173,22 +179,22 @@ Product documentation:
 
 - [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
     / [GitHub](https://docs.github.com/en/get-started)
 
 - [Azure Monitor](/azure/azure-monitor/overview)
 
 Microsoft learning paths:
 
-- [Implement and manage storage for Azure administrators](/learn/paths/azure-administrator-manage-storage)
+- [Implement and manage storage for Azure administrators](/training/paths/azure-administrator-manage-storage)
 
-- [Deploy and manage compute resources for Azure administrators](/learn/paths/azure-administrator-manage-compute-resources)
+- [Deploy and manage compute resources for Azure administrators](/training/paths/azure-administrator-manage-compute-resources)
 
-- [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
+- [Configure and manage virtual networks for Azure administrators](/training/paths/azure-administrator-manage-virtual-networks)
 
-- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance)
+- [Manage identities and governance for Azure administrators](/training/paths/azure-administrator-manage-identities-governance)
 
-- [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
+- [Monitor and back up resources for Azure administrators](/training/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
 

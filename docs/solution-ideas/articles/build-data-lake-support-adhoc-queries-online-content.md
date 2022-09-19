@@ -118,6 +118,8 @@ For deploying the used services in this example workload automatically, it's bes
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
 
 ## Deploy this scenario
@@ -350,7 +352,7 @@ select * from metadata where transactionId = '123456'
 -   [Azure Synapse Analytics](/azure/synapse-analytics)
 -   [What is Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Azure Databricks Delta Lake and Delta Engine guide](/azure/databricks/delta)
--   [Describe Azure Databricks Delta Lake architecture](/learn/modules/describe-azure-databricks-delta-lake-architecture)
+-   [Describe Azure Databricks Delta Lake architecture](/training/modules/describe-azure-databricks-delta-lake-architecture)
 
 ## Related resources
 

@@ -28,22 +28,20 @@ Azure provides these virtual desktop solutions:
 
 ## Introduction to virtual desktop architecture on Azure
 
-If you're new to virtual desktops on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. 
-Here's a learning path to get you started:
+If you're new to virtual desktops on Azure, the best way to learn more is [Microsoft Learn training](/training/?WT.mc_id=learnaka), a free online platform. Here's a learning path to get you started:
 
-- [Deliver remote desktops and apps with Azure Virtual Desktop](/learn/paths/m365-wvd)
+- [Deliver remote desktops and apps with Azure Virtual Desktop](/training/paths/m365-wvd)
 
 ## Path to production
 
-Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with 
-[Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/wvd), and check out the other articles below that one in the table of contents.
+Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/wvd), and check out the other articles below that one in the table of contents.
 
 These are two more key Cloud Adoption Framework articles:
 
 - [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/wvd/plan)
 - [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/wvd/ready)
 
-See [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) for a high-level overview of the network connections used by Azure Virtual Desktop.
+See [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) for a high-level overview of the network connections used by Azure Virtual Desktop.
 
 ## Best practices
 
@@ -59,7 +57,7 @@ The following sections, organized by category, provide links to example scenario
 
 ### Identity
 
-- [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
+- [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Azure AD join for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
 - [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest.yml)
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
@@ -69,13 +67,13 @@ The following sections, organized by category, provide links to example scenario
 - [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
 - [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
 
-### FSLogix 
+### FSLogix
 
 FSLogix is designed for roaming profiles in remote computing environments like Azure Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment. For more information, see these resources:
 
 - [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
-- [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=https%3A%2F%2Fdocs.microsoft.com%%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Stay current with virtual desktop technologies on Azure
 
@@ -87,7 +85,7 @@ Get the [latest updates on Azure virtual desktop technologies](https://azure.mic
 
 These are some additional articles about Azure Virtual Desktop:
 
-- [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml)
 - [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)
 

@@ -71,9 +71,9 @@ For information on solution components, see these resources:
 
 To explore related Microsoft Learn modules, see these resources:
 
-- [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
-- [Transcribe speech input to text](/learn/modules/transcribe-speech-input-text)
-- [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
+- [How to build a basic chatbot](/training/modules/how-build-basic-chatbot)
+- [Transcribe speech input to text](/training/modules/transcribe-speech-input-text)
+- [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/training/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 

@@ -153,7 +153,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-arc]: /azure/azure-arc/overview
 [azure-arc-enabled-servers]: /azure/azure-arc/servers/overview
 [azure-arc-enabled-sql-server]: /sql/sql-server/azure-arc/overview?view=sql-server-ver15
-[kubernetes-open-source]: /learn/modules/intro-to-kubernetes/2-what-is-kubernetes
+[kubernetes-open-source]: /training/modules/intro-to-kubernetes/2-what-is-kubernetes
 [azure-kubernetes-service]: /azure/aks/intro-kubernetes
 [azs-hci]: /azure-stack/hci/overview
 [azure-kubernetes-service-on-azs-hci]: /azure-stack/aks-hci/overview
@@ -181,7 +181,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [kubernetes-kibana-grafana]: /azure/azure-arc/data/monitor-grafana-kibana
 [arc-enabled-kubernetes-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [arc-enabled-kubernetes-gitops-enforce]: /azure/azure-arc/kubernetes/use-azure-policy
-[arc-enabled-kubrnetes-policy-enforcement]: /azure/governance/policy/concepts/policy-for-kubernetes?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.yml
+[arc-enabled-kubrnetes-policy-enforcement]: /azure/governance/policy/concepts/policy-for-kubernetes?toc=/azure/azure-arc/kubernetes/toc.yml
 [azure-defender-pricing]: https://azure.microsoft.com/pricing/details/security-center/
 [azure-arc-data-controller-sizing]: /azure/azure-arc/data/sizing-guidance#data-controller-sizing-details
 [azure-arc-sql-mi-sizing]: /azure/azure-arc/data/sizing-guidance#sql-managed-instance-sizing-details

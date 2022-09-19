@@ -108,8 +108,8 @@ Product documentation
 
 Microsoft Learn modules:
 
-- [Get started with AI on Azure](/learn/modules/get-started-ai-fundamentals)
-- [Work with data in Azure Machine Learning](/learn/modules/work-with-data-in-aml)
+- [Get started with AI on Azure](/training/modules/get-started-ai-fundamentals)
+- [Work with data in Azure Machine Learning](/training/modules/work-with-data-in-aml)
 
 ## Related resources
 

@@ -130,7 +130,7 @@ Learn more about the component technologies:
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi)
+- [Create dashboards in Power BI](/training/modules/create-dashboards-power-bi)
 
 Learn more about pricing solutions:
 
@@ -139,7 +139,7 @@ Learn more about pricing solutions:
   - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization.
   - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.
 - Blog post: [A Pricing Engine for Everyone built with AzureML and Python](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
-- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service)
+- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/training/paths/build-ai-solutions-with-azure-ml-service)
 
 ## Related resources
 

@@ -30,7 +30,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
 
-**Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
+**Azure Pipelines**. [Pipelines](/azure/devops/pipelines/) is part of [Azure DevOps Services](/azure/devops/index) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 **Azure Monitor**. [Azure Monitor](/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container and node logs.
 

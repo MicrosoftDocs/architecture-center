@@ -42,7 +42,7 @@ Sometimes, you'll see deployments referred to as _supertenants_ or _stamps_.
 
 When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as illustrated below:
 
-![Diagram showing the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png) <!-- TODO update diagram -->
+![Diagram showing the mapping between tenants and deployments. A tenant mapping layer refers to a table that stores the relationship between tenants and deployments.](media/tenancy-models/map-logical-physical.png)
 
 ## Tenant isolation
 
@@ -134,6 +134,22 @@ You can also consider horizontally partitioning your deployments. This means you
 ## Test your isolation model
 
 Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+ * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

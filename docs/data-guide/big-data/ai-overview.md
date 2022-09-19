@@ -147,7 +147,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
-- [Introduction to machine learning with Python and Azure Notebooks](/learn/paths/intro-to-ml-with-python/)
+- [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
 
 - [scikit-learn.](https://scikit-learn.org/stable/) An open-source ML library for Python
 

@@ -340,7 +340,7 @@ If you have Defender for Cloud Apps, you can use Conditional Access to configure
 
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
-- For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
+- For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](/azure/active-directory/fundamentals/secure-with-azure-ad-introduction).
 - [AWS tutorial: Azure AD with IDP SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)
 - [Microsoft tutorial: SSO for AWS](/azure/active-directory/saas-apps/amazon-web-service-tutorial)
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan)

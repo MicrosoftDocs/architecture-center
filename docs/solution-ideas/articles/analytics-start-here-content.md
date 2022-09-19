@@ -12,11 +12,11 @@ Data can be processed in batches or in real-time, on-premises or in the cloud, b
 ## Learn about analytics on Azure
 
 If you're new to analytics on Azure, the best place to learn more is with
-[Microsoft Learn](/learn/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
+[Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
 
--   [Browse Azure data topics](/learn/browse/?products=azure&filter-products=data&terms=data)
+-   [Browse Azure data topics](/training/browse/?products=azure&filter-products=data&terms=data)
 
--   [Explore Azure database and analytics services](/learn/modules/azure-database-fundamentals/)
+-   [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
 
 ## Organizational readiness
 

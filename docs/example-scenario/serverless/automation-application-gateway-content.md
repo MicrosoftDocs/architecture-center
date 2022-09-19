@@ -124,8 +124,8 @@ Principal author:
 
 ## Next steps
 
-- [Architect modern applications in Azure](/learn/paths/architect-modern-apps)
-- [Implement network security in Azure](/learn/paths/implement-network-security)
+- [Architect modern applications in Azure](/training/paths/architect-modern-apps)
+- [Implement network security in Azure](/training/paths/implement-network-security)
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
 
 ## Related resources
