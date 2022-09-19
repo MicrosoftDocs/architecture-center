@@ -8,7 +8,7 @@ Other Microsoft security components can integrate with Azure AD to provide addit
 - Microsoft Defender for Cloud provides threat protection to AWS workloads. It also helps proactively strengthen security for AWS environments and uses an agentless approach to connect to those environments.
 - Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
 
-These Microsoft security solutions are extensible and offer multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full-security architecture that protects current and future AWS deployments.
+These Microsoft security solutions are extensible and offer multiple levels of protection. You can implement one or more of these solutions along with other types of protection for a full-security architecture that helps protect current and future AWS deployments.
 
 ## Potential use cases
 
@@ -18,20 +18,26 @@ This article provides AWS identity architects, administrators, and security anal
 
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
-:::image source="./media/aws-azure-security-solutions-architecture.png" alt-text="Architecture diagram that shows the benefits of implementing Azure security for AWS." border="false":::
+:::image source="./media/aws-azure-security-solutions-architecture.png" alt-text="Architecture diagram that shows the benefits of implementing Azure security for AWS." border="false" lightbox="./media/aws-azure-security-solutions-architecture.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/1985346_aws-azure-security-solutions-architecture.pptx) of this architecture.*
 
 ### Workflow
 
-- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml).
+- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml). Microsoft Entra Permissions Management is a *cloud infrastructure entitlement management (CIEM)* product that provides comprehensive visibility and control over permissions for any AWS identity or resource. You can use Entra Permissions Management to:
+
+  - Get a multi-dimensional view of your risk by assessing identities, permissions, and resources.
+  - Automate the enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy in your entire multicloud infrastructure.
+  - Use anomaly and outlier detection to prevent data breaches that are caused by misuse and malicious exploitation of permissions.
+
+  For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws).
 
 - Defender for Cloud Apps:
   - Integrates with the Azure AD conditional access feature to enforce additional restrictions.
-  - Monitors and protects sessions after sign-in.
+  - Helps monitor and protect sessions after sign-in.
   - Uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and to support information protection.
 
-- Defender for Cloud displays AWS security recommendations in the Defender for Cloud portal together with Azure recommendations. Defender for Cloud offers more than 160 out-of-the-box recommendations for infrastructure as a service (IaaS) and platform as a service (PaaS) services. It also provides support for regulatory standards including Center for Internet Security (CIS) and payment card industry (PCI) standards, and for the AWS Foundational Security Best Practices standard. Defender for Cloud also provides cloud workload protection (CWP) for [Amazon EKS clusters](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks), [AWS EC2 instances](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud), and [SQL servers that run on AWS EC2](/azure/defender-for-cloud/defender-for-sql-introduction).
+- Defender for Cloud displays AWS security recommendations in the Defender for Cloud portal together with Azure recommendations. Defender for Cloud offers more than 160 out-of-the-box recommendations for infrastructure as a service (IaaS) and platform as a service (PaaS) services. It also provides support for regulatory standards, including Center for Internet Security (CIS) and payment card industry (PCI) standards, and for the AWS Foundational Security Best Practices standard. Defender for Cloud also provides cloud workload protection (CWP) for [Amazon EKS clusters](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks), [AWS EC2 instances](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud), and [SQL servers that run on AWS EC2](/azure/defender-for-cloud/defender-for-sql-introduction).
 
 - Microsoft Sentinel integrates with Defender for Cloud Apps and AWS to detect and automatically respond to threats. Microsoft Sentinel monitors the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
 
@@ -44,15 +50,15 @@ When several users or roles make administrative changes, a consequence can be *c
 Defender for Cloud Apps provides several capabilities that can integrate with AWS for immediate benefits:
 
 - The Defender for Cloud Apps app connector uses several AWS APIs, including UBA, to search for configuration issues and threats on the AWS platform.
-- *AWS Access Controls* can enforce sign-in restrictions that are based on application, device, IP address, location, registered ISP, and specific user attributes.
-- *Session Controls for AWS* block potential malware uploads or downloads based on Microsoft Defender Threat Intelligence or real-time content inspection.
+- AWS Access Controls can enforce sign-in restrictions that are based on application, device, IP address, location, registered ISP, and specific user attributes.
+- Session Controls for AWS block potential malware uploads or downloads based on Microsoft Defender Threat Intelligence or real-time content inspection.
 - Session controls can also use real-time content inspection and sensitive data detection to impose *data loss prevention (DLP)* rules that prevent cut, copy, paste, or print operations.
 
 Defender for Cloud Apps is available standalone, or as part of Microsoft Enterprise Mobility + Security E5, which includes Azure AD Premium P2. For pricing and licensing information, see [Enterprise Mobility + Security pricing options](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing).
 
 ### Defender for Cloud for CSPM and CWP platforms (CWPP)
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Defender for Cloud protects workloads in Azure, AWS, and Google Cloud Platform (GCP).
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Defender for Cloud helps protect workloads in Azure, AWS, and Google Cloud Platform (GCP).
 
 Defender for Cloud provides an agentless connection to your AWS account. Defender for Cloud also offers plans to secure your AWS resources:
 
@@ -65,7 +71,7 @@ Defender for Cloud provides an agentless connection to your AWS account. Defende
 
 Threats can come from a wide range of devices, applications, locations, and user types. DLP requires inspecting content during upload or download, because post-mortem review might be too late. AWS doesn't have native capabilities for device and application management, risk-based conditional access, session-based controls, or inline UBA.
 
-It's critical that security solutions reduce complexity and deliver comprehensive protection regardless of whether resources are in multicloud, on-premises, or hybrid environments. Defender for Cloud provides CSPM and CWP. Defender for Cloud identifies configuration weak spots across AWS to help strengthen your overall security posture. It also provides threat protection for Amazon EKS Linux clusters, AWS EC2 instances, and SQL servers in AWS EC2.
+It's critical that security solutions reduce complexity and deliver comprehensive protection regardless of whether resources are in multicloud, on-premises, or hybrid environments. Defender for Cloud provides CSPM and CWP. Defender for Cloud identifies configuration weak spots across AWS to help strengthen your overall security posture. It also helps provide threat protection for Amazon EKS Linux clusters, AWS EC2 instances, and SQL servers in AWS EC2.
 
 [Microsoft Sentinel](/azure/sentinel) is a *security information and event management (SIEM)* and *security orchestration, automation, and response (SOAR)* solution that centralizes and coordinates threat detection and response automation for modern security operations. Microsoft Sentinel can monitor AWS accounts to compare events across multiple firewalls, network devices, and servers. Microsoft Sentinel combines monitoring data with threat intelligence, analytics rules, and machine learning to discover and respond to advanced attack techniques.
 
@@ -80,16 +86,11 @@ Keep the following points in mind when you develop a security solution.
 The following principles and guidelines are important for any cloud security solution:
 
 - Ensure that the organization can monitor, detect, and automatically protect user and programmatic access into cloud environments.
-
 - Continually review current accounts to ensure identity and permission governance and control.
-
-- Follow [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that each user can access only the specific resources that they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights that they need for the role that they perform. Review regularly.
-
+- Follow least privilege and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that users can access only the specific resources that they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights that they need for the role that they perform. Review regularly.
 - Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
-
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
-
-- Take advantage of solutions that you might already own like Azure AD Premium P2 that can increase security without additional expense.
+- Take advantage of solutions that you might already own, like Azure AD Premium P2, that can increase security without additional expense.
 
 #### Basic AWS account security
 
@@ -111,7 +112,7 @@ Take the steps in the following sections to implement a security solution.
 To prepare for deployment of Azure security solutions, review and record current AWS and Azure AD account information. If you've deployed more than one AWS account, repeat these steps for each account.
 
 1. In the [AWS Billing Management Console](https://console.aws.amazon.com/billing/home?#/account), record the following current AWS account information:
-   - **AWS Account Id**, a unique identifier
+   - **AWS Account ID**, a unique identifier
    - **Account name**, or root user
    - **Payment method**, whether assigned to a credit card or a company billing agreement
    - **Alternate contacts** who have access to AWS account information
@@ -151,7 +152,7 @@ To deploy Defender for Cloud Apps:
    1. Create a service account to use those permissions on behalf of the Defender for Cloud Apps service.
    1. Provide the credentials to the app connector.
 
-The time it takes to establish the initial connection depends on the AWS account log sizes. When the connection is complete, you see a successful connection confirmation:
+The time it takes to establish the initial connection depends on the AWS account log sizes. When the connection is complete, you see a connection confirmation:
 
 :::image type="content" source="media/connect-app.png" alt-text="Screenshot of the Defender for Cloud Apps portal. Information about an AWS connector is visible with a status of Connected.":::
 
@@ -200,7 +201,7 @@ Follow the instructions at [Tutorial: Azure Active Directory single sign-on (SSO
 
    :::image type="content" source="media/investigate-connected-apps.png" alt-text="Screenshot of the Defender for Cloud Apps portal. On the left bar, Investigate is called out. In the Investigate menu, Connected apps is called out.":::
 
-1. Select **Conditional Access App Control Apps**, and then select **Add**.
+1. Select **Conditional Access App Control apps**, and then select **Add**.
 
    :::image type="content" source="media/add-conditional-access-app-control-app.png" alt-text="Screenshot of the Connected apps page in the Defender for Cloud Apps portal. Conditional Access App Control Apps and Add are called out.":::
 
@@ -302,7 +303,7 @@ To protect your AWS-based resources, take these steps, which the following secti
 
 To connect your AWS account to Defender for Cloud by using a native connector, follow these steps:
 
-1. Review the [prerequisites](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#prerequisites) for connecting an AWS account. Ensure that you've completed them before you proceed.
+1. Review the [prerequisites](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#prerequisites) for connecting an AWS account. Ensure that you complete them before you proceed.
 
 1. If you have any classic connectors, remove them by following the steps in [Remove classic connectors](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings#remove-classic-connectors). Using both the classic and native connectors can produce duplicate recommendations.
 
@@ -332,13 +333,13 @@ To connect your AWS account to Defender for Cloud by using a native connector, f
 
 1. Download the CloudFormation template.
 
-1. Follow the on-screen instructions to use the downloaded CloudFormation template to create the stack in AWS. If you onboard a management account, you need to run the CloudFormation template as Stack and as StackSet. Connectors are created for the member accounts within 24 hours of the onboarding.
+1. Follow the on-screen instructions to use the downloaded CloudFormation template to create the stack in AWS. If you onboard a management account, you need to run the CloudFormation template as Stack and as StackSet. Connectors are created for the member accounts within 24 hours of onboarding.
 
 1. Select **Next: Review and generate**.
 
 1. Select **Create**.
 
-Defender for Cloud immediately starts scanning your AWS resources. Within a few hours, you see security recommendations. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](/azure/defender-for-cloud/recommendations-reference-aws).
+Defender for Cloud immediately starts scanning your AWS resources. Within a few hours, you see security recommendations. For a list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](/azure/defender-for-cloud/recommendations-reference-aws).
 
 #### Monitor your AWS resources
 

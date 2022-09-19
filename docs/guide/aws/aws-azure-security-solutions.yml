@@ -5,12 +5,10 @@ metadata:
   description: See how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
   author: murthyla
   ms.author: murthyla
-  ms.date: 09/16/2022
+  ms.date: 09/19/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom:
-    - fcp
 name: Azure security solutions for AWS
 azureCategories:
   - security
