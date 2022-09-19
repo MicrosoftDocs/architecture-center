@@ -1,4 +1,4 @@
-Classical computing is increasingly challenged with todays most complex compute problems - even at the scale of our most powerful supercomputers. Quantum computers hold the promise to dramatically extend our compute capabilities. By exploiting the properties of quantum physics to perform computations, they provide exponential speedups for certain types of problems. For example, quantum computers do exceptionally well with problems that require calculating a large number of possible combinations often found in optimization, simulation, or machine learning scenarios.
+Classical computing is increasingly challenged with today's most complex compute problems - even at the scale of our most powerful supercomputers. Quantum computers hold the promise to dramatically extend our compute capabilities. By exploiting the properties of quantum physics to perform computations, they provide exponential speedups for certain types of problems. For example, quantum computers do exceptionally well with problems that require calculating a large number of possible combinations often found in optimization, simulation, or machine learning scenarios.
 
 However, quantum computing components have a different operating model from that of classical software. There are typically one or more classical compute components that orchestrate the execution of quantum components. This orchestration includes the following activities:
 
@@ -22,7 +22,7 @@ The tightly coupled approach is preferred in these cases:
 
 * One team owns both the quantum code and the classical code, and the code is integrated.
 * Quantum components share the same lifecycle as the classical components.
-* Use of the quantum components is limited to a single application or small set of related applicaitons.
+* Use of the quantum components is limited to a single application or small set of related applications.
 * The quantum job represents a specialized solution (for example, a molecular simulation) that will be used only by one specialized classical application.
 * The implemented algorithm is hybrid quantum-classical by nature, for example, Variational Quantum Eigensolvers (VQE) and Quantum Approximate Optimization Algorithms (QAOA).
 
@@ -132,7 +132,7 @@ In general, consider applying the [typical design patterns for security](/azure/
 
 ## Common features
 
-The following features are common to both tightly coupled and loosley coupled implementation models
+The following features are common to both tightly coupled and loosely coupled implementation models
 
 ### Alternatives
 
@@ -140,7 +140,7 @@ The architectures presented here are for business problems that require quantum 
 
 ### Considerations
 
-Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the targed completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
+Some of the Azure quantum targets (especially quantum hardware) will be a limited resource for the foreseeable future. Access to these resources is implemented via a queueing mechanism. When you submit a quantum job to Azure Quantum, this job is added to a job queue. The job will be executed, once the target completes processing earlier queue entries. You can obtain the expected waiting time by [listing available targets](/azure/quantum/how-to-submit-jobs). To calculate the full response time, you need to add the time spent waiting for an available resource to the job execution time.
 
 ### Performance and scalability
 
