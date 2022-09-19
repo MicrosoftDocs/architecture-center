@@ -116,6 +116,6 @@ Here are some additional resources:
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)

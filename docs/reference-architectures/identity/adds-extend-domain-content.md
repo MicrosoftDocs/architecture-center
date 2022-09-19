@@ -43,7 +43,7 @@ Configure the VM network interface (NIC) for each AD DS server with a static pri
 
 The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
-If the new deployed Domain Controllers (DC) VMs will have also the role of DNS servers, it's recommended to configure them as custom DNS server at the Azure Virtual Network level as explained in [this article](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new DCs and peered networks where other VMs will need to resolve Active Directory domain names. More details on how to configure hybrid DNS name resolution can be found in [this article](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). 
+If the new deployed Domain Controllers (DC) VMs will have also the role of DNS servers, it's recommended to configure them as custom DNS server at the Azure Virtual Network level as explained in [this article](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new DCs and peered networks where other VMs will need to resolve Active Directory domain names. More details on how to configure hybrid DNS name resolution can be found in [this article](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 ### Active Directory Site
 
@@ -53,7 +53,7 @@ We recommend that you create an AD DS site including the subnets defined for you
 
 ### Active Directory Operations Masters
 
-The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles (FSMO): schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters]. It's also recommended to give at least two of the new Azure DCs the Global Catalog (GC) role. More details on GC placement can be found [here](/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement). 
+The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles (FSMO): schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters]. It's also recommended to give at least two of the new Azure DCs the Global Catalog (GC) role. More details on GC placement can be found [here](/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement).
 
 ### Monitoring
 
@@ -157,7 +157,7 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[az-pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
+[az-pipelines]: /azure/devops/pipelines/
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [availability-set]: /azure/virtual-machines/windows/tutorial-availability-sets
 [azure-expressroute]: /azure/expressroute/expressroute-introduction

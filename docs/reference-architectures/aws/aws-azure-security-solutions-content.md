@@ -322,7 +322,7 @@ If the data stops ingesting and the graph drops, check the credentials used to c
 
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
-- For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
+- For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](/azure/active-directory/fundamentals/secure-with-azure-ad-introduction).
 - [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security)
 - [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws)
 - [Connect Microsoft Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws)

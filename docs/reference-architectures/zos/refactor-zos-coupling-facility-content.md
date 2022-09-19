@@ -137,7 +137,7 @@ You can scale out the server sets to provide more throughput. For more informati
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
-- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [IBM z/OS online transaction processing on Azure](/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure)
 - [Integrate IBM mainframe and midrange message queues with Azure](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)
