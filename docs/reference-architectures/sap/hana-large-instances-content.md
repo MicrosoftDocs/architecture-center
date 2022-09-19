@@ -214,7 +214,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [ip]: /archive/blogs/saponsqlserver/setting-up-hana-system-replication-on-azure-hana-large-instances
 [monitor]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
-[netweaver]: ./sap-netweaver.yml
+[netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
 [os-hardening]: /azure/security/azure-security-iaas
@@ -238,7 +238,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [sap-security]: https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm
 [scenarios]: /azure/virtual-machines/workloads/sap/hana-supported-scenario
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[s4hana]: ./sap-s4hana.yml
+[s4hana]: /azure/architecture/guide/sap/sap-s4hana
 [sku]: /azure/expressroute/expressroute-about-virtual-network-gateways
 [skus]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines

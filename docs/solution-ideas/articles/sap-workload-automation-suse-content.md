@@ -64,9 +64,9 @@ Principal author:
 ### SAP
 
 - [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [SAP S/4HANA in Linux on Azure](../..//reference-architectures/sap/sap-s4hana.yml)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
+- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 - [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
 - [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
@@ -90,7 +90,7 @@ Principal author:
 - [Getting Started with SAP HANA High Availability Cluster Automation Operating on Azure](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-HANA-PerOpt-HA-Azure)
 - [Monitor SAP in SLES with Grafana and Prometheus](https://www.youtube.com/watch?v=a8Lz0_pHzm0) (video)
 - [Set up and tune your SUSE system for SAP with saptune](https://www.youtube.com/watch?v=MNKpyQAFRJg)
-- [SAP S/4HANA in Linux on Azure](../../reference-architectures/sap/sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 
 ### Solution templates
 
