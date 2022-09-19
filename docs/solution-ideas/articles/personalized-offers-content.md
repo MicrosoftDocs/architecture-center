@@ -1,24 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In today's highly competitive and connected environment, modern businesses can no longer survive on generic, static online content. Furthermore, marketing strategies that use traditional tools can be expensive and hard to implement. As a result, they don't produce the desired return on investment. These systems often fail to take full advantage of collected data when they create a more personalized experience for users.
-
-Presenting offers that are customized for each user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content based on their unique interests and preferences. Today's digital marketing teams can build this intelligence by using the data that's generated from all types of user interactions.
-
-Marketers now have the opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. But building a reliable and scalable big data infrastructure isn't trivial. And developing sophisticated machine learning models that are personalized for each user is also a complex undertaking.
-
-Intelligent Recommendations offers capabilities to drive desired outcomes such as item based recommendations based on user interactions and Metadata. It can be used to promote and personalize any content type such as sellable products, media, documents, offers and more.
-
-Personalizer service can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This ensures that the service is learning continuously and enhances the Personalizer's ability to select the best items based on the contextual information received.
-
-## Potential use cases
-
-This solution applies to marketing of goods and services based on customer data (products viewed and / or purchased). This could be applicable in the following areas:
-
-* **E-commerce** - This is an area where personalization is very widely used with customer behavior and product recommendations
-
-* **Retail** - Based on prior purchase data, recommendations and offers can be provided on products
-
-* **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited
+This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources. Key technologies used include Intelligent Recommendations and Azure Personalizer.
 
 ## Architecture
 
@@ -26,7 +8,6 @@ This solution applies to marketing of goods and services based on customer data 
 *Download an [SVG](../media/personalized-offers.svg) of this architecture.*
 
 ### Dataflow
-
 
 1. Raw User activity(product and offer clicks) and offers made to users on the website is captured with an Azure Function app to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure cache for Redis.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub.
@@ -54,9 +35,31 @@ This solution applies to marketing of goods and services based on customer data 
 
 ## Solution details
 
-You can save time when you implement this solution by hiring a trained system integrator (SI). The SI can help you develop a proof of concept and can help deploy and integrate the solution.
+In today's highly competitive and connected environment, modern businesses can no longer survive on generic, static online content. Furthermore, marketing strategies that use traditional tools can be expensive and hard to implement. As a result, they don't produce the desired return on investment. These systems often fail to take full advantage of collected data when they create a more personalized experience for users.
+
+Presenting offers that are customized for each user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content based on their unique interests and preferences. Today's digital marketing teams can build this intelligence by using the data that's generated from all types of user interactions.
+
+Marketers now have the opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. But building a reliable and scalable big data infrastructure isn't trivial. And developing sophisticated machine learning models that are personalized for each user is also a complex undertaking.
+
+Intelligent Recommendations offers capabilities to drive desired outcomes, such as item recommendations that are based on user interactions and metadata. It can be used to promote and personalize any content type, such as sellable products, media, documents, offers, and more.
+
+Azure Personalizer is a service that's part of Azure Cognitive Services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances Personalizer's ability to select the best items based on the contextual information received.
 
 Microsoft Azure provides advanced analytics tools in the areas of data ingestion, data storage, data processing, and advanced analytics components—all the essential elements for building a personalized offer solution.
+
+### System integrator
+
+You can save time when you implement this solution by hiring a trained system integrator (SI). The SI can help you develop a proof of concept and can help deploy and integrate the solution.
+
+### Potential use cases
+
+This solution applies to the marketing of goods and services based on customer data (products viewed and / or purchased). This could be applicable in the following areas:
+
+* **E-commerce** - This is an area where personalization is widely used with customer behavior and product recommendations.
+
+* **Retail** - Based on prior purchase data, recommendations and offers can be provided on products.
+
+* **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited.
 
 ## Next steps
 
