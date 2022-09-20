@@ -1,18 +1,6 @@
-Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments.
+This guide shows how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 
 AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](../../reference-architectures/aws/aws-azure-ad-security.yml), often without additional cost.
-
-Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts:
-
-- Microsoft Defender for Cloud Apps backs up Azure AD with session protection and user-behavior monitoring.
-- Microsoft Defender for Cloud provides threat protection to AWS workloads. It also helps proactively strengthen security for AWS environments and uses an agentless approach to connect to those environments.
-- Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
-
-These Microsoft security solutions are extensible and offer multiple levels of protection. You can implement one or more of these solutions along with other types of protection for a full-security architecture that helps protect current and future AWS deployments.
-
-## Potential use cases
-
-This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Architecture
 
@@ -40,6 +28,13 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 - Defender for Cloud displays AWS security recommendations in the Defender for Cloud portal together with Azure recommendations. Defender for Cloud offers more than 160 out-of-the-box recommendations for infrastructure as a service (IaaS) and platform as a service (PaaS) services. It also provides support for regulatory standards, including Center for Internet Security (CIS) and payment card industry (PCI) standards, and for the AWS Foundational Security Best Practices standard. Defender for Cloud also provides cloud workload protection (CWP) for [Amazon EKS clusters](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers?tabs=aws-eks), [AWS EC2 instances](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers?tabs=features-multicloud), and [SQL servers that run on AWS EC2](/azure/defender-for-cloud/defender-for-sql-introduction).
 
 - Microsoft Sentinel integrates with Defender for Cloud Apps and AWS to detect and automatically respond to threats. Microsoft Sentinel monitors the AWS environment for misconfiguration, potential malware, and advanced threats to AWS identities, devices, applications, and data.
+
+### Components
+
+- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-cloud-apps)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
 
 ### Defender for Cloud Apps for visibility and control
 
@@ -76,6 +71,22 @@ It's critical that security solutions reduce complexity and deliver comprehensiv
 [Microsoft Sentinel](/azure/sentinel) is a *security information and event management (SIEM)* and *security orchestration, automation, and response (SOAR)* solution that centralizes and coordinates threat detection and response automation for modern security operations. Microsoft Sentinel can monitor AWS accounts to compare events across multiple firewalls, network devices, and servers. Microsoft Sentinel combines monitoring data with threat intelligence, analytics rules, and machine learning to discover and respond to advanced attack techniques.
 
 You can connect AWS and Defender for Cloud Apps with Microsoft Sentinel. Then you can see Defender for Cloud Apps alerts and run additional threat checks that use multiple Defender Threat Intelligence feeds. Microsoft Sentinel can initiate a coordinated response that's outside Defender for Cloud Apps. Microsoft Sentinel can also integrate with IT service management (ITSM) solutions and retain data on a long-term basis for compliance purposes.
+
+## Scenario details
+
+Microsoft offers several security solutions that can help secure and protect Amazon Web Services (AWS) accounts and environments.
+
+Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts:
+
+- Microsoft Defender for Cloud Apps backs up Azure AD with session protection and user-behavior monitoring.
+- Microsoft Defender for Cloud provides threat protection to AWS workloads. It also helps proactively strengthen security for AWS environments and uses an agentless approach to connect to those environments.
+- Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
+
+These Microsoft security solutions are extensible and offer multiple levels of protection. You can implement one or more of these solutions along with other types of protection for a full-security architecture that helps protect current and future AWS deployments.
+
+### Potential use cases
+
+This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Recommendations
 
