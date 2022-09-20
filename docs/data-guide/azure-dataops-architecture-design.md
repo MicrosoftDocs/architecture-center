@@ -40,7 +40,7 @@ There are many tools and capabilities to implement DataOps processes, like:
 
 ## Introduction to DataOps on Azure
 
-If you're new to DataOps, the best place to start is with Microsoft Learn. This free online training platform offers videos, tutorials, and hands-on learning for various products and services.
+If you're new to DataOps, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on learning for various products and services.
 
 The following resources can help you learn about the core services for DataOps:
 

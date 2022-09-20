@@ -34,7 +34,7 @@ DevOps includes these activities and operations:
 
 ## Introduction to DevOps on Azure
 
-If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn](/training). It's a free, online platform that provides interactive training for Microsoft products and more. There are videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on job role, such as developer or data analyst. If you're not familiar with Learn you can take [a tour of Microsoft Learn](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
+If you need to know more about DevOps, or DevOps on Azure, the best place to learn is [Microsoft Learn training](/training). This free online platform provides interactive training for Microsoft products and more. There are videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on job role, such as developer or data analyst. If you're not familiar with Learn you can take [a tour of Microsoft Learn training](/teamblog/microsoft-learn-tour) or [a quick video tour of Microsoft Learn training](/shows/azure-friday/learning-azure-part-3-a-quick-tour-of-microsoft-learn).
 
 After you're familiar with Azure, you can decide whether to follow learning paths specific to DevOps, such as:
 
@@ -61,10 +61,10 @@ Plan your path to production by reviewing:
 | [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | DevTest Labs guidance | A series of articles to help you use Azure Devtest Labs to provision development and test environments. The first article in the series is [DevTest Labs in the enterprise](/azure/devtest-labs/devtest-lab-guidance-prescriptive-adoption). |
-| Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
-| [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
+| Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
+| [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
 | [DevOps for quantum computing](../../guide/quantum/devops-for-quantum-computing.yml) | A discussion of the DevOps requirements for hybrid quantum applications. |
-| [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
+| [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
 ### Azure DevOps services
 
@@ -74,7 +74,7 @@ Plan your path to production by reviewing:
 | [Azure DevOps](https://azure.microsoft.com/services/devops) | [Azure DevOps documentation](/azure/devops) | Modern dev services for managing your development lifecycle end-to-end. It includes Azure Repos, Azure Pipelines, and Azure Artifacts. |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) | [Azure DevTest Labs documentation](/azure/devtest-labs) | Reusable templates and artifacts for provisioning development and test environments. |
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services) | [Azure Lab Services documentation](/azure/lab-services) | A tool for setting up and providing on-demand access to preconfigured virtual machines (VMs). |
-| [Azure Monitor](https://azure.microsoft.com/services/monitor) | [ Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
+| [Azure Monitor](https://azure.microsoft.com/services/monitor) | [Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) | [Azure Pipelines documentation](/azure/devops/pipelines) | Helps you automate build and deployment by using cloud-hosted pipelines. |
   [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project. |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) | [Azure Resource Manager documentation](/azure/azure-resource-manager) | Provides consistent deployment, organization, and control for resource management. |
@@ -137,7 +137,6 @@ The following articles are about best practices that are specific to DevOps and 
 - [ARM template best practices](/azure/azure-resource-manager/templates/best-practices)
 - [Best practices for Bicep](/azure/azure-resource-manager/bicep/best-practices)
 
-
 ## Stay current with DevOps
 
 Stay current with Azure DevOps by monitoring these articles:
@@ -152,7 +151,6 @@ Stay current with Azure DevOps by monitoring these articles:
 - [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-webapp.yml)
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
-
 
 ### AWS or Google Cloud professionals
 

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy ultraFluidX on an Azure virtual machine
+  description: Find out how the Altair ultraFluidX Lattice Boltzmann method (LBM) solver performs on an Azure virtual machine.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 09/20/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy ultraFluidX on a virtual machine
+summary: Find out how the Altair ultraFluidX Lattice Boltzmann method (LBM) solver performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-ultrafluidx-thumb.png
+content: |
+  [!include[](ultrafluidx-content.md)]

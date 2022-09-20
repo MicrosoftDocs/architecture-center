@@ -26,7 +26,7 @@ The architecture uses these components.
 An Azure Repos Git repository serves as the code repository that provides version control and a platform for collaborative projects.
 
 > [!NOTE]
-> For product documentation, see [Azure Repos](/azure/devops/repos/?view=azure-devops)
+> For product documentation, see [Azure Repos](/azure/devops/repos/)
 
 ##### Azure Pipelines
 
@@ -48,7 +48,7 @@ Azure Web Apps and Azure Function Apps are two options listed in this example fo
 
 ##### Azure Key Vault
 
-Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure Pipelines with an [Azure Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault?view=azure-devops) or by [linking secrets from an Azure key vault](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
+Azure Key Vault is used to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure Pipelines with an [Azure Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault) or by [linking secrets from an Azure key vault](/azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault).
 
 > [!NOTE]
 > For product documentation, see [Key Vault](https://azure.microsoft.com/services/key-vault/).
@@ -66,8 +66,8 @@ The data flows through the scenario as follows:
 
 1. A PR to Azure Repos Git triggers a PR Pipeline. This pipeline will run fast quality checks such as linting, building and unit testing the code. If any of the checks fail, the PR won't merge. The result of a successful run of this pipeline is a successful merge of the PR.
 1. A merge to Azure Repos Git triggers a CI Pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline will run integration tests. These tests will require secrets, so this pipeline will get those secrets from Azure Key Vault. The result of a successful run of this pipeline is the creation and publishing of build artifacts.
-1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops).
-1. The CD pipeline downloads the build artifacts created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?view=azure-devops&tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
+1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
+1. The CD pipeline downloads the build artifacts created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
 1. If the manual intervention is resumed, the pipeline will release the solution to production.
 1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 
@@ -111,13 +111,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - Use [release variables](/azure/devops/pipelines/release/variables) in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
 
-- Consider using [Self-hosted agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install) if you're deploying to resources running in a secured virtual network.
+- Consider using [Self-hosted agents](/azure/devops/pipelines/agents/agents?tabs=browser#install) if you're deploying to resources running in a secured virtual network.
 
 - Consider using [Application Insights](/azure/application-insights/app-insights-overview) and other monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment. By monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
 
-- Consider using [YAML pipelines](/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops) instead of the Classic interface. YAML pipelines can be treated like other code. YAML pipelines can be checked in to source control and versioned, for example.
+- Consider using [YAML pipelines](/azure/devops/pipelines/get-started/yaml-pipeline-editor) instead of the Classic interface. YAML pipelines can be treated like other code. YAML pipelines can be checked in to source control and versioned, for example.
 
-- Consider using [YAML Templates](/azure/devops/pipelines/process/templates?view=azure-devops) to promote reuse and simplify pipelines. For example, PR and CI pipelines are similar. A single parameterized template could be used for both pipelines.
+- Consider using [YAML Templates](/azure/devops/pipelines/process/templates) to promote reuse and simplify pipelines. For example, PR and CI pipelines are similar. A single parameterized template could be used for both pipelines.
 
 ### Cost optimization
 
