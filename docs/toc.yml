@@ -340,6 +340,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
+                - name: Security
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
 
             - name: Guides
               items:
