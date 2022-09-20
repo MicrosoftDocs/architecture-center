@@ -294,7 +294,7 @@ items:
                 href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
                 maintainContext: true
               - name: Guidelines for human-AI interaction
-                href: /ai/guidelines-human-ai-interaction/?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
@@ -617,7 +617,7 @@ items:
               - name: Security for AWS
                 items:
                   - name: Azure security for AWS
-                    href: reference-architectures/aws/aws-azure-security-solutions.yml
+                    href: guide/aws/aws-azure-security-solutions.yml
                   - name: Connect AWS to Microsoft Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
@@ -2960,6 +2960,8 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Enterprise business intelligence
+                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data analytics on confidential computing
@@ -3119,6 +3121,8 @@ items:
                     href: guide/hpc/nanofluidx.yml
                   - name: Altair Radioss
                     href: guide/hpc/altair-radioss.yml
+                  - name: Altair ultraFluidX
+                    href: guide/hpc/ultrafluidx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
@@ -3265,10 +3269,10 @@ items:
                   - name: Troubleshoot virtual nodes
                     href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
                   - name: Monitor AKS with Azure Monitor
-                    href: /azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                    href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Common issues
-                    href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                    href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
               - name: Choose a Kubernetes option
                 items:
@@ -4629,8 +4633,6 @@ items:
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
-              - name: Enterprise business intelligence
-                href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
@@ -5648,6 +5650,8 @@ items:
                   - name: Application security in Azure
                     href: /security/compass/applications-services
                     maintainContext: true
+              - name: Azure security for AWS
+                href: guide/aws/aws-azure-security-solutions.yml
               - name: Highly secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Microsoft Cybersecurity Architectures
@@ -5699,8 +5703,6 @@ items:
                 href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure AD in Security Operations
                 href: example-scenario/aadsec/azure-ad-security.yml
-              - name: Azure security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Cyber threat intelligence
                 href: example-scenario/data/sentinel-threat-intelligence.yml
               - name: Healthcare platform confidential computing

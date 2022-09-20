@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In today's highly competitive and connected environment, modern businesses can no longer survive on generic, static online content. Furthermore, marketing strategies that use traditional tools can be expensive and hard to implement. As a result, they don't produce the desired return on investment. These systems often fail to take full advantage of collected data when they create a more personalized experience for users.
-
-Presenting offers that are customized for each user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content based on their unique interests and preferences. Today's digital marketing teams can build this intelligence by using the data that's generated from all types of user interactions.
-
-Marketers now have the opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. But building a reliable and scalable big data infrastructure isn't trivial. And developing sophisticated machine learning models that are personalized for each user is also a complex undertaking.
-
-## Potential use cases
-
-You can use this solution to market goods and services based on customer data, such as records of products that the customer viewed or purchased.
+This solution builds intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources. Key technologies used include Intelligent Recommendations and Azure Personalizer.
 
 ## Architecture
 
@@ -17,27 +9,17 @@ You can use this solution to market goods and services based on customer data, s
 
 ### Dataflow
 
-1. User activity on the website is simulated with Azure Functions and a pair of Azure Storage queues.
-
-1. Personalized offer functionality is implemented with an instance of Functions.
-
-   - This function is the key component that ties everything together to produce an offer and record activity.
-   - Data is read in from Azure Cache for Redis and the Azure Cosmos DB SQL API.
-   - Product affinity scores are computed from Azure Machine Learning.
-   - If no history for the user exists, pre-computed affinities are read in from Azure Cache for Redis.
-
-1. Raw user activity data is sent to Azure Event Hubs. This data includes:
-
-   - Product and offer click data.
-   - Information about offers that were made to users.
-   - Performance data for Functions and Machine Learning.
-
-1. An offer is returned to the user. In the simulation, this process writes to a Storage queue. That action triggers Functions, which produces the next user action.
-
-1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from Event Hubs.
-
-   - The aggregated data is sent to the Azure Cosmos DB SQL API.
-   - The raw data is sent to Azure Data Lake Storage.
+1. An Azure Function app captures the raw user activity (such as product and offer clicks) and offers that are made to users on the website. The activity is sent to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure Cache for Redis.
+1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hubs instance.
+1. The aggregated data is sent to the Azure Cosmos DB SQL API.
+1. Power BI is used to look for insights on the aggregated data.
+1. The raw data is sent to Azure Data Lake Storage.
+1. Intelligent Recommendations uses the raw data from Azure Data Lake Storage and provides recommendations to Azure Personalizer.
+1. The Personalizer service serves the top contextual and personalized products and offers.
+1. Simulated user activity data is provided to the Personalizer service to provide personalized products and offers.
+1. The results are provided on the web app that the user accesses.
+1. User feedback is captured based on the reaction of the user to the displayed offers and products. The reward score is provided to the Personalizer service to make it perform better over time
+1. Retraining for Intelligent Recommendations can result in better recommendations. This process can also be done by using refreshed data from Azure Data Lake Storage.
 
 ### Components
 
@@ -53,9 +35,41 @@ You can use this solution to market goods and services based on customer data, s
 
 ## Solution details
 
-You can save time when you implement this solution by hiring a trained system integrator (SI). The SI can help you develop a proof of concept and can help deploy and integrate the solution.
+In today's highly competitive and connected environment, modern businesses can no longer survive on generic, static online content. Furthermore, marketing strategies that use traditional tools can be expensive and hard to implement. As a result, they don't produce the desired return on investment. These systems often fail to take full advantage of collected data when they create a more personalized experience for users.
+
+Presenting offers that are customized for each user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content based on their unique interests and preferences. Today's digital marketing teams can build this intelligence by using the data that's generated from all types of user interactions.
+
+Marketers now have the opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. But building a reliable and scalable big data infrastructure isn't trivial. And developing sophisticated machine learning models that are personalized for each user is also a complex undertaking.
+
+Intelligent Recommendations offers capabilities to drive desired outcomes, such as item recommendations that are based on user interactions and metadata. It can be used to promote and personalize any content type, such as sellable products, media, documents, offers, and more.
+
+Azure Personalizer is a service that's part of Azure Cognitive Services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances Personalizer's ability to select the best items based on the contextual information received.
 
 Microsoft Azure provides advanced analytics tools in the areas of data ingestion, data storage, data processing, and advanced analytics components—all the essential elements for building a personalized offer solution.
+
+### System integrator
+
+You can save time when you implement this solution by hiring a trained system integrator (SI). The SI can help you develop a proof of concept and can help deploy and integrate the solution.
+
+### Potential use cases
+
+This solution applies to the marketing of goods and services based on customer data (products viewed and / or purchased). This could be applicable in the following areas:
+
+* **E-commerce** - This is an area where personalization is widely used with customer behavior and product recommendations.
+
+* **Retail** - Based on prior purchase data, recommendations and offers can be provided on products.
+
+* **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mahi Sundararajan](https://www.linkedin.com/in/mahalakshmi-sundararajan-5b013b16) | Senior Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 APIOps applies GitOps and [DevOps](/devops) to API deployments. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. With APIOps, API developers can review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster for better specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
 
-This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/?view=azure-devops) provides Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) creates the CI/CD pipeline.
+This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
 
 ## Potential use cases
 
@@ -47,7 +47,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). We extended the utilities, such as the extractor and the creator, to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
-This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. You can use any comparable technologies.
+This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides the pipelines. You can use any comparable technologies.
 
 ## Considerations
 
@@ -99,7 +99,7 @@ Deploying this solution involves these steps:
 - Develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
   - If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
   
-  - Optionally, use the Azure DevOps CLI to [create a new pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request).
+  - Optionally, use the Azure DevOps CLI to [create a new pull request](/azure/devops/repos/Git/pull-requests?tabs=azure-devops-cli#create-a-pull-request).
 
 - The extractor workflow includes the following steps that you take:
 

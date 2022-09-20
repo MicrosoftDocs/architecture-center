@@ -206,7 +206,7 @@ For more information about the individual pieces of the solution architecture, s
 [arm-template]: /azure/azure-resource-manager/management/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
-[az-devops]: /azure/devops/index?view=azure-devops
+[az-devops]: /azure/devops/index
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
@@ -220,7 +220,7 @@ For more information about the individual pieces of the solution architecture, s
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
-[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
+[pipelines]: /azure/devops/pipelines/
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling

@@ -23,7 +23,7 @@ For a more comprehensive description of Azure security tools and capabilities, s
 
 ## Introduction to security on Azure
 
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 
