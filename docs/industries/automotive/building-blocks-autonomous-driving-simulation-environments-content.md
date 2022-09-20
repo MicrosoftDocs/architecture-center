@@ -179,7 +179,7 @@ Product documentation:
 
 - [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
     / [GitHub](https://docs.github.com/en/get-started)
 
 - [Azure Monitor](/azure/azure-monitor/overview)
