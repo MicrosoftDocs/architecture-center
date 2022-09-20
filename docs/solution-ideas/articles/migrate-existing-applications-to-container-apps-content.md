@@ -11,12 +11,12 @@ Easily migrate existing web applications to container(s) and run the container o
 ### Dataflow
 
 1. Developer converts existing web application to container.
-2. Developer publishes container image to
-    1. Azure Container Registry
-    1. Private registry or Docker Hub.
-3. App Service pulls image with
+2. Developer publishes container image to:
+    1. Azure Container Registry.
+    1. Or, a private registry or Docker Hub.
+3. App Service pulls image with:
     1. Managed identity, which uses an Azure Active Directory security principal to  access to Azure Container Directory.
-    1. Or, credentials for private registry or Docker Hub if needed.
+    1. Or, credentials for private registry or Docker Hub if required.
 4. Service connectors to access other Azure resources.
 5. Developer pushes new image to the container registry, which triggers App Service updates when continuous deployment is enabled.
 
