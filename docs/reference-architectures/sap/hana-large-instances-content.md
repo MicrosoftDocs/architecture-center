@@ -207,7 +207,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
-[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [HLI-SKUs]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring

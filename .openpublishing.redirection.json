@@ -1799,6 +1799,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/aws/aws-azure-security-solutions.yml",
+      "redirect_url": "/azure/architecture/guide/aws/aws-azure-security-solutions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -2230,6 +2235,11 @@
     {
       "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks.yml",
       "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-synapse",
       "redirect_document_id": true
     },
     {

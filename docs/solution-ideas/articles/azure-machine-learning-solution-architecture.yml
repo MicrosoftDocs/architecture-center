@@ -18,7 +18,7 @@ metadata:
     - machine learning architecture
     - interactive-diagram
     - pricing-calculator
-    - "https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
+    - "https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-machine-learning-solution-architecture.png  
 name: Azure Machine Learning architecture

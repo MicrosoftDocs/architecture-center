@@ -57,7 +57,7 @@ See the following product documentation for more information:
 * [Container Registry documentation](/azure/container-registry)
 * [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)
-* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started)
 * [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
 See the following samples to interact with related solutions:
