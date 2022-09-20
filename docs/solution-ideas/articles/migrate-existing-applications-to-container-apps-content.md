@@ -20,7 +20,7 @@ Easily migrate existing web applications to container(s) and run the container o
 4. Service connectors to access other Azure resources.
 5. Developer pushes new image to the container registry, which triggers App Service updates when continuous deployment is enabled.
 
-## Components
+### Components
 
 [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/): With App Service, you can deploy and run containerized web apps on Windows and Linux. Containerized apps can scale as needed in a fully managed platform. Create streamline CI/CD workflow with Docker Hub, Azure Container Registry, and GitHub.
 
@@ -36,7 +36,9 @@ Easily migrate existing web applications to container(s) and run the container o
 
 [Azure Service Connector](/azure/service-connector/): Service Connector helps you connect Azure compute services to other backing services. For example, use a service connector between Azure App Service and Azure Database for MySQL or PostgreSQL, Azure Storage, and Azure Key Vault. For a full list of supported services, see [Services are supported in Service Connector](/azure/service-connector/overview#what-services-are-supported-in-service-connector).
 
-## Potential use cases
+## Scenario details
+
+### Potential use cases
 
 This solution idea is ideal for migrating current web applications to containers run on Azure. This solution idea can be used to create a website when the following apply:
 
