@@ -1,4 +1,4 @@
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment. 
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
 ## Architecture
 
@@ -14,14 +14,16 @@ The architecture consists of the following components:
 - **[ArcBox workbook][ArcBox workbook]** is an Azure Monitor workbook, which provides a single pane of glass for monitoring and reporting on ArcBox resources. The workbook acts as a flexible canvas for data analysis and visualization in the Azure portal, gathering information from several data sources from across ArcBox and combining them into an integrated interactive experience.
 - **[Azure Monitor][Azure Monitor]** enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 - **[Azure Policy guest configuration][Azure Policy Guest Configuration]** can audit operating systems and machine configuration both for machines running in Azure and Arc-enabled servers running on-premises or in other clouds.
-- **[Azure Log Analytics][Azure Log Analytics]** is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide various insights into your data. 
-- **[Microsoft Defender for Cloud][Microsoft Defender for Cloud]** is a cloud security posture management (CSPM) and cloud workload protection (CWP) solution. Microsoft Defender for Cloud finds weak spots across your cloud configuration, helps strengthen the overall security posture of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats. 
+- **[Azure Log Analytics][Azure Log Analytics]** is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide various insights into your data.
+- **[Microsoft Defender for Cloud][Microsoft Defender for Cloud]** is a cloud security posture management (CSPM) and cloud workload protection (CWP) solution. Microsoft Defender for Cloud finds weak spots across your cloud configuration, helps strengthen the overall security posture of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
 - **[Microsoft Sentinel][Microsoft Sentinel]** is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 - **[Azure Arc-enabled servers][Azure Arc-enabled servers]** enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
 - **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
 - **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
 
-## Potential use cases
+## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 
@@ -94,6 +96,8 @@ Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Reliability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be available.
@@ -106,7 +110,7 @@ Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure
 
 ### Security
 
-- Appropriate Azure role-based access control (Azure RBAC) should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, reonboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
+- Appropriate Azure role-based access control (Azure RBAC) should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - Microsoft Defender for Cloud can monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. Enable Microsoft Defender for servers for all subscriptions containing Azure Arc-enabled servers for security baseline monitoring, security posture management, and threat protection.
 - Microsoft Sentinel can help simplify data collection across different sources, including Azure, on-premises solutions, and across clouds using built-in connectors.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
@@ -148,17 +152,27 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 > [!div class="nextstepaction"]
 > [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learn more about Azure Arc][Azure Arc docs]
 - [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers docs]
-- [Azure Arc learning path on Microsoft Learn](/learn/paths/manage-hybrid-infrastructure-with-azure-arc/)
+- [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
 ## Related resources
 
-Explore related architectures: 
+Explore related architectures:
+
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
 

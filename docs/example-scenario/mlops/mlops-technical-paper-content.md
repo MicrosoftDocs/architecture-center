@@ -465,7 +465,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 * [Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 * [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
-* [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning)
 * [Set up MLOps with Azure Machine Learning and Databricks](https://github.com/Azure-Samples/MLOpsDatabricks)
 
 ## Related resources

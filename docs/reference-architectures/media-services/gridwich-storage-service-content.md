@@ -188,8 +188,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure blob storage](/learn/modules/configure-blob-storage)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Configure blob storage](/training/modules/configure-blob-storage)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
 
 ## Related resources
 

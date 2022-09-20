@@ -781,7 +781,7 @@ Continue learning about the AKS baseline architecture:
 ### Learn more about AKS
 
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
-- If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths.
+- If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) learning paths.
 
 ## Related resources
 

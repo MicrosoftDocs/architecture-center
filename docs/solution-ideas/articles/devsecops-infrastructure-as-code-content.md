@@ -72,7 +72,7 @@ Principal authors:
 - [Innovation Security](/azure/cloud-adoption-framework/secure/innovation-security)
 - [AzOps for ARM templates](https://github.com/Azure/AzOps)
 - [Terraform Landing Zones Module and Solutions](https://github.com/aztfmod)
-- [Introduction to infrastructure as code using Bicep](/learn/modules/introduction-to-infrastructure-as-code-using-bicep)
+- [Introduction to infrastructure as code using Bicep](/training/modules/introduction-to-infrastructure-as-code-using-bicep)
 
 ## Related resources
 

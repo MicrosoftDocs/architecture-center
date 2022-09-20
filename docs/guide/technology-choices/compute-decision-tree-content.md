@@ -1,12 +1,12 @@
-Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application.
+Azure offers many ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application.
 
-If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
 
 ## Choose a candidate service
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services.](images/compute-choices.png)
+![Decision tree for Azure compute services.](images/compute-choices-v-2.png)
 
 Definitions:
 
@@ -15,7 +15,7 @@ Definitions:
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
 
-This article includes several tables, which may help you to make these tradeoff decisions. Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
+This article includes several tables that can help you to make these tradeoff decisions. You might find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
 
 ## Understand the basic features
 
@@ -30,29 +30,29 @@ If you're not familiar with the Azure service selected in the previous step, rea
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
 - [Azure Virtual machines](/azure/virtual-machines). Deploy and manage VMs inside an Azure virtual network.
 - [Azure Container Apps](/azure/container-apps). A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
-- [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes, which requires additional tools and resources.
+- [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes.
 
 ## Understand the hosting models
 
-Cloud services, including Azure services, generally fall into three categories: IaaS, PaaS, or FaaS. (There is also SaaS, software-as-a-service, which is out of scope for this article.) It's useful to understand the differences.
+Cloud services, including Azure services, generally fall into three categories: IaaS, PaaS, or FaaS. (There's also SaaS, software-as-a-service, which is out of scope for this article.) It's useful to understand the differences.
 
 **Infrastructure-as-a-Service** (IaaS) lets you provision individual VMs along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
 **Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. Azure App Service and Azure Container Apps are PaaS services.
 
-**Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. In a FaaS model, you simply deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
+**Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. In a FaaS model, you deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
 
 > [!NOTE]
 > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. You may read [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs) to know how this service compares with other Azure serverless offerings, such as Logic Apps which provides serverless workflows.
 
-There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
+There's a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
 
-In general, there is a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
+In general, there's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
 
 | Criteria | Virtual Machines | App Service | Azure Spring Apps| Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps | Azure Red Hat OpenShift |
 |----------|-----------------|-------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|-------------------------|
 | Application composition | Agnostic | Applications, containers | Applications, microservices |Services, guest executables, containers | Functions | Containers | Containers | Scheduled jobs  | Containers | Containers |
-| Density | Agnostic | Multiple apps per instance via app service plans | Multiple apps per service instance | Multiple services per VM | Serverless <a href="#note1"><sup>1</sup></a> | Multiple containers per node |No dedicated instances | Multiple apps per VM | Serverless | Multiple containers per node |
+| Density | Agnostic | Multiple apps per instance via app service plan | Multiple apps per service instance | Multiple services per VM | Serverless <a href="#note1"><sup>1</sup></a> | Multiple containers per node |No dedicated instances | Multiple apps per VM | Serverless | Multiple containers per node |
 | Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 2 | 5 <a href="#note3"><sup>3</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | 3 <a href="#note3"><sup>3</sup></a> | No dedicated nodes | 1 <a href="#note4"><sup>4</sup></a>| Serverless | 6 <a href="#note8"><sup>8</sup></a> |
 | State management | Stateless or Stateful | Stateless | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless | Stateless or Stateful | Stateless or Stateful |
 | Web hosting | Agnostic | Built in | Built in |Agnostic | Not applicable | Agnostic | Agnostic | No | Agnostic | Agnostic |
@@ -102,10 +102,10 @@ Notes
 
 | Criteria | Virtual Machines | App Service | Azure Spring Apps |  Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps | Azure Red Hat OpenShift |
 |----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|-------------------------|
-| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Apps][sla-azure-spring-apps]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] | Preview (No SLA) | [SLA for Azure Red Hat OpenShift][sla-aro] |
+| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Apps][sla-azure-spring-apps]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] | [SLA for Azure Container Apps][sla-aca] | [SLA for Azure Red Hat OpenShift][sla-aro] |
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported | | Not Supported | Not supported |
 
-For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
+For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
 ## Security
 
@@ -143,7 +143,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 ## Next steps
 
-- [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
+- [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
@@ -165,6 +165,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
 [sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [sla-aro]: https://azure.microsoft.com/support/legal/sla/openshift/
+[sla-aca]: https://azure.microsoft.com/support/legal/sla/container-apps
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 

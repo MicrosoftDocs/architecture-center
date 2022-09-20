@@ -58,9 +58,9 @@ See the product documentation:
 
 Try a learning path:
 
-* [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
-* [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa)
-* [Create serverless apps with Azure Functions](/learn/paths/create-serverless-applications)
+* [Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
+* [Build a Machine Learning model](/training/modules/machine-learning-model-nasa)
+* [Create serverless apps with Azure Functions](/training/paths/create-serverless-applications)
 
 ## Related resources
 
@@ -68,4 +68,4 @@ Read other Azure Architecture Center articles:
 
 * [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
-* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)
+* [Scalable personalization on Azure](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)

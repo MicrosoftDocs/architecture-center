@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Asynchronous Request-Reply Pattern
+  title: Asynchronous Request-Reply pattern
   description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
   author: EdPrice-MSFT
   ms.author: architectures
@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure
   - azure-logic-apps
-name: Asynchronous Request-Reply Pattern
+name: Asynchronous Request-Reply pattern
 summary: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 thumbnailUrl: /azure/architecture/browse/thumbs/async-request-fn.png
 content: |

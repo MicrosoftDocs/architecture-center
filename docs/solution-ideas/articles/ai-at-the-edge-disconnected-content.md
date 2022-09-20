@@ -40,8 +40,8 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-* Want to learn more? Check out the related module [Introduction to Azure Stack](/learn/modules/intro-to-azure-stack)
-* Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator) certification
+* Want to learn more? Check out the related module [Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
+* Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/certifications/azure-stack-hub-operator) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
 * Deploy your ML models to an edge device with [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
@@ -57,7 +57,7 @@ See the following product documentation for more information:
 * [Container Registry documentation](/azure/container-registry)
 * [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)
-* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started)
 * [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
 See the following samples to interact with related solutions:

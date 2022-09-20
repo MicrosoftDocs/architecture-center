@@ -108,7 +108,7 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
-- [Run SAP NetWeaver in Windows on Azure](../../reference-architectures/sap/sap-netweaver.yml)
+- [Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)
 - [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
 
 <!-- links -->
@@ -116,7 +116,7 @@ Explore related architectures:
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
-[sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.yml
-[sap-hana]: ../../reference-architectures/sap/sap-s4hana.yml
+[sap-netweaver]: /azure/architecture/guide/sap/sap-netweaver
+[sap-hana]: /azure/architecture/guide/sap/sap-s4hana
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml
 [hub-spoke]: ../../reference-architectures/hybrid-networking/hub-spoke.yml

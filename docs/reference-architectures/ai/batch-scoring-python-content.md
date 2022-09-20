@@ -38,7 +38,7 @@ The remaining architecture, after data ingestion, is equal for both streaming an
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Machine Learning Endpoints](https://docs.microsoft.com/azure/machine-learning/concept-endpoints)
+- [Azure Machine Learning Endpoints](/azure/machine-learning/concept-endpoints)
 - [Microsoft Power BI on Azure](https://azure.microsoft.com/services/developer-tools/power-bi/)
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
 
@@ -76,14 +76,13 @@ For work that doesn't require immediate processing, configure the automatic scal
 
 Automatic scaling might not be appropriate for batch jobs that occur too close to each other. Because the time that it takes for a cluster to spin up and spin down incurs a cost, if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs. This strategy depends on whether scoring processes are scheduled to run at a high frequency (every hour, for example), or less frequently (once a month, for example).
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+- [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
 
 ## Next steps
 
@@ -98,12 +97,12 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
-- [Enable reliable messaging for Big Data applications using Azure Event Hubs](/learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
-- [Explore Azure Event Hubs](/learn/modules/azure-event-hubs)
-- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
-- [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
-- [Manage container images in Azure Container Registry](/learn/modules/publish-container-image-to-azure-container-registry)
+- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
+- [Enable reliable messaging for Big Data applications using Azure Event Hubs](/training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs)
+- [Explore Azure Event Hubs](/training/modules/azure-event-hubs)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
+- [Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry)
 
 ## Related resources
 
@@ -136,5 +135,5 @@ Microsoft Learn modules:
 [synapse]: https://azure.microsoft.com/services/synapse-analytics/
 [adls]: https://azure.microsoft.com/services/storage/data-lake-storage/
 [adf]: https://azure.microsoft.com/services/data-factory/
-[m-endpoints]: https://docs.microsoft.com/azure/machine-learning/concept-endpoints
+[m-endpoints]: /azure/machine-learning/concept-endpoints
 [sql]: https://azure.microsoft.com/products/azure-sql/database

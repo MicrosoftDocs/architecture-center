@@ -248,15 +248,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage Azure Monitor](/learn/modules/azure-monitor)
-- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
-- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
-- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service)
-- [Host a web application with Azure App Service](/learn/modules/host-a-web-app-with-azure-app-service)
-- [Host your domain on Azure DNS](/learn/modules/host-domain-azure-dns)
-- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
-- [Manage users and groups in Azure Active Directory](/learn/modules/manage-users-and-groups-in-aad)
+- [Configure and manage Azure Monitor](/training/modules/azure-monitor)
+- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Azure Monitor](/training/modules/configure-azure-monitor)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/training/modules/azure-sql-deploy-configure)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service)
+- [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service)
+- [Host your domain on Azure DNS](/training/modules/host-domain-azure-dns)
+- [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
+- [Manage users and groups in Azure Active Directory](/training/modules/manage-users-and-groups-in-aad)
 
 ## Related resources
 

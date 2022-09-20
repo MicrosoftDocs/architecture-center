@@ -248,6 +248,6 @@ Consider using these communities to get answers to questions and for help with s
 
 ## Related resources
 
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml) 

@@ -7,7 +7,7 @@ Planning access to your API server is a day-zero activity. How you choose to acc
 To manage an AKS cluster, you interact with its API server. It's critical to lock down access to the API server and to grant access only to users who need it. You can provide granular access by integrating your AKS cluster with Azure Active Directory (Azure AD). Administrators can then use role-based access control (RBAC) to restrict access. Through RBAC, administrators can place users and identities in Azure AD groups and assign appropriate roles and permissions to the groups. Azure AD authentication is provided to AKS clusters with OpenID Connect. For more information, see these resources:
 
 - [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
-- [Integrate Azure Active Directory for the cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml#integrate-azure-active-directory-for-the-cluster)
+- [Integrate Azure Active Directory for the cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster)
 
 > [!NOTE]
 > You can further lock down your AKS cluster by allowing only authorized IP address ranges to communicate with the API server. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
@@ -45,7 +45,7 @@ Azure Bastion is a platform as a service (PaaS) offering that you deploy within 
 
 When you connect to the API server of your AKS cluster, it's best to use a trusted connection. One option is to use Azure Bastion to connect to a jump box that's inside your Azure environment. In this scenario, the jump box resides in the hub virtual network. The private AKS cluster resides in a spoke virtual network. A virtual network peering connects the hub and spoke networks.
 
-The jump box can resolve the FQDN of the API server by using Azure Private Endpoint, a private DNS zone, and a DNS A record inside the private DNS zone. By using the AKS private cluster and the private endpoint, you ensure that the API server FQDN can be resolved only from within your virtual network. With a private cluster, the browser needs to run on a machine that has access to the virtual network of the AKS private cluster. For more information, see [Subnet to host Azure Bastion](../../reference-architectures/containers/aks/secure-baseline-aks.yml#subnet-to-host-azure-bastion).
+The jump box can resolve the FQDN of the API server by using Azure Private Endpoint, a private DNS zone, and a DNS A record inside the private DNS zone. By using the AKS private cluster and the private endpoint, you ensure that the API server FQDN can be resolved only from within your virtual network. With a private cluster, the browser needs to run on a machine that has access to the virtual network of the AKS private cluster. For more information, see [Subnet to host Azure Bastion](/azure/architecture/reference-architectures/containers/aks/baseline-aks#subnet-to-host-azure-bastion).
 
 > [!NOTE]
 > The availability and redundancy of your jump box is critical. You should always be able to reach your jump box. Likewise, you should always be able to reach your private AKS cluster. To achieve availability and redundancy for your jump boxes, put them in availability sets and use Virtual Machine Scale Sets with a small number of VM instances. For more information, see these resources:
@@ -206,6 +206,6 @@ Other contributors:
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)

@@ -155,7 +155,7 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  * [Kevin Ashley](http://linkedin.com/in/kashlik) | Senior Customer Engineer, FastTrack for Azure
  

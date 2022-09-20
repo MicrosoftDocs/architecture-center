@@ -87,7 +87,7 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 * [Anomaly Detector API Documentation](/azure/cognitive-services/anomaly-detector)
 * [Interactive demo](https://algoevaluation.azurewebsites.net/#/)
 * [Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-* [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/learn/modules/data-anomaly-detection-using-azure-iot-hub)
+* [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/training/modules/data-anomaly-detection-using-azure-iot-hub)
 * [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 * [Service Bus Documentation](/azure/service-bus)
 * [Azure Databricks Documentation](/azure/azure-databricks)
@@ -112,7 +112,7 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 [event-hubs]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
-[serverless]: /learn/paths/create-serverless-applications
+[serverless]: /training/paths/create-serverless-applications
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security

@@ -115,17 +115,17 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure
 See these additional resources:
 
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Configure virtual networks](/learn/modules/configure-virtual-networks)
+- [Configure virtual networks](/training/modules/configure-virtual-networks)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 
-## Related resources 
+## Related resources
 
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
-- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)
