@@ -153,7 +153,7 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 |perf_Airfoil_10M_R16|	10|8|512|15.39	|7.40|
 |perf_Airfoil_10M_R16|	10|16|1,024|9.42|	12.09|
 
-:::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-10m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
 
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
@@ -164,7 +164,7 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 |perf_Airfoil_50M_R16|	10|8|512|73.09|7.85|
 |perf_Airfoil_50M_R16|	10|16|1,024|38.35|14.96|
 
-:::image type="content" source="media/cfx/graph-airfoil-50m-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-50m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|-|
