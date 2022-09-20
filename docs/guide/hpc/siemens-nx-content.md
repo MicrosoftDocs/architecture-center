@@ -12,7 +12,7 @@ NX is used in the automotive sector and for projects ranging from supersonic car
 - Modern and diverse compute options to align to your workload's needs 
 - The flexibility of virtualization without the need to buy and maintain physical hardware 
 - Rapid provisioning 
-- All ATS and Cert test cases run successfully
+- Successful runs of all ATS and NXCP test cases
 
 ## Architecture
 
