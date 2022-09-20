@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Analyze siloed data using MongoDB Atlas and Azure Synapse Analytics
+  titleSuffix: Azure Example Scenarios
+  description: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
+  author: matthansen0
+  ms.author: mahans
+  ms.date: 09/21/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - compute
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-databricks
+  - azure-genomics
+name: Analyze siloed data using MongoDB Atlas and Azure Synapse Analytics
+summary: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-synapse-analytics-integrate-mongdb-atlas-thumbnail.png
+content: |
+  [!include[](azure-synapse-analytics-integrate-mongodb-atlas-content.md)]

@@ -1,9 +1,16 @@
+This article presents a solution for deriving insights from siloed operational data. The solution connects MongoDB Atlas to Azure Synapse Analytics. The connection makes it possible to transfer data in batches and in real time. The real-time approach keeps Azure Synapse Analytics dedicated SQL pools in sync with changes in the MongoDB Atlas data source.
+
 ## Architecture
 
-Somewhere mention that the solution proposes two options to trigger the Synapse pipeline. Also mention that the diagram shows the real-time sync approach.
+The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real-time.
+
+:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis tools and apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png":::
+
 
 
 ### Dataflow
+
+The solution presents two options for triggering the pipeline that syncs the data. The following steps outline both options.
 
 1. Changes occur in the operational and transactional data that's stored in MongoDB Atlas. The Mongo Atlas change stream APIs notify subscribed applications about the changes in real time.
 
@@ -13,7 +20,7 @@ Somewhere mention that the solution proposes two options to trigger the Synapse 
    1. In the event grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Synapse Analytics trigger, which causes the Synapse Analytics data pipeline to run.
    1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected on the integrated Data Lake Storage folder, that trigger is activated, which causes the Synapse Analytics data pipeline to run.
 
-1. In a copy activity, the Synapse data Pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
+1. In a copy activity, the Synapse pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
 
 1. The dedicated SQL pool is the enterprise data warehousing feature that hosts the table that the data pipeline updates. The copy data activity of the pipeline keeps that table in sync with its corresponding Atlas collection.
 
@@ -119,13 +126,7 @@ The following sections take a closer look at two retail industry use cases.
 
 ### Product bundling
 
-To promote the sale of a product, you can sell the product as part of a bundle together with other related products.
-
-#### Objective
-
-Use sales pattern data to develop strategies for bundling a product into packages.
-
-#### Data ingestion
+To promote the sale of a product, you can sell the product as part of a bundle together with other related products. The use case objective is to use sales pattern data to develop strategies for bundling a product into packages.
 
 There are two sources of data:
 
@@ -134,22 +135,26 @@ There are two sources of data:
 
 Both sets of data are migrated to an Azure Synapse Analytics dedicated SQL pool by using an Azure Synapse Analytics pipeline. Triggers and change data captures are used to achieve a near real-time data sync on top of the one-time migrated data.
 
-#### Visualization
-
 The following Power BI charts show the affinity between the products and sales patterns. The affinity of the pen and ink-based refill is high. The sales data shows that the Pen has a high sales volume in the specified area.
 
 :::image type="content" source="./media/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./media/product-bundling-use-case-visualization.png":::
 
-#### Conclusion
-
-The analysis makes two suggestions to yield better sales:
+The analysis makes two suggestions for yielding better sales:
 
 - Bundling the pen and ink-based refill
 - Promoting the bundle in certain areas
 
 ### Product promotion
 
-As the objective, use the second bullet point from the Word doc.
+To promote the sale of a product, you can recommend the product to customers who purchase related products. The use case objective is to use sales data and customer buying pattern data to develop strategies for recommending a product to customers.
+
+By using Azure Synapse Analytics, you can develop AI and machine learning models to determine which products to recommend to customers.
+
+The following diagrams show the use of various types of data to create a model to determine alternate product recommendations. The data includes customer buying patterns, profits, product affinities, the sales volume of the products, and product catalog parameters.
+
+:::image type="content" source="./media/product-promotion-use-case-visualization.png" alt-text="Diagrams that show pipeline stages and a workflow for an AI model. Data fields include the customer ID, price, sales, and profit." lightbox="./media/product-promotion-use-case-visualization.png":::
+
+If the model results are accurate, they provide a list of products that you can recommend to the customer.
 
 ## Considerations
 
