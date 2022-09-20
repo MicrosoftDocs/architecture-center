@@ -1,4 +1,4 @@
-This example scenario describes how to securely connect a web app to a backend database over a fully private connection. The ensures communication from the web app in Azure App Service and Azure SQL Database only traverses a virtual network.
+This example scenario describes how to securely connect a web app to a backend database over a fully private connection. The architectures ensures communication from the web app in Azure App Service and Azure SQL Database only traverses a virtual network.
 
 ## Architecture
 
