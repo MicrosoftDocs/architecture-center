@@ -6,7 +6,7 @@ Easily migrate existing web applications to container(s) and run the container o
 
 ![Diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.png)
 
-*Download a [Visio file](../media/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
