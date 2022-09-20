@@ -119,7 +119,7 @@ The following sections take a closer look at two retail industry use cases.
 
 ### Product bundling
 
-To promote the sales of a product, you can sell the product as part of a bundle together with other related products.
+To promote the sale of a product, you can sell the product as part of a bundle together with other related products.
 
 #### Objective
 
@@ -127,6 +127,25 @@ Use sales pattern data to develop strategies for bundling a product into package
 
 #### Data ingestion
 
+There are two sources of data:
+
+- The product catalog data from MongoDB
+- Sales data from Azure SQL
+
+Both sets of data are migrated to an Azure Synapse Analytics dedicated SQL pool by using an Azure Synapse Analytics pipeline. Triggers and change data captures are used to achieve a near real-time data sync on top of the one-time migrated data.
+
+#### Visualization
+
+The following Power BI charts show the affinity between the products and sales patterns. The affinity of the pen and ink-based refill is high. The sales data shows that the Pen has a high sales volume in the specified area.
+
+:::image type="content" source="./media/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./media/product-bundling-use-case-visualization.png":::
+
+#### Conclusion
+
+The analysis makes two suggestions to yield better sales:
+
+- Bundling the pen and ink-based refill
+- Promoting the bundle in certain areas
 
 ### Product promotion
 
