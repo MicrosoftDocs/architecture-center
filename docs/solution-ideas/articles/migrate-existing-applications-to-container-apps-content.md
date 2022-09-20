@@ -58,6 +58,7 @@ This solution idea is ideal for migrating current web applications to containers
 * [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry/)
 * [Overview on Web App for Containers and Azure App Service on Linux](https://azure.microsoft.com/blog/webapp-for-containers-overview/)
 * [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options)
+* [CI/CD for Containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
 
 ## Related resources
 
