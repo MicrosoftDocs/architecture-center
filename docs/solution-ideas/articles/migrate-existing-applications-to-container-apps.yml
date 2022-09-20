@@ -30,4 +30,4 @@ products:
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-existing-applications-to-container-apps.png
 content: |
-   [!include[](migrate-existing-applications-to-container-apps.md)]
+   [!include[](migrate-existing-applications-to-container-apps-content.md)]
