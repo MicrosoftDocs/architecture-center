@@ -2403,6 +2403,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
       "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
       "redirect_document_id": false
