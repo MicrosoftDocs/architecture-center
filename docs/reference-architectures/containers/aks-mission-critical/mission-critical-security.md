@@ -278,7 +278,7 @@ For workloads that utilize **Terraform**, extra effort needs to be put into **pr
 
 Libraries, frameworks and tools used by the application get updated over time and it's important to follow these updates regularly, because they often contain security fixes, which could allow attackers unauthorized access into the system.
 
-The reference implementation uses GitHub's **Dependabot** for NuGet, Docker, NPM, Terraform and GitHub Actions dependency updates. The `dependabot.yml` configuration file is automatically generated with a PowerShell script, because of the complexity of the various parts of the application (for example, each Terraform module needs a separate entry).
+The reference implementation uses GitHub's **Dependabot** for NuGet, Docker, npm, Terraform and GitHub Actions dependency updates. The `dependabot.yml` configuration file is automatically generated with a PowerShell script, because of the complexity of the various parts of the application (for example, each Terraform module needs a separate entry).
 
 ```yml
 #
@@ -303,7 +303,7 @@ updates:
 
 - **Updates are triggered monthly** as a compromise between having the most up-to-date libraries and keeping the overhead maintainable. Additionally, key tools (Terraform) are monitored continuously and important updates are executed manually.
 - **Pull requests** are targeting the `component-updates` branch, instead of `main`.
-- **NPM libraries** are configured to check only dependencies that go to the compiled application, not the supporting tools like `@vue-cli`.
+- **npm libraries** are configured to check only dependencies that go to the compiled application, not the supporting tools like `@vue-cli`.
 
 Dependabot creates a separate pull request (PR) for each update, which can get overwhelming for the operations team. The reference implementation first collects a batch of updates in the `component-updates` branch, then runs tests in the `e2e` environment and if successful, another PR is created into the `main` branch.
 
