@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Lift and shift to containers with Azure Container Apps
+  title: Lift and shift to containers with Azure App Service
   titleSuffix: Azure Solution Ideas
-  description: Migrate existing web pps to containers deployed in Container Apps, a fully managed container service for building and deploying apps at scale in Azure.
+  description: Migrate existing web apps to containers deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.
   author: EdPrice-MSFT
   ms.author: architectures
   ms.date: 09/21/2022
@@ -19,11 +19,11 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-to-container-apps"
   social_image_url: /azure/architecture/solution-ideas/articles/media/migrate-existing-applications-to-container-apps.png
-name: Lift and shift to containers deployed in Azure Container Apps
+name: Lift and shift to containers with Azure App Service
 azureCategories:
   - migration
   - containers
-summary: Migrate existing web pps to containers deployed in Container Apps, a fully managed container service for building and deploying apps at scale in Azure.
+summary: Migrate existing web apps to containers deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.
 products:
   - azure-active-directory
   - azure-container-registry
