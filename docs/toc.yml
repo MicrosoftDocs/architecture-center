@@ -340,6 +340,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
+                - name: Security
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
 
             - name: Guides
               items:
@@ -617,7 +619,7 @@ items:
               - name: Security for AWS
                 items:
                   - name: Azure security for AWS
-                    href: reference-architectures/aws/aws-azure-security-solutions.yml
+                    href: guide/aws/aws-azure-security-solutions.yml
                   - name: Connect AWS to Microsoft Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
@@ -2960,6 +2962,8 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Enterprise business intelligence
+                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data analytics on confidential computing
@@ -3119,6 +3123,8 @@ items:
                     href: guide/hpc/nanofluidx.yml
                   - name: Altair Radioss
                     href: guide/hpc/altair-radioss.yml
+                  - name: Altair ultraFluidX
+                    href: guide/hpc/ultrafluidx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
@@ -3682,8 +3688,6 @@ items:
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Build cloud native applications
                 href: solution-ideas/articles/cloud-native-apps.yml
-              - name: Campaign optimization with HDInsight
-                href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
                 href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
               - name: Data streaming
@@ -4629,8 +4633,6 @@ items:
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
-              - name: Enterprise business intelligence
-                href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
@@ -5648,6 +5650,8 @@ items:
                   - name: Application security in Azure
                     href: /security/compass/applications-services
                     maintainContext: true
+              - name: Azure security for AWS
+                href: guide/aws/aws-azure-security-solutions.yml
               - name: Highly secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Microsoft Cybersecurity Architectures
@@ -5699,8 +5703,6 @@ items:
                 href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure AD in Security Operations
                 href: example-scenario/aadsec/azure-ad-security.yml
-              - name: Azure security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Cyber threat intelligence
                 href: example-scenario/data/sentinel-threat-intelligence.yml
               - name: Healthcare platform confidential computing

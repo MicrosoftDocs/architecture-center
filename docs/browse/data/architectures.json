@@ -1901,37 +1901,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-campaign-optimization-with-azure-hdinsight-spark-clusters-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "artificial-intelligence",
-                "azure",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters",
-            "word_count": 903,
-            "read_time": "4 min read",
-            "Title": "Campaign Optimization with Azure HDInsight Spark Clusters",
-            "MetaDescription": "This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.",
-            "category": [
-                "databases",
-                "analytics",
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/campaign-optimization-with-azure-hdinsight-spark-clusters.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\campaign-optimization-with-azure-hdinsight-spark-clusters.png",
-            "publish_date": "12/16/2019",
-            "Summary": "<p>This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.</p>",
-            "name": "campaign-optimization-with-azure-hdinsight-spark-clusters",
-            "popularity": 16,
-            "topic": "Databases"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-campaign-optimization-with-sql-server-'",
                 "acom-architecture",
                 "ai-gallery",
