@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Kubernetes Monitoring and Logging
-  description: Understand the options to monitor and manage the logs of an Azure Kubernetes Service (AKS) cluster and its workloads.
+  title: Kubernetes monitoring and logging
+  description: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and its workloads, and compare Amazon EKS and AKS monitoring and logging.
   author:  ketan-chawda-msft
-  ms.author: kechaw, paolos, lanicola
-  ms.date: 07/08/22
+  ms.author: kechaw
+  ms.date: 09/23/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,10 +13,10 @@ azureCategories:
   - management-and-governance
 products:
   - azure-kubernetes-service
-  - azure-monitor
   - azure-log-analytics
-name: Kubernetes Monitoring and Logging
-summary: Understand the options to monitor and manage the logs of an Azure Kubernetes Service (AKS) cluster and its workloads.
+  - azure-monitor
+name: Kubernetes monitoring and logging
+summary: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and its workloads, and compare Amazon EKS and AKS monitoring and logging.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
    [!include[](monitoring-content.md)]

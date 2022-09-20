@@ -5,9 +5,19 @@ This article describes how Azure Kubernetes Service (AKS) pricing works compared
 
 ## Amazon EKS cost basics
 
-In [Amazon EKS](https://aws.amazon.com/eks/pricing), you pay a fixed price per hour for each EKS cluster. You also pay for other Amazon Web Services (AWS) resources you provision to run your Kubernetes worker nodes, such as Amazon EC2 instances or Amazon Elastic Block Store (EBS) volumes.
+In [Amazon EKS](https://aws.amazon.com/eks/pricing), you pay a fixed price per hour for each Amazon EKS cluster. You also pay for the networking, operations tools, and storage that the cluster uses.
 
-Amazon EKS worker nodes are standard Amazon EC2 instances, so they incur regular Amazon EC2 prices. You also pay for the networking, operations tools, and storage that the cluster uses.
+Amazon EKS worker nodes are standard Amazon EC2 instances, so they incur regular Amazon EC2 prices. You also pay for other Amazon Web Services (AWS) resources you provision to run your Kubernetes worker nodes.
+
+There are no extra costs to use Amazon EKS [managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html). You pay only for the AWS resources you provision. These resources include Amazon EC2 instances, Amazon EBS volumes, Amazon EKS cluster hours, and any other AWS infrastructure.
+
+When creating a managed node group, you can choose to use the [On-Demand or the Spot capacity type](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) to manage the cost of agent nodes. Amazon EKS deploys a managed node group with an [Amazon EC2 Auto Scaling group]([Amazon EC2 Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html)) that contains either all On-Demand or all Spot Instances:
+
+- With On-Demand Instances, you pay for compute capacity by the second, with no long-term commitments.
+- Amazon EC2 Spot Instances are spare Amazon EC2 capacity that offers discounts compared to On-Demand prices.
+- Amazon EC2 Spot Instances can be interrupted with a two-minute interruption notice when EC2 needs the capacity back.
+- Amazon provides Spot Fleet, a method to automate groups of On-Demand and Spot Instances, and Spot Instance Advisor to help predict which region or availability zone might provide minimal disruption.
+- AWS Spot Instance prices vary. AWS sets the price depending on long-term supply and demand trends for Spot Instance capacity, and you pay the price in effect for the time period the instance is up.
 
 ## AKS cost basics
 
@@ -19,7 +29,7 @@ Kubernetes architecture is based on two layers, the control plane and one or mor
 
 The following diagram shows the relationship between the control plane and nodes in Kubernetes architecture.
 
-![Diagram that shows the control plane and nodes in AKS architecture.](./media/aks-architecture.png)
+![Diagram that shows the control plane and nodes in AKS architecture.](./media/control-plane-and-nodes.png)
 
 ### Control plane
 
@@ -39,7 +49,7 @@ AKS nodes use several Azure infrastructure resources, including virtual machine 
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance SSD or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
-For more information about agent nodes and node pools, see the [Node pools](node-pools.md) article in this series, and [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
+For more information about agent nodes and node pools, see the [Node pools](node-pools.yml) article in this series, and [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
 ### AKS cluster deployment
 
@@ -136,9 +146,9 @@ If you use on-demand or the cluster autoscaler, account for the added VMs. Conta
 
 ## AKS cluster upgrade costs
 
-Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. Apply for the latest security releases or upgrade to get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. It's important to apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings minimizes workload disruption by creating an extra node before cordoning or draining existing applications to replace older-versioned nodes. You can customize the max surge value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the max surge value completes the upgrade process faster, but a large value for max surge might cause disruptions during the upgrade process and incur added costs for extra VMs.
+By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the max surge value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the max surge value completes the upgrade process faster, but a large value for max surge might cause disruptions during the upgrade process and incur added costs for extra VMs.
 
 ## Other AKS cluster costs
 

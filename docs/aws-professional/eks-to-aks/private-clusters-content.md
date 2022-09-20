@@ -5,6 +5,8 @@ The following article will guide you on how to establish a secure connection to 
 
 ## Amazon EKS Networking Modes
 
+[Amazon Virtual Private Cloud (Amazon VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) enables you to launch AWS resources into a virtual network composed of public and private subnets. A [subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) is a range of IP addresses in the VPC. A public subnet should be used for hosting resources that must be connected to the internet, while a private subnet should be used for hosting those resources that won't be connected to the public internet. Amazon EKS managed node groups can be provisioned in both public and private subnets.
+
 Endpoint access control lets you configure whether the API Server endpoint is reachable from the public internet or through your VPC. EKS provides two ways for [controlling access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the public endpoint (default mode), private endpoint, or both endpoints simultaneously. When the public endpoint is enabled, you can add CIDR restrictions to limit the client IP addresses that can connect to the public endpoint.
 
 How your nodes connect to the managed Kubernetes control plane is determined by which endpoint setting you have configured for the cluster. Note, these endpoints settings can be changed anytime through the EKS console or API. For more information, see [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html).
