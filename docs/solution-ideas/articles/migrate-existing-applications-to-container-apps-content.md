@@ -22,15 +22,13 @@ Easily migrate existing web applications to containers and run the containerized
 
 ### Components
 
-[Web App for Containers](https://azure.microsoft.com/services/app-service/containers/): With App Service, you can deploy and run containerized web apps on Windows and Linux. Web App for Containers provides an easy on-ramp for developers to take advantage of a fully managed platform, but who also want a single deployable artifact containing an app and all of its dependencies. Or, developers who want to work with a custom framework or version beyond the defaults built into the Azure App Service platform.
-
-Containerized apps can scale as needed in a fully managed platform. Create streamline CI/CD workflow with Docker Hub, Azure Container Registry, and GitHub.
+[Web App for Containers](https://azure.microsoft.com/services/app-service/containers/): With App Service, you can deploy and run containerized web apps on Windows and Linux. Web App for Containers provides an easy on-ramp for developers to take advantage of a fully managed platform, but who also want a single deployable artifact containing an app and all of its dependencies. Another target scenario is developers who want to work with a custom framework or version beyond the defaults built into the Azure App Service platform. Containerized web apps on Azure App Service can scale as needed and use streamlined CI/CD workflows with Docker Hub, Azure Container Registry, and GitHub.
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/):  A registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. Use container images in Azure services like App Service, Machine Learning, and Batch. For example, when configuring Web App for Containers for your web app, you can specify a container image from Azure Container Registry.
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed NoSQL database service for building and modernizing scalable, high-performance applications. Cosmos DB is integrated with key Azure services including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more. You can choose from multiple database APIs including the native Core (SQL) API, API for MongoDB, Cassandra API, Gremlin API, and Table API.
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed relational database with built-in intelligence. Azure SQL Database helps you build applications locally or in the cloud on popular platforms and frameworks with driver support for the most common languages, and simplify development with native support for websites running in Azure App Service.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed relational database with built-in intelligence. Azure SQL Database helps you build applications locally or in the cloud on popular platforms and frameworks with driver support for the most common languages. SQL Database enables you to simplify development with native support for websites running in Azure App Service.
 
 [Azure Storage](https://azure.microsoft.com/services/storage): Azure Storage offers a durable, highly available, massively scalable cloud storage solution and includes object, file, disk, queue, and table storage.  Azure storage includes services for object, block, and file storage to meet your website's demands. For example, websites can easily use Azure Blob Storage for scalable and secure block storage for website media like photos and videos.
 
