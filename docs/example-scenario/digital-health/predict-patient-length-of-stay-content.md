@@ -18,16 +18,16 @@ This Azure solution helps hospital administrators use the power of machine learn
 ### Dataflow
 
 The following workflow (or dataflow) corresponds to the above diagram:
-1. Health Data into Data Layer
-1. Azure Data Factory to Azure Data Lake storage  
-1. Azure Data Factory to Azure ML   
+1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is ingested by Azure Data Factory
+2. Azure Data Factory data flows into Azure Data Lake storage  
+3. Azure Data Lake data flows into Azure ML   
    3.1 Train  
    3.2 Validate  
    3.3 Deploy   
    3.4 Monitor  
-1. Azure ML to Azure Synapse Analytics  
-1. Azure Synapse Analytics to Power BI  
-1. Power BI analysis by manager/coordinator  
+4. Azure ML output flows to Azure Synapse Analytics  
+5. Azure Synapse Analytics provides data to Power BI  
+6. Power BI is used for analysis by manager/coordinator  
 
 ### Components
 
