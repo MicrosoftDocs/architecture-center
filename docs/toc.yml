@@ -340,6 +340,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
+                - name: Security
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
 
             - name: Guides
               items:
@@ -411,6 +413,8 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
+                  - name: Azure Kubernetes Service (AKS)
+                    href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
                   - name: Azure NAT Gateway
@@ -3686,8 +3690,6 @@ items:
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Build cloud native applications
                 href: solution-ideas/articles/cloud-native-apps.yml
-              - name: Campaign optimization with HDInsight
-                href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
                 href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
               - name: Data streaming
