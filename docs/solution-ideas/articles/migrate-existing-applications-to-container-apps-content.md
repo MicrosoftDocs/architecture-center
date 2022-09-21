@@ -6,7 +6,7 @@ Easily migrate existing web applications to container(s) and run the container o
 
 ![Diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.png)
 
-*Download a [Visio file](../media/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -51,6 +51,10 @@ This solution idea is ideal for migrating current web applications to containers
 * Modularity for future website work either in App Service or in other services like Azure Container Apps and Azure Kubernetes Service. Web Apps for Containers can be a good first step for moving to containers.
 
 * A container deployed in Web Apps for Containers is ready for continuous integration and continuous deploy (CI/CD). CI/CD capabilities allow you to ship updates faster.
+
+## Contributors
+
+[Marc Gelormino](https://www.linkedin.com/in/marcgelormino/) | Content Developer
 
 ## Next steps
 
