@@ -20,7 +20,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 The following workflow (or dataflow) corresponds to the above diagram:
 1. Health Data into Data Layer
 1. Azure Data Factory to Azure Data Lake storage
-1. Azure Data Factory to Azure ML
+1. Azure Data Factory to Azure ML   
    3.1 Train
    3.2 Validate
    3.3 Deploy 
