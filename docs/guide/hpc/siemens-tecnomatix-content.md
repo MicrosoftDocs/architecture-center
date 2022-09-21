@@ -111,7 +111,7 @@ Only model running time (CPU time) is considered for these cost calculations. Ap
 
 Because the simulation is set to run for one hour, the runtime is in seconds, so the cost estimations shown here are negligible.
 
-|VM size|	GPU|	CPU time (seconds)|
+|VM size|	GPU partition|	CPU time (seconds)|
 |-|-|-|
 |NVadsA10_v5	|1/6 GPU|		2.05|
 |NVadsA10_v5	|1/6 GPU|		14.31|
