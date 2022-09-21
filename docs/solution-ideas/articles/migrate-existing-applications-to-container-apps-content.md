@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Easily migrate existing web applications to container(s) and run the container on Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
 
 ## Architecture
 
@@ -16,13 +16,15 @@ Easily migrate existing web applications to container(s) and run the container o
     1. Or, a private registry or Docker Hub.
 3. App Service pulls image with:
     1. Managed identity, which uses an Azure Active Directory security principal to  access to Azure Container Directory.
-    1. Or, credentials for private registry or Docker Hub if required.
+    1. Or, credentials for private registry or Docker Hub if necessary.
 4. Service connectors to access other Azure resources.
 5. Developer pushes new image to the container registry, which triggers App Service updates when continuous deployment is enabled.
 
 ### Components
 
-[Web App for Containers](https://azure.microsoft.com/services/app-service/containers/): With App Service, you can deploy and run containerized web apps on Windows and Linux. Containerized apps can scale as needed in a fully managed platform. Create streamline CI/CD workflow with Docker Hub, Azure Container Registry, and GitHub.
+[Web App for Containers](https://azure.microsoft.com/services/app-service/containers/): With App Service, you can deploy and run containerized web apps on Windows and Linux. Web App for Containers provides an easy on-ramp for developers to take advantage of a fully managed platform, but who also want a single deployable artifact containing an app and all of its dependencies. Or, developers who want to work with a custom framework or version beyond the defaults built into the Azure App Service platform.
+
+Containerized apps can scale as needed in a fully managed platform. Create streamline CI/CD workflow with Docker Hub, Azure Container Registry, and GitHub.
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/):  A registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. Use container images in Azure services like App Service, Machine Learning, and Batch. For example, when configuring Web App for Containers for your web app, you can specify a container image from Azure Container Registry.
 
@@ -50,9 +52,9 @@ This solution idea is ideal for migrating current web applications to containers
 
 * Scalability in App Service means you can scale out number of workers used on demand.
 
-* Modularity for future website work either in App Service or in other services like Azure Container Apps and Azure Kubernetes Service. Web Apps for Containers can be a good first step for moving to containers.
+* Modularity for future website work either in App Service or in other services like Azure Container Apps and Azure Kubernetes Service. Web App for Containers can be a good first step for moving to containers.
 
-* A container deployed in Web Apps for Containers is ready for continuous integration and continuous deploy (CI/CD). CI/CD capabilities allow you to ship updates faster.
+* A container deployed in Web App for Containers is ready for continuous integration and continuous deploy (CI/CD). CI/CD capabilities allow you to ship updates faster.
 
 ## Contributors
 
