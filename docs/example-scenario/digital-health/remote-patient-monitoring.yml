@@ -12,6 +12,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
   - analytics
+  - databases
   - integration
   - iot
 products:
