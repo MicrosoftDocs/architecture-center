@@ -3,7 +3,7 @@ This article briefly describes the steps for running [Ansys CFX](https://www.ans
 Ansys CFX is computational fluid dynamics (CFD) software for turbomachinery applications. It uses an equilibrium phase change model and relies on material properties to reliably predict cavitation without the need for empirical model parameters. CFX:
 
 - Uses transient blade row methods to reduce geometry from a full wheel to a single passage.
-- Integrates with Geolus Shape Search engine to rapidly find parts that are identical to a given part, based on geometry.
+- Integrates with Geolus Shape Search to rapidly find parts that are identical to a specified part, based on geometry.
 
 CFX is used in the aerospace, defense, steam turbine, automotive, construction, and materials/chemical processing industries.
 
@@ -84,7 +84,7 @@ These models represent transonic flow around an airfoil. Airfoils with mesh size
 
 ### Results, single-node configuration
 
-The following tables and graphs show elapsed wall-clock times and relative speed increases for each model.
+The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
 |Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
@@ -96,6 +96,8 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 
 :::image type="content" source="media/cfx/pump-graph.png" alt-text="Graph that shows the relative speed increases as the number of CPUs increases." border="false":::
 
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
+
 |Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
 |perf_Airfoil_10M_R16|5|16|	149.40|	1.00|
@@ -106,6 +108,8 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 
 :::image type="content" source="media/cfx/graph-airfoil-10m.png" alt-text="Graph that shows the relative speed increases for the 10M airfoil." border="false":::
 
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
+
 |Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
 |perf_Airfoil_50M_R16|5|16|	861.34|	1.00|
@@ -115,6 +119,8 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 |perf_Airfoil_50M_R16|5|120|646.07|	1.33|
 
 :::image type="content" source="media/cfx/graph-airfoil-50m.png" alt-text="Graph that shows the relative speed increases for the 50M airfoil." border="false":::
+
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
 |Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
@@ -130,7 +136,7 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 
 As the single-node results show, scalability improves as the number of cores increases. Because memory bandwidth is fixed on a single node, performance saturates after a certain number of cores is reached. A multi-node configuration surpasses this limitation to fully take advantage of the CFX solver capabilities.
 
-Based on the single-node tests, the 64-CPU configuration is optimal and less expensive than 96-CPU and 120-CPU configurations. The Standard_HB120-64rs_v3 VM with 64 CPUs was used for the multi-node tests.
+Based on the single-node tests, the 64-CPU configuration is optimal. It's also less expensive than 96-CPU and 120-CPU configurations. The Standard_HB120-64rs_v3 VM with 64 CPUs was used for the multi-node tests.
 
 The following tables and graphs show elapsed wall-clock times and relative speed increases for each model.
 
