@@ -1,6 +1,6 @@
 ---
-title: Day two operations for mission-critical workloads on Azure
-description: Guidance for day two operations for the baseline reference architecture for a mission-critical workload on Azure. 
+title: Operations for mission-critical workloads on Azure
+description: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure. 
 author: robbagby
 categories: networking
 ms.author: allensu
@@ -12,13 +12,13 @@ ms.category:
   - management-and-governance
 azureCategories:
   - management-and-governance  
-summary: Guidance for day two operations for the baseline reference architecture for a mission-critical workload on Azure.  
+summary: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure.  
 products:
   - azure
   - azure-devops
 ---
 
-# Day two operations for mission-critical workloads on Azure
+# Operations for mission-critical workloads on Azure
 
 Like with any application, change will occur in your mission-critical workloads. The application will evolve over time, keys will expire, patches will be released, and more. All changes and maintenance should be applied using deployment pipelines. This article provides operational guidance for making common changes and updates.
 
@@ -60,7 +60,7 @@ The following is an example of automating library updates using [dependabot](htt
 
 1. Dependabot detects updates of libraries and SDK used in application code
 2. Dependabot updates the application code in a branch and creates a pull request (PR) with those changes against the main branch. The PR contains all relevant information and is ready for final review.
-   :::image type="content" source="./images/mission-critical-day-two-operations.png" alt-text="Screenshot of a pull request generated from dependabot." lightbox="./images/mission-critical-day-two-operations.png":::
+   :::image type="content" source="./images/mission-critical-operations-dependabot.png" alt-text="Screenshot of a pull request generated from dependabot." lightbox="./images/mission-critical-operations-dependabot.png":::
 3. When code review and testing are done, the PR can be merged to the main branch.
 
 For dependencies dependabot isn't able to monitor, ensure that you have processes in place to detect new releases.
@@ -99,7 +99,7 @@ Alerts are key to understanding if and when there are issues with your environme
 
 ## Automation
 
-Many platforms and services running on Azure provide automation for common day 2 operations. This automation includes autoscaling and the automated handling of keys and certificates.
+Many platforms and services running on Azure provide automation for common operational activities. This automation includes autoscaling and the automated handling of keys and certificates.
 
 ### Scaling
 
@@ -132,7 +132,7 @@ When you're using keys, secrets, or certificates, use Azure-native platform capa
 
 ## Manual
 
-There are day 2 operations that require manual intervention. These processes should be tested.
+There are operational activities that require manual intervention. These processes should be tested.
 
 ### Dead-lettered messages
 
