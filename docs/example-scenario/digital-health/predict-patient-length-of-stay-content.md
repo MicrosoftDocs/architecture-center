@@ -21,10 +21,10 @@ The following workflow (or dataflow) corresponds to the above diagram:
 1. Health Data into Data Layer
 1. Azure Data Factory to Azure Data Lake storage
 1. Azure Data Factory to Azure ML
-   - 3.1 Train
-   - 3.2 Validate
-   - 3.3 Deploy 
-   - 3.4 Monitor
+   3.1 Train
+   3.2 Validate
+   3.3 Deploy 
+   3.4 Monitor
 1. Azure ML to Azure Synapse Analytics
 1. Azure Synapse Analytics to Power BI
 1. Power BI analysis by manager/coordinator
