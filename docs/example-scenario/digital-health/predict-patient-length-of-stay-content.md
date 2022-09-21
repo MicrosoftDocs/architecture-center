@@ -19,21 +19,21 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 The following workflow (or dataflow) corresponds to the above diagram:
 1. Health Data into Data Layer
-1. Azure Data Factory to Azure Data Lake storage
+1. Azure Data Factory to Azure Data Lake storage  
 1. Azure Data Factory to Azure ML   
-   3.1 Train
-   3.2 Validate
-   3.3 Deploy 
-   3.4 Monitor
-1. Azure ML to Azure Synapse Analytics
-1. Azure Synapse Analytics to Power BI
-1. Power BI analysis by manager/coordinator
+   3.1 Train  
+   3.2 Validate  
+   3.3 Deploy   
+   3.4 Monitor  
+1. Azure ML to Azure Synapse Analytics  
+1. Azure Synapse Analytics to Power BI  
+1. Power BI analysis by manager/coordinator  
 
 ### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) provides fully managed, serverless data integration service. Visually integrate data sources with more than 90+ built-in, maintenance-free connectors at no added cost.
-
-- [Azure Storage](https://azure.microsoft.com/products/category/storage/) provides a scalable secure data lake for high-performance analytics.
+  
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides a scalable secure data lake for high-performance analytics.
 
 - [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
