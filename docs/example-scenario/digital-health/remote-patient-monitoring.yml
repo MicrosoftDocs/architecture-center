@@ -13,10 +13,8 @@ azureCategories:
   - ai-machine-learning
   - integration
 products:
-  - azure-cognitive-services
   - azure-iot-hub
   - azure-machine-learning
-  - azure-rbac
   - power-bi
 name: Remote patient monitoring
 summary: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.

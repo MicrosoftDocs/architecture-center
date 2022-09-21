@@ -2,6 +2,7 @@
 > **SECTION TODOS**
 > - cull/reconcile intro content from Janna and Mustafa's doc contributions
 > - intro is typically *"1-2 sentences to briefly explain this architecture. The full scenario info will go in the "Scenario details" section"*
+> - clarify it's near realtime
 
 [Janna:]  
 Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. Combining single or multiple Internet of Things (IoT) devices allows for a more holistic health data picture to optimize treatment plans and clinician workflows. The stack of Azure Health Data Services and features within can support the remote monitoring of health data allowing for sense making and health data analytics  
