@@ -11,10 +11,16 @@ metadata:
   ms.subservice: example-scenario
 azureCategories:
   - ai-machine-learning
+  - analytics
   - integration
+  - iot
 products:
-  - azure-iot-hub
+  - azure-data-lake-storage
+  - azure-databricks
+  - azure-event-hubs
+  - azure-event-grid
   - azure-machine-learning
+  - azure-synapse-analytics
   - power-bi
 name: Remote patient monitoring
 summary: Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.
