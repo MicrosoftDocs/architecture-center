@@ -1,4 +1,4 @@
-<Intro spell out long name.>
+Intro.  spell out long name
 
 ## Why deploy Tecnomatix on Azure?
 
@@ -17,10 +17,10 @@ architecture.*
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a Windows VM. 
+    used to create a Windows VM.
   - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
-    used to create a private network infrastructure in the cloud. 
+    used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
   -  A public IP address connects the internet to the VM.
 - A physical solid-state drive (SSD) is used for storage.
@@ -38,39 +38,134 @@ Performance tests of Tecnomatix on Azure used [NVadsA10_v5](/azure/virtual-machi
 
 ### Required drivers
 
-both NVIDIA. AMD? 
+To take advantage of the GPU capabilities of [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install NVIDIA GPU drivers.
 
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
+To use AMD CPUs on NVadsA10_v5 and NCasT4_v3 series VMs, you need to install AMD drivers.
 
-## <Workload> installation
-Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
+## Tecnomatix installation
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.  >
-<Should not list any ordered steps of installation.> 
+Before you install Tecnomatix, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers.
 
-## <Workload> performance results
-<Give a short intro to how performance was tested>
-<Results for X>
-<Results for Y etc>
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
+
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+
+To install Tecnomatix and get information about the installation process, see the [Siemens website](https://support.sw.siemens.com/en-US/product/297028302/downloads).
+
+## Tecnomatix performance results
+
+The Factory 51 model was used as a test case for these performance evaluations.
+
+![Screenshot that shows the Factory 51 model.](media/tecnomatix/factory-51.png)
+
+The following scenarios were tested:
+
+- Shadows off, with animation
+- Shadows off, without animation
+- Shadows on, with animation
+- Shadows on, without animation
+
+For these scenarios, frames per second (FPS) and CPU time are noted in the following tables.
+
+|Shadows off, with animation|||
+|-|-|-|
+||NVadsA10_v5|NCasT4_v3|
+|FPS|28|19|
+|CPU time (seconds)|8.98|43.22|
+
+|Shadows off, without animation|||
+|-|-|-|
+||NVadsA10_v5|NCasT4_v3|
+|FPS|30|21|
+|CPU time (seconds)|2.05|2.91|
+
+|Shadows on, with animation|||
+|-|-|-|
+||NVadsA10_v5|NCasT4_v3|
+|FPS|24|12|
+|CPU time (seconds)|14.31|62.81|
+
+|Shadows on, without animation|||
+|-|-|-|
+||NVadsA10_v5|NCasT4_v3|
+|FPS|19|16|
+|CPU time (seconds)|2.08|2.94|
+
+This information is presented in the following graphs:
+
+![Graphs that show the CPU time and FPS for various model configurations.](media/tecnomatix/graphs.png) 
 
 ### Additional notes about tests
-<Include any additional notes about the testing process used.>
+
+The default time was set for one hour for all the tests. Debug was enabled in the Console. Real-time mode was disabled.
+
+ [Fast Forward Simulation](https://docs.plm.automation.siemens.com/content/plant_sim_help/15/plant_sim_all_in_one_html/en_US/tecnomatix_plant_simulation_help/objects_reference_help/material_flow_objects/eventcontroller/dialog_window_of_the_eventcontroller/tab_controls/start_fast_forward_simulation_eventcontroller.html) was used in these tests. Tests performed with this option enabled run without MU Animation and Icon Animation.
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.  >
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+The times presented in the following table correspond to the times in the tables in the performance results section earlier in this article. You can use these times together with the Azure hourly rates for NVadsA10_v5 and NCasT4_v3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machine Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only model running time (CPU time) is considered for these cost calculations. Application installation time isn't considered. The costs are indicative. The actual costs depend on the size of the model.
+
+Because the simulation is set to run for one hour, the runtime is in seconds, so the cost estimations shown here are negligible.
+
+|VM size|	GPU|	CPU time (seconds)|
+|-|-|-|
+|NVadsA10_v5	|1/6 GPU|		2.05|
+|NVadsA10_v5	|1/6 GPU|		14.31|
+|NVadsA10_v5	|1/6 GPU|		2.08|
+|NCasT4_v3|	1 GPU|	43.22|
+|NCasT4_v3|	1 GPU|		2.91|
+|NCasT4_v3|	1 GPU|		62.81|
+|NCasT4_v3|	1 GPU|		2.94|
 
 ## Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+
+- Tecnomatix was successfully tested on NVadsA10_v5 and NCasT4_v3 series VMs on Azure.
+- Performance on NVadsA10_v5 is better, with a good FPS rate and less CPU time.
+- Tecnomatix on Azure can easily handle typical workloads.
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod
+    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin
+    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
+-   [GPU-optimized virtual machine
+    sizes](/azure/virtual-machines/sizes-gpu)
+-   [Virtual machines on Azure](/azure/virtual-machines/overview)
+-   [Virtual networks and virtual machines on
+    Azure](/azure/virtual-network/network-overview)
+-   [Learning path: Run high-performance computing (HPC) applications on
+    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
 ## Related resources
+
+-   [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+-   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+-   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
