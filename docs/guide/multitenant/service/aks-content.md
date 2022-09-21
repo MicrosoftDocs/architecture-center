@@ -335,7 +335,7 @@ Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Software Customer Engineer, FastTrack for Azure
+ * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
 
 ## Next steps
 
