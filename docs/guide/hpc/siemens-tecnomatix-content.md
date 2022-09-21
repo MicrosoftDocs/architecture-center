@@ -97,7 +97,7 @@ This information is presented in the following graphs:
 
 ### Additional notes about tests
 
-The default time was set for one hour for all the tests. Debug was enabled in the Console. Real-time mode was disabled.
+The default time was set for one hour for all tests. Debug was enabled in the Console. Real-time mode was disabled.
 
  [Fast Forward Simulation](https://docs.plm.automation.siemens.com/content/plant_sim_help/15/plant_sim_all_in_one_html/en_US/tecnomatix_plant_simulation_help/objects_reference_help/material_flow_objects/eventcontroller/dialog_window_of_the_eventcontroller/tab_controls/start_fast_forward_simulation_eventcontroller.html) was used in these tests. Tests performed with this option enabled run without MU Animation and Icon Animation.
 
