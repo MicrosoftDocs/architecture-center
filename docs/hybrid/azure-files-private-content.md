@@ -22,7 +22,7 @@ The enterprise-level cloud file sharing solution uses the following methods to p
 
 By implementing Azure Private Endpoint on Azure Files and Azure File Sync, public endpoint access is disabled so that access to Azure Files and Azure File Sync is restricted from the Azure virtual network.
 
-The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints is restricted to private connection only. During transition, Azure Files will only allow the connection if it is made with SMB 3.0+. Connections made from the Azure File Sync agent to an Azure File share or Storage Sync Service are always encrypted. At rest, Azure Storage automatically encrypts your data when it is persisted to the cloud, as does Azure Files.
+The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints is restricted to private connection only. During transition, Azure Files will only allow the connection if it's made with SMB 3.0+. Connections made from the Azure File Sync agent to an Azure File share or Storage Sync Service are always encrypted. At rest, Azure Storage automatically encrypts your data when it's persisted to the cloud, as does Azure Files.
 
 A Domain Name System (DNS) resolver is a critical component of the solution. Each Azure service, in this case Azure Files and Azure File Sync, have a fully qualified domain name (FQDN). The FQDNs of those services are resolved to their public IP addresses in these cases:
 
@@ -95,10 +95,10 @@ Private domain name resolution queries go through components **3**, **5**, **6**
 1. The client sends a query to an on-premises DNS server to resolve an Azure Files or Azure File Sync DNS name.
 2. The on-premises DNS server has a conditional forwarder that points Azure File and Azure File Sync DNS name resolution to a DNS server in the Azure virtual network.
 3. The query is redirected to a DNS Server or Azure private DNS resolver in the Azure virtual network.
-4. Depends on virtual network's DNS configuration
- - If a custom DNS server is configured, the DNS Server in the Azure virtual network sends a name query to the Azure Provided DNS (168.63.129.16) recursive resolver.
- - If Azure private DNS resolver is configured, and the query match Private DNS zones linked to the virtual network, those zones are consulted.
-5. The DNS server/Azure private DNS resolver returns a private IP after resolving the private domain name to the respective private DNS zone, using the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS Zone.
+4. Depending on the virtual network's DNS configuration:
+ - If a custom DNS server is configured, the DNS Server in the Azure virtual network sends a name query to the Azure provided DNS (168.63.129.16) recursive resolver.
+ - If the Azure private DNS resolver is configured, and the query matches the private DNS zones that are linked to the virtual network, those zones are consulted.
+5. The DNS server/Azure private DNS resolver returns a private IP, after resolving the private domain name to the respective private DNS zone. It uses the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS aone.
 
 ## Considerations
 
@@ -148,13 +148,14 @@ Data loss is a serious problem for businesses of all sizes. Azure file share bac
 For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
 
 ### Support for hybrid identities on Azure Files
-Although this article describes Active Directory for authenticating on Azure Files, it is possbile to use Azure Active Directory for authenticating hybrid user identities,  Azure Files supports identity-based authentication over Server Message Block (SMB) using the Kerberos authentication protocol through the following three methods:
+
+Although this article describes Active Directory for authenticating on Azure Files, it's possbile to use Azure Active Directory for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
 
 - On-premises Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
 - Azure Active Directory Kerberos (Azure AD) for hybrid user identities only
 
-For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
+For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable).
 
 ### Security
 
