@@ -128,35 +128,22 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 > [!NOTE]
 > **SECTION TODOS**
-> - do we have solution assets that demo this architecture? 
-
-> (Optional, but greatly encouraged)
-
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
+> - this section is optional, but at this point we don't have solution assets that demo this architecture
 
 ## Contributors
 
-> [!NOTE]
-> **SECTION TODOS**
-> - decide whether we want to do this section
-
-> (Expected, but this section is optional if all the contributors would prefer to not be mentioned.)
-
-> Start with the explanation text (same for every section), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Principal authors" list and the "Other contributors" list, if there are additional contributors (all in plain text, not italics or bold). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). Implement this format:
-
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: > Only the primary authors. Listed alphabetically by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
+Principal authors: 
 
- - [Author 1 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - [Author 2 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - > Continue for each primary author (even if there are 10 of them).
+ - [Dhanshri More](https://www.linkedin.com/in/dhanshrimore/L) | Principal Cloud Solution Architect
+ - [DJ Dean](https://www.linkedin.com/in/deandaniel/) | Principal Cloud Solution Architect
 
-Other contributors: > Include contributing (but not primary) authors, major editors (not minor edits), and technical reviewers. Listed alphabetically by last name. Use this format: Fname Lname. It's okay to add in newer contributors.
 
- - [Contributor 1 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - [Contributor 2 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - > Continue for each additional contributor (even if there are 10 of them).
+Other contributors: 
+
+ - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Development Engineer
+ - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
