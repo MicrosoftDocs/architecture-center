@@ -34,9 +34,9 @@ The following workflow (or dataflow) corresponds to the above diagram:
 
 ### Components
 
-- Azure Data Factory: Fully managed, serverless data integration service. Visually integrate data sources with more than 90+ built-in, maintenance-free connectors at no added cost.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) provides fully managed, serverless data integration service. Visually integrate data sources with more than 90+ built-in, maintenance-free connectors at no added cost.
 
-- Azure Storage: Scalable, secure data lake for high-performance analytics.
+- [Azure Storage](https://azure.microsoft.com/products/category/storage/) is used for scalable, secure data lake for high-performance analytics.
 
 - Azure Machine Learning (ML) Services: accelerate end-to-end Length of stay (LOS) prediction ML lifecycle. In addition:
   - Empower data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
