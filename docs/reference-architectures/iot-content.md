@@ -1,4 +1,4 @@
-You can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services IoT solutions commonly use, but no single solution uses all of these components.
+You can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services that IoT solutions commonly use, but no single solution uses all of these components.
 
 ## Architecture
 
