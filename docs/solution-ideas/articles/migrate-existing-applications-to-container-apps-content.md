@@ -56,7 +56,13 @@ This solution idea is ideal for migrating current web applications to containers
 
 ## Contributors
 
-[Marc Gelormino](https://www.linkedin.com/in/marcgelormino/) | Content Developer
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Marc Gelormino](https://www.linkedin.com/in/marcgelormino) | Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
