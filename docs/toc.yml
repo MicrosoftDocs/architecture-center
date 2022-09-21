@@ -3394,6 +3394,8 @@ items:
                 href: solution-ideas/articles/jboss-deployment-red-hat.yml
               - name: Lift and shift to containers with AKS
                 href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
+              - name: Lift and shift to containers with App Service
+                href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Microservices with AKS and Azure DevOps
                 href: solution-ideas/articles/microservices-with-aks.yml
               - name: Secure DevOps for AKS
@@ -5167,6 +5169,8 @@ items:
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift to containers with AKS
                 href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
+              - name: Lift and shift to containers with App Service
+                href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
               - name: Migrate IBM mainframe apps
