@@ -60,9 +60,13 @@ You can use the options below to deploy and manage the core platform capabilitie
 
 ## Application
 
+You can use the options below to deploy and manage applications or workloads in an application landing zone.
+
 ### Centrally managed
 
-…
+| Centrally managed application | Description |
+| --- | --- |
+| | |
 
 ### Technology platforms
 
@@ -71,7 +75,14 @@ You can use the options below to deploy and manage the core platform capabilitie
 | [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | |
 | [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | |
 | [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) | |
+| [SAP on Azure landing zone accelerator](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | |
+| [Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | |
+| [Azure Virtual Desktop Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) | |
+| [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | |
+| [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | |
 
 ### Workload
 
-…
+| Workload | Description |
+| --- | --- |
+| | |
