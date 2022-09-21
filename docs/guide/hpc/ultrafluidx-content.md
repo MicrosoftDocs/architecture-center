@@ -184,7 +184,7 @@ Other contributors:
 -   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+    Azure](/training/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
