@@ -1,36 +1,40 @@
 This article presents a solution for deriving insights from siloed operational data. The solution connects MongoDB Atlas to Azure Synapse Analytics. The connection makes it possible to transfer data in batches and in real time. The real-time approach keeps Azure Synapse Analytics dedicated SQL pools in sync with changes in the MongoDB Atlas data source.
 
+*Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+*The MongoDB Atlas logo is a trademark of MongoDB. No endorsement is implied by the use of this mark.*
+
 ## Architecture
 
 The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real-time.
 
-:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis tools and apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png":::
+:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" border="false":::
 
-
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1987245-azure-synapse-analytics-integrate-mongodb-atlas.pptx) of this architecture.*
 
 ### Dataflow
 
-The solution presents two options for triggering the pipeline that syncs the data. The following steps outline both options.
+The solution presents two options for triggering the pipelines that capture the real-time changes in the MongoDB Atlas operational data store (ODS) and sync the data. The following steps outline both options.
 
 1. Changes occur in the operational and transactional data that's stored in MongoDB Atlas. The Mongo Atlas change stream APIs notify subscribed applications about the changes in real time.
 
-1. A custom Azure App Service web app subscribes to the MongoDB change stream. There are two versions of the web app, *event grid* and *storage*, one for each version of the solution. Both app versions listen for changes that are caused by an insert, update, or delete operation in Atlas. When the apps detect a change, they write the changed document as a blob to Azure Data Lake Storage, which is integrated with Synapse. The event grid version of the app also creates a new event in Event Grid when it detects a change in Atlas.
+1. A custom Azure App Service web app subscribes to the MongoDB change stream. There are two versions of the web app, *event grid* and *storage*, one for each version of the solution. Both app versions listen for changes that are caused by an insert, update, or delete operation in Atlas. When the apps detect a change, they write the changed document as a blob to Azure Data Lake Storage, which is integrated with Azure Synapse Analytics. The event grid version of the app also creates a new event in Azure Event Grid when it detects a change in Atlas.
 
-1. Both versions of the solution trigger the Synapse pipeline:
-   1. In the event grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Synapse Analytics trigger, which causes the Synapse Analytics data pipeline to run.
-   1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected on the integrated Data Lake Storage folder, that trigger is activated, which causes the Synapse Analytics data pipeline to run.
+1. Both versions of the solution trigger the Azure Synapse Analytics pipeline:
+   1. In the event grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Azure Synapse Analytics trigger, which causes the Azure Synapse Analytics data pipeline to run.
+   1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected on the integrated Data Lake Storage folder, that trigger is activated, which causes the Azure Synapse Analytics data pipeline to run.
 
-1. In a copy activity, the Synapse pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
+1. In a copy activity, the Azure Synapse Analytics pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
 
 1. The dedicated SQL pool is the enterprise data warehousing feature that hosts the table that the data pipeline updates. The copy data activity of the pipeline keeps that table in sync with its corresponding Atlas collection.
 
-1. Power BI reports and visualizations display current and near real-time analytics. They also feed downstream applications with the current data. MongoDB Atlas serves as a sink to feed real-time data to custom apps by using a Synapse data pipeline sink connector.
+1. Power BI reports and visualizations display current and near real-time analytics. The data also feeds into downstream applications. MongoDB Atlas functions as a sink by using an Azure Synapse Analytics data pipeline sink connector. Atlas then provides custom apps with the real-time data.
 
 ### Components
 
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database) is a database-as-a-service offering from MongoDB. This multi-cloud application data platform combines transactional processing, relevance-based search, real-time analytics, and mobile-to-cloud data synchronization in an elegant and integrated data architecture. MongoDB also offers an on-premises solution, MongoDB Enterprise Advanced.
 
-- [Change streams](https://www.mongodb.com/docs/manual/changeStreams/) in MongoDB Atlas gives applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifcations about changes to a particular collection, database, or entire deployment cluster.
+- [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
 
 - [App Service](https://azure.microsoft.com/services/app-service) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
 
@@ -39,7 +43,7 @@ The solution presents two options for triggering the pipeline that syncs the dat
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the core service that this solution uses for data ingestion, processing, and analytics.
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable and secure solution for managing large volumes of data from multiple, heterogeneous sources.
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable and secure solution for managing large volumes of data from multiple, heterogeneous sources.
 
 - [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are logical groupings of activities that you use to work with data. This solution uses a pipeline to copy data from Data Lake Storage into a dedicated SQL pool.
 
@@ -47,9 +51,9 @@ The solution presents two options for triggering the pipeline that syncs the dat
 
 - [Azure Synapse Analytics triggers](/azure/data-factory/concepts-pipeline-execution-triggers) provide an automated way to run pipelines. You can schedule these triggers. You can also set up event-based triggers, such as [storage event triggers](/azure/data-factory/how-to-create-event-trigger) and [custom event triggers](/azure/data-factory/how-to-create-custom-event-trigger). The solution uses both types of event-based triggers.
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) is a highly scalable, serverless event broker. You can use Event Grid to deliver events to subscriber destinations.
+- [Event Grid](https://azure.microsoft.com/services/event-grid) is a highly scalable, serverless event broker. You can use Event Grid to deliver events to subscriber destinations.
 
-- [Power BI](https://powerbi.microsoft.com/en-us/) is a collection of software services and apps that display analytics information. In this solution, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information. In this solution, Power BI provides a way to use the processed data to perform advanced analysis and to derive insights.
 
 ## Scenario details
 
@@ -57,22 +61,24 @@ MongoDB Atlas serves as the operational data layer of many enterprise applicatio
 
 ### Batch integration
 
-IIn Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Azure Data Factory.
+In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Azure Data Factory.
 
-With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for a period of time by using a filter in batch mode. Then you can use SQL pools and Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
+With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for a period of time by using a filter in batch mode. Then you can use SQL pools and Apache Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
+
+:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.png" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.png" border="false":::
 
 For more information about how to set up and configure the connectors, see these resources:
 
-- [Copy data from or to MongoDB Atlas using Azure Data Factory or Synapse Analytics](/azure/data-factory/connector-mongodb-atlas)
-- [Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics](/azure/data-factory/connector-mongodb)
+- [Copy data from or to MongoDB Atlas using Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-mongodb-atlas)
+- [Copy data from or to MongoDB using Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-mongodb)
 
 The source connector provides a convenient way to run Azure Synapse Analytics on top of operational data that's stored in MongoDB or Atlas. After you use the source connector to retrieve data from Atlas, you can load the data into Data Lake Storage blob storage as a Parquet, Avro, JSON, text, or CSV file. You can then transform these files or join them with other files from other data sources in multi-database, multi-cloud or hybrid cloud environments.
 
 You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
-- To retrieve all data as of a particular date from MongoDB in a batch. You then load the data into an Azure Data Lake dedicated SQL pool or use a serverless SQL pool or Spark pool for analysis. After you retrieve this batch, you can apply changes to the data as they occur. This capability makes real-time insights possible for just-in-time decision making and conclusions. This functionality is useful for analytics of sensitive and critical information such as financial transactions and fraud detection data. A *Storage-CopyPipeline_mdb_synapse_ded_pool_RTS* sample pipeline is available as part of this solution. You can export it from the gallery for this one-time load purpose.
+- To retrieve all data at a particular date from MongoDB in a batch. You then load the data into Data Lake Storage. From there, you use a serverless SQL pool or Spark pool for analysis or copy the data into a dedicated SQL pool. After you retrieve this batch, you can apply changes to the data as they occur, as described in [Dataflow](#dataflow). A [Storage-CopyPipeline_mdb_synapse_ded_pool_RTS sample pipeline](https://github.com/Azure/RealTimeSync_Synapse-MongoDB/blob/main/Storage-CopyPipeline_mdb_synapse_ded_pool_RTS.zip) is available as part of this solution. You can export it from GitHub for this one-time load purpose.
 
-- To produce insights at a particular frequency such as a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data. This functionality is useful in retail scenarios such as updating inventory levels with daily sales data. In such cases, analytics reports and dashboards aren't of critical importance, and real-time analysis isn't worth the effort.
+- To produce insights at a particular frequency such as a daily or hourly report. For this scenario, you schedule a pipeline to retrieve data on a regular basis before you run the analytics pipelines. You can use a MongoDB query to apply filter criteria and only retrieve a certain subset of data.
 
 ### Real-time sync
 
@@ -86,7 +92,7 @@ The MongoDB change stream captures changes that occur in the database. The chang
 
 #### Trigger a pipeline to propagate the changes to Azure Synapse Analytics
 
-The solution presents two options for triggering a Synapse pipeline after the blob is written to Data Lake Storage:
+The solution presents two options for triggering an Azure Synapse Analytics pipeline after the blob is written to Data Lake Storage:
 
 - A storage-based trigger. Use this option if you need real-time analytics, because the pipeline gets triggered as soon as the blob with the change is written. But this option might not be the preferred approach when you have a high volume of data changes. Azure Synapse Analytics limits the number of pipelines that can run concurrently. When you have a large number of data changes, you might hit that limit.
 
@@ -94,7 +100,7 @@ The solution presents two options for triggering a Synapse pipeline after the bl
 
 #### Propagate the changes to a dedicated SQL pool
 
-An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline in the gallery that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or event grid trigger.
+An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline on GitHub that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or event grid trigger.
 
 ## Potential use cases
 
@@ -122,6 +128,11 @@ The use cases for this solution span many industries and areas:
   - Providing predictive maintenance for machinery
   - Optimizing storage and inventory management
 
+Here are two specific examples:
+
+- As this article describes earlier in [Batch integration](#batch-integration), you can retrieve MongoDB data in a batch and then update the data as changes occur. This capability makes real-time insights possible for just-in-time decision making and conclusions. This functionality is useful for analytics of sensitive and critical information such as financial transactions and fraud detection data.
+- As [Batch integration](#batch-integration) also describes, you can schedule a pipeline to retrieve MongoDB data on a regular basis. This functionality is useful in retail scenarios such as updating inventory levels with daily sales data. In such cases, analytics reports and dashboards aren't of critical importance, and real-time analysis isn't worth the effort.
+
 The following sections take a closer look at two retail industry use cases.
 
 ### Product bundling
@@ -137,7 +148,7 @@ Both sets of data are migrated to an Azure Synapse Analytics dedicated SQL pool 
 
 The following Power BI charts show the affinity between the products and sales patterns. The affinity of the pen and ink-based refill is high. The sales data shows that the Pen has a high sales volume in the specified area.
 
-:::image type="content" source="./media/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./media/product-bundling-use-case-visualization.png":::
+:::image type="content" source="./media/product-bundling-use-case-visualization.png" alt-text="Diagram that shows pipeline stages and charts that show pen sales by product, year, region, and affinity. Pen sales are highest in 2022 in the South." lightbox="./media/product-bundling-use-case-visualization.png" border="false":::
 
 The analysis makes two suggestions for yielding better sales:
 
@@ -152,9 +163,9 @@ By using Azure Synapse Analytics, you can develop AI and machine learning models
 
 The following diagrams show the use of various types of data to create a model to determine alternate product recommendations. The data includes customer buying patterns, profits, product affinities, the sales volume of the products, and product catalog parameters.
 
-:::image type="content" source="./media/product-promotion-use-case-visualization.png" alt-text="Diagrams that show pipeline stages and a workflow for an AI model. Data fields include the customer ID, price, sales, and profit." lightbox="./media/product-promotion-use-case-visualization.png":::
+:::image type="content" source="./media/product-promotion-use-case-visualization.png" alt-text="Diagrams that show pipeline stages and a workflow for an AI model. Data fields include the customer ID, price, sales, and profit." lightbox="./media/product-promotion-use-case-visualization.png" border="false":::
 
-If the model results are accurate, they provide a list of products that you can recommend to the customer.
+If your model achieves high accuracy, it provides a list of products that you can recommend to the customer.
 
 ## Considerations
 
@@ -164,45 +175,30 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The solution is based on Azure products. For detailed information about security requirements and controls, see the security section of each product's documentation.
-
-Maybe add links to each product's security docs or Azure security baseline:
-
-- [Azure security baseline for Azure Synapse dedicated SQL pool (formerly SQL DW)](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/synapse-analytics-security-baseline?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json)
-
-- https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-considerations
-
-But it's hard to find a single doc about security for each product:
-Azure Synapse Analytics
-Azure Data Factory
-App Service Web App
-Event Grid
-Azure Data Lake Storage
-Power BI
-
+For detailed information about the security requirements and controls of the Azure components in the solution, see the security section of each product's documentation.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
-- Azure helps you avoid unnecessary costs by identifying the correct number of resources for your needs, analysing spending over time, and scaling to meet business needs without overspending. For example, you can pause the dedicated SQL pools when you don't expect any load. You can resume them later.
-- You can replace Azure App Service with Azure Functions. By orchestrating the functions within Azure Synapse Pipeline, you can reduce costs.
-- To reduce the Spark cluster cost, choose the right data flow compute type. The options are general and memory optimized. Also choose appropriate core count and time-to-live (TTL) values.
-- To find out more about the managing costs of key solution components, see these resources:
+- Azure helps you avoid unnecessary costs by identifying the correct number of resources for your needs, by analyzing spending over time, and by scaling to meet business needs without overspending. For example, you can pause the dedicated SQL pools when you don't expect any load. You can resume them later.
+- You can replace App Service with Azure Functions. By orchestrating the functions within an Azure Synapse Analytics pipeline, you can reduce costs.
+- To reduce the Spark cluster cost, choose the right data flow compute type. General and memory-optimized options are available. Also choose appropriate core count and time-to-live (TTL) values.
+- To find out more about managing the costs of key solution components, see these resources:
   - [Plan and manage costs for Azure Synapse Analytics](/azure/synapse-analytics/plan-manage-costs)
   - [Plan to manage costs for Azure Data Factory](/azure/data-factory/plan-manage-costs)
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands that are placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-When there's a high volume of changes, running thousands of pipelines in Synapse for every change in the collection can result in a backlog of queued pipelines. To improve performance in this scenario, consider the following approaches:
+When there's a high volume of changes, running thousands of pipelines in Azure Synapse Analytics for every change in the collection can result in a backlog of queued pipelines. To improve performance in this scenario, consider the following approaches:
 
-- Use the storage-based App Service code, which writes the delta change JSON documents to Data Lake Storage. Don't link the storage-based trigger with the pipeline. Instead, use a scheduled trigger at a short interval, such as every two or five minutes. When the scheduled trigger runs, it takes all the files in the specified Data Lake Storage directory and updates the dedicated SQL pool for each of them.
-- Modify the Event grid App service code. Program it to add a micro-batch of around 100 delta changes to the blob storage before it adds the new topic with the metadata that includes the filename to the event. With this modification, you trigger only one pipeline for one blob with the 100 delta changes. Based on your scenario, you can adjust the micro-batch size. Use small micro-batches at a high frequency to provide updates that are close to real time. Or use larger micro-batches at a lower frequency for delayed updates and reduced overhead.
+- Use the storage-based App Service code, which writes the JSON documents with the changes to Data Lake Storage. Don't link the storage-based trigger with the pipeline. Instead, use a scheduled trigger at a short interval, such as every two or five minutes. When the scheduled trigger runs, it takes all the files in the specified Data Lake Storage directory and updates the dedicated SQL pool for each of them.
+- Modify the event grid App Service code. Program it to add a micro-batch of around 100 changes to the blob storage before it adds the new topic with the metadata that includes the filename to the event. With this modification, you trigger only one pipeline for one blob with the 100 changes. You can adjust the micro-batch size to suit your scenario. Use small micro-batches at a high frequency to provide updates that are close to real time. Or use larger micro-batches at a lower frequency for delayed updates and reduced overhead.
 
-For more information on improving the performance and scalability of Synapse pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
+For more information on improving the performance and scalability of Azure Synapse Analytics pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
 ## Deploy this scenario
 
@@ -228,6 +224,31 @@ Other contributors:
 
 ## Next steps
 
- 
+For more information about the solution, contact [partners@mongodb.com](mailto:partners@mongodb.com).
+
+For information about MongoDB, see these resources:
+
+- [MongoDB](https://www.mongodb.com)
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+- [MongoDB horizontal use cases](https://www.mongodb.com/use-cases)
+- [MongoDB industry-specific use cases](https://www.mongodb.com/industries)
+
+For information about Azure solution components, see these resources:
+
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Azure Synapse Analytics use cases](https://azure.microsoft.com/services/synapse-analytics/#use-cases)
+- [Azure Synapse Analytics industry-specific use cases](https://azure.microsoft.com/services/synapse-analytics/#industry)
+- [Azure Synapse Analytics connectors](/azure/data-factory/connector-mongodb)
+- [App Service overview](/azure/app-service/overview)
+- [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+
 ## Related resources
 
+- [Enterprise business intelligence](./enterprise-bi-synapse.yml)
+- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../ai/speech-to-text-transcription-analytics.yml)
+- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
