@@ -154,7 +154,7 @@ Although this article describes Active Directory for authenticating on Azure Fil
 - Azure Active Directory Domain Services (Azure AD DS)
 - Azure Active Directory Kerberos (Azure AD) for hybrid user identities only
 
-For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
+For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
 
 ### Security
 
@@ -196,7 +196,7 @@ Principal author:
 - [Create and modify peering for an ExpressRoute circuit](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)
 - [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
 - [What is Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview)
-- [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
+- [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
 
 ## Related resources
 
