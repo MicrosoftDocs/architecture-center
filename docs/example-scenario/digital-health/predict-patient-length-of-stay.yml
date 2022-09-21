@@ -12,10 +12,16 @@ metadata:
 azureCategories:
   - ai-machine-learning
   - analytics
+  - databases
+  - integration
+  - storage
 products:
+  - azure-data-factory
+  - azure-data-lake-gen2
   - azure-machine-learning
+  - azure-synapse-analytics
   - power-bi
-  - sql-server
+
 name: Predict patient length of stay and flow
 summary: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
 thumbnailUrl: /azure/architecture/browse/thumbs/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png
