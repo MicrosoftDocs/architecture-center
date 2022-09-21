@@ -413,6 +413,8 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
+                  - name: Azure Kubernetes Service (AKS)
+                    href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
                   - name: Azure NAT Gateway
