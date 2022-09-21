@@ -138,7 +138,7 @@ As the single-node results show, scalability improves as the number of cores inc
 
 Based on the single-node tests, the 64-CPU configuration is optimal. It's also less expensive than 96-CPU and 120-CPU configurations. The Standard_HB120-64rs_v3 VM with 64 CPUs was used for the multi-node tests.
 
-The following tables and graphs show elapsed wall-clock times and relative speed increases for each model.
+The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|-|
@@ -150,6 +150,7 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 
 :::image type="content" source="media/cfx/graph-pump-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
 
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|-|
@@ -161,6 +162,7 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 
 :::image type="content" source="media/cfx/graph-10m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
 
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|-|
@@ -171,6 +173,8 @@ The following tables and graphs show elapsed wall-clock times and relative speed
 |perf_Airfoil_50M_R16|	10|16|1,024|38.35|14.96|
 
 :::image type="content" source="media/cfx/graph-50m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
+
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
 |Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
 |-|-|-|-|-|-|
