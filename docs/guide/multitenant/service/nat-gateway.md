@@ -42,7 +42,7 @@ The issue is exacerbated when you work with Azure services that share SNAT port 
 
 If you determine you're experiencing SNAT exhaustion and are sure your application code correctly handles your outbound connections, consider deploying NAT Gateway. This approach is commonly used by customers who deploy multitenant solutions that are built on [Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
 
-Each NAT gateway provides at least 64,000, and up to 1 million, SNAT ports. If you need to scale beyond this limit, you can consider [deploying multiple NAT Gateway instances across multiple subnets or VNets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance). Each virtual machine in a subnet can use any of the available SNAT ports, if it needs them.
+Each public IP address attached to NAT gateway provides 64,512 SNAT ports for connecting outbound to the internet. NAT gateway can scale to use up to 16 public IP addresses which provides over 1 million SNAT ports. If you need to scale beyond this limit, you can consider [deploying multiple NAT Gateway instances across multiple subnets or VNets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance). Each virtual machine in a subnet can use any of the available SNAT ports, if it needs them.
 
 ### Outbound IP address control
 

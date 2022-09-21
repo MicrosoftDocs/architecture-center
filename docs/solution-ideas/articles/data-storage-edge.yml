@@ -24,6 +24,6 @@ products:
   - azure-iot-hub
   - azure-sql-edge
 
-thumbnailUrl: /azure/architecture/browse/thumbs/data-storage-edge.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-storage-edge-thumbnail.png
 content: |
    [!include[](data-storage-edge-content.md)]
