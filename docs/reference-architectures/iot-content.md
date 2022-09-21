@@ -183,9 +183,15 @@ Stream Analytics jobs scale best if they're parallel at all points in the Stream
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
+
+Other contributor:
+
+- [Armando Blanco Garcia](https://www.linkedin.com/in/armbla) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
