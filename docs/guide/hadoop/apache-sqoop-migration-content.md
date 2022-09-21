@@ -215,6 +215,11 @@ You can deploy the integration runtime, which is the Data Factory runtime, withi
 
 ![Managed VNET and Private Endpoints](images/managed-vnet-architecture-diagram.png)
 
+:::image type="content" source="images/.png" alt-text="" lightbox="images/.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-) of this architecture.*
+
+
 For more information, see [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
 
 ##### Private link
@@ -223,6 +228,10 @@ You can use [Azure Private Link for Azure Data Factory
 ](/azure/data-factory/data-factory-private-link) to connect to Data Factory.
 
 ![Architecture diagram that shows a managed virtual network and private endpoints](images/private-link-architecture.png)
+
+:::image type="content" source="images/.png" alt-text="" lightbox="images/.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-) of this architecture.*
 
 For more information, see [What is a private endpoint?](/azure/private-link/private-endpoint-overview) and [Private Link documentation](/azure/private-link).
 

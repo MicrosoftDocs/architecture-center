@@ -23,6 +23,8 @@ Scenarios that can benefit from this solution include:
 
 :::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
 
+:::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
+
 The solution involves the following steps:
 
 1. The server sends a large GZIP file that's grouped by customer to the **Source** folder in Azure Data Lake Storage (ADLS).

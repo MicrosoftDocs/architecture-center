@@ -54,7 +54,7 @@ It's important that you understand the core concepts of the HBase architecture a
   
 The following diagram illustrates these concepts.
 
-![The diagram of the data model shows a namespace, table, row, and columns.](images/hbase-data-model.jpg)
+![The diagram of the data model shows a namespace, table, row, and columns.](images/hbase-data-model.png)
 
 #### Write path
 

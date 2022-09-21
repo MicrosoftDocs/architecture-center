@@ -89,7 +89,7 @@ Spark provides primitives for in-memory cluster computing. A Spark job can load 
 
 You can use the Scala programming language with Spark to manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
-![Diagram that compares traditional MapReduce and Spark](https://user-images.githubusercontent.com/7907123/122955375-59c09500-d380-11eb-83f0-202f89c027c9.png)
+![Diagram that compares traditional MapReduce and Spark](images/spark-and-mapreduce.png)
 
 #### Migrate from Storm to Spark
 

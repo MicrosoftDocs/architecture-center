@@ -76,7 +76,7 @@ Here are some things that are important to consider when you plan a migration of
 - Azure Storage has geo-redundant replication, but it's not always wise to use it. It does provide data redundancy and geographic recovery, but a failover to a more distant location can severely degrade performance and incur additional costs. Consider whether the higher availability of the data is worth it.
 - If files have names with the same prefixes, HDFS treats them as a single partition. Therefore, if you use Azure Data Factory, all data movement units (DMUs) write to a single partition.
 
-![Process flow for partitions and job parallelism](images/hdfs-filenames-prefix-partitions.jpg)
+![Process flow for partitions and job parallelism](images/hdfs-filenames-prefix-partitions.png)
 
 - If you use Data factory for data transfer, scan through each directory, excluding snapshots, and check the directory size by using the `hdfs du` command. If there are multiple subdirectories and large amounts of data, initiate multiple copy activities in Data Factory. For example, use one copy per subdirectory rather than transferring the entire directory by using a single copy activity.
 
@@ -130,11 +130,11 @@ Partner tools such as Unravel provide assessment reports for planning data migra
 
 - The following Unravel report provides statistics, per directory, about the small files in the directory:
 
-  ![Small file report](images/hdfs-unravel-report-for-small-files.jpg)
+  ![Small file report](images/hdfs-unravel-report-for-small-files.png)
 
 - The following report provides statistics, per directory, about the files in the directory:
 
-  ![All files report](images/hdfs-unravel-report-for-sizebased-files.jpg)
+  ![All files report](images/hdfs-unravel-report-for-sizebased-files.png)
 
 ### Transfer data
 
