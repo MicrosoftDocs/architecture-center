@@ -1,4 +1,4 @@
-This article briefly describes the steps for running [Siemens NX](https://www.plm.automation.siemens.com/global/en/products/nx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NX on Azure.
+This article briefly describes the steps for running [Siemens NX](https://www.plm.automation.siemens.com/global/en/products/nx/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NX on Azure.
 
 Organizations use NX for design, simulation, and manufacturing solutions that enable digital twin technology. Siemens NX:
 
@@ -68,7 +68,7 @@ For information about installing and using these tools, see the [Siemens website
 
 ### NXCP test results  
 
-The Siemens NXCP tool was used to run these tests. Test cases are grouped to demonstrate various capabilities. Each test group consists multiple test cases.
+The Siemens NXCP tool was used to run these tests. Test cases are grouped to demonstrate various capabilities. Each test group consists of multiple test cases.
 
 The following table shows the test results.
 
@@ -89,7 +89,7 @@ The following table shows ATS test results.
 |Case number|Description|Case ID|	1 GPU (NV12s_v3) |	2 GPUs (NV24s_v3)|1 GPU (NCasT4, 16 CPU)|
 |-|-|-|-|-|-|
 |AT-01|	Verifies that Listing Window shows data correctly|	Listing Window	|1 minute, 11 seconds|	31 seconds	|18 seconds|
-|AT -02|Verifies correct mirror display in various views	|Mirror Display|	1 minute, 40 seconds|	1 minute, 8 seconds|	1 minute, 10 seconds|
+|AT-02|Verifies correct mirror display in various views	|Mirror Display|	1 minute, 40 seconds|	1 minute, 8 seconds|	1 minute, 10 seconds|
 |AT-03|	Verifies de-emphasis displays|	Deemphasis	|1 minute, 13 seconds|	1 minute	|57 seconds|
 |AT-04|	Verifies grid displays|	Grid Display	|1 minute, 47 seconds	|1 minute, 16 seconds	|51 seconds|
 |AT-05|	Verifies correct display of raster images in various view ports|	Raster Image	|20 seconds|	19 seconds|	23 seconds|
