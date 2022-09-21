@@ -327,13 +327,14 @@ For more information on the measurement, allocation, and optimization of costs f
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Bohdan Cherchyk](https://www.linkedin.com/in/cherchyk) | Software Customer Engineer, FastTrack for Azure
 
