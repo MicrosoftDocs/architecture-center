@@ -6,7 +6,7 @@ This article presents a solution for deriving insights from siloed operational d
 
 ## Architecture
 
-The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real-time.
+The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real time.
 
 :::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" border="false":::
 
@@ -32,7 +32,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 ### Components
 
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) is a database-as-a-service offering from MongoDB. This multicloud application data platform combines transactional processing, relevance-based search, real-time analytics, and mobile-to-cloud data synchronization in an elegant and integrated data architecture. MongoDB also offers an on-premises solution, MongoDB Enterprise Advanced.
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database) is a database-as-a-service offering from MongoDB. This multicloud application data platform offers transactional processing, relevance-based search, real-time analytics, and mobile-to-cloud data synchronization. MongoDB also offers an on-premises solution, MongoDB Enterprise Advanced.
 
 - [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
 
@@ -84,7 +84,7 @@ You can use the data that you retrieve from MongoDB Enterprise Advanced or Mongo
 
 In today's competitive world, enterprises need insights that are based on real-time data, not stale data. A delay of a few hours in insight delivery can hold up the decision-making process and result in a loss of competitive advantage. This solution fuels critical decision making by propagating changes that occur in the MongoDB transactional database to the dedicated SQL pool in real time.
 
-This solution has three parts.
+This solution has three parts, which the following sections describe.
 
 #### Capture the MongoDB Atlas changes
 
@@ -137,7 +137,7 @@ The following sections take a closer look at two retail industry use cases.
 
 ### Product bundling
 
-To promote the sale of a product, you can sell the product as part of a bundle together with other related products. The use case objective is to use sales pattern data to develop strategies for bundling a product into packages.
+To promote the sale of a product, you can sell the product as part of a bundle together with other related products. The objective is to use sales pattern data to develop strategies for bundling a product into packages.
 
 There are two sources of data:
 
@@ -157,7 +157,7 @@ The analysis makes two suggestions for yielding better sales:
 
 ### Product promotion
 
-To promote the sale of a product, you can recommend the product to customers who are interested in related products. The use case objective is to use sales data and customer buying pattern data to develop strategies for recommending a product to customers.
+To promote the sale of a product, you can recommend the product to customers who are interested in related products. The objective is to use sales data and customer buying pattern data to develop strategies for recommending a product to customers.
 
 By using Azure Synapse Analytics, you can develop AI and machine learning models to determine which products to recommend to customers.
 
