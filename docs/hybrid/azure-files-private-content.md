@@ -22,9 +22,9 @@ The enterprise-level cloud file sharing solution uses the following methods to p
 
 By implementing Azure Private Endpoint on Azure Files and Azure File Sync, public endpoint access is disabled so that access to Azure Files and Azure File Sync is restricted from the Azure virtual network.
 
-The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints is restricted to private connection only. During transition, Azure Files will only allow the connection if it is made with SMB 3.0+. Connections made from the Azure File Sync agent to an Azure File share or Storage Sync Service are always encrypted. At rest, Azure Storage automatically encrypts your data when it is persisted to the cloud, as does Azure Files.
+The ExpressRoute private peering VPN site-to-site tunnel extends the on-premises network to the Azure virtual network. Azure File Sync and Server Message Block (SMB) traffic from on-premises to Azure Files and Azure File Sync private endpoints is restricted to private connection only. During transition, Azure Files will only allow the connection if it's made with SMB 3.0+. Connections made from the Azure File Sync agent to an Azure File share or Storage Sync Service are always encrypted. At rest, Azure Storage automatically encrypts your data when it's persisted to the cloud, as does Azure Files.
 
-A Domain Name System (DNS) Server is a critical component of the solution. Each Azure service, in this case Azure Files and Azure File Sync, have a fully qualified domain name (FQDN). The FQDNs of those services are resolved to their public IP addresses in these cases:
+A Domain Name System (DNS) resolver is a critical component of the solution. Each Azure service, in this case Azure Files and Azure File Sync, have a fully qualified domain name (FQDN). The FQDNs of those services are resolved to their public IP addresses in these cases:
 
 - When a client accesses an Azure Files share.
 - When an Azure File Sync agent, deployed on an on-premises file server, accesses the Azure File Sync service.
@@ -37,7 +37,7 @@ After enabling a private endpoint, private IP addresses are allocated in the Azu
 The solution shown in this architecture correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:
 
 - Private DNS zones (components **11** and **12**) are created from Azure to provide private name resolution for Azure File Sync and Azure Files.
-- Private DNS zones are linked to the Azure virtual network so that a DNS server (component **8**) deployed in the virtual network can resolve private domain names.
+- Private DNS zones are linked to the Azure virtual network so that a DNS server deployed in the virtual network or Azure private DNS resolver(component **8**)  can resolve private domain names.
 - DNS A records are created for Azure Files and Azure File Sync in private DNS zones. For the endpoint configuration steps, see [Configuring Azure Files network endpoints](/azure/storage/files/storage-files-networking-endpoints) and [Configuring Azure File Sync network endpoints](/azure/storage/files/storage-sync-files-networking-endpoints).
 - The on-premises DNS server (component **3**) sets up conditional forwarding to forward the DNS query of `domain afs.azure.net` and `file.core.windows.net` to the DNS server in the Azure virtual network (component **8**).
 - After receiving the forwarded DNS query from the on-premises DNS server, the DNS server (component **8**) in the Azure virtual network uses the Azure DNS recursive resolver to resolve private domain names and return private IP addresses to the client.
@@ -58,7 +58,7 @@ The solution depicted in the architecture diagram uses the following components:
 
 - **Azure private endpoint** (component **7**) - A network interface that connects you privately and securely to a service powered by [Azure Private Link](https://azure.microsoft.com/services/private-link). In this solution, an [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) private endpoint connects to Azure File Sync (**9**), and an [Azure Files](https://azure.microsoft.com/services/storage/files) private endpoint connects to Azure Files (**10**).
 
-- After receiving a forwarded DNS query from an on-premises DNS server, the **DNS server** (component **8**) in the [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) instance uses the [Azure DNS](https://azure.microsoft.com/services/dns) recursive resolver to resolve the private domain name and return a private IP address to the client.
+- **DNS server/Azure private DNS resolver** (component **8**) in the [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) instance uses the [Azure DNS](https://azure.microsoft.com/services/dns) recursive resolver to resolve the private domain name and return a private IP address to the client, after receiving a forwarded DNS query from an on-premises DNS server.
 
 - **Azure File Sync and cloud tiering** (component **9**) – Azure File Sync is a feature of [Azure Storage](https://azure.microsoft.com/products/category/storage) to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
@@ -94,9 +94,11 @@ Private domain name resolution queries go through components **3**, **5**, **6**
 
 1. The client sends a query to an on-premises DNS server to resolve an Azure Files or Azure File Sync DNS name.
 2. The on-premises DNS server has a conditional forwarder that points Azure File and Azure File Sync DNS name resolution to a DNS server in the Azure virtual network.
-3. The query is redirected to a DNS Server in the Azure virtual network.
-4. The DNS Server in the Azure virtual network sends a name query to the Azure Provided DNS (168.63.129.16) recursive resolver.
-5. The Azure recursive resolver returns a private IP after resolving the private domain name to the respective private DNS zone, using the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS Zone.
+3. The query is redirected to a DNS Server or Azure private DNS resolver in the Azure virtual network.
+4. Depending on the virtual network's DNS configuration:
+   - If a custom DNS server is configured, the DNS Server in the Azure virtual network sends a name query to the Azure provided DNS (168.63.129.16) recursive resolver.
+   - If the Azure private DNS resolver is configured, and the query matches the private DNS zones that are linked to the virtual network, those zones are consulted.
+5. The DNS server/Azure private DNS resolver returns a private IP, after resolving the private domain name to the respective private DNS zone. It uses the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS aone.
 
 ## Considerations
 
@@ -125,7 +127,7 @@ From the Azure side:
 
 From the on-premises side, the private domain name is mapped to a private IP address in one of the following ways:
 
-- Through DNS forwarding to a DNS server deployed in the Azure virtual network, as the diagram shows.
+- Through DNS forwarding to a DNS server deployed in the Azure virtual network or Azure private DNS resolver, as the diagram shows.
 - Through the on-premises DNS server that sets up zones for the private domain `<region>.privatelink.afs.azure.net` and `privatelink.file.core.windows.net`. The server registers the IP addresses of Azure Files and Azure File Sync private endpoints as DNS A records into their respective DNS zones. The on-premises client resolves the private domain name directly from the local on-premises DNS server.
 
 ### Distributed File System (DFS)
@@ -144,6 +146,16 @@ Data loss is a serious problem for businesses of all sizes. Azure file share bac
 - Protection against accidental deletion of file shares
 
 For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
+
+### Support for hybrid identities on Azure Files
+
+Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Azure Active Directory for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
+
+- On-premises Active Directory Domain Services (AD DS)
+- Azure Active Directory Domain Services (Azure AD DS)
+- Azure Active Directory Kerberos (Azure AD) for hybrid user identities only
+
+For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable).
 
 ### Security
 
@@ -184,6 +196,8 @@ Principal author:
 - [ExpressRoute circuits and peering](/azure/expressroute/expressroute-circuit-peerings)
 - [Create and modify peering for an ExpressRoute circuit](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)
 - [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
+- [What is Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview)
+- [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
 
 ## Related resources
 

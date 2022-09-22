@@ -235,6 +235,7 @@ Here are the high-level steps:
 Principal author:
 
 * [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+* [Ella Parkum](https://www.linkedin.com/in/ella-parkum-15036923) | Principal Customer Solution Architect-Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

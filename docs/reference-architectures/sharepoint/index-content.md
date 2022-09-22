@@ -8,7 +8,7 @@ This reference architecture shows proven practices for deploying a highly availa
 
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
@@ -114,7 +114,11 @@ For recommended VM sizes and other performance recommendations for SQL Server ru
 
 We recommend that the majority node server reside on a separate computer from the replication partners. The server enables the secondary replication partner server in a high-safety mode session to recognize whether to initiate an automatic failover. Unlike the two partners, the majority node server doesn't serve the database but rather supports automatic failover.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 To scale up the existing servers, simply change the VM size.
 
@@ -122,19 +126,21 @@ With the [MinRoles][minroles] capability in SharePoint Server 2016, you can scal
 
 Note that SharePoint Server 2016 doesn't support using virtual machine scale sets for autoscaling.
 
-## Availability considerations
+### Availability
 
 This reference architecture supports high availability within an Azure region because each role has at least two VMs deployed in an availability set.
 
 To protect against a regional failure, create a separate disaster recovery farm in a different Azure region. Your recovery time objectives (RTOs) and recovery point objectives (RPOs) will determine the setup requirements. For details, see [Choose a disaster recovery strategy for SharePoint 2016][sharepoint-dr]. The secondary region should be a *paired region* with the primary region. In the event of a broad outage, recovery of one region is prioritized out of every pair. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][paired-regions].
 
-## Manageability considerations
+### Manageability
 
 To operate and maintain servers, server farms, and sites, follow the recommended practices for SharePoint operations. For more information, see [Operations for SharePoint Server 2016][sharepoint-ops].
 
 The tasks to consider when managing SQL Server in a SharePoint environment may differ from the ones typically considered for a database application. A best practice is to fully back up all SQL databases weekly with incremental nightly backups. Back up transaction logs every 15 minutes. Another practice is to implement SQL Server maintenance tasks on the databases while disabling the built-in SharePoint ones. For more information, see [Storage and SQL Server capacity planning and configuration][sql-server-capacity-planning].
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers or Azure Active Directory Domain Services for domain-join and authentication processes. However, to extend the Windows Server AD identity infrastructure already in place in the intranet, this particular architecture uses two VMs as Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest.
 
@@ -146,21 +152,23 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 - Install anti-malware agents for the VMs.
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing the cost for this architecture.
 
-### Active Directory Domain Services
+#### Active Directory Domain Services
 
 Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
-### VPN Gateway
+#### VPN Gateway
 
 The billing model is based on the amount of time the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
 
 All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
 
-### Virtual Network
+#### Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
@@ -168,7 +176,7 @@ This architecture builds on the architecture deployed in [Run Windows VMs for an
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-## DevOps considerations
+### DevOps
 
 Consider using separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights. In general, put resources that have the same lifecycle in the same resource group. Use the Developer tier for development and test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and then shut down.
 
