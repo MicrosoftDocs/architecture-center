@@ -1,8 +1,3 @@
-> [!NOTE]
-> **SECTION TODOS**
-> - intro is typically *"1-2 sentences to briefly explain this architecture. The full scenario info will go in the "Scenario details" section"*
-> - review and finalize this section
-
 Health systems, hospitals, and large physician practices are shifting to hospital@home initiatives (also known as remote patient monitoring). Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. 
 
 This article provides guidance on how to design a solution using Azure Health Data Services and devices for intelligent remote patient monitoring. The solution will help alleviate many of the device integration challenges your organization is bound to face when building such a solution at scale. 
@@ -71,7 +66,7 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
      MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
 
-- [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - serves as a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
+   - [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - serves as a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
 
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be consumed by Azure Event Grid.
 
