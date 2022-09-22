@@ -26,7 +26,7 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
-## Components
+### Components
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
