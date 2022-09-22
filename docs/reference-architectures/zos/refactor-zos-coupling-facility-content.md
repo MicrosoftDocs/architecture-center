@@ -1,11 +1,5 @@
 This architecture shows how Azure can provide scale-out performance and high availability that is similar to IBM z/OS mainframe systems with Coupling Facilities (CFs).
 
-CFs are physical devices that connect multiple mainframe servers or Central Electronics Complexes (CECs) with shared memory, letting systems scale out to increase performance. Applications written in languages like COBOL and PL/I seamlessly take advantage of these tightly coupled scale-out features.
-
-IBM Db2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share workloads for high performance, high availability, and disaster recovery (DR). Mainframe CFs with Parallel Sysplex typically reside in the same datacenter, with close proximity between the CECs, but can also extend across datacenters.
-
-Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB. Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
-
 ## Architecture
 
 ### Mainframe architecture
@@ -99,6 +93,14 @@ The next diagram shows how Azure services can provide similar functionality and 
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an Azure-based analytics service for streaming data.
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark PaaS service for Big Data analytics.
+
+## Scenario details
+
+Coupling Facilities (CFs) are physical devices that connect multiple mainframe servers or Central Electronics Complexes (CECs) with shared memory, letting systems scale out to increase performance. Applications written in languages like COBOL and PL/I seamlessly take advantage of these tightly coupled scale-out features.
+
+IBM Db2 databases and Customer Information Control System (CICS) servers can use CFs with a mainframe subsystem called Parallel Sysplex that combines data sharing and parallel computing. Parallel Sysplex allows a cluster of up to 32 systems to share workloads for high performance, high availability, and disaster recovery (DR). Mainframe CFs with Parallel Sysplex typically reside in the same datacenter, with close proximity between the CECs, but can also extend across datacenters.
+
+Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB. Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
 
 ## Considerations
 
