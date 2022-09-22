@@ -42,8 +42,6 @@ All changes to the application code should be deployed through CI/CD. The code s
 
 Infrastructure should be modeled and provisioned as code. This practice is commonly referred to as Infrastructure as Code (IaC). All changes to the IaC should be deployed through the CI/CD pipelines. Updates to the infrastructure, such as patching the OS should also be managed via CI/CD pipelines.
 
-Long-lived resources such as databases should have a resource lock placed on them, preventing their inadvertent deletion. Short-lived, ephemeral resources shouldn't have locks, as that causes unnecessary overhead for deployment pipelines.
-
 ### Configuration Changes
 
 Configuration changes are a common cause of application outages. To combat these outages, configuration for application or infrastructure should be captured as code. This practice is known as Configuration as Code (CaC). Changes to CaC should be deployed via CI/CD pipelines.
@@ -95,7 +93,7 @@ The following is Azure mission critical tested and documented approach for rotat
 
 ### Alerts
 
-Alerts are key to understanding if and when there are issues with your environment. Changes to alerts and/or action groups should be implemented via CI/CD pipelines.
+Alerts are key to understanding if and when there are issues with your environment. Changes to alerts and/or action groups should be implemented via CI/CD pipelines. For more information on alerts, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#alerting).
 
 ## Automation
 
@@ -130,7 +128,7 @@ When you're using keys, secrets, or certificates, use Azure-native platform capa
 - Azure Front Door has built-in capabilities for TLS certificate management and renewal.
 - Key Vault supports automatic key rotation.
 
-## Manual
+## Manual operations
 
 There are operational activities that require manual intervention. These processes should be tested.
 
