@@ -31,13 +31,13 @@ products:
 This article discusses the options available to you to deploy both platform and application landing zones. Platform landing zones provide centralized services used by workloads whereas application landing zones are environments deployed for the workloads themselves.
 
 > [!IMPORTANT]
-> For more details on platform vs. application landing zones definitions, see the article [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) in the Cloud Adoption Framework (CAF) documentation.
+> For more information about platform vs. application landing zones definitions, see the article [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones) in the Cloud Adoption Framework (CAF) documentation.
 
 The article begins by covering common roles and responsibilities for differing cloud operating models. It continues by listing deployment options for platform and application landing zones.
 
 ## Cloud operating model roles and responsibilities
 
-The Cloud Adoption Framework describes four [common cloud operating models](/azure/cloud-adoption-framework/operating-model/compare). [Azure identity and access for landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access-landing-zones#rbac-recommendations) recommends 5 role definitions (roles) you should consider when designing custom roles for your access management solution for landing zone deployments.
+The Cloud Adoption Framework describes four [common cloud operating models](/azure/cloud-adoption-framework/operating-model/compare). [Azure identity and access for landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access-landing-zones#rbac-recommendations) recommends five role definitions (roles) you should consider when designing custom roles for your access management solution for landing zone deployments.
 
 The table below outlines the key roles for each of the cloud operating models.
 
@@ -51,26 +51,18 @@ The table below outlines the key roles for each of the cloud operating models.
 
 ## Platform
 
-You can use the options below to deploy and manage the core platform capabilities of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF). It is important to note that, depending upon customizations, the resulting architecture will be the same for all the options listed below. The differences between the options is how you deploy the architecture. They use differing technologies, take different approaches and are customized differently.
+You can use the options below to deploy and manage the core platform capabilities of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF). It's important to note that, depending upon customizations, the resulting architecture will be the same for all the options listed below. The differences between the options are how you deploy the architecture. They use differing technologies, take different approaches and are customized differently.
 
 | Deployment option | Description |
 | --- | ---|
 | [Terraform module](terraform/landing-zone-terraform.md) |  The terraform solution provides an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). This solution provides an orchestrator module, but also allows you to deploy each capability individually or in part.|
-| [Bicep modules](bicep/landing-zone-bicep.md)  | This is a modularized solution written in Azure Bicep. Each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
+| [Bicep modules](bicep/landing-zone-bicep.md)  | A modularized solution written in Azure Bicep. Each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
 ## Application
 
 You can use the options below to deploy and manage applications or workloads in an application landing zone.
 
-### Centrally managed
-
-| Centrally managed application | Description |
-| --- | --- |
-| | |
-
-### Technology platforms
-
-| Platform | Description |
+| Application | Description |
 | --- | --- |
 | [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | |
 | [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | |
@@ -80,9 +72,3 @@ You can use the options below to deploy and manage applications or workloads in 
 | [Azure Virtual Desktop Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) | |
 | [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) | |
 | [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | |
-
-### Workload
-
-| Workload | Description |
-| --- | --- |
-| | |
