@@ -6,13 +6,15 @@ IBM Db2 databases and Customer Information Control System (CICS) servers can use
 
 Azure resources can provide similar scale-out performance with shared data and high availability. Azure compute clusters share memory through data caching mechanisms like Azure Cache for Redis, and use scalable data technologies like Azure SQL Database and Azure Cosmos DB. Azure can implement availability sets and groups, combined with geo-redundant capabilities, to extend scale-out compute and high availability to distributed Azure datacenters.
 
-## Mainframe Architecture
+## Architecture
+
+### Mainframe architecture
 
 The following diagram shows the architecture of an IBM z/OS mainframe system with Coupling Facility and Parallel Sysplex:
 
 ![Diagram showing IBM z/OS mainframe architecture with Coupling Facility and Parallel Sysplex components.](media/ibm-mainframe.png)
 
-### Workflow
+#### Workflow
 
 - Input travels into the mainframe over TCP/IP, using standard mainframe protocols like TN3270 and HTTPS **(A)**.
 - Receiving applications can be either batch or online systems **(B)**. Batch jobs can spread or clone across multiple CECs that share data in the data tier. The online tier can spread a logical CICS region across multiple CECs by using Parallel Sysplex CICS or CICSPlex.
@@ -24,13 +26,13 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 - A CEC connects via the CF (**H**) to shared memory and state.
 - The CF (**I**) is a physical device that connects multiple CECs to share memory.
 
-## Azure Architecture
+### Azure architecture
 
 The next diagram shows how Azure services can provide similar functionality and performance to z/OS mainframes with Parallel Sysplex and CFs:
 
 ![Diagram showing how the IBM z/OS mainframe components can map to Azure capabilities.](media/refactor-azure.png)
 
-### Workflow
+#### Workflow
 
 1. Input comes from remote clients via Express Route, or from other Azure applications. In either case, TCP/IP is the primary connection to the system.
 
@@ -103,6 +105,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 The following considerations apply to this architecture:
 
 ### Availability
+
 This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
 ### Resiliency
