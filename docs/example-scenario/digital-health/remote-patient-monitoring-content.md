@@ -31,7 +31,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. FHIR CRUD events from inside of your workspace are published to Azure Event Grid and made available to event subscribers.
 
-1. An FHIR Analytics Pipelines OSS pipeline moves FHIR data from the Azure FHIR service to Azure Data Lake. 
+1. An FHIR Analytics Pipelines OSS pipeline moves FHIR data to Azure Data Lake, where it can be used by other analytics tools. 
 
 1. Further analysis of the FHIR data is done using Azure Synapse Analytics, Apache Spark pools, Azure Databricks, and Azure Machine Learning (ML).
 
@@ -42,7 +42,7 @@ This article provides guidance on how to design a solution using Azure Health Da
    - Power BI Parquet Connector
    - Power BI FHIR Connector
    - Power BI SQL Connector
-   - 
+
 ### Components
 
 #### Devices
@@ -55,43 +55,43 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 - The [Fit on FHIR](https://github.com/microsoft/fit-on-fhir) OSS SDK supports Google Fit devices.
 - The [HealthKitToFhir Swift Library](https://github.com/microsoft/healthkit-to-fhir) OSS SDK supports Apple devices.
 
-**Life365.health devices**
+**Life365.health medical devices**
 
-[Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) supports over 400 FDA approved bluetooth devices.
+[Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) supports [over 300 FDA approved bluetooth devices](https://www.life365.health/supported-devices). The devices span multiple device types, including blood pressure monitors, glucometers, pulse oximeters, thermometers, weight scales, pill reminders and more.
 
 #### Azure services
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - used for collecting and aggregating the data, which is then transferred to the Azure FHIR service.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges. In this architecture it's used for collecting and aggregating the device data, for transfer to Azure Health Data Services.
 
-**Azure Health Data services**
+[Azure Health Data Services](https://azure.microsoft.com/services/health-data-services/) is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. The services used in this architecture include:
 
-[Azure Health Data Services](https://azure.microsoft.com/services/health-data-services/) consists of:
+  - [Azure FHIR service](/azure/healthcare-apis/fhir/) - makes it easy to securely store and exchange Protected Health Information (PHI) in the cloud. Device data is transformed into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. FHIR enables MedTech to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. 
 
-- [Azure FHIR service](/azure/healthcare-apis/fhir/) - Device data is transformed into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. FHIR enables MedTech to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. 
-
-- Azure [MedTech service](/azure/healthcare-apis/iot/) - a cornerstone of [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare), used to support remote patient monitoring. MedTech is a Platform as a service (PaaS) that enables you to gather near-real-time data from diverse medical devices and convert it into an FHIR-compliant service format and store in an FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment. 
+  - Azure [MedTech service](/azure/healthcare-apis/iot/) - a cornerstone of [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare), used to support remote patient monitoring. MedTech is a Platform as a service (PaaS) that enables you to gather near-real-time data from diverse medical devices and convert it into an FHIR-compliant service format and store in an FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.  
 
 MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
 
-- [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - A workspace serves as a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
+- [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - serves as a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events which can be consumed by Azure Event Grid.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be consumed by Azure Event Grid.
 
 - [FHIR Analytics Pipelines OSS](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture the project's **FHIR to Synapse sync agent** is used to extract data from the Azure FHIR service, convert to [Parquet-formatted files](/azure/databricks/data/data-sources/read-parquet), and write the data to Azure Data Lake. This solution enables you to query against the entire FHIR data with tools such as Synapse Studio, SQL Server Management Studio, Power BI and more.
 
 #### Analytics
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) - TBD
-- [Apache Spark pools]() - TBD
-- [Azure Databricks](https://azure.microsoft.com/products/databricks/) - TBD
-- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) - TBD
-- [Power BI](https://powerbi.microsoft.com/) is used for further analysis of FHIR data. 
-   **TODO: Need links: PowerBI Template for FHIR Observation; also are the others Power BI or [Power Query connectors](/power-query/connectors/)?**
-   - [Power BI Template for FHIR Observation]()
-   - [Power BI Parquet Connector]()
-   - [Power BI FHIR Connector]()
-   - [Power BI SQL Connector]()     
-- [SQL Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) - a desktop app used to create native SQL queries against SQL datas stores, such as Azure Synapse Analytics SQL pools.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) - a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated options—at scale. Azure Synapse brings these worlds together with a unified experience to ingest, explore, prepare, transform, manage, and serve data for immediate BI and machine learning needs.
+- [Apache Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) - Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a serverless Apache Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Spark pools to process your data stored in Azure.
+- [Azure Databricks](https://azure.microsoft.com/products/databricks/) - a data analytics platform optimized for the Microsoft Azure cloud services platform. Databricks provides a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers. Three environments are offered for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
+- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) - an Azure cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps. You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models.
+- [Power BI](https://powerbi.microsoft.com/) - provides self-service analytics at enterprise scale, allowing you to:
+   - Create a data-driven culture with business intelligence for all.
+   - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.is used for further analysis of FHIR data.
+- [Power Query connectors](/power-query/connectors/) and templates used with Power BI in this architecture include: 
+   - [Power BI Template for FHIR Observation]() - TBD 
+   - [Power BI Parquet Connector]() - TBD
+   - [Power BI FHIR Connector]() - TBD
+   - [Power BI SQL Connector]() - TBD
+- [SQL Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) - a desktop app used to create native SQL queries against SQL data stores, such as Azure Synapse Analytics SQL pools.
 
 ### Alternatives
 
@@ -193,27 +193,18 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Contributors
 
-> [!NOTE]
-> **SECTION TODOS**
-> - do we want this section?
-
-> (Expected, but this section is optional if all the contributors would prefer to not be mentioned.)
-
-> Start with the explanation text (same for every section), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Principal authors" list and the "Other contributors" list, if there are additional contributors (all in plain text, not italics or bold). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). Implement this format:
-
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: > Only the primary authors. Listed alphabetically by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
+Principal authors: 
 
- - [Author 1 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - [Author 2 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - > Continue for each primary author (even if there are 10 of them).
+ - [Mustafa Al-Durra](https://www.linkedin.com/in/mustafaaldurra/) | Healthcare Industry Architect
+ - [Janna Templin](https://www.linkedin.com/in/janna-templin-9081a165/) | Senior Program Manager
 
-Other contributors: > Include contributing (but not primary) authors, major editors (not minor edits), and technical reviewers. Listed alphabetically by last name. Use this format: Fname Lname. It's okay to add in newer contributors.
 
- - [Contributor 1 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - [Contributor 2 Name](http://linkedin.com/ProfileURL) | Title, such as "Cloud Solution Architect"
- - > Continue for each additional contributor (even if there are 10 of them).
+Other contributors: 
+
+ - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Development Engineer
+ - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
