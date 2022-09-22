@@ -342,7 +342,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
                 - name: Security
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
-
+                - name: Operational procedures
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
             - name: Guides
               items:
                 - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
