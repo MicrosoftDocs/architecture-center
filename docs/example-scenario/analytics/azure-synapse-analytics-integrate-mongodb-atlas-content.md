@@ -22,7 +22,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 1. Both versions of the solution trigger the Azure Synapse Analytics pipeline:
    1. In the event grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Azure Synapse Analytics trigger, which causes the Azure Synapse Analytics data pipeline to run.
-   1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected on the integrated Data Lake Storage folder, that trigger is activated, which causes the Azure Synapse Analytics data pipeline to run.
+   1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected in the integrated Data Lake Storage folder, that trigger is activated, which causes the Azure Synapse Analytics data pipeline to run.
 
 1. In a copy activity, the Azure Synapse Analytics pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
 
@@ -43,11 +43,11 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the core service that this solution uses for data ingestion, processing, and analytics.
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable and secure solution for managing large volumes of data from multiple, heterogeneous sources.
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
 - [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are logical groupings of activities that you use to work with data. This solution uses a pipeline to copy data from Data Lake Storage into a dedicated SQL pool.
 
-- [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) provides data warehousing capabilities for data after the data has been processed and normalized. This feature of Azure Synapse Analytics was formerly known as SQL Data Warehouse. Dedicated SQL pools make the refined data available to your end users and applications.
+- [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) provides data warehousing capabilities for data after the data is processed and normalized. This feature of Azure Synapse Analytics was formerly known as SQL Data Warehouse. Dedicated SQL pools make the refined data available to your end users and applications.
 
 - [Azure Synapse Analytics triggers](/azure/data-factory/concepts-pipeline-execution-triggers) provide an automated way to run pipelines. You can schedule these triggers. You can also set up event-based triggers, such as [storage event triggers](/azure/data-factory/how-to-create-event-trigger) and [custom event triggers](/azure/data-factory/how-to-create-custom-event-trigger). The solution uses both types of event-based triggers.
 
@@ -72,7 +72,7 @@ For more information about how to set up and configure the connectors, see these
 - [Copy data from or to MongoDB Atlas using Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-mongodb-atlas)
 - [Copy data from or to MongoDB using Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/connector-mongodb)
 
-The source connector provides a convenient way to run Azure Synapse Analytics on top of operational data that's stored in MongoDB or Atlas. After you use the source connector to retrieve data from Atlas, you can load the data into Data Lake Storage blob storage as a Parquet, Avro, JSON, text, or CSV file. You can then transform these files or join them with other files from other data sources in multi-database, multicloud or hybrid cloud environments.
+The source connector provides a convenient way to run Azure Synapse Analytics on top of operational data that's stored in MongoDB or Atlas. After you use the source connector to retrieve data from Atlas, you can load the data into Data Lake Storage blob storage as a Parquet, Avro, JSON, text, or CSV file. You can then transform these files or join them with other files from other data sources in multi-database, multicloud, or hybrid cloud environments.
 
 You can use the data that you retrieve from MongoDB Enterprise Advanced or MongoDB Atlas in the following scenarios:
 
@@ -82,7 +82,7 @@ You can use the data that you retrieve from MongoDB Enterprise Advanced or Mongo
 
 ### Real-time sync
 
-In today's competitive world, enterprises need insights that are based on real-time data, not stale data. A delay of a few hours in insight delivery can hold up the decision-making process and result in a loss of competitive advantage. This solution fuels critical decision making by propagating changes that occur in the MongoDB transactional database to the dedicated SQL pool in real time.
+Enterprises need insights that are based on real-time data, not stale data. A delay of a few hours in insight delivery can hold up the decision-making process and result in a loss of competitive advantage. This solution fuels critical decision making by propagating changes that occur in the MongoDB transactional database to the dedicated SQL pool in real time.
 
 This solution has three parts, which the following sections describe.
 
