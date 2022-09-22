@@ -3,8 +3,8 @@ This article briefly describes the steps for running [Siemens Tecnomatix](https:
 Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutions. It includes part manufacturing, assembly planning, resource planning, plant simulation, human performance, quality, production management, and manufacturing data management. Tecnomatix:
 
 -	Provides discrete event simulation and statistical analysis capabilities to optimize material handling, logistics, machine utilization, and labor requirements. 
--	Uses powerful graphical visualization outputs for automatic bottleneck detection, analysis of throughput, utilization of machines, resources, and buffers.
--	Includes an integrated energy analyzer that dynamically visualizes energy that shows current, maximum, and total energy consumption.
+-	Uses powerful graphical visualization outputs for automatic bottleneck detection, analysis of throughput, and utilization of machines, resources, and buffers.
+-	Includes an integrated energy analyzer that dynamically visualizes energy and that shows current, maximum, and total energy consumption.
 -	Provides assembly simulation for virtual verification of all process details before the start of production.
 
 Tecnomatix is used in the automotive, electronics, and aerospace industries. 
@@ -108,7 +108,7 @@ This information is presented in the following graphs:
 
 The default time was set for one hour for all tests. Debug was enabled in the Console. Real-time mode was disabled.
 
- [Fast Forward Simulation](https://docs.plm.automation.siemens.com/content/plant_sim_help/15/plant_sim_all_in_one_html/en_US/tecnomatix_plant_simulation_help/objects_reference_help/material_flow_objects/eventcontroller/dialog_window_of_the_eventcontroller/tab_controls/start_fast_forward_simulation_eventcontroller.html) was used in these tests. Tests performed with this option enabled run without MU Animation and Icon Animation.
+ [Fast Forward Simulation](https://docs.plm.automation.siemens.com/content/plant_sim_help/15/plant_sim_all_in_one_html/en_US/tecnomatix_plant_simulation_help/objects_reference_help/material_flow_objects/eventcontroller/dialog_window_of_the_eventcontroller/tab_controls/start_fast_forward_simulation_eventcontroller.html) was used in these tests. Tests performed with this option enabled run without MU Animation or Icon Animation.
 
 ## Azure cost
 
