@@ -24,7 +24,7 @@ Like with any application, change will occur in your mission-critical workloads.
 
 Organizational alignment is equally important to operation procedures. It's crucial for the operational success of a mission-critical workload that the end-to-end responsibilities fall within a single team, the DevOps team.
 
-The technical execution should take advantage of Azure-native platform capabilities, and the use of automated DevOps pipelines to deploy changes to the application, infrastructure, and configuration. Again, maintenance tasks should be automated and manual tasks should be avoided.
+The technical execution should take advantage of Azure-native platform capabilities, and the use of automated Azure pipelines to deploy changes to the application, infrastructure, and configuration. Again, maintenance tasks should be automated and manual tasks should be avoided.
 
 The following sections describe approaches to handling different types of change.
 
@@ -34,15 +34,15 @@ Continuous Integration and Continuous Deployment (CI/CD) enables the proper depl
 
 The following sections describe changes that should be implemented, where possible, through CI/CD.
 
-### Application Changes
+### Application changes
 
 All changes to the application code should be deployed through CI/CD. The code should be built, linted, and tested against regressions. Application dependencies, such as runtime environment or packages should be monitored, with updates deployed via CI/CD.
 
-### Infrastructure Changes
+### Infrastructure changes
 
 Infrastructure should be modeled and provisioned as code. This practice is commonly referred to as Infrastructure as Code (IaC). All changes to the IaC should be deployed through the CI/CD pipelines. Updates to the infrastructure, such as patching the OS should also be managed via CI/CD pipelines.
 
-### Configuration Changes
+### Configuration changes
 
 Configuration changes are a common cause of application outages. To combat these outages, configuration for application or infrastructure should be captured as code. This practice is known as Configuration as Code (CaC). Changes to CaC should be deployed via CI/CD pipelines.
 
@@ -63,7 +63,7 @@ The following is an example of automating library updates using [dependabot](htt
 
 For dependencies dependabot isn't able to monitor, ensure that you have processes in place to detect new releases.
 
-### Key/Secret/Certificate Rotations
+### Key/Secret/Certificate rotations
 
 Rotating (renewing) keys and secrets should be a standard procedure in any workload. Secrets might need to be changed on short notice after being exposed or regularly as a good security practice.
 
@@ -136,14 +136,21 @@ There are operational activities that require manual intervention. These process
 
 Messages that can't be processed should be routed to a dead-letter queue with an alert configured for that queue. These messages usually require manual intervention to understand and mitigate the issue. You should build the ability to view, update and replay dead-lettered messages.
 
-### Azure Cosmos DB Restore
+### Azure Cosmos DB restore
 
 When Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
 Restoring from a periodic backup can only be accomplished via a support case. This process should be documented and periodically tested.
 
-### Quota Increases
+### Quota increases
 
 Azure subscriptions have quota limits. Deployments can fail when these limits are reached. Some quotas are adjustable. For adjustable quotas, you can request an increase from the <b>My quotas</b> page on the Azure portal. For non-adjustable quotas you, need to submit a support request. The Azure support team will work with you to find a solution.
 
 > [!IMPORTANT]
 > See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
+
+## Next steps
+
+Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
+
+> [!div class="nextstepaction"]
+> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
