@@ -167,7 +167,7 @@ Run the following command to deploy the hub and spoke network configuration, VNe
 
 ```azurecli-interactive
 az deployment group create --resource-group hub-spoke \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -182,7 +182,7 @@ Run the following command to deploy the hub and spoke network configuration, VNe
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
 ```
 
 #### [Bicep](#tab/bicep)
@@ -196,7 +196,7 @@ az group create --name hub-spoke --location eastus
 Use the following command to download the Bicep template.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
+curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
 ```
 
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
@@ -209,7 +209,7 @@ az deployment group create --resource-group hub-spoke --template-file main.bicep
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 
 ---
 
@@ -241,4 +241,4 @@ Explore the following related architectures:
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

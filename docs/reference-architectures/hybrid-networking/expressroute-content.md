@@ -26,7 +26,7 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
-## Components
+### Components
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
@@ -275,10 +275,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure ExpressRoute and Virtual WAN](/learn/modules/configure-expressroute-virtual-wan)
-- [Configure virtual network peering](/learn/modules/configure-vnet-peering)
-- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
-- [Explore the Microsoft 365 platform services](/learn/paths/explore-microsoft-365-platform-services)
+- [Configure ExpressRoute and Virtual WAN](/training/modules/configure-expressroute-virtual-wan)
+- [Configure virtual network peering](/training/modules/configure-vnet-peering)
+- [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)
+- [Explore the Microsoft 365 platform services](/training/paths/explore-microsoft-365-platform-services)
 
 ## Related resources
 

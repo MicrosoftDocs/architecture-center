@@ -36,9 +36,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Replace client-side polling with ASP.NET Core SignalR](/learn/modules/aspnet-core-signalr-polling-fix)
-- [Configure Azure App Services](/learn/modules/configure-azure-app-services)
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service)
+- [Replace client-side polling with ASP.NET Core SignalR](/training/modules/aspnet-core-signalr-polling-fix)
+- [Configure Azure App Services](/training/modules/configure-azure-app-services)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service)
 
 ## Related resources
 

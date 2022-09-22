@@ -36,27 +36,27 @@ The Azure Storage platform includes the following data services:
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Block-level storage volumes for Azure VMs.
 
 ## Introduction to storage on Azure
-If you're new to storage on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive learning for Microsoft products and more. Check out the 
-[Store data in Azure](/learn/paths/store-data-in-azure) learning path. 
+If you're new to storage on Azure, the best way to learn more is [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive learning for Microsoft products and more. Check out the [Store data in Azure](/training/paths/store-data-in-azure) learning path.
 
 ## Path to production
-- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json). 
+
+- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). 
 
 - Be sure you understand security and reliability. See these articles: 
-  - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
-  - [Use private endpoints - Azure Storage](/azure/storage/common/storage-private-endpoints?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
-  - [Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
-  - [Disaster recovery and storage account failover - Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
+  - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+  - [Use private endpoints - Azure Storage](/azure/storage/common/storage-private-endpoints?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+  - [Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
+  - [Disaster recovery and storage account failover - Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
-- For information about migrating existing data, see the [Azure Storage migration guide](/azure/storage/common/storage-migration-overview?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json). 
+- For information about migrating existing data, see the [Azure Storage migration guide](/azure/storage/common/storage-migration-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json). 
 
 ## Best practices
 Depending on the storage technology you use, see the following best practices resources:
-- [Performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
-- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
-- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
-- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)  
-- [Azure Storage table design patterns](/azure/storage/tables/table-storage-design-patterns?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
+- [Performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
+- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
+- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)  
+- [Azure Storage table design patterns](/azure/storage/tables/table-storage-design-patterns?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) 
 
 ## Blob Storage
 See the following guides for information about Blob Storage:
@@ -64,35 +64,37 @@ See the following guides for information about Blob Storage:
 - [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
 
 ## Azure Data Lake Storage
+
 See the following guides for information about Data Lake Storage:
-- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1](/azure/data-lake-store/security-controls-policy?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
+
+- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1](/azure/data-lake-store/security-controls-policy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Azure Files
 See the following guides for information about Azure Files: 
-- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Overview of Azure Files identity-based authentication options for SMB access](/azure/storage/files/storage-files-active-directory-overview?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [About Azure file share backup](/azure/backup/azure-file-share-backup-overview?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Overview of Azure Files identity-based authentication options for SMB access](/azure/storage/files/storage-files-active-directory-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [About Azure file share backup](/azure/backup/azure-file-share-backup-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Queue Storage
 See the following guides for information about Queue Storage: 
-- [Authorize access to queues using Azure Active Directory](/azure/storage/queues/authorize-access-azure-active-directory?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Authorize access to queues using Azure Active Directory](/azure/storage/queues/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Table Storage
 See the following guides for information about Table Storage:
-- [Authorize access to tables using Azure Active Directory (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Design scalable and performant tables](/azure/storage/tables/table-storage-design?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Authorize access to tables using Azure Active Directory (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Design scalable and performant tables](/azure/storage/tables/table-storage-design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Azure Disk Storage
 See the following guides for information about Azure managed disks:
-- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets?toc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com/azure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Azure premium storage: design for high performance](/azure/virtual-machines/premium-storage-performance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Stay current with storage 
 Get the [latest updates on Azure Storage products and features](https://azure.microsoft.com/updates/?category=storage).

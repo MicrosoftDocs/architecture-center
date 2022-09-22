@@ -79,7 +79,7 @@ Accelerate your marketing strategy and innovate your product to drive competitiv
 - [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources)
 - [Multi-tenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns)
 - [Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database](/azure/azure-sql/database/saas-dbpertenant-wingtip-app-overview)
-- [Microsoft Learn for Azure](/learn/azure)
+- [Microsoft Learn for Azure](/training/azure)
 
 ## Related resources
 

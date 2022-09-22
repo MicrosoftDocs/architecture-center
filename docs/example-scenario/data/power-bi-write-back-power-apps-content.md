@@ -139,9 +139,9 @@ Product documentation:
 - [Use a flow to update a row in Dataverse](/power-automate/dataverse/update)
 
 Microsoft Learn:
-- [Create tables in Dataverse](/learn/modules/get-started-with-powerapps-common-data-service)
-- [Get started with Power Apps canvas apps](/learn/modules/get-started-with-powerapps)
-- [Manage solutions in Power Apps and Power Automate](/learn/modules/manage-solutions-power-automate)
+- [Create tables in Dataverse](/training/modules/get-started-with-powerapps-common-data-service)
+- [Get started with Power Apps canvas apps](/training/modules/get-started-with-powerapps)
+- [Manage solutions in Power Apps and Power Automate](/training/modules/manage-solutions-power-automate)
 
 ## Related resources
 

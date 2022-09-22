@@ -128,7 +128,7 @@ Optical character recognition (OCR) can extract content from images and PDF file
 
 ### Potential use cases
 
-This solution is ideal for the finance industry. The following tasks can benefit from this solution:
+This solution is ideal for the finance industry. It can also apply to the automotive, travel, and hospitality industries. The following tasks can benefit from this solution:
 
 * Approving expense reports
 * Processing invoices, receipts, and bills for insurance claims and financial audits

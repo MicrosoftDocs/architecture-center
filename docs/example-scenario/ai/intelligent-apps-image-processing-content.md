@@ -111,11 +111,11 @@ Product documentation
 For a guided learning path, see:
 
 - [Build a serverless web app in Azure][serverless]
-- [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision)
-- [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
-- [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
-- [Classify images with the Microsoft Custom Vision Service](/learn/modules/classify-images-with-custom-vision-service/)
-- [Detect objects in images with the Custom Vision service](/learn/modules/detect-objects-images-custom-vision/)
+- [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision)
+- [Use AI to recognize objects in images by using the Custom Vision service](/training/modules/train-custom-vision-ai/)
+- [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
+- [Classify images with the Microsoft Custom Vision Service](/training/modules/classify-images-with-custom-vision-service/)
+- [Detect objects in images with the Custom Vision service](/training/modules/detect-objects-images-custom-vision/)
 
 Before deploying this example scenario in a production environment, review recommended practices for [optimizing the performance and reliability of Azure Functions][functions-best-practices].
 
@@ -129,7 +129,7 @@ Before deploying this example scenario in a production environment, review recom
 [small-pricing]: https://azure.com/e/db65c031511b4b3dadf5d143e1d80b0b
 [medium-pricing]: https://azure.com/e/a7705630b96f4ef7bedb39b2a870ceb5
 [large-pricing]: https://azure.com/e/22d0db3728bd4f78bdd709ff652b73ac
-[serverless]: /learn/paths/create-serverless-applications/
+[serverless]: /training/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security

@@ -57,7 +57,7 @@ See product documentation:
 Try out the code:
 
 * [Azure AI Gallery Solution - Predictive Maintenance](https://gallery.azure.ai/Solution/Predictive-Maintenance-10)
-* [Creating and configuring a HDInsight cluster](/learn/modules/creating-and-configuring-hdinsight-cluster)
+* [Creating and configuring a HDInsight cluster](/training/modules/creating-and-configuring-hdinsight-cluster)
 
 ## Related resources
 

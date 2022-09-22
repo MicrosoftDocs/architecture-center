@@ -61,7 +61,7 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 - [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Bot Service](/azure/bot-service)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
-- [Introduction to Power Apps](/learn/modules/introduction-power-apps)
+- [Introduction to Power Apps](/training/modules/introduction-power-apps)
 
 ## Related resources
 

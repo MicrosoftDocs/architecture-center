@@ -102,7 +102,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 A build pipeline on Azure DevOps can be scaled for applications of any size. Build pipelines have a maximum timeout that varies depending on the agent they are run on. Builds can run forever on self-hosted agents (private agents). For Microsoft-hosted agents for a public project, builds can run for six hours. For private projects, the limit is 30 minutes.
 
-To use the maximum timeout, set the following property in your [Azure Pipelines YAML](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&viewFallbackFrom=vsts#timeouts) file:
+To use the maximum timeout, set the following property in your [Azure Pipelines YAML](/azure/devops/pipelines/process/phases?tabs=yaml#timeouts) file:
 
 ```yaml
 jobs:
@@ -124,7 +124,7 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 - **Logging.** Azure Machine Learning provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/how-to-enable-app-insights#use-azure-machine-learning-studio-to-configure) to use the logs.
 
-- **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault).
+- **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault).
 
 ### Cost optimization
 
@@ -142,4 +142,4 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 ## Next steps
 
-- Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/learn/modules/start-ml-lifecycle-mlops/).
+- Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops/).

@@ -153,10 +153,10 @@ Principal authors:
 
 Microsoft learning paths:
 
-- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
-- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)
-- [Connect your services together](/learn/paths/connect-your-services-together)
-- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
+- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure)
+- [Connect your services together](/training/paths/connect-your-services-together)
+- [Build the intelligent edge with Azure IoT Edge](/training/paths/build-intelligent-edge-with-azure-iot-edge)
 
 ## Related resources
 

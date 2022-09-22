@@ -1,13 +1,5 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
 
-## Potential use cases
-
-Typical uses for this architecture include the following ROBO scenarios:
-
-- Implement highly available, container-based edge workloads and virtualized, business-essential applications in a cost-effective manner.
-- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
-- Control and audit security and compliance by using virtualization-based protection, certified hardware, and cloud-based services.
-
 ## Architecture
 
 ![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
@@ -45,6 +37,16 @@ Key technologies used to implement this architecture:
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
+
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this architecture include the following Remote Office/Branch Office (ROBO) scenarios:
+
+- Implement highly available, container-based edge workloads and virtualized, business-essential applications in a cost-effective manner.
+- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
+- Control and audit security and compliance by using virtualization-based protection, certified hardware, and cloud-based services.
 
 ## Recommendations
 
@@ -94,7 +96,27 @@ In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Clou
 
 The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+Reliability considerations include:
+
+- Improved Storage Spaces Direct volume repair speed (also referred to as *resync*). Storage Spaces Direct provides automatic resync following events that affect availability of storage pool disks, such as shutting down a cluster node or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at much finer granularity than Windows Server 2019 and significantly reduces the resync operation time. This minimizes potential impact of multiple overlapping hardware failures.
+- Failover Clustering witness selection. The lightweight, USB drive&ndash;based witness eliminates dependencies on reliable internet connectivity, which is required when using cloud witness-based configuration.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Security considerations include:
+
+- [Azure Stack HCI basic security][azs-hci-basic-security]. Leverage Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Windows Admin Center role-based access control][wac-rbac] to delegate management tasks by following the principle of least privilege.
+- [Azure Stack HCI advanced security][azs-hci-advanced-security]. Apply Microsoft security baselines to Azure Stack HCI clusters and their Windows Server workloads by using Active Directory Domain Services (AD DS) with Group Policy. You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
+
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Cost optimization considerations include:
 
@@ -106,6 +128,8 @@ Cost optimization considerations include:
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 Operational excellence considerations include:
 
 - Simplified provisioning and management experience with Windows Admin Center. The [**Create Cluster Wizard** in Windows Admin Center][azs-hci-create-with-wac] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][azs-hci-manage-vms-with-wac].
@@ -114,6 +138,8 @@ Operational excellence considerations include:
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 Performance efficiency considerations include:
 
 - [Storage resiliency][s2d-resiliency] versus usage efficiency, versus performance. Planning for Azure Stack HCI volumes involves identifying the optimal balance between resiliency, usage efficiency, and performance. The challenge results from the fact that maximizing one of these characteristics typically has a negative impact on at least one of the other two. For example, increasing resiliency reduces the usable capacity, while the resulting performance might vary depending on the resiliency type. In the case of nested two-way mirror volumes or nested mirror accelerated parity volumes, higher resiliency leads to lower capacity efficiency compared to traditional two-way mirroring. At the same time, the nested two-way mirror volume offers better performance than the nested mirror accelerated parity volume, but at the cost of lower usage efficiency.
@@ -121,20 +147,6 @@ Performance efficiency considerations include:
 - Storage caching optimization. Storage Spaces Direct provides a [built-in, persistent, real-time, read and write, server-side cache][s2d-cache] that maximizes storage performance. The cache should be sized and configured to accommodate the [working set of your applications and workloads][s2d-cache-sizing]. In addition, Azure Stack HCI is compatible with the Cluster Shared Volume (CSV) in-memory read cache. Using system memory to cache reads can [improve Hyper-V performance][azs-hci-csv-cache].
 - Compute performance optimization. Azure Stack HCI offers support for graphics processing unit (GPU) acceleration, targeting [high-performance AI/ML workloads][azs-hci-gpu-acceleration] that are geared towards edge scenarios.
 - Networking performance optimization. As part of your design, be sure to include projected [traffic bandwidth allocation][azs-hci-network-bandwidth-allocation] when determining your [optimal network hardware configuration][azs-hci-networking]. This includes provisions addressing [switchless interconnect minimum bandwidth requirements][azs-hci-switchless-interconnects-reqs].
-
-### Reliability
-
-Reliability considerations include:
-
-- Improved Storage Spaces Direct volume repair speed (also referred to as *resync*). Storage Spaces Direct provides automatic resync following events that affect availability of storage pool disks, such as shutting down a cluster node or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at much finer granularity than Windows Server 2019 and significantly reduces the resync operation time. This minimizes potential impact of multiple overlapping hardware failures.
-- Failover Clustering witness selection. The lightweight, USB drive&ndash;based witness eliminates dependencies on reliable internet connectivity, which is required when using cloud witness-based configuration.
-
-### Security
-
-Security considerations include:
-
-- [Azure Stack HCI basic security][azs-hci-basic-security]. Leverage Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Windows Admin Center role-based access control][wac-rbac] to delegate management tasks by following the principle of least privilege.
-- [Azure Stack HCI advanced security][azs-hci-advanced-security]. Apply Microsoft security baselines to Azure Stack HCI clusters and their Windows Server workloads by using Active Directory Domain Services (AD DS) with Group Policy. You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
 
 ## Next steps
 
@@ -153,22 +165,24 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
-- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
-- [Design your site recovery solution in Azure](/learn/modules/design-your-site-recovery-solution-in-azure)
-- [Introduction to Azure Arc enabled servers](/learn/modules/intro-to-arc-for-servers)
-- [Introduction to Azure Arc-enabled data services](/learn/modules/intro-to-arc-enabled-data-services)
-- [Introduction to Azure Kubernetes Service](/learn/modules/intro-to-azure-kubernetes-service)
-- [Keep your virtual machines updated](/learn/modules/keep-your-virtual-machines-updated)
-- [Protect your virtual machine settings with Azure Automation State Configuration](/learn/modules/protect-vm-settings-with-dsc)
-- [Protect your virtual machines by using Azure Backup](/learn/modules/protect-virtual-machines-with-azure-backup)
+- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
+- [Configure Azure Monitor](/training/modules/configure-azure-monitor)
+- [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
+- [Introduction to Azure Arc enabled servers](/training/modules/intro-to-arc-for-servers)
+- [Introduction to Azure Arc-enabled data services](/training/modules/intro-to-arc-enabled-data-services)
+- [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service)
+- [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
+- [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
+- [Protect your virtual machines by using Azure Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
 ## Related resources
 
 - [Hybrid architecture design](hybrid-start-here.md)
+- [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 
 [architectural-diagram]: images/azure-stack-robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx

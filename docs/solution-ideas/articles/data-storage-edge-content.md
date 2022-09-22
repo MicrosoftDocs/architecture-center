@@ -6,6 +6,8 @@ This Internet of Things (IoT) solution demonstrates an on-premises edge network 
 
 ![Diagram of an example IoT implementation that includes an edge network.](../media/data-storage-edge.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/data-storage-edge.vsdx)* of this architecture.
+
 This implementation uses Azure SQL Edge on an edge processor. Communications to and from devices is done using Edge Hub. Communications between IoT devices and cloud applications is done using Azure IoT Hub.
 
 ### Components
