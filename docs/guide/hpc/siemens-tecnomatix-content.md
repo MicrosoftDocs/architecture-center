@@ -1,4 +1,13 @@
-Intro.  spell out long name
+This article briefly describes the steps for running [Siemens Tecnomatix](https://www.plm.automation.siemens.com/global/en/products/tecnomatix/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Siemens Tecnomatix on Azure.
+
+Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutions. It includes part manufacturing, assembly planning, resource planning, plant simulation, human performance, quality, production management, and manufacturing data management. Tecnomatix:
+
+-	Provides discrete event simulation and statistical analysis capabilities to optimize material handling, logistics, machine utilization, and labor requirements. 
+-	Uses powerful graphical visualization outputs for automatic bottleneck detection, analysis of throughput, utilization of machines, resources, and buffers.
+-	Includes an integrated energy analyzer that dynamically visualizes energy that shows current, maximum, and total energy consumption.
+-	Provides assembly simulation for virtual verification of all process details before the start of production.
+
+Tecnomatix is used in the automotive, electronics, and aerospace industries. 
 
 ## Why deploy Tecnomatix on Azure?
 

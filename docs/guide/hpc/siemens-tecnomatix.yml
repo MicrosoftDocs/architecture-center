@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy Siemens Tecnomatix on an Azure virtual machine
-  description: Find out how Tecnomatix Plant Simulation modeling software performs on an Azure virtual machine (VM).
+  description: Find out how Tecnomatix plant simulation modeling software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
   ms.date: 09/23/2022
