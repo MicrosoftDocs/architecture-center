@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+This solution migrates existing web apps to containers that are deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.
 
 ## Architecture
 
@@ -38,6 +38,8 @@ Easily migrate existing web applications to containers and run the containerized
 
 ## Scenario details
 
+Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+
 ### Potential use cases
 
 This solution idea is ideal for migrating current web applications to containers run on Azure. This solution idea can be used to create a website when the following apply:
@@ -70,17 +72,17 @@ Principal author:
 * [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry/)
 * [Overview on Web App for Containers and Azure App Service on Linux](https://azure.microsoft.com/blog/webapp-for-containers-overview/)
 * [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options)
-* [CI/CD for Containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
-
-## Related resources
-
-Related architecture guides:
-
-* [Web applications architecture design](/azure/architecture/guide/web/web-start-here)
-* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
 
 Example language deployments of containers in App Service:
 
 * [Deploy a containerized Python web app on Azure App Service](/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
 * [Deploy Express.js with VS Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
 * [Deploy an ASP.NET Core container to Azure App Service using Visual Studio](/visualstudio/containers/deploy-app-service)
+
+## Related resources
+
+Related architectural guidance:
+
+* [CI/CD for Containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
+* [Web applications architecture design](/azure/architecture/guide/web/web-start-here)
+* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
