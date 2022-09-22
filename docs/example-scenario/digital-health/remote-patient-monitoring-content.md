@@ -69,7 +69,7 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
    - Azure [MedTech service](/azure/healthcare-apis/iot/) - a cornerstone of [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare), used to support remote patient monitoring. MedTech is a Platform as a service (PaaS) that enables you to gather near-real-time data from diverse medical devices and convert it into an FHIR-compliant service format and store in an FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.  
 
-   MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
+     MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
 
 - [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - serves as a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) within which protected health information can travel. 
 
@@ -102,7 +102,7 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 > [!NOTE]
 > **SECTION TODOS**
-> - review and complete
+> - needs review
 
 There's a plenitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
 
@@ -186,7 +186,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 > [!NOTE]
 > **SECTION TODOS**
 > - do we have a repo with a completed solution, that can be deployed?
-> 
+ 
 > (Optional, but greatly encouraged)
 
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
