@@ -1,8 +1,4 @@
-The recommended way to get started with internet-of-things (IoT) applications is to use [Azure IoT Central](/azure/iot-central), an IoT application platform-as-a-service (aPaaS) that simplifies and accelerates IoT solution development and operations. IoT Central preassembles, scales, and manages many of the Azure platform-as-a-service (PaaS) services this article describes. IoT Central provides an out-of-box, ready to use UX and API surface area, complete with the capabilities you need to connect, manage, and operate fleets of devices at scale.
-
-Alternatively, you can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services IoT solutions commonly use, but no single solution uses all of these components.
-
-To help decide between IoT Central and a PaaS-based IoT approach, based on your solution's needs, see [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml).
+You can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services that IoT solutions commonly use, but no single solution uses all of these components.
 
 ## Architecture
 
@@ -187,9 +183,15 @@ Stream Analytics jobs scale best if they're parallel at all points in the Stream
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
+
+Other contributor:
+
+- [Armando Blanco Garcia](https://www.linkedin.com/in/armbla) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

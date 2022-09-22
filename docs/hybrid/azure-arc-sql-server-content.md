@@ -6,7 +6,7 @@ This reference architecture illustrates how to leverage Azure Arc for management
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components and capabilities:
 
