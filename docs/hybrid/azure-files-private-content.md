@@ -96,8 +96,8 @@ Private domain name resolution queries go through components **3**, **5**, **6**
 2. The on-premises DNS server has a conditional forwarder that points Azure File and Azure File Sync DNS name resolution to a DNS server in the Azure virtual network.
 3. The query is redirected to a DNS Server or Azure private DNS resolver in the Azure virtual network.
 4. Depending on the virtual network's DNS configuration:
- - If a custom DNS server is configured, the DNS Server in the Azure virtual network sends a name query to the Azure provided DNS (168.63.129.16) recursive resolver.
- - If the Azure private DNS resolver is configured, and the query matches the private DNS zones that are linked to the virtual network, those zones are consulted.
+   - If a custom DNS server is configured, the DNS Server in the Azure virtual network sends a name query to the Azure provided DNS (168.63.129.16) recursive resolver.
+   - If the Azure private DNS resolver is configured, and the query matches the private DNS zones that are linked to the virtual network, those zones are consulted.
 5. The DNS server/Azure private DNS resolver returns a private IP, after resolving the private domain name to the respective private DNS zone. It uses the Azure virtual network's links to the Azure Files DNS zone and the Azure File Sync private DNS aone.
 
 ## Considerations
@@ -149,7 +149,7 @@ For more information, see [About Azure file share backup](/azure/backup/azure-fi
 
 ### Support for hybrid identities on Azure Files
 
-Although this article describes Active Directory for authenticating on Azure Files, it's possbile to use Azure Active Directory for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
+Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Azure Active Directory for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
 
 - On-premises Active Directory Domain Services (AD DS)
 - Azure Active Directory Domain Services (Azure AD DS)
