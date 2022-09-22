@@ -1,4 +1,4 @@
----alLoad
+---
 title: Hadoop migration to Azure
 description: Learn about migrating Hadoop to Azure. This is an overview that has links to articles about Hadoop features such as HBase, HDFS, Kafka, Sqoop, and Storm.
 author: EdPrice-MSFT
@@ -59,7 +59,7 @@ The key components of a Hadoop system are listed in the following table. For eac
 
 The following diagram shows three approaches to migrating Hadoop applications:
 
-:::image type="content" source="images/target-state.png" alt-text="Diagram that shows three ways to migrate Hadoop applications" lightbox="images/target-state.png.png" border="false":::
+:::image type="content" source="images/target-state.png" alt-text="Diagram that shows three ways to migrate Hadoop applications" lightbox="images/target-state.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
@@ -73,7 +73,7 @@ The approaches are:
 
 The following diagram shows this approach:
 
-:::image type="content" source="images/end-state-architecture-modernize.png" alt-text="Diagram of an architecture to modernize by doing a lift and shift to HDInsight" lightbox="images/end-state-architecture-modernize.png" border="false":::
+:::image type="content" source="images/end-state-architecture-modernize.png" alt-text="Diagram of an architecture to modernize by using Azure Synapse Analytics and Databricks" lightbox="images/end-state-architecture-modernize.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 

@@ -196,7 +196,9 @@ For |information about how to set up self-hosted integration runtime, see [Creat
 
 If you have a private connection between on-premises and Azure (such as ExpressRoute or VPN Gateway), you can use managed virtual network and private endpoint in Data Factory to make a private connection to your on-premises databases. You can use virtual networks to forward traffic to your on-premises resources, as shown in the following diagram, to access your on-premises resources without going through the internet.
 
-![Diagram of architecture to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](images/managedvnet-privateendpoint.png)
+:::image type="content" source="images/managedvnet-privateendpoint.png" alt-text="Diagram of architecture to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint" lightbox="images/managedvnet-privateendpoint.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
 For more information, see [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](/azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server).
 
@@ -213,12 +215,9 @@ Both build a private network and help secure the process of data integration. Th
 
 You can deploy the integration runtime, which is the Data Factory runtime, within a managed virtual network. By deploying a private endpoint such as a data store that connects to the managed virtual network, you can improve data integration safety within a closed private network.
 
-![Managed VNET and Private Endpoints](images/managed-vnet-architecture-diagram.png)
+:::image type="content" source="images/managed-vnet-architecture-diagram.png" alt-text="Managed VNET and Private Endpoints" lightbox="images/managed-vnet-architecture-diagram.png" border="false":::
 
-:::image type="content" source="images/.png" alt-text="" lightbox="images/.png" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-) of this architecture.*
-
+*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
 For more information, see [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
 
@@ -227,11 +226,9 @@ For more information, see [Azure Data Factory managed virtual network](/azure/da
 You can use [Azure Private Link for Azure Data Factory
 ](/azure/data-factory/data-factory-private-link) to connect to Data Factory.
 
-![Architecture diagram that shows a managed virtual network and private endpoints](images/private-link-architecture.png)
+:::image type="content" source="images/private-link-architecture.png" alt-text="Architecture diagram that shows a managed virtual network and private endpoints" lightbox="images/private-link-architecture.png" border="false":::
 
-:::image type="content" source="images/.png" alt-text="" lightbox="images/.png" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
 For more information, see [What is a private endpoint?](/azure/private-link/private-endpoint-overview) and [Private Link documentation](/azure/private-link).
 
