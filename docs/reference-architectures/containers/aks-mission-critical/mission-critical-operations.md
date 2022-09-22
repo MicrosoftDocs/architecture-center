@@ -24,7 +24,7 @@ Like with any application, change will occur in your mission-critical workloads.
 
 Organizational alignment is equally important to operation procedures. It's crucial for the operational success of a mission-critical workload that the end-to-end responsibilities fall within a single team, the DevOps team.
 
-The technical execution should take advantage of Azure-native platform capabilities, and the use of automated Azure pipelines to deploy changes to the application, infrastructure, and configuration. Again, maintenance tasks should be automated and manual tasks should be avoided.
+The technical execution should take advantage of Azure-native platform capabilities, and the use of automated Azure Pipelines to deploy changes to the application, infrastructure, and configuration. Again, maintenance tasks should be automated and manual tasks should be avoided.
 
 The following sections describe approaches to handling different types of change.
 
