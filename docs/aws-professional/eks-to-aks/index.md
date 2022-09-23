@@ -29,7 +29,7 @@ The series articles compare AKS with Amazon EKS for the following Kubernetes des
 
 These articles provide best practices and recommended architectures to improve AKS deployment security, compliance, and observability. For basic AKS implementation references and content, see the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and the [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
-AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate. For more information on the Azure services that can host containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
+AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate. For more information about other Azure services that can host containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
 ## Next step
 
