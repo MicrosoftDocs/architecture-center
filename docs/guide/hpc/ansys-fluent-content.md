@@ -61,18 +61,18 @@ HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal 
 
 ### Results, single-node configuration
 
-The following test cases were tested.
+Performance was evaluated on the following test cases.
 
 #### Aircraft wing test case
 
 :::image type="content" source="media/ansys-fluent/aircraft-wing.png" alt-text="Figure that shows the aircraft wing test case." border="false":::
 
 
-|Number of cells  |Cell type  |Solver  |Models  |
-|---------|---------|---------|---------|
-|14,000,000     | Hexahedral        |  Pressure based coupled solver, Least Squares cell based, steady       |  Realizable K-e Turbulence       |
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|aircraft_wing_14m|14,000,000     | Hexahedral        |  Pressure-based coupled solver, Least Squares cell based, steady       |  Realizable K-e Turbulence       |
 
-The following table presents the test results.
+The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
@@ -84,17 +84,38 @@ The following table presents the test results.
 
 :::image type="content" source="media/ansys-fluent/aircraft-wing-graph.png" alt-text="Graph that shows the relative speed increase for the aircraft wing test case." border="false":::
 
-#### Pump model
+#### Pump test case
 
-landing gear model
+:::image type="content" source="media/ansys-fluent/pump.png" alt-text="Figure that shows the pump test case.":::
 
-oil rig model
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|pump_2m|2,000,000|Hexahedral|Pressure-based coupled solver, Least Squares cell based, steady|Realizable K-e Turbulence, Mixture Multiphase|
 
-sedan model
+The following table and graph present the test results.
 
-combustor model 
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16|	213.83|	1.00|
+|32	|146.38	|1.46|
+|64	|118.26	|1.81|
+|96	|112.53	|1.90|
+|120	|115.47|	1.85|
 
-exhaust system model 
+:::image type="content" source="media/ansys-fluent/pump-graph.png" alt-text="Graph that shows the relative speed increase for the pump test case." border="false":::
+
+#### Landing gear test case
+
+:::image type="content" source="media/ansys-fluent/landing-gear.png" alt-text="Figure that shows the landing gear test case.":::
+
+
+#### Oil rig test case
+
+#### Sedan test case
+
+#### Combustor test case 
+
+#### Exhaust system test case  
 
 ### Results, multi-node configuration
 
