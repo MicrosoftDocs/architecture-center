@@ -60,6 +60,8 @@ You can use the options below to deploy and manage the core platform capabilitie
 
 ## Application
 
+Application landing zones are one or more subscriptions that are deployed as environments for workloads or applications. These workloads can take advantage of services deployed in platform landing zones. The application landing zones can be centrally managed applications, decentralized workloads, or technology platforms  such as Azure Kubernetes Service that host applications.
+
 You can use the options below to deploy and manage applications or workloads in an application landing zone.
 
 | Application | Description |
