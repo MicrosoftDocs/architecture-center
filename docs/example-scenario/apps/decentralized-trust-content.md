@@ -10,10 +10,10 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Dataflow
 
-1. Bank A creates/updates an individual's credit record by sending a transaction to the network.
+1. Bank A creates/updates an individual's credit record by creating a transaction.
 1. Data flows from Bank A's private application server to the [Azure Load Balancer](/azure/load-balancer/), and then to a node VM on the virtual machine scale set.
 1. A transaction proposal is created on the network ledger.
-1. The transaction is committed to the ledger when all reqquired signatures are gathered.
+1. The transaction is committed to the ledger when all required signatures are gathered.
 1. Bank B can read the credit record created by bank A by communicating with its own node.
 
 ### Components
