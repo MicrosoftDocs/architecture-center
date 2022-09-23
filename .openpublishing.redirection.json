@@ -2436,6 +2436,16 @@
       "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
     }
   ]
 }
