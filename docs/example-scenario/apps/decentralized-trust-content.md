@@ -6,7 +6,7 @@ This example will show you how Azure services such as virtual machine scale sets
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
-This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise DLT network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
 
 ### Dataflow
 
