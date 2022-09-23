@@ -1,4 +1,4 @@
-This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
+This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Corda network where member banks can establish their own nodes.
 
 ## Architecture
 
@@ -10,11 +10,11 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Dataflow
 
-1. Bank A creates/updates an individual's credit record by sending a transaction to the blockchain network via JSON-RPC.
-1. Data flows from Bank A's private application server to the [Azure Load Balancer](/azure/load-balancer/), and then to a validating node VM on the virtual machine scale set.
-1. The Ethereum PoA network creates a block at a preset time (2 seconds for this scenario).
-1. The transaction is bundled into the created block and validated across the blockchain network.
-1. Bank B can read the credit record created by bank A by communicating with its own node similarly via JSON-RPC.
+1. Bank A creates/updates an individual's credit record by sending a transaction to the network.
+1. Data flows from Bank A's private application server to the [Azure Load Balancer](/azure/load-balancer/), and then to a node VM on the virtual machine scale set.
+1. A transaction proposal is created on the network ledger.
+1. The transaction is committed to the ledger when all reqquired signatures are gathered.
+1. Bank B can read the credit record created by bank A by communicating with its own node.
 
 ### Components
 
@@ -22,15 +22,14 @@ This scenario covers the back-end components that are necessary to create a scal
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/#product-overview) is used as the secure storage facility for the private keys of each validator.
 - [Load Balancer](https://azure.microsoft.com/services/load-balancer/#overview) spreads the RPC, peering, and governance DApp requests.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) hosts persistent network information and coordinates leasing.
-- Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute, and consortium members.
+- Application Insights (part of Azure Monitor) can be used to provide insight into available nodes, transactions per minute, and consortium members.
 
 ### Alternatives
 
-The Ethereum PoA approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start an Ethereum PoA blockchain, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
+The Corda approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start a Corda network, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
 
-For other extended or different scenarios, concerns such as transaction privacy might arise. For example, in a securities transfer scenario, members in a consortium might not want their transactions to be visible even to other members. Other alternatives to Ethereum PoA exist that addresses these concerns in their own way:
+For other extended or different scenarios, concerns such as transaction privacy might arise. For example, in a securities transfer scenario, members in a consortium might not want their transactions to be visible even to other members. Other alternatives to Corda exist that addresses these concerns in their own way:
 
-- Corda
 - Quorum
 - Hyperledger
 
@@ -76,7 +75,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
+The Corda network can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -104,11 +103,9 @@ Principal authors:
 
 ## Next steps
 
-To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure. Then review the [README of the scenario source code][source].
+To deploy a pre-configured network of Corda nodes, review the [guide that is available in Corda's documentation][corda]
 
-For more information on using the Ethereum Proof-of-Authority solution template for Azure, review this [usage guide][guide].
-
-Product documentation:
+Product documentation of Azure services:
 
 - [Virtual machines](/azure/virtual-machines)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
@@ -125,9 +122,7 @@ Product documentation:
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[guide]: https://azure.microsoft.com/blog/ethereum-proof-of-authority-on-azure
-[deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
-[source]: https://github.com/vitoc/creditscoreblockchain
+[corda]: https://docs.r3.com/en/platform/corda/4.7/enterprise/network/azure-vm.html
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security
