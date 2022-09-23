@@ -26,12 +26,7 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Alternatives
 
-The Corda approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start a Corda network, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
-
-For other extended or different scenarios, concerns such as transaction privacy might arise. For example, in a securities transfer scenario, members in a consortium might not want their transactions to be visible even to other members. Other alternatives to Corda exist that addresses these concerns in their own way:
-
-- Quorum
-- Hyperledger
+The Corda approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. Other alternatives to Corda such as Quorum or Hyperledger can be considered too.
 
 ## Scenario details
 
