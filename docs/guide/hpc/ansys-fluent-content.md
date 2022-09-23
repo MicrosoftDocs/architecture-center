@@ -61,7 +61,7 @@ HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal 
 
 ### Results, single-node configuration
 
-Performance was evaluated on the following test cases.
+The single-node configuration was evaluated for the following test cases.
 
 #### Aircraft wing test case
 
@@ -86,7 +86,7 @@ The following table and graph present the test results.
 
 #### Pump test case
 
-:::image type="content" source="media/ansys-fluent/pump.png" alt-text="Figure that shows the pump test case.":::
+:::image type="content" source="media/ansys-fluent/pump.png" alt-text="Figure that shows the pump test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
@@ -106,21 +106,205 @@ The following table and graph present the test results.
 
 #### Landing gear test case
 
-:::image type="content" source="media/ansys-fluent/landing-gear.png" alt-text="Figure that shows the landing gear test case.":::
+:::image type="content" source="media/ansys-fluent/landing-gear.png" alt-text="Figure that shows the landing gear test case." border="false":::
 
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|landing_gear_15m|15,000,000|Mixed|	Pressure-based coupled solver, Least Squares cell based, Unsteady|LES, Acoustics|
+
+The following table and graph present the test results.
+
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16|	871.37|	1.00|
+|32|	580.31|	1.50|
+|64|	501.02|	1.74|
+|96|	484.46|	1.80|
+|120|	489.96|	1.78|
+
+:::image type="content" source="media/ansys-fluent/landing-gear-graph.png" alt-text="Graph that shows the relative speed increase for the landing gear test case.":::
 
 #### Oil rig test case
 
+:::image type="content" source="media/ansys-fluent/oil-rig.png" alt-text="Figure that shows the oil rig test case." border="false":::
+
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|oil_rig_7m|7,000,000|Mixed|Pressure-based segregated solver, Green-Gauss cell based, unsteady|VOF, SST K-omega Turbulence|
+
+The following table and graph present the test results.
+
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16|	377.11|	1.00|
+|32|	224.16|	1.68|
+|64|	152.42|	2.47|
+|96|	140.81|	2.68|
+|120|	132.34	|2.85|
+
+:::image type="content" source="media/ansys-fluent/oil-rig-graph.png" alt-text="Graph that shows the relative speed increase for the oil rig test case.":::
+
 #### Sedan test case
 
-#### Combustor test case 
+:::image type="content" source="media/ansys-fluent/sedan.png" alt-text="Figure that shows the sedan test case." border="false":::
+
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|sedan_4m|4,000,000|Mixed|Pressure-based coupled solver, Green-Gauss cell based, steady|Standard K-e Turbulence|
+
+The following table and graph present the test results.
+
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16	|154.02|	1.00|
+|32	|99.88|	1.54|
+|64	|79.40|	1.94|
+|96	|74.88|	2.06|
+|120|	75.62|	2.04|
+
+:::image type="content" source="media/ansys-fluent/sedan-graph.png" alt-text="Graph that shows the relative speed increase for the sedan test case.":::
+
+#### Combustor test case
+
+:::image type="content" source="media/ansys-fluent/combustor.png" alt-text="Figure that shows the combustor test case." border="false":::
+
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|combustor_12m|12,000,000|Polyhedra|Pressure-based coupled solver, Least Squares cell based, pseudo transient|Realizable K-e Turbulence, Species Transport|
+
+The following table and graph present the test results.
+
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16	|3,238|	1.00|
+|32	|2,085|	1.55|
+|64|	1,513|	2.14|
+|96|	1,360|	2.38|
+|120|	1,236|	2.62|
+
+:::image type="content" source="media/ansys-fluent/combustor-graph.png" alt-text="Graph that shows the relative speed increase for the combustor test case.":::
 
 #### Exhaust system test case  
 
+:::image type="content" source="media/ansys-fluent/exhaust-system.png" alt-text="Figure that shows the exhaust system test case." border="false":::
+
+|Test case name|Number of cells  |Cell type  |Solver  |Models  |
+|---------|--|-------|---------|---------|
+|exhaust_system_33m|33,000,000|Mixed|Pressure-based coupled solver, Least Squares cell based, steady|SST K-omega Turbulence|
+
+The following table and graph present the test results.
+
+|Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
+|-|-|-|
+|16	|2,685|	1.00|
+|32	|1,628|	1.65|
+|64|	1,334	|2.01|
+|96	|1,205|	2.23|
+|120|	1,112|	2.42|
+
+:::image type="content" source="media/ansys-fluent/exhaust-system-graph.png" alt-text="Graph that shows the relative speed increase for the exhaust system test case.":::
+
 ### Results, multi-node configuration
 
+As the preceding performance results show, HBv3-series VMs with 64 cores and 96 cores are optimal configurations. The performance improvement when you increase from 64 CPUs to 96 CPUs is between 5 and 10 percent. Taking license costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for multi-node tests.
+
+The multi-node configuration was evaluated for the same test cases.
+
+#### Aircraft wing test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	442.69	|1.00|
+|2|	128|	226.06	|1.96|
+|3|	192	|149.31	|2.96|
+|4|	256	|109.23|	4.05|
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/aircraft-wing-multi-node.png" alt-text="Graph that shows the relative speed increase for the aircraft wing test case on a multi-node configuration.":::
+
+#### Pump test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	118.26	|1.00|
+|2|	128|	55.42|	2.13|
+|3|	192|	35.53|	3.33|
+|4|	256	|24.26|	4.88|
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/pump-multi-node.png" alt-text="Graph that shows the relative speed increase for the pump test case on a multi-node configuration.":::
+
+#### Landing gear test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	501.02	|1.00|
+|2|	128|	247.17|	2.03|
+|3|	192	|160.02	|3.13|
+|4|	256	|117.78|	4.25|
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/landing-gear-multi-node.png" alt-text="Graph that shows the relative speed increase for the landing gear test case on a multi-node configuration.":::
+
+#### Oil rig test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	152.42	|1.00|
+|2|	128|	75.48|	2.02|
+|3|	192	|52.76|	2.89|
+|4|	256	|41.38|	3.68|
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/oil-rig-multi-node.png" alt-text="Graph that shows the relative speed increase for the oil rig test case on a multi-node configuration.":::
+
+#### Sedan test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	79.40	|1.00|
+|2|	128|	39.66|	2.00|
+|3|	192	|23.90|	3.32|
+|4|	256	|20.15|	3.94|
+
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/sedan-multi-node.png" alt-text="Graph that shows the relative speed increase for the sedan test case on a multi-node configuration.":::
+
+#### Combustor test case
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64|	1,512.56	|1.00|
+|2|	128|	828.63|	1.83|
+|3|	192	|531.82	|2.84|
+|4|	256	|359.86|	4.20|
+
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/combustor-multi-node.png" alt-text="Graph that shows the relative speed increase for the combustor test case on a multi-node configuration.":::
+
+#### Exhaust system test case 
+
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+|-|-|-|-|
+|1|	64	|1,333.72	|1.00|
+|2|	128	|629.02	|2.12|
+|3|	192	|399.66	|3.34|
+|4|256|304.05|4.39|
+
+
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ansys-fluent/exhaust-system-multi-node.png" alt-text="Graph that shows the relative speed increase for the exhaust system test case on a multi-node configuration.":::
+
 ### Additional notes about tests
-<Include any additional notes about the testing process used.>
 
 ## Azure cost
 <Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
