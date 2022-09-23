@@ -17,8 +17,8 @@ architecture.*
 ## Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a OPERATING SYSTEM VM.
-  - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+    used to create a Linux VM.
+  - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
@@ -27,7 +27,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Fluent on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running OPERATING SYSTEM. The following table provides details about HBv3-series VMs.
+Performance tests of Fluent on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides details about HBv3-series VMs.
 
 VM size|	vCPU|	Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (Ghz)|	All-cores frequency (Ghz, peak)|	Single-core frequency (Ghz, peak)	|RDMA performance (Gbps)|	Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
@@ -47,17 +47,15 @@ To use InfiniBand, you need to enable InfiniBand drivers.
 
 ## Fluent installation
 
-Before you install Fluent, you need to deploy and connect a VM and install the required AMD and InfiniBand drivers.
+Before you install Fluent, you need to deploy and connect a VM, install Linux, and install the required AMD and InfiniBand drivers.
 
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
+For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-For information about installing Fluid, see the [Ansys website](https://www.ansys.com/products/fluids/ansys-fluent). 
+For information about installing Fluent, see the [Ansys website](https://www.ansys.com/products/fluids/ansys-fluent).
 
 ## Fluent performance results
 
-HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal configuration for Fluent on a single node. That optimal configuration was then tested in a multi-node cluster deployment. Ansys Fluent 2021 R2 was tested.
+HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal configuration for Fluent on a single node. That optimal configuration was then tested in a multi-node cluster deployment. Ansys Fluent 2021 R2 was tested, on a Linux VM.
 
 ### Results, single-node configuration
 
@@ -304,15 +302,36 @@ This graph shows the relative speed increases:
 
 :::image type="content" source="media/ansys-fluent/exhaust-system-multi-node.png" alt-text="Graph that shows the relative speed increase for the exhaust system test case on a multi-node configuration.":::
 
-### Additional notes about tests
-
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
+
+Only wall-clock time per 100 iterations of each model is considered for these cost calculations. Application installation time and license costs aren't considered.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+For a single-node configuration, you can multiply the wall-clock times by the Azure hourly costs for XXX to compute total costs. For the current hourly costs, see Linux? Virtual Machines Pricing. Here are the times for a single-node configuration:
+
+|VM size|	 Number of CPUs|	Wall-clock time (hours)|
+|-|-|-|
+|Standard_HB120-16rs_v3|	16|	2.33|
+|Standard_HB120-32rs_v3|	32|	1.48|
+|Standard_HB120-64rs_v3|	64|	1.15|
+|Standard_HB120-96rs_v3|	96|	1.06|
+|Standard_HB120rs_v3	|120	|1.00|
+
+For a multi-node configuration, you can multiply the wall-clock times by the number of nodes and the Azure hourly costs for XXX to compute total costs. For the current hourly costs, see Linux? Virtual Machines Pricing. Here are the times for a multi-node configuration:
+
+VM size|	Number of nodes|	Number of cores|	Wall-clock time (hours)|
+|-|-|-|-|
+|Standard_HB120-64rs_v3|	1	|64	|1.15|
+|Standard_HB120-64rs_v3|	2	|128|	0.58|
+|Standard_HB120-64rs_v3|	3|	192	|0.38|
+|Standard_HB120-64rs_v3|	4|	256|	0.27|
 
 ## Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+
+- Ansys Fluent 2021 R2 was successfully tested on HBv3-series Azure VMs.
+- In single-node configurations, performance scaled well up to 64 or 96 CPUs. After that point, the speed increase dropped off.
+- In multi-node configurations, performance scaled linearly when nodes were added.
 
 ## Contributors
 
