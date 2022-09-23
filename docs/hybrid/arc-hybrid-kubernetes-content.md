@@ -6,7 +6,7 @@ This reference architecture demonstrates how Azure Arc extends Kubernetes cluste
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
