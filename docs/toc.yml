@@ -3699,10 +3699,6 @@ items:
                 href: solution-ideas/articles/data-streaming-scenario.yml
               - name: Data cache
                 href: solution-ideas/articles/data-cache-with-redis-cache.yml
-              - name: Digital campaign management
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
-              - name: Digital marketing using MySQL
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
               - name: Enterprise data warehouse
                 href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using MySQL
