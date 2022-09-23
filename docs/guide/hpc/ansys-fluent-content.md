@@ -5,7 +5,7 @@ Intro
 - Modern and diverse compute options to align to your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- Performance scales well up to 64 or 96 CPUs on a single node and linearly on multiple nodes
+- Performance that scales well up to 64 or 96 CPUs on a single node and linearly on multiple nodes
 
 ## Architecture
 
@@ -204,7 +204,7 @@ The following table and graph present the test results.
 
 ### Results, multi-node configuration
 
-As the preceding performance results show, HBv3-series VMs with 64 cores and 96 cores are optimal configurations. The performance improvement when you increase from 64 CPUs to 96 CPUs is between 5 and 10 percent. Taking license costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for multi-node tests.
+As the preceding performance results show, HBv3-series VMs with 64 cores and 96 cores are optimal configurations. The performance improvement when you increase from 64 CPUs to 96 CPUs is between 5 and 10 percent. Taking license costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for the multi-node tests.
 
 The multi-node configuration was evaluated for the same test cases.
 
@@ -308,7 +308,7 @@ Only wall-clock time per 100 iterations of each model is considered for these co
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-For a single-node configuration, you can multiply the wall-clock times by the Azure hourly costs for XXX to compute total costs. For the current hourly costs, see Linux? Virtual Machines Pricing. Here are the times for a single-node configuration:
+For a single-node configuration, you can multiply the wall-clock times by the Azure hourly costs for HBv3-series VMs to compute total costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Here are the times for a single-node configuration:
 
 |VM size|	 Number of CPUs|	Wall-clock time (hours)|
 |-|-|-|
@@ -318,7 +318,7 @@ For a single-node configuration, you can multiply the wall-clock times by the Az
 |Standard_HB120-96rs_v3|	96|	1.06|
 |Standard_HB120rs_v3	|120	|1.00|
 
-For a multi-node configuration, you can multiply the wall-clock times by the number of nodes and the Azure hourly costs for XXX to compute total costs. For the current hourly costs, see Linux? Virtual Machines Pricing. Here are the times for a multi-node configuration:
+For a multi-node configuration, you can multiply the wall-clock times by the number of nodes and the Azure hourly costs for HBv3-series VMs to compute total costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Here are the times for a multi-node configuration:
 
 VM size|	Number of nodes|	Number of cores|	Wall-clock time (hours)|
 |-|-|-|-|
@@ -331,7 +331,7 @@ VM size|	Number of nodes|	Number of cores|	Wall-clock time (hours)|
 
 - Ansys Fluent 2021 R2 was successfully tested on HBv3-series Azure VMs.
 - In single-node configurations, performance scaled well up to 64 or 96 CPUs. After that point, the speed increase dropped off.
-- In multi-node configurations, performance scaled linearly when nodes were added.
+- In multi-node configurations, performance scaled linearly as nodes were added.
 
 ## Contributors
 
@@ -372,6 +372,6 @@ Other contributors:
 
 ## Related resources
 
--   [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+-   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 -   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 -   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
