@@ -6107,8 +6107,6 @@ items:
                 href: solution-ideas/articles/digital-marketing-sitecore.yml
               - name: Scalable Umbraco CMS web app
                 href: solution-ideas/articles/medium-umbraco-web-app.yml
-              - name: Scalable web apps with Redis
-                href: solution-ideas/articles/scalable-web-apps.yml
               - name: Simple branded website
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website
