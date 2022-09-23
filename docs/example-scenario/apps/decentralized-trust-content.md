@@ -18,8 +18,8 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Components
 
-- [Virtual machines](https://azure.microsoft.com/services/virtual-machines), within virtual machine scale sets, provide the on-demand compute facility to host the validator processes for the blockchain.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/#product-overview) is used as the secure storage facility for the private keys of each validator.
+- [Virtual machines](https://azure.microsoft.com/services/virtual-machines), within virtual machine scale sets, provide the on-demand compute facility to host the node for the DLT network.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/#product-overview) is used as the secure storage facility for private keys.
 - [Load Balancer](https://azure.microsoft.com/services/load-balancer/#overview) spreads the RPC, peering, and governance DApp requests.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) hosts persistent network information and coordinates leasing.
 - Application Insights (part of Azure Monitor) can be used to provide insight into available nodes, transactions per minute, and consortium members.
@@ -30,7 +30,7 @@ The Corda approach is chosen for this example because it is a good entry point f
 
 ## Scenario details
 
-This example scenario is useful for banks or any other institutions that want to establish a trusted environment for information sharing without resorting to a centralized database. In this example, we will describe the scenario in the context of maintaining credit score information between banks, but the architecture can be applied to any scenario where a consortium of organizations wants to share validated information with one another without resorting to the use of a central system ran by one single party.
+This example scenario is useful for banks or any other institutions that want to establish a trusted environment for information sharing without resorting to a centralized database. In this example, we will describe the scenario in the context of maintaining credit score information between banks, but the architecture can be applied to any scenario where a consortium of organizations wants to share information with one another without resorting to the use of a central system ran by one single party.
 
 Traditionally, banks within a financial system rely on centralized sources, such as credit bureaus, for information on an individual's credit score and history. A centralized approach presents a concentration of operational risk and sometimes an unnecessary third party.
 
@@ -52,11 +52,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you on successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes, as well as other useful statistics.
+[Azure Monitor][monitor] is used to continuously monitor all components of the DLT network for issues to ensure availability. 
 
 ### Scalability
-
-A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority&ndash;based networks, consensus participants are known and managed, making it more suitable for private blockchain for a consortium of organizations that know one another. Parameters such as average block time, transactions per minute, and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
@@ -64,13 +62,15 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Azure Key Vault][vault] is used to easily store and manage the private keys of validators. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the related resources section below.
+[Azure Key Vault][vault] is used to easily store and manage the private keys. 
+
+For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the related resources section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-The Corda network can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
+The Corda network can itself provide some degree of resilience as the nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A DLT such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. DLT allows network resilience to be even more planned and deliberate.
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -86,7 +86,7 @@ We have provided three sample cost profiles based on the number of scale set VM 
 - [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
 - [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
 
-The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
+The above pricing is for one consortium member to start or join a DLT network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
 ## Contributors
 
