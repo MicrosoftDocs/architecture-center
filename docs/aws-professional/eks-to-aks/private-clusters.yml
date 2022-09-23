@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Secure network access to Kubernetes API
-  description: Understand how to secure network access to the Kubernetes Server API in Amazon EKS compared to Azure Kubernetes Service (AKS).
+  title: Secure network access to Kubernetes
+  description: Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 09/23/2022
+  ms.date: 09/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -12,12 +12,13 @@ azureCategories:
   - containers
   - networking
 products:
+  - azure-bastion
   - azure-dns
   - azure-kubernetes-service
   - azure-private-link
   - azure-virtual-network
-name: Secure network access to Kubernetes API
-summary: Understand how to secure network access to Kubernetes API.
+name: Secure network access to Kubernetes
+summary: Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
    [!include[](private-clusters-content.md)]

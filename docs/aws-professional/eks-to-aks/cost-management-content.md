@@ -1,7 +1,7 @@
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
 > [!NOTE]
-> This article is part of a [series of articles](../index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS cost basics
 
@@ -25,7 +25,7 @@ With On-Demand Instances, you pay for compute capacity by the second, with no lo
 
 Kubernetes architecture is based on two layers, the control plane and one or more nodes or node pools. The AKS pricing model is based on the two Kubernetes architecture layers.
 
-- The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as API Server and etcd, and application workload orchestration. The Azure platform manages the AKS control plane, and for the AKS free tier, the control plane has [no cost](https://azure.microsoft.com/pricing/details/kubernetes-service).
+- The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) provides [core Kubernetes services](https://kubernetes.io/docs/concepts/overview/components), such as the API server and `etcd`, and application workload orchestration. The Azure platform manages the AKS control plane, and for the AKS free tier, the control plane has [no cost](https://azure.microsoft.com/pricing/details/kubernetes-service).
 
 - The [nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools), also called *agent nodes* or *worker nodes*, host Kubernetes workloads and applications. In AKS, customers fully manage and pay all costs for the agent nodes.
 
@@ -67,7 +67,7 @@ Each AKS deployment spans two Azure resource groups.
 
 Azure VMs charge according to their size and usage. For information about how Azure compute compares to AWS, see [Compute services on Azure and AWS](../compute.md).
 
-Generally, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes. The more specialized the VM series you use for the node pool is, for example graphics processing unit (GPU)-enabled or memory-optimized, the more expensive the agent pool is.
+Generally, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes. The more specialized the VM series you use for the node pool, for example graphics processing unit (GPU)-enabled or memory-optimized, the more expensive the pool.
 
 When investigating Azure VM pricing, be aware of the following points:
 
@@ -77,7 +77,7 @@ When investigating Azure VM pricing, be aware of the following points:
 
 - Managed disks used as OS drives are charged separately, and you must add their cost to cost estimations. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra SSDs. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free, and are included in the VM price.
 
-- Data disks, including those created with persistent volume claims, are optional and charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra SSDs. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
+- Data disks, including those created with persistent volume claims, are optional and are charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra SSDs. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
 
 - The more time agent nodes are up and running, the higher the total cluster cost. Development environments don't usually need to run 24/7.
 
@@ -91,7 +91,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 - [Azure Disks](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. Most production and development workloads use Premium Storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For cost information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/azure-files-csi) mounts a server messaging block (SMB) 3.0/3.1 file shares backed by an Azure Storage account to AKS pods. You can share data across multiple nodes and pods. Azure Files can use Standard storage backed by regular HDDs, or Premium storage backed by high-performance SSDs. Azure Files uses an Azure Storage account, and charges based on the following factors:
+- [Azure Files](/azure/aks/azure-files-csi) mounts server messaging block (SMB) 3.0/3.1 file shares backed by an Azure Storage account to AKS pods. You can share data across multiple nodes and pods. Azure Files can use Standard storage backed by regular HDDs, or Premium storage backed by high-performance SSDs. Azure Files uses an Azure Storage account, and charges based on the following factors:
 
   - Service: Blob, File, Queue, Table or unmanaged disks
   - Storage account type: GPv1, GPv2, Blob, or Premium Blob
@@ -117,7 +117,7 @@ Several Azure networking services can provide access to your applications that r
   - Rules: Number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: Amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.

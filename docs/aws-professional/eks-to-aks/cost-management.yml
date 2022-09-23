@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cost management for a Kubernetes cluster
-  description: Understand costs for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS costs.
+  title: Cost management for Kubernetes
+  description: Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.
   author: lanicolas
   ms.author: lanicola
   ms.date: 09/23/2022
@@ -18,8 +18,8 @@ products:
   - azure-managed-disks
   - azure-storage
   - azure-virtual-machines
-name:  Cost management for a Kubernetes cluster
-summary: Understand costs for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS costs.
+name:  Cost management for Kubernetes
+summary: Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |
    [!include[](cost-management-content.md)]

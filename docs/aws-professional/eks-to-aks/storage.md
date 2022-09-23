@@ -1,9 +1,9 @@
 ---
 title: Storage options for a Kubernetes cluster
-description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and AKS storage options.
+description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
 author:  lanicolas
 ms.author: lanicola
-ms.date: 09/15/2022
+ms.date: 09/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -11,8 +11,8 @@ categories:
   - containers
   - storage
 products:
-  - azure-kubernetes-service
   - azure-files
+  - azure-kubernetes-service
   - azure-managed-disks
   - azure-netapp-files
   - azure-storage
@@ -23,7 +23,7 @@ products:
 This article compares the storage capabilities of Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS), and describes the options to store workload data on AKS.
 
 > [!NOTE]
-> This article is part of a [series of articles](../index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS storage options
 
@@ -59,7 +59,7 @@ You can extend these options by adding other storage classes and integrating wit
 - Azure Ultra Disk Storage
 - Azure NetApp Files
 - Azure HPC Cache
-- NFS Server
+- NFS server
 - Third-party storage solutions
 
 ### Azure Disk Storage
@@ -109,7 +109,7 @@ To optimize costs for Azure Files, purchase [Azure Files capacity reservations](
 
 Like AWS NetApp ONTAP, Azure NetApp Files is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files is fully managed in Azure using NetApp solutions. Like Azure Files, Azure NetApp Files lets multiple pods mount a volume. You can use [Astra Trident](https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_overview_trident.html), an open-source dynamic storage orchestrator for Kubernetes, to [configure your AKS cluster to use Azure NetApp Files](/azure/aks/azure-netapp-files).
 
-Be aware of the [Resource limits for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-resource-limits). The minimum size of a capacity pool for Azure NetApp Files is 4TiB. Azure NetApp Files charges by provisioned size rather than used capacity.
+Be aware of the [Resource limits for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-resource-limits). The minimum size of a capacity pool for Azure NetApp Files is 4 TiB. Azure NetApp Files charges by provisioned size rather than used capacity.
 
 ### Azure HPC Cache
 
@@ -150,7 +150,7 @@ Different services support storage classes that have different access modes.
 | Azure Disks        |      X        |              |               |
 | Azure File         |      X        |      X       |       X       |
 | Azure NetApp Files |      X        |       X      |       X       |
-| NFS Server         |      X        |       X      |       X       |
+| NFS server         |      X        |       X      |       X       |
 | Azure HPC Cache    |      X        |       X      |       X       |
 
 ### Dynamic vs static provisioning
@@ -163,7 +163,7 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 ### Cost optimization
 
-To optimize Azure Storage costs, use Azure Reservations. Make sure to [check the services that support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
+To optimize Azure Storage costs, use Azure Reservations. Make sure to [check the services that support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see the next article in this series.
 
 ## Next steps
 

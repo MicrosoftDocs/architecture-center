@@ -5,7 +5,7 @@ In both Amazon EKS and AKS, the cloud platform provides and manages the control 
 ![Diagram that shows the control plane and nodes in AKS architecture.](./media/control-plane-and-nodes.png)
 
 > [!NOTE]
-> This article is part of a [series of articles](../index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS managed node groups
 
