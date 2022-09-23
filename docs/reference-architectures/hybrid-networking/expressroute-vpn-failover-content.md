@@ -122,7 +122,7 @@ To deploy the solution, perform the following steps.
 
 1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
 
-## Next Steps
+## Next steps
 
 * [ExpressRoute Documentation](/azure/expressroute/)
 * [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)

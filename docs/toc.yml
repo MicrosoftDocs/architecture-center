@@ -342,7 +342,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
                 - name: Security
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
-
+                - name: Operational procedures
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
             - name: Guides
               items:
                 - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
@@ -3698,10 +3699,6 @@ items:
                 href: solution-ideas/articles/data-streaming-scenario.yml
               - name: Data cache
                 href: solution-ideas/articles/data-cache-with-redis-cache.yml
-              - name: Digital campaign management
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
-              - name: Digital marketing using MySQL
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
               - name: Enterprise data warehouse
                 href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using MySQL
@@ -6106,8 +6103,6 @@ items:
                 href: solution-ideas/articles/digital-marketing-sitecore.yml
               - name: Scalable Umbraco CMS web app
                 href: solution-ideas/articles/medium-umbraco-web-app.yml
-              - name: Scalable web apps with Redis
-                href: solution-ideas/articles/scalable-web-apps.yml
               - name: Simple branded website
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website

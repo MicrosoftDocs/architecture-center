@@ -4,7 +4,7 @@ The following example focuses specifically on the SAP BW/4HANA application tier.
 
 ![Reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure](./images/sap-bw4hana.png)
 
-### Workflow
+### Components
 
 This architecture makes use of the following technologies:
 
