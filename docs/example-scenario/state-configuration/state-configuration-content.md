@@ -8,7 +8,7 @@ This example scenario demonstrates how to use Azure Automation State Configurati
 
 ![Diagram showing Azure Automation State Configuration architecture.](./media/azure-state-config.png)
 
-### Workflow
+### Components
 
 In this solution, you use the following services and components:
 
