@@ -13,11 +13,11 @@ The Hybrid Runbook Worker architecture consists of the following:
 - **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
 - **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
 - **Hybrid Runbook Worker Group**: Group with multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
-- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
+- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7].
 - **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
     - **Hybrid Runbook Worker VM Extension**: A small application installed on a computer that configures it as a Hybrid Runbook Worker.
-    - **Arc-enabled Server**: Azure Arc-enabled servers allow you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
+    - **Arc-enabled Server**: Azure Arc-enabled servers allow you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8].
 - Components applicable for agent-based approach (V1):
     - **Log Analytics Workspace**: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - **Automation Hybrid Worker solution**: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
