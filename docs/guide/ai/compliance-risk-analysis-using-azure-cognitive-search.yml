@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Compliance risk analysis by using Azure Cognitive Search
+  description:  Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.
+  author: andreaskopp
+  ms.author: akopp, cfernandesdo, joamart
+  ms.date: 10/10/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - security
+products:
+  - azure-cognitive-search
+  - azure-cognitive-services
+  - microsoft-graph-data-connect-api
+name: Compliance risk analysis by using Azure Cognitive Search
+summary: Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.
+thumbnailUrl: /azure/architecture/browse/thumbs/compliance-risk-analysis-diagram-solution-architecture-thumb.png
+content: |
+  [!include[](compliance-risk-analysis-using-azure-cognitive-search-content.md)]
