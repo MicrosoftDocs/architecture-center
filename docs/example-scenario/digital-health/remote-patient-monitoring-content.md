@@ -6,7 +6,6 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 > [!NOTE]
 > **SECTION TODOS**
-> - diagram: replace Apple/Google/fitbit logos with generic mobile device icons; Jenna has a slide with some examples
 > - diagram: review the Visio; when final upload to blob storage and create new .png
 > - dataflow: review steps 1 thru 8
 > - components: review and complete after dataflow section is completed
