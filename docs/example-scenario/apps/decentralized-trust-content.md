@@ -6,14 +6,14 @@ This example will show you how Azure services such as virtual machine scale sets
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
-This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise DLT (Distributed Ledger Technology) network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise distributed ledger technology (DLT) network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
 
 ### Dataflow
 
 1. Bank A creates/updates an individual's credit record by creating a transaction.
 1. Data flows from Bank A's private application server to the [Azure Load Balancer](/azure/load-balancer/), and then to a node VM on the virtual machine scale set.
 1. A transaction proposal is created on the network ledger.
-1. The transaction is committed to the ledger when all required signatures are gathered.
+1. The transaction is committed to the ledger, when all the required signatures are gathered.
 1. Bank B can read the credit record created by bank A by communicating with its own node.
 
 ### Components
@@ -26,7 +26,7 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Alternatives
 
-The Corda approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. Other alternatives to Corda such as Quorum or Hyperledger can be considered too.
+The Corda approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. Other alternatives to Corda, such as Quorum or Hyperledger, can be considered too.
 
 ## Scenario details
 
@@ -64,13 +64,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 [Azure Key Vault][vault] is used to easily store and manage the private keys. 
 
-For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the related resources section below.
+For a production scenario, where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the deployment section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-The Corda network can itself provide some degree of resilience as the nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A DLT such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. DLT allows network resilience to be even more planned and deliberate.
+The Corda network can itself provide some degree of resilience as the nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A DLT, such as the one in this scenario, provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. DLT allows network resilience to be even more planned and deliberate.
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -88,17 +88,19 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 The above pricing is for one consortium member to start or join a DLT network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
+## Deploy this scenario
+
+To deploy a pre-configured network of Corda nodes, review the [guide that is available in Corda's documentation][corda].
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Vito Chin](https://www.linkedin.com/in/vitochin) | Senior Cloud Solution Architect
 
 ## Next steps
-
-To deploy a pre-configured network of Corda nodes, review the [guide that is available in Corda's documentation][corda]
 
 Product documentation of Azure services:
 
