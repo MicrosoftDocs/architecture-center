@@ -6,7 +6,7 @@ This example will show you how Azure services such as virtual machine scale sets
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
-This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise DLT network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise DLT (Distributed Ledger Technology) network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
 
 ### Dataflow
 
@@ -20,7 +20,7 @@ This scenario covers the back-end components that are necessary to create a scal
 
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines), within virtual machine scale sets, provide the on-demand compute facility to host the node for the DLT network.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/#product-overview) is used as the secure storage facility for private keys.
-- [Load Balancer](https://azure.microsoft.com/services/load-balancer/#overview) spreads the RPC, peering, and governance DApp requests.
+- [Load Balancer](https://azure.microsoft.com/services/load-balancer/#overview) spreads communication requests to the VMs.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) hosts persistent network information and coordinates leasing.
 - Application Insights (part of Azure Monitor) can be used to provide insight into available nodes, transactions per minute, and consortium members.
 
