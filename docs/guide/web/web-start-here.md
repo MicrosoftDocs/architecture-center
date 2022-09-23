@@ -111,7 +111,6 @@ The following sections, organized by category, provide links to sample web app a
 - [Scalable cloud applications and site reliability engineering (SRE)](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
 - [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
 - [Scalable Umbraco CMS web app](../../solution-ideas/articles/medium-umbraco-web-app.yml)
-- [Scalable web apps with Azure Redis Cache](../../solution-ideas/articles/scalable-web-apps.yml)
 
 ### Security
 

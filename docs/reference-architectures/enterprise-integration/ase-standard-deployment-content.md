@@ -1,8 +1,4 @@
-
-
-[Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
-
-This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.
+This reference architecture demonstrates a common enterprise workload using App Service Environment (ASE), and best practices to tighten security of this workload.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
@@ -43,7 +39,7 @@ The following services are key to locking down the ASE in this architecture:
 
 [**Azure Pipelines**](/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, a **virtual machine** is used as a *jumpbox* inside the VNet to deploy apps in the App Service plans. The pipeline builds the apps outside the VNet. For enhanced security and seamless RDP/SSH connectivity, consider using the recently released [Azure Bastion](/azure/bastion/bastion-overview) as the jumpbox.
 
-## Multi-site configuration
+### Multi-site configuration
 
 :::image type="content" border="false" source="./_images/ase-multi-site.png" alt-text="Diagram showing multi-site deployment." lightbox="./_images/ase-multi-site.png":::
 
@@ -54,6 +50,10 @@ Internal ASE can host several web apps and APIs with HTTP endpoints. These appli
 The App Gateway is configured such that a [listener](/azure/application-gateway/configuration-overview#listeners) listens on the HTTPS port for requests to the Gateway's IP address. For simplicity, this implementation does not use a public DNS name registration, and requires you to modify the localhost file on your computer to point an arbitrarily chosen URL to the App Gateway's IP. For simplicity, the listener uses a self-signed certificate to process these requests. The App Gateway has [backend pools](/azure/application-gateway/configuration-overview#back-end-pool) for each App Service application's default URL. A [routing rule](/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the backend pool. [HTTP settings](/azure/application-gateway/configuration-overview#http-settings) are created that determine whether the connection between the gateway and the ASE will be encrypted. These settings are also used to override the incoming HTTP host header with a host name picked from the backend pool. This implementation uses default certificates created for the default ASE app URLs, which are trusted by the gateway. The request is redirected to the default URL of the corresponding app. The private [DNS linked to the VNet](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP. The ASE then forward this to the requested App service. Any HTTP communication within the ASE apps, goes through the private DNS. Note that the listener, backend pool, routing rule, and the HTTP settings need to be configured on the App Gateway for each ASE app.
 
 Explore [appgw.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.json) and [dns.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/dns.json) to understand how these configurations are made to allow multiple sites. The web app named `testapp` is an empty app created to demonstrate this configuration. These JSON files are accessed from the deployment script [deploy_std.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_std.sh). These are also accessed by [deploy_ha.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_ha.sh), which is used for [a high availability multi-site ASE deployment](./ase-high-availability-deployment.yml).
+
+## Scenario details
+
+[Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
 
 ## Considerations
 

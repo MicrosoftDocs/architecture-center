@@ -16,7 +16,9 @@ Capacity planning, or sizing, is desired in the following use cases:
 
 This high-level diagram covers Azure VMware Solution capacity planning.
 
-![Azure VMware Solution Capacity Planning](../media/azure-vmware-solution-sizing.png)
+![Diagram showing Azure VMware Solution capacity planning.](../media/azure-vmware-solution-sizing.png)
+
+### Workflow
 
 Azure VMware Solution capacity planning covers the following key phases:
 
@@ -27,19 +29,19 @@ Azure VMware Solution capacity planning covers the following key phases:
 
 Each phase is discussed in detail below.
 
-### Discovery
+#### Discovery
 
 [Discovery](/azure/migrate/tutorial-discover-VMware): You can use Azure Migrate in two modes. In the first mode, Azure Migrate generates an OVA (Open Virtualization Appliance) template. This template can be used to bootstrap an Azure Migrate VM in an on-premises VMware site. Once the Azure Migrate instance is configured, it will send on-premises inventory data in Azure. In the second mode, a CSV file with a [pre-defined format](/azure/migrate/tutorial-discover-import#prepare-the-csv) can be used to upload on-premises inventory data. The CSV file expects four mandatory fields (VM/Server Name, No. of Cores, Memory, and [Eligible](/azure/migrate/tutorial-discover-import#supported-operating-system-names) OS Name). Other remaining optional fields (such as No. of disks, Disk IOPS, Throughput, and so on) can be added to improve the accuracy of sizing. Output from VMware utilities, such as [RVTools](https://www.robware.net/rvtools), can be used to create a CSV file.
 
-### Grouping
+#### Grouping
 
 After VMware inventory details are gathered, it can be grouped together. [Grouping](/azure/migrate/how-to-create-a-group) helps you easily organize and manage a large number of VMs that are captured after discovery. Grouping can be done based on, but not limited to, a workload (HR, eCommerce application, and so on), an environment (prod versus non. Prod), location (such as US, EU, and so on), or criticality (mission critical, small-scale, and so on). Azure Migrate provides [dependency analysis](/azure/migrate/how-to-create-group-machine-dependencies-agentless) in VMware environments. Information obtained via dependency analysis can also be used for grouping related VMs together.
 
-### Assessment
+#### Assessment
 
 Grouped VMs can be subjected to assessment. [Assessment](/azure/migrate/tutorial-assess-VMware-azure-VMware-solution) can be configured with parameters that are useful in determining right sizing/capacity. These parameters can cover target Azure VMware Solution site details, such as the location, node type, and so on. For Azure VMware Solution VMs, important parameters (such as FTT and RAID settings and CPU oversubscription) need to be provided. An assessment can be performed using [two criteria](/azure/migrate/tutorial-assess-VMware-azure-VMware-solution#decide-which-assessment-to-run). The first criterion is a _performance-based_ assessment, which assesses on-premises VMware VMs, using their performance profiles. Performance history, as far back as one month, can be selected for capturing a performance profile. An assessment can be further fine-tuned by selecting a specific percentile (such as 50th, 90th, 99th, and so on) for the assessment. An additional capacity margin can be provided by using a _comfort factor_, which increases the capacity by multiplying it with the comfort factor. The second criterion is as _on-premises_. As the name suggests, an assessment using this criterion is done by using a VM's existing specifications (such as CPU, Memory, and so on). Additional capacity can be added, as appropriate.
 
-### Reporting
+#### Reporting
 
 Once an assessment is complete, [reporting](/azure/migrate/tutorial-assess-VMware-azure-VMware-solution#review-an-assessment) provides the final results. The results include the cost and readiness. It provides a summary of the number of VMware VMs assessed, the average estimated cost per VM, and the total estimated costs for all VMs. Reporting also provides Azure VMware Solution readiness with a clear breakdown of the VM numbers, across multiple readiness statuses, such as Ready, Not Ready, Ready with conditions, and so on. Those VMs that might need a potential remediation, before migration, are listed with specific reasons. This makes the entire migration plan easy to manage and orchestrate. Reporting also provides a number of Azure VMware Solution nodes that are needed to run assessed VMs. A projected utilization for CPU, memory, and storage in Azure VMware Solution is also reported.
 
