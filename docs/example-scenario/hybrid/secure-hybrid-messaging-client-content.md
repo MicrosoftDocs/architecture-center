@@ -45,6 +45,8 @@ This architecture is relevant for the following scenarios:
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
+#### Workflow
+
 1. The user tries to access Exchange Online via Outlook.
 1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
 1. Outlook connects to Azure AD by using that URL.
@@ -56,6 +58,8 @@ In this scenario, users need to use the version of Outlook client that supports 
 1. The user completes multi-factor authentication.
 1. Azure AD issues access and refresh tokens and returns them to the client.
 1. By using the access token, the client connects to Exchange Online and retrieves the content.
+
+#### Configuration
 
 To block attempts to access Exchange Online via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook service uses. These are the specific protocols that you need to disable: Autodiscover, MAPI, Offline Address Books, and EWS. Here's the corresponding configuration:
 ```
@@ -92,6 +96,8 @@ This scenario is the same as the previous one, except that it uses a different t
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
+#### Workflow
+
 1. The user tries to access Exchange Online via Outlook.
 2. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox. 
 3. Outlook connects to Azure AD by using that URL.
@@ -106,6 +112,8 @@ In this scenario, users need to use the version of Outlook client that supports 
 8. AD FS redirects the session back to Azure AD.
 9. Azure AD issues access and refresh tokens and returns them to the client.
 10. By using the access token, the client connects to Exchange Online and retrieves the content.
+
+#### Configuration
 
 > [!NOTE]
 >
@@ -134,6 +142,8 @@ New-AuthenticationPolicy -Name BlockLegacyOutlookAuth -AllowBasicAuthRpc:$false 
 
 This architecture covers both Outlook for Windows and Outlook for Mac.
 
+#### Workflow
+
 1. A user with a mailbox on Exchange Server starts the Outlook client. The Outlook client connects to Exchange Server and specifies that it has modern authentication capabilities.
 2. Exchange Server sends a response to the client requesting that it get a token from Azure AD. 
 3. The Outlook client connects to an Azure AD URL provided by Exchange Server.
@@ -145,6 +155,8 @@ This architecture covers both Outlook for Windows and Outlook for Mac.
 9. The user completes multi-factor authentication.
 10.	Azure AD issues access and refresh tokens and returns them to the client.
 11.	The user presents the access token to Exchange Server, and Exchange authorizes access to the mailbox.
+
+#### Configuration
 
 To block attempts to access Exchange on-premises via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook service uses. These are the specific protocols that you need to disable: Autodiscover, MAPI, Offline Address Books, EWS, and RPC. Here's the corresponding configuration:
 ```
@@ -176,6 +188,8 @@ This scenario is similar to the previous one. However, in this scenario, multi-f
 > 
 > We recommend this scenario only if you are unable to use the previous one. 
 
+#### Workflow
+
 1. The user starts the Outlook client. The client connects to Exchange Server and specifies that it has modern authentication capabilities.
 2. Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD.
 3. The client uses the URL to access Azure AD.
@@ -191,6 +205,8 @@ This scenario is similar to the previous one. However, in this scenario, multi-f
 8. AD FS redirects the session back to Azure AD.
 9. Azure AD issues access and refresh tokens to the user.
 10. The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
+
+#### Configuration
 
 > [!NOTE]
 >
