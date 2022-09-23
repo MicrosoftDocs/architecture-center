@@ -12,7 +12,7 @@ ms.date: 09/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-azureCategories:
+azureCategories: 
   - devops
   - hybrid
   - management-and-governance
