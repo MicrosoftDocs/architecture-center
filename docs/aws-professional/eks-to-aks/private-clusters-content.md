@@ -54,26 +54,30 @@ The AKS resource provider exposes the following parameters to customize private 
 - `enablePrivateCluster` (boolean) specifies whether or not to create the cluster as private.
 - `enablePrivateClusterPublicFQDN` (boolean) specifies whether or not to create another, public FQDN for the private cluster.
 - `privateDnsZone` (string) without a specified value creates a private DNS zone in the node resource group. You can specify the following values:
-  - `system` is the default value.
-  - `none` defaults to public DNS, so AKS doesn't create a private DNS zone.
-  - `BYO private DNS zone resource ID` uses a private DNS zone you create in the format `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io.`
+  - `System` is the default value.
+  - `None` defaults to public DNS, so AKS doesn't create a private DNS zone.
+  - `<Your own private DNS zone resource ID>` uses a private DNS zone you create in the format `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io.`
 
 The following table shows the DNS configuration options for deploying a private AKS cluster:
 
 |**Private DNS zone options**|enablePrivateClusterPublicFQDN: true|enablePrivateClusterPublicFQDN: false|
 |---|---|---|
-|**system**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VM uses the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
-|**none**|All the VMs, including agent nodes, use the public FQDN of the API server available via an `A` record in an Azure-managed public DNS zone.|Wrong configuration. The private AKS cluster needs at least a public or a private DNS zone for the name resolution of the API server.|
-|**BYO private DNS zone resource ID**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
+|**System**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VM uses the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
+|**None**|All the VMs, including agent nodes, use the public FQDN of the API server available via an `A` record in an Azure-managed public DNS zone.|Wrong configuration. The private AKS cluster needs at least a public or a private DNS zone for the name resolution of the API server.|
+|**\<Your own private DNS zone resource ID>**|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>Any other VMs use the public FQDN of the API server.|Agent nodes, and any other VMs in the AKS cluster virtual network or any virtual network connected to the private DNS zone, use the private DNS zone `A` record to resolve the private IP address of the private endpoint.<br><br>No public API server FQDN is available.|
 
 #### Private cluster connectivity and management
 
 There are several options for establishing network connectivity to the private cluster.
 
 - Create VMs in the same virtual network as the AKS cluster.
+
 - Use VMs in a separate virtual network and set up [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) with the AKS cluster virtual network.
+
 - Use an [Azure Express Route or VPN](/azure/expressroute/expressroute-about-virtual-network-gateways) connection.
+
 - Use the Azure CLI command [az aks command invoke](/azure/aks/command-invoke) to run `kubectl` and `helm` commands on the private cluster without directly connecting to the cluster.
+
 - Use an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) connection.
 
 You can manage a private AKS cluster by using the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool from a management VM in the same or a peered virtual network.
@@ -98,13 +102,18 @@ The following `az aks update` Azure CLI command authorizes IP ranges:
 ## AKS connectivity considerations
 
 - An AKS private cluster provides higher security and isolation than authorized IPs. However, you can't convert an existing public AKS cluster into a private cluster. You can enable authorized IPs for any existing AKS cluster.
+
 - You can't apply authorized IP ranges to a private API server endpoint. Authorized IPs apply only to the public API server.
+
 - Private clusters don't support Azure DevOps-hosted agents. Consider using self-hosted agents.
+
 - To enable Azure Container Registry to work with a private AKS cluster, set up a private link for the container registry in the cluster virtual network. Or, set up peering between the Container Registry virtual network and the private cluster's virtual network.
+
 - Azure Private Link service limitations apply to private clusters.
+
 - If you delete or modify the private endpoint in the customer subnet of a private cluster, the cluster will stop functioning.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Kubernetes storage options](storage.md)

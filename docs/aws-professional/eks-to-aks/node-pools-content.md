@@ -167,16 +167,16 @@ In the **Virtual node usage** column:
 | ---- | --- | --- | --- |
 | kubernetes.azure.com/agentpool| `<agent pool name>` | `nodepool1` | Same |
 | kubernetes.io/arch | amd64 | `runtime.GOARCH` | N/A |
-| kubernetes.io/os| `<OS Type>` | `linux` or `windows` | Linux only |
+| kubernetes.io/os| `<OS Type>` | `Linux` or `Windows` | `Linux` |
 | node.kubernetes.io/instance-type| `<VM size>` | `Standard_NC6` | `Virtual` |
 | topology.kubernetes.io/region| `<Azure region>` | `westus2` | Same |
 | topology.kubernetes.io/zone| `<Azure zone>` | `0` | Same |
 | kubernetes.azure.com/cluster| `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
-| kubernetes.azure.com/mode| `<mode>` | `user` or `system` | `user` |
-| kubernetes.azure.com/role | agent | `agent` | Same |
-| kubernetes.azure.com/scalesetpriority| `<VMSS priority>` | `spot` or `regular` | N/A |
+| kubernetes.azure.com/mode| `<mode>` | `User` or `System` | `User` |
+| kubernetes.azure.com/role | agent | `Agent` | Same |
+| kubernetes.azure.com/scalesetpriority| `<VMSS priority>` | `Spot` or `Regular` | N/A |
 | kubernetes.io/hostname| `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
-| kubernetes.azure.com/storageprofile| `<OS disk storage profile>` | `managed` | N/A |
+| kubernetes.azure.com/storageprofile| `<OS disk storage profile>` | `Managed` | N/A |
 | kubernetes.azure.com/storagetier| `<OS disk storage tier>` | `Premium_LRS` | N/A |
 | kubernetes.azure.com/instance-sku| `<SKU family>` | `Standard_N` | `Virtual` |
 | kubernetes.azure.com/node-image-version| `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
@@ -184,15 +184,15 @@ In the **Virtual node usage** column:
 | kubernetes.azure.com/vnet| `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
 | kubernetes.azure.com/ppg | `<nodepool ppg name>` | `ppgName` | N/A |
 | kubernetes.azure.com/encrypted-set| `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
-| kubernetes.azure.com/accelerator| `<accelerator>` | `nvidia` | N/A |
-| kubernetes.azure.com/fips_enabled| `<fips enabled>` | `true` | N/A |
-| kubernetes.azure.com/os-sku| `<os/sku>` | [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
+| kubernetes.azure.com/accelerator| `<accelerator>` | `Nvidia` | N/A |
+| kubernetes.azure.com/fips_enabled| `<fips enabled>` | `True` | N/A |
+| kubernetes.azure.com/os-sku| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
 ### Windows node pools
 
 AKS supports creating and using Windows Server container node pools through the [Azure CNI](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
-The following `az aks nodepool add` command adds a node pool that runs Windows Server containers to an existing cluster.
+The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 
 ```azurecli-interactive
   az aks nodepool add \
@@ -210,15 +210,13 @@ The preceding command uses the default subnet in the AKS cluster virtual network
 
 The following considerations and limitations apply when you create and manage node pools and multiple node pools:
 
-- [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](/azure/aks/quotas-skus-regions).
+- [Quotas, VM size restrictions, and region availability](/azure/aks/quotas-skus-regions) apply to AKS node pools.
 
-- System pools must contain at least one node. User node pools can contain zero or more nodes.
-
-- You can delete a system node pool if you have another system node pool to take its place in the AKS cluster.
+- System pools must contain at least one node. You can delete a system node pool if you have another system node pool to take its place in the AKS cluster. User node pools can contain zero or more nodes.
 
 - You can't change the VM size of a node pool after you create it.
 
-- For multiple node pools, the AKS cluster must use the Standard SKU load balancers. The Basic SKU load balancers don't support multiple node pools.
+- For multiple node pools, the AKS cluster must use the Standard SKU load balancers. Basic SKU load balancers don't support multiple node pools.
 
 - All cluster node pools must be in the same virtual network, and all subnets assigned to any node pool must be in the same virtual network.
 
@@ -275,7 +273,7 @@ You can disable the cluster autoscaler with `az aks nodepool update` by passing 
   --disable-cluster-autoscaler
 ```
 
-To re-enable the cluster autoscaler on an existing cluster, you can use `az aks nodepool update`, specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
+To re-enable the cluster autoscaler on an existing cluster, use `az aks nodepool update`, specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
 For more information about how to use the cluster autoscaler per node pool, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).
 
@@ -287,7 +285,7 @@ VM hosting infrastructure updates don't usually affect hosted VMs, such as agent
 
 If an update requires a reboot, Azure provides notification and a time window so you can start the update when it works for you. The self-maintenance window for host machines is typically 35 days, unless the update is urgent.
 
-See instructions for managing planned maintenance notifications with [Azure CLI](/azure/virtual-machines/maintenance-notifications-cli), [PowerShell](/azure/virtual-machines/maintenance-notifications-powershell), or the [Azure portal](/azure/virtual-machines/maintenance-notifications-portal).
+You can use Planned Maintenance to update VMs, and manage planned maintenance notifications with [Azure CLI](/azure/virtual-machines/maintenance-notifications-cli), [PowerShell](/azure/virtual-machines/maintenance-notifications-powershell), or the [Azure portal](/azure/virtual-machines/maintenance-notifications-portal). Planned Maintenance detects if you're using Cluster Auto-Upgrade, and schedules upgrades during your maintenance window automatically. For more information about Planned Maintenance, see the [az aks maintenanceconfiguration](/cli/azure/aks/maintenanceconfiguration) command and [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
 
 ### Kubernetes upgrades
 
@@ -341,19 +339,15 @@ Note these best practices and considerations for upgrading the Kubernetes versio
 
 - It's best to upgrade all node pools in an AKS cluster to the same Kubernetes version. The default behavior of `az aks upgrade` upgrades all node pools and the control plane.
 
-- Manually upgrade, or set an auto-upgrade channel on your cluster. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+- Manually upgrade, or set an auto-upgrade channel on your cluster. If you use Planned Maintenance to patch VMs, auto-upgrades also start during your specified maintenance window. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-- If you use Planned Maintenance to patch VMs, auto-upgrades also start during your specified maintenance window. For more information about Planned Maintenance, see the [az aks maintenanceconfiguration](/cli/azure/aks/maintenanceconfiguration) command and [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
-
-- The `az aks upgrade` command with the `--control-plane-only` flag upgrades only the cluster control plane and doesn't change any of the associated node pools in the cluster.
-
-- To upgrade individual node pools, specify the target node pool and Kubernetes version in the `az aks nodepool upgrade` command, 
+- The `az aks upgrade` command with the `--control-plane-only` flag upgrades only the cluster control plane and doesn't change any of the associated node pools in the cluster. To upgrade individual node pools, specify the target node pool and Kubernetes version in the `az aks nodepool upgrade` command, 
 
 - An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have low compute quota available, the upgrade could fail. For more information about increasing your quota, see [Increase regional vCPU quotas](/azure/azure-portal/supportability/regional-quota-requests).
 
 - Configure the `max-surge` parameter based on your needs, using an integer or a percentage value. For production node pools, use a `max-surge` setting of 33%. For more information, see [Customize node surge upgrade](/azure/aks/upgrade-cluster#customize-node-surge-upgrade).
 
-- When you upgrade an AKS cluster that uses CNI networking, make sure the subnet has enough available private IP addresses for the nodes the `max-surge` settings create. For more information, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-azure-cni).
+- When you upgrade an AKS cluster that uses CNI networking, make sure the subnet has enough available private IP addresses for the extra nodes the `max-surge` settings create. For more information, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-azure-cni).
 
 - If your cluster node pools span multiple Availability Zones within a region, the upgrade process can temporarily cause an unbalanced zone configuration. For more information, see [Special considerations for node pools that span multiple Availability Zones](/azure/aks/upgrade-cluster#special-considerations-for-node-pools-that-span-multiple-availability-zones).
 
@@ -363,7 +357,7 @@ When you create a new cluster or add a new node pool to an existing cluster, you
 
 AKS supports two networking plugins:
 
-- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet) is a basic, simple network plugin for Linux. With kubenet, nodes get a private IP address from the Azure virtual network subnet. Pods get an IP address from a logically different address space. Network address translation (NAT) lets the pods reach resources on the Azure virtual network by translating the source traffic's IP address to the node's primary IP address. This approach reduces the number of IP addresses you need to reserve in your network space for pods.
+- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet) is a basic, simple network plugin for Linux. With `kubenet`, nodes get a private IP address from the Azure virtual network subnet. Pods get an IP address from a logically different address space. Network address translation (NAT) lets the pods reach resources on the Azure virtual network by translating the source traffic's IP address to the node's primary IP address. This approach reduces the number of IP addresses you need to reserve in your network space for pods.
 
 - [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) gives every pod an IP address to address and access directly. These IP addresses must be unique across your network space. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved for that node. This approach requires advance planning, and can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as application demands grow.
 

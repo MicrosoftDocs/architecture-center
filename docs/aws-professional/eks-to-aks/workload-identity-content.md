@@ -67,11 +67,11 @@ As shown in the following diagram, the Kubernetes cluster becomes a security tok
 
 ![Diagram showing a simplified workflow for a pod managed identity in Azure.](./media/message-flow.png)
 
-1. Kubelet projects a service account token to the workload at a configurable file path.
+1. The `kubelet` agent projects a service account token to the workload at a configurable file path.
 2. The Kubernetes workload sends the projected, signed service account token to Azure AD and requests an access token.
-3. Azure AD checks trust on the user-defined managed identity or registered application and validates the incoming token.
+3. Azure AD uses an OIDC discovery document to check trust on the user-defined managed identity or registered application and validate the incoming token.
 4. Azure AD issues a security access token.
-5. The Kubernetes workload accesses Azure resources using the Azure AD access token.
+5. The Kubernetes workload accesses Azure resources by using the Azure AD access token.
 
 Azure AD Workload Identity federation for Kubernetes is currently supported only for Azure AD applications, but the same model could potentially extend to Azure managed identities.
 
@@ -88,7 +88,7 @@ For more information, automation, and documentation for Azure AD Workload Identi
 
 ### Example workload
 
-The example workload is composed of a frontend and backend service on an AKS cluster. The workload services use Azure AD Workload Identity to access the following Azure services by using Azure AD security tokens:
+The example workload runs a frontend and a backend service on an AKS cluster. The workload services use Azure AD Workload Identity to access the following Azure services by using Azure AD security tokens:
 
 - Azure Key Vault
 - Azure Cosmos DB
@@ -105,9 +105,9 @@ The example workload is composed of a frontend and backend service on an AKS clu
 1. Establish a [federated identity credential](https://azure.github.io/azure-workload-identity/docs/quick-start.html) between the Azure AD application and the service account issuer and subject.
 1. Deploy the workload application to the AKS cluster.
 
-#### Message flow
+#### Azure AD Workload Identity message flow
 
-AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. The process exchanges the security tokens with security tokens issued by Azure AD, and the applications use the Azure AD-issued security tokens to access Azure resources.
+AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. Azure AD Workload Identity exchanges the security tokens with security tokens issued by Azure AD, and the applications use the Azure AD-issued security tokens to access Azure resources.
 
 The following diagram shows how the frontend and backend applications acquire Azure AD security tokens to use Azure platform-as-a-service (PaaS) services.
 
@@ -119,14 +119,15 @@ The following diagram shows how the frontend and backend applications acquire Az
 4. Azure AD issues a security token: `{sub: appId, aud: requested-audience}`.
 5. The pod uses the Azure AD token to access the target Azure resource.
 
-To get the sample working end-to-end in a Kubernetes cluster:
+To use Azure AD Workload Identity end-to-end in a Kubernetes cluster:
 
-1. Cluster administrators configure the AKS cluster to issue tokens, and publish an OIDC discovery document to allow validation of these tokens.
-2. Developers configure their deployments to use the Kubernetes service accounts to get Kubernetes tokens.
-3. Administrators configure the Azure AD applications to trust the Kubernetes tokens.
-4. The process exchanges the Kubernetes tokens for Azure AD tokens, and uses the Azure AD tokens to access protected resources such as Azure and Microsoft Graph.
+1. You configure the AKS cluster to issue tokens, and publish an OIDC discovery document to allow validation of these tokens.
+1. You configure the Azure AD applications to trust the Kubernetes tokens.
+1. Developers configure their deployments to use the Kubernetes service accounts to get Kubernetes tokens.
+1. Azure AD Workload Identity exchanges the Kubernetes tokens for Azure AD tokens.
+1. AKS cluster workloads use the Azure AD tokens to access protected resources such as Microsoft Graph.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Kubernetes monitoring and logging](monitoring.yml)

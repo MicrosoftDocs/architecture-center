@@ -135,9 +135,9 @@ Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate third
 - [Quobyte](https://www.quobyte.com/) provides high-performance file and object storage you can deploy on any server or cloud to scale performance, manage large amounts of data, and simplify administration.
 - [Ondat](https://www.ondat.io/) delivers a consistent storage layer across any platform. You can run a database or any persistent workload in a Kubernetes environment without having to manage the storage layer.
 
-## Considerations
+## Kubernetes storage considerations
 
-Consider the following aspects when you choose a storage solution for Amazon EKS or AKS.
+Consider the following factors when you choose a storage solution for Amazon EKS or AKS.
 
 ### Storage class access modes
 
@@ -165,7 +165,7 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 
 To optimize Azure Storage costs, use Azure Reservations. Make sure to [check the services that support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see the next article in this series.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Cost management for a Kubernetes cluster](cost-management.yml)

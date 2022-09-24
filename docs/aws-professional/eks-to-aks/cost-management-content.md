@@ -127,7 +127,7 @@ Several Azure networking services can provide access to your applications that r
   - Reserved vs. dynamic association.
   - Basic vs. secured and zone-redundant Standard tier.
 
-## AKS scale-out costs
+## Scale-out costs
 
 There are multiple options for scaling an AKS cluster to add extra capacity to node pools:
 
@@ -146,13 +146,13 @@ If you use on demand or the cluster autoscaler, account for the added VMs. Conta
 - Usage duration calculated from image pull start or restart until stop
 - Added charge for Windows container groups
 
-## AKS cluster upgrade costs
+## Upgrade costs
 
 Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. It's important to apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
 By default, AKS configures upgrades to surge with one extra node. A default value of `1` forr the `max-surge` setting minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the `max-surge` value completes the upgrade process faster, but a large value for `max-surge` might cause disruptions during the upgrade process and incur added costs for extra VMs.
 
-## Other AKS cluster costs
+## Other costs
 
 Depending on usage and requirements, AKS clusters can incur the following added costs:
 
@@ -188,7 +188,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - Choose the right [VM size](/azure/virtual-machines/sizes) for your AKS cluster node pools based on your workloads' CPU and memory needs. Azure offers many different VM instance types that match a wide range of use cases, with different combinations of CPU, memory, storage, and networking capacity. Every type comes in one or more sizes, so you can easily scale your resources.
 
-- You can now deploy and manage containerized applications with AKS running on Ampere Altra ARM-based processors. For more information, see [Azure Virtual Machines with Ampere Altra ARM-based processors](https://azure.microsoft.com/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors).
+  You can now deploy and manage containerized applications with AKS running on Ampere Altra ARM-based processors. For more information, see [Azure Virtual Machines with Ampere Altra ARM-based processors](https://azure.microsoft.com/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors).
   
 - Create multiple node pools with different VM sizes for special purposes and workloads. Use Kubernetes [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration) and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor issues. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. Using different VM sizes for different node pools can also optimize costs. For more information, see [Use multiple node pools in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
@@ -201,7 +201,7 @@ The following recommendations help you optimize your AKS cluster costs:
 - Use Container Instances for bursting. For more information, see [Bursting from AKS with Azure Container Instances](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci).
 
 - Your AKS workloads might not need to run continuously, such as specific workloads in development cluster node pools. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on Azure Kubernetes Service (AKS)](/azure/aks/start-stop-nodepools).
-- Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on on your cluster, and apply the [default CPU requests and limits] and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace) policies, which ensure that CPU and memory resource limits are defined on cluster containers.
+- Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on on your cluster, and apply the default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace), which ensure that CPU and memory resource limits are defined on cluster containers.
 
 - Use [Azure Advisor](/azure/advisor/advisor-overview) to monitor and release unused resources.
 
@@ -209,13 +209,15 @@ The following recommendations help you optimize your AKS cluster costs:
 
 ## Cost governance
 
+The cloud can significantly improve the technical performance of business workloads. Cloud technologies can also reduce the cost and overhead of managing organizational assets. However, this business opportunity also creates risk, because cloud deployments can increase the potential for waste and inefficiencies.
+
 Cost governance is the process of continuously implementing policies or controls to limit spending and costs. Native Kubernetes tooling and Azure tools both support cost governance with proactive monitoring and underlying infrastructure cost optimization.
 
-The cloud can significantly improve the technical performance of business workloads. Cloud technologies can also reduce the cost and overhead required to manage organizational assets. However, this business opportunity creates risk, because cloud deployments introduce the potential for waste and inefficiencies. [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that help you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
+- [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that helps you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
 
-Review the [Cloud Adoption Framework](/azure/architecture/framework/cost/design-governance) governance best practices for the [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management) to better understand how to manage and govern cloud costs.
+- Review the [Cloud Adoption Framework](/azure/architecture/framework/cost/design-governance) governance best practices for the [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management) to better understand how to manage and govern cloud costs.
 
-Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
+- Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
 
 ## Next step
 

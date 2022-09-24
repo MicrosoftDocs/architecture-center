@@ -26,29 +26,41 @@ Amazon EKS also integrates with Amazon Web Services (AWS) CloudTrail to track ac
 
 ## AKS monitoring and logging
 
-Like other Azure resources, AKS generates [platform metrics and resource logs](/azure/aks/monitor-aks-reference) that you can use to monitor its basic health and performance. AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview).
+Like other Azure resources, AKS generates [platform metrics and resource logs](/azure/aks/monitor-aks-reference) that you can use to monitor its basic health and performance.
 
-Azure Monitor architecture consists of metrics and logs stored in a central location called a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). This data is processed and analyzed to provide insights and alerts. For more information, see [Monitor Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
+![Diagram showing AKS logging and monitoring.](./media/monitor-containers-architecture.png)
 
-![Diagram showing Azure Monitor architecture for containers.](./media/monitor-containers-architecture.png)
+### Azure Monitor
+
+AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor stores metrics and logs in a central location called a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). This data is processed and analyzed to provide insights and alerts. For more information, see [Monitor Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
 
 [Container Insights](/azure/azure-monitor/containers/container-insights-overview) is the feature of Azure Monitor that collects, indexes, and stores the data your AKS cluster generates. You can configure Container Insights to monitor managed Kubernetes clusters hosted on AKS and other cluster configurations. Container Insights can monitor AKS health and performance with visualization tailored to Kubernetes environments. Similar to EKS, enabling Container Insights for your AKS cluster deploys a containerized version of the Log Analytics agent, which is responsible for sending data to your Log Analytics workspace.
+
+### AKS cluster and workload monitoring
 
 An AKS deployment can divide into cluster level components, managed AKS components, Kubernetes objects and workloads, applications, and external resources. The following table shows a common strategy for monitoring an AKS cluster and workload applications. Each level has distinct monitoring requirements.
 
 | Level | Description | Monitoring requirements |
 |---|---|---|
 | Cluster level components | Virtual machine scale sets abstracted as AKS nodes and node pools | Node status and resource utilization including CPU, memory, disk, and network |
-| Managed AKS components | AKS control plane components including API servers, cloud controller, and kubelet | Control plane logs and metrics from the `kube-system` namespace |
+| Managed AKS components | AKS control plane components including API servers, cloud controller, and `kubelet` | Control plane logs and metrics from the `kube-system` namespace |
 | Kubernetes objects and workloads | Kubernetes objects such as deployments, containers, and replica sets | Resource utilization and failures |
 | Applications | Application workloads running on the AKS cluster | Monitoring specific to architecture, but including application logs and service transactions |
 | External | External resources that aren't part of AKS but are required for cluster scalability and management | Specific to each component |
 
-### AKS cluster monitoring
+- **Cluster level components:** You can use existing Container Insights views and reports to monitor cluster level components to understand their health, readiness, performance, CPU and memory resource utilization, and trends.
 
-Monitor *cluster level components* such as nodes to understand their health, readiness, performance, CPU and memory resource utilization, and trends. You can use existing Container Insights views and reports.
+- **Managed AKS components:** You can use Metrics Explorer to view the **Inflight Requests** counter. This view includes request latency and work queue processing time.
 
-For *managed AKS components*, you can use Metrics Explorer to view the **Inflight Requests** counter. This view includes request latency and work queue processing time.
+- **Kubernetes objects and workloads:** You can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods running on nodes and controllers, and their resource consumption in terms of CPU and memory.
+
+  From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
+
+- **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
+
+- **External components**: You can monitor external components like service mesh, ingress, and egress with Prometheus and Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
+
+### Third-party monitoring solutions
 
 You can set up third-party monitoring solutions like Grafana or Prometheus in your AKS node pools.
 
@@ -58,23 +70,13 @@ You can set up third-party monitoring solutions like Grafana or Prometheus in yo
 
   Container Insights provides a seamless onboarding experience to collect Prometheus metrics. You can expose the Prometheus metrics endpoint through your exporters or pod applications, and the containerized agent for Container Insights can scrape the metrics. Container Insights complements and completes end-to-end AKS monitoring, including log collection, which Prometheus as a stand-alone tool doesn't provide. For more information, see [Configure scraping of Prometheus metrics with Container insights](/azure/azure-monitor/containers/container-insights-prometheus-integration).
 
-### AKS workload monitoring
-
-For Kubernetes objects and workloads, you can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods running on nodes and controllers, and their resource consumption in terms of CPU and memory.
-
-From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
-
-You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
-
-You can monitor external components like service mesh, ingress, and egress with Prometheus and Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
-
 ### AKS monitoring costs
 
 The Azure Monitor pricing model is primarily based on the amount of data that is ingested per day into your Log Analytics workspace. The cost varies by the plan and retention periods you select.
 
 Before enabling Container Insights, estimate costs and understand how to control data ingestion and its costs. For detailed guidance, see [Estimating costs to monitor your AKS cluster](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Secure network access to Kubernetes API](private-clusters.yml)
