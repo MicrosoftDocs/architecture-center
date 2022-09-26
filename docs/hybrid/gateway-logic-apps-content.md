@@ -1,17 +1,14 @@
 This reference architecture illustrates a logic app that's running in Microsoft Azure, which is triggered by Azure Spring Apps. It then connects to on-premises resources such as Microsoft SQL Server and Microsoft SharePoint Server.
 
+## Architecture
+
 ![The diagram illustrates an Azure Spring Apps resource triggering a Logic App that advances through a workflow that connects to on-premises SQL Server and SharePoint Server resources by using a data gateway.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Typical uses for this architecture include:
+### Workflow
 
-- Cloud-based Azure Logic Apps workflows that require data from on-premises software as part of their run.
-- Extending the capabilities of existing on-premises software by triggering Logic Apps workflows in the cloud.
-
-## Architecture
-
-The architecture consists of the following components:
+The architecture consists of the following:
 
 - **[Azure Spring Apps][azure-spring-apps]**. Spring Apps provides a managed service that's designed and optimized specifically for [Spring][spring] microservices that are written in [Java][java].
 - **[Azure Logic Apps][azure-logic-app]**. Logic apps are automated workflows that are provided as a scalable cloud service for common enterprise orchestration tasks. Logic apps include [connectors][azure-logic-app-connectors] for many popular cloud services, on-premises products, or other Software-as-a-Service applications. The Logic Apps workflow includes the following features:
@@ -23,6 +20,15 @@ The architecture consists of the following components:
 - **[On-premises data gateway][integration-data-gateway]**. An on-premises data gateway is bridge software that connects on-premises data to cloud services. The gateway typically [installs on a dedicated on-premises virtual machine][azure-logic-app-data-gateway-install].
 - **[SQL Server][sql-server]**. This is an installation of SQL Server.
 - **[SharePoint Server][sharepoint-server]**. This is an installation of SharePoint Server.
+
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this architecture include:
+
+- Cloud-based Azure Logic Apps workflows that require data from on-premises software as part of their run.
+- Extending the capabilities of existing on-premises software by triggering Logic Apps workflows in the cloud.
 
 ## Recommendations
 
@@ -43,32 +49,34 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 - [Power Apps][power-apps]
 - [Azure Analysis Services][azure-analysis-services]
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 - As the amount of Logic Apps flows increase, consider the capacity constraints of the on-premises servers. You'll need to determine if the on-premises servers can handle the increased workload.
 
-## Availability considerations
+### Availability
 
 - Avoid single point of failure issues for an on-premises data gateway by [installing the software on multiple on-premises virtual machines][azure-logic-app-data-gateway-availability].
 - Consider implementing high availability topologies for your on-premises servers by using techniques such as:
   - [High availability architecture for SharePoint Server][sharepoint-server-availability]
   - [SQL Server AlwaysOn][sql-server-alwayson]
 
-## Manageability considerations
+### Manageability
 
 - [Service Bus][azure-relay] is used for outbound data gateway communication. This might require configuring your firewall to [allow outbound connections to Azure][integration-data-gateway-installation-outbound].
 - Consider [Azure ExpressRoute][azure-expressroute] if you want consistent throughput from your on-premises data sources to Azure.
 
-## DevOps considerations
+### DevOps
 
 - The corresponding Azure resource for an on-premises data gateway should only be created after the corresponding software is installed on an on-premises virtual machine.
 - Consider storing workflow configuration as a [JSON template][azure-logic-app-schema] within an [Azure Resource Manager template][azure-logic-app-arm] to automate deployment.
 
-## Security considerations
+### Security
 
 - While it's possible to expose your on-premises servers to the public internet, it's preferable to use an on-premises data gateway. This  gateway creates a secure read/write connection between your on-premises data sources and Azure.
 
-## Cost considerations
+### Cost optimization
 
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - This reference assumes that the [consumption plan][azure-logic-app-consumption-plan] is used to create a global Logic Apps resource.
@@ -76,9 +84,12 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 ## Next steps
 
+* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+
+## Related resources
+
 * [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
 * [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
-* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 [architectural-diagram]: ./images/gateway-logic-apps.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx
