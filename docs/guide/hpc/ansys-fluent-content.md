@@ -27,7 +27,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Fluent on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides details about HBv3-series VMs.
+Performance tests of Fluent on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running the Linux CentOS operating system. The following table provides details about HBv3-series VMs.
 
 VM size|	vCPU|	Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (Ghz)|	All-cores frequency (Ghz, peak)|	Single-core frequency (Ghz, peak)	|RDMA performance (Gbps)|	Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
