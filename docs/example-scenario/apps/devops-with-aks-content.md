@@ -131,6 +131,21 @@ We have provided three sample cost profiles based on the number of container ima
 - [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
 - [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Steve Buchanan]([https://www.linkedin.com/in/steveabuchanan) | Principal Program Manager
+
+Other contributors:
+
+- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
+- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Senior Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 This scenario used Azure Container Registry and Azure Kubernetes Service to store and run a container-based application. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
