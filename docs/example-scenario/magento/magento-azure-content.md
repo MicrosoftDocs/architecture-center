@@ -4,6 +4,8 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/magento-architecture.vsdx) of this architecture.*
+
 ### Workflow
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) deploys the Kubernetes cluster of Varnish, Magento, Redis, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
