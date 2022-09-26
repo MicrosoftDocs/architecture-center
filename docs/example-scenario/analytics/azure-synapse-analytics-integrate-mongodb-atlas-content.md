@@ -18,10 +18,10 @@ The solution presents two options for triggering the pipelines that capture the 
 
 1. Changes occur in the operational and transactional data that's stored in MongoDB Atlas. The Mongo Atlas change stream APIs notify subscribed applications about the changes in real time.
 
-1. A custom Azure App Service web app subscribes to the MongoDB change stream. There are two versions of the web app, *event grid* and *storage*, one for each version of the solution. Both app versions listen for changes that are caused by an insert, update, or delete operation in Atlas. When the apps detect a change, they write the changed document as a blob to Azure Data Lake Storage, which is integrated with Azure Synapse Analytics. The event grid version of the app also creates a new event in Azure Event Grid when it detects a change in Atlas.
+1. A custom Azure App Service web app subscribes to the MongoDB change stream. There are two versions of the web app, *Event Grid* and *storage*, one for each version of the solution. Both app versions listen for changes that are caused by an insert, update, or delete operation in Atlas. When the apps detect a change, they write the changed document as a blob to Azure Data Lake Storage, which is integrated with Azure Synapse Analytics. The event grid version of the app also creates a new event in Azure Event Grid when it detects a change in Atlas.
 
 1. Both versions of the solution trigger the Azure Synapse Analytics pipeline:
-   1. In the event grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Azure Synapse Analytics trigger, which causes the Azure Synapse Analytics data pipeline to run.
+   1. In the Event Grid version, a custom event-based trigger is configured in Azure Synapse Analytics. That trigger subscribes to the Event Grid topic that the web app publishes to. The new event on that topic activates the Azure Synapse Analytics trigger, which causes the Azure Synapse Analytics data pipeline to run.
    1. In the storage version, a storage-based trigger is configured in Azure Synapse Analytics. When the new blob is detected in the integrated Data Lake Storage folder, that trigger is activated, which causes the Azure Synapse Analytics data pipeline to run.
 
 1. In a copy activity, the Azure Synapse Analytics pipeline copies the full changed document from the Data Lake Storage blob to the dedicated SQL pool. This operation is configured to do an *upsert* on a selected column. If the column exists in the dedicated SQL pool, the upsert updates the column. If the column doesn't exist, the upsert inserts the column.
@@ -38,7 +38,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [App Service](https://azure.microsoft.com/services/app-service) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
 
-  - [Event grid version](https://github.com/Azure/SynapseRTSEventGrid)
+  - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
   - [Storage version](https://github.com/Azure/SynapseRTSStorage)
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the core service that this solution uses for data ingestion, processing, and analytics.
@@ -96,11 +96,11 @@ The solution presents two options for triggering an Azure Synapse Analytics pipe
 
 - A storage-based trigger. Use this option if you need real-time analytics, because the pipeline gets triggered as soon as the blob with the change is written. But this option might not be the preferred approach when you have a high volume of data changes. Azure Synapse Analytics limits the number of pipelines that can run concurrently. When you have a large number of data changes, you might hit that limit.
 
-- An event-based custom trigger. This type of trigger has the advantage that it's outside Azure Synapse Analytics, so it's easier to control. The event grid version of the web app writes the changed data document to the blob storage. At the same time, the app creates a new Event Grid event. The data in the event contains the file name of the blob. The pipeline that the event triggers receives the file name as a parameter and then uses the file to update the dedicated SQL pool.
+- An event-based custom trigger. This type of trigger has the advantage that it's outside Azure Synapse Analytics, so it's easier to control. The Event Grid version of the web app writes the changed data document to the blob storage. At the same time, the app creates a new Event Grid event. The data in the event contains the file name of the blob. The pipeline that the event triggers receives the file name as a parameter and then uses the file to update the dedicated SQL pool.
 
 #### Propagate the changes to a dedicated SQL pool
 
-An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline on GitHub that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or event grid trigger.
+An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline on GitHub that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or Event Grid trigger.
 
 ## Potential use cases
 
@@ -196,7 +196,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 When there's a high volume of changes, running thousands of pipelines in Azure Synapse Analytics for every change in the collection can result in a backlog of queued pipelines. To improve performance in this scenario, consider the following approaches:
 
 - Use the storage-based App Service code, which writes the JSON documents with the changes to Data Lake Storage. Don't link the storage-based trigger with the pipeline. Instead, use a scheduled trigger at a short interval, such as every two or five minutes. When the scheduled trigger runs, it takes all the files in the specified Data Lake Storage directory and updates the dedicated SQL pool for each of them.
-- Modify the event grid App Service code. Program it to add a micro-batch of around 100 changes to the blob storage before it adds the new topic to the event with the metadata that includes the filename. With this modification, you trigger only one pipeline for one blob with the 100 changes. You can adjust the micro-batch size to suit your scenario. Use small micro-batches at a high frequency to provide updates that are close to real time. Or use larger micro-batches at a lower frequency for delayed updates and reduced overhead.
+- Modify the Event Grid App Service code. Program it to add a micro-batch of around 100 changes to the blob storage before it adds the new topic to the event with the metadata that includes the filename. With this modification, you trigger only one pipeline for one blob with the 100 changes. You can adjust the micro-batch size to suit your scenario. Use small micro-batches at a high frequency to provide updates that are close to real time. Or use larger micro-batches at a lower frequency for delayed updates and reduced overhead.
 
 For more information on improving the performance and scalability of Azure Synapse Analytics pipeline copy activity, see [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance).
 
