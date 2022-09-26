@@ -19,6 +19,6 @@ products:
   - azure-stream-analytics
 name: Apache Sqoop migration to Azure
 summary: Learn about Apache Sqoop and about ways to migrate a Sqoop implementation to Azure by using Azure services like HDInsight and Data Factory.
-thumbnailUrl: /azure/architecture/browse/thumbs/apache-sqoop-migration-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/flowchart-sqoop-azure-landing-targets-thumb.png
 content: |
   [!include[](apache-sqoop-migration-content.md)]

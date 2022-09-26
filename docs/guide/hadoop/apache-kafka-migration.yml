@@ -19,6 +19,6 @@ products:
   - azure-stream-analytics
 name: Apache Kafka migration to Azure
 summary: Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.
-thumbnailUrl: /azure/architecture/browse/thumbs/apache-kafka-migration-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/flowchart-kafka-azure-landing-targets-thumb.png
 content: |
   [!include[](apache-kafka-migration-content.md)]

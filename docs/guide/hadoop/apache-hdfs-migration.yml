@@ -18,6 +18,6 @@ products:
   - azure-stream-analytics
 name: Apache Hadoop Distributed File System (HDFS) migration to Azure
 summary: Learn about Apache HDFS and about ways to migrate an HDFS implementation to Azure by using the ABFS driver and Azure Data Lake Storage.
-thumbnailUrl: /azure/architecture/browse/thumbs/apache-hdfs-migration-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hdfs-1-data-migration-planning-thumb.png
 content: |
   [!include[](apache-hdfs-migration-content.md)]

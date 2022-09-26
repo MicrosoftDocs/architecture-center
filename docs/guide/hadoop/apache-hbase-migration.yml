@@ -19,6 +19,6 @@ products:
   - azure-stream-analytics
 name: Apache HBase migration to Azure
 summary: Learn about Apache HBase and about ways to migrate an HBase implementation to Azure by using Azure services like HDInsight and Cosmos DB.
-thumbnailUrl: /azure/architecture/browse/thumbs/apache-hbase-migration-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/flowchart-hbase-azure-landing-targets-thumb.png
 content: |
   [!include[](apache-hbase-migration-content.md)]
