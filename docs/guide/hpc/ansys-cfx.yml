@@ -4,7 +4,7 @@ metadata:
   description: Find out how Ansys CFX computational fluid dynamics software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 09/24/2022
+  ms.date: 09/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
