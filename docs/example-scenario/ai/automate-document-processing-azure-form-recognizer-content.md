@@ -69,8 +69,8 @@ The pipeline that's used for data enrichment depends on the use case.
 
    These possibilities exist for inferencing:
 
-   * Real-time processes. The models are deployed as a web service in [Azure Kubernetes Service (AKS)][What is Kubernetes?].
-   * Batch inferencing in Azure Virtual Machines.
+   * Real-time processes. The models can be deployed to [managed online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#managed-online-endpoints) or  Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
+   * Batch inferencing can be done at [batch endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
 
 1. The enriched data enters Azure Cosmos DB.
 
