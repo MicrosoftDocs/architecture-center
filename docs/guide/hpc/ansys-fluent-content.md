@@ -6,7 +6,7 @@ Fluent is a computational fluid dynamics (CFD) application that's used to model 
 - Accurate simulation of multiphase flows, including gas-liquid, liquid-liquid, gas-solid, particle flows, and DEM. 
 - A range of turbulence models, including the GEKO model.
 
-Fluent is used in the aerospace, automotive, medical, manufacturing, industrial equipment, communication, embedded systems, and energy, consumer goods industries. 
+Fluent is used in the aerospace, automotive, medical, manufacturing, industrial equipment, communication, embedded systems, energy, and consumer goods industries. 
 
 ## Why deploy Ansys Fluent on Azure?
 
@@ -63,7 +63,7 @@ For information about installing Fluent, see the [Ansys website](https://www.ans
 
 ## Fluent performance results
 
-HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal configuration for Fluent on a single node. That optimal configuration was then tested in a multi-node cluster deployment. Ansys Fluent 2021 R2 was tested, on a Linux VM.
+HBv3 VMs with different numbers of vCPUs were deployed to determine the optimal configuration for Fluent on a single node. That optimal configuration was then tested in a multi-node cluster deployment. Ansys Fluent 2021 R2 was tested.
 
 ### Results, single-node configuration
 
