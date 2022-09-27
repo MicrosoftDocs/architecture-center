@@ -163,11 +163,9 @@ These graphs provide comparisons of models that are similar but have different p
 
 :::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models. lightbox="media/barracuda-virtual-reactor/comparison-ncast4.png" Tested on a NCasT4_v3 VM." border="false":::
 
-### Additional notes about tests
-
 ## Azure cost
 
-The following tables present present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, and NCas_T4_v3 series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, and NCas_T4_v3 series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 Only the wall-clock time for running the model is considered for these cost calculations. Application installation time isn't considered. The times presented are indicative. The actual times depend the size of the model. The elapsed times for full production-level test cases are higher than the results presented here, so the associated costs are higher.
 
