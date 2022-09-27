@@ -57,7 +57,7 @@ This approach can be used to manage the following scenarios:
 * To learn about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 * Learn more about Azure Kubernetes Service (AKS), see [Azure Kubernetes Service (AKS) documentation](https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes).
 * Azure Kubernetes Service learning path [AKS Learing](https://learn.microsoft.com/en-us/training/paths/intro-to-kubernetes-on-azure).  
-* Learn about API management landing zone accelerator, see [Azure Api Management on GitHub](https://github.com/Azure/apim-landing-zone-accelerator).
+* Learn about API management landing zone accelerator, see [Azure API Management on GitHub](https://github.com/Azure/apim-landing-zone-accelerator).
 * Microsoft Defender for Cloud Blog [Microsoft Defender for Cloud on Blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
 
 ## Related resources
