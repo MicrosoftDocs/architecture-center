@@ -48,7 +48,7 @@ Before you install Virtual Reactor, you need to deploy and connect a Linux VM an
 
 For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-You can install Virtual Reactor from the [CPFD Downloads page](https://cpfd-software.com/downloads). For information about the installation process, see https://cpfd-software.com/login/?returnUrl=/user-manual/installation.html.
+You can install Virtual Reactor from the [CPFD Downloads page](https://cpfd-software.com/downloads). For information about the installation process, see [CPFD customer support](https://cpfd-software.com/login/?returnUrl=/user-manual/installation.html).
 
 ## Virtual Reactor performance results
 
@@ -103,6 +103,9 @@ The following table and graph show speed increases, in seconds per day, for each
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ndv4.png" alt-text="Graph that shows the speed increase on an NDv4 VM." border="false":::
 
+These graphs provide comparisons of models that are similar but have different particle counts:
+
+:::image type="content" source="media/barracuda-virtual-reactor/ndv4-comparisons.png" alt-text="Graphs that provide comparisons for similar models. lightbox="media/barracuda-virtual-reactor/ndv4-comparisons.png" Tested on a NDv4 VM." border="false":::
 
 ### Results on NCv3
 
@@ -126,6 +129,12 @@ The following table and graph show speed increases, in seconds per day, for each
 |3 GPU|96.62|76.89|18.84|37.51|122.35|180.74|27.03|60.45|
 |4 GPU|96.45|82.22|12.13|40.68|105.15|160.74|24.38|55.87|
 
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ncv3.png" alt-text="Graph that shows the speed increase on an NCv3 VM." border="false":::
+
+These graphs provide comparisons of models that are similar but have different particle counts:
+
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncv3.png" alt-text="Graphs that provide comparisons for similar models. lightbox="media/barracuda-virtual-reactor/comparison-ncv3.png" Tested on a NCv3 VM." border="false":::
+
 ### Results on NCasT4_v3
 
 Results are presented in seconds.
@@ -148,24 +157,99 @@ The following table and graph show speed increases, in seconds per day, for each
 |3 GPU|	54.90|	35.83|	17.21|	17.21|	92.92	|97.88	|6.12	|32.16|
 |4 GPU|	61.07|	43.13|	21.95|	21.95|	86.39	|100.70|	6.07|	34.86|
 
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ncast4.png" alt-text="Graph that shows the speed increase on an NCasT4_v3 VM." border="false":::
+
+These graphs provide comparisons of models that are similar but have different particle counts:
+
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models. lightbox="media/barracuda-virtual-reactor/comparison-ncast4.png" Tested on a NCasT4_v3 VM." border="false":::
 
 ### Additional notes about tests
 
 ## Azure cost
 
-You can use the [Azure pricing calculator]() to estimate the costs for your configuration.
+The following tables present present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, and NCas_T4_v3 series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+Only the wall-clock time for running the model is considered for these cost calculations. Application installation time isn't considered. The times presented are indicative. The actual times depend the size of the model. The elapsed times for full production-level test cases are higher than the results presented here, so the associated costs are higher.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+### Cost for ND96asr_v4
+
+|	CPU/GPU|	Elapsed time (hours)|
+|-|-|
+|	CPU|	1.31|
+|	1 GPU	|0.02|
+|	2 GPU	|0.01|
+|	3 GPU	|0.01|
+|	4 GPU|	0.01|
+|	5 GPU	|0.01|
+|	6 GPU|	0.01|
+|	7 GPU	|0.01|
+|	8 GPU|	0.01|
+
+### Cost for NC24s_v3
+
+|	CPU/GPU|	Elapsed time (hours)|
+|-|-|
+|CPU|2.98|
+|1 GPU|0.14|
+|2 GPU| 0.04|
+|3 GPU|0.04|
+|4 GPU|0.05|
+
+### Cost for NC64as_T4_v3
+
+|	CPU/GPU|	Elapsed time (hours)|
+|-|-|
+|CPU|1.59|
+|1 GPU|0.21|
+|2 GPU|0.11|
+|3 GPU|0.14|
+|4 GPU|0.16|
 
 ## Summary
 
-- Virtual Reactor is successfully tested on NDV4, NCv3 and NCas-T4 Virtual Machines on Azure Cloud Platform
-- For NDv4 Virtual Machine, we can see that the application is scaling well up to 4 GPUs for the models with larger particle counts and for the models with lesser particle counts, it is scaling only up to 2 GPUs.
-- For NCv3 Virtual Machine, we can see performance improvement up to 3 GPUs for the models with larger particle counts and for models with smaller particle count, only 1 GPU configuration is recommended
-- For NCas-T4 Virtual Machine, the application is speed-up well with all the 4 GPUs for models with larger particle count and for the models with lesser particle count, it is scaling well only with 1 GPU configuration.
-- For simulations with large numbers of particles and cells, a single 16 GB GPU may not be sufficient to run well due to the memory requirements. In these cases, running the simulation with two GPUs is critical. This is seen in test problems 480, 481, and 482 on the NCV3 and NCAS T4 machines
-- For smaller simulations where there are performance penalties when utilizing all GPUs on an instance, concurrent simulations can be run using the other GPUs. In this scenario, multiple points in the simulation parameter space could be explored more quickly.
+- Barracuda Virtual Reactor was successfully tested on NDv4, NCv3, and NCasT4_v3 VMs on Azure.
+- On NDv4 VMs, the application scales well up to four GPUs for models with higher particle counts. For models with lower particle counts, it scales only up to two GPUs.
+- On NCv3 VMs, performance scales up to three GPUs for models with higher particle counts. For models with lower particle counts, we recommend a one-GPU configuration.
+- On NCasT4_v3 VMs, the application scales well up to four GPUs for models with higher particle counts. For models with lower particle counts, it scales well only with a one-GPU configuration.
+- For simulations with high numbers of particles and cells, a single 16-GB GPU might not run well because of the required memory. In these cases, you need to run the simulation with two GPUs. You can see this issue in the results for test cases 480, 481, and 482 on the NCv3 and NCasT4_v3 VMs.
+- For smaller simulations, when there are performance penalties when all GPUs are used on an instance, you can run concurrent simulations using the other GPUs. In this scenario, multiple points in the simulation parameter space can be explored more quickly.
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-## Related resources 
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
