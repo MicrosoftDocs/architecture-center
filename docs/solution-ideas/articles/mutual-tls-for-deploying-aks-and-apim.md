@@ -23,17 +23,15 @@ This approach can be used to manage the following scenarios:
 ### Dataflow
 
 1. User request to application endpoint from internet
-2. Application Gateway receive traffic as Https
-3. Validate PFX certificate, private key
-4. Decrypt traffic using private Keys ( SSL Offloaded) and ReEncrypt traffic using Public Key ( end-to-end encryption )
-5. Apply Application Gateway rules, Http Settings base on backend pool and send traffic to backend pool over Https
-6. API Management deployed as internal vNet mode with private IP address and receive traffic as Https with custom domain PFX certificates
-7. API Management policies and authentication using OAuth with Azure Active directory
-8. Traffic send to AKS ( Azure Kubernetes Service) ingress controller over Https
-9. AKS ingress controller receive traffic as Https and verify PEM server certificate and private key
-10. Ingress TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Decrypt traffic using private key (  Offloaded)
-11. Re-encrypt traffic using Private Key and send traffic to AKS Pods over Https
-12. This can be configured as backend as Https or Passthrough by configuring Kubernetes Ingress
+2. Application Gateway receive traffic as Https and Validate PFX certificate, private key
+3. Decrypt traffic using private Keys ( SSL Offloaded) and ReEncrypt traffic using Public Key ( end-to-end encryption )
+4. Apply Application Gateway rules, Http Settings base on backend pool and send traffic to backend pool over Https
+5. API Management deployed as internal vNet mode with private IP address and receive traffic as Https with custom domain PFX certificates
+6. API Management policies and authentication using OAuth with Azure Active directory
+7. Traffic send to AKS ( Azure Kubernetes Service) ingress controller over Https
+8. AKS ingress controller receive traffic as Https and verify PEM server certificate and private key
+9. Ingress TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Decrypt traffic using private key (  Offloaded)
+10. Re-encrypt traffic using Private Key and send traffic to AKS service to Pods over Https. AKS Ingress can be configured as Https backend or Passthrough based on requirement
 
 ### Components
 
