@@ -32,7 +32,8 @@ This approach can be used to manage the following scenarios:
 8. Traffic send to AKS ( Azure Kubernetes Service) ingress controller over Https
 9. AKS ingress controller receive traffic as Https and verify PEM server certificate and private key
 10. Ingress TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Decrypt traffic using private key (  Offloaded)
-11. Re-encrypt traffic using Private Key and send traffic to AKS Pods over Https  
+11. Re-encrypt traffic using Private Key and send traffic to AKS Pods over Https
+12. This can be configured as backend as Https or Passthrough by configuring Kubernetes Ingress
 
 ### Components
 
