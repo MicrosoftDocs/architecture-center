@@ -12,6 +12,7 @@ This approach can be used to manage the following scenarios:
 * Deploy API Management in internal mode and expose APIs using Application Gateway
 * Configure mTLS and end to end encryption for maximum secuirty and traffic over Https  
 * Securely connect to Azure PaaS services over Private Endpoint
+* Microsoft Defender for Cloud for Container secuirty
 
 ## Architecture
 
