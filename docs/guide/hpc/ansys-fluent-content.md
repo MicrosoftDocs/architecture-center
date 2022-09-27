@@ -1,4 +1,12 @@
-Intro
+This article briefly describes the steps for running [Ansys Fluent](https://www.ansys.com/products/fluids/ansys-fluent) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Ansys Fluent on Azure.
+
+Fluent is a computational fluid dynamics (CFD) application that's used to model fluid flow, heat and mass transfer, chemical reactions, and more. Fluent provides:
+
+- Task-based workflows, including multiphase modeling, batteries, shape optimization, and aerodynamics, for pre-processing the generation of a CFD-ready mesh for both clean and dirty CAD. 
+- Accurate simulation of multiphase flows, including gas-liquid, liquid-liquid, gas-solid, particle flows, and DEM. 
+- A range of turbulence models, including the GEKO model.
+
+Fluent is used in the aerospace, automotive, medical, manufacturing, industrial equipment, communication, embedded systems, and energy, consumer goods industries. 
 
 ## Why deploy Ansys Fluent on Azure?
 
