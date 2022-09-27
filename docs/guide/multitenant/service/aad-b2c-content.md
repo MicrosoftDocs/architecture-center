@@ -1,4 +1,3 @@
-# Multitenancy and Azure Active Directory B2C
 
 - Quick synopsis of AAD B2C.
 - Quick overview of why multitenancy considerations are important for identity
