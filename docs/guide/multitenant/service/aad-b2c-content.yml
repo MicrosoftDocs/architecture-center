@@ -1,0 +1,22 @@
+
+### YamlMime:Architecture
+metadata:
+  title: Azure Active Directory B2C (AAD B2C) considerations for multitenancy 
+  description: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
+  author: landonpierce 
+  ms.author: landonpierce 
+  ms.date: 09/26/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.custom: fcp
+azureCategories:
+ - web
+ - identity 
+products:
+ - azure
+ - azure-active-directory-b2c
+name: Azure Active Directory B2C (AAD B2C) considerations for multitenancy 
+summary: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+content: |
+  [!include[](aad-b2c-content.md)]
