@@ -3132,6 +3132,8 @@ items:
                     href: guide/hpc/altair-radioss.yml
                   - name: Altair ultraFluidX
                     href: guide/hpc/ultrafluidx.yml
+                  - name: Ansys CFX
+                    href: guide/hpc/ansys-cfx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
