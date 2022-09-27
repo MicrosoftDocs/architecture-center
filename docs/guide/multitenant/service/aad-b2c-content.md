@@ -1,6 +1,9 @@
 
 - Quick synopsis of AAD B2C.
 - Quick overview of why multitenancy considerations are important for identity
+- Link to other resources that would be helpful to build foundational knowledge
+  - [Identity Approaches](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
+  - [Identity Considerations](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/identity)
 
 ## Isolation Models
 
@@ -10,8 +13,9 @@
   - Do you need complex permissioning and Role Based Access Control (RBAC?)
   - Do you need to federate logins to your customer's Identity Provider(s)? (AAD, Social Logins, etc)
   - Do you have data residency requirements?
+  - What are your user personas? (ie who is logging into your software?)
 
-*Chart outlining the different Isolation Models*
+*Insert Table/Chart outlining the different Isolation Models*
 
 - Shared B2C Tenant
 - B2C Tenant per Customer
@@ -31,17 +35,24 @@ Discuss here the pros/cons of a B2C tenant per customer. More easily customizabl
 
 Discuss here the pros/cons of vertically partitioning B2C tenants based on regions, size of customers, or other factors. Application must be aware of which tenant to sign the user into.  
 
+
+Will probably want to call out federation scenarios here too. 
+
 ## Securing applications
 
 Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). 
 
 ## Roles & permissions
 
-Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build-your-own. App roles being more basic and having a limit of (?) app roles per app. Building your own is much more complex  
+Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build-your-own. App roles being more basic and having a limit of (?) app roles per app. Building your own is much more complex.  
+
+Link to identity approaches article here. [https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
 
 ## DevOps
 
-Discuss here how a well configured DevOps pipeline should be used to manage this. Especially if configuring SSO per client. 
+Discuss here how a well configured DevOps pipeline should be used to manage this. Especially if configuring SSO per client. Will want to find or build other samples or resources to link here as well. 
+
+This is one, but we need to validate it as it's a bit old. [https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
 
 ## Contributors
 
