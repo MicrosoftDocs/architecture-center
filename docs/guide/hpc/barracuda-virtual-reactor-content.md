@@ -105,7 +105,7 @@ The following table and graph show speed increases, in seconds per day, for each
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/ndv4-comparisons.png" alt-text="Graphs that provide comparisons for similar models on NDv4." lightbox="media/barracuda-virtual-reactor/ndv4-comparisons.png" border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/ndv4-comparisons.png" alt-text="Graphs that provide comparisons for similar models on NDv4." border="false":::
 
 ### Results on NCv3
 
@@ -133,7 +133,7 @@ The following table and graph show speed increases, in seconds per day, for each
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncv3.png" alt-text="Graphs that provide comparisons for similar models on NCv3." lightbox="media/barracuda-virtual-reactor/comparison-ncv3.png" border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncv3.png" alt-text="Graphs that provide comparisons for similar models on NCv3." border="false":::
 
 ### Results on NCasT4_v3
 
@@ -161,7 +161,7 @@ The following table and graph show speed increases, in seconds per day, for each
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3." lightbox="media/barracuda-virtual-reactor/comparison-ncast4.png" border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3."  border="false":::
 
 ## Azure cost
 
