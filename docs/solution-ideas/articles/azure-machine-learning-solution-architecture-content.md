@@ -2,6 +2,9 @@
 
 Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning (ML).
 
+> [!NOTE]
+> The information in this article is based on v1 features of the Azure Machine Learning SDK and CLI. For more information, see [What is the Azure Machine Learning Python SDK and CLI v2](/azure/machine-learning/what-is-v2).
+
 ## Potential use cases
 
 * Use machine learning as a service.
