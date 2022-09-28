@@ -2,7 +2,7 @@ This article explains how to build a [telehealth system](https://en.wikipedia.or
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture overview of the Azure components included in the telehealth system" source="media/architecture-telehealth-system.png" lightbox="media/architecture-telehealth-system.png":::
+:::image type="content" alt-text="Architecture overview of the Azure components included in the telehealth system." source="media/architecture-telehealth-system.png" lightbox="media/architecture-telehealth-system.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-telehealth-system.vsdx) of this architecture.*
 
