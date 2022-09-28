@@ -142,6 +142,6 @@ Principal authors:
 
 - [Health data consortium on Azure](../data/azure-health-data-consortium.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 [Confidential Healthcare Inference svg]: ./media/confidential-healthcare-inference.svg

@@ -183,7 +183,7 @@ Other contributors:
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
-- [Learning path: Run HPC applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources 
 

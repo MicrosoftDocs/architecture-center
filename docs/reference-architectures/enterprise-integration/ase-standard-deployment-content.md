@@ -1,8 +1,4 @@
-
-
-[Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
-
-This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.
+This reference architecture demonstrates a common enterprise workload using App Service Environment (ASE), and best practices to tighten security of this workload.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
@@ -43,7 +39,7 @@ The following services are key to locking down the ASE in this architecture:
 
 [**Azure Pipelines**](/azure/devops/pipelines/) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, a **virtual machine** is used as a *jumpbox* inside the VNet to deploy apps in the App Service plans. The pipeline builds the apps outside the VNet. For enhanced security and seamless RDP/SSH connectivity, consider using the recently released [Azure Bastion](/azure/bastion/bastion-overview) as the jumpbox.
 
-## Multi-site configuration
+### Multi-site configuration
 
 :::image type="content" border="false" source="./_images/ase-multi-site.png" alt-text="Diagram showing multi-site deployment." lightbox="./_images/ase-multi-site.png":::
 
@@ -54,6 +50,10 @@ Internal ASE can host several web apps and APIs with HTTP endpoints. These appli
 The App Gateway is configured such that a [listener](/azure/application-gateway/configuration-overview#listeners) listens on the HTTPS port for requests to the Gateway's IP address. For simplicity, this implementation does not use a public DNS name registration, and requires you to modify the localhost file on your computer to point an arbitrarily chosen URL to the App Gateway's IP. For simplicity, the listener uses a self-signed certificate to process these requests. The App Gateway has [backend pools](/azure/application-gateway/configuration-overview#back-end-pool) for each App Service application's default URL. A [routing rule](/azure/application-gateway/configuration-overview#request-routing-rules) is configured to connect the listener to the backend pool. [HTTP settings](/azure/application-gateway/configuration-overview#http-settings) are created that determine whether the connection between the gateway and the ASE will be encrypted. These settings are also used to override the incoming HTTP host header with a host name picked from the backend pool. This implementation uses default certificates created for the default ASE app URLs, which are trusted by the gateway. The request is redirected to the default URL of the corresponding app. The private [DNS linked to the VNet](/azure/dns/private-dns-virtual-network-links) forwards this request to the ILB IP. The ASE then forward this to the requested App service. Any HTTP communication within the ASE apps, goes through the private DNS. Note that the listener, backend pool, routing rule, and the HTTP settings need to be configured on the App Gateway for each ASE app.
 
 Explore [appgw.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/appgw.json) and [dns.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/dns.json) to understand how these configurations are made to allow multiple sites. The web app named `testapp` is an empty app created to demonstrate this configuration. These JSON files are accessed from the deployment script [deploy_std.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_std.sh). These are also accessed by [deploy_ha.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_ha.sh), which is used for [a high availability multi-site ASE deployment](./ase-high-availability-deployment.yml).
+
+## Scenario details
+
+[Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
 
 ## Considerations
 
@@ -186,7 +186,8 @@ az deployment group create --resource-group $RGNAME --template-file templates/as
 When the firewall is created, the [firewall.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/firewall.json) configuration file updates this route table with the ASE management IPs, followed by the firewall IP. This drives the remaining traffic through the firewall IP:
 
 ```json
-"variables": {
+{
+  "variables": {
     "firewallSubnetName": "AzureFirewallSubnet",
     "firewallPublicIpName": "[concat('firewallIp', '-', uniqueString(resourceGroup().id))]",
     "firewallName": "[concat('firewall', '-', uniqueString(resourceGroup().id))]",
@@ -220,7 +221,13 @@ When the firewall is created, the [firewall.json](https://github.com/mspnp/app-s
       "properties": {
         "routes": "[concat(variables('aseManagementIpRoutes'), array(json(concat('{ \"name\": \"Firewall\", \"properties\": { \"addressPrefix\": \"0.0.0.0/0\", \"nextHopType\": \"VirtualAppliance\", \"nextHopIpAddress\": \"', reference(concat('Microsoft.Network/azureFirewalls/', variables('firewallName')),'2019-09-01','Full').properties.ipConfigurations[0].properties.privateIPAddress, '\" } }'))))]"
       }
-    },
+    }
+...
+...
+  ]
+...
+...
+}
 ```
 
 The management IP list may change after the route table is deployed, in which case this route table will need to be redeployed.
@@ -292,33 +299,30 @@ The following snippet in [services.json](https://github.com/mspnp/app-service-en
 These connection string values are accessed by the apps, by referencing the Key Vault key/value pair. This is done in the [sites.json](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/sites.json) file as the following snippet shows for the Voting App:
 
 ```json
-   "properties": {
-        "enabled": true,
-        "name": "[variables('votingWebName')]",
-        "hostingEnvironment": "[variables('aseId')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('votingWebPlanName'))]",
-        "siteConfig": {
-          "appSettings": [
-            {
-...
-...
-...
-            {
-              "name": "ConnectionStrings:sbConnectionString",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('serviceBusSenderConnectionStringSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            },
-...
-...
-            {
-              "name": "ConnectionStrings:RedisConnectionString",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('redisSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            },
-...
-...
-            {
-              "name": "ConnectionStrings:CosmosKey",
-              "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('cosmosKeySecretName')), '2016-10-01').secretUriWithVersion, ')')]"
-            }
+{
+  "properties": {
+    "enabled": true,
+    "name": "[variables('votingWebName')]",
+    "hostingEnvironment": "[variables('aseId')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('votingWebPlanName'))]",
+    "siteConfig": {
+      "appSettings": [
+        {
+            "name": "ConnectionStrings:sbConnectionString",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('serviceBusSenderConnectionStringSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        },
+        {
+            "name": "ConnectionStrings:RedisConnectionString",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('redisSecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        },
+        {
+            "name": "ConnectionStrings:CosmosKey",
+            "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', parameters('keyVaultName'), variables('cosmosKeySecretName')), '2016-10-01').secretUriWithVersion, ')')]"
+        }
+      ]
+    }
+  }
+}
 ```
 
 The function also accesses the Service Bus listener connection string in a similar manner.
@@ -345,7 +349,7 @@ Apps can be deployed to an internal ASE only from within the virtual network. Th
 
 1. **Through Azure Pipelines:** This implements a complete CI/CD pipeline, ending in an agent located inside the VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the ASE VNet](/azure/devops/pipelines/agents/v2-windows).
 
-Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) to learn how these are used to automate CI/CD for each application.
+Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) to learn how these are used to automate CI/CD for each application.
 
 Some enterprises may not want to maintain a permanent build agent inside the VNet. In that case, you can choose to create a build agent within the DevOps pipeline, and tear it down once the deployment is completed. This adds another step in the DevOps, however it lowers the complexity of maintaining the VM. You may even consider using containers as build agents, instead of VMs. Build agents can also be completely avoiding by deploying from a *zipped file placed outside the VNet*, typically in a storage account. The storage account will need to be accessible from the ASE. The pipeline should be able to access the storage. At the end of the release pipeline, a zipped file can be dropped into the blob storage. The ASE can then pick it up and deploy. Be aware of the following limitations of this approach:
 

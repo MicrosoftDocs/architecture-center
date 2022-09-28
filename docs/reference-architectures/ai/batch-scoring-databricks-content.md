@@ -131,8 +131,8 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
 [github]: https://github.com/Azure/BatchSparkScoringPredictiveMaintenance
 [job]: https://docs.databricks.com/user-guide/jobs.html
-[learn1]: /learn/paths/perform-data-science-azure-databricks
-[learn2]: /learn/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
+[learn1]: /training/paths/perform-data-science-azure-databricks
+[learn2]: /training/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
 [log]: https://docs.databricks.com/user-guide/clusters/event-log.html
 [metrics]: https://docs.databricks.com/user-guide/clusters/metrics.html
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html

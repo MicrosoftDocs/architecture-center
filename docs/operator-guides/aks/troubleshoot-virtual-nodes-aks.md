@@ -97,8 +97,8 @@ Principal author:
 
 ## Next steps
 
-* [Azure Kubernetes Service application and cluster scalability](/learn/paths/aks-cluster-scalability/)
-* [Azure Kubernetes Service cluster architecture and operations](/learn/paths/aks-cluster-architecture/)
+* [Azure Kubernetes Service application and cluster scalability](/training/paths/aks-cluster-scalability/)
+* [Azure Kubernetes Service cluster architecture and operations](/training/paths/aks-cluster-architecture/)
 * [Kubernetes Virtual Kubelet for Azure Container Instances on GitHub](https://github.com/virtual-kubelet/azure-aci)
 
 Virtual nodes are often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:

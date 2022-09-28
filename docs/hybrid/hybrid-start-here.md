@@ -24,10 +24,10 @@ Many organizations need a hybrid approach to analytics, automation, and services
 
 ## Learn about hybrid solutions
 
-If you're new to Azure, the best place to start is with Microsoft Learn. Microsoft Learn is a free, online training platform that provides interactive learning for Microsoft products and more. The [Introduction to Azure hybrid cloud services](/learn/modules/intro-to-azure-hybrid-services/) module helps you build foundational knowledge and takes you through core concepts.
+If you're new to Azure, the best place to start is Microsoft Learn. This free online platform provides interactive training for Microsoft products and more. The [Introduction to Azure hybrid cloud services](/training/modules/intro-to-azure-hybrid-services/) Learn module helps you build foundational knowledge and understand core concepts.
 
 > [!div class="nextstepaction"]
-> [Browse other hybrid solutions in Microsoft Learn](/search/?terms=hybrid&category=Learn)
+> [Browse other hybrid solutions in Microsoft Learn training](/search/?terms=hybrid&category=Learn)
 
 ## Path to production
 

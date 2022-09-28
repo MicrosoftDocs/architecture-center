@@ -13,11 +13,11 @@ The Hybrid Runbook Worker architecture consists of the following:
 - **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
 - **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
 - **Hybrid Runbook Worker Group**: Group with multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
-- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
+- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7].
 - **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
     - **Hybrid Runbook Worker VM Extension**: A small application installed on a computer that configures it as a Hybrid Runbook Worker.
-    - **Arc-enabled Server**: Azure Arc-enabled servers allow you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
+    - **Arc-enabled Server**: Azure Arc-enabled servers allow you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8].
 - Components applicable for agent-based approach (V1):
     - **Log Analytics Workspace**: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - **Automation Hybrid Worker solution**: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
@@ -54,7 +54,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 - To automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
 - To access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
 
-## Hybrid Runbook Worker installation approach
+### Hybrid Runbook Worker installation approach
 
 Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that are supported by Azure Automation.
 
@@ -65,7 +65,7 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 
 A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension based (V2). If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [Learn more][3]
 
-## Runbook worker types
+### Runbook worker types
 
 There are two types of Runbook workers - System and User.
 
@@ -139,6 +139,15 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. For more information about the Azure Automation pricing models, see [Automation pricing][15].
 - For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days is free of charge. For the pricing models for Log Analytics, see [Azure Monitor pricing][16].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

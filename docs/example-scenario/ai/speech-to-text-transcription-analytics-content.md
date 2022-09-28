@@ -113,8 +113,8 @@ Other contributor:
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Extract insights from text with the Language service](/learn/modules/extract-insights-text-with-text-analytics-service)
--  [Model, query, and explore data in Azure Synapse](/learn/paths/model-query-explore-data-for-azure-synapse)
+- [Extract insights from text with the Language service](/training/modules/extract-insights-text-with-text-analytics-service)
+-  [Model, query, and explore data in Azure Synapse](/training/paths/model-query-explore-data-for-azure-synapse)
 
 ## Related resources
 

@@ -288,5 +288,5 @@ To learn more about the featured technologies, see the following articles:
 
 - [Automate Sentinel integration with Azure DevOps](/azure/architecture/example-scenario/devops/automate-sentinel-integration)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
-- [Azure security solutions for AWS](/azure/architecture/reference-architectures/aws/aws-azure-security-solutions)
+- [Azure security solutions for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)

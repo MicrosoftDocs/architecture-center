@@ -6,7 +6,7 @@ This reference architecture demonstrates how Azure Arc extends Kubernetes cluste
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
@@ -104,6 +104,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your on-premises resources. The rest of the data will be stored within the Azure geography containing the region you specify. This might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the connected machine, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographically-redundant service, it's best to connect the machines in each location to a different Azure region. For available regions, consult [Supported regions][Supported regions] for Azure Arc-enabled Kubernetes.
@@ -119,6 +121,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - You can use Azure RBAC to manage access to Azure Arc-enabled Kubernetes across Azure and on-premises environments using Azure Active Directory (Azure AD) identities. For more information, refer to [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
 - We recommend using a service principal with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in CI/CD pipelines such as Azure Pipelines and GitHub Actions. For more information, refer to [Create an Azure Arc-enabled onboarding Service Principal][Create an Azure Arc-enabled onboarding Service Principal].
 - To simplify service principal management, you can use managed identities in AKS. However, clusters must be created using the managed identity and existing clusters (including Azure and on-premises clusters) can't be migrated to managed identities. For more information, refer to [Use managed identities in Azure Kubernetes Service][Use managed identities in Azure Kubernetes Service].
@@ -126,6 +130,15 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 ### Cost optimization
 
 - General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

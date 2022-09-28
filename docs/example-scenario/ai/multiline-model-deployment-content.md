@@ -1,15 +1,4 @@
-When you deploy machine learning models to multiple data sources, you can't assume that one data source's model works for all the other data sources. Each data source has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple data sources.
-
-The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each data source is different. A process is needed to differentiate between each data source's data and each data source's model. By using this differentiation, the organization can train models and verify that each data source's model performs the best for its distribution as time passes.
-
-This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
-
-## Potential use cases
-
- This example comes from the manufacturing and energy industry, but the solution can be used in many scenarios. When you have a set of data-emitting objects that mimic each other's distributions except for some slight skewness, this solution is a good fit. If each object's distribution looks vastly different, this solution won't work. This solution might apply to these industries:
-
-- Energy
-- Medicine
+This solution uses a multiline-model architecture to deploy machine learning models to multiple data sources. 
 
 ## Architecture
 
@@ -52,7 +41,24 @@ In this scenario, the data resides in blob storage primarily because of the cons
 
 If your repo is in GitHub, you might consider [GitHub Actions](https://github.com/features/actions) as an alternative to the Azure DevOps pipeline.
 
+## Scenario details
+
+When you deploy machine learning models to multiple data sources, you can't assume that one data source's model works for all the other data sources. Each data source has its own distribution and needs a model that works best for that distribution. This article is intended to make it easier for you to deploy models for multiple data sources.
+
+The organization whose architecture is described in this article pushes edge device data to blob storage to validate the results of a machine learning model. These results are used to train future generations of machine learning models, but the distribution of data that comes in from each data source is different. A process is needed to differentiate between each data source's data and each data source's model. By using this differentiation, the organization can train models and verify that each data source's model performs the best for its distribution as time passes.
+
+This article's solution resolves this problem by running a multiple-step process to train and compare the newly trained model with the existing best model. This process is wrapped in a continuous deployment (CD) pipeline.
+
+### Potential use cases
+
+ This example comes from the manufacturing and energy industry, but the solution can be used in many scenarios. When you have a set of data-emitting objects that mimic each other's distributions except for some slight skewness, this solution is a good fit. If each object's distribution looks vastly different, this solution won't work. This solution might apply to these industries:
+
+- Energy
+- Medicine
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 In the architecture described here, the Azure Machine Learning pipeline isn't run remotely. If the model doesn't take long to train, running remotely isn't needed. If you're running a more complex model or the Azure Machine Learning pipeline takes a long time to finish, run the Azure Machine Learning pipeline remotely. Doing so frees up an Azure DevOps agent while the Azure Machine Learning pipeline runs.
 
@@ -66,9 +72,13 @@ Optimize the compute that Azure Machine Learning uses for the algorithm. If you 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use managed identities to provide access to Azure resources.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -91,10 +101,10 @@ Principal author:
 
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
-- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [Get started with Azure DevOps Starter](/azure/devops-project/azure-devops-project-github)
-- [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning)
-- [Implement CI/CD with Azure DevOps](/learn/modules/implement-ci-cd-azure-devops)
+- [Use automated machine learning in Azure Machine Learning](/training/modules/use-automated-machine-learning)
+- [Implement CI/CD with Azure DevOps](/training/modules/implement-ci-cd-azure-devops)
 
 ## Related resources
 
