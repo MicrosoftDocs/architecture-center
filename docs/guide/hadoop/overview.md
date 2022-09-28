@@ -2,7 +2,7 @@
 title: Hadoop migration to Azure
 description: Learn about migrating Hadoop to Azure. This is an overview that has links to articles about Hadoop features such as HBase, HDFS, Kafka, Sqoop, and Storm.
 author: EdPrice-MSFT
-ms.author: namratam, nraja, hitakagi, ramyerrabotu
+ms.author: namratam
 ms.date: 09/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -60,7 +60,7 @@ The key components of a Hadoop system are listed in the following table. For eac
 
 The following diagram shows three approaches to migrating Hadoop applications:
 
-:::image type="content" source="images/target-state.png" alt-text="Diagram that shows three ways to migrate Hadoop applications" lightbox="images/target-state.png" border="false":::
+:::image type="content" source="images/target-state.png" alt-text="Diagram that shows three ways to migrate Hadoop applications." lightbox="images/target-state.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
@@ -74,7 +74,7 @@ The approaches are:
 
 The following diagram shows this approach:
 
-:::image type="content" source="images/end-state-architecture-modernize.png" alt-text="Diagram of an architecture to modernize by using Azure Synapse Analytics and Databricks" lightbox="images/end-state-architecture-modernize.png" border="false":::
+:::image type="content" source="images/end-state-architecture-modernize.png" alt-text="Diagram of an architecture to modernize by using Azure Synapse Analytics and Databricks." lightbox="images/end-state-architecture-modernize.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
@@ -82,7 +82,7 @@ The following diagram shows this approach:
 
 The following diagram shows this approach:
 
-:::image type="content" source="images/hdinsight-end-state.png" alt-text="Diagram of an architecture to modernize by doing a lift and shift to HDInsight" lightbox="images/hdinsight-end-state.png" border="false":::
+:::image type="content" source="images/hdinsight-end-state.png" alt-text="Diagram of an architecture to modernize by doing a lift and shift to HDInsight." lightbox="images/hdinsight-end-state.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
@@ -93,7 +93,7 @@ Data workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrati
 
 The following pattern presents a point of view on how to deploy OSS on Azure IaaS with a tight integration back to on-premises systems such as Active Directory, Domain Controller, and DNS. The deployment follows enterprise-scale landing zone guidance from Microsoft. Management capabilities such as monitoring, security, governance, and networking are hosted within a management subscription. The workloads, all IaaS-based, are hosted in a separate subscription. For more information about enterprise-scale landing zones, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-in-enterprise-scale).
 
-:::image type="content" source="images/azure-iaas-target-state.png" alt-text="Diagram of architecture to lift and shift to Azure IaaS" lightbox="images/azure-iaas-target-state.png" border="false":::
+:::image type="content" source="images/azure-iaas-target-state.png" alt-text="Diagram of architecture to lift and shift to Azure IaaS." lightbox="images/azure-iaas-target-state.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 

@@ -6,7 +6,7 @@ The [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/curre
 
 HDFS has a primary/secondary design. In the following diagram, NameNode is the primary and the DataNodes are the secondaries.
 
- ![HDFS components: client, NameNode, and DataNodes](images/hdfs-architecture-components.png)
+ ![Diagram that shows the HDFS components: client, NameNode, and DataNodes.](images/hdfs-architecture-components.png)
 
 - **NameNode** manages access to files and to the file system namespace, which is a hierarchy of directories.
   - Files and directories are nodes on NameNode. They have attributes such as permissions, modification and access times, and size quotas for namespace and disk space.
@@ -50,7 +50,7 @@ The Azure Blob Filesystem (ABFS) driver provides an interface that makes it poss
 
 ## Common challenges of an on-premises HDFS
 
-![List of common challenges when implementing HDFS](images/common-challenges-hdfs.png)
+![Diagram that shows the common challenges when implementing HDFS.](images/common-challenges-hdfs.png)
 
 The many challenges presented by an on-premises HDFS implementation can be reasons to consider the advantages of migrating to the cloud:
 
@@ -66,7 +66,7 @@ The many challenges presented by an on-premises HDFS implementation can be reaso
 Here are some things that are important to consider when you plan a migration of HDFS to Data Lake Storage:
 
 - Consider aggregating data that's in small files into a single file on Data Lake Storage.
-- List all the directory structures in HDFS and replicate similar zoning in Data Lake Storage. You can obtain the directory structure of HDFS by using the using the `hdfs -ls` command.
+- List all the directory structures in HDFS and replicate similar zoning in Data Lake Storage. You can obtain the directory structure of HDFS by using the `hdfs -ls` command.
 - List all the roles that are defined in the HDFS cluster so that you can replicate them in the target environment.
 - Note the data lifecycle policy of the files that are stored in HDFS.
 - Keep in mind that some system features of HDFS aren't available on Data Lake Storage, including:
@@ -76,11 +76,11 @@ Here are some things that are important to consider when you plan a migration of
 - Azure Storage has geo-redundant replication, but it's not always wise to use it. It does provide data redundancy and geographic recovery, but a failover to a more distant location can severely degrade performance and incur additional costs. Consider whether the higher availability of the data is worth it.
 - If files have names with the same prefixes, HDFS treats them as a single partition. Therefore, if you use Azure Data Factory, all data movement units (DMUs) write to a single partition.
 
-![Process flow for partitions and job parallelism](images/hdfs-filenames-prefix-partitions.png)
+![Diagram of the process flow for partitions and job parallelism.](images/hdfs-filenames-prefix-partitions.png)
 
 - If you use Data factory for data transfer, scan through each directory, excluding snapshots, and check the directory size by using the `hdfs du` command. If there are multiple subdirectories and large amounts of data, initiate multiple copy activities in Data Factory. For example, use one copy per subdirectory rather than transferring the entire directory by using a single copy activity.
 
-![Process flow for number of copy activities](images/Consideration-2-adf.png)
+![Diagram of the process flow for number of copy activities.](images/Consideration-2-adf.png)
 
 - Data platforms are often used for longer term retention of information that may have been removed from systems of record. You should plan to create tape backups or snapshots of the archived data. Consider replicating the information to a recovery site. Usually data is archived either for compliance or for historical data purposes. Before you archive data you should have a clear reason for keeping it. Also, decide when archived data is to be removed and establish processes to remove it at that time.
 - The low cost of the Archive access tier of Data Lake Storage makes it an attractive option for archiving data. For more information, see [Archive access tier](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal#archive-access-tier).
@@ -92,7 +92,7 @@ Here are some things that are important to consider when you plan a migration of
 
 The typical approach to migrating HDFS to Data Lake Storage uses these steps:
 
-![Six steps for an HDFS to Data Lake Storage migration](images/hdfs-steps-to-migrate-hdfs-to-adls.png)
+![Diagram that shows the six steps for an HDFS to Data Lake Storage migration.](images/hdfs-steps-to-migrate-hdfs-to-adls.png)
 
 ### HDFS assessment
 
@@ -109,7 +109,7 @@ Based on such factors, you can formulate a plan to move data to Azure that minim
 
 The following decision flow helps decide the criteria and commands to run to get the right information.
 
-![Decision flowchart for data migration strategy and planning](images/hdfs-1-data-migration-planning.png)
+![Diagram that shows a decision flowchart for data migration strategy and planning.](images/hdfs-1-data-migration-planning.png)
 
 HDFS commands for getting assessment metrics from HDFS include:
 
@@ -130,11 +130,11 @@ Partner tools such as Unravel provide assessment reports for planning data migra
 
 - The following Unravel report provides statistics, per directory, about the small files in the directory:
 
-  ![Small file report](images/hdfs-unravel-report-for-small-files.png)
+  ![Screenshot of a small files report.](images/hdfs-unravel-report-for-small-files.png)
 
 - The following report provides statistics, per directory, about the files in the directory:
 
-  ![All files report](images/hdfs-unravel-report-for-sizebased-files.png)
+  ![Screenshot of an all files report.](images/hdfs-unravel-report-for-sizebased-files.png)
 
 ### Transfer data
 
@@ -162,7 +162,7 @@ Data must be transferred to Azure as outlined in your migration plan. Transferri
 
    When you enable a hierarchical namespace on a storage account, you can't change it back to a flat namespace. Workloads such as backups and VM image files don't gain any benefit from a hierarchical namespace.
 
-   ![Decision flowchart to determine number of storage accounts](images/Plan_storage_accounts_new.png)
+   ![Diagram that shows a decision flowchart to determine number of storage accounts.](images/Plan_storage_accounts_new.png)
 
    For information about securing the traffic between your virtual network and the storage account over a private link, see [Securing Storage Accounts](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-microsoft-services).
 
@@ -171,23 +171,23 @@ Data must be transferred to Azure as outlined in your migration plan. Transferri
 
    You can specify the replication factor for Hadoop platforms in hdfs-site.xml or specify it per file. You can configure replication on Data Lake Storage according to the nature of the data. If an application requires that the data be reconstructed in case of a loss, then zone-redundant storage (ZRS) is an option. In Data Lake Storage ZRS, data is copied synchronously across three availability zones in the primary region. For applications that require high availability and that can run in more than one region, copy the data to a secondary region. This is geo-redundant replication.
 
-   ![Decision chart for replication requirements](images/Availability_requirements_new.png)
+   ![Diagram that shows a decision chart for replication requirements.](images/Availability_requirements_new.png)
 1. **Check for corrupted or missing blocks.**
 
     Check the block scanner report for corrupted or missing blocks. If there are any, wait for the file to be restored before transferring it.
 
-   ![Decision chart for handling corrupted or missing blocks ](images/Check_missingblocks_new.png)
+   ![Diagram that shows a decision chart for handling corrupted or missing blocks.](images/Check_missingblocks_new.png)
 1. **Check if NFS is enabled.**
 
    Check if NFS is enabled on the on-premises Hadoop platform by checking the core-site.xml file. It has the nfsserver.groups and nfsserver.hosts properties.
 
    The NFS 3.0 feature is in preview in Data Lake Storage. A few features may not be supported yet. For more information, see [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](/azure/storage/blobs/network-file-system-protocol-support).
 
-   ![Decision flowchart for enabling NFS](images/Check_NFSenabled.png)
+   ![Diagram that shows a decision flowchart for enabling NFS.](images/Check_NFSenabled.png)
 1. **Check Hadoop file formats.**
 
    Use the following decision flow chart for guidance on how to handle file formats.
-   ![Decision flowchart for handling the various file types.](images/check_fileformats_new.png)
+   ![Diagram that shows a decision flowchart for handling the various file types.](images/check_fileformats_new.png)
 1. **Choose an Azure solution for data transfer.**
 
    Data transfer can be online over the network or offline by using physical devices. Which method to use depends on data volume, network bandwidth, and frequency of the data transfer. Historical data has to be transferred only once. Incremental loads require repeated ongoing transfers.

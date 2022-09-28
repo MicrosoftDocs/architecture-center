@@ -14,7 +14,7 @@ This article presents various strategies for migrating Kafka to Azure:
 
 Here's a decision flowchart for deciding which to use:
 
-![Decision chart for determining a strategy for migrating Kafka to Azure](images/flowchart-kafka-azure-landing-targets.png)
+![Diagram that shows a decision chart for determining a strategy for migrating Kafka to Azure.](images/flowchart-kafka-azure-landing-targets.png)
 
 ### Migrate Kafka to Azure infrastructure as a service (IaaS)
 
@@ -94,7 +94,7 @@ Here are the implementation steps:
 
 1. Change the Kafka connection address of the producer client to point to the new Kafka instance.
 1. Restart the producer business services and send new messages to the new Kafka instance.
-1. Wait for the data in the source Kafka to be consumed..
+1. Wait for the data in the source Kafka to be consumed.
 1. Change the Kafka connection address of the consumer client to point to the new Kafka instance.
 1. Restart the consumer business services to consume messages from the new Kafka instance.
 1. Verify that consumers succeed in getting data from the new Kafka instance.

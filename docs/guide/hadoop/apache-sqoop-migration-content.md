@@ -14,7 +14,7 @@ There are two versions of Sqoop: Sqoop1 and Sqoop2. Sqoop1 is a simple client to
 
 ### Sqoop1 architecture
 
-![Sqoop1 Architecture](images/sqoop1-architecture.png)
+![Diagram of the Sqoop1 architecture.](images/sqoop1-architecture.png)
 
 #### Sqoop1 import and export
 
@@ -27,7 +27,7 @@ There are two versions of Sqoop: Sqoop1 and Sqoop2. Sqoop1 is a simple client to
 
 ### Sqoop2 architecture
 
-![Sqoop2 Architecture](images/sqoop2-architecture.png)
+![Diagram of the Sqoop2 architecture.](images/sqoop2-architecture.png)
 
 - **Sqoop server**
 
@@ -61,7 +61,7 @@ Azure has several migration targets for Apache Sqoop. Depending on requirements 
 
 Here's a decision chart for selecting a migration target:
 
-![Decision chart for selecting a migration target on Azure Apache Sqoop](images/flowchart-sqoop-azure-landing-targets.png)
+![Diagram of a decision chart for selecting a migration target on Azure Apache Sqoop.](images/flowchart-sqoop-azure-landing-targets.png)
 
 The migration targets are discussed in the following sections:
 
@@ -196,7 +196,7 @@ For |information about how to set up self-hosted integration runtime, see [Creat
 
 If you have a private connection between on-premises and Azure (such as ExpressRoute or VPN Gateway), you can use managed virtual network and private endpoint in Data Factory to make a private connection to your on-premises databases. You can use virtual networks to forward traffic to your on-premises resources, as shown in the following diagram, to access your on-premises resources without going through the internet.
 
-:::image type="content" source="images/managedvnet-privateendpoint.png" alt-text="Diagram of architecture to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint" lightbox="images/managedvnet-privateendpoint.png" border="false":::
+:::image type="content" source="images/managedvnet-privateendpoint.png" alt-text="Diagram of an architecture to access on-premises SQL Server from Data Factory managed virtual network by using a private endpoint." lightbox="images/managedvnet-privateendpoint.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
@@ -215,7 +215,7 @@ Both build a private network and help secure the process of data integration. Th
 
 You can deploy the integration runtime, which is the Data Factory runtime, within a managed virtual network. By deploying a private endpoint such as a data store that connects to the managed virtual network, you can improve data integration safety within a closed private network.
 
-:::image type="content" source="images/managed-vnet-architecture-diagram.png" alt-text="Managed VNET and Private Endpoints" lightbox="images/managed-vnet-architecture-diagram.png" border="false":::
+:::image type="content" source="images/managed-vnet-architecture-diagram.png" alt-text="Diagram of an architecture that shows a managed virtual network and a private endpoint." lightbox="images/managed-vnet-architecture-diagram.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
@@ -226,7 +226,7 @@ For more information, see [Azure Data Factory managed virtual network](/azure/da
 You can use [Azure Private Link for Azure Data Factory
 ](/azure/data-factory/data-factory-private-link) to connect to Data Factory.
 
-:::image type="content" source="images/private-link-architecture.png" alt-text="Architecture diagram that shows a managed virtual network and private endpoints" lightbox="images/private-link-architecture.png" border="false":::
+:::image type="content" source="images/private-link-architecture.png" alt-text="Diagram of an architecture that includes the integration runtime, a managed virtual network, and a private endpoint." lightbox="images/private-link-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-sqoop-migration.vsdx) of this architecture.*
 
@@ -254,7 +254,7 @@ $ sqoop import \
 
 Data Factory can also query the database and copy the result set:
 
-![MySQL query in ADF](images/mysql-query-in-adf.png)
+![Screenshot that shows a MySQL query in Data Factory.](images/mysql-query-in-adf.png)
 
 See [Copy activity properties](/azure/data-factory/connector-mysql#copy-activity-properties) for an example that gets the result set of a query on a MySQL database.
 

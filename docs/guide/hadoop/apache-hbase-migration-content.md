@@ -54,7 +54,7 @@ It's important that you understand the core concepts of the HBase architecture a
   
 The following diagram illustrates these concepts.
 
-![The diagram of the data model shows a namespace, table, row, and columns.](images/hbase-data-model.png)
+![Diagram that shows the data model, including a namespace, table, row, and columns.](images/hbase-data-model.png)
 
 #### Write path
 
@@ -65,7 +65,7 @@ For long-term data persistence, HBase uses a data structure called an *HBase fil
 
 The following diagram shows the steps of a write operation.
 
-![hbase-write-path](images/hbase-write-path.png)
+![Diagram that shows the steps of a write operation.](images/hbase-write-path.png)
 
 To summarize, the components on the write path are:
 
@@ -79,7 +79,7 @@ HBase uses several data structures to deliver fast random and sequential reads. 
 
 The following diagram shows the steps of a read operation.
 
-![hbase-read-path](images/hbase-read-path.png)
+![Diagram that shows the steps of a read operation.](images/hbase-read-path.png)
 
 > [!NOTE]
 > For situations that require low read latency, there's an option to cache data in BucketCache, which is an in-memory data structure and is usually off-heap. Data that's stored in BucketCache needn't be stored in BlockCache, so heap activity is reduced and reads are faster. For more information, see [BucketCache](https://hbase.apache.org/book.html#offheap.blockcache).
@@ -95,10 +95,10 @@ These common challenges of on-premises HBase deployments can be reasons for want
 - Achieving scalability, which can be difficult depending on hardware and data center capacity.
 - Having to replace hardware or migrate applications because of end of support for aging infrastructure.
 - Achieving high availability and disaster recovery, for reasons such as:
-  - Lack of of data-center sites
+  - Lack of data-center sites
   - Failure of the HBase cluster when the Master, a single point of failure, fails.
 - Achieving high productivity, because an on-premises Hadoop ecosystem is complex, hard to manage, and prone to failures.
-- The lack of of native tools for:
+- The lack of native tools for:
   - Cost transparency
   - Monitoring
   - DevOps
@@ -111,7 +111,7 @@ These common challenges of on-premises HBase deployments can be reasons for want
 - When you design and choose Azure compute and storage, consider service limits. Compute and storage have limits that can affect the sizing of infrastructure for a data-intensive application such as HBase. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - A subscription should be used as a unit of scale. You add more instances of a service to scale out as required. Taking from Cloud Adoption Framework enterprise-scale design principles, use the subscription as a unit of management and scale. Align subscriptions to business needs and priorities, and support business areas and portfolio owners to encourage migrating current applications and developing new ones.
 - An HBase deployment on Azure can use various types of storage for caching and persistent storage. Evaluate the options when you deploy HBase solutions on Azure.
-- After you migrate to Azure IaaS, you need to optimize performance and right-size the infrastructure. There are many factors that affect performance, including the size of the infrastructure, the storage types, and the distribution of regions. Even if you minimize application changes when you migrate, an Azure environment is fundamentally different from an on-premises one. There are Azure features and limits to consider in order to to meet performance requirements.
+- After you migrate to Azure IaaS, you need to optimize performance and right-size the infrastructure. There are many factors that affect performance, including the size of the infrastructure, the storage types, and the distribution of regions. Even if you minimize application changes when you migrate, an Azure environment is fundamentally different from an on-premises one. There are Azure features and limits to consider in order to meet performance requirements.
 
 ## Migration approaches
 
@@ -119,7 +119,7 @@ Azure has several landing targets for Apache HBase. Depending on requirements an
 
 Here's a decision flowchart for selecting a target environment:
 
-  ![Decision flowchart for selecting an Azure target environment](images/flowchart-hbase-azure-landing-targets.png)
+  ![Diagram that shows a decision flowchart for selecting an Azure target environment.](images/flowchart-hbase-azure-landing-targets.png)
 
 These targets are discussed in the following sections:
 
@@ -164,7 +164,7 @@ The following table provides guidance on assessing the existing deployment of HB
 ||Management policies for keys, certificates, and secrets|What policies and tools are used to manage secrets?|
 |**High availability and disaster recovery**|What is the service level agreement (SLA) and what are the recovery point objectives (RPO) and recovery time objectives (RTO) of the source HBase deployment?|The answers affect the design of the target deployment on Azure. For instance, should there be a hot standby or an active-active regional deployment?|
 ||What are the business continuity (BC) and data recovery (DR) strategies for HBase workloads?|Describe BC and DR strategies and the impact if HBase isn't available.|
-|**Data**|Data size and growth|How much data is migrated to HBase initially? What is the expected growth after 6, 12, and 18 months?. This information is used for capacity planning and for sizing the cluster. Eventually, it's also used to optimize deployment costs.|
+|**Data**|Data size and growth|How much data is migrated to HBase initially? What is the expected growth after 6, 12, and 18 months? This information is used for capacity planning and for sizing the cluster. Eventually, it's also used to optimize deployment costs.|
 ||Ingestion|How is data written to HBase?|
 ||Consumption|How is HBase data used? Is it by using APIs, or by a compute engine such as HDInsight Spark or Databricks Spark?|
 ||Access pattern|Is traffic on HBase read-heavy or write-heavy? This affects the fine-tuning of the HBase configuration parameters that are defined in the `hbase-site.xml` and `hdfs-site.xml` files.|
@@ -178,7 +178,7 @@ There are several partner solutions that can assist with assessment. [Unravel](h
 
 **[Azure Virtual Machines](/azure/virtual-machines/linux/overview)** is one of several types of on-demand, scalable compute resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than other choices offer.
 
-As you design your migration and select VMs, consider the following.:
+As you design your migration and select VMs, consider the following:
 
 - The names of your application resources
 - The location where the resources are stored
@@ -194,7 +194,7 @@ Azure VM families are optimized to suit different use cases and to provide a bal
 
 |Type|Size|Description|
 |---|---|---|
-|[Entry Level](/azure/virtual-machines/sizes-general)|A,Av2|A-series VMs have CPU performance and memory configurations that are best suited for entry level workloads such as development and test. They are a low-cost option for getting started with Azure.|
+|[Entry Level](/azure/virtual-machines/sizes-general)|A, Av2|A-series VMs have CPU performance and memory configurations that are best suited for entry level workloads such as development and test. They are a low-cost option for getting started with Azure.|
 |[General Purpose](/azure/virtual-machines/sizes-general)|D, DSv2, Dv2|These VMs have balanced CPU-to-memory ratios. They're ideal for testing and development, for small to medium databases, and for web servers that have low to medium traffic.|
 |[Compute Optimized](/azure/virtual-machines/sizes-compute)|F|These VMs have a high CPU-to-memory ratio. They're good for medium traffic web servers, network appliances, batch processes, and application servers.|
 |[Memory Optimized](/azure/virtual-machines/sizes-memory)|Esv3, Ev3|These VMs have a high memory-to-CPU ratio. They're good for relational database servers, medium to large caches, and in-memory analytics.|
@@ -220,7 +220,7 @@ Based on considerations of compute and memory needs, we recommend using the foll
 
 Azure offers several storage options that are suitable for hosting an IaaS deployment of HBase. The following flowchart uses features of various options to select a storage option. Each storage option on Azure has different performance, availability, and cost targets.
 
-![Decision flowchart for choosing storage for HBase migrations that target Azure IaaS](images/flowchart-hbase-azure-storage-options.png)
+![Diagram that shows a decision flowchart for choosing storage for HBase migrations that target Azure IaaS.](images/flowchart-hbase-azure-storage-options.png)
 
 See these articles for additional information:
 
@@ -257,13 +257,13 @@ The following table shows data migration approaches for various situations.
 
 |**Pattern**|**Migration approach**|**Considerations**|
 |---|---|---|
-|**Bulk load scenarios where source data isn't being read from an HBase instance.**<br><br>For example, the source data is in a file format such as CSV, TSV, or Parquet, or it's in a database or proprietary format.|Build a pipeline using tools such as WANDisco and Databricks to read the source data and write it to HBase.<br><br>If the data is sitting on a file system or on HDFS, then use tools such as WANDisco, HDInsight Spark, or Databricks Spark to read from the source and write to HBase on Azure.<br><br>At a high-level, migration pipelines can be built, one per target table on HBase, that extract data from the source and write it first to Azure HDFS. Then a separate pipeline can be built to read from Azure HDFS and write to Azure HBase.|Need for separate infrastructure for the migration tool runtime.<br><br>Handling encryption and tokenization requirements during data migration.<br><br>Network latency between source and target (Azure HBase).|
+|**Bulk load scenarios where source data isn't being read from an HBase instance.**<br><br>For example, the source data is in a file format such as CSV, TSV, or Parquet, or it's in a database or proprietary format.|Build a pipeline using tools such as WANDisco and Databricks to read the source data and write it to HBase.<br><br>If the data is sitting on a file system or on HDFS, then use tools such as WANDisco, HDInsight Spark, or Databricks Spark to read from the source and write to HBase on Azure.<br><br>At a high-level, migration pipelines can be built—one per target table on HBase—that extract data from the source and write it first to Azure HDFS. Then a separate pipeline can be built to read from Azure HDFS and write to Azure HBase.|Need for separate infrastructure for the migration tool runtime.<br><br>Handling encryption and tokenization requirements during data migration.<br><br>Network latency between source and target (Azure HBase).|
 |**The source is an HBase instance but it's not the same HBase version as that of the Azure target HBase.**|Since the source is also an HBase datastore, consider direct HBase cluster-to-cluster data migration options such as:<br><br>• HBase CopyTable<br>• Spark on HDInsight or Databricks Spark<br>• HBase Export Utility and HBase Import Utility<br>• The HashTable/SyncTable tool<br><br>*Note* - CopyTable supports full and delta table copy features.|The same considerations as for bulk loads, plus a few related to specific migrations tools.<br><br>For HBase CopyTable, consider the HBase versions on the source and target deployments.<br><br>Clusters must be online for both the source and target.<br><br>Additional resources are needed on the source side to support additional read traffic on the source HBase instance.<br><br>The CopyTable feature, by default, only copies the latest version of a row cell. It also copies all cells within a specified time range. There might be changes on the source HBase while CopyTable runs. When this happens, the changes are either completely copied or completely ignored.<br><br>Spark on HDInsight and Databricks Spark require additional resources or a separate cluster for migrating data, but it's a tried and tested approach.<br><br>The HBase Export Utility, by default, always copies the latest version of a cell to the HBbase target.<br><br>HashTable/SyncTable is more efficient than the CopyTable feature.|
 |**The source is an HBase database with the same HBase version as that of the HBase target.**|The same options that are used when the versions differ<br><br>HBase Snapshots|The considerations that were already mentioned for the case where the versions differ.<br><br>For HBase Snapshots, the considerations are as follows.<br><br>• Snapshots doesn’t create a copy of the data, but it does create a reference back to HFiles. The referenced HFiles are archived separately in case compaction is triggered on the parent table that's referenced in a snapshot.<br><br>• The footprint on the source and target HBases when a snapshot restore is triggered.<br><br>• Keeping the data source and target HBases in-sync during migration and then planning for the final cutover.<br><br>• Network latency between the source and target.|
 
 Here's a decision flowchart to aid you in choosing data migration techniques when you migrate HBase to Azure:
 
-![Tooling options for migrating HBase to Azure](images/flowchart-hbase-azure-migration-tool.png)
+![Diagram that shows a decision flowchart for choosing data migration techniques when you migrate HBase to Azure.](images/flowchart-hbase-azure-migration-tool.png)
 
 Further reading:
 
@@ -402,7 +402,7 @@ curl -XGET http://<HBase_master>:16010/jmx?qry=Hadoop:service=hbase,name=Master,
 
 After it's configured, a source appears under the Custom Logs blade. In the snippet above, we use the name oms.api.metrics_regionservers for the input. Log Analytics uses the following format for displaying the custom table name with a suffix_CL.
 
-![HBase Monitoring Custom Logs](images/hbase-monitoring-logging-CL-screenshot.png)
+![Screenshot that shows a list of the custom logs.](images/hbase-monitoring-logging-CL-screenshot.png)
 
 ##### Infrastructure (VM, storage disks and networking) logging and metrics
 

@@ -16,7 +16,7 @@ A Storm topology consists of multiple components that are arranged as a directed
 - **Spout:** A component that creates one or more data streams for use by bolts.
 - **Bolt:** A component that accepts one or more data streams from spouts or from other bolts, and emits zero or more streams for use by other bolts. A bolt can write data to external services or storage such as HDFS, Kafka, and HBase.
 
-![Storm Components](images/apache-storm-components.png)
+![Diagram that shows the Storm components.](images/apache-storm-components.png)
 
 ### Daemons
 
@@ -24,9 +24,9 @@ The daemon configuration for Storm clusters is similar to that of Hadoop cluster
 
 - **Nimbus:** Plays the role of a master node. It assigns tasks to other nodes in the cluster and monitors their execution by using ZooKeeper.
 - **ZooKeeper:** Coordinates the nodes and assists in communication between the Nimbus node and the Supervisor nodes.
-- **Supervisor:** Listens for work assigned to its machine and starts and stops worker processes based on directives from Nimbus. Each worker process runs a subset of a topology. User application logic (spouts and bolts) run here. It can be restarted quickly and fails over quickly.
+- **Supervisor:** Listens for work assigned to its machine and starts and stops worker processes based on directives from Nimbus. Each worker process runs a subset of a topology. User application logic (spouts and bolts) runs here. It can be restarted quickly and fails over quickly.
 
-![Storm Daemons](images/storm-diagram-nimbus.png)
+![Diagram that shows the Storm daemons.](images/storm-diagram-nimbus.png)
 
 ## Considerations
 
@@ -41,7 +41,7 @@ Azure has several landing targets for Apache Storm. Depending on requirements an
 
 Here's a decision flowchart for choosing a landing target for Storm on Azure.
 
-![Decision flowchart for choosing landing targets for Storm on Azure](images/flowchart-storm-azure-landing-targets.png)
+![Diagram of a decision flowchart for choosing landing targets for Storm on Azure.](images/flowchart-storm-azure-landing-targets.png)
 
 The migration approaches are described in the following sections:
 
@@ -50,7 +50,7 @@ The migration approaches are described in the following sections:
 - [Migrate to Stream Analytics](#migrate-to-stream-analytics)
 - [Migrate to Functions](#migrate-to-functions)
 
-For a detailed comparison of technology choices for real-time stream processing in Azure, see [Choose a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing) .
+For a detailed comparison of technology choices for real-time stream processing in Azure, see [Choose a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing).
 
 ### Lift and shift migration to Azure IaaS VMs
 
@@ -85,7 +85,7 @@ Spark provides primitives for in-memory cluster computing. A Spark job can load 
 
 You can use the Scala programming language with Spark to manipulate distributed data sets as you would local collections. There's no need to structure everything as map and reduce operations.
 
-![Diagram that compares traditional MapReduce and Spark](images/spark-and-mapreduce.png)
+![Diagram that compares traditional MapReduce and Spark.](images/spark-and-mapreduce.png)
 
 #### Migrate from Storm to Spark
 
@@ -106,7 +106,7 @@ Apache Storm can provide different levels of guaranteed message processing. For 
 
 Storm processes events one at a time as they arrive. Spark Streaming applications wait for a fraction of a second to collect a micro-batch of events before processing the micro-batch. In contrast, an event-driven application processes each event immediately. Spark Streaming latency is typically less than a few seconds. The benefits of the micro-batch approach are more efficient data processing and simpler aggregate calculations.
 
-![Streaming processing](images/storm-spark-processing.png)
+![Diagram that shows Storm processing events.](images/storm-spark-processing.png)
 
 ##### Spark Streaming and Spark Structured Streaming
 
@@ -116,17 +116,17 @@ Storm processes events one at a time as they arrive. Spark Streaming application
 - Blocks of data are replicated to other Executors.
 - The processed data is stored in the target data store.
 
-![Spark Streaming / Structured Streaming](images/spark-streaming-structured-streaming.png)
+![Diagram that shows the architecture of Spark Streaming and Spark Structured Streaming.](images/spark-streaming-structured-streaming.png)
 
 ##### Spark Streaming and DStreams
 
-The architectural foundation of Spark is the resilient distributed dataset (RDD), a read-only multiset of data items that's distributed over a cluster of machines. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs are collected into a discretized stream (DStream). For example, if the batch interval is one second long, the DStream emits a batch every second containing one RDD that comprises all the data ingested during that second. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
+The architectural foundation of Spark is the resilient distributed dataset (RDD), a read-only multiset of data items that's distributed over a cluster of machines. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs is collected into a discretized stream (DStream). For example, if the batch interval is one second long, the DStream emits a batch every second containing one RDD that comprises all the data ingested during that second. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
-![Dstream](images/dstream.png)
+![Diagram that shows a DStream of RDDs.](images/dstream.png)
 
 ##### Data transformations on Spark Streaming
 
-![Spark Streaming Transformation](images/spark-streaming-transformation.png)
+![Diagram of a stream being transformed.](images/spark-streaming-transformation.png)
 
 The following lists show some of the functions that are available for processing DStreams. For more information, see [Overview of Apache Spark Streaming](/azure/hdinsight/spark/apache-spark-streaming-overview).
 
@@ -149,10 +149,10 @@ Transformations on DStreams:
 Window functions:
 
 - window(windowLength, slideInterval)
-- countByWindow(windowLength,slideInterval)
-- reduceByWindow(func, windowLength,slideInterval)
-- reduceByKeyAndWindow(func,windowLength, slideInterval, [numTasks])
-- countByValueAndWindow(windowLength,slideInterval, [numTasks])
+- countByWindow(windowLength, slideInterval)
+- reduceByWindow(func, windowLength, slideInterval)
+- reduceByKeyAndWindow(func, windowLength, slideInterval, [numTasks])
+- countByValueAndWindow(windowLength, slideInterval, [numTasks])
 
 If the built-in functions don't meet your data transformation requirements, you can use user-defined functions (UDFs). For more information, see [Window Operations](https://spark.apache.org/docs/latest/streaming-programming-guide.html#window-operations).
 
@@ -164,7 +164,7 @@ You write queries by using the DataFrame and Dataset APIs. The timing of when da
 
 Structured Streaming tries to process the data as soon as it arrives. In practice, this means that as soon as Structured Streaming is done processing the run of the previous query, it starts another processing run against any newly received data. You can configure the trigger to run at an interval, so that the streaming data is processed in time-based batches.
 
-![Spark Structured Streaming](images/structured-streaming.png)
+![Diagram that shows a query that reads an input table and produces a results table.](images/structured-streaming.png)
 
 ##### Structured Streaming programming
 
@@ -219,31 +219,31 @@ The following steps assume that HDInsight is your migration target. The steps ar
     - Kafka and Storm are deployed on the same virtual network.
     - The data that Storm processes is written to a data sink such as Azure Storage or Azure Data Lake Storage.
 
-   ![Storm Migration Flow 1](images/storm-migration-flow-1.png)
+   ![Diagram that shows the system, including Kafka, the Storm cluster, and the data sink.](images/storm-migration-flow-1.png)
 
 1. **Deploy a new HDInsight 4.0 Spark cluster, deploy code, and test**
 
    Deploy an HDInsight 4.0 Spark cluster in the same virtual network, and deploy Spark Streaming or Spark Structured Streaming on the cluster and test thoroughly.
 
-   ![Storm Migration Flow 2](images/storm-migration-flow-2.png)
+   ![Diagram that shows the system, including Kafka, the Storm cluster, the data sink, and the Spark cluster.](images/storm-migration-flow-2.png)
 
 1. **Stop consuming on the current Storm cluster**
 
    In your Storm system, stop consuming data from the streaming data source and wait for the system to finish writing to the target sink.
 
-   ![Storm Migration Flow 3](images/storm-migration-flow-3.png)
+   ![Diagram that shows waiting for the Storm cluster to complete processing.](images/storm-migration-flow-3.png)
 
 1. **Start consuming on the new Spark cluster**
 
    Start streaming data from the HDInsight 4.0 Spark cluster that you deployed in step 2. Spark begins processing data from the point where Storm stopped.
 
-   ![Storm Migration Flow 4](images/storm-migration-flow-4.png)
+   ![Diagram that shows the Spark cluster continuing the processing from where Storm stopped.](images/storm-migration-flow-4.png)
 
 1. **Remove the old cluster as needed**
 
    After the switch is complete and working properly, remove the Storm cluster.
 
-   ![Storm Migration Flow 5](images/storm-migration-flow-5.png)
+   ![Diagram that shows the Storm cluster removed.](images/storm-migration-flow-5.png)
 
 For more information, see [Guide to Migrating Big Data Workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight).
 
@@ -264,7 +264,7 @@ For guidance on whether to choose Stream Analytics, see [Choose a real-time anal
 
 Stream Analytics is a platform as a service (PaaS) service, so you don't need to be aware of internal components or infrastructure. As shown in the following diagram, you can configure it by defining input, query, and output, and arranging the streaming data in pipelines for data transformation and analytics.
 
-:::image type="content" source="images/stream-analytics-e2e-pipeline.png" alt-text="Stream Analytics pipeline" lightbox="images/stream-analytics-e2e-pipeline.png" border="false":::
+:::image type="content" source="images/stream-analytics-e2e-pipeline.png" alt-text="Diagram that shows a Stream Analytics pipeline that ingests data, processes it, and delivers the results." lightbox="images/stream-analytics-e2e-pipeline.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-apache-storm-migration.vsdx) of this architecture.*
 
@@ -367,7 +367,7 @@ When it comes to event handling and delivery assurance, migrating from Storm to 
 
 The following image shows input partitioning. If the input, such as Event Hubs, is partitioned by Partition ID, we recommend partitioning with that key in Stream Analytics.
 
-![Partitioning](images/partitioning.png)
+![Diagram that illustrates input partitioning.](images/partitioning.png)
 
 When no partitions are available in the input stream, Stream Analytics can partition the stream or reshuffle the events.
 
@@ -428,7 +428,7 @@ If you configured disaster recovery in Storm and want to configure it in your mi
 
 ##### Security for a Stream Analytics migration
 
-Data security is a responsibility that's shared between you and the service provider. For on-premises solutions, customers have to provide everything from endpoint protection to physical hardware security, which isn't easy. By using a PaaS cloud service provider, your responsibilities are significantly reduced. For information about the Microsoft shared responsibility model for security, see [Azure security baseline for Stream Analytics](/security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json). Stream Analytics runs on the Azure platform and, unlike Storm, doesn't require any additional components to be installed for security. We recommend that you use the following checklist to guide you as you migrate your stream processing system security implementation:
+Data security is a responsibility that's shared between you and the service provider. On-premises solutions require you to provide everything from endpoint protection to physical hardware security, which isn't easy. If you use a PaaS cloud service provider, your responsibilities are significantly reduced. For information about the Microsoft shared responsibility model for security, see [Azure security baseline for Stream Analytics](/security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json). Stream Analytics runs on the Azure platform and, unlike Storm, doesn't require any additional components to be installed for security. We recommend that you use the following checklist to guide you as you migrate your stream processing system security implementation:
 
 ||Storm|Stream Analytics|
 |---|---|---|
@@ -615,7 +615,7 @@ Storm performance is improved by techniques such as scaling hardware up or out, 
 
 The event-driven scaling feature of Functions monitors the event rate and scales in and out to match demand. The unit of scale for Functions is a function app. To scale out the function app, additional resources are allocated. The following diagram illustrates the process:
 
-![image](images/central-listener.png)
+![Diagram that shows the scale controller monitoring events and adjusting the number of instances as needed.](images/central-listener.png)
 
 For more information, see [Event-driven scaling in Azure Functions](/azure/azure-functions/event-driven-scaling).
 
@@ -625,7 +625,7 @@ A Functions implementation doesn't provide automatic geo-failover, but you can a
 
 ##### Security for a Functions migration
 
-Data security is a responsibility that's shared between you and the service provider. For on-premises solutions, you have to provide everything from endpoint protection to physical hardware security, which isn't easy. By using a PaaS cloud service provider, your responsibilities are significantly reduced. We recommend that you use the following checklist to guide you as you migrate your stream processing system security implementation:
+Data security is a responsibility that's shared between you and the service provider. On-premises solutions require you to provide everything from endpoint protection to physical hardware security, which isn't easy. If you use a PaaS cloud service provider, your responsibilities are significantly reduced. We recommend that you use the following checklist to guide you as you migrate your stream processing system security implementation:
 
 ||Storm|Functions|
 |---|---|---|
