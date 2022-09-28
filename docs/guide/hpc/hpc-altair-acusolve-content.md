@@ -184,7 +184,7 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 | Standard_HB120-64rs_v3    |   32*          |     199.88      |
 | Standard_HB120-64rs_v3      |  16*           |  266.2        |
 
-*\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
+*\* In these cases, the number of processors was artificially limited. This VM has 64 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
@@ -209,7 +209,7 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 |Standard_HB120-64rs_v3 |   32*                     |8.95|
 |Standard_HB120-64rs_v3  |  64                    | 7.7|
 
-*\* In these cases, the number of processors was artificially limited. This VM has 120 processors.*
+*\* In these cases, the number of processors was artificially limited. This VM has 64 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
