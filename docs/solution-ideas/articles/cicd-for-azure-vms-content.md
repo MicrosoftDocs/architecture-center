@@ -57,6 +57,7 @@ An observability resource  that collects and stores metrics and logs, applicatio
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+
 ## Next steps
 
 * [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)

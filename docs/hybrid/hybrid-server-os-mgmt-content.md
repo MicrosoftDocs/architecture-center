@@ -15,9 +15,9 @@ The second diagram illustrates Windows Admin Center deployed on-premises.
 
 *Download a [Visio file][architectural-diagram-visio-source] of these architectures.*
 
-### Components
+### Workflow
 
-The architecture consists of the following components:
+The architecture consists of the following:
 
 - **On-premises corporate network**. A private local area network that runs within an organization.
 - **On-premises corporate firewall**. An organizational firewall configured to allow users access to the Windows Admin Center gateway when the gateway is deployed on-premises.
@@ -29,6 +29,8 @@ The architecture consists of the following components:
 - **Domain Name System (DNS)**. A DNS record that users reference to connect to the Windows Admin Center gateway.
 
 ## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 
@@ -187,6 +189,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal author:
+
 - [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

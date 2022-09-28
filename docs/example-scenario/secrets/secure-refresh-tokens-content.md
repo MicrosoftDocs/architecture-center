@@ -32,7 +32,7 @@ Apply the following policy to allow the Service Principal for your Azure DevOps 
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
 ```
 
-After you set up Azure Pipelines to create and update keys, you can schedule the pipeline to run periodically. The pipeline updates the Key Vault secret to sync with key rotation, and saves the encrypted token with the new secret version. For more information, see [Configure schedules for pipelines](/azure/devops/pipelines/process/scheduled-triggers?tabs=yaml&view=azure-devops).
+After you set up Azure Pipelines to create and update keys, you can schedule the pipeline to run periodically. The pipeline updates the Key Vault secret to sync with key rotation, and saves the encrypted token with the new secret version. For more information, see [Configure schedules for pipelines](/azure/devops/pipelines/process/scheduled-triggers?tabs=yaml).
 
 ## Managed identity
 
@@ -139,7 +139,7 @@ To remove access for a group of users, such as all users in a target tenant, you
 
 Principal author:
 
- * [Jason Mostella](https://www.linkedin.com/in/jasonmostella) | Senior Software Engineer
+- [Jason Mostella](https://www.linkedin.com/in/jasonmostella) | Senior Software Engineer
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 09/19/2022
+ms.date: 09/26/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,13 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Defender for Cloud Apps and Microsoft Sentinel for AWS](./guide/aws/aws-azure-security-solutions.yml)
+- [Enterprise business intelligence](./example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md)
+- [Lift and shift to containers with Azure App Service](./solution-ideas/articles/migrate-existing-applications-to-container-apps.yml)
+- [Azure Kubernetes Service (AKS) considerations for multitenancy](./guide/multitenant/service/aks.yml)
+- [Security considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-security.md)
+- [Deploy ultraFluidX on an Azure virtual machine](./guide/hpc/ultrafluidx.yml)
 - [Deploy Altair Radioss on an Azure virtual machine](./guide/hpc/altair-radioss.yml)
 - [Deploy Altair AcuSolve on an Azure virtual machine](./guide/hpc/hpc-altair-acusolve.yml)
 - [Network security checklist for MLOps solutions](./example-scenario/ai/network-security-mlops.yml)
@@ -43,6 +50,16 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#19503b747](https://github.com/MicrosoftDocs/architecture-center/commit/19503b747))
+- [On-premises data gateway for Logic Apps](./hybrid/gateway-logic-apps.yml)  ([#d4bae035c](https://github.com/MicrosoftDocs/architecture-center/commit/d4bae035c))
+- [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#1b7273337](https://github.com/MicrosoftDocs/architecture-center/commit/1b7273337))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml)  ([#21c532b3d](https://github.com/MicrosoftDocs/architecture-center/commit/21c532b3d))
+- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#45b9e13a8](https://github.com/MicrosoftDocs/architecture-center/commit/45b9e13a8))
+- [Run a highly available SharePoint Server 2016 farm in Azure](./reference-architectures/sharepoint/index.yml)  ([#7badf5856](https://github.com/MicrosoftDocs/architecture-center/commit/7badf5856))
+- [Azure enterprise cloud file share](./hybrid/azure-files-private.yml)  ([#b75b6baef](https://github.com/MicrosoftDocs/architecture-center/commit/b75b6baef))
+- [Scale and manage IoT solutions with deployment stamps](./example-scenario/iot/application-stamps.yml)  ([#652632a50](https://github.com/MicrosoftDocs/architecture-center/commit/652632a50))
+- [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)  ([#2cda972e7](https://github.com/MicrosoftDocs/architecture-center/commit/2cda972e7))
+- [Technical workshops and training](./serverless-quest/technical-training.md)  ([#010f811ef](https://github.com/MicrosoftDocs/architecture-center/commit/010f811ef))
+- [Personalized offers](./solution-ideas/articles/personalized-offers.yml)  ([#5c6b10d19](https://github.com/MicrosoftDocs/architecture-center/commit/5c6b10d19))
 - [Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](./example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)  ([#8b2af29ee](https://github.com/MicrosoftDocs/architecture-center/commit/8b2af29ee))
 - [Manage hybrid Azure workloads using Windows Admin Center](./hybrid/hybrid-server-os-mgmt.yml)  ([#428b04a77](https://github.com/MicrosoftDocs/architecture-center/commit/428b04a77))
 - [Azure Stack remote offices and branches](./hybrid/azure-stack-robo.yml)  ([#712cc1f22](https://github.com/MicrosoftDocs/architecture-center/commit/712cc1f22))
@@ -51,7 +68,6 @@ The following new and updated articles have recently been published in the Azure
 - [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#f9832e2b9](https://github.com/MicrosoftDocs/architecture-center/commit/f9832e2b9))
 - [Azure Functions in a hybrid environment](./hybrid/azure-functions-hybrid.yml)  ([#f52661266](https://github.com/MicrosoftDocs/architecture-center/commit/f52661266))
 - [Azure Automation update management](./hybrid/azure-update-mgmt.yml)  ([#faf02c993](https://github.com/MicrosoftDocs/architecture-center/commit/faf02c993))
-- [Azure enterprise cloud file share](./hybrid/azure-files-private.yml)  ([#d820c8eab](https://github.com/MicrosoftDocs/architecture-center/commit/d820c8eab))
 - [Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#153f8da71](https://github.com/MicrosoftDocs/architecture-center/commit/153f8da71))
 - [Azure Automation in a hybrid environment](./hybrid/azure-automation-hybrid.yml)  ([#6db0df81e](https://github.com/MicrosoftDocs/architecture-center/commit/6db0df81e))
 - [Manage and deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#f6523f379](https://github.com/MicrosoftDocs/architecture-center/commit/f6523f379))
@@ -113,7 +129,6 @@ The following new and updated articles have recently been published in the Azure
 - [Event-based cloud automation](./reference-architectures/serverless/cloud-automation.yml)  ([#5dc7852b5](https://github.com/MicrosoftDocs/architecture-center/commit/5dc7852b5))
 - [Automated enterprise BI](./reference-architectures/data/enterprise-bi-adf.yml)  ([#73fd8f791](https://github.com/MicrosoftDocs/architecture-center/commit/73fd8f791))
 - [Azure Service Fabric microservices architecture](./reference-architectures/microservices/service-fabric.yml)  ([#bcc5e8938](https://github.com/MicrosoftDocs/architecture-center/commit/bcc5e8938))
-- [Enterprise business intelligence](./reference-architectures/data/enterprise-bi-synapse.yml)  ([#7d7b4472d](https://github.com/MicrosoftDocs/architecture-center/commit/7d7b4472d))
 - [Stream processing with Stream Analytics](./reference-architectures/data/stream-processing-stream-analytics.yml)  ([#2defb63b0](https://github.com/MicrosoftDocs/architecture-center/commit/2defb63b0))
 - [Azure Automation State Configuration](./example-scenario/state-configuration/state-configuration.yml)  ([#cc78ed1ee](https://github.com/MicrosoftDocs/architecture-center/commit/cc78ed1ee))
 - [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#ee62101f7](https://github.com/MicrosoftDocs/architecture-center/commit/ee62101f7))
@@ -452,7 +467,7 @@ The following new and updated articles have recently been published in the Azure
 - [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
 - [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
 - [Governance of Teams guest users](./example-scenario/governance/governance-teams-guest-users.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
-- [Azure files secured by AD DS](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
+- [Azure Files secured by AD DS](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
 - [Cross-cloud scaling - on-premises data](./example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml)  ([#01c8bd6cb](https://github.com/MicrosoftDocs/architecture-center/commit/01c8bd6cb))
 - [Condition monitoring for industrial IoT](./solution-ideas/articles/condition-monitoring.yml)  ([#ef29bfa6f](https://github.com/MicrosoftDocs/architecture-center/commit/ef29bfa6f))
 - [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
@@ -465,7 +480,6 @@ The following new and updated articles have recently been published in the Azure
 - [Architect scalable e-commerce web app](./solution-ideas/articles/scalable-ecommerce-web-app.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Scalable apps using Azure DB for MySQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Scalable apps using Azure DB for PostgreSQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
-- [Scalable web apps with Azure Cache for Redis](./solution-ideas/articles/scalable-web-apps.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
 - [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
@@ -489,7 +503,6 @@ The following new and updated articles have recently been published in the Azure
 - [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
 - [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
 - [Manage Microsoft 365 tenant configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
-- [Defender for Cloud Apps and Microsoft Sentinel for AWS](./reference-architectures/aws/aws-azure-security-solutions.yml)  ([#ff26238fd](https://github.com/MicrosoftDocs/architecture-center/commit/ff26238fd))
 - [Real-time analytics on big data architecture](./solution-ideas/articles/real-time-analytics.yml)  ([#c034d4d23](https://github.com/MicrosoftDocs/architecture-center/commit/c034d4d23))
 - [Real-time asset tracking and management using IoT Central](./solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)  ([#c034d4d23](https://github.com/MicrosoftDocs/architecture-center/commit/c034d4d23))
 - [Multi-cloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))

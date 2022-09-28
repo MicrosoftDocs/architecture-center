@@ -6,7 +6,7 @@ This reference architecture illustrates how to leverage Azure Arc for management
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components and capabilities:
 
@@ -181,7 +181,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [kubernetes-kibana-grafana]: /azure/azure-arc/data/monitor-grafana-kibana
 [arc-enabled-kubernetes-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [arc-enabled-kubernetes-gitops-enforce]: /azure/azure-arc/kubernetes/use-azure-policy
-[arc-enabled-kubrnetes-policy-enforcement]: /azure/governance/policy/concepts/policy-for-kubernetes?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.yml
+[arc-enabled-kubrnetes-policy-enforcement]: /azure/governance/policy/concepts/policy-for-kubernetes?toc=/azure/azure-arc/kubernetes/toc.yml
 [azure-defender-pricing]: https://azure.microsoft.com/pricing/details/security-center/
 [azure-arc-data-controller-sizing]: /azure/azure-arc/data/sizing-guidance#data-controller-sizing-details
 [azure-arc-sql-mi-sizing]: /azure/azure-arc/data/sizing-guidance#sql-managed-instance-sizing-details

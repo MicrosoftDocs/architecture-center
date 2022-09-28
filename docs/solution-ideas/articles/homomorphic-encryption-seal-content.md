@@ -10,7 +10,9 @@ This article discusses how and when to use homomorphic encryption. It also cover
 
 ## Architecture
 
-![Traditional and SEAL encryption](../media/seal.png)
+![Diagram showing traditional and SEAL encryption.](../media/seal.png)
+
+### Workflow
 
 Traditional encryption schemes consist of three functionalities: key generation, encryption, and decryption. *Symmetric-key* encryption schemes use the same secret key for both encryption and decryption. It enables efficient encryption of large amounts of data for secure, outsourced cloud storage. *Public-key* encryption schemes use a public key for encryption and a separate, secret key for decryption. Anyone who knows the public key can encrypt data, but only someone who knows the secret key can decrypt and read the data. Public-key encryption enables secure online communication, but is typically less efficient than symmetric-key encryption.
 

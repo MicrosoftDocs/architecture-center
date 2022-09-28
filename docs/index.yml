@@ -530,7 +530,7 @@ conceptualContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Build your skills with Microsoft Learn # < 60 chars (optional)
+    - title: Build your skills with Microsoft Learn training
       items:
         - title: Build great solutions with the Microsoft Azure Well-Architected Framework
           url: /training/paths/azure-well-architected-framework/

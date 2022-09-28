@@ -23,7 +23,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files)
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp)
 - [CDN](https://azure.microsoft.com/services/cdn)
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)

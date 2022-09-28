@@ -47,9 +47,9 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 ### Potential use cases
 
 - Large, high-usage spaces with controlled entry and access.
-- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, theme parks, and tourist attractions.
+- Facilities like offices, factories, theaters, sports stadiums, malls, transportation centers, theme parks, and tourist attractions.
 
-This solution is ideal for the healthcare and facilities industries.
+This solution is ideal for the healthcare, facilities, real-estate, entertainment, media, and sports industries.
 
 ## Next steps
 

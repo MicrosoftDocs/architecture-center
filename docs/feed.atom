@@ -2,12 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-09-19T00:01:20.690Z</updated>
+    <updated>2022-09-26T00:01:16.768Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Defender for Cloud Apps and Microsoft Sentinel for AWS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/aws/aws-azure-security-solutions"/>
+        <updated>2022-09-20T15:30:14.000Z</updated>
+        <summary type="html"><![CDATA[See how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enterprise business intelligence]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-synapse</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/analytics/enterprise-bi-synapse"/>
+        <updated>2022-09-20T09:56:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse and transforms the data for analysis.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Operations for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operations"/>
+        <updated>2022-09-22T23:55:49.000Z</updated>
+        <summary type="html"><![CDATA[Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Lift and shift to containers with Azure App Service]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-existing-applications-to-container-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/migrate-existing-applications-to-container-apps"/>
+        <updated>2022-09-21T19:17:34.000Z</updated>
+        <summary type="html"><![CDATA[Migrate existing web apps to containers deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/aks"/>
+        <updated>2022-09-21T09:28:25.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Kubernetes Service (AKS) that are useful when working with multitenanted systems. It links to guidance and examples for how to use AKS in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security considerations for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-security"/>
+        <updated>2022-09-20T18:02:28.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without dependencies to other company resources - Security.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy ultraFluidX on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/ultrafluidx</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/ultrafluidx"/>
+        <updated>2022-09-20T02:25:01.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Altair ultraFluidX Lattice Boltzmann method (LBM) solver performs on an Azure virtual machine.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy Altair Radioss on an Azure virtual machine]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/hpc/altair-radioss</id>
@@ -121,6 +177,86 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[On-premises data gateway for Logic Apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/gateway-logic-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/gateway-logic-apps"/>
+        <updated>2022-09-23T19:24:39.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates a logic app that&apos;s running in Microsoft Azure, which is triggered by Azure Spring Apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — mobile access]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-mobile</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-mobile"/>
+        <updated>2022-09-23T18:57:46.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multiregion BCDR for Azure Virtual Desktop]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr"/>
+        <updated>2022-09-23T17:46:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — client access]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client"/>
+        <updated>2022-09-23T07:18:44.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a client access scenario by using Azure AD Multi-Factor Authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a highly available SharePoint Server 2016 farm in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint/index</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint/index"/>
+        <updated>2022-09-22T08:16:38.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure enterprise cloud file share]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-files-private</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-files-private"/>
+        <updated>2022-09-22T07:46:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scale and manage IoT solutions with deployment stamps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/application-stamps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/application-stamps"/>
+        <updated>2022-09-22T07:38:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn about scaling up and managing IoT device populations with deployment stamps, and see how to move devices and applications between stamps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data platform for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform"/>
+        <updated>2022-09-20T02:44:06.000Z</updated>
+        <summary type="html"><![CDATA[Data decisions for the baseline reference architecture for a mission-critical workload on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Technical workshops and training]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/technical-training</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/technical-training"/>
+        <updated>2022-09-19T20:15:44.000Z</updated>
+        <summary type="html"><![CDATA[Use these workshops and training resources to help understand and adopt serverless technologies with Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalized offers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalized-offers</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/personalized-offers"/>
+        <updated>2022-09-19T20:13:29.000Z</updated>
+        <summary type="html"><![CDATA[Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus"/>
@@ -182,14 +318,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt"/>
         <updated>2022-09-16T17:34:59.000Z</updated>
         <summary type="html"><![CDATA[Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure enterprise cloud file share]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-files-private</id>
-        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-files-private"/>
-        <updated>2022-09-16T16:50:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -678,14 +806,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
         <updated>2022-09-12T23:47:01.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Enterprise business intelligence]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse"/>
-        <updated>2022-09-12T23:24:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse and transforms the data for analysis.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -3201,11 +3321,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Azure files secured by AD DS]]></title>
+        <title type="html"><![CDATA[Azure Files secured by AD DS]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication"/>
         <updated>2022-06-13T18:14:13.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to provide secure Azure files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.]]></summary>
+        <summary type="html"><![CDATA[Learn how to provide secure Azure Files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -3302,14 +3422,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql"/>
         <updated>2022-06-12T08:49:41.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scalable web apps with Azure Cache for Redis]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-apps</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/scalable-web-apps"/>
-        <updated>2022-06-12T08:49:41.000Z</updated>
-        <summary type="html"><![CDATA[Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -3494,14 +3606,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops"/>
         <updated>2022-06-09T20:51:24.000Z</updated>
         <summary type="html"><![CDATA[Learn how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Defender for Cloud Apps and Microsoft Sentinel for AWS]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions"/>
-        <updated>2022-06-09T20:41:11.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
