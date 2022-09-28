@@ -97,6 +97,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 [App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
+* Create auto-scale rules to automatically add additional instances that can take the load in the event of a zone or instance failure. For more information about auto-scale best practices in Azure, see [Autoscaling][autoscale].
 * Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend Azure services.
 
@@ -268,8 +269,9 @@ This architecture can be highly optimized for performance and scale:
 * Use premium services for maximum performance and scale, including App Services Premium and Azure Functions Premium.
 * Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
 * Review [subscription limits and quotas][quotas] to ensure services will scale to demand.
-* Consider [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
+* Configure [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
 * Monitor application performance using [Azure Monitor - Application Insights][insights]
+* Performance test workloads to measure impact of cross-zone latency (if any).
 
 ## Deploy this scenario
 
@@ -370,7 +372,6 @@ Other contributors:
 [load-tests]:https://azure.microsoft.com/services/load-testing/
 [chaos]:https://azure.microsoft.com/services/chaos-studio/
 [quotas]:https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
-[autoscale]:https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started
 [learn-ha]:https://docs.microsoft.com/learn/modules/azure-well-architected-reliability/
 [region-roadmap]:https://azure.microsoft.com/global-infrastructure/geographies/
 [apim-zr]:https://docs.microsoft.com/azure/availability-zones/migrate-api-mgt
@@ -379,3 +380,4 @@ Other contributors:
 [apim]:https://azure.microsoft.com/services/api-management/
 [afd-pep]:https://docs.microsoft.com/azure/frontdoor/private-link
 [waf-security]:https://docs.microsoft.com/azure/architecture/framework/security/security-principles
+[autoscale]:https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling
