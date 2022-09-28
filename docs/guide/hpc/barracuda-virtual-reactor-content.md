@@ -101,7 +101,7 @@ The following table and graph show speed increases, in seconds per day, for each
 |7 GPU<sup>1|	186.82|	163.73|	71.68|	81.18|	201.66|	289.21|	101.61|	117.47|
 |8 GPU|	168.21|	171.39|	78.23|	85.89|	174.89|	258.41|	96.02|	98.20|
 
-1 *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
+*1. In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ndv4.png" alt-text="Graph that shows the speed increase on an NDv4 VM." border="false":::
 
@@ -131,7 +131,7 @@ The following table and graph show speed increases, in seconds per day, for each
 |3 GPU<sup>2|96.62|76.89|18.84|37.51|122.35|180.74|27.03|60.45|
 |4 GPU|96.45|82.22|12.13|40.68|105.15|160.74|24.38|55.87|
 
-2 *In these cases, the number of GPUs was artificially limited. NCv3 VMs are available with one, two, or four GPUs.*
+*2. In these cases, the number of GPUs was artificially limited. NCv3 VMs are available with one, two, or four GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ncv3.png" alt-text="Graph that shows the speed increase on an NCv3 VM." border="false":::
 
@@ -161,7 +161,7 @@ The following table and graph show speed increases, in seconds per day, for each
 |3 GPU<sup>3|	54.90|	35.83|	17.21|	17.21|	92.92	|97.88	|6.12	|32.16|
 |4 GPU|	61.07|	43.13|	21.95|	21.95|	86.39	|100.70|	6.07|	34.86|
 
-3 *In these cases, the number of GPUs was artificially limited.  NCasT4_v3 VMs are available with one or four GPUs.*
+*3. In these cases, the number of GPUs was artificially limited.  NCasT4_v3 VMs are available with one or four GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ncast4.png" alt-text="Graph that shows the speed increase on an NCasT4_v3 VM." border="false":::
 
@@ -191,7 +191,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |	7 GPU<sup>4	|0.01|
 |	8 GPU|	0.01|
 
-4 *ND96asr_v4 VMs are only available with eight GPUs.* 
+*4. ND96asr_v4 VMs are only available with eight GPUs.* 
 
 ### Cost for NC24s_v3
 
@@ -203,7 +203,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |3 GPU<sup>5|0.04|
 |4 GPU|0.05|
 
-5 *NCv3 VMs are available with one, two, or four GPUs.*
+*5. NCv3 VMs are available with one, two, or four GPUs.*
 
 ### Cost for NC64as_T4_v3
 
@@ -215,7 +215,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |3 GPU<sup>6|0.14|
 |4 GPU|0.16|
 
-6 *NC64as_T4_v3 VMs are available with one or four GPUs.*
+*6. NC64as_T4_v3 VMs are available with one or four GPUs.*
 
 ## Summary
 
