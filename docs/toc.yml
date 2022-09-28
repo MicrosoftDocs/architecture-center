@@ -879,7 +879,7 @@ items:
                 href: /azure/architecture/browse/?terms=retail
               - name: AI-based footfall detection
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
-              - name: Analyze operational data using Azure Synapse Analytics
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
                 href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
@@ -2961,7 +2961,7 @@ items:
             items:
               - name: Analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
-              - name: Analyze operational data using Azure Synapse Analytics
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
                 href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
@@ -3226,10 +3226,8 @@ items:
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
                 items:
-                  - name: Loosely coupled quantum computing
-                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
-                  - name: Tightly coupled quantum computing
-                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
+                  - name: Quantum computing integration with classical apps
+                    href: example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure

@@ -212,14 +212,14 @@ Principal authors:
 
 - [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Senior Solutions Architect
 - [Babu Srinivasan](https://www.linkedin.com/in/babusrinivasan) | Senior Solutions Architect
-- [Utsay Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
+- [Utsav Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
 
 Other contributors:
 
 - [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager
 - [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager
 - [Wee Hyong T.](https://www.linkedin.com/in/weehyongtok) | Principal Director
-- [Paresh Saraf](https://www.linkedin.com/in/pareshsaraf) | Technical Director - MongoDB Partners Team
+- [Paresh Saraf](https://www.linkedin.com/in/pareshsaraf) | Technical Director
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
