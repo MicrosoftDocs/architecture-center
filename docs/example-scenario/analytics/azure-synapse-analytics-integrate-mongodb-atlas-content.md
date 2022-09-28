@@ -212,7 +212,7 @@ Principal authors:
 
 - [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Senior Solutions Architect
 - [Babu Srinivasan](https://www.linkedin.com/in/babusrinivasan) | Senior Solutions Architect
-- [Utsay Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
+- [Utsav Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
 
 Other contributors:
 
