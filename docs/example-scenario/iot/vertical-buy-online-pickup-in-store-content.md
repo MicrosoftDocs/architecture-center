@@ -4,7 +4,7 @@ This solution uses internet of things (IoT) technology to help reduce curbside p
 
 ## Architecture
 
-![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
+:::image type="content" alt-text="Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution." source="media/bopis.png" lightbox="media/bopis.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-vertical-buy-online-pickup-in-store.vsdx) of this architecture.*
 
