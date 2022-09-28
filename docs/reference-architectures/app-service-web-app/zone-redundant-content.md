@@ -43,22 +43,22 @@ Private endpoints are used throughout this architecture to improve security. Whi
 
 Network segmentation boundaries are established along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. 
 
-Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. 
+Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. Private DNS Zones are linked to each private endpoint (via private DNS zone groups and Virtual network links) to ensure that private link DNS records are automatically created and updated.
 
 > For network and subnet topology details, see the [Azure sample template][azuresample] for this architecture.
 
 ### Alternatives
 
-* Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
+* Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IdP (identity provider) in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
-* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching isn't required.
-* Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app will resolve, and public access to the App Service will be rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis]. In this architecture
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching isn't required. [Azure DDoS Protection Standard][ddos-standard] is recommended for protecting internet-facing Application Gateway services.
+* Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app will resolve, and public access to the App Service will be rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis].
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
 
 ### Solution details
 
-Customers want the convenience of websites and apps that are available when they need them. Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, and require considering tradeoffs between data consistency and high performance.
+Customers want the convenience of websites and apps that are available when they need them. Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, with tradeoffs between data consistency and high performance.
 
 [Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use zone-redundant deployments to spread workloads across multiple independent zones, improving availability. Azure automatically replicates data between the zones, and automatically fails over if a zone fails.
 
@@ -98,7 +98,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 
 * Deploy a minimum of three instances for zone-redundancy.
 * Implement health check endpoints in your apps and configure the App Service Health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using Health check][appservicehealthchecks]. For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core][healthchecksaspnet].
-* Create auto-scale rules to automatically add more instances that can take the load in the event of a zone or instance failure. For more information about auto-scale best practices in Azure, see [Autoscaling][autoscale].
+* Create auto-scale rules to automatically add more instances to take the load if a zone or instance fails. For more information about auto-scale best practices in Azure, see [Autoscaling][autoscale].
 * Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend Azure services.
 
@@ -108,7 +108,6 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 
 * Deploy a minimum of three instances for zone-redundancy.
 * Enable a Private endpoint and deny access to public endpoint traffic.
-* Integrate the Private endpoint with an Azure Private DNS zone.
 * Enable Virtual Network (VNet) Integration for private networking with backend services.
 
 For more information about Private endpoints and VNet integration in Azure Functions, see [Integrate Azure Functions with an Azure virtual network][func-vnet].
@@ -120,7 +119,6 @@ For more information about Private endpoints and VNet integration in Azure Funct
 * Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone-redundancy enabled.
 * [Configure SQL DB backups][sql-backups-zr] to use ZRS (zone-redundant storage) or GZRS (geo-zone-redundant storage).
 * [Create a Private link for Azure SQL DB][sql-pep] and disable the public endpoint.
-* Integrate the Private endpoint with an Azure Private DNS zone.
 
 ### Cosmos DB
 
@@ -129,17 +127,15 @@ Enable [zone-redundancy in Azure Cosmos DB][cosmos-ha] when selecting a region t
 * Enable zone-redundancy when adding the local read/write region to the Azure Cosmos account.
 * [Enable continuous backups][cosmos-backup].
 * [Configure private link for the Cosmos DB account][cosmos-pep]. Enabling the private endpoint will disable the public endpoint.
-* Integrate the Private endpoint with an Azure Private DNS zone.
 
 ### Blob Storage
 
 Azure [Zone-Redundant Storage][zrs] (ZRS) replicates your data synchronously across three Azure availability zones in the region.
 
-* Create a Standard ZRS or Standard GZRS storage account for hosting web assets. By using these storage account SKUs, you ensure that your data is replicated across availability zones.
+* Create Standard ZRS or Standard GZRS storage accounts to ensure that data is replicated across availability zones.
 * Create separate storage accounts for web assets, Azure Functions meta-data, and other data, so that the accounts can be managed and configured separately.
 * [Use private endpoints for Azure Storage][storage-pep].
 * Configure the Storage firewall to deny public internet traffic.
-* Integrate the Private endpoint with an Azure Private DNS zone.
 
 ### Service Bus
 
@@ -147,7 +143,6 @@ Azure [Zone-Redundant Storage][zrs] (ZRS) replicates your data synchronously acr
 
 * Enable zone-redundancy on a new Azure Service Bus Premium namespace.
 * [Configure private link][sb-pep] for the Azure Service Bus namespace.
-* Integrate the Private endpoint with an Azure Private DNS zone.
 * Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. Adding a rule will disable the public endpoint.
 
 ### Cache for Redis
@@ -165,9 +160,8 @@ For more information about private endpoints on Azure Redis Cache, see [Azure Ca
 
 You can utilize [Availability Zones with Azure Cognitive Search][cog-search-az] by adding more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
 
-* Deploy a minimum of three replicas for zone-redundancy.
+* Deploy a minimum of three replicas for zone-redundancy and maximum availability.
 * [Create a private endpoint for Azure Cognitive Search][cog-search-pep]. Adding a private endpoint will disable the public endpoint.
-* Integrate the private endpoint with an Azure Private DNS zone.
 
 ### Key Vault
 
@@ -219,7 +213,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * Private endpoints are used on Azure services that don't need to be accessed from the public internet.
 * Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 * Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). 
-* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only. Configure minimum TLS versions in Front Door, App Service and Functions.
+* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only, and the minimum TLS version set.
 * Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
 
 ### Cost optimization
@@ -384,3 +378,5 @@ Other contributors:
 [appservicehealthchecks]:https://learn.microsoft.com/azure/app-service/monitor-instances-health-check
 [healthchecksaspnet]:https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks
 [azuresample]:https://github.com/Azure-Samples/highly-available-zone-redundant-webapp
+[ddos-standard]:https://learn.microsoft.com/azure/ddos-protection/ddos-protection-overview
+[bicep]:https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep
