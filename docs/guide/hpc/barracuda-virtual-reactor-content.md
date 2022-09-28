@@ -182,16 +182,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |	CPU/GPU|	Elapsed time (hours)|
 |-|-|
 |	CPU|	1.31|
-|	1 GPU<sup>4	|0.02|
-|	2 GPU<sup>4	|0.01|
-|	3 GPU<sup>4	|0.01|
-|	4 GPU<sup>4|	0.01|
-|	5 GPU<sup>4	|0.01|
-|	6 GPU<sup>4|	0.01|
-|	7 GPU<sup>4	|0.01|
 |	8 GPU|	0.01|
-
-*4. ND96asr_v4 VMs are only available with eight GPUs.* 
 
 ### Cost for NC24s_v3
 
@@ -200,10 +191,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |CPU|2.98|
 |1 GPU|0.14|
 |2 GPU| 0.04|
-|3 GPU<sup>5|0.04|
 |4 GPU|0.05|
-
-*5. NCv3 VMs are available with one, two, or four GPUs.*
 
 ### Cost for NC64as_T4_v3
 
@@ -211,11 +199,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |-|-|
 |CPU|1.59|
 |1 GPU|0.21|
-|2 GPU<sup>6|0.11|
-|3 GPU<sup>6|0.14|
 |4 GPU|0.16|
-
-*6. NC64as_T4_v3 VMs are available with one or four GPUs.*
 
 ## Summary
 
