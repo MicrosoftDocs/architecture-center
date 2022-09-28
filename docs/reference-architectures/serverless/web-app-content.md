@@ -4,8 +4,9 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ## Architecture
 
-![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
-*Download an [SVG](./_images/serverless-web-app.svg) of this architecture.*
+![Diagram showing reference architecture for a serverless web application.](./_images/serverless-web-app.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/serverless-web-app.vsdx) of this architecture.*
 
 The term serverless has two distinct but related meanings:
 
