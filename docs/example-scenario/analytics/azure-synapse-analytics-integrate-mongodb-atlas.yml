@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Analyze siloed MongoDB Atlas data by using Azure Synapse Analytics
+  title: Analyze operational data on MongoDB Atlas using Azure Synapse Analytics
   titleSuffix: Azure Example Scenarios
   description: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
   author: KrishnakumarRukmangathan
@@ -17,7 +17,7 @@ products:
   - azure-event-grid
   - azure-synapse-analytics
   - power-bi
-name: Analyze siloed MongoDB Atlas data by using Azure Synapse Analytics
+name: Analyze operational data on MongoDB Atlas using Azure Synapse Analytics
 summary: Derive insights from siloed data. Connect operational data in MongoDB Atlas to Azure Synapse Analytics, and run real-time analytics on the data.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-synapse-analytics-integrate-mongdb-atlas-thumbnail.png
 content: |

@@ -1,4 +1,4 @@
-This article presents a solution for deriving insights from siloed operational data. The solution connects MongoDB Atlas to Azure Synapse Analytics. The connection makes it possible to transfer data in batches and in real time. The real-time approach keeps Azure Synapse Analytics dedicated SQL pools in sync with changes in the MongoDB Atlas data source.
+This article presents a solution for deriving insights from MongoDB Atlas operational data. The solution connects MongoDB Atlas to Azure Synapse Analytics. The connection makes it possible to transfer data in batches and in real time. The real-time approach keeps Azure Synapse Analytics dedicated SQL pools in sync with changes in the MongoDB Atlas data source.
 
 *Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -212,7 +212,7 @@ Principal authors:
 
 - [Diana Annie Jenosh](https://www.linkedin.com/in/diana-jenosh-0b014814) | Senior Solutions Architect
 - [Babu Srinivasan](https://www.linkedin.com/in/babusrinivasan) | Senior Solutions Architect
-- [Utsay Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
+- [Utsav Talwar](https://www.linkedin.com/in/utsav-talwar) | Associate Solutions Architect
 
 Other contributors:
 
