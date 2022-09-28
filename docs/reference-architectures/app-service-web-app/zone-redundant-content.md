@@ -97,6 +97,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 [App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
+* Implement health check endpoints in your apps and configure the App Service Health check feature to re-route requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using Health check][appservicehealthchecks]. For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core][healthchecksaspnet].
 * Create auto-scale rules to automatically add additional instances that can take the load in the event of a zone or instance failure. For more information about auto-scale best practices in Azure, see [Autoscaling][autoscale].
 * Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend Azure services.
@@ -215,11 +216,11 @@ See also this important guidance for increasing resilience to Azure AD failures 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Private endpoints are used on Azure services that don't need to be accessed from the public internet. 
+* Private endpoints are used on Azure services that don't need to be accessed from the public internet.
 * Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 * Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). 
-* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only.
-* Managed identities are used for authenticating Azure service-to-service communication. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
+* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only. Configure minimum TLS versions in Front Door, App Service and Functions.
+* Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
 
 ### Cost optimization
 
@@ -381,3 +382,5 @@ Other contributors:
 [afd-pep]:https://docs.microsoft.com/azure/frontdoor/private-link
 [waf-security]:https://docs.microsoft.com/azure/architecture/framework/security/security-principles
 [autoscale]:https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling
+[appservicehealthchecks]:https://learn.microsoft.com/azure/app-service/monitor-instances-health-check
+[healthchecksaspnet]:https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks
