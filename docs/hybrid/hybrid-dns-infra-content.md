@@ -3,6 +3,7 @@ This reference architecture illustrates how to design a hybrid Domain Name Syste
 ## Architecture
 
 ![Hybrid Domain Name System (DNS)][architectual-diagram]
+:::image type="content" source="./images/hybrid-dns-infra.png" alt-text="Diagram showing a Hybrid Domain Name System (DNS)." border="false" lightbox="./images/hybrid-dns-infra.png" :::
 
 *Download a [Visio file][architectual-diagram-visio-source] of this architecture.*
 
