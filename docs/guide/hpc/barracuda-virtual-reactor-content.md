@@ -78,13 +78,13 @@ Results are presented in seconds.
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 |CPU	|422.55	|755.8	|755.8|	1,258.1	|92.92|	222.81|	594.3	|601.59|
-|1 GPU*|	2.92	|12.7	|12.7	|13.8	|1.453	|2.63	|9.57|	6.59|
-|2 GPU*|	2.85	|7.4|	7.4	|7.4|	1.358|	1.8	|6.38|	4.57|
-|3 GPU*|	2.68|	5.4	|5.4|	6.1|	1.629|	1.61|	5.65|	4.49|
-|4 GPU*|	3.35|	4.6	|4.6|	7.8	|1.845|	1.71	|5.41|	4.44|
-|5 GPU*|	3.35|	4.5	|4.5|	8|	2.189|	1.83|	5.86|	5.39|
-|6 GPU*|	3.67|	4.8	|4.8|	8|	2.908	|2.36|	6.21|	6.46|
-|7 GPU*|	4.17|	4.6	|4.6|	9.6	|3.433|	2.69|	8.56|	6.63|
+|1 GPU<sup>1|	2.92	|12.7	|12.7	|13.8	|1.453	|2.63	|9.57|	6.59|
+|2 GPU<sup>1|	2.85	|7.4|	7.4	|7.4|	1.358|	1.8	|6.38|	4.57|
+|3 GPU<sup>1|	2.68|	5.4	|5.4|	6.1|	1.629|	1.61|	5.65|	4.49|
+|4 GPU<sup>1|	3.35|	4.6	|4.6|	7.8	|1.845|	1.71	|5.41|	4.44|
+|5 GPU<sup>1|	3.35|	4.5	|4.5|	8|	2.189|	1.83|	5.86|	5.39|
+|6 GPU<sup>1|	3.67|	4.8	|4.8|	8|	2.908	|2.36|	6.21|	6.46|
+|7 GPU<sup>1|	4.17|	4.6	|4.6|	9.6	|3.433|	2.69|	8.56|	6.63|
 |8 GPU|	4.62|	4.6	|4.6|	9	|3.971|	3.01|	8.12|	7.93|
 
 The following table and graph show speed increases, in seconds per day, for each configuration.
@@ -92,14 +92,16 @@ The following table and graph show speed increases, in seconds per day, for each
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	1.84	|1.03|	0.49|	0.62|	7.44	|3.49|	1.31	|1.29|
-|1 GPU*|	172.10|	61.10|	29.37|	56.11|	475.84|	295.82|	81.31	|118.05|
-|2 GPU*|	266.81|	104.80|	52.80|	96.60|	509.10|	433.26|	81.31	|170.29|
-|3 GPU*|	272.85|	145.75|	68.53|	105.11|	424.87	|482.75|	137.87|	173.19|
-|4 GPU*|	290.68|	168.87|	75.92|	126.11|	375.23	|454.95	|144.20	|175.39|
-|5 GPU*|	232.16|	162.10|	77.81|	99.79	|316.32|	426.85|	132.83|	144.44|
-|6 GPU*|	211.66|	172.31|	79.69|	96.47|	238.60|	329.83|	125.22|	120.73|
-|7 GPU*|	186.82|	163.73|	71.68|	81.18|	201.66|	289.21|	101.61|	117.47|
+|1 GPU<sup>1|	172.10|	61.10|	29.37|	56.11|	475.84|	295.82|	81.31	|118.05|
+|2 GPU<sup>1|	266.81|	104.80|	52.80|	96.60|	509.10|	433.26|	81.31	|170.29|
+|3 GPU<sup>1|	272.85|	145.75|	68.53|	105.11|	424.87	|482.75|	137.87|	173.19|
+|4 GPU<sup>1|	290.68|	168.87|	75.92|	126.11|	375.23	|454.95	|144.20	|175.39|
+|5 GPU<sup>1|	232.16|	162.10|	77.81|	99.79	|316.32|	426.85|	132.83|	144.44|
+|6 GPU<sup>1|	211.66|	172.31|	79.69|	96.47|	238.60|	329.83|	125.22|	120.73|
+|7 GPU<sup>1|	186.82|	163.73|	71.68|	81.18|	201.66|	289.21|	101.61|	117.47|
 |8 GPU|	168.21|	171.39|	78.23|	85.89|	174.89|	258.41|	96.02|	98.20|
+
+1 *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ndv4.png" alt-text="Graph that shows the speed increase on an NDv4 VM." border="false":::
 
@@ -114,9 +116,9 @@ Results are presented in seconds.
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 CPU	|595.68	|1,146.1|	5,327.5|	1,768.7|	113.751|	335.73|	772.93|	678.59|
-|1 GPU*	|8.8|	55|	216.3|	183.2|	2.17|	5.19|	17.2|	12.88|
-|2 GPU*	|8.03|	12.5	|49.9|	22.7|	5.217|	5.2|	24.37	|13.8|
-|3 GPU*	|8.06|	10.1	|46	|20.8|	5.708	|4.31|	29.68	|12.88|
+|1 GPU<sup>2	|8.8|	55|	216.3|	183.2|	2.17|	5.19|	17.2|	12.88|
+|2 GPU<sup>2	|8.03|	12.5	|49.9|	22.7|	5.217|	5.2|	24.37	|13.8|
+|3 GPU<sup>2	|8.06|	10.1	|46	|20.8|	5.708	|4.31|	29.68	|12.88|
 |4 GPU|	8.07|	9.5|	67.1|	19.1|	6.61|	4.84	|35.98|	13.93|
 
 The following table and graph show speed increases, in seconds per day, for each configuration.
@@ -124,10 +126,12 @@ The following table and graph show speed increases, in seconds per day, for each
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 |CPU|1.31|0.68|0.24|0.44|6.08|2.32|1.01|1.15|
-|1 GPU*|91.28|14.14|3.60|4.25|317.20|149.69|45.20|60.38|
-|2 GPU*|96.82|61.91|17.18|34.33|132.88|149.65|32.40|56.41|
-|3 GPU*|96.62|76.89|18.84|37.51|122.35|180.74|27.03|60.45|
+|1 GPU<sup>2|91.28|14.14|3.60|4.25|317.20|149.69|45.20|60.38|
+|2 GPU<sup>2|96.82|61.91|17.18|34.33|132.88|149.65|32.40|56.41|
+|3 GPU<sup>2|96.62|76.89|18.84|37.51|122.35|180.74|27.03|60.45|
 |4 GPU|96.45|82.22|12.13|40.68|105.15|160.74|24.38|55.87|
+
+2 *In these cases, the number of GPUs was artificially limited. NCv3 VMs are available with one, two, or four GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ncv3.png" alt-text="Graph that shows the speed increase on an NCv3 VM." border="false":::
 
@@ -142,9 +146,9 @@ Results are presented in seconds.
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 |CPU	|439.31|	789.6|	1,673.1	|1,266.5|	96.427	|251.59|	609.31	|609.34|
-|1 GPU*|	28.31|	87.1|	295.1|	238	|6.37	|9.9	|49.15|	39.5|
-|2 GPU*|	16.82|	29.9|	163.6|	50.7|	7.271|	7.95	|87.51|	27.47|
-|3 GPU*|	14.17|	21.7|	258.2|	45.2|	7.47|	7.72	|127.32|	24.21|
+|1 GPU<sup>3|	28.31|	87.1|	295.1|	238	|6.37	|9.9	|49.15|	39.5|
+|2 GPU<sup>3|	16.82|	29.9|	163.6|	50.7|	7.271|	7.95	|87.51|	27.47|
+|3 GPU<sup>3|	14.17|	21.7|	258.2|	45.2|	7.47|	7.72	|127.32|	24.21|
 |4 GPU|	12.73|	18|	351.1	|35.4|	8.025|	7.72|	128.35|	22.34|
 
 The following table and graph show speed increases, in seconds per day, for each configuration.
@@ -152,10 +156,12 @@ The following table and graph show speed increases, in seconds per day, for each
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	1.77|	0.98|	0.47|	0.61|	7.17|	3.09	|1.28|	1.28|
-|1 GPU*|	27.50|	8.93|	2.64|	3.27|	108.69|	52.73	|15.82|	19.69|
-|2 GPU*|	46.23|	26.00|	5.08|	15.32|	95.26	|78.55	|9.19	|28.30|
-|3 GPU*|	54.90|	35.83|	17.21|	17.21|	92.92	|97.88	|6.12	|32.16|
+|1 GPU<sup>3|	27.50|	8.93|	2.64|	3.27|	108.69|	52.73	|15.82|	19.69|
+|2 GPU<sup>3|	46.23|	26.00|	5.08|	15.32|	95.26	|78.55	|9.19	|28.30|
+|3 GPU<sup>3|	54.90|	35.83|	17.21|	17.21|	92.92	|97.88	|6.12	|32.16|
 |4 GPU|	61.07|	43.13|	21.95|	21.95|	86.39	|100.70|	6.07|	34.86|
+
+3 *In these cases, the number of GPUs was artificially limited.  NCasT4_v3 VMs are available with one or four GPUs.*
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-ncast4.png" alt-text="Graph that shows the speed increase on an NCasT4_v3 VM." border="false":::
 
@@ -167,7 +173,7 @@ These graphs provide comparisons of models that are similar but have different p
 
 The following tables present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, and NCas_T4_v3 series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-Only the wall-clock time for running the model is considered for these cost calculations. Application installation time isn't considered. The times presented are indicative. The actual times depend the size of the model. The elapsed times for full production-level test cases are higher than the results presented here, so the associated costs are higher.
+The times presented in the following tables represent the total elapsed time for running all eight of the tests described earlier in this document. Only the wall-clock time for running the test cases is considered for these cost calculations. Application installation time isn't considered. The times presented are indicative. The actual times depend the size of the simulation. The elapsed times for full production-level test cases are higher than the results presented here, so the associated costs are higher.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
@@ -176,14 +182,16 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |	CPU/GPU|	Elapsed time (hours)|
 |-|-|
 |	CPU|	1.31|
-|	1 GPU	|0.02|
-|	2 GPU	|0.01|
-|	3 GPU	|0.01|
-|	4 GPU|	0.01|
-|	5 GPU	|0.01|
-|	6 GPU|	0.01|
-|	7 GPU	|0.01|
+|	1 GPU<sup>4	|0.02|
+|	2 GPU<sup>4	|0.01|
+|	3 GPU<sup>4	|0.01|
+|	4 GPU<sup>4|	0.01|
+|	5 GPU<sup>4	|0.01|
+|	6 GPU<sup>4|	0.01|
+|	7 GPU<sup>4	|0.01|
 |	8 GPU|	0.01|
+
+4 *ND96asr_v4 VMs are only available with eight GPUs.* 
 
 ### Cost for NC24s_v3
 
@@ -192,8 +200,10 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |CPU|2.98|
 |1 GPU|0.14|
 |2 GPU| 0.04|
-|3 GPU|0.04|
+|3 GPU<sup>5|0.04|
 |4 GPU|0.05|
+
+5 *NCv3 VMs are available with one, two, or four GPUs.*
 
 ### Cost for NC64as_T4_v3
 
@@ -201,9 +211,11 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |-|-|
 |CPU|1.59|
 |1 GPU|0.21|
-|2 GPU|0.11|
-|3 GPU|0.14|
+|2 GPU<sup>6|0.11|
+|3 GPU<sup>6|0.14|
 |4 GPU|0.16|
+
+6 *NC64as_T4_v3 VMs are available with one or four GPUs.*
 
 ## Summary
 
