@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn about Apache Kafka and about ways to migrate a Kafka implementation to Azure by using Azure services like HDInsight and Event Hubs.
   author: EdPrice-MSFT
-  ms.author: architectures
-  ms.date: 09/12/2022
+  ms.author: namratam, nraja, hitakagi, ramyerrabotu
+  ms.date: 09/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
