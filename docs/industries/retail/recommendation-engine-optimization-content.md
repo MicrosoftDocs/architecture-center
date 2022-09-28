@@ -36,7 +36,9 @@ The pipeline for this project required multiple technologies and tools and cente
 
 The technology components in the pipeline diagram are discussed in more detail in the following section.
 
-![Optimization architecture](./images/recommendation-engine-optimization/recommendation-architecture.png)
+## Architecture
+
+![Diagram that demonstrates a recommendation engine optimization architecture.](./images/recommendation-engine-optimization/recommendation-architecture.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/recommendation-architecture.vsdx) of this architecture.*
 
@@ -199,11 +201,26 @@ When deployed, models are serialized and stored on the operations server and can
 Leveraging the parallelism of the MicrosoftML and RevoScaleR libraries built into Microsoft Machine Learning Server accelerated development, deployment, and scoring of individual classification models for hundreds of subscribers. Model accuracy improved, and training and retraining times were compressed—all with minimal changes to the existing R code base.
 Implementing the infrastructure to support a model pipeline and getting the technology components configured correctly end-to-end can be complex. Here are some references to get your started with your own approach:
 
-- [Machine Learning Server Documentation](/machine-learning-server/)
+- [Machine Learning Server Documentation](/machine-learning-server)
 - [R Tutorials for Machine Learning Server](/sql/machine-learning/tutorials/r-tutorials)
 - [R Samples for Machine Learning Server](/machine-learning-server/r/r-samples)
 - [R Function Library Reference](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
 ## Next steps
 
-If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai/).
+If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai).
+
+## Related resources
+
+See the following retail architectures:
+
+- [Buy online, pick up in store (retail)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
+- [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
+- [Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)
+- [Video capture and analytics for retail](/azure/architecture/solution-ideas/articles/video-analytics)
+- [Retail assistant with visual capabilities](/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities)
+- [Retail and e-commerce using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)
+- [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
+- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
+- [Batch scoring with R models to forecast sales](/azure/architecture/reference-architectures/ai/batch-scoring-r-models)
+- [SKU optimization for consumer brands](/azure/architecture/industries/retail/sku-optimization-solution-guide)
