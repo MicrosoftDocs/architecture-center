@@ -6,7 +6,7 @@ This reference architecture shows an end-to-end [stream processing](../../data-g
 
 ## Architecture
 
-![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks-new.png)
+:::image type="content" source="./images/stream-processing-databricks-new.png" alt-text="[Diagram showing a reference architecture for stream processing with Azure Databricks." lightbox="./images/stream-processing-databricks-new.png" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
 
