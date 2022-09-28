@@ -253,6 +253,7 @@ the costs for your configuration.
 | 32*     |                             0.05|
 |  64*   |                               0.05|
 |  120 |                                0.04|
+
 *\* This VM is only available with 120 CPUs.*
 
 ### Single node Standard_HB120-64rs_v3
@@ -262,6 +263,7 @@ the costs for your configuration.
 |16*   |                               13.55|
 |32*  |                                9.01|
 |64 |                                 7.74|
+
 *\* This VM is only available with 64 CPUs.*
 
 ### Multi-node on Standard_HB120-64rs_v3
