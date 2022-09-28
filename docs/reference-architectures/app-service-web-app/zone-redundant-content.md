@@ -45,7 +45,7 @@ Network segmentation boundaries are established along public and private lines. 
 
 Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. 
 
-> For network and subnet topology details, see the [Azure quickstart template][quickstart] for this architecture.
+> For network and subnet topology details, see the [Azure sample template][azuresample] for this architecture.
 
 ### Alternatives
 
@@ -254,7 +254,7 @@ All Azure PaaS (Platform as a Service) services are integrated with [Azure Monit
 
 Azure App Services and Azure Functions provide deployment slots. Practice [staged deployments][app-service-staging] for zero-downtime releases.
 
-Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [Quickstart Bicep file][quickstart] is provided for this architecture that can be used to automatically deploy the entire solution.
+Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [sample Bicep file][azuresample] is provided for this architecture that can be used to automatically deploy the entire solution.
 
 Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
@@ -276,7 +276,7 @@ This architecture can be highly optimized for performance and scale:
 
 ## Deploy this scenario
 
-Deploy this reference architecture using the [Azure Quickstart Template][quickstart]. 
+Deploy this reference architecture using this [Azure sample][azuresample]. 
 
 * Azure AD / Azure AD B2C and Azure DNS aren't deployed by this sample. 
 * Custom domain names and TLS/SSL certificates aren't created and configured. Default frontend DNS names are used instead.
@@ -369,7 +369,6 @@ Other contributors:
 [msi]:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
 [azmon]:https://azure.microsoft.com/services/monitor/
 [azmon-bp]:https://docs.microsoft.com/azure/azure-monitor/best-practices
-[quickstart]:https://azure.microsoft.com/resources/templates/zone-redundant-web-app
 [load-tests]:https://azure.microsoft.com/services/load-testing/
 [chaos]:https://azure.microsoft.com/services/chaos-studio/
 [quotas]:https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
@@ -384,3 +383,4 @@ Other contributors:
 [autoscale]:https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling
 [appservicehealthchecks]:https://learn.microsoft.com/azure/app-service/monitor-instances-health-check
 [healthchecksaspnet]:https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks
+[azuresample]:https://github.com/Azure-Samples/highly-available-zone-redundant-webapp
