@@ -3224,10 +3224,8 @@ items:
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
                 items:
-                  - name: Loosely coupled quantum computing
-                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
-                  - name: Tightly coupled quantum computing
-                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
+                  - name: Quantum computing integration with classical apps
+                    href: example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
