@@ -38,6 +38,16 @@ The technology components in the pipeline diagram are discussed in more detail i
 
 ![Optimization architecture](./images/recommendation-engine-optimization/recommendation-architecture.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/recommendation-architecture.vsdx) of this architecture.*
+
+### Workflow
+
+ 1. Remote user logs into Rstudio and develops a model in R
+ 2. Model is trained with data in Azure SQL Databse
+ 3. Model is published to MLS Server (Ops)
+ 4. Webapp calls REST API to invoke prediction
+ 5. Webapp calls REST service to invoke model retraining
+
 ### Microsoft Machine Learning Server
 
 The primary reason for selecting R workloads:
