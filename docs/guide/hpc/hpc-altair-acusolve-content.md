@@ -163,11 +163,11 @@ for varying numbers of CPUs on Standard_HB120rs_v3 VMs:
 |VM size           |         Number of processors |  Wall-clock time                                               (seconds)|
 |-|-|-|
 |Standard_HB120rs_v3  |      120       |             130.8|
-|Standard_HB120rs_v3    |    64*         |            188.7|
-|Standard_HB120rs_v3     |   32*          |           196.4|
-|Standard_HB120rs_v3      |  16*           |          322.9|
+|Standard_HB120rs_v3    |    64<sup>1         |            188.7|
+|Standard_HB120rs_v3     |   32<sup>1     |           196.4|
+|Standard_HB120rs_v3      |  16<sup>1           |          322.9|
 
-\* *In these cases, the number of processors was artificially limited. This VM has 120 processors.*  
+*1. In these cases, the number of processors was artificially limited. This VM has 120 processors.*  
   
 The following graph shows the relative speed increases on the
 Standard_HB120rs_v3 VM:
@@ -181,10 +181,10 @@ CPUs on Standard_HB120-64rs_v3 VMs:
 |VM size           |         Number of processors |  Wall-clock time                                               (seconds)|
 |-|-|-|
 |Standard_HB120-64rs_v3     |    64         |   127.7         |
-| Standard_HB120-64rs_v3    |   32*          |     199.88      |
-| Standard_HB120-64rs_v3      |  16*           |  266.2        |
+| Standard_HB120-64rs_v3    |   32<sup>2          |     199.88      |
+| Standard_HB120-64rs_v3      |  16<sup>2           |  266.2        |
 
-*\* In these cases, the number of processors was artificially limited. This VM has 64 processors.*
+*2.  In these cases, the number of processors was artificially limited. This VM has 64 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
@@ -205,11 +205,11 @@ CPUs on Standard_HB120-64rs_v3 VMs:
  
 |VM size|                   Number of processors|    Wall-clock time  (hours)|
 |-|-|-|
-|Standard_HB120-64rs_v3   | 16*|                     13.48|
-|Standard_HB120-64rs_v3 |   32*                     |8.95|
+|Standard_HB120-64rs_v3   | 16<sup>3|                     13.48|
+|Standard_HB120-64rs_v3 |   32<sup>3                     |8.95|
 |Standard_HB120-64rs_v3  |  64                    | 7.7|
 
-*\* In these cases, the number of processors was artificially limited. This VM has 64 processors.*
+*3. In these cases, the number of processors was artificially limited. This VM has 64 processors.*
 
 The following graph shows the relative speed increases on the
 Standard_HB120-64rs_v3 VM:
@@ -249,22 +249,13 @@ the costs for your configuration.
 
 |  Number of CPUs|                      Wall-clock time (hours)|
 |-|-|
-|  16*     |                             0.09|
-| 32*     |                             0.05|
-|  64*   |                               0.05|
 |  120 |                                0.04|
-
-*\* This VM is only available with 120 CPUs.*
 
 ### Single node Standard_HB120-64rs_v3
 
 |  Number of CPUs|                      Wall-clock time (hours)|
 |-|-|
-|16*   |                               13.55|
-|32*  |                                9.01|
 |64 |                                 7.74|
-
-*\* This VM is only available with 64 CPUs.*
 
 ### Multi-node on Standard_HB120-64rs_v3
 
