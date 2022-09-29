@@ -18,16 +18,16 @@ This Azure solution helps hospital administrators use the power of machine learn
 ### Dataflow
 
 The following workflow (or dataflow) corresponds to the above diagram:
-1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is ingested by Azure Data Factory
-2. Azure Data Factory data flows into Azure Data Lake storage  
-3. Azure Data Lake data flows into Azure ML   
-   3.1 Train  
-   3.2 Validate  
-   3.3 Deploy   
-   3.4 Monitor  
-4. Azure ML output flows to Azure Synapse Analytics  
-5. Azure Synapse Analytics provides data to Power BI  
-6. Power BI is used for analysis by manager/coordinator  
+1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is extracted using Azure Data Factory with the appropriate runtime (e.g., Azure, Self-hosted). Note that in this scenario we assume data is accessible for batch extraction using one of the Azure Data Factory connectors (e.g., ODBC, Oracle, SQL). Other data sources (e.g., FHIR data) may require the inclusion of an intermediary ingestion service (e.g., Azure Functions). 
+2. Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2). No data is stored in Azure Data Factory during this process and failures (e.g., dropped connection) can be handled/retried during this step.
+3. Azure Machine Learning is used to apply machine learning algorithms/pipelines to the data ingested in step (2). This can be done on an event-basis, scheduled, or manually depending on the requirements. Specifically, this includes:   
+   3.1 Train - The ingested data is used to train a machine learning model using a combination of algorithms (e.g., Linear regression, Gradient Boosted Decision Tree) via various frameworks (e.g., scikit-learn) typically in a pipeline and may include pre/post-processing pipeline steps. As an example, patient health factors (e.g., age, admission-type) coming from the existing pre-processed (e.g., drop null rows) EMR/EHR data could be used to train a regression model (e.g., Linear Regression) which would be capable of predicting a new patient length of stay.
+   3.2 Validate - The model performance is compared to existing models/test data and also aginst any downstream consumption targets (e.g., APIs).
+   3.3 Deploy - The model is packaged (e.g., containerized) for use in different target environments.
+   3.4 Monitor - The model predictions are collected and mopnitored to ensure performance does not degrade over time. Alerts can be sent to trigger manual/automated re-training/updates to the model as needed using this monitoring data.
+4. Azure ML output flows to Azure Synapse Analytics where the model output (i.e., predicted patient length of stay) is combined with the existing patient data in a scalible, serving layer (e.g., dedicated SQL pool) for downstream consumption. Additional analytics (e.g., average length of stay per hospital) can be done via Synapse Analytics at this point. 
+5. Azure Synapse Analytics provides data to Power BI. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply any additonal semantic modeling needed. 
+6. Power BI is used for analysis by manager/coordinator.
 
 ### Components
 
