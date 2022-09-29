@@ -150,7 +150,7 @@ The cell and water models described later in this section were used to test GROM
 |d.poly-ch2|6,000 atoms and 6,000 vsites|96|0.2|3.22|
 |d.poly-ch2|6,000 atoms and 6,000 vsites|120|0.2|3.20|
 
-graph
+:::image type="content" source="media/gromacs/gmxbench-3-graph.png" alt-text="Graph that shows relative speed increases for the gmxbench-3.0 model." border="false":::
 
 **Results for ADH_bench_systems_old-allbonds**
 
@@ -169,13 +169,11 @@ graph
 |adh_dodec|95,561|96|3.0|3.78|
 |adh_dodec|95,561|120|3.0|3.81|
 
-graphs
+:::image type="content" source="media/gromacs/adh-bench-systems-old-graphs.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems_old-allbonds models." border="false":::
 
 **Results for ADH_bench_systems**
 
 :::image type="content" source="media/gromacs/adh-bench-systems.png" alt-text="Figure that shows the ADH_bench_systems model." border="false":::
-
-
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
@@ -212,8 +210,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ## Summary
 
-- Gromacs is tested successfully on the Azure Standard_HB_v3 Virtual Machine.
-- We can observe a performance speedup up to 3 to 4 times with 120 vCPUs on Standard_HB120rs_v3 when we take the 16 CPUs run wall clock time as base time.
+- Gromacs was tested successfully on Azure HBv3-series VMs.
+- With a 120 vCPU, performance is 3 to 4 times the performance with 16 CPUs.
 
 ## Contributors
 
