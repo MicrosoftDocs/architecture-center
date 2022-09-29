@@ -1,4 +1,13 @@
-Intro 
+This article briefly describes the steps for running [GROMACS](https://www.gromacs.org) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running GROMACS on Azure.
+
+GROMACS (GROningen MAChine for Simulations) is a molecular dynamics package designed for simulations of proteins, lipids, and nucleic acids. It's used primarily for dynamic simulations of biomolecules and provides a rich set of calculation types and preparation and analysis tools. GROMACS provides these benefits:
+
+- Supports compressed trajectory storage format and advanced techniques for free-energy calculations
+- Runs multiple simulations as part of a single program, which permits generalized ensemble methods like replica-exchange
+- Works within an elaborate multi-level parallelism that distributes computational work across ensembles of simulations and multiple program paths
+- Describes all systems with triclinic unit cells, so complex geometries like rhombic dodecahedron, truncated octahedron, and hexagonal boxes are supported
+
+GROMACS is used across the healthcare industry by biotechnology organizations, universities and research centers, pharmaceutical organizations, and hospitals and clinics.
 
 ## Why deploy GROMACS on Azure?
 
@@ -87,7 +96,8 @@ The cell and water models described later in this section were used to test GROM
 |water-cut1.0_bare_hbonds|3,072,000|96|71.6|4.06|
 |water-cut1.0_bare_hbonds|3,072,000|120|67.8|4.29|
 
-graph
+:::image type="content" source="media/gromacs/water-cut-hbonds-graph.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model." border="false":::
+
 
 **Results for rnase_bench_systems_old-allbond**
 
