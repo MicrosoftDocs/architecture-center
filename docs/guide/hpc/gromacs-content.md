@@ -138,7 +138,6 @@ The cell and water models described later in this section were used to test GROM
 
 :::image type="content" source="media/gromacs/rnase-bench-systems-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." border="false":::
 
-
 **Results for gmxbench-3.0**
 
 :::image type="content" source="media/gromacs/gmxbench-3.png" alt-text="Figure that shows the gmxbench-3.0 model." border="false":::
