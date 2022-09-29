@@ -31,22 +31,24 @@ The following workflow (or dataflow) corresponds to the above diagram:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration & orchistration service capaible of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. In this scenario ADF is used to ingest data and orchistrate the data flows.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration & orchistration service capaible of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. 
+- In this scenario ADF is used to ingest data and orchistrate the data flows.
   
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalible, cost-effective data storage layer. 
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. 
+- In this scenario ADLS is used as a scalible, cost-effective data storage layer. 
 
 - [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning.
-  In this scenario AML is the service used to produce the model used to predict patient length of stay as well as to manage the end-to-end model lifecycle.
+  - In this scenario AML is the service used to produce the model used to predict patient length of stay as well as to manage the end-to-end model lifecycle.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics. In this scenario, Synapse is used to incorporate the model predictions into the existing data model and also to provide a high-speed serving layer for downstream consumption.
 
 - [Power BI](https://powerbi.microsoft.com/) provides self-service analytics at enterprise scale, allowing you to:
   - Create a data-driven culture with business intelligence for all.
   - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.
-   In this scenario, Power BI is used to create end-user dashboards as well as to apply any semantic modeling needed in those dashboards.
+  - In this scenario, Power BI is used to create end-user dashboards as well as to apply any semantic modeling needed in those dashboards.
 
 ### Alternatives
 
