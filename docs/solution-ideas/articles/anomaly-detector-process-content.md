@@ -4,7 +4,7 @@ This article presents an architecture for a near real-time implementation of an
 
 ![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
 
-*Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/anomaly-detector-process.vsdx) of this architecture.*
 
 ### Dataflow
 

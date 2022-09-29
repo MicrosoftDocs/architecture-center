@@ -14,7 +14,7 @@ This approach can be used to:
 
 :::image type="content" source="../media/enterprise-data-warehouse.png" alt-text="Diagram of an enterprise data warehouse architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services and Power BI." border="false":::
 
-*Download an [SVG](../media/enterprise-data-warehouse.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/enterprise-data-warehouse.vsdx) of this architecture.*
 
 ### Dataflow
 
