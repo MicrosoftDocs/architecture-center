@@ -111,7 +111,7 @@ If you use Azure Data Factory Mapping Data Flows for extract, transform, and loa
 
 ## Deploy this scenario
 
-To deploy this scenario, follow the steps described in this Azure quickstart, [Deploy the Sports Analytics on Azure Architecture](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/sports-analytics-architecture). Be sure to read the **Prerequisites** section in the quickstart before deploying the solution. 
+To deploy this scenario, follow the steps described in this Azure quickstart, [Deploy the Sports Analytics on Azure Architecture](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/sports-analytics-architecture/). Be sure to read the **Prerequisites** section in the quickstart before deploying the solution. 
 
 ## Contributors
 
