@@ -1,11 +1,3 @@
-Using proven continuous integration (CI) and continuous deployment (CD) practices to deploy application or infrastructure changes provides various benefits including:
-
-- **Shorter release cycles** - Automated CI/CD processes allow you to deploy faster than manual practices. Many organizations deploy multiple times per day.
-- **Better code quality** - Quality gates in CI pipelines, such as linting and unit testing, result in higher quality code.
-- **Decreased risk of releasing** - Proper CI/CD practices dramatically decreases the risk of releasing new features. The deployment can be tested prior to release.
-- **Increased productivity** - Automated CI/CD frees developers from working on manual integrations and deployments so they can focus on new features.
-- **Enable rollbacks** - While proper CI/CD practices lower the number of bugs or regressions that are released, they still occur. CI/CD can enable automated rollbacks to earlier releases.
-
 This article describes a high-level DevOps workflow for deploying application changes to Azure services such as Azure Functions or Azure Web Apps using CI/CD practices with Azure Pipelines.
 
 > [!NOTE]
@@ -16,6 +8,17 @@ This article describes a high-level DevOps workflow for deploying application ch
 :::image type="complex" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines"::: 
 Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Azure Web Apps or Azure Function Apps running in a staging environment. 5. Shows the CD pipeline releasing to Azure Web Apps or Azure Function Apps running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
 :::image-end:::
+
+### Dataflow
+
+The data flows through the scenario as follows:
+
+1. A PR to Azure Repos Git triggers a PR Pipeline. This pipeline will run fast quality checks such as linting, building and unit testing the code. If any of the checks fail, the PR won't merge. The result of a successful run of this pipeline is a successful merge of the PR.
+1. A merge to Azure Repos Git triggers a CI Pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline will run integration tests. These tests will require secrets, so this pipeline will get those secrets from Azure Key Vault. The result of a successful run of this pipeline is the creation and publishing of build artifacts.
+1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
+1. The CD pipeline downloads the build artifacts created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
+1. If the manual intervention is resumed, the pipeline will release the solution to production.
+1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 
 ### Components
 
@@ -60,17 +63,6 @@ An observability resource that collects and stores metrics and logs, application
 > [!NOTE]
 > For product documentation, see [Azure Monitor](https://azure.microsoft.com/services/monitor).
 
-### Dataflow
-
-The data flows through the scenario as follows:
-
-1. A PR to Azure Repos Git triggers a PR Pipeline. This pipeline will run fast quality checks such as linting, building and unit testing the code. If any of the checks fail, the PR won't merge. The result of a successful run of this pipeline is a successful merge of the PR.
-1. A merge to Azure Repos Git triggers a CI Pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline will run integration tests. These tests will require secrets, so this pipeline will get those secrets from Azure Key Vault. The result of a successful run of this pipeline is the creation and publishing of build artifacts.
-1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. The CD pipeline downloads the build artifacts created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
-1. If the manual intervention is resumed, the pipeline will release the solution to production.
-1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
-
 ### Alternatives
 
 While this article focuses on Azure DevOps, you could consider these alternatives:
@@ -94,6 +86,16 @@ Consider these alternatives to hosting in Azure Web Apps or Azure Function Apps:
 This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.yml) can help when choosing the right path to take for a migration.
 
 ## Scenario details
+
+Using proven continuous integration (CI) and continuous deployment (CD) practices to deploy application or infrastructure changes provides various benefits including:
+
+- **Shorter release cycles** - Automated CI/CD processes allow you to deploy faster than manual practices. Many organizations deploy multiple times per day.
+- **Better code quality** - Quality gates in CI pipelines, such as linting and unit testing, result in higher quality code.
+- **Decreased risk of releasing** - Proper CI/CD practices dramatically decreases the risk of releasing new features. The deployment can be tested prior to release.
+- **Increased productivity** - Automated CI/CD frees developers from working on manual integrations and deployments so they can focus on new features.
+- **Enable rollbacks** - While proper CI/CD practices lower the number of bugs or regressions that are released, they still occur. CI/CD can enable automated rollbacks to earlier releases.
+
+### Potential use cases
 
 Consider Azure DevOps and CI/CD processes for:
 

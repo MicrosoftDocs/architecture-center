@@ -340,7 +340,10 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Health modeling
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
-
+                - name: Security
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
+                - name: Operational procedures
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
             - name: Guides
               items:
                 - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
@@ -411,6 +414,8 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
+                  - name: Azure Kubernetes Service (AKS)
+                    href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
                   - name: Azure NAT Gateway
@@ -874,6 +879,8 @@ items:
                 href: /azure/architecture/browse/?terms=retail
               - name: AI-based footfall detection
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
+                href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Buy online, pick up in store (retail)
@@ -2954,6 +2961,8 @@ items:
             items:
               - name: Analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
+                href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Apache NiFi on Azure
@@ -3123,6 +3132,8 @@ items:
                     href: guide/hpc/altair-radioss.yml
                   - name: Altair ultraFluidX
                     href: guide/hpc/ultrafluidx.yml
+                  - name: Ansys CFX
+                    href: guide/hpc/ansys-cfx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
@@ -3131,6 +3142,8 @@ items:
                     href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Siemens NX
                     href: guide/hpc/siemens-nx.yml
+                  - name: Siemens Tecnomatix
+                    href: guide/hpc/siemens-tecnomatix.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3215,10 +3228,8 @@ items:
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
                 items:
-                  - name: Loosely coupled quantum computing
-                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
-                  - name: Tightly coupled quantum computing
-                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
+                  - name: Quantum computing integration with classical apps
+                    href: example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
@@ -3396,6 +3407,8 @@ items:
                 href: solution-ideas/articles/jboss-deployment-red-hat.yml
               - name: Lift and shift to containers with AKS
                 href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
+              - name: Lift and shift to containers with App Service
+                href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Microservices with AKS and Azure DevOps
                 href: solution-ideas/articles/microservices-with-aks.yml
               - name: Secure DevOps for AKS
@@ -3688,18 +3701,12 @@ items:
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Build cloud native applications
                 href: solution-ideas/articles/cloud-native-apps.yml
-              - name: Campaign optimization with HDInsight
-                href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
                 href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
               - name: Data streaming
                 href: solution-ideas/articles/data-streaming-scenario.yml
               - name: Data cache
                 href: solution-ideas/articles/data-cache-with-redis-cache.yml
-              - name: Digital campaign management
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
-              - name: Digital marketing using MySQL
-                href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
               - name: Enterprise data warehouse
                 href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using MySQL
@@ -5169,6 +5176,8 @@ items:
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift to containers with AKS
                 href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
+              - name: Lift and shift to containers with App Service
+                href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
               - name: Migrate IBM mainframe apps
@@ -6102,8 +6111,6 @@ items:
                 href: solution-ideas/articles/digital-marketing-sitecore.yml
               - name: Scalable Umbraco CMS web app
                 href: solution-ideas/articles/medium-umbraco-web-app.yml
-              - name: Scalable web apps with Redis
-                href: solution-ideas/articles/scalable-web-apps.yml
               - name: Simple branded website
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website

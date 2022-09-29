@@ -2403,6 +2403,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
       "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
       "redirect_document_id": false
@@ -2410,6 +2415,51 @@
     {
       "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
       "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/loosely-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/tightly-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cicd-for-quantum-computing-jobs.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps-content.md",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
       "redirect_document_id": false
     }
   ]

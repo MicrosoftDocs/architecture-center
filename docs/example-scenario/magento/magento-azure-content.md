@@ -2,7 +2,9 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ## Architecture
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
+:::image type="content" alt-text="Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components." source="media/magento-architecture.png" lightbox="media/magento-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/magento-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -23,7 +25,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files)
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp)
 - [CDN](https://azure.microsoft.com/services/cdn)
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)

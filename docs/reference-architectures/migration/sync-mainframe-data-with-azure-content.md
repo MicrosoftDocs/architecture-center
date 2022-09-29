@@ -1,10 +1,4 @@
-This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
-
-- Extraction: Connecting to and extracting from a source database.
-- Transformation:
-  - Staging: Temporarily storing data in its original format and preparing it for transformation.
-  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
-- Loading: Inserting data into a target database.
+This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services.
 
 ## Architecture
 
@@ -122,6 +116,14 @@ The solution uses the following components:
 ## Scenario details
 
 Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+
+Specifically, this solution covers:
+
+- Extraction: Connecting to and extracting from a source database.
+- Transformation:
+  - Staging: Temporarily storing data in its original format and preparing it for transformation.
+  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
+- Loading: Inserting data into a target database.
 
 ### Potential use cases
 

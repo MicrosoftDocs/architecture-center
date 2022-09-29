@@ -74,6 +74,5 @@ The following solution ideas feature Azure Database for MySQL:
 
 - [Gaming using Azure Database for MySQL](./gaming-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
-- [Digital marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
 - [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
