@@ -7,11 +7,11 @@ This Azure solution helps hospital administrators use the power of machine learn
 > [!NOTE]
 > **SECTION TODOS**
 > - section: contributor reviews
-> - diagram: create final .png, upload to blob storage
+> - diagram: sign off, create final .png, upload Visio to blob storage
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-length-of-stay.pptx) of this architecture.*
 
 ### Dataflow
 
