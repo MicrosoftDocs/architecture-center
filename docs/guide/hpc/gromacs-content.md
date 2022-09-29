@@ -1,11 +1,11 @@
 This article briefly describes the steps for running [GROMACS](https://www.gromacs.org) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running GROMACS on Azure.
 
-GROMACS (GROningen MAChine for Simulations) is a molecular dynamics package designed for simulations of proteins, lipids, and nucleic acids. It's used primarily for dynamic simulations of biomolecules and provides a rich set of calculation types and preparation and analysis tools. GROMACS provides these benefits:
+GROMACS (GROningen MAChine for Simulations) is a molecular dynamics package designed for simulations of proteins, lipids, and nucleic acids. It's used primarily for dynamic simulations of biomolecules and provides a rich set of calculation types and preparation and analysis tools. GROMACS:
 
-- Supports compressed trajectory storage format and advanced techniques for free-energy calculations
-- Runs multiple simulations as part of a single program, which permits generalized ensemble methods like replica-exchange
-- Works within an elaborate multi-level parallelism that distributes computational work across ensembles of simulations and multiple program paths
-- Describes all systems with triclinic unit cells, so complex geometries like rhombic dodecahedron, truncated octahedron, and hexagonal boxes are supported
+- Supports compressed trajectory storage format and advanced techniques for free-energy calculations.
+- Runs multiple simulations as part of a single program, which enables generalized ensemble methods like replica-exchange.
+- Works within an elaborate multi-level parallelism that distributes computational work across ensembles of simulations and multiple program paths.
+- Describes all systems with triclinic unit cells, so complex geometries like rhombic dodecahedron, truncated octahedron, and hexagonal boxes are supported.
 
 GROMACS is used across the healthcare industry by biotechnology organizations, universities and research centers, pharmaceutical organizations, and hospitals and clinics.
 
@@ -119,7 +119,7 @@ The cell and water models described later in this section were used to test GROM
 |rnase_dodec|16,816|96|0.8|3.10|
 |rnase_dodec|16,816|120|N/A*|N/A*|
 
-\* The rnase_dodec model can't run on 32, 64, or 120 core configurations because of the size of the model and an MPI error.
+*\* The rnase_dodec model can't run on 32-core, 64-core, or 120-core configurations because of the size of the model and an MPI error.*
 
 :::image type="content" source="media/gromacs/rnase-bench-systems-old-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." lightbox="media/gromacs/rnase-bench-systems-old-graphs.png" border="false":::
 
