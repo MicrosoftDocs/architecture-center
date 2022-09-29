@@ -17,52 +17,50 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 The following dataflow corresponds to the above diagram:  
 
-1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
+1. **Health Data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
    
-2. Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2). No data is stored in Azure Data Factory during this process, and failures like dropped connections can be handled/retried during this step.  
+2. **Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2)**. No data is stored in Azure Data Factory during this process, and failures like dropped connections can be handled/retried during this step.  
    
-3. Azure Machine Learning is used to apply machine learning algorithms/pipelines to the data ingested in step 2. The algorithms can be applied on an event-basis, scheduled, or manually depending on the requirements. Specifically, this includes:   
+3. **Azure Machine Learning is used to apply machine learning algorithms/pipelines to the data** ingested in step 2. The algorithms can be applied on an event-basis, scheduled, or manually depending on the requirements. Specifically, this includes:   
    
-   3.1 Train - The ingested data is used to train a machine learning model using a combination of algorithms such as Linear regression and Gradient Boosted Decision Tree. These algorithms are provided via various frameworks (for example, scikit-learn) typically in a pipeline, and may include pre/post-processing pipeline steps. As an example, patient health factors such as admission-type coming from the existing pre-processed (for example, drop null rows) EMR/EHR data could be used to train a regression model like Linear Regression. The model would then be capable of predicting a new patient length of stay.  
+   **3.1 Train** - The ingested data is used to train a machine learning model using a combination of algorithms such as Linear regression and Gradient Boosted Decision Tree. These algorithms are provided via various frameworks (for example, scikit-learn) typically in a pipeline, and may include pre/post-processing pipeline steps. As an example, patient health factors such as admission-type coming from the existing pre-processed (for example, drop null rows) EMR/EHR data could be used to train a regression model like Linear Regression. The model would then be capable of predicting a new patient length of stay.  
      
-   3.2 Validate - The model performance is compared to existing models/test data, and also against any downstream consumption targets such as Application Programming Interfaces (APIs).  
+   **3.2 Validate** - The model performance is compared to existing models/test data, and also against any downstream consumption targets such as Application Programming Interfaces (APIs).  
      
-   3.3 Deploy - The model is packaged using a container for use in different target environments.  
+   **3.3 Deploy** - The model is packaged using a container for use in different target environments.  
      
-   3.4 Monitor - The model predictions are collected and monitored to ensure performance doesn't degrade over time. Alerts can be sent to trigger manual or automated retraining/updates to the model as needed using this monitoring data. Note that additional services like Azure Monitor may be needed, depending on the type of monitoring data extracted.  
+   **3.4 Monitor** - The model predictions are collected and monitored to ensure performance doesn't degrade over time. Alerts can be sent to trigger manual or automated retraining/updates to the model as needed using this monitoring data. Note that additional services like Azure Monitor may be needed, depending on the type of monitoring data extracted.  
 
-4. Azure ML output flows to Azure Synapse Analytics. The model output (predicted patient length of stay) is combined with the existing patient data in a scalable, serving layer like dedicated SQL pool for downstream consumption. Additional analytics such as average length of stay per hospital can be done via Synapse Analytics at this point.  
+4. **Azure ML output flows to Azure Synapse Analytics**. The model output (predicted patient length of stay) is combined with the existing patient data in a scalable, serving layer like dedicated SQL pool for downstream consumption. Additional analytics such as average length of stay per hospital can be done via Synapse Analytics at this point.  
    
-5. Azure Synapse Analytics provides data to Power BI. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply additional semantic modeling needed.  
+5. **Azure Synapse Analytics provides data to Power BI**. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply additional semantic modeling needed.  
    
-6. Power BI is used for analysis by manager/coordinator.  
+6. **Power BI is used for analysis** by the care line manager and hospital resource coordinator.  
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration and orchestration service capable of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. 
-- In this scenario ADF is used to ingest data and orchestrate the data flows.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration and orchestration service capable of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. In this scenario ADF is used to ingest data and orchestrate the data flows.  
   
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. 
-- In this scenario ADLS is used as a scalable, cost-effective data storage layer. 
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalable, cost-effective data storage layer.  
 
 - [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning.
-  - In this scenario, AML is the service used to produce the model used to predict patient length of stay, and to manage the end-to-end model lifecycle.
+  In this scenario, AML is the service used to produce the model used to predict patient length of stay, and to manage the end-to-end model lifecycle.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics. In this scenario, Synapse is used to incorporate the model predictions into the existing data model and also to provide a high-speed serving layer for downstream consumption.
 
 - [Power BI](https://powerbi.microsoft.com/) provides self-service analytics at enterprise scale, allowing you to:
   - Create a data-driven culture with business intelligence for all.
   - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.
-  - In this scenario, Power BI is used to create end-user dashboards and apply any semantic modeling needed in those dashboards.
+  In this scenario, Power BI is used to create end-user dashboards and apply any semantic modeling needed in those dashboards.
 
 ### Alternatives
 
-- Spark (for example, Synapse Spark, Azure Databricks) can be used as an alternative to perform the machine learning depending on the data scale and skill set of the data science team.
-- MLFlow can be used to manage the end-to-end lifecycle as an alternative to Azure Machine Learning depending on the customer skillset/environment.
-- Synapse Pipelines can be used as an alternative to Azure Data Factory in most cases, depending largely on the specific customer environment.  
+- Spark services such as [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) Spark and [Azure Databricks](https://azure.microsoft.com/products/databricks/) can be used as an alternative to perform the machine learning, depending on the data scale and skill set of the data science team.
+- [MLFlow](/azure/machine-learning/concept-mlflow) can be used to manage the end-to-end lifecycle as an alternative to Azure Machine Learning depending on the customer skillset/environment.
+- Azure Synapse Analytics [pipelines](/azure/data-factory/concepts-pipelines-activities?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics) can be used as an alternative to Azure Data Factory in most cases, depending largely on the specific customer environment.  
 
 ## Scenario details
 
