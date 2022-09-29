@@ -117,7 +117,7 @@ The cell and water models described later in this section were used to test GROM
 |rnase_dodec|16,816|96|0.8|3.10|
 |rnase_dodec|16,816|120|N/A|N/A|
 
-graphs
+:::image type="content" source="media/gromacs/rnase-bench-systems-old-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." border="false":::
 
 **Results for rnase_bench_systems**
 
