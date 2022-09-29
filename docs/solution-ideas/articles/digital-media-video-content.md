@@ -16,11 +16,22 @@ To get started with Azure Media Services, visit the [Azure Media Services](/azur
 * [Azure Media Services Streaming Endpoint](/azure/media-services/latest/encode-dynamic-packaging-concept): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
 * [Azure Media Player](/azure/media-services/azure-media-player/azure-media-player-overview): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Multi-DRM content protection](/azure/media-services/latest/drm-content-protection-concept): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption
+* [Multi-DRM content protection](/azure/media-services/latest/drm-content-protection-concept): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES Clear Key encryption
 
 ## Scenario details
 
 A basic video-on-demand solution that gives you the capability to stream recorded video content to any video-capable endpoint device, mobile application, or desktop browser. This content might include movies, news clips, sports segments, training videos, and customer support tutorials. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
+
+You can also use other media players such as:
+
+- [Video.js](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/video.js)
+- [Shaka Player](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/shaka)
+- [hls.js](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/hls.js)
+- [dash.js](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/dash.js)
+- [ExoPlayer](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/exoplayer)
+- [AVPlayer](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/avplayer)
+- [THEOplayer](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/THEOplayer)
+- [NexPlayer](https://github.com/Azure-Samples/media-services-3rdparty-player-samples/blob/master/src/NexPlayer)
 
 ### Potential use cases
 
