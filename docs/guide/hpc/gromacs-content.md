@@ -18,7 +18,7 @@ GROMACS is used across the healthcare industry by biotechnology organizations, u
 
 ## Architecture
 
-:::image type="content" source="media/gromacs/gromacs.png" alt-text="Diagram that shows an architecture for deploying GROMACS." lightbox="media/gromacs/gromacs.png" border="false":::
+:::image type="content" source="media/gromacs/gromacs.png" alt-text="Diagram that shows an architecture for deploying GROMACS." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/gromacs.vsdx) of this
 architecture.*
@@ -136,7 +136,8 @@ The cell and water models described later in this section were used to test GROM
 |rnase_dodec|16,816|96|0.7|3.29|
 |rnase_dodec|16,816|120|0.7|3.26|
 
-graph
+:::image type="content" source="media/gromacs/rnase-bench-systems-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." border="false":::
+
 
 **Results for gmxbench-3.0**
 
@@ -195,15 +196,60 @@ graphs
 ### Additional notes about tests
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the [Azure pricing calculator] to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.  >
+
+The following tables present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for  HBv3-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+Only the wall-clock time for running the test cases is considered for these cost calculations. Application installation time isn't considered.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size|	Number of CPUs|	Elapsed time (hours)|
+|-|-|-|
+|Standard_HB120-16rs_v3	|16	|0.178|
+|Standard_HB120-32rs_v3|	32|	0.097|
+|Standard_HB120-64rs_v3|	64	|0.055|
+|Standard_HB120-96rs_v3|	96	|0.044|
+|Standard_HB120rs_v3|	120	|0.041|
 
 ## Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
 
-Contributors
+- Gromacs is tested successfully on the Azure Standard_HB_v3 Virtual Machine.
+- We can observe a performance speedup up to 3 to 4 times with 120 vCPUs on Standard_HB120rs_v3 when we take the 16 CPUs run wall clock time as base time.
 
-Next steps 
+## Contributors
 
-Related resources
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
