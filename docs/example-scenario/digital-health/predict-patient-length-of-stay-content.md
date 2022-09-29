@@ -98,32 +98,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-> How much will this cost to run? See if you can answer this without dollar amounts.
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
-
-> Link to the pricing calculator (https://azure.microsoft.com/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
-
+The most expensive component of this solution is the compute and there are several ways to scale the compute cost-effectively with data volume. One example would be to use Spark (e.g., Synapse Spark, Azure Databricks) for the data engineering work as opposed to a single node solution as Spark scales horizontally and is more cost-effective compared to large, vertially scaled single node solutions.  
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
+Although it is not discussed in detail in this scenario as it is out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details please check see: https://azure.microsoft.com/en-us/products/machine-learning/mlops/#features
 
 ### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-> This includes scalability considerations.
-> Are there any key performance considerations (past the typical)?
-> Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
-
+In this scenario, we do data pre-processing in Azure Machine Learning. While this will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use Spark (e.g., Synapse Spark, Azure Databricks) for data engineering or data science workloads if possible as Spark scales horizontially and is distributed by design, allowing it to process large datasets very effectively. 
 ## Deploy this scenario
 
 > [!NOTE]
