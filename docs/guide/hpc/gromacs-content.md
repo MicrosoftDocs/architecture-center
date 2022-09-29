@@ -14,7 +14,7 @@ GROMACS is used across the healthcare industry by biotechnology organizations, u
 - Modern and diverse compute options to align to your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- With a 120 vCPU, performance increase of 3 to 4 times that of 16 CPUs  
+- With a 120 vCPU, a performance increase of three to four times that of 16 CPUs  
 
 ## Architecture
 
@@ -26,8 +26,7 @@ architecture.*
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a Linux VM.
-  - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+    used to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
@@ -213,7 +212,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Gromacs was tested successfully on Azure HBv3-series VMs.
-- With a 120 vCPU, performance is 3 to 4 times the performance with 16 CPUs.
+- With a 120 vCPU, the performance is three to four times the performance with 16 CPUs.
 
 ## Contributors
 
