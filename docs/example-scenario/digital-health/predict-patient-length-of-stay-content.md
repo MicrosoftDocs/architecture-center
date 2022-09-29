@@ -6,8 +6,8 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 > [!NOTE]
 > **SECTION TODOS**
+> - section: contributor reviews
 > - diagram: create final .png, upload to blob storage
-> - section: reviews from SMEs, Chad et al
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
@@ -77,51 +77,27 @@ There are two different business users in hospital management who can expect to 
 
 > [!NOTE]
 > **SECTION TODOS**
-> - finalize the Cost optimizations section
-> - pick and finalize at least 2 of the remaining 4 considerations
+> - contributor reviews
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-> REQUIREMENTS: 
->   You must include the "Cost optimization" section. 
->   You must include at least two of the other H3 sub-sections/pillars: Reliability, Security, Operational excellence, and Performance efficiency.
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-
-> This section includes resiliency and availability considerations. They can also be H4 headers in this section, if you think they should be separated.
-> Are there any key resiliency and reliability considerations (past the typical)?
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-> This section includes identity and data sovereignty considerations.
-> Are there any security considerations (past the typical) that I should know about this?
-> Because security is important to our business, be sure to include your Azure security baseline assessment recommendations in this section. See https://aka.ms/AzureSecurityBaselines
-
 ### Cost optimization
 
-The most expensive component of this solution is the compute and there are several ways to scale the compute cost-effectively with data volume. One example would be to use a Spark service like Synapse Spark or Azure Databricks for the data engineering work as opposed to a single node solution. Spark scales horizontally and is more cost-effective compared to large, vertically scaled single node solutions.  
+The most expensive component of this solution is the compute and there are several ways to scale the compute cost-effectively with data volume. One example would be to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for the data engineering work, as opposed to a single node solution. Spark scales horizontally and is more cost-effective compared to large, vertically scaled single node solutions.  
 
 ### Operational excellence  
 
-Although it isn't discussed in detail in this scenario as it is out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details, please see: https://azure.microsoft.com/en-us/products/machine-learning/mlops/#features.
+Although it isn't discussed in detail in this scenario as it's out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details, please see: https://azure.microsoft.com/products/machine-learning/mlops/#features.
 
 ### Performance efficiency  
 
-In this scenario, we do data pre-processing in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Synapse Spark or Azure Databricks for data engineering or data science workloads, if possible. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
+In this scenario, we do data pre-processing in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
 
 ## Deploy this scenario
 
 > [!NOTE]
 > **SECTION TODOS**
-> - this section is optional, but at this point we don't have solution assets that demo this architecture
+> - this section is optional - verify w/Dhanshri whether she has a deployable solution based on this architecture
 
 ## Contributors
 
@@ -141,6 +117,9 @@ Other contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+> [!NOTE]
+> **SECTION TODOS**
+> - add more links?
 
 - [Predict hospital readmissions with traditional and ML techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
  
