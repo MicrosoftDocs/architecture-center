@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automate build and deploy of container applications using DevOps and GitOps
+  title: Automate build and deployment of container apps using GitOps
   titleSuffix: Azure Example Scenarios
-  description: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
+  description: Learn how to automate the build and deployment of container applications using DevOps and GitOps.
   author: iainfoulds
   ms.author: architectures
-  ms.date: 09/26/2022
+  ms.date: 09/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -19,21 +19,20 @@ metadata:
     - microservices
     - example-scenario
     - e2e-aks
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-with-aks.png
+  social_image_url: /azure/architecture/example-scenario/apps/media/ci-cd-gitops-github-actions-aks-pull.png
 name: CI/CD pipeline for container-based workloads
 azureCategories:
   - containers
   - devops
   - featured
   - compute
-summary: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
+summary: Learn how to automate the build and deployment of container applications using DevOps and GitOps.
 products:
   - azure-container-registry
-  - azure-cosmos-db -- DELETE?
   - azure-kubernetes-service
   - azure-monitor
   - azure-pipelines
 
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks-thumbnail-new.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-gitops-github-actions-aks-thumb.png
 content: |
    [!include[](devops-with-aks-content.md)]
