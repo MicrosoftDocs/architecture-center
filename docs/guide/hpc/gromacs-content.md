@@ -36,7 +36,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of GROMACS on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides details.
+Performance tests of GROMACS on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running the Linux Ubuntu operating system. The following table provides details about HBv3-series VMs.
 
 |VM size|	vCPU |	Ram memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
@@ -46,9 +46,11 @@ Performance tests of GROMACS on Azure used [HBv3-series](/azure/virtual-machines
 |Standard_HB120-32rs_v3	|32	|448|	350	|1.9|	3.0|	3.5|	200	|32|
 |Standard_HB120-16rs_v3	|16	|448|	350	|1.9|	3.0|	3.5|	200|	32|
 
+HBv3-series VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
+
 ### Required drivers
 
-To use the AMD CPUs on [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VMs, you need to install AMD drivers.
+To use the AMD CPUs on [HBv3-series](/azure/virtual-machines/hbv3-series) VMs, you need to install AMD drivers.
 
  To use InfiniBand, you need to enable InfiniBand drivers.
 
@@ -64,7 +66,7 @@ For information about using GROMACS, see the [User guide](https://manual.gromacs
 
 ## GROMACS performance results
 
-The cell and water models described later in this section were used to test GROMACS. The following table provides the details of the operating system that was used for testing.
+The cell and water models described later in this section were used to test GROMACS. Elapsed times of runs on VMs with varying numbers of CPUs were recorded. The following table provides the details of the operating system that was used for testing.
 
 |Operating system version|OS architecture|
 |-|-|
@@ -112,12 +114,14 @@ The cell and water models described later in this section were used to test GROM
 |rnase_cubic|24,040|96|0.8|3.17|
 |rnase_cubic|24,040|120|0.8|3.22|
 |rnase_dodec|16,816|16|2.4|1.00|
-|rnase_dodec|16,816|32|N/A|N/A|
-|rnase_dodec|16,816|64|N/A|N/A|
+|rnase_dodec|16,816|32|N/A*|N/A*|
+|rnase_dodec|16,816|64|N/A*|N/A*|
 |rnase_dodec|16,816|96|0.8|3.10|
-|rnase_dodec|16,816|120|N/A|N/A|
+|rnase_dodec|16,816|120|N/A*|N/A*|
 
-:::image type="content" source="media/gromacs/rnase-bench-systems-old-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." border="false":::
+\* The rnase_dodec model can't run on 32, 64, or 120 core configurations because of the size of the model and an MPI error.
+
+:::image type="content" source="media/gromacs/rnase-bench-systems-old-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." lightbox="media/gromacs/rnase-bench-systems-old-graphs.png" border="false":::
 
 **Results for rnase_bench_systems**
 
@@ -136,7 +140,7 @@ The cell and water models described later in this section were used to test GROM
 |rnase_dodec|16,816|96|0.7|3.29|
 |rnase_dodec|16,816|120|0.7|3.26|
 
-:::image type="content" source="media/gromacs/rnase-bench-systems-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." border="false":::
+:::image type="content" source="media/gromacs/rnase-bench-systems-graphs.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." lightbox="media/gromacs/rnase-bench-systems-graphs.png" border="false":::
 
 **Results for gmxbench-3.0**
 
@@ -169,7 +173,7 @@ The cell and water models described later in this section were used to test GROM
 |adh_dodec|95,561|96|3.0|3.78|
 |adh_dodec|95,561|120|3.0|3.81|
 
-:::image type="content" source="media/gromacs/adh-bench-systems-old-graphs.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems_old-allbonds models." border="false":::
+:::image type="content" source="media/gromacs/adh-bench-systems-old-graphs.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems_old-allbonds models." lightbox="media/gromacs/adh-bench-systems-old-graphs.png" border="false":::
 
 **Results for ADH_bench_systems**
 
@@ -188,9 +192,7 @@ The cell and water models described later in this section were used to test GROM
 |adh_dodec|95,561|96|2.8|3.85|
 |adh_dodec|95,561|120|2.7|4.05|
 
-graphs
-
-### Additional notes about tests
+:::image type="content" source="media/gromacs/adh-bench-systems-graph.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems models." lightbox="media/gromacs/adh-bench-systems-graph.png" border="false":::
 
 ## Azure cost
 
