@@ -9,7 +9,7 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ### Components
 
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Stores large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Stores large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately. There are multiple options for uploading files to blob storage, including [AzCopy](/azure/storage/common/storage-use-azcopy-v10), the [Media Services Azure portal, .NET SDK, or REST API](/azure/media-services/previous/media-services-portal-upload-files), [Azure CLI, Python](/azure/media-services/latest/asset-upload-media-how-to), and [serveral Azure blob storage tools/SDKs](/azure/storage/blobs/quickstart-storage-explorer).
 * [Azure Media Services Encoder](/azure/media-services/latest/encode-concept): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
 * [Azure Media Services Streaming Endpoint](/azure/media-services/previous/media-services-dynamic-packaging-overview): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
