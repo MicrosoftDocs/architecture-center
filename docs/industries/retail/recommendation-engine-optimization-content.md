@@ -44,11 +44,11 @@ The technology components in the pipeline diagram are discussed in more detail i
 
 ### Workflow
 
- 1. Remote user logs into Rstudio and develops a model in R
- 2. Model is trained with data in Azure SQL Databse
- 3. Model is published to MLS Server (Ops)
- 4. Webapp calls REST API to invoke prediction
- 5. Webapp calls REST service to invoke model retraining
+ 1. The remote user logs into RStudio and develops a model in R.
+ 2. The model is trained with data in Azure SQL Databse.
+ 3. The model is published to the Machine Learning studio (MLS) server (ops).
+ 4. The web app calls a REST API to invoke prediction.
+ 5. The web app calls a REST service to invoke model retraining.
 
 ### Microsoft Machine Learning Server
 
