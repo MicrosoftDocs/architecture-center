@@ -11,11 +11,11 @@ The following options explore push-based and pull-based CI/CD approaches, along 
 
 ### Option 1: Push-based CI/CD
 
-![Diagram of the push-based architecture with GitHub Actions.](./media/ci-cd-gitops-github-actions-aks-push.png)
+![Diagram of the push-based architecture with GitHub Actions.]
 
 *Push-based architecture with GitHub Actions for CI and CD.*
 
-*Download a [Visio file](https://arch-center.azureedge.net/ .vsdx) of this architecture.*
+*Download a [Visio file] of this architecture.*
 
 #### Dataflow
 
@@ -170,7 +170,7 @@ Follow the steps in the [AKS-baseline-automation reference implementation](https
 
 Principal authors:
 
-- [Steve Buchanan]([https://www.linkedin.com/in/steveabuchanan) | Principal Program Manager
+- [Steve Buchanan](https://www.linkedin.com/in/steveabuchanan) | Principal Program Manager
 
 Other contributors:
 
@@ -181,7 +181,7 @@ Other contributors:
 
 ## Next steps
 
-This scenario used Azure Container Registry and AKS to store and run a container-based application. Azure Container Apps or Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview](azure/container-instances/container-instances-overview) and [Azure Container Apps overview](/azure/container-apps/overview).
+This scenario used Azure Container Registry and AKS to store and run a container-based application. Azure Container Apps or Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview](/azure/container-instances/container-instances-overview) and [Azure Container Apps overview](/azure/container-apps/overview).
 
 Product documentation:
 
@@ -197,7 +197,7 @@ Microsoft Learn modules:
 - [Build a containerized web application with Docker](/learn/modules/intro-to-containers)
 - [Deploy a containerized application on Azure Kubernetes Service](/learn/modules/aks-deploy-container-app)
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service)
-- [Monitor the usage, performance, and availability of resources with Azure Monitor](learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Monitor the usage, performance, and availability of resources with Azure Monitor](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 

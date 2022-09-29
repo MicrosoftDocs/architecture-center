@@ -2,7 +2,7 @@
 metadata:
   title: Automate build and deployment of container apps using GitOps
   titleSuffix: Azure Example Scenarios
-  description: Learn how to automate the build and deployment of container applications using DevOps and GitOps.
+  description: Learn how to automate the build and deployment of container applications using Azure Kubernetes Service and GitOps.
   author: iainfoulds
   ms.author: architectures
   ms.date: 09/29/2022
@@ -26,7 +26,7 @@ azureCategories:
   - devops
   - featured
   - compute
-summary: Learn how to automate the build and deployment of container applications using DevOps and GitOps.
+summary: Learn how to automate the build and deployment of container applications using Azure Kubernetes Service and GitOps.
 products:
   - azure-container-registry
   - azure-kubernetes-service
