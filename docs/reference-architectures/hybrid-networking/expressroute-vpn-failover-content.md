@@ -6,7 +6,9 @@ Note that if the ExpressRoute circuit is unavailable, the VPN route will only ha
 
 ## Architecture
 
-![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway](./images/expressroute-vpn-failover.png)
+![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway.](./images/expressroute-vpn-failover.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/expressroute-vpn-failover.vsdx) of this architecture.*
 
 ### Workflow
 
