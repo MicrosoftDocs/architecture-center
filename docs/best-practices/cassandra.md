@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 categories: azure
 ms.author: arsenv
-ms.date: 09/19/2019
+ms.date: 09/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -33,15 +33,15 @@ If you're looking for a more automated service for running Apache Cassandra on A
 
 ## Azure VM sizes and disk types
 
-Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v2.
+Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2], [Standard_DS13_v2][dsv2], [Standard_D16s_v5][dsv5], or [Standard_E16s_v5][esv5] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2 or Standard_E16s_v5, or [local-storage optimized](/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v3.
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
 Cassandra nodes should not be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using premium managed disks, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
 
-As [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) become more widely available across regions, evaluate them for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_D32s_v3][dsv3] and [Standard_D16s_v3][dsv3].
+Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
-For Cassandra workloads that don't need durable storage &mdash; that is, where data can be easily reconstructed from another storage medium &mdash; consider using [Standard_L32s_v2][lsv2] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
+For Cassandra workloads that don't need durable storage &mdash; that is, where data can be easily reconstructed from another storage medium &mdash; consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
 
 For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
