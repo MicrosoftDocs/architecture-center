@@ -24,28 +24,29 @@ The following workflow (or dataflow) corresponds to the above diagram:
    3.1 Train - The ingested data is used to train a machine learning model using a combination of algorithms (e.g., Linear regression, Gradient Boosted Decision Tree) via various frameworks (e.g., scikit-learn) typically in a pipeline and may include pre/post-processing pipeline steps. As an example, patient health factors (e.g., age, admission-type) coming from the existing pre-processed (e.g., drop null rows) EMR/EHR data could be used to train a regression model (e.g., Linear Regression) which would be capable of predicting a new patient length of stay.
    3.2 Validate - The model performance is compared to existing models/test data and also aginst any downstream consumption targets (e.g., APIs).
    3.3 Deploy - The model is packaged (e.g., containerized) for use in different target environments.
-   3.4 Monitor - The model predictions are collected and mopnitored to ensure performance does not degrade over time. Alerts can be sent to trigger manual/automated re-training/updates to the model as needed using this monitoring data.
+   3.4 Monitor - The model predictions are collected and mopnitored to ensure performance does not degrade over time. Alerts can be sent to trigger manual/automated re-training/updates to the model as needed using this monitoring data. Note that some additional services (e.g., Azure Monitor) may be needed, depending on the type of monitoring data extracted.
 4. Azure ML output flows to Azure Synapse Analytics where the model output (i.e., predicted patient length of stay) is combined with the existing patient data in a scalible, serving layer (e.g., dedicated SQL pool) for downstream consumption. Additional analytics (e.g., average length of stay per hospital) can be done via Synapse Analytics at this point. 
 5. Azure Synapse Analytics provides data to Power BI. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply any additonal semantic modeling needed. 
 6. Power BI is used for analysis by manager/coordinator.
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) provides fully managed, serverless data integration service. Visually integrate data sources with more than 90+ built-in, maintenance-free connectors at no added cost.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration & orchistration service capaible of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. In this scenario ADF is used to ingest data and orchistrate the data flows.
   
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides a scalable secure data lake for high-performance analytics.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalible, cost-effective data storage layer. 
 
-- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) services accelerate the end-to-end LOS prediction ML lifecycle by:
+- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning.
+  In this scenario AML is the service used to produce the model used to predict patient length of stay as well as to manage the end-to-end model lifecycle.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics. In this scenario, Synapse is used to incorporate the model predictions into the existing data model and also to provide a high-speed serving layer for downstream consumption.
 
 - [Power BI](https://powerbi.microsoft.com/) provides self-service analytics at enterprise scale, allowing you to:
   - Create a data-driven culture with business intelligence for all.
   - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.
-
+   In this scenario, Power BI is used to create end-user dashboards as well as to apply any semantic modeling needed in those dashboards.
 
 ### Alternatives
 
