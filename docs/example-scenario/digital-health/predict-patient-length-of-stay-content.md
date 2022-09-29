@@ -1,3 +1,7 @@
+> [!NOTE]
+> **ARTICLE TODOS**
+> - final reviews from all contributors listed
+
 For the people running a healthcare facility, length of stay (LOS)—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it hard to track patient flow and plan accordingly.
 
 This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A chief medical information officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities. A care line manager might use a model to determine whether there are adequate staff resources to handle the release of a patient.
@@ -6,8 +10,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 > [!NOTE]
 > **SECTION TODOS**
-> - section: contributor reviews
-> - diagram: sign off, create final .png, upload Visio to blob storage
+> - diagram: sign off, create final .png, upload final PowerPoint to blob storage
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
@@ -46,14 +49,16 @@ The following dataflow corresponds to the above diagram:
 - [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
-  - Innovating on a secure, trusted platform, designed for responsible machine learning.
+  - Innovating on a secure, trusted platform, designed for responsible machine learning. 
+  
   In this scenario, AML is the service used to produce the model used to predict patient length of stay, and to manage the end-to-end model lifecycle.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics. In this scenario, Synapse is used to incorporate the model predictions into the existing data model and also to provide a high-speed serving layer for downstream consumption.
 
 - [Power BI](https://powerbi.microsoft.com/) provides self-service analytics at enterprise scale, allowing you to:
   - Create a data-driven culture with business intelligence for all.
-  - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.
+  - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.  
+
   In this scenario, Power BI is used to create end-user dashboards and apply any semantic modeling needed in those dashboards.
 
 ### Alternatives
@@ -74,10 +79,6 @@ There are two different business users in hospital management who can expect to 
 - The care line manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients and ensuring that staff is available to meet the specific care requirements of their patients. A care line manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables care line managers to determine if staff resources will be adequate to handle the release of a patient.
 
 ## Considerations
-
-> [!NOTE]
-> **SECTION TODOS**
-> - contributor reviews
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
