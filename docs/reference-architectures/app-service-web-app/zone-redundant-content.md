@@ -21,7 +21,7 @@ For a list of highly available services in Azure, see [Azure Services that suppo
 A SPA (single page application) running in a browser requests static assets including scripts, stylesheets and media assets. Once loaded, the SPA makes API calls that provide functionality.
 
 * SPA users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
-* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several Azure services. Front Door also provides automatic protection from layer 4 DDoS attacks, and a range of other features to enhance the security and performance of your application.
+* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several Azure services. Front Door also provides automatic protection from layer 3 and 4 DDoS attacks, and a range of other features including WAF (web application firewall), caching and custom rules to enhance the security and performance of your application.
 * [Azure Static Web Apps][swa] hosts all of the SPA assets, including scripts, stylesheets and media.
 * [Azure App Service][app-services] hosts the "front-end" API applications that are called by the SPA. Deployment slots are used to provide zero-downtime releases.
 * App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend Azure services over a private VNet.
@@ -87,6 +87,8 @@ Azure Front Door is a global service, always available across all Azure geograph
 * Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
 * Use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+
+For more recommendations and information, see [Best practices for Front Door][afd-best-practices].
 
 ### Azure Static Web Apps
 
@@ -202,7 +204,7 @@ For example, Azure Storage supports [object replication for block blobs][object-
 
 Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs. 
 
-For example, Front Door service downtime can be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
+For example, Front Door service downtime may be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
 
 See also this important guidance for increasing resilience to Azure AD failures by [building resilience in identity and access management infrastructure][aad-resilience].
 
@@ -380,3 +382,4 @@ Other contributors:
 [azuresample]:https://github.com/Azure-Samples/highly-available-zone-redundant-webapp
 [ddos-standard]:https://learn.microsoft.com/azure/ddos-protection/ddos-protection-overview
 [bicep]:https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep
+[afd-best-practices]:https://learn.microsoft.com/azure/frontdoor/best-practices
