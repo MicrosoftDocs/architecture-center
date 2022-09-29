@@ -50,10 +50,9 @@ The following workflow (or dataflow) corresponds to the above diagram:
 
 ### Alternatives
 
-> Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. Customers find this valuable because they want to know what other services or technologies they can use as part of this architecture.
-
-> What alternative technologies were considered and why didn't we use them?
-
+- Spark (e.g., Synapse Spark, Azure Databricks) can be used as an alternative to perform the machine learning depending on the data scale and/or skillsets of the data science team.
+- MLFlow can be used to manage the end-to-end lifecycle as an alternative to Azure Machine Learning depending on the customer skillset/environment.
+- Synapse Pipelines can be used as an alternative to Azure Data Factory in most cases, depending largely on the specific customer environment.
 ## Scenario details
 
 This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
