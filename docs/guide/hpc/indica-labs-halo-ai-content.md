@@ -1,8 +1,8 @@
 ## Why deploy HALO AI on Azure?
--	Simplifies migration to the cloud
--	Optimizes the workload in these ways….
--	Can be rapidly provisioned
--	Performance
+- Modern and diverse compute options to align to your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- performance []
 
 ## Architecture
 
