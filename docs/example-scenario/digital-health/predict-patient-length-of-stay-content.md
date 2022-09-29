@@ -18,41 +18,43 @@ This Azure solution helps hospital administrators use the power of machine learn
 ### Dataflow
 
 The following workflow (or dataflow) corresponds to the above diagram:
-1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is ingested by Azure Data Factory
-2. Azure Data Factory data flows into Azure Data Lake storage  
-3. Azure Data Lake data flows into Azure ML   
-   3.1 Train  
-   3.2 Validate  
-   3.3 Deploy   
-   3.4 Monitor  
-4. Azure ML output flows to Azure Synapse Analytics  
-5. Azure Synapse Analytics provides data to Power BI  
-6. Power BI is used for analysis by manager/coordinator  
+1. Health Data from electronic health records (EHR) and electronic medical records (EMR) is extracted using Azure Data Factory with the appropriate runtime (e.g., Azure, Self-hosted). Note that in this scenario we assume data is accessible for batch extraction using one of the Azure Data Factory connectors (e.g., ODBC, Oracle, SQL). Other data sources (e.g., FHIR data) may require the inclusion of an intermediary ingestion service (e.g., Azure Functions). 
+2. Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2). No data is stored in Azure Data Factory during this process and failures (e.g., dropped connection) can be handled/retried during this step.
+3. Azure Machine Learning is used to apply machine learning algorithms/pipelines to the data ingested in step (2). This can be done on an event-basis, scheduled, or manually depending on the requirements. Specifically, this includes:   
+   3.1 Train - The ingested data is used to train a machine learning model using a combination of algorithms (e.g., Linear regression, Gradient Boosted Decision Tree) via various frameworks (e.g., scikit-learn) typically in a pipeline and may include pre/post-processing pipeline steps. As an example, patient health factors (e.g., age, admission-type) coming from the existing pre-processed (e.g., drop null rows) EMR/EHR data could be used to train a regression model (e.g., Linear Regression) which would be capable of predicting a new patient length of stay.
+   3.2 Validate - The model performance is compared to existing models/test data and also aginst any downstream consumption targets (e.g., APIs).
+   3.3 Deploy - The model is packaged (e.g., containerized) for use in different target environments.
+   3.4 Monitor - The model predictions are collected and mopnitored to ensure performance does not degrade over time. Alerts can be sent to trigger manual/automated re-training/updates to the model as needed using this monitoring data. Note that some additional services (e.g., Azure Monitor) may be needed, depending on the type of monitoring data extracted.
+4. Azure ML output flows to Azure Synapse Analytics where the model output (i.e., predicted patient length of stay) is combined with the existing patient data in a scalible, serving layer (e.g., dedicated SQL pool) for downstream consumption. Additional analytics (e.g., average length of stay per hospital) can be done via Synapse Analytics at this point. 
+5. Azure Synapse Analytics provides data to Power BI. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply any additonal semantic modeling needed. 
+6. Power BI is used for analysis by manager/coordinator.
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) provides fully managed, serverless data integration service. Visually integrate data sources with more than 90+ built-in, maintenance-free connectors at no added cost.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration & orchistration service capaible of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. 
+- In this scenario ADF is used to ingest data and orchistrate the data flows.
   
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides a scalable secure data lake for high-performance analytics.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. 
+- In this scenario ADLS is used as a scalible, cost-effective data storage layer. 
 
-- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) services accelerate the end-to-end LOS prediction ML lifecycle by:
+- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning.
+  - In this scenario AML is the service used to produce the model used to predict patient length of stay as well as to manage the end-to-end model lifecycle.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics. In this scenario, Synapse is used to incorporate the model predictions into the existing data model and also to provide a high-speed serving layer for downstream consumption.
 
 - [Power BI](https://powerbi.microsoft.com/) provides self-service analytics at enterprise scale, allowing you to:
   - Create a data-driven culture with business intelligence for all.
   - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.
-
+  - In this scenario, Power BI is used to create end-user dashboards as well as to apply any semantic modeling needed in those dashboards.
 
 ### Alternatives
 
-> Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. Customers find this valuable because they want to know what other services or technologies they can use as part of this architecture.
-
-> What alternative technologies were considered and why didn't we use them?
-
+- Spark (e.g., Synapse Spark, Azure Databricks) can be used as an alternative to perform the machine learning depending on the data scale and/or skillsets of the data science team.
+- MLFlow can be used to manage the end-to-end lifecycle as an alternative to Azure Machine Learning depending on the customer skillset/environment.
+- Synapse Pipelines can be used as an alternative to Azure Data Factory in most cases, depending largely on the specific customer environment.
 ## Scenario details
 
 This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
@@ -98,32 +100,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-> How much will this cost to run? See if you can answer this without dollar amounts.
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
-
-> Link to the pricing calculator (https://azure.microsoft.com/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
-
+The most expensive component of this solution is the compute and there are several ways to scale the compute cost-effectively with data volume. One example would be to use Spark (e.g., Synapse Spark, Azure Databricks) for the data engineering work as opposed to a single node solution as Spark scales horizontally and is more cost-effective compared to large, vertially scaled single node solutions.  
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
+Although it is not discussed in detail in this scenario as it is out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details please check see: https://azure.microsoft.com/en-us/products/machine-learning/mlops/#features
 
 ### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-> This includes scalability considerations.
-> Are there any key performance considerations (past the typical)?
-> Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
-
+In this scenario, we do data pre-processing in Azure Machine Learning. While this will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use Spark (e.g., Synapse Spark, Azure Databricks) for data engineering or data science workloads if possible as Spark scales horizontially and is distributed by design, allowing it to process large datasets very effectively. 
 ## Deploy this scenario
 
 > [!NOTE]
