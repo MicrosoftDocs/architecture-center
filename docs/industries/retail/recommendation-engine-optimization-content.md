@@ -206,6 +206,16 @@ Implementing the infrastructure to support a model pipeline and getting the tech
 - [R Samples for Machine Learning Server](/machine-learning-server/r/r-samples)
 - [R Function Library Reference](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Kate Baroni](https://www.linkedin.com/in/katebaroni) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai).
@@ -214,13 +224,13 @@ If you are interested in building other predictive solutions for your retail bus
 
 See the following retail architectures:
 
-- [Buy online, pick up in store (retail)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
-- [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
-- [Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)
-- [Video capture and analytics for retail](/azure/architecture/solution-ideas/articles/video-analytics)
-- [Retail assistant with visual capabilities](/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities)
-- [Retail and e-commerce using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)
-- [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
-- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Batch scoring with R models to forecast sales](/azure/architecture/reference-architectures/ai/batch-scoring-r-models)
-- [SKU optimization for consumer brands](/azure/architecture/industries/retail/sku-optimization-solution-guide)
+- [Buy online, pick up in store (retail)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Retail and e-commerce using Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
+- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
+- [Retail and e-commerce using Azure Database for PostgreSQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
+- [Retail and e-commerce using Azure Database for MySQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
+- [Visual search in retail with Azure Cosmos DB](./visual-search-use-case-overview.yml)
+- [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-r-models.yml)
+- [SKU optimization for consumer brands](./sku-optimization-solution-guide.yml)
