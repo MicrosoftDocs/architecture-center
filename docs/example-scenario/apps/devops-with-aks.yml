@@ -20,7 +20,7 @@ metadata:
     - example-scenario
     - e2e-aks
   social_image_url: /azure/architecture/example-scenario/apps/media/ci-cd-gitops-github-actions-aks-pull.png
-name: CI/CD pipeline for container-based workloads
+name: Automate build and deployment of container apps using GitOps
 azureCategories:
   - containers
   - devops

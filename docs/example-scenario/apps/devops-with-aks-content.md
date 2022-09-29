@@ -56,13 +56,13 @@ This scenario covers a pull-based DevOps pipeline for a two-tier web application
 
 ### Alternatives
 
-- [Azure Pipelines](/azure/devops/pipelines) helps you implement a CI, test, and CD pipeline for any app.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) helps you implement a CI/DC and test pipeline for any app.
 - [Jenkins](https://jenkins.io) is an open-source automation server that can integrate with Azure services for CI/CD.
 - [Flux](https://fluxcd.io) can be utilized as the GitOps operator. It can perform the same tasks as Argo CD and works the same way with AKS.
 
 ## Scenario details
 
-In this scenario, several technologies are used to execute the automated build and deployment. The code is developed in [VS Code](https://code.visualstudio.com) and stored in a GitHub repository. GitHub Actions is used to build the app as a container, then push the container image to an Azure Container Registry. GitHub Actions is used to update the necessary Kubernetes manifest deployment file, also stored in the Git repository, while the GitOps operator Argo CD picks up the Kubernetes manifest files from there and deploys the app to the AKS cluster.
+In this scenario, several technologies are used to execute the automated build and deployment of your app. The code is developed in [VS Code](https://code.visualstudio.com) and stored in a GitHub repository. GitHub Actions is used to build the app as a container, then push the container image to an Azure Container Registry. GitHub Actions is used to update the necessary Kubernetes manifest deployment file, also stored in the Git repository, while the GitOps operator Argo CD picks up the Kubernetes manifest files from there and deploys the app to the AKS cluster.
 
 Other examples include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses CI and GitOps for CD, you can quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
@@ -80,7 +80,7 @@ Other relevant use cases include:
 
 ### CI/CD options
 
-This document showcases the use of GitOps for a modern approach to handling continuous deployment (CD) in a CI/CD pipeline. However, every organization is different. When deploying applications to Kubernetes clusters via automated delivery pipelines, it's important to understand the various ways it can be done.
+This document showcases the use of GitOps for a modern approach to handling continuous deployment in a CI/CD pipeline. However, every organization is different. When deploying applications to Kubernetes clusters through automated delivery pipelines, it's important to understand the various ways it can be done.
 
 The two most common CI/CD options for deploying an application to an AKS cluster are push-based and pull-based. The push option utilizes GitHub Actions for continuous deployment and the pull option utilizes GitOps for continuous deployment.
 
@@ -143,9 +143,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 For separation of credentials and permissions, this scenario uses a dedicated Azure Active Directory (Azure AD) service principal. The credentials for this service principal are stored as a secure credential object in GitHub, as GitHub Actions Secrets, so that they're not directly exposed and visible within scripts or the build pipeline.
 
-For general guidance on securing applications on AKS clusters, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS) documentation](/azure/aks/concepts-security).
+For general guidance on securing applications on AKS clusters, see [Security concepts for applications and clusters in AKS](/azure/aks/concepts-security).
 
-For separations of concerns, the guidance is to separate the compute that runs the business application from the CD agents (GitOps operator) by running the business application and the GitOps operator in separate namespaces on the Kubernetes cluster. For further separation of concerns, the GitOps operator can be run on a Kubernetes cluster that's dedicated to the GitOps instance separate from the production Kubernetes cluster that runs the business application.
+For separation of concerns, the guidance is to separate the compute that runs the business application from the CD agents, or GitOps operator, by running the business application and the GitOps operator in separate namespaces on the Kubernetes cluster. For further separation of concerns, the GitOps operator can be run on a Kubernetes cluster that's dedicated to the GitOps instance separate from the production Kubernetes cluster that runs the business application.
 
 > [!NOTE]
 > This article doesn't directly address how to secure a CI/CD pipeline. For information on securing a CI/CD pipeline, see [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes).
