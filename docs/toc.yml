@@ -895,6 +895,8 @@ items:
                 href: /azure/architecture/browse/?terms=retail
               - name: AI-based footfall detection
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
+                href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Buy online, pick up in store (retail)
@@ -2975,6 +2977,8 @@ items:
             items:
               - name: Analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
+                href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Apache NiFi on Azure
@@ -3144,12 +3148,18 @@ items:
                     href: guide/hpc/altair-radioss.yml
                   - name: Altair ultraFluidX
                     href: guide/hpc/ultrafluidx.yml
+                  - name: Ansys CFX
+                    href: guide/hpc/ansys-cfx.yml
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
                     href: guide/hpc/autodesk-inventor.yml
                   - name: Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: Siemens NX
+                    href: guide/hpc/siemens-nx.yml
+                  - name: Siemens Tecnomatix
+                    href: guide/hpc/siemens-tecnomatix.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3234,10 +3244,8 @@ items:
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
                 items:
-                  - name: Loosely coupled quantum computing
-                    href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
-                  - name: Tightly coupled quantum computing
-                    href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
+                  - name: Quantum computing integration with classical apps
+                    href: example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
@@ -5110,6 +5118,20 @@ items:
             href: guide/migration/migration-start-here.md
           - name: Guides
             items:
+              - name: Hadoop migration to Azure
+                items:
+                  - name: Overview
+                    href: guide/hadoop/overview.md 
+                  - name: Apache HDFS migration to Azure
+                    href: guide/hadoop/apache-hdfs-migration.yml 
+                  - name: Apache HBase migration to Azure
+                    href: guide/hadoop/apache-hbase-migration.yml 
+                  - name: Apache Kafka migration to Azure
+                    href: guide/hadoop/apache-kafka-migration.yml 
+                  - name: Apache Sqoop migration to Azure
+                    href: guide/hadoop/apache-sqoop-migration.yml 
+                  - name: Apache Storm migration to Azure
+                    href: guide/hadoop/apache-storm-migration.yml 
               - name: Migration deployments
                 items:
                   - name: Migrate Cloud Services to Service Fabric
