@@ -18,21 +18,21 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 ### Dataflow
 
-1. Patient devices generate [Fast Healthcare Interoperability Resources (FHIR®)](https://hl7.org/fhir/)-compliant health measurement/reading data. The data is then extracted from the devices using one of the available Microsoft open-source (OSS) SDKs and ingested by Azure Event Hubs.
+1. **Patient devices generate [Fast Healthcare Interoperability Resources (FHIR®)](https://hl7.org/fhir/)-compliant health measurement/reading data.** The data is then extracted from the devices using one of the available Microsoft open-source (OSS) SDKs and ingested by Azure Event Hubs.
 
-1. Life365.health remote patient monitoring devices generate FHIR-compliant health measurement/reading data. The data is transmitted to the Life365.health API for storage, then extracted and ingested by Azure Event Hubs.
+1. **Life365.health remote patient monitoring devices generate FHIR-compliant health measurement/reading data.** The data is transmitted to the Life365.health API for storage, then extracted and ingested by Azure Event Hubs.
 
-1. The Azure MedTech service pulls the device measurements from Event Hubs, transforming them into FHIR format, and passes them into the Azure FHIR service. The Azure Health Data Services workspace is a logical container for healthcare service instances, such as the FHIR and MedTech services.  
+1. **The Azure MedTech service pulls the device measurements from Event Hubs**, transforming them into FHIR format, and passes them into the Azure FHIR service. The Azure Health Data Services workspace is a logical container for healthcare service instances, such as the FHIR and MedTech services.  
 
-1. Azure Health Data Services workspace sends notification messages to events subscribers when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
+1. **Azure Health Data Services workspace sends notification messages to events subscribers** when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
 
-1. A FHIR Analytics Pipelines OSS pipeline moves FHIR data to Azure Data Lake, making it available for analytics with a variety of Azure data services. 
+1. **A FHIR Analytics Pipelines OSS pipeline moves FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. 
 
-1. Further analysis of the FHIR data in the Parquet and JSON formats is done using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
+1. **Further analysis of the FHIR data in the Parquet and JSON formats is done** using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
 
-1. SQL Views are created in the Serverless SQL pools in Azure Synapse. A SQL view is created for each FHIR resource based on the Parquet files in the Azure Data Lake. Based on these views, data engineers and developers can write native SQL in Microsoft SQL Management Studio, or any other SQL editor, to query the FHIR resources. 
+1. **SQL Views are created in the Serverless SQL pools in Azure Synapse.** A SQL view is created for each FHIR resource based on the Parquet files in the Azure Data Lake. Based on these views, data engineers and developers can write native SQL in Microsoft SQL Management Studio, or any other SQL editor, to query the FHIR resources. 
 
-1. Power BI and the Power Query connector for FHIR is used to import and shape data directly from the FHIR Service API endpoint. Power BI also offers Parquet and SQL connectors for accessing the FHIR resource directly in the Parquet format or through the SQL Views in Synapse. 
+1. **Power BI and the Power Query connector for FHIR is used to import and shape data** directly from the FHIR Service API endpoint. Power BI also offers Parquet and SQL connectors for accessing the FHIR resource directly in the Parquet format or through the SQL Views in Synapse. 
 
 ### Components
 
