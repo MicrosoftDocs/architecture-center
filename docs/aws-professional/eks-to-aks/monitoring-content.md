@@ -30,6 +30,8 @@ Like other Azure resources, AKS generates [platform metrics and resource logs](/
 
 ![Diagram showing AKS logging and monitoring.](./media/monitor-containers-architecture.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/eks-to-aks-monitoring.vsdx) of this architecture.*
+
 ### Azure Monitor
 
 AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor stores metrics and logs in a central location called a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). This data is processed and analyzed to provide insights and alerts. For more information, see [Monitor Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).

@@ -113,6 +113,8 @@ The following diagram shows how the frontend and backend applications acquire Az
 
 ![Diagram showing an example application that uses Azure AD Workload Identity.](./media/azure-ad-workload-identity.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/eks-to-aks-iam-workload-identity.vsdx) of this architecture.*
+
 1. Kubernetes issues a token to the pod when it's scheduled on a node, based on the pod or deployment spec.
 2. The pod sends the OIDC-issued token to Azure AD to request an Azure AD token for the specific `appId` and resource.
 3. Azure AD checks the trust on the application and validates the incoming token.

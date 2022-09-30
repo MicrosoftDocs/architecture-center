@@ -16,6 +16,6 @@ products:
   - azure-kubernetes-service
 name:  Kubernetes workload identity and access
 summary: Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad-workload-identity.png
 content: |
    [!include[](workload-identity-content.md)]

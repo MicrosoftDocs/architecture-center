@@ -105,7 +105,7 @@ Azure Files has the following storage account replication options to protect you
 
 To optimize costs for Azure Files, purchase [Azure Files capacity reservations](/azure/storage/files/files-reserve-capacity).
 
-### Azure5 NetApp Files
+### Azure NetApp Files
 
 Like AWS NetApp ONTAP, Azure NetApp Files is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files is fully managed in Azure using NetApp solutions. Like Azure Files, Azure NetApp Files lets multiple pods mount a volume. You can use [Astra Trident](https://docs.netapp.com/us-en/netapp-solutions/containers/rh-os-n_overview_trident.html), an open-source dynamic storage orchestrator for Kubernetes, to [configure your AKS cluster to use Azure NetApp Files](/azure/aks/azure-netapp-files).
 

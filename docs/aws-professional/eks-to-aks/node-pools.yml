@@ -16,6 +16,6 @@ products:
   - azure-virtual-machines
 name: Kubernetes node and node pool management
 summary: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-node-resource-interactions.png
 content: |
    [!include[](node-pools-content.md)]

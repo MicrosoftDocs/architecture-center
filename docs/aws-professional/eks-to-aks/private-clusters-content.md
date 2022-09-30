@@ -37,6 +37,8 @@ The following diagram illustrates a private cluster configuration.
 
 ![Diagram that shows a private AKS cluster.](./media/private-aks-cluster.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/eks-to-aks-networking-private-cluster.vsdx) of this architecture.*
+
 To provision a private AKS cluster, the AKS resource provider creates a private fully qualified domain name (FQDN) for the node resource group in a private DNS zone. Optionally, AKS can also create a public FQDN with a corresponding address (`A`) record in the Azure public DNS zone. The agent nodes use the `A` record in the private DNS zone to resolve the private endpoint IP address for communication to the API server.
 
 The AKS resource provider can create the private DNS zone in the node resource group, or you can create the private DNS zone and pass its resource ID to the provisioning system. You can create a private cluster when you use [Terraform with Azure](/azure/developer/terraform/overview), [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [ARM templates](/azure/azure-resource-manager/templates/overview), [Azure CLI](/cli/azure), [Azure PowerShell module](/powershell/azure), or [Azure REST API](/rest/api/azure/) to create the cluster.

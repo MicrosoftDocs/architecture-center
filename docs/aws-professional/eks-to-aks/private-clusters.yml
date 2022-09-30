@@ -19,6 +19,6 @@ products:
   - azure-virtual-network
 name: Secure network access to Kubernetes
 summary: Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+thumbnailUrl: /azure/architecture/browse/thumbs/private-aks-cluster.png
 content: |
    [!include[](private-clusters-content.md)]

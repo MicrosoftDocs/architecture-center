@@ -17,6 +17,6 @@ products:
   - azure-monitor
 name: Kubernetes monitoring and logging
 summary: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-containers-architecture.png
 content: |
    [!include[](monitoring-content.md)]
