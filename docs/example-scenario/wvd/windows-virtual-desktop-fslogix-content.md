@@ -45,9 +45,9 @@ Be aware of the following limitations of a multiple connection deployment:
 
 In terms of overall profile size, limitations or quotas for FSLogix depend on the storage type used for the user profile VHDx files, as well as the size limitations of the VHD/VHDx format.
 
-For network bandwidth, depending on the type of utilization it is recommended to plan between 5 and 30 MbPS per user.
+Providing a good user experience requires sufficient network bandwith to scale based on the number of users. This requirement will vary widely based on typical user activity, so you'll need to perform load testing to ensure you have enough bandwidth to support peak concurrent utilization. Latency is also a factor in user experience, as such locating storage as close to the consuming compute nodes as possible is generally recommended.
 
-Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
+Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example of a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
 
 |Resource              |Requirement|
 |----------------------|-----------|
@@ -67,6 +67,7 @@ The following are general best practices for FSLogix profile containers.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data-center location.
 - Exclude the VHD(X) files for profile containers from antivirus scanning, to avoid performance bottlenecks.
 - We recommend using a separate profile container per host pool, while having two active sessions.
+- [Using Cloud Cache](#using-cloud-cache), does not negate the dilligance necessary in planning & testing connectity requirements for bandwidth and latency to your storage solution.
 
 ### Azure Files best practices
 
