@@ -1,8 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution is built on the Azure managed services: [Blob Storage](https://azure.microsoft.com/services/storage/blobs), [Content Delivery Network](https://azure.microsoft.com/services/cdn), and [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
-To get started with Azure Media Services, visit the [Azure Media Services](/azure/media-services/latest/media-services-overview) documentation where you will find quickstart, tutorial, and samples. 
+This solution is built on the Azure managed services: [Blob Storage](https://azure.microsoft.com/services/storage/blobs), [Content Delivery Network](https://azure.microsoft.com/services/cdn), and [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player) from [Azure Media Services](/azure/media-services/latest/media-services-overview). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -15,7 +13,7 @@ To get started with Azure Media Services, visit the [Azure Media Services](/azur
 * [Azure Media Services Encoder](/azure/media-services/latest/encode-concept): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
 * [Azure Media Services Streaming Endpoint](/azure/media-services/latest/encode-dynamic-packaging-concept): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
-* [Azure Media Player](/azure/media-services/azure-media-player/azure-media-player-overview): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
+* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs. Also, see the [Azure Media Player documentation](/azure/media-services/azure-media-player/azure-media-player-overview).
 * [Multi-DRM content protection](/azure/media-services/latest/drm-content-protection-concept): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES Clear Key encryption
 
 ## Scenario details
@@ -39,10 +37,17 @@ This solution applies to television, movie, and various online streaming service
 
 ## Next steps
 
-* [Azure Media Services overview](/azure/media-services)
+* To get started with Azure Media Services, visit the [Azure Media Services](/azure/media-services/latest/media-services-overview) documentation where you will find quickstarts, tutorials, and samples. 
+* [Azure Media Player overview](/azure/media-services/azure-media-player/azure-media-player-overview)
 * [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [How to encode an asset using Media Encoder](/azure/media-services/latest/stream-files-tutorial-with-api)
 * [How to manage streaming endpoints](/azure/media-services/latest/stream-streaming-endpoint-concept)
 * [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
 * [Playing your content with existing players](https://github.com/Azure-Samples/media-services-3rdparty-player-samples)
 * [Deliver content securely](/azure/media-services/latest/drm-content-protection-concept)
+
+## Related resources
+
+* [Live stream digital media](/azure/architecture/solution-ideas/articles/digital-media-live-stream)
+* [Gridwich cloud media system](/azure/architecture/reference-architectures/media-services/gridwich-architecture)
+* [Instant broadcasting with serverless code](/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture)
