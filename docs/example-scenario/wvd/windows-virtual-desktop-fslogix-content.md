@@ -45,9 +45,9 @@ Be aware of the following limitations of a multiple connection deployment:
 
 In terms of overall profile size, limitations or quotas for FSLogix depend on the storage type used for the user profile VHDx files, as well as the size limitations of the VHD/VHDx format.
 
-Providing a good user experience requires sufficient network bandwith to scale based on the number of users. This requirement will vary widely based on typical user activity, so you'll need to perform load testing to ensure you have enough bandwidth to support peak concurrent utilization. Latency is also a factor in user experience, as such locating storage as close to the consuming compute nodes as possible is generally recommended.
+Providing a good user experience requires sufficient network bandwith to scale based on the number of users. This requirement will vary widely based on typical user activity, so you'll need to perform load testing to ensure you have enough bandwidth to support peak concurrent utilization. Latency is also a factor in user experience, as such locating storage as close to the session hosts as possible is recommended.
 
-Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example of a single user. Use this to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time creating a *login storm*.
+Additionally, the following table gives an example of how many resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile, so your actual usage may vary significantly from what is listed here. The table uses an example of a single user. Use data points like these to estimate requirements for the total number of users in your environment. For example, you may need around 1,000 IOPS (input/output operations per second) for 100 users, and around 5,000 IOPS during sign-in and sign-out, if a large number of users login during a short period of time, creating a *login storm*.
 
 |Resource              |Requirement|
 |----------------------|-----------|
@@ -58,7 +58,7 @@ Additionally, the following table gives an example of how many resources an FSLo
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Azure Virtual Desktop FSLogix user profile containers.
 
-[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported in conjunction with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
+[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
 
 ## Best practices
 
@@ -67,7 +67,7 @@ The following are general best practices for FSLogix profile containers.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data-center location.
 - Exclude the VHD(X) files for profile containers from antivirus scanning, to avoid performance bottlenecks.
 - We recommend using a separate profile container per host pool, while having two active sessions.
-- [Using Cloud Cache](#using-cloud-cache), does not negate the dilligance necessary in planning & testing connectity requirements for bandwidth and latency to your storage solution.
+- [Using Cloud Cache](#using-cloud-cache), doesn't negate the diligence necessary in planning & testing connectivity requirements for bandwidth and latency to your storage solution.
 
 ### Azure Files best practices
 
@@ -76,7 +76,7 @@ The following list describes some important things to keep in mind when using Az
 - Azure Files storage account name cannot be larger than 15 characters.
 - Azure Files permissions should match permissions described in [Requirements - Profile Containers](/fslogix/fslogix-storage-config-ht).
 - The storage account containing the master image must be in the same region and subscription as the virtual machines (VMs) being provisioned.
-- Private link for Azure storage could be used to enable a more secure data access as well as to improve the network latency from your session hosts to your storage account. This is also beneficial in hybrid scenarios with ExpressRoute connectivity.
+- Private link for Azure storage could be used to enable a more secure data access and to improve the network latency from your session hosts to your storage account. This is also beneficial in hybrid scenarios with ExpressRoute connectivity.
 - You can pre-provision space to your Azure Files Premium share to accommodate more IOPs for your users proactively. This allows you to use more IOPs during the initial user-logins.
 - Azure Files Premium tier has a built-in bursting mechanism that gives you thrice more IOPs for the first 60 minutes of a session.
 - Azure Files sync can be used to replicate existing profile containers into Azure Files easily.
@@ -207,11 +207,11 @@ You can use this PowerShell script to add the exclusions for Microsoft Defender 
 
 ## Using Cloud Cache
 
-[Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In case of a provider failure, Cloud Cache provides business continuity.
+[Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In there was a provider failure, Cloud Cache provides business continuity.
 
-Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It is critical that the storage used for this file be high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
+Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It's critical that the storage used for this file be high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
 
-Cloud Cache is only one of many options that may be considered for business continuity when using profile containers. Cloud Cache provides real-time duplication of the user profile that will actively fail-over if connectivity to a Cloud Cache provider is lost.
+Cloud Cache is only one of many options that may be considered for business continuity when using profile containers. Cloud Cache provides real-time duplication of the user profile that will actively fail over if connectivity to a Cloud Cache provider is lost.
 
 There are a number of considerations when implementing Cloud Cache. It should:
 
@@ -231,7 +231,7 @@ In an enterprise architecture, it is common to make user profiles resilient. To 
 
 - The first step to create an efficient FSLogix profile solution is the use of [OneDrive folder backup](/onedrive/redirect-known-folders) to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users' documents.
 
-- In order to reduce the amount of data needing to be independently replicated, archived, and restored, you should also split out the Office cache data into the O365 disk. This is because the cache data often comprises the vast majority of the profile data capacity that is used. Because the O365 disk only contains cache data (the source for which is safely stored in the cloud), you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
+- In order to reduce the amount of data needing to be independently replicated, archived, and restored, you should also split out the Office cache data into the Microsoft 365 disk. This is because the cache data often comprises the vast majority of the profile data capacity that is used. Because the Microsoft 365 disk only contains cache data (the source for which is safely stored in the cloud), you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 
 - Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundant Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
 
@@ -247,7 +247,7 @@ Azure Files Premium tier integrates with Azure Backup and is supported in conjun
 
 As explained earlier in this article, FSLogix Profile Container works with virtual disks. The virtual hard disks are in the VHD or VHDx file format; both are supported with this tool. By default, the disks created will be in a *Dynamically Expanding* format rather than *Fixed* format. This could result in situations where the size of the disk is higher than the actual files inside the virtual disk. So it's common to do maintenance after shrinking the virtual hard disks on a schedule, for example, on a monthly basis. This can be possible with a script that can decrease the amount of your profiles. This script can be designed to work at an enterprise scale, to reduce the size of thousands of disks in the shortest time possible. It can be run from any machine in your environment. It does not need to be run from a file server hosting the disks. It does not need the Hyper-V role installed.
 
-This tool is multi-threaded and will take advantage of multiple CPU cores on the machine from which you run the script. It is not advised to run more than twice the number of threads of the available cores on your machine. You could also use the number of threads to throttle the load on your storage.
+This tool is multi-threaded and will take advantage of multiple CPU cores on the machine from which you run the script. It is not advised running more than twice the number of threads of the available cores on your machine. You could also use the number of threads to throttle the load on your storage.
 
 Download the tool [here](https://github.com/FSLogix/Invoke-FslShrinkDisk).
 
