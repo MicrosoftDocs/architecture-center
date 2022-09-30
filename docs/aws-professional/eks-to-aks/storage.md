@@ -148,7 +148,7 @@ Different services support storage classes that have different access modes.
 | Service      | ReadWriteOnce | ReadOnlyMany | ReadWriteMany |
 |--------------------|---------------|--------------|---------------|
 | Azure Disks        |      X        |              |               |
-| Azure File         |      X        |      X       |       X       |
+| Azure Files         |      X        |      X       |       X       |
 | Azure NetApp Files |      X        |       X      |       X       |
 | NFS server         |      X        |       X      |       X       |
 | Azure HPC Cache    |      X        |       X      |       X       |
@@ -164,6 +164,15 @@ Choose a tool to back up persistent data. The tool should match your storage typ
 ### Cost optimization
 
 To optimize Azure Storage costs, use Azure Reservations. Make sure to [check which services support Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Also see [Cost management for a Kubernetes cluster](cost-management.yml).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
 
 ## Next steps
 

@@ -377,6 +377,15 @@ Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP address
 
 - Both *Network Policy* and *Calico* Kubernetes network policies work with dynamic IP allocation.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)

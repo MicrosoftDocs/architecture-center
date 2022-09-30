@@ -45,6 +45,15 @@ The following articles compare Azure and AWS core platform components and capabi
 - [Multicloud security and identity with Azure and AWS](../security-identity.md)
 - [Compare storage on Azure and AWS](../storage.md)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
 ## Next steps
 
 - [Kubernetes identity and access management](workload-identity.yml)

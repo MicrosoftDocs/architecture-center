@@ -219,6 +219,15 @@ Cost governance is the process of continuously implementing policies or controls
 
 - Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)

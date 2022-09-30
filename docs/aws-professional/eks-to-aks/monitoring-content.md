@@ -76,6 +76,15 @@ The Azure Monitor pricing model is primarily based on the amount of data that's 
 
 Before enabling Container Insights, estimate costs and understand how to control data ingestion and its costs. For detailed guidance, see [Estimating costs to monitor your AKS cluster](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)

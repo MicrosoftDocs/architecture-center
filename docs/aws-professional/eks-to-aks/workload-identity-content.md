@@ -127,6 +127,15 @@ To use Azure AD Workload Identity end-to-end in a Kubernetes cluster:
 1. Azure AD Workload Identity exchanges the Kubernetes tokens for Azure AD tokens.
 1. AKS cluster workloads use the Azure AD tokens to access protected resources such as Microsoft Graph.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
