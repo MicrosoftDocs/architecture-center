@@ -83,6 +83,9 @@ items:
               - name: Container options
                 href: /azure/container-apps/compare-options
                 maintainContext: true
+              - name: Containers for confidential computing
+                href: /azure/confidential-computing/choose-confidential-containers-offerings
+                maintainContext: true
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
@@ -106,6 +109,17 @@ items:
               - name: Choose drives for Azure Stack HCI
                 href: /azure-stack/hci/concepts/choose-drives
                 maintainContext: true
+              - name: FSLogix in Azure Virtual Desktop
+                href: /azure/virtual-desktop/store-fslogix-profile
+                maintainContext: true
+          - name: Choose a security option
+            items:
+              - name: Deployment models
+                href: /azure/confidential-computing/confidential-computing-deployment-models
+                maintainContext: true
+              - name: Containers for confidential computing
+                href: /azure/confidential-computing/choose-confidential-containers-offerings
+                maintainContext: true
           - name: Choose an identity service
             items:
               - name: Active Directory services
@@ -122,9 +136,26 @@ items:
               - name: Managed disk types
                 href: /azure/virtual-machines/disks-types
                 maintainContext: true
-              - name: Data transfer solutions
-                href: /azure/storage/common/storage-choose-data-transfer-solution
-                maintainContext: true
+              - name: Data transfer
+                items:
+                  - name: Data transfer solutions
+                    href: /azure/storage/common/storage-choose-data-transfer-solution
+                    maintainContext: true
+                  - name: Compare data transfer options
+                    href: /azure/storsimple/storsimple-8000-choose-storage-solution
+                    maintainContext: true
+                  - name: Large datasets, low bandwidth
+                    href: /azure/storage/common/storage-solution-large-dataset-low-network
+                    maintainContext: true
+                  - name: Large datasets, moderate bandwidth
+                    href: /azure/storage/common/storage-solution-large-dataset-moderate-high-network
+                    maintainContext: true
+                  - name: Small datasets, low bandwidth
+                    href: /azure/storage/common/storage-solution-small-dataset-low-moderate-network
+                    maintainContext: true
+                  - name: Periodic data transfer
+                    href: /azure/storage/common/storage-solution-periodic-data-transfer
+                    maintainContext: true
           - name: Choose a data store
             items:
               - name: Understand data store models
@@ -147,12 +178,21 @@ items:
                     href: data-guide/scenarios/data-lake.md
                   - name: Non-relational data store
                     href: data-guide/big-data/non-relational-data.yml
+                  - name: Compare NoSQL and relational
+                    href: /azure/cosmos-db/relational-nosql
+                    maintainContext: true
                   - name: Pipeline orchestration
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Search data store
                     href: data-guide/technology-choices/search-options.md
-                  - name: Data transfer options
+                  - name: PostgreSQL options
+                    href: /azure/postgresql/single-server/overview-postgres-choose-server-options
+                    maintainContext: true
+                  - name: Database transfer options
                     href: data-guide/scenarios/data-transfer.md
+                  - name: Choose an API in Cosmos DB
+                    href: /azure/cosmos-db/choose-api
+                    maintainContext: true
           - name: Choose an analytics solution
             items:
               - name: Analytical data stores
@@ -163,6 +203,9 @@ items:
                 href: data-guide/technology-choices/batch-processing.md
               - name: Stream processing
                 href: data-guide/technology-choices/stream-processing.md
+              - name: Streaming analytics
+                href: /azure/stream-analytics/streaming-technologies
+                maintainContext: true
           - name: Choose an AI/ML service
             items:
               - name: Cognitive services
@@ -198,12 +241,17 @@ items:
               - name: Compare IoT Hub and Event Hubs
                 href: /azure/iot-hub/iot-hub-compare-event-hubs
                 maintainContext: true
-          - name: Choose a mobile development framework
-            href: /azure/developer/mobile-apps/choose-mobile-framework
+          - name: Choose a command-line tool
+            href: /cli/azure/choose-the-right-azure-command-line-tool
             maintainContext: true
-          - name: Choose a mixed reality engine
-            href: /windows/mixed-reality/develop/choosing-an-engine
-            maintainContext: true
+          - name: Development tools
+            items:
+              - name: Choose a mobile development framework
+                href: /azure/developer/mobile-apps/choose-mobile-framework
+                maintainContext: true
+              - name: Choose a mixed reality engine
+                href: /windows/mixed-reality/develop/choosing-an-engine
+                maintainContext: true
       - name: Best practices for cloud applications
         items:
           - name: Overview
@@ -324,7 +372,7 @@ items:
         items:
             - name: Mission-critical baseline architecture
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-            - name: Mission-critical baseline architecture with network controls
+            - name: Mission-critical with network controls
               href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Design areas
               items:
@@ -346,7 +394,7 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
             - name: Guides
               items:
-                - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
+                - name: Continuous validation
                   href: guide/testing/mission-critical-deployment-testing.md
       - name: Multitenant applications
         items:
@@ -494,7 +542,7 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage Microsoft 365 tenants with DevOps
+              - name: Manage M365 tenants with DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
@@ -559,12 +607,12 @@ items:
                   - name: Authenticate runbooks with AWS
                     href: /azure/automation/automation-config-aws-account
                     maintainContext: true
-                  - name: Deploy an AWS VM with Automation runbook
+                  - name: Deploy an AWS VM with a runbook
                     href: /azure/automation/automation-scenario-aws-deployment
                     maintainContext: true
               - name: Cost management for AWS
                 items:
-                  - name: Set up AWS for Azure Cost Management
+                  - name: Set up AWS for Cost Management
                     href: /azure/cost-management-billing/costs/aws-integration-set-up-configure
                     maintainContext: true
                   - name: Manage AWS costs in Azure
@@ -3142,6 +3190,10 @@ items:
                     href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
+                  - name: Siemens NX
+                    href: guide/hpc/siemens-nx.yml
+                  - name: Siemens Tecnomatix
+                    href: guide/hpc/siemens-tecnomatix.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -5100,6 +5152,20 @@ items:
             href: guide/migration/migration-start-here.md
           - name: Guides
             items:
+              - name: Hadoop migration to Azure
+                items:
+                  - name: Overview
+                    href: guide/hadoop/overview.md 
+                  - name: Apache HDFS migration to Azure
+                    href: guide/hadoop/apache-hdfs-migration.yml 
+                  - name: Apache HBase migration to Azure
+                    href: guide/hadoop/apache-hbase-migration.yml 
+                  - name: Apache Kafka migration to Azure
+                    href: guide/hadoop/apache-kafka-migration.yml 
+                  - name: Apache Sqoop migration to Azure
+                    href: guide/hadoop/apache-sqoop-migration.yml 
+                  - name: Apache Storm migration to Azure
+                    href: guide/hadoop/apache-storm-migration.yml 
               - name: Migration deployments
                 items:
                   - name: Migrate Cloud Services to Service Fabric
