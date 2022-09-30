@@ -9,7 +9,7 @@ Like any Kubernetes service, EKS has two major components, the control plane and
 
 ### Amazon EKS control plane and cluster monitoring
 
-Amazon EKS integrates with [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to provide logging and monitoring for the Amazon EKS control plane. This integration isn't enabled by default, but when configured it gathers logs on:
+Amazon EKS integrates with [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to provide logging and monitoring for the Amazon EKS control plane. This integration isn't enabled by default, but when configured, it gathers logs on:
 
 - API server and API calls.
 - Audit logs and user interactions.
@@ -52,11 +52,11 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 
 - **Managed AKS components:** You can use Metrics Explorer to view the **Inflight Requests** counter. This view includes request latency and work queue processing time.
 
-- **Kubernetes objects and workloads:** You can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods running on nodes and controllers, and their resource consumption in terms of CPU and memory.
+- **Kubernetes objects and workloads:** You can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods that are running on nodes and controllers, and their resource consumption in terms of CPU and memory.
 
   From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
 
-- **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
+- **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that are running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
 - **External components**: You can monitor external components like service mesh, ingress, and egress with Prometheus and Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
 
@@ -72,7 +72,7 @@ You can set up third-party monitoring solutions like Grafana or Prometheus in yo
 
 ### AKS monitoring costs
 
-The Azure Monitor pricing model is primarily based on the amount of data that is ingested per day into your Log Analytics workspace. The cost varies by the plan and retention periods you select.
+The Azure Monitor pricing model is primarily based on the amount of data that's ingested per day into your Log Analytics workspace. The cost varies by the plan and retention periods you select.
 
 Before enabling Container Insights, estimate costs and understand how to control data ingestion and its costs. For detailed guidance, see [Estimating costs to monitor your AKS cluster](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
 

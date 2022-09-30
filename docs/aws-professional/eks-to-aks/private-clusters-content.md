@@ -1,4 +1,4 @@
-This article compares networking modes for Azure Kubernetes Service (AKS) with Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to establish a secure connection to the managed API server of an AKS cluster, and the different options to restrict public network access.
+This article compares networking modes for Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to improve connection security to the managed API server of an AKS cluster, and the different options to restrict public network access.
 
 > [!NOTE]
 > This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
@@ -7,7 +7,7 @@ This article compares networking modes for Azure Kubernetes Service (AKS) with A
 
 With [Amazon Virtual Private Cloud (Amazon VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html), you can launch Amazon Web Services (AWS) resources into a virtual network composed of public and private [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html), or ranges of IP addresses in the VPC. A public subnet hosts resources that must be connected to the internet, and a private subnet hosts resources that aren't connected to the public internet. Amazon EKS can provision managed node groups in both public and private subnets.
 
-Endpoint access control lets you configure whether the API Server endpoint is reachable from the public internet or through the VPC. EKS provides two ways to [control access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the default public endpoint, private endpoint, or both endpoints simultaneously. When you enable the public endpoint, you can add Classless Inter-Domain Routing (CIDR) restrictions to limit the client IP addresses that can connect to the public endpoint.
+Endpoint access control lets you configure whether the API Server endpoint is reachable from the public internet or through the VPC. EKS provides several ways to [control access to the cluster endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html). You can enable the default public endpoint, a private endpoint, or both endpoints simultaneously. When you enable the public endpoint, you can add Classless Inter-Domain Routing (CIDR) restrictions to limit the client IP addresses that can connect to the public endpoint.
 
 How Amazon EKS nodes connect to the managed Kubernetes control plane is determined by which endpoint setting is configured for the cluster. You can change the endpoint settings anytime through the Amazon EKS console or the API. For more information, see [Amazon EKS cluster endpoint access control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html).
 
@@ -31,15 +31,15 @@ There are two options to secure network access to the Kubernetes API in AKS, a p
 
 ### Private AKS cluster
 
-An [AKS private cluster](/azure/aks/private-clusters) ensures that network traffic between the API server and the node pools remains within the virtual network. In a private AKS cluster, the control plane or API server has an internal IP address that's only accessible via an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) located in the same virtual network. Any virtual machine (VM) in the same virtual network can privately communicate with the control plane via the private endpoint. The control plane or API server is hosted in the Azure-managed subscription, while the AKS cluster and its node pools are in the customer's subscription.
+An [AKS private cluster](/azure/aks/private-clusters) ensures that network traffic between the API server and the node pools remains within the virtual network. In a private AKS cluster, the control plane or API server has an internal IP address that's only accessible via an Azure [private endpoint](/azure/private-link/private-endpoint-overview) located in the same virtual network. Any virtual machine (VM) in the same virtual network can privately communicate with the control plane via the private endpoint. The control plane or API server is hosted in the Azure-managed subscription, while the AKS cluster and its node pools are in the customer's subscription.
 
 The following diagram illustrates a private cluster configuration.
 
 ![Diagram that shows a private AKS cluster.](./media/private-aks-cluster.png)
 
-To provision a private AKS cluster, the AKS resource provider creates a private fully qualified domain name (FQDN) for the node resource group in a private DNS zone, and can create another public FQDN with a corresponding address (`A`) record in the Azure public DNS zone. The agent nodes use the `A` record in the private DNS zone to resolve the private endpoint IP address for communication to the API server.
+To provision a private AKS cluster, the AKS resource provider creates a private fully qualified domain name (FQDN) for the node resource group in a private DNS zone. Optionally, AKS can also create a public FQDN with a corresponding address (`A`) record in the Azure public DNS zone. The agent nodes use the `A` record in the private DNS zone to resolve the private endpoint IP address for communication to the API server.
 
-The AKS resource provider can create the private DNS zone in the node resource group, or you can create the private DNS zone and pass its resource ID to the provisioning system. You can create a private cluster whether you use [Terraform with Azure](/azure/developer/terraform/overview), [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [ARM templates](/azure/azure-resource-manager/templates/overview), [Azure CLI](/cli/azure), [Azure PowerShell module](/powershell/azure), or [Azure REST API](/rest/api/azure/) to create the cluster.
+The AKS resource provider can create the private DNS zone in the node resource group, or you can create the private DNS zone and pass its resource ID to the provisioning system. You can create a private cluster when you use [Terraform with Azure](/azure/developer/terraform/overview), [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [ARM templates](/azure/azure-resource-manager/templates/overview), [Azure CLI](/cli/azure), [Azure PowerShell module](/powershell/azure), or [Azure REST API](/rest/api/azure/) to create the cluster.
 
 You can enable a public FQDN for the API server during provisioning or by using the [az aks update](/cli/azure/aks#az-aks-update) command with the ` --enable-public-fqdn` parameter on existing clusters. If you enable the public FQDN, any VM that accesses the server, such as an Azure DevOps self-hosted agent or a GitHub Actions self-hosted runner, must be in the same virtual network that hosts the cluster, or in a network connected via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) or [site-to-site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -53,7 +53,7 @@ The AKS resource provider exposes the following parameters to customize private 
 - `disableRunCommand` (boolean) specifies whether or not to disable the `run` command for the cluster.
 - `enablePrivateCluster` (boolean) specifies whether or not to create the cluster as private.
 - `enablePrivateClusterPublicFQDN` (boolean) specifies whether or not to create another, public FQDN for the private cluster.
-- `privateDnsZone` (string) without a specified value creates a private DNS zone in the node resource group. You can specify the following values:
+- `privateDnsZone` (string) specifies a private DNS zone in the node resource group. If you don't specify a value, the resource provider creates the zone. You can specify the following values:
   - `System` is the default value.
   - `None` defaults to public DNS, so AKS doesn't create a private DNS zone.
   - `<Your own private DNS zone resource ID>` uses a private DNS zone you create in the format `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io.`
@@ -74,15 +74,15 @@ There are several options for establishing network connectivity to the private c
 
 - Use VMs in a separate virtual network and set up [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) with the AKS cluster virtual network.
 
-- Use an [Azure Express Route or VPN](/azure/expressroute/expressroute-about-virtual-network-gateways) connection.
+- Use an [Azure ExpressRoute or VPN](/azure/expressroute/expressroute-about-virtual-network-gateways) connection.
 
 - Use the Azure CLI command [az aks command invoke](/azure/aks/command-invoke) to run `kubectl` and `helm` commands on the private cluster without directly connecting to the cluster.
 
 - Use an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) connection.
 
-You can manage a private AKS cluster by using the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool from a management VM in the same or a peered virtual network.
+You can manage a private AKS cluster by using the [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) command-line tool from a management VM in the same virtual network or a peered virtual network.
 
-You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same or a peered virtual network to connect to a jumpbox management VM. Azure Bastion is a fully managed platform as a service (PaaS) that lets you connect to a VM by using your browser and the Azure portal. Azure Bastion provides secure and seamless remote desktop protocol (RDP) or secure shell (SSH) VM connectivity over transport layer security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
+You can use [Azure Bastion](/azure/bastion/bastion-overview) in the same virtual network or a peered virtual network to connect to a jumpbox management VM. Azure Bastion is a fully managed platform as a service (PaaS) that lets you connect to a VM by using your browser and the Azure portal. Azure Bastion provides secure and seamless remote desktop protocol (RDP) or secure shell (SSH) VM connectivity over transport layer security (TLS) directly from the Azure portal. When VMs connect via Azure Bastion, they don't need a public IP address, agent, or special client software.
 
 You can also use [az aks command invoke](/cli/azure/aks/command?view=azure-cli-latest#az-aks-command-invoke) to run `kubectl` or `helm` commands on your private AKS cluster without having to connect to a jumpbox VM.
 

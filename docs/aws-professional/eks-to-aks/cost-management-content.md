@@ -7,11 +7,11 @@ This guide explains how pricing and cost management work in Azure Kubernetes Ser
 
 In [Amazon EKS](https://aws.amazon.com/eks/pricing), you pay a fixed price per hour for each Amazon EKS cluster. You also pay for the networking, operations tools, and storage that the cluster uses.
 
-Amazon EKS worker nodes are standard Amazon EC2 instances, so they incur regular Amazon EC2 prices. You also pay for other Amazon Web Services (AWS) resources you provision to run your Kubernetes worker nodes.
+Amazon EKS worker nodes are standard Amazon EC2 instances, so they incur regular Amazon EC2 prices. You also pay for other Amazon Web Services (AWS) resources that you provision to run your Kubernetes worker nodes.
 
 There are no extra costs to use Amazon EKS [managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html). You pay only for the AWS resources you provision, including Amazon EC2 instances, Amazon EBS volumes, Amazon EKS cluster hours, and any other AWS infrastructure.
 
-When creating a managed node group, you can choose to use the [On-Demand or the Spot capacity type](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) to manage the cost of agent nodes. Amazon EKS deploys a managed node group with an [Amazon EC2 Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) that contains either all On-Demand or all Spot Instances.
+When creating a managed node group, you can choose to use the [On-Demand or Spot Instances capacity type](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) to manage the cost of agent nodes. Amazon EKS deploys a managed node group with an [Amazon EC2 Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html) that contains either all On-Demand or all Spot Instances.
 
 With On-Demand Instances, you pay for compute capacity by the second, with no long-term commitments. Amazon EC2 Spot Instances are spare Amazon EC2 capacity that offers discounts compared to On-Demand prices.
 
@@ -37,9 +37,9 @@ The following diagram shows the relationship between the control plane and nodes
 
 Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS free tier, the control plane is free.
 
-For a higher control plane service-level agreement (SLA), you can create an AKS cluster with the [Uptime SLA](/azure/aks/uptime-sla). Uptime SLA is a paid feature that you enable per cluster. Uptime SLA pricing is determined by the number of clusters, not by cluster size.
+For a higher control plane service-level agreement (SLA), you can create an AKS cluster with [Uptime SLA](/azure/aks/uptime-sla). Uptime SLA is a paid feature that you enable per cluster. Uptime SLA pricing is determined by the number of clusters, not by cluster size.
 
-Uptime SLA clusters have more control plane resources and automatically scale to meet cluster load. AKS uses master node replicas across update and fault domains to meet availability requirements. Uptime SLA guarantees 99.95% Kubernetes API server endpoint availability for clusters that use Availability Zones, and 99.9% availability for clusters that don't use Availability Zones. AKS REST APIs regard Uptime SLA clusters as a Paid tier.
+Uptime SLA clusters have more control plane resources and automatically scale to meet cluster load. AKS uses master node replicas across update and fault domains to meet availability requirements. AKS REST APIs regard Uptime SLA clusters as a Paid tier.
 
 It's best to use Uptime SLA in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources, and aren't suitable for production workloads.
 
@@ -59,27 +59,27 @@ Each AKS deployment spans two Azure resource groups.
 
 - You create the first resource group, which contains only the Kubernetes service resource and has no costs associated with it.
 
-- The AKS resource provider automatically creates the second, node resource group during deployment. The default name for this resource group is `MC_<resourcegroupname>_<clustername>_<location>`, but you can specify another name. For more information, see [Provide my own name for the AKS node resource group](/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group).
+- The AKS resource provider automatically creates the second or node resource group during deployment. The default name for this resource group is `MC_<resourcegroupname>_<clustername>_<location>`, but you can specify another name. For more information, see [Provide my own name for the AKS node resource group](/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group).
 
-  The node resource group contains all the cluster infrastructure resources and is the one that shows charges to your subscription. The resources include the Kubernetes node VMs, virtual networking, storage, and other costs. AKS automatically deletes the node resource group when the cluster is deleted, so you should use it only for resources that share the cluster's lifecycle.
+  The node resource group contains all the cluster infrastructure resources and is the one that shows charges to your subscription. The resources include the Kubernetes node VMs, virtual networking, storage, and other services. AKS automatically deletes the node resource group when the cluster is deleted, so you should use it only for resources that share the cluster's lifecycle.
 
 ## Compute costs
 
-Azure VMs charge according to their size and usage. For information about how Azure compute compares to AWS, see [Compute services on Azure and AWS](../compute.md).
+You pay for Azure VMs according to their size and usage. For information about how Azure compute compares to AWS, see [Compute services on Azure and AWS](../compute.md).
 
 Generally, the bigger the VM size you select for a node pool, the higher the hourly cost for the agent nodes. The more specialized the VM series you use for the node pool, for example graphics processing unit (GPU)-enabled or memory-optimized, the more expensive the pool.
 
 When investigating Azure VM pricing, be aware of the following points:
 
-- Pricing differs per region. For example, a VM in East US might be cheaper than in West Europe. Not all services and VM sizes are available in each region.
+- Pricing differs per region, and not all services and VM sizes are available in every region.
 
 - There are multiple VM families, optimized for different types of workloads.
 
-- Managed disks used as OS drives are charged separately, and you must add their cost to cost estimations. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra SSDs. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free, and are included in the VM price.
+- Managed disks used as OS drives are charged separately, and you must add their cost to your estimates. Managed disk size depends on the class, such as Standard HDDs, Standard SSDs, Premium SSDs, or Ultra SSDs. Input-output operations per second (IOPS) and throughput in MB/sec depend on size and class. [Ephemeral OS disks](node-pools.yml#ephemeral-os-disks) are free and are included in the VM price.
 
 - Data disks, including those created with persistent volume claims, are optional and are charged individually based on their class, such as Standard HDDs, Standard SSDs, Premium SSDs, and Ultra SSDs. You must explicitly add data disks to cost estimations. The number of allowed data disks, temporary storage SSDs, IOPS, and throughput in MB/sec depend on VM size and class.
 
-- The more time agent nodes are up and running, the higher the total cluster cost. Development environments don't usually need to run 24/7.
+- The more time that agent nodes are up and running, the higher the total cluster cost. Development environments don't usually need to run continuously.
 
 - Network interfaces (NICs) are free.
 
@@ -91,7 +91,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 - [Azure Disks](/azure/aks/azure-disk-csi) creates Kubernetes data disk resources. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. Most production and development workloads use Premium Storage. Azure disks are mounted as `ReadWriteOnce`, which makes them available to only one AKS node. For storage volumes that multiple pods can access simultaneously, use Azure Files. For cost information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-- [Azure Files](/azure/aks/azure-files-csi) mounts server messaging block (SMB) 3.0/3.1 file shares backed by an Azure Storage account to AKS pods. You can share data across multiple nodes and pods. Azure Files can use Standard storage backed by regular HDDs, or Premium storage backed by high-performance SSDs. Azure Files uses an Azure Storage account, and charges based on the following factors:
+- [Azure Files](/azure/aks/azure-files-csi) mounts server messaging block (SMB) 3.0/3.1 file shares backed by an Azure Storage account to AKS pods. You can share data across multiple nodes and pods. Azure Files can use Standard storage backed by regular HDDs, or Premium storage backed by high-performance SSDs. Azure Files uses an Azure Storage account, and accrues charges based on the following factors:
 
   - Service: Blob, File, Queue, Table or unmanaged disks
   - Storage account type: GPv1, GPv2, Blob, or Premium Blob
@@ -100,7 +100,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
   - Operations and data transfers
   - Used capacity in GB
 
-- [Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) is available in several SKU tiers and requires a minimum provisioned capacity of 4 TiB, with 1 TiB increments. Azure NetApp Files charges based on the following factors:
+- [Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) is available in several SKU tiers and requires a minimum provisioned capacity of 4 TiB, with 1 TiB increments. Azure NetApp Files charges are based on the following factors:
 
   - SKU
   - Resiliency: LRS, ZRS, or GRS
@@ -112,12 +112,12 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
 Several Azure networking services can provide access to your applications that run in AKS:
 
-- [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer). By default, Load Balancer uses Standard SKU. Load Balancer charges based on:
+- [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer). By default, Load Balancer uses Standard SKU. Load Balancer charges are based on:
 
-  - Rules: Number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
-  - Data processed: Amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
+  - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
+  - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -137,7 +137,7 @@ There are multiple options for scaling an AKS cluster to add extra capacity to n
 
 - AKS supports running containers on [Azure Container Instances](https://azure.microsoft.com/products/container-instances) by using the [virtual kubelet](https://github.com/virtual-kubelet/virtual-kubelet) implementation. An AKS virtual node provisions Container Instances pods that start in seconds, letting AKS run with just enough capacity for an average workload. As the AKS cluster runs out of capacity, you can scale out more Container Instances pods without managing any additional servers. You can combine this approach with the cluster autoscaler and manual scaling.
 
-If you use on demand or the cluster autoscaler, account for the added VMs. Container Instances charges based on the following factors:
+If you use on-demand scaling or the cluster autoscaler, account for the added VMs. Container Instances charges are based on the following factors:
 
 - Usage-based metrics billing per container group
 - Collection vCPU and memory
@@ -150,7 +150,7 @@ If you use on demand or the cluster autoscaler, account for the added VMs. Conta
 
 Part of the AKS cluster lifecycle involves periodic upgrades to the latest Kubernetes version. It's important to apply the latest security releases and get the latest features. You can upgrade AKS clusters and single node pools manually or automatically. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-By default, AKS configures upgrades to surge with one extra node. A default value of `1` forr the `max-surge` setting minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the `max-surge` value completes the upgrade process faster, but a large value for `max-surge` might cause disruptions during the upgrade process and incur added costs for extra VMs.
+By default, AKS configures upgrades to surge with one extra node. A default value of `1` for the `max-surge` setting minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the `max-surge` value completes the upgrade process faster, but a large value for `max-surge` might cause disruptions during the upgrade process and incur added costs for extra VMs.
 
 ## Other costs
 
@@ -158,9 +158,9 @@ Depending on usage and requirements, AKS clusters can incur the following added 
 
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) costs depending on [Basic, Standard, or Premium SKU](/azure/container-registry/container-registry-skus), image builds, and storage used. Deploy Container Registry on the same region as the cluster to avoid added data transfer charges. Use replication if needed, and reduce image sizes as much as possible to reduce storage costs and deployment times.
 
-- Outbound [data transfers](https://azure.microsoft.com/pricing/details/bandwidth/) from Azure, as well as inter-region traffic.
+- Outbound [data transfers](https://azure.microsoft.com/pricing/details/bandwidth) from Azure, as well as inter-region traffic.
 
-- Other storage or platform-as-a-service (PaaS) services such as databases.
+- Other storage or platform as a service (PaaS) services such as databases.
 
 - Global networking services such as [Azure Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) or [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor) that route traffic to the public endpoints of AKS workloads.
 
@@ -180,7 +180,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can help you save money by committing to one-year or three-year plans for several products, such as the VMs in your AKS cluster. You get discounts by reserving capacity. Use Azure Reservations for [Storage](/azure/storage/files/files-reserve-capacity) and [Compute](https://azure.microsoft.com/pricing/reserved-vm-instances) to reduce the cost of agent nodes.
 
-  Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage as well.
+  Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage also.
 
 - Add one or more spot node pools to your AKS cluster. A spot node pool is a node pool backed by an [Azure Spot Virtual Machine scale set](/azure/virtual-machine-scale-sets/use-spot). Using spot VMs for your AKS cluster nodes takes advantage of unused Azure capacity at significant cost savings. The amount of available unused capacity varies based on several factors, including node size, region, and time of day. Azure allocates the spot nodes if there's capacity available, but there's no SLA for spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain, and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts the spot nodes.
 
@@ -192,11 +192,11 @@ The following recommendations help you optimize your AKS cluster costs:
   
 - Create multiple node pools with different VM sizes for special purposes and workloads. Use Kubernetes [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration) and [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to place resource-intensive applications on specific node pools to avoid noisy neighbor issues. Keep these node resources available for workloads that require them, and don't schedule other workloads on these nodes. Using different VM sizes for different node pools can also optimize costs. For more information, see [Use multiple node pools in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
-- System-mode node pools must contain at least one node, while user-mode node pools can contain zero or more nodes. Whenever possible, you can configure a user-mode node pool to automatically scale from 0 to N nodes. You can configure your workloads to scale out and scale in by using a horizontal pod autoscaler. Base autoscaling on CPU and memory, or use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh) to base autoscaling on the metrics of an external system like Apache Kafka, RabbitMQ, or Azure Service Bus.
+- System-mode node pools must contain at least one node, while user-mode node pools can contain zero or more nodes. Whenever possible, you can configure a user-mode node pool to automatically scale from `0` to `N` nodes. You can configure your workloads to scale out and scale in by using a horizontal pod autoscaler. Base autoscaling on CPU and memory, or use [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh) to base autoscaling on the metrics of an external system like Apache Kafka, RabbitMQ, or Azure Service Bus.
 
 - Make sure to properly set [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers) for your pods to improve application density and avoid assigning too many CPU and memory resources to your workloads. Observe the average and maximum consumption of CPU and memory by using Prometheus or Container Insights. Properly configure limits and quotas for your pods in the YAML manifests, Helm charts, and Kustomize manifests for your deployments.
 
-- Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1) objects to set quotas for the total amount of memory and CPU for all pods running in a given [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces). The systematic use of resource quotas avoids noisy neighbor issues, improves application density, and reduces the number of agent nodes and total costs. Also use [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range) objects to configure the default CPU and memory requests for pods in a namespace.
+- Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1) objects to set quotas for the total amount of memory and CPU for all pods that are running in a given [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces). The systematic use of resource quotas avoids noisy neighbor issues, improves application density, and reduces the number of agent nodes and total costs. Also use [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range) objects to configure the default CPU and memory requests for pods in a namespace.
 
 - Use Container Instances for bursting. For more information, see [Bursting from AKS with Azure Container Instances](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci).
 

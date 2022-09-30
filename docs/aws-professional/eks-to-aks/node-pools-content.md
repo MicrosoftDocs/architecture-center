@@ -1,4 +1,4 @@
-Kubernetes architecture is based on two layers, the [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
+Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
 
 In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and the customer manages the node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
 
@@ -23,9 +23,9 @@ Creating an AKS cluster automatically creates and configures a control plane, wh
 
 The [nodes](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools), also called *agent nodes* or *worker nodes*, host the workloads and applications. In AKS, customers fully manage and pay for the agent nodes attached to the AKS cluster.
 
-To run applications and supporting services, an AKS cluster needs at least one node, an Azure virtual machine (VM) to run the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) with at least one node.
+To run applications and supporting services, an AKS cluster needs at least one node: An Azure virtual machine (VM) to run the Kubernetes node components and container runtime. Every AKS cluster must contain at least one [system node pool](/azure/aks/use-system-pools) with at least one node.
 
-AKS groups nodes of the same configuration into *node pools* containing the VMs that run AKS workloads. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS. User node pools serve the primary purpose of hosting workload pods. If you want to have only one node pool in your AKS cluster, for example in a development environment, you can schedule application pods on the system node pool.
+AKS groups nodes of the same configuration into *node pools* of VMs that run AKS workloads. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS. User node pools serve the primary purpose of hosting workload pods. If you want to have only one node pool in your AKS cluster, for example in a development environment, you can schedule application pods on the system node pool.
 
 ![Diagram showing a single Kubernetes nodes.](./media/aks-node-resource-interactions.png)
 
@@ -33,7 +33,7 @@ You can also create multiple user node pools to segregate different workloads on
 
 Every agent node of a system or user node pool is a VM provisioned as part of [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) and managed by the AKS cluster. For more information, see [Nodes and node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools).
  
-You can define the initial number and [size](/azure/virtual-machines/sizes) for worker nodes when you create an AKS cluster, or when you add new nodes and node pools to an existing AKS cluster. If you don't specify a VM size, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools.
+You can define the initial number and [size](/azure/virtual-machines/sizes) for worker nodes when you create an AKS cluster, or when you add new nodes and node pools to an existing AKS cluster. If you don't specify a VM size, the default size is Standard_D2s_v3 for Windows node pools and Standard_DS2_v2 for Linux node pools.
 
 > [!IMPORTANT]
 > To provide better latency for intra-node calls and communications with platform services, select a VM series that supports [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli).
@@ -42,7 +42,7 @@ You can define the initial number and [size](/azure/virtual-machines/sizes) for 
 
 You can add a node pool to a new or existing AKS cluster by using the Azure portal, [Azure CLI](/cli/azure), the [AKS REST API](/rest/api/aks), or infrastructure as code (IaC) tools such as [Bicep](/azure/azure-resource-manager/bicep/overview), [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview), or [Terraform](https://www.terraform.io). For more information on how to add node pools to an existing AKS cluster, see [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
-When you create a new node pool, the associated virtual machine scale set is created in the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks), an [Azure resource group](/azure/azure-resource-manager/management/overview) that contains all of the infrastructure resources for the AKS cluster. These resources include the Kubernetes nodes, virtual networking resources, managed identities, and storage.
+When you create a new node pool, the associated virtual machine scale set is created in the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks), an [Azure resource group](/azure/azure-resource-manager/management/overview) that contains all the infrastructure resources for the AKS cluster. These resources include the Kubernetes nodes, virtual networking resources, managed identities, and storage.
 
 By default, the node resource group has a name like `MC_<resourcegroupname>_<clustername>_<location>`. AKS automatically deletes the node resource group when deleting a cluster, so you should use this resource group only for resources that share the cluster's lifecycle.
 
@@ -88,9 +88,9 @@ For more information on spot node pools, see [Add a spot node pool to an Azure K
 
 ### Ephemeral OS disks
 
-By default, Azure automatically replicates the VM operating system (OS) disk to Azure Storage to avoid data loss if the VM needs to be relocated to another host. But because containers aren't designed to persist local state, keeping the OS disk in storage offers limited value for AKS. There are some drawbacks, such as slower node provisioning and higher read-write latency.
+By default, Azure automatically replicates the VM operating system (OS) disk to Azure Storage to avoid data loss if the VM needs to be relocated to another host. But because containers aren't designed to persist local state, keeping the OS disk in storage offers limited value for AKS. There are some drawbacks, such as slower node provisioning and higher read/write latency.
 
-By contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk, and provide lower read-write latency and faster node scaling and cluster upgrades. Like a temporary disk, an ephemeral OS disk is included in the VM price, so you incur no extra storage costs.
+By contrast, ephemeral OS disks are stored only on the host machine, like a temporary disk, and provide lower read/write latency and faster node scaling and cluster upgrades. Like a temporary disk, an ephemeral OS disk is included in the VM price, so you incur no extra storage costs.
 
 > [!IMPORTANT]
 > If you don't explicitly request managed disks for the OS, AKS defaults to an ephemeral OS if possible for a given node pool configuration.
@@ -127,7 +127,7 @@ Virtual node functionality depends on [Azure Container Instances](/azure/contain
 
 When you create a node pool, you can add Kubernetes [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration) and [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels), and [Azure tags](/azure/azure-resource-manager/management/tag-resources), to that node pool. When you add a taint, label, or tag, all nodes within that node pool get that taint, label, or tag.
 
-To create a node pool with a taint, you can use the `az aks nodepool add` command with the `--node-taints` parameter. To label the nodes in a node pool, you can use the `--labels` parameter and specify a list of labels, as shown in the following example code snippet:
+To create a node pool with a taint, you can use the `az aks nodepool add` command with the `--node-taints` parameter. To label the nodes in a node pool, you can use the `--labels` parameter and specify a list of labels, as shown in the following code:
 
 ```azurecli-interactive
   az aks nodepool add \
@@ -174,7 +174,7 @@ In the **Virtual node usage** column:
 | kubernetes.azure.com/cluster| `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
 | kubernetes.azure.com/mode| `<mode>` | `User` or `System` | `User` |
 | kubernetes.azure.com/role | agent | `Agent` | Same |
-| kubernetes.azure.com/scalesetpriority| `<VMSS priority>` | `Spot` or `Regular` | N/A |
+| kubernetes.azure.com/scalesetpriority| `<scale set priority>` | `Spot` or `Regular` | N/A |
 | kubernetes.io/hostname| `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
 | kubernetes.azure.com/storageprofile| `<OS disk storage profile>` | `Managed` | N/A |
 | kubernetes.azure.com/storagetier| `<OS disk storage tier>` | `Premium_LRS` | N/A |
@@ -220,11 +220,11 @@ The following considerations and limitations apply when you create and manage no
 
 - All cluster node pools must be in the same virtual network, and all subnets assigned to any node pool must be in the same virtual network.
 
-- If you create multiple node pools at cluster creation time, the Kubernetes versions for all node pools must match the control plane version. You can update versions after the cluster has been provisioned by using per node pool operations.
+- If you create multiple node pools at cluster creation time, the Kubernetes versions for all node pools must match the control plane version. You can update versions after the cluster has been provisioned by using per-node-pool operations.
 
 ## Node pool scaling
 
-As your application workload changes, you might need to change the number of nodes in a node pool. You can scale the number of nodes up or down manually with the [az aks nodepool scale](/cli/azure/aks/nodepool#az_aks_nodepool_scale) command. The following example scales the number of nodes in `mynodepool` to five:
+As your application workload changes, you might need to change the number of nodes in a node pool. You can scale the number of nodes up or down manually by using the [az aks nodepool scale](/cli/azure/aks/nodepool#az_aks_nodepool_scale) command. The following example scales the number of nodes in `mynodepool` to five:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -234,7 +234,7 @@ az aks nodepool scale \
     --node-count 5
 ```
 
-### Scale node pools automatically with the cluster autoscaler
+### Scale node pools automatically by using the cluster autoscaler
 
 AKS supports scaling node pools automatically with the [cluster autoscaler](/azure/aks/cluster-autoscaler). You enable this feature on each node pool, and define a minimum and a maximum number of nodes.
 
@@ -251,7 +251,7 @@ The following `az aks nodepool add` command adds a new node pool called `mynodep
   --max-count 5
 ```
 
-The following [az aks nodepool update](/cli/azure/aks/nodepool#az-aks-nodepool-update) command updates the minimum number of nodes from one to three for the *mynodepool* node pool.
+The following [az aks nodepool update](/cli/azure/aks/nodepool#az-aks-nodepool-update) command updates the minimum number of nodes from one to three for the `mynewnodepool` node pool.
 
 ```azurecli-interactive
   az aks nodepool update \
@@ -275,7 +275,7 @@ You can disable the cluster autoscaler with `az aks nodepool update` by passing 
 
 To re-enable the cluster autoscaler on an existing cluster, use `az aks nodepool update`, specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
-For more information about how to use the cluster autoscaler per node pool, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).
+For more information about how to use the cluster autoscaler for individual node pools, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).
 
 ## Updates and upgrades
 
@@ -289,7 +289,7 @@ You can use Planned Maintenance to update VMs, and manage planned maintenance no
 
 ### Kubernetes upgrades
 
-Part of the AKS cluster lifecycle is periodic upgrades to the latest Kubernetes version. It's important to apply upgrades to get the latest security releases and features. To upgrade the Kubernetes version of existing node pool VMs, you must cordon and drain nodes and replace them with new nodes based on a disk image with the updated Kubernetes version.
+Part of the AKS cluster lifecycle is periodically upgrading to the latest Kubernetes version. It's important to apply upgrades to get the latest security releases and features. To upgrade the Kubernetes version of existing node pool VMs, you must cordon and drain nodes and replace them with new nodes that are based on an updated Kubernetes disk image.
 
 By default, AKS configures upgrades to surge with one extra node. A default value of one for the `max-surge` settings minimizes workload disruption by creating an extra node to replace older-versioned nodes before cordoning or draining existing applications. You can customize the `max-surge` value per node pool to allow for a tradeoff between upgrade speed and upgrade disruption. Increasing the `max-surge` value completes the upgrade process faster, but a large value for `max-surge` might cause disruptions during the upgrade process.
 
@@ -353,27 +353,27 @@ Note these best practices and considerations for upgrading the Kubernetes versio
 
 ## Node virtual networks
 
-When you create a new cluster or add a new node pool to an existing cluster, you specify the resource id of a subnet within the cluster [virtual network](/azure/virtual-network/virtual-networks-overview) where you deploy the agent nodes. A workload might require splitting a cluster's nodes into separate node pools for logical isolation. You can achieve this isolation with separate subnets, each dedicated to a separate node pool. The node pool VMs each get a private IP address from their associated subnet.
+When you create a new cluster or add a new node pool to an existing cluster, you specify the resource ID of a subnet within the cluster [virtual network](/azure/virtual-network/virtual-networks-overview) where you deploy the agent nodes. A workload might require splitting a cluster's nodes into separate node pools for logical isolation. You can achieve this isolation with separate subnets, each dedicated to a separate node pool. The node pool VMs each get a private IP address from their associated subnet.
 
 AKS supports two networking plugins:
 
 - [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet) is a basic, simple network plugin for Linux. With `kubenet`, nodes get a private IP address from the Azure virtual network subnet. Pods get an IP address from a logically different address space. Network address translation (NAT) lets the pods reach resources on the Azure virtual network by translating the source traffic's IP address to the node's primary IP address. This approach reduces the number of IP addresses you need to reserve in your network space for pods.
 
-- [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) gives every pod an IP address to address and access directly. These IP addresses must be unique across your network space. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved for that node. This approach requires advance planning, and can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as application demands grow.
+- [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) gives every pod an IP address to call and access directly. These IP addresses must be unique across your network space. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved for that node. This approach requires advance planning, and can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as application demands grow.
 
-  When you create a new cluster or add a new node pool to a cluster that uses Azure CNI, you can specify the resource id of two separate subnets, one for the nodes and one for the pods. For more information, see [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview).
+  When you create a new cluster or add a new node pool to a cluster that uses Azure CNI, you can specify the resource ID of two separate subnets, one for the nodes and one for the pods. For more information, see [Dynamic allocation of IPs and enhanced subnet support](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview).
 
 ### Dynamic IP allocation
 
-Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP addresses from a subnet of the hosting node pool. The Azure CNI [dynamic IP allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview) capability can allocate private IP addresses to pods from a subnet that's separate from the node pool hosting subnet. This feature provides the following advantages:
+Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP addresses from a subnet of the hosting node pool. Azure CNI [dynamic IP allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support-preview) can allocate private IP addresses to pods from a subnet that's separate from the node pool hosting subnet. This feature provides the following advantages:
 
-- The pod subnet dynamically allocates IPs to pods. Dynamic allocation provides *better IP utilization* compared to the traditional CNI solution, which does static allocation of IPs for every node.
+- The pod subnet dynamically allocates IPs to pods. Dynamic allocation provides better IP utilization compared to the traditional CNI solution, which does static allocation of IPs for every node.
 
-- You can *scale* and *share* node and pod subnets independently. You can share a single pod subnet across multiple node pools or clusters deployed in the same virtual network. You can also configure a separate pod subnet for a node pool.
+- You can scale and share node and pod subnets independently. You can share a single pod subnet across multiple node pools or clusters deployed in the same virtual network. You can also configure a separate pod subnet for a node pool.
 
-- Because pods have virtual network private IPs, they have direct connectivity to other cluster pods and resources in the virtual network. This ability supports *better performance* for very large clusters.
+- Because pods have virtual network private IPs, they have direct connectivity to other cluster pods and resources in the virtual network. This ability supports better performance for very large clusters.
 
-- If pods have a separate subnet, you can configure *virtual network policies for pods* that are different from node policies. Separate policies allow many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using virtual network NAT, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
+- If pods have a separate subnet, you can configure virtual network policies for pods that are different from node policies. Separate policies allow many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using virtual network NAT, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
 
 - Both *Network Policy* and *Calico* Kubernetes network policies work with dynamic IP allocation.
 
