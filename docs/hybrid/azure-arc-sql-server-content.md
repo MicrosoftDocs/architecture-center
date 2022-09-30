@@ -10,24 +10,24 @@ This reference architecture illustrates how to leverage Azure Arc for management
 
 The architecture consists of the following components and capabilities:
 
-- **[SQL Server][sql-server]**. This data platform gives you a wide range of choices of development languages, data types, on-premises or cloud environments, and operating systems.
-- **[Azure Arc][azure-arc]**. This cloud-based service extends the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
-- **[Azure Arc enabled servers][azure-arc-enabled-servers]**. This hybrid service allows you to manage your Windows and Linux machines, hosted outside of Azure, on your corporate network or other cloud provider. This is similar to how you manage native Azure VMs.
-- **[Azure Arc enabled SQL Server][azure-arc-enabled-sql-server]**. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer's datacenter, on the edge or in a multi-cloud environment.
-- **[Kubernetes][kubernetes-open-source]**. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
-- **[Azure Kubernetes Service][azure-kubernetes-service]**. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
-- **[Azure Stack HCI (20H2)][azs-hci]**. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
-- **[Azure Kubernetes Service on Azure Stack HCI][azure-kubernetes-service-on-azs-hci]**. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
-- **[Azure Arc-enabled Kubernetes][azure-arc-enabled-kubernetes]**. This hybrid service allows you to streamline deployment and management of Kubernetes clusters inside or outside of Azure.
-- **[Azure Arc enabled data services][azure-arc-enabled-data-services]**. This hybrid service makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
-- **[Azure SQL Managed Instance][sql-managed-instance]**. This intelligent, scalable cloud database service combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service.
-- **[Azure Arc enabled SQL Managed Instance][azure-arc-enabled-sql-managed-instance]**. This Azure SQL data service can be created on your choice of infrastructure that hosts Azure Arc enabled data services.
-- **[Azure Resource Manager][azure-resource-manager]**. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags to secure and organize your resources after deployment.
-- **[Azure Monitor][azure-monitor]**. This cloud-based service maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
-- **[Log Analytics][azure-log-analytics]**. This is the primary tool in the Azure portal for writing log queries and interactively analyzing their results.
-- **[Microsoft Sentinel][azure-sentinel]**. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
-- **[Microsoft Defender for Cloud][azure-security-center]**. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
-- **[Azure Backup][azure-backup]**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+- [SQL Server][sql-server-service-page]. This data platform gives you a wide range of choices of development languages, data types, on-premises or cloud environments, and operating systems.
+- [Azure Arc][azure-arc-service-page]. This cloud-based service extends the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
+- [Azure Arc enabled servers][azure-arc-enabled-servers-service-page]. This hybrid service allows you to manage your Windows and Linux machines, hosted outside of Azure, on your corporate network or other cloud provider. This is similar to how you manage native Azure VMs.
+- [Azure Arc enabled SQL Server][azure-arc-enabled-sql-server-service-page]. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer's datacenter, on the edge or in a multi-cloud environment.
+- [Kubernetes][kubernetes-open-source]. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
+- [Azure Kubernetes Service][azure-kubernetes-service-service-page]. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
+- [Azure Stack HCI (20H2)][azs-hci-service-page]. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
+- [Azure Kubernetes Service on Azure Stack HCI][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
+- [Azure Arc-enabled Kubernetes][azure-arc-enabled-kubernetes-service-page]. This hybrid service allows you to streamline deployment and management of Kubernetes clusters inside or outside of Azure.
+- [Azure Arc enabled data services][azure-arc-enabled-data-services-service-page]. This hybrid service makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
+- [Azure SQL Managed Instance][sql-managed-instance-service-page]. This intelligent, scalable cloud database service combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service.
+- [Azure Arc enabled SQL Managed Instance][azure-arc-enabled-sql-managed-instance-service-page]. This Azure SQL data service can be created on your choice of infrastructure that hosts Azure Arc enabled data services.
+- [Azure Resource Manager][azure-resource-manager-service-page]. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags to secure and organize your resources after deployment.
+- [Azure Monitor][azure-monitor-service-page]. This cloud-based service maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
+- [Log Analytics][azure-log-analytics-service-page]. This is the primary tool in the Azure portal for writing log queries and interactively analyzing their results.
+- [Microsoft Sentinel][azure-sentinel-service-page]. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
+- [Microsoft Defender for Cloud][azure-security-center-service-page]. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
+- [Azure Backup][azure-backup-service-page]. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
 ## Scenario details
 
@@ -101,11 +101,15 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 - Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Microsoft Defender for Cloud] functionality of Microsoft Defender for Cloud, which has [pricing implications][azure-defender-pricing].
 <!--LM: Azure Defender is in brackets. Did you mean to insert a link here?-->
 - Containerizing your SQL Server environment by using Azure Arc enabled SQL Managed Instance helps increase workload density and mobility. This facilitates more efficient hardware utilization, which tends to maximize return on investment (ROI) and minimize operational costs, helping accelerate datacenter consolidation initiatives.
 
 ### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - To perform registration of individual Azure Arc enabled SQL Server instances, you can interactively run [a script available directly from the Azure portal][connect-sql-server-to-azure-arc]. For large-scale deployments, you can [run the same script in the unattended manner][connect-sql-server-to-azure-arc-at-scale], by leveraging an Azure AD service principal.
 
@@ -117,6 +121,8 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 - Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [high scalability and performance features][azure-arc-sql-mi-performance].
 
 - When planning for deployment of Azure Arc enabled SQL Managed Instance, you should identify the correct amount of compute, memory, and storage that will be required to run the [Azure Arc data controller][azure-arc-data-controller-sizing] and the intended [SQL managed instance][azure-arc-sql-mi-sizing] server groups. Note, however, that you have the flexibility to extend the capacity of the underlying Kubernetes or AKS cluster over time by adding additional compute nodes or storage.
@@ -124,6 +130,8 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 - Kubernetes or AKS offers an abstraction layer over the underlying virtualization stack and hardware. Storage classes implement such abstraction for storage. When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors] for both [data controller][kubernetes-storage-data-controller] and [database instances][kubernetes-storage-database-instance].
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - With Azure Arc enabled SQL Managed Instance, planning for storage is also critical from the data resiliency standpoint. If there's a hardware failure, an incorrect choice might introduce the risk of total data loss. To avoid such risk, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors] for both [data controller][kubernetes-storage-data-controller] and [database instances][kubernetes-storage-database-instance].
 
@@ -135,6 +143,8 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Azure Arc enabled SQL Managed Instance shares the code base with the latest stable version of SQL Server, providing support for the same set of [security features][azure-arc-sql-mi-security].
 
 - With Azure Arc enabled SQL Managed Instance, in the Directly Connected mode, you should provide the data controller with direct access to the MCR to facilitate automatic upgrades and patching. Alternatively, you have the option to import container images from MCR and make them available in a local, private container registry accessible by the data controller.
@@ -145,6 +155,30 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 > [!CAUTION]
 > To enhance the security of data in transit to Azure, you should [configure servers hosting the SQL Server instances to use Transport Layer Security (TLS) 1.2][server-configure-tls-12].
+
+## Next steps
+
+- [SQL Server technical documentation][sql-server]
+- [Azure Arc overview][azure-arc]
+- [What is Azure Arc-enabled servers?][azure-arc-enabled-servers]
+- [Azure Arc-enabled SQL Server][azure-arc-enabled-sql-server]
+- [Azure Kubernetes Service][azure-kubernetes-service]
+- [Azure Stack HCI solution overview][azs-hci]
+- [What is on-premises Kubernetes with Azure Kubernetes Service on Azure Stack HCI and Windows Server?][azure-kubernetes-service-on-azs-hci]
+- [What is Azure Arc-enabled Kubernetes?][azure-arc-enabled-kubernetes]
+- [What are Azure Arc-enabled data services?][azure-arc-enabled-data-services]
+- [What is Azure SQL Managed Instance?][sql-managed-instance]
+- [Azure Arc-enabled SQL Managed Instance Overview][azure-arc-enabled-sql-managed-instance]
+- [What is Azure Resource Manager?][azure-resource-manager]
+- [Azure Monitor overview][azure-monitor]
+- [Overview of Log Analytics in Azure Monitor][azure-log-analytics]
+- [What is Microsoft Sentinel?][azure-sentinel]
+- [What is Microsoft Defender for Cloud?][azure-security-center]
+- [What is the Azure Backup service?][azure-backup]
+
+
+
+
 
 [architectural-diagram]: images/administer-sql-server-azure-arc.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
@@ -193,3 +227,20 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 [azure-arc-sql-mi-ha]: /azure/azure-arc/data/managed-instance-features#RDBMSHA
 [azure-arc-sql-mi-security]: /azure/azure-arc/data/managed-instance-features#RDBMSS
 [server-configure-tls-12]: /azure/azure-arc/servers/agent-overview#transport-layer-security-12-protocol
+[sql-server-service-page]: https://www.microsoft.com/sql-server/sql-server-2019
+[azure-arc-service-page]: https://azure.microsoft.com/products/azure-arc
+[azure-arc-enabled-servers-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
+[azure-arc-enabled-sql-server-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
+[azure-kubernetes-service-service-page]: https://azure.microsoft.com/products/kubernetes-service
+[azs-hci-service-page]: https://azure.microsoft.com/products/azure-stack/hci
+[azure-kubernetes-service-on-azs-hci-service-page]: https://azure.microsoft.com/products/azure-stack/hci/#aks-on-hci
+[azure-arc-enabled-kubernetes-service-page]: https://azure.microsoft.com/products/azure-arc
+[azure-arc-enabled-data-services-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
+[sql-managed-instance-service-page]: https://azure.microsoft.com/products/azure-sql/managed-instance
+[azure-arc-enabled-sql-managed-instance-service-page]: https://azure.microsoft.com/products/azure-arc/hybrid-data-services
+[azure-resource-manager-service-page]: https://azure.microsoft.com/get-started/azure-portal/resource-manager
+[azure-monitor-service-page]: https://azure.microsoft.com/products/monitor
+[azure-log-analytics-service-page]: https://azure.microsoft.com/products/monitor
+[azure-sentinel-service-page]: https://azure.microsoft.com/products/microsoft-sentinel
+[azure-security-center-service-page]: https://azure.microsoft.com/products/defender-for-cloud
+[azure-backup-service-page]: https://azure.microsoft.com/products/backup

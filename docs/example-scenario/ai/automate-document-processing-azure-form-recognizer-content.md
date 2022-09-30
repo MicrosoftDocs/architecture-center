@@ -86,13 +86,13 @@ The pipeline that's used for data enrichment depends on the use case.
 
 * [App Service][App Service] is a platform as a service (PaaS) offering on Azure. You can use App Service to host web applications that you can scale in or scale out manually or automatically. The service supports various languages and frameworks, such as ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, and Python.
 
-* [Application Gateway][What is Azure Application Gateway?] is a layer-7 (application layer) load balancer that manages traffic to web applications. You can run Application Gateway with [Azure Web Application Firewall][What is Azure Web Application Firewall on Azure Application Gateway?] to help protect web applications from common exploits and vulnerabilities.
+* [Application Gateway][Application Gateway service page] is a layer-7 (application layer) load balancer that manages traffic to web applications. You can run Application Gateway with [Azure Web Application Firewall][Azure Web Application Firewall service page] to help protect web applications from common exploits and vulnerabilities.
 
-* [Azure Functions][Introduction to Azure Functions] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
+* [Azure Functions][Azure Functions service page] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
 
-* [Form Recognizer][What is Azure Form Recognizer?] is part of Azure Applied AI Services. Form Recognizer offers a collection of pre-built endpoints for extracting data from invoices, documents, receipts, ID cards, and business cards. This service maps each piece of extracted data to a field as a key-value pair. Form Recognizer also extracts table content and structure. The output format is JSON.
+* [Form Recognizer][Azure Form Recognizer service page] is part of Azure Applied AI Services. Form Recognizer offers a collection of pre-built endpoints for extracting data from invoices, documents, receipts, ID cards, and business cards. This service maps each piece of extracted data to a field as a key-value pair. Form Recognizer also extracts table content and structure. The output format is JSON.
 
-* [Azure Storage][Azure Storage documentation] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
+* [Azure Storage][Azure Storage service page] is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
 * [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 
@@ -100,9 +100,9 @@ The pipeline that's used for data enrichment depends on the use case.
 
 * [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage capacity demands of applications.
 
-* [Azure Cognitive Service for Language][What is Azure Cognitive Service for Language?] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
+* [Azure Cognitive Service for Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
 
-* [Machine Learning][What is Azure Machine Learning?] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
+* [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
 
 * [AKS][Azure Kubernetes Service (AKS)] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
@@ -256,10 +256,17 @@ Principal author:
 
 ## Next steps
 
+* [What is Azure Form Recognizer?][What is Azure Form Recognizer?]
 * [Get started: Form Recognizer Studio][Get started: Form Recognizer Studio]
 * [Use Form Recognizer SDKs or REST API][Use Form Recognizer SDKs or REST API]
+* [What is Azure Cognitive Service for Language?][What is Azure Cognitive Service for Language?]
+* [What is Azure Machine Learning?][What is Azure Machine Learning?]
+* [Introduction to Azure Functions][Introduction to Azure Functions]
 * [How to configure Azure Functions with a virtual network][How to configure Azure Functions with a virtual network]
+* [What is Azure Application Gateway?][What is Azure Application Gateway?]
+* [What is Azure Web Application Firewall on Azure Application Gateway?][What is Azure Web Application Firewall on Azure Application Gateway?]
 * [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint][Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]
+* [Azure Storage documentation][Azure Storage documentation]
 
 ## Related resources
 
@@ -272,24 +279,31 @@ Principal author:
 [App Service]: https://azure.microsoft.com/services/app-service
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
+[Application Gateway service page]: https://azure.microsoft.com/products/application-gateway
 [Authenticate requests to Azure Cognitive Services]: /azure/cognitive-services/authentication
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Azure Blob Storage pricing]: https://azure.microsoft.com/pricing/details/storage/blobs
 [Azure Cognitive Search]: https://azure.microsoft.com/services/search
+[Azure Cognitive Service service page]: https://azure.microsoft.com/products/cognitive-services/language-service
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Database for MySQL]: https://azure.microsoft.com/services/mysql
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql
 [Azure Form Recognizer pricing]: https://azure.microsoft.com/pricing/details/form-recognizer
+[Azure Form Recognizer service page]: https://azure.microsoft.com/products/applied-ai-services
 [Azure Functions hosting options]: /azure/azure-functions/functions-scale
 [Azure Functions networking options]: /azure/azure-functions/functions-networking-options#virtual-network-integration
 [Azure Functions pricing]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions service page]: https://azure.microsoft.com/products/functions
 [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Machine Learning pricing]: https://azure.microsoft.com/pricing/details/machine-learning/#overview
+[Azure Machine Learning service page]: https://azure.microsoft.com/products/machine-learning
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure SQL Database]: https://azure.microsoft.com/products/azure-sql/database
 [Azure Storage documentation]: /azure/storage
+[Azure Storage service page]: https://azure.microsoft.com/products/category/storage
+[Azure Web Application Firewall service page]: https://azure.microsoft.com/products/web-application-firewall
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
 [Characteristics and limitations of Form Recognizer - Customer evaluation]: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context#customer-evaluation
 [Choose the right VM for your workload and reduce costs]: https://azure.microsoft.com/services/virtual-machines/#overview
@@ -356,3 +370,13 @@ Principal author:
 [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
 [What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
 [What is Text Analytics for health in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner
+
+
+
+
+
+
+
+
+
+

@@ -136,7 +136,7 @@ To find out more about other Azure components, see these resources:
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-sql-database-service-page]: https://azure.microsoft.com/products/azure-sql/database
 [docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-webapps-service-page]: https://azure.microsoft.com/products/app-service
+[docs-webapps-service-page]: https://azure.microsoft.com/en-us/products/app-service/web/
 [docs-botservice]: /azure/bot-service/
 [docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
 [docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
