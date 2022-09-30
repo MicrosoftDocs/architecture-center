@@ -1,50 +1,230 @@
-title: Deploy <workload name> on an Azure virtual machine
-description: 
-<Short description of the article, including keywords. Should list facts about what the product intends to do along with the targeted industry/business process.>
-<Description must include product name and related use cases but shall refrain from using marketing jargon or campaigning statements. >
-<H1> Deploy <workload name> on a virtual machine
-Make sure the title has all of the appropriate keywords for search.
 <Intro should cover a basic overview of the workload.>
-Why deploy <workload> on Azure
--	Simplifies migration to the cloud
--	Optimizes the workload in these ways….
--	Can be rapidly provisioned
--	Performance
-Architecture
-<Not generic. Product/Solution specific Architecture diagram>
-<The architecture diagram must be product associated and the VM (Virtual Machines) topology should match the above stated test conditions.>
-Components
-<List of links to more information on the discrete pieces of the architecture. The list below is just an example of the most common items, you might need to add or remove items based on your architecture diagram.>
-<link to the normal AAC standard links for these (Azure service pages)>
--	Virtual machine – description/context. Please also link Linux VMs on Azure or Windows VMs on Azure (whichever the architecture is based on) in the sentence that follows this.
--	Network – description/context
--	PIP – description/context
--	NSG – description/context
--	Storage – description/context
-Compute sizing and drivers
-<List of evaluated sizes for this workload and a table of the input sizes with corresponding evaluated output for the chosen input sizes.>
-Required drivers
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
-<Workload> installation
-Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
-<Workload> performance results
-<Give a short intro to how performance was tested>
-<Results for X>
-<Results for Y etc>
+## Why deploy KeyShot on Azure?
 
-Additional notes about tests
-<Include any additional notes about the testing process used.>
-Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
-Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+- Modern and diverse compute options to align to your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Fast compute capabilities for GPU-intensive workloads
+
+## Architecture
+
+:::image type="content" source="media/keyshot/architecture.png" alt-text="Diagram that shows an architecture for deploying KeyShot." lightbox="media/keyshot/architecture.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/keyshot.vsdx) of this
+architecture.*
+
+### Components
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
+    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
+    used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+  - A public IP address connects the internet to the VM.
+- A physical solid-state drive (SSD) is used for storage.
+
+## Compute sizing and drivers
+
+Performance tests of KeyShot on Azure used [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs running Windows. KeyShot 11 was used in these tests. The following table provides details about the VMs.
+
+|VM size|vCPU|Memory (GiB)|Temporary storage SSD (GiB)|GPU partition|GPU memory (GiB)|Maximum data disks|
+|-|-|-|-|-|-|-|
+|Standard_NV12ads_A10_v5|12|110|360|1/3|8|4|
+|Standard_NV18ads_A10_v5|18|220|720|1/2|12|8|
+|Standard_NV36ads_A10_v5|36|440|720|1|24|16|
+|Standard_NV36adms_A10_v5|36|880|720|1|24|32|
+|Standard_NV72ads_A10_v5|72|880|1,400|2|48|32|
+|Standard_NC64as_T4_v3|64|440|2,880|4|64|32|
+
+### Required drivers
+
+To take advantage of the GPU capabilities of [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install NVIDIA GPU drivers.
+
+To use AMD processors on [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install AMD drivers.
+
+## KeyShot installation
+
+Before you install KeyShot, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 Image, and install the required NVIDIA and AMD drivers.
+
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
+ 
+For information about deploying the VM and installing the drivers, [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+
+For information about installing KeyShot, see the [KeyShot website](https://manual.keyshot.com/keyshot11/manual/installation).
+
+## KeyShot performance results
+
+Three test case models were used to test the performance of KeyShot on Azure:
+
+**Watch configurator**
+
+:::image type="content" source="media/keyshot/watch.png" alt-text="Figure that shows the watch configurator." border="false":::
+
+Resolution: 3,556 x 2,000 pixels
+
+**Ring configurator**
+
+:::image type="content" source="media/keyshot/ring.png" alt-text="Figure that shows the watch configurator." border="false":::
+
+Resolution: 3,556 x 2,000 pixels
+
+**Door configurator**
+ 
+:::image type="content" source="media/keyshot/door.png" alt-text="Figure that shows the watch configurator." border="false":::
+
+Resolution: 3,556 x 2,000 pixels
+
+### Performance results for NVads_A10_v5 series
+
+The following sections present the performance results for each model. Rendering times are shown in seconds, for three sample sizes. 
+
+#### Watch configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NV12ads_A10_v5|	12 vCPU|	365|	728|	813|
+|Standard_NV12ads_A10_v5|	1/3 GPU	|48.44|	95.89|	191|
+|Standard_NV18ads_A10_v5|	1/2 GPU	|29.47|	58.93|	116|
+|Standard_NV36ads_A10_v5|	1 GPU	|13.98|	27.97|	55.94|
+|Standard_NV36adms_A10_v5|	1 GPU	|12.98|	25.98|	51.95|
+|Standard_NV72ads_A10_v5|	2 GPU	|6.99|	13.98|	28.47|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/watch-nvads.png " alt-text="Graph that shows the relative speed increase for the watch configurator on the NVads_A10 VM." border="false":::
+
+
+#### Ring configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NV12ads_A10_v5|	12 vCPU|	1,244|2,445|4,908|
+|Standard_NV12ads_A10_v5|	1/3 GPU	|117|234|459|
+|Standard_NV18ads_A10_v5|	1/2 GPU	|62.95|125|248|
+|Standard_NV36ads_A10_v5|	1 GPU	|27.98|55.94|111|
+|Standard_NV36adms_A10_v5|	1 GPU	|24.98|48.94|99.4|
+|Standard_NV72ads_A10_v5|	2 GPU	|13.48|26.96|53.45|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/ring-nvads.png " alt-text="Graph that shows the relative speed increase for the ring configurator on the NVads_A10 VM." border="false":::
+
+#### Door configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NV12ads_A10_v5|	12 vCPU|	786|1,573|3,223|
+|Standard_NV12ads_A10_v5|	1/3 GPU	|188|375|747|
+|Standard_NV18ads_A10_v5|	1/2 GPU	|123|247|492|
+|Standard_NV36ads_A10_v5|	1 GPU	|54.97|110|220|
+|Standard_NV36adms_A10_v5|	1 GPU	|42.45|81.42|162|
+|Standard_NV72ads_A10_v5|	2 GPU	|26.97|43.97|87.43|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/door-nvads.png " alt-text="Graph that shows the relative speed increase for the door configurator on the NVads_A10 VM." border="false":::
+
+### Performance results for NC64as_T4_v3
+
+The following sections present the performance results for each model. Rendering times are in seconds, for three sample sizes. 
+
+#### Watch configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NC64as_T4_v3|64 vCPU|	66.92	|133|	268|
+|Standard_NC64as_T4_v3|1 GPU	|32.98|	66.93|	133|
+|Standard_NC64as_T4_v3|2 GPU	|17.48|	34.48|	68.43|
+|Standard_NC64as_T4_v3|3 GPU	|12.49|	23.98|	47.95|
+|Standard_NC64as_T4_v3|4 GPU	|9.98|	18.96|	37.46|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/watch-nc64as.png " alt-text="Graph that shows the relative speed increase for the watch configurator on the NC64as_T4 VM." border="false":::
+
+#### Ring configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NC64as_T4_v3|64 vCPU|	260	|509|	1,008|
+|Standard_NC64as_T4_v3|1 GPU	|88.91	|169	|334|
+|Standard_NC64as_T4_v3|2 GPU	|49.95|93.4|180|
+|Standard_NC64as_T4_v3|3 GPU	|36.48	|66.43|	126|
+|Standard_NC64as_T4_v3|4 GPU	|30.96	|54.45|	101|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/ring-nc64as.png " alt-text="Graph that shows the relative speed increase for the ring configurator on the NC64as_T4 VM." border="false":::
+
+#### Door configurator
+
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|-|-|-|-|-|
+|Standard_NC64as_T4_v3|64 vCPU|	139	|273	|547|
+|Standard_NC64as_T4_v3|1 GPU	|102|	203|	406|
+|Standard_NC64as_T4_v3|2 GPU	|52.44	|104	|208|
+|Standard_NC64as_T4_v3|3 GPU	|35.96	|70.93|	140|
+|Standard_NC64as_T4_v3|4 GPU	|27.47	|53.96|	106|
+
+This graph shows the relative speed increases as the CPU/GPU increases:
+
+:::image type="content" source="media/keyshot/door-nc64as.png " alt-text="Graph that shows the relative speed increase for the door configurator on the NC64as_T4 VM." border="false":::
+
+## Azure cost
+
+The following tables provide elapsed times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVads_A10_v5 and NCas_T4_v3 VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only model running time (wall-clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+### NVads_A10_v5 series 
+
+Note: Here ‘1 GPU (36adms VM) refers to Standard_NV36adms_A10_v5 VM configuration.
+
+### NCAST4_V3 series
+
+## Summary
+
+- Luxion KeyShot 11 was successfully tested on NVads_A10_v5 and NC64as_T4_v3 VMs.
+- The GPU technology in KeyShot 11 provides excellent processing power on Azure.
+- Depending on the complexity of the model, the performance improvement as you increase CPU/GPU varies.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
