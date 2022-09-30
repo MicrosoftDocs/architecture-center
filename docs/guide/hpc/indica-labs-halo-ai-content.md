@@ -45,18 +45,18 @@ Before you install HALO AI, you need to deploy and connect a VM,  install an eli
 
 For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 For information about installing HALO AI on an Azure VM, contact [Indica Labs](mailto:support@indicalab.com).
 
 ## HALO AI performance results
 
 HALO AI performs best on machines that have single-GPU configurations.
-Testing was performed on Standard_NC6s_v3, which has an NVIDIA V100 GPU, and Standard_NC4as_T4_v3, which has a T4 GPU. Image classification was performed on 20 pathology datasets.
+Testing was performed on Standard_NC6s_v3, which has one NVIDIA V100 GPU, and Standard_NC4as_T4_v3, which has one T4 GPU. Image classification was performed on 20 pathology datasets.
 
 The following table shows the test results.
 
-|Image ID|Analysis time on NC4as_T4_v3<br> (minutes)|Analysis time on NC6s_v3 (minutes) |
+|Image ID|Analysis time on NC4as_T4_v3<br> (minutes)|Analysis time on NC6s_v3<br> (minutes) |
 |-|-|-|
 |1|15|7|
 |2|10|5|
@@ -89,7 +89,9 @@ NC6s_v3 is consistently faster. This graph shows the relative speed increases:
 
 ## Azure cost
 
-The following tables present elapsed times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NCasT4_v3 and NCsv3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). Only analysis times are considered for the cost calculations.
+The following table presents elapsed times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NCasT4_v3 and NCsv3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). 
+
+Only analysis times are considered for the cost calculations. Application installation time isn't considered. These times are indicative. Actual times will depend on the size of the model.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
@@ -135,7 +137,7 @@ Other contributors:
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
-## Related resources 
+## Related resources
 
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
