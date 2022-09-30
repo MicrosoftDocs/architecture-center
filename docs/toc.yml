@@ -178,7 +178,7 @@ items:
                     href: data-guide/scenarios/data-lake.md
                   - name: Non-relational data store
                     href: data-guide/big-data/non-relational-data.yml
-                  - name: "Compare NoSQL and relational"
+                  - name: Compare NoSQL and relational
                     href: /azure/cosmos-db/relational-nosql
                     maintainContext: true
                   - name: Pipeline orchestration
