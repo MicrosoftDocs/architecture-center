@@ -87,7 +87,7 @@ Results are presented in seconds.
 |7 GPU<sup>1|	4.17|	4.6	|4.6|	9.6	|3.433|	2.69|	8.56|	6.63|
 |8 GPU|	4.62|	4.6	|4.6|	9	|3.971|	3.01|	8.12|	7.93|
 
-The following table and graph show speed increases, in seconds per day, for each configuration.
+The following table and graph show speed increases, in seconds of chemical reaction completed per day, for each configuration.
 
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
@@ -121,7 +121,7 @@ CPU	|595.68	|1,146.1|	5,327.5|	1,768.7|	113.751|	335.73|	772.93|	678.59|
 |3 GPU<sup>2	|8.06|	10.1	|46	|20.8|	5.708	|4.31|	29.68	|12.88|
 |4 GPU|	8.07|	9.5|	67.1|	19.1|	6.61|	4.84	|35.98|	13.93|
 
-The following table and graph show speed increases, in seconds per day, for each configuration.
+The following table and graph show speed increases, in seconds of chemical reaction completed per day, for each configuration.
 
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
@@ -151,7 +151,7 @@ Results are presented in seconds.
 |3 GPU<sup>3|	14.17|	21.7|	258.2|	45.2|	7.47|	7.72	|127.32|	24.21|
 |4 GPU|	12.73|	18|	351.1	|35.4|	8.025|	7.72|	128.35|	22.34|
 
-The following table and graph show speed increases, in seconds per day, for each configuration.
+The following table and graph show speed increases, in seconds of chemical reaction completed per day, for each configuration.
 
 |Test case number|	479|	480|	481|	482|	499|	500|	501|	502|
 |-|-|-|-|-|-|-|-|--|
