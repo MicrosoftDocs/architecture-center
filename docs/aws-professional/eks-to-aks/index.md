@@ -33,13 +33,6 @@ AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of
 
 For more information about other Azure services that can host containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Kubernetes identity and access management](workload-identity.yml)
-
-## Related resources
-
 The following articles compare Azure and AWS core platform components and capabilities:
 
 - [Azure and AWS accounts and subscriptions](../accounts.md)
@@ -51,3 +44,18 @@ The following articles compare Azure and AWS core platform components and capabi
 - [Resource management on Azure and AWS](../resources.md)
 - [Multicloud security and identity with Azure and AWS](../security-identity.md)
 - [Compare storage on Azure and AWS](../storage.md)
+
+## Next steps
+
+- [Kubernetes identity and access management](workload-identity.yml)
+- [Kubernetes monitoring and logging](monitoring.yml)
+- [Secure network access to Kubernetes](private-clusters.yml)
+- [Storage options for a Kubernetes cluster](storage.md)
+- [Cost management for Kubernetes](cost-management.yml)
+- [Kubernetes node and node pool management](node-pools.yml)
+
+## Related resources
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
+

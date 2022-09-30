@@ -113,10 +113,14 @@ The following `az aks update` Azure CLI command authorizes IP ranges:
 
 - If you delete or modify the private endpoint in the customer subnet of a private cluster, the cluster will stop functioning.
 
-## Next step
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Kubernetes storage options](storage.md)
+- [AKS for Amazon EKS professionals](index.md)
+- [Kubernetes identity and access management](workload-identity.yml)
+- [Kubernetes monitoring and logging](monitoring.yml)
+- [Storage options for a Kubernetes cluster](storage.md)
+- [Cost management for Kubernetes](cost-management.yml)
+- [Kubernetes node and node pool management](node-pools.yml)
 
 ## Related resources
 

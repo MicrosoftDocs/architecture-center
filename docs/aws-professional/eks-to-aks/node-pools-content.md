@@ -379,6 +379,19 @@ Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP address
 
 ## Next steps
 
+- [AKS for Amazon EKS professionals](index.md)
+- [Kubernetes identity and access management](workload-identity.yml)
+- [Kubernetes monitoring and logging](monitoring.yml)
+- [Secure network access to Kubernetes](private-clusters.yml)
+- [Storage options for a Kubernetes cluster](storage.md)
+- [Cost management for Kubernetes](cost-management.yml)
+- [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
+- [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
+- [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [GitOps for Azure Kubernetes Service](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)
+
+## Related resources
+
 - [AKS cluster best practices](/azure/aks/best-practices)
 - [Create a Private AKS cluster with a Public DNS Zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Create a private Azure Kubernetes Service cluster using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
@@ -391,9 +404,3 @@ Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP address
 - [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
 - [Optimize compute costs on Azure Kubernetes Service (AKS)](/learn/modules/aks-optimize-compute-costs/)
 
-## Related resources
-
-- [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
-- [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-- [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
-- [GitOps for Azure Kubernetes Service](../../example-scenario/gitops-aks/gitops-blueprint-aks.yml)

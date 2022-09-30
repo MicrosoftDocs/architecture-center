@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Manage Kubernetes agent nodes
+  title: Kubernetes node and node pool management
   description: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
   author: paolosalvatori
   ms.author: paolos
@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-kubernetes-service
   - azure-virtual-machines
-name: Manage Kubernetes agent nodes
+name: Kubernetes node and node pool management
 summary: Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
 content: |

@@ -76,10 +76,14 @@ The Azure Monitor pricing model is primarily based on the amount of data that's 
 
 Before enabling Container Insights, estimate costs and understand how to control data ingestion and its costs. For detailed guidance, see [Estimating costs to monitor your AKS cluster](/azure/azure-monitor/containers/container-insights-cost#estimating-costs-to-monitor-your-aks-cluster).
 
-## Next step
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Secure network access to Kubernetes API](private-clusters.yml)
+- [AKS for Amazon EKS professionals](index.md)
+- [Kubernetes identity and access management](workload-identity.yml)
+- [Secure network access to Kubernetes](private-clusters.yml)
+- [Storage options for a Kubernetes cluster](storage.md)
+- [Cost management for Kubernetes](cost-management.yml)
+- [Kubernetes node and node pool management](node-pools.yml)
 
 ## Related resources
 
