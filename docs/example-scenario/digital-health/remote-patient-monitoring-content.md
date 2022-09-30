@@ -85,7 +85,8 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 ### Alternatives
 
-**Life365.health**
+**Life365.health**  
+
 The advantage of Life365.health is that with one integration point, you can push measurements from a wide range of devices in the Life365 ecosystem into the Azure Health Data Services. Other wearable devices APIs exist, such as Garmin Activity API and Polar AccessLink API, for which a similar integration pattern can be achieved. However, these APIs are limited and exclusive to measurement from devices of their own manufacturers, such as Garmin and Polar respectively. 
 
 Devices and patients need to be defined, linked, and synchronized between the Azure Health Data Services and the Life365 API. This can be achieved by syncing the patient and device IDs between the Azure Health Data Services and Life365 API. In essence, a new patient and device is created and linked in the Azure FHIR Service first. Then the corresponding patient and device is created and linked in the Life365 API. The IDs of the patients and devices, first created in the Azure Health Data Services, will then be updated as external IDs in the respective patient and device entities in the Life365 API.
@@ -142,9 +143,6 @@ The pricing for all Azure components can be found in the [Azure Pricing Calculat
 - archive tiers based on when the file was last modified. 
 
 Please consult [Life365.health](https://www.life365.health/) to learn about their user subscription fees. 
-
-> Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
 
 ### Operational excellence
 
