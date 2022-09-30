@@ -4,6 +4,8 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
+*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/os) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ## Potential use cases
 
 * Modernize application development practices to a microservice, container-based approach.
@@ -12,8 +14,9 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
-*Download an [SVG](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg) of this architecture.*
+![Diagram showing container C I/C D using Jenkins and Kubernetes on Azure Kubernetes Service.](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/container-cicd-jenkins-aks.vsdx) of this architecture.*
 
 ### Dataflow
 
