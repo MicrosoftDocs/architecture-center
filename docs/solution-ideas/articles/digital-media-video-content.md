@@ -14,7 +14,7 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 * [Azure Media Services Streaming Endpoint](/azure/media-services/latest/encode-dynamic-packaging-concept): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs. Also, see the [Azure Media Player documentation](/azure/media-services/azure-media-player/azure-media-player-overview).
-* [Multi-DRM content protection](/azure/media-services/latest/drm-content-protection-concept): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES Clear Key encryption
+* [Multi-DRM content protection](/azure/media-services/latest/drm-content-protection-concept): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES Clear Key encryption.
 
 ## Scenario details
 
