@@ -7,7 +7,7 @@ The example scenario in this article is applicable to businesses that want to mo
 
 ## Architecture
 
-The following options explore push-based and pull-based CI/CD approaches, along with the pros and cons of each.
+The following options explore push-based and pull-based CI/CD approaches.
 
 ### Option 1: Push-based CI/CD
 
@@ -62,7 +62,7 @@ This scenario covers a pull-based DevOps pipeline for a two-tier web application
 
 ## Scenario details
 
-In this scenario, several technologies are used to execute the automated build and deployment of your app. The code is developed in [VS Code](https://code.visualstudio.com) and stored in a GitHub repository. GitHub Actions is used to build the app as a container, then push the container image to an Azure Container Registry. GitHub Actions is used to update the necessary Kubernetes manifest deployment file, also stored in the Git repository, while the GitOps operator Argo CD picks up the Kubernetes manifest files from there and deploys the app to the AKS cluster.
+In this scenario, the automated build and deployment of your app uses several technologies. The code is developed in [VS Code](https://code.visualstudio.com) and stored in a GitHub repository. GitHub Actions is used to build the app as a container, then push the container image to an Azure Container Registry. GitHub Actions is used to update the necessary Kubernetes manifest deployment file, also stored in the Git repository, while the GitOps operator Argo CD picks up the Kubernetes manifest files from there and deploys the app to the AKS cluster.
 
 Other examples include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses CI and GitOps for CD, you can quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
@@ -86,7 +86,7 @@ The two most common CI/CD options for deploying an application to an AKS cluster
 
 #### Option 1: Push-based architecture with GitHub Actions for CI and CD
 
-In this approach, code starts with the CI part of the pipeline working its way to changes being pushed as deployments to the Kubernetes cluster. The deployments are based on a trigger. There are a variety of triggers that can start the deployment, for example, commits to the repository or a trigger from another CI pipeline. With this approach, the pipeline system has access to the Kubernetes cluster. The push-based module is the most common model used today by CI/CD tools.
+In this approach, code starts with the CI part of the pipeline working its way to changes being pushed as deployments to the Kubernetes cluster. The deployments are based on a trigger. There are various triggers that can start the deployment, for example, commits to the repository or a trigger from another CI pipeline. With this approach, the pipeline system has access to the Kubernetes cluster. The push-based module is the most common model used today by CI/CD tools.
 
 Reasons to use a push-based approach:
 
@@ -100,7 +100,7 @@ Reasons to use a push-based approach:
 
 #### Option 2: Pull-based architecture with GitHub Actions for CI and GitOps operator Argo CD for CD
 
-This approach centers around applying any changes from inside a Kubernetes cluster. There's an operator inside the Kubernetes cluster that scans a git repository for the desired state of the cluster, picking up and applying any changes that need to be made. In this model, no external client has admin-level credentials to the Kubernetes cluster. The pull-model isn't new but hasn't been widely used by CI/CD tools. Recently, with the introduction of GitOps, the pull-model has been gaining adoption. Many organizations have been utilizing GitOps to facilitate continuous deployment in their CD/CD pipelines.
+This approach centers around applying any changes from inside a Kubernetes cluster. The Kubernetes cluster includes an operator that scans a git repository for the desired state of the cluster, picking up and applying any changes that need to be made. In this model, no external client has admin-level credentials to the Kubernetes cluster. The pull-model isn't new but hasn't been widely used by CI/CD tools. Recently, with the introduction of GitOps, the pull-model has been gaining adoption. Many organizations have been utilizing GitOps to facilitate continuous deployment in their CD/CD pipelines.
 
 Reasons to use a pull-based approach:
 
