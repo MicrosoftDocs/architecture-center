@@ -1055,6 +1055,34 @@ items:
                     maintainContext: true
           - name: Compliance solutions
             items:
+              - name: Compliance in Cloud for Retail
+                href: /industry/retail/compliance-overview
+                maintainContext: true
+              - name: GDPR (EU)
+                itmes:
+                  - name: GDPR overview
+                    href: /compliance/regulatory/gdpr
+                    maintainContext: true
+                  - name: Data Subject Requests
+                    items:
+                      - name: Azure DSRs
+                        href: /compliance/regulatory/gdpr-dsr-azure
+                        maintainContext: true
+                      - name: Azure DevOps DSRs
+                        href: /compliance/regulatory/gdpr-dsr-vsts
+                        maintainContext: true
+                  - name: Breach notification
+                    href: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
+                    maintainContext: true
+                  - name: Data controllers with Azure
+                    href: /compliance/regulatory/gdpr-dpia-azure
+                    maintainContext: true
+                  - name: Information protection
+                    href: /microsoft-365/solutions/information-protection-deploy
+                    maintainContext: true
+                  - name: Best practices with Delta Lake
+                    href: /azure/databricks/security/privacy/gdpr-delta
+                    maintainContext: true
               - name: ISO standards
                 items:
                   - name: ISO 22301
@@ -1106,23 +1134,23 @@ items:
                   - name: Change data in Azure Data Lake
                     href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
                     maintainContext: true
-              - name: Risk grid computing in banking
-                href: industries/finance/risk-grid-banking-overview.yml
-              - name: Risk grid computing solution
-                href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
               - name: Detect mobile bank fraud
                 href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
-                href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
                 maintainContext: true
+              - name: Financial services risk lifecycle
+                href: industries/finance/financial-risk-model.md
+              - name: Risk grid computing in banking
+                href: industries/finance/risk-grid-banking-overview.yml
+              - name: Risk grid computing solution
+                href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: Big compute for financial risk modeling
                 href: guide/architecture-styles/big-compute.yml
               - name: Actuarial risk analysis
                 href: industries/finance/actuarial-risk-analysis-financial-model.yml
-              - name: Financial services risk lifecycle
-                href: industries/finance/financial-risk-model.md
           - name: Architectures
             items:
               - name: All finance architectures
@@ -1145,7 +1173,7 @@ items:
                 href: example-scenario/banking/patterns-and-implementations.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
-              - name: Replicate and sync mainframe data in Azure
+              - name: Replicate and sync mainframe data
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Scale regulated AI and ML in finance
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml                
@@ -1222,6 +1250,9 @@ items:
                   - name: IRS 1075 regulatory compliance
                     href: /azure/governance/policy/samples/irs-1075-sept2016
                     maintainContext: true
+              - name: M365 financial services
+                href: /microsoft-365/solutions/financial-services-secure-collaboration
+                maintainContext: true
               - name: PCI 3DS
                 href: /azure/compliance/offerings/offering-pci-3ds
                 maintainContext: true
