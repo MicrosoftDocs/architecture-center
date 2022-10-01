@@ -4,7 +4,7 @@ This solution uses internet of things (IoT) technology to help reduce curbside p
 
 ## Architecture
 
-![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
+:::image type="content" alt-text="Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution." source="media/bopis.png" lightbox="media/bopis.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-vertical-buy-online-pickup-in-store.vsdx) of this architecture.*
 
@@ -74,6 +74,16 @@ This solution is ideal for the retail and automotive industries. It's related to
 - Use video analytics and geofencing to get license plate details when vehicles are nearby.
 - Cross-reference license plate details with customer order data, and trigger alerts and work orders.
 - Notify customers about order progress.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader and IoT
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
