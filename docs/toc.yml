@@ -618,6 +618,17 @@ items:
                   - name: Manage AWS costs in Azure
                     href: /azure/cost-management-billing/costs/aws-integration-manage
                     maintainContext: true
+              - name: Hybrid solutions for AWS
+                items:
+                  - name: AWS Ubuntu with Terraform and Azure Arc
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-ubuntu
+                    maintainContext: true
+                  - name: AWS Linux with Terraform and Azure Arc
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-al2
+                    maintainContext: true
+                  - name: AWS EC2 with Ansible and Azure Arc
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-scale-ansible
+                    maintainContext: true
               - name: Identity management for AWS
                 items:
                   - name: Azure AD identity management for AWS
@@ -674,15 +685,20 @@ items:
                   - name: Connect AWS to Microsoft Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
-                  - name: Protect AWS with Microsoft Defender
-                    href: /defender-cloud-apps/protect-aws
-                    maintainContext: true
-                  - name: Connect AWS to Microsoft Defender
-                    href: /defender-cloud-apps/connect-aws
-                    maintainContext: true
-                  - name: "Video: AWS connector in Defender"
-                    href: /azure/defender-for-cloud/episode-one
-                    maintainContext: true
+                  - name: Microsoft Defender for AWS
+                    items:
+                      - name: Protect AWS with Microsoft Defender
+                        href: /defender-cloud-apps/protect-aws
+                        maintainContext: true
+                      - name: Defender recommendations for AWS
+                        href: /azure/defender-for-cloud/recommendations-reference-aws
+                        maintainContext: true
+                      - name: Connect AWS to Microsoft Defender
+                        href: /defender-cloud-apps/connect-aws
+                        maintainContext: true
+                      - name: "Video: AWS connector in Defender"
+                        href: /azure/defender-for-cloud/episode-one
+                        maintainContext: true
               - name: Azure Databricks for AWS
                 href: /azure/databricks/repos/aws-code-commit-version-control
                 maintainContext: true
@@ -701,6 +717,14 @@ items:
             href: gcp-professional/services.md
           - name: Guidance
             items:
+              - name: Hybrid solutions for Google Cloud
+                items:
+                  - name: GC Ubuntu with Terraform
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-ubuntu
+                    maintainContext: true
+                  - name: GC Windows with Terraform
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-windows
+                    maintainContext: true
               - name: Identity management for Google Cloud
                 items:
                   - name: Onboard a Google Cloud project
@@ -731,7 +755,7 @@ items:
                   - name: Connect Google Cloud to Defender
                     href: /defender-cloud-apps/connect-google-gcp
                     maintainContext: true
-                  - name: "Video: Protect containers in Google Cloud"
+                  - name: "Video: Protect containers"
                     href: /azure/defender-for-cloud/episode-ten
                     maintainContext: true
   - name: Design Patterns
