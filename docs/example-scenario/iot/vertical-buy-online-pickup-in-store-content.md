@@ -75,6 +75,16 @@ This solution is ideal for the retail and automotive industries. It's related to
 - Cross-reference license plate details with customer order data, and trigger alerts and work orders.
 - Notify customers about order progress.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader and IoT
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Is curbside pickup just getting started?](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started)

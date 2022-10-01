@@ -23,10 +23,10 @@ This reference architecture is for training and deploying a real-time recommende
 
 ### Components
 
-- [Azure Databricks][databricks]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
-- [Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
-- [Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
-- [Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
+- [Azure Databricks][databricks-service-page]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
+- [Azure Kubernetes Service][aks-service-page] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
+- [Azure Cosmos DB][cosmosdb-service-page]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
+- [Machine Learning][mls-service-page]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 - [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
 ## Scenario details
@@ -46,6 +46,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 [Batch scoring of Spark models on Azure Databricks][batch-scoring] describes a reference architecture that uses Spark and Azure Databricks to execute scheduled batch scoring processes. We recommend this approach for generating new recommendations.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Performance is a primary consideration for real-time recommendations, because recommendations usually fall in the critical path of a user request on your website.
 
@@ -109,10 +111,10 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 ## Next steps
 
 - [Building a Real-time Recommendation API][als-example]
-- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure Databricks?][databricks]
+- [Azure Kubernetes Service][aks]
+- [Welcome to Azure Cosmos DB][cosmosdb]
+- [What is Azure Machine Learning?][mls]
 
 ## Related resources
 
@@ -130,20 +132,24 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
 [adbauthentication]: /azure/databricks/dev-tools/api/latest/authentication
 [aks]: /azure/aks/intro-kubernetes
+[aks-service-page]: https://azure.microsoft.com/products/kubernetes-service
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
 [autoscaling]: /azure/databricks/clusters/configure#autoscaling
 [batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.yml
 [blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [cosmosdb]: /azure/cosmos-db/introduction
+[cosmosdb-service-page]: https://azure.microsoft.com/products/cosmos-db
 [data-source]: /azure/databricks/data/data-sources/
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
+[databricks-service-page]: https://azure.microsoft.com/products/databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb
 [github]: https://github.com/Microsoft/Recommenders
 [guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/01_prepare_data/data_split.ipynb
 [latency]: https://github.com/jessebenson/azure-performance
-[mls]: /azure/machine-learning/service
+[mls]: /azure/machine-learning/overview-what-is-azure-machine-learning
+[mls-service-page]: https://azure.microsoft.com/products/machine-learning
 [nodes]: /azure/aks/scale-cluster
 [partition-data]: /azure/cosmos-db/partition-data
 [redis]: /azure/azure-cache-for-redis/cache-overview
