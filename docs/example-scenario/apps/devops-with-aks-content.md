@@ -122,16 +122,12 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-#### Availability
-
 To monitor your application performance and report on issues, this scenario utilizes Azure Monitor. It lets you monitor and troubleshoot performance issues that might require code updates, which can then be deployed with the CI/CD pipeline.
 
 As part of the AKS cluster, a load balancer distributes application traffic to one or more containers or pods that run your application. This approach to running containerized applications in Kubernetes provides a highly available infrastructure for your customers.
 
 > [!NOTE]
 > This article doesn't directly address CI/CD pipeline high availability. For more information, visit [High availability for GitHub Actions](https://docs.github.com/en/enterprise-server@3.4/admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions) and [Argo CD Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability).
-
-#### Resiliency
 
 Resiliency components are built into Kubernetes. These components monitor and restart containers, or pods, if there's an issue. When multiple Kubernetes nodes are combined, your application can tolerate a pod or node being unavailable.
 
