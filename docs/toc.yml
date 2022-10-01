@@ -936,8 +936,33 @@ items:
                   - name: Forecast bike rental demand
                     href: /azure/machine-learning/tutorial-automated-ml-forecast
                     maintainContext: true
+                  - name: Intelligent Recommendations
+                    items:
+                      - name: Overview
+                        href: /industry/retail/intelligent-recommendations/overview
+                        maintainContext: true
+                      - name: Architecture
+                        href: /industry/retail/intelligent-recommendations/architecture
+                        maintainContext: true
+                      - name: Personalized lists
+                        href: /industry/retail/intelligent-recommendations/personalized-recommendations
+                        maintainContext: true
                   - name: Optimize and reuse recommendations
                     href: industries/retail/recommendation-engine-optimization.yml
+                  - name: Personalizer
+                    items:
+                      - name: Overview
+                        href: /azure/cognitive-services/personalizer/what-is-personalizer
+                        maintainContext: true
+                      - name: How Personalizer works
+                        href: /azure/cognitive-services/personalizer/how-personalizer-works
+                        maintainContext: true
+                      - name: Where to use Personalizer
+                        href: /azure/cognitive-services/personalizer/where-can-you-use-personalizer
+                        maintainContext: true
+                      - name: Data and privacy
+                        href: /azure/cognitive-services/personalizer/responsible-data-and-privacy
+                        maintainContext: true                    
               - name: IoT in retail
                 items:
                   - name: Digital distribution center
@@ -959,6 +984,14 @@ items:
                     maintainContext: true
               - name: Migrate your e-commerce solution to Azure
                 href: industries/retail/migrate-ecommerce-solution.md
+              - name: Mixed reality in retail
+                items:
+                  - name: Marketing and advertisement
+                    href: /windows/mixed-reality/enthusiast-guide/marketing-advertisement
+                    maintainContext: true
+                  - name: Immersive shopping experiences
+                    href: /windows/mixed-reality/enthusiast-guide/immersive-shopping
+                    maintainContext: true
               - name: SKU optimization for consumer brands
                 href: industries/retail/sku-optimization-solution-guide.yml
               - name: Visual search in retail with Cosmos DB
