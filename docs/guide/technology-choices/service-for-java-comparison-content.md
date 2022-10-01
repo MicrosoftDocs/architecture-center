@@ -11,7 +11,8 @@ Before you select a cloud destination for your Java application, you'll need to 
 - [Batch / scheduled jobs](#batch--scheduled-jobs)
 
 ### Spring Boot / JAR applications
-Many newer applications are invoked directly from the command line. These applications still handle web requests, but instead of relying on an application server to provide HTTP request handling, they incorporate HTTP communication and all other dependencies directly into the application package. Such applications are frequently built with frameworks such as Spring Boot, Dropwizard, Micronaut, MicroProfile, Vert.x, and others.
+
+These applications are typically invoked directly from the command line and still handle web requests, but instead of relying on an application server to provide HTTP request handling, they incorporate HTTP communication and all other dependencies directly into the application package. Such applications are frequently built with frameworks such as Spring Boot, Dropwizard, Micronaut, MicroProfile, Vert.x, and others.
 
 These applications are packaged into archives with the .jar extension (JAR files).
 
