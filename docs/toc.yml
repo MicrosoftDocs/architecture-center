@@ -887,7 +887,7 @@ items:
               - name: Dynamics 365 Commerce
                 items:
                   - name: Commerce home page
-                    href: /dynamics365/commerce
+                    href: /dynamics365/commerce/
                     maintainContext: true
                   - name: Commerce architecture overview
                     href: /dynamics365/commerce/commerce-architecture
@@ -907,12 +907,30 @@ items:
                   - name: Set up Azure DevOps
                     href: /dynamics365/commerce/dev-itpro/new-environments-visual-studio-teams-branch-retail-projects
                     maintainContext: true
+                  - name: Deployment
+                    items:
+                      - name: Configure and install CSU
+                        href: /dynamics365/commerce/dev-itpro/retail-store-scale-unit-configuration-installation
+                        maintainContext: true
+                      - name: Configure, install, and activate MPOS
+                        href: /dynamics365/commerce/retail-modern-pos-device-activation
+                        maintainContext: true
+                      - name: POS device activation
+                        href: /dynamics365/commerce/dev-itpro/retail-device-activation
+                        maintainContext: true
+                      - name: Retail hardware station
+                        href: /dynamics365/commerce/retail-hardware-station-configuration-installation
+                        maintainContext: true
+                      - name: Sealed self-service components
+                        href: /dynamics365/commerce/dev-itpro/enhanced-mass-deployment
+                        maintainContext: true
+                      - name: Updates to cloud environments
+                        href: /dynamics365/fin-ops-core/dev-itpro/deployment/apply-deployable-package-system
+                        maintainContext: true
               - name: Data management in retail
                 href: industries/retail/retail-data-management-overview.md
               - name: AI and ML in retail
                 items:
-                  - name: Content-based recommendation
-                    href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
                   - name: Deploy AI-based footfall detection
                     href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
                   - name: Forecast bike rental demand
@@ -951,12 +969,14 @@ items:
                 href: /azure/architecture/browse/?terms=retail
               - name: AI-based footfall detection
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
-              - name: Analyze MongoDB Atlas data using Azure Synapse Analytics
+              - name: Analyze MongoDB Atlas data
                 href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Buy online, pick up in store (retail)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+              - name: Content-based recommendation
+                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Interactive price analytics
