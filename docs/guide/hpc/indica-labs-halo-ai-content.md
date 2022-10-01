@@ -1,3 +1,15 @@
+This article briefly describes the steps for running [Indica Labs HALO AI](https://indicalab.com/halo-ai) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HALO AI on Azure.
+
+HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms. It was originally developed as a tool that could decipher and assess the complex patterns of histologically stained tissues, in a way that's similar to how a pathologist thinks. 
+
+HALO AI has the following capabilities.
+
+- Includes three powerful neural networks: VGG, DenseNet, and MiniNet. 
+- Provides pretrained networks for H&E, single IHC, or DAPI stained-images. You can also train your own nuclei segmentation network for a specific application.
+- Uses a type of deep learning algorithm called a convolutional neural network (CNN), which is ideally suited for tissue classification in digital pathology.
+
+HALO AI is used across the healthcare industry, in clinical, pharmaceutical, biotech, and central research organizations.
+
 :::image type="content" source="media/halo-ai/image-classification.png" alt-text="Figure that shows image classification in HALO AI." border="false":::
 
 ## Why deploy HALO AI on Azure?
