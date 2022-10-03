@@ -142,7 +142,7 @@ The pricing for all Azure components can be found in the [Azure Pricing Calculat
 - transition file blobs down to the cool access tier
 - archive tiers based on when the file was last modified. 
 
-Please consult [Life365.health](https://www.life365.health/) to learn about their user subscription fees. 
+To learn more about Life365.health plans and pricing, please review the [Life365 API Connect Data offer in the Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/life365inc1629235889975.life365-api-connect?tab=Overview)
 
 ### Operational excellence
 
