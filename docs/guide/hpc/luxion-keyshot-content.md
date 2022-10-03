@@ -34,7 +34,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of KeyShot on Azure used [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs running Windows. KeyShot 11 was used in these tests. The following table provides details about the VMs.
+Performance tests of KeyShot on Azure used [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs running Windows. KeyShot 11 was used in these tests. The following table provides details about the VMs.
 
 |VM size|vCPU|Memory (GiB)|Temporary storage SSD (GiB)|GPU partition|GPU memory (GiB)|Maximum data disks|
 |-|-|-|-|-|-|-|
@@ -47,9 +47,9 @@ Performance tests of KeyShot on Azure used [NVadsA10_v5](/azure/virtual-machines
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install AMD drivers.
+To use AMD processors on [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series) series VMs, you need to install AMD drivers.
 
 ## KeyShot installation
 
