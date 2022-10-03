@@ -20,7 +20,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 The following dataflow corresponds to the above diagram:  
 
-1. **Health Data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
+1. **Health data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
    
 2. **Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2)**. No data is stored in Azure Data Factory during this process, and failures like dropped connections can be handled/retried during this step.  
    
