@@ -10,6 +10,7 @@ metadata:
   ms.subservice: azure-guide
 azureCategories:
   - compute
+  - ai-machine-learning
 products:
   - azure-virtual-machines
   - azure-virtual-network
