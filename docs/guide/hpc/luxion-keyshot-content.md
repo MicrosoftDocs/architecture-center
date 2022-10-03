@@ -193,7 +193,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 This table shows elapsed times, in hours, for running all three models. 
 
-|Sample size|	12-core CPU|	1/3 GPU|	1/2 GPU|	1 GPU|	1 GPU (36adms<sup>2 VM)|	2 GPU|
+|Sample size|	12-core CPU|	1/3 GPU|	1/2 GPU|	1 GPU|	1 GPU (36adms<sup>2</sup> VM)|	2 GPU|
 |-|-|-|-|-|-|-|	
 |256|	0.665|	0.098	|0.060|	0.027|	0.022|	0.013|
 |12|	1.318	|0.196	|0.120	|0.054	|0.043	|0.024|
