@@ -3410,7 +3410,7 @@ items:
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
-              - name: CI/CD pipeline for container workloads
+              - name: Automate build and deploy using GitOps
                 href: example-scenario/apps/devops-with-aks.yml
               - name: Firewall protection for an AKS cluster
                 href: example-scenario/aks-firewall/aks-firewall.yml
@@ -3453,8 +3453,6 @@ items:
                 href: solution-ideas/articles/aks-iot-data-streaming.yml
               - name: JBoss deployment with Red Hat on Azure
                 href: solution-ideas/articles/jboss-deployment-red-hat.yml
-              - name: Lift and shift to containers with AKS
-                href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
               - name: Lift and shift to containers with App Service
                 href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Microservices with AKS and Azure DevOps
@@ -5236,8 +5234,6 @@ items:
             items:
               - name: JMeter implementation reference
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
-              - name: Lift and shift to containers with AKS
-                href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
               - name: Lift and shift to containers with App Service
                 href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications

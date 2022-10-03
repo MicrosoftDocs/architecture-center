@@ -2461,6 +2461,11 @@
       "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-existing-applications-with-aks.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/migrate",
+      "redirect_document_id": false
     }
   ]
 }
