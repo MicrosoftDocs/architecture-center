@@ -2,6 +2,7 @@ This article briefly describes the steps for running [Indica Labs HALO AI](https
 
 HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms. It was originally developed as a tool that could decipher and assess the complex patterns of histologically stained tissues, in a way that's similar to how a pathologist thinks. 
 
+:::image type="content" source="media/halo-ai/image-classification.png" alt-text="Figure that shows image classification in HALO AI." border="false":::
 HALO AI has the following capabilities.
 
 - Includes three powerful neural networks: VGG, DenseNet, and MiniNet. 
@@ -9,8 +10,6 @@ HALO AI has the following capabilities.
 - Uses a type of deep learning algorithm called a convolutional neural network (CNN), which is ideally suited for tissue classification in digital pathology.
 
 HALO AI is used across the healthcare industry, in clinical, pharmaceutical, biotech, and central research organizations.
-
-:::image type="content" source="media/halo-ai/image-classification.png" alt-text="Figure that shows image classification in HALO AI." border="false":::
 
 ## Why deploy HALO AI on Azure?
 
