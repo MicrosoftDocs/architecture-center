@@ -1,3 +1,14 @@
+This article briefly describes the steps for running CPFD's [Barracuda Virtual Reactor](https://cpfd-software.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Virtual Reactor on Azure.
+
+Virtual Reactor simulates the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions. 
+
+Virtual Reactor has these capabilities:
+
+- Uses the Lagrangian formula for the particulate phase, which allows inclusion of discrete particle properties, including the particle size distribution (PSD), composition, temperature, residence time, and history.
+- Provides directional particle filtering through baffles and a GUI.
+
+Barracuda is most widely used in the oil refining, petrochemical, energy, and minerals processing industries, including the clean energy sector in the production of electricity, gas, and liquid fuels from coal and biomass.
+
 ## Why deploy Barracuda Virtual Reactor on Azure?
 
 - Modern and diverse compute options to align to your workload's needs
