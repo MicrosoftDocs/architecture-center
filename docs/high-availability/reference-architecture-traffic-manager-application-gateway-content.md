@@ -3,15 +3,15 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region-v-8.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-8.png":::
+:::image type="content" source="images/high-availability-multi-region-v-8.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-9.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-8.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-9.vsdx) of this architecture.*
 
 ### Workflow
 
 1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-1. The Application Gateways (AppGWs) receive HTTP(S) traffic from the browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAFs) that inspects traffic and protects the application from web exploits and vulnerabilities.
+1. The Application Gateways (AppGWs) receive HTTP(S) traffic from the browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAF) that inspects traffic and protects the application from web exploits and vulnerabilities.
 
 1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateways distribute traffic to each of the three availability zones. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
@@ -80,9 +80,9 @@ For more information, see:
 
 ### Routing
 
-*Routing method:* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
+*Routing method -* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
 
-*Nested configuration:* Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
+*Nested configuration -* Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
 
 For more information, see:
 
@@ -109,11 +109,11 @@ Here are some recommendations for health probes in Traffic Manager, Application 
 
 #### Traffic Manager
 
-*Endpoint health:* Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
+*Endpoint health -* Create an endpoint that reports the overall health of the application. Traffic Manager uses an HTTP(S) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. Use the endpoint you created for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing.
 
 For more information, see [health endpoint monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
-*Failover delay:* Traffic Manager has a failover delay. The following factors determine the duration of the delay:
+*Failover delay -* Traffic Manager has a failover delay. The following factors determine the duration of the delay:
 
 - Probing intervals: How often the probe checks the health of the endpoint.
 - Tolerated number of failures: How many failures the probe tolerates before marking the endpoint unhealthy.
@@ -141,15 +141,15 @@ For more information, see:
 
 ## Operational excellence
 
-*Resource groups:* Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
+*Resource groups -* Use [resource groups](/azure/azure-resource-manager/management/overview) to manage Azure resources by lifetime, owner, and other characteristics.
 
-*Virtual network peering:* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
+*Virtual network peering -* Use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) to seamlessly connect two or more virtual networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Make sure that the address space of the virtual networks doesn't overlap.
 
-*Virtual network and subnets:* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
+*Virtual network and subnets -* Create a separate subnet for each tier of your subnet. You should deploy VMs and resources, such as Application Gateway and Load Balancer, into a virtual network with subnets.
 
 ## Security
 
-*Distributed Denial of Service (DDoS):* Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
+*Distributed Denial of Service (DDoS) -* Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 
 *Network security groups (NSGs):* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
@@ -165,7 +165,7 @@ For more information, see [application gateway infrastructure configuration](/az
 
 ## Cost optimization
 
-*Data transfer:* Use a VPN Gateway for environments with substantial amounts of data replicated between regions instead of virtual network peering. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
+*Data transfer -* Use a VPN Gateway for environments with substantial amounts of data replicated between regions instead of virtual network peering. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
 
 For more information, see:
 
@@ -177,7 +177,7 @@ For more information, see:
 
 ## Performance efficiency
 
-*Virtual machine scale sets:* Use virtual machine scale sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of virtual machine scale sets are:
+*Virtual machine scale sets -* Use virtual machine scale sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of virtual machine scale sets are:
 
 - Create and manage multiple VMs easily
 - High availability and application resiliency
