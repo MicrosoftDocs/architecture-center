@@ -1,4 +1,12 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Luxion KeyShot](https://www.keyshot.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running KeyShot on Azure.
+
+KeyShot is a standalone, real-time ray tracing and global illumination program that's used to create 3D renderings, animations, and interactive visuals. It uses photon mapping, an extension of ray tracing, which makes simulation of global illumination in complex scenes more efficient. KeyShot has the following capabilities:
+
+- 3D-paint enabled, so users can directly paint or stamp bump textures, colors, roughness, specularity, refractivity, and opacity.
+- Provides physics simulation that allows users to record the physics of an object and apply it as a keyframe animation.
+- Allows control over gravity, friction, and bounciness and the ability to adjust the time, quality, and keyframes per second.
+ 
+KeyShot customers include product and industrial designers, vehicle design companies, jewelers, and architects.
 
 ## Why deploy KeyShot on Azure?
 
@@ -81,7 +89,7 @@ The following sections present the performance results for each model. Rendering
 
 #### Watch configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NV12ads_A10_v5|	12 vCPU|	365|	728|	813|
 |Standard_NV12ads_A10_v5|	1/3 GPU	|48.44|	95.89|	191|
@@ -97,7 +105,7 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 #### Ring configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NV12ads_A10_v5|	12 vCPU|	1,244|2,445|4,908|
 |Standard_NV12ads_A10_v5|	1/3 GPU	|117|234|459|
@@ -112,7 +120,7 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 #### Door configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NV12ads_A10_v5|	12 vCPU|	786|1,573|3,223|
 |Standard_NV12ads_A10_v5|	1/3 GPU	|188|375|747|
@@ -131,12 +139,12 @@ The following sections present the performance results for each model. Rendering
 
 #### Watch configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NC64as_T4_v3|64 vCPU|	66.92	|133|	268|
-|Standard_NC64as_T4_v3|1 GPU	|32.98|	66.93|	133|
-|Standard_NC64as_T4_v3|2 GPU	|17.48|	34.48|	68.43|
-|Standard_NC64as_T4_v3|3 GPU	|12.49|	23.98|	47.95|
+|Standard_NC64as_T4_v3|1 GPU<sup>1	|32.98|	66.93|	133|
+|Standard_NC64as_T4_v3|2 GPU<sup>1	|17.48|	34.48|	68.43|
+|Standard_NC64as_T4_v3|3 GPU<sup>1	|12.49|	23.98|	47.95|
 |Standard_NC64as_T4_v3|4 GPU	|9.98|	18.96|	37.46|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
@@ -145,12 +153,12 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 #### Ring configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NC64as_T4_v3|64 vCPU|	260	|509|	1,008|
-|Standard_NC64as_T4_v3|1 GPU	|88.91	|169	|334|
-|Standard_NC64as_T4_v3|2 GPU	|49.95|93.4|180|
-|Standard_NC64as_T4_v3|3 GPU	|36.48	|66.43|	126|
+|Standard_NC64as_T4_v3|1 GPU<sup>1	|88.91	|169	|334|
+|Standard_NC64as_T4_v3|2 GPU<sup>1	|49.95|93.4|180|
+|Standard_NC64as_T4_v3|3 GPU<sup>1	|36.48	|66.43|	126|
 |Standard_NC64as_T4_v3|4 GPU	|30.96	|54.45|	101|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
@@ -159,13 +167,15 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 #### Door configurator
 
-|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1,024|
+|VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
 |Standard_NC64as_T4_v3|64 vCPU|	139	|273	|547|
-|Standard_NC64as_T4_v3|1 GPU	|102|	203|	406|
-|Standard_NC64as_T4_v3|2 GPU	|52.44	|104	|208|
-|Standard_NC64as_T4_v3|3 GPU	|35.96	|70.93|	140|
+|Standard_NC64as_T4_v3|1 GPU<sup>1	|102|	203|	406|
+|Standard_NC64as_T4_v3|2 GPU<sup>1	|52.44	|104	|208|
+|Standard_NC64as_T4_v3|3 GPU<sup>1	|35.96	|70.93|	140|
 |Standard_NC64as_T4_v3|4 GPU	|27.47	|53.96|	106|
+
+<sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has four GPUs.*
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -181,9 +191,25 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### NVads_A10_v5 series 
 
-Note: Here ‘1 GPU (36adms VM) refers to Standard_NV36adms_A10_v5 VM configuration.
+This table shows elapsed times, in hours, for running all three models. 
+
+|Sample size|	12-core CPU|	1/3 GPU|	1/2 GPU|	1 GPU|	1 GPU (36adms<sup>2 VM)|	2 GPU|
+|-|-|-|-|-|-|-|	
+|256|	0.665|	0.098	|0.060|	0.027|	0.022|	0.013|
+|12|	1.318	|0.196	|0.120	|0.054	|0.043	|0.024|
+|1024|	2.484	|0.388|	0.238|	0.107	|0.087	|0.047|
+
+<sup>2</sup> *This number refers to a Standard_NV36adms_A10_v5 VM configuration.*
 
 ### NCAST4_V3 series
+
+This table shows elapsed times, in hours, for running all three models.
+
+|Sample size|	64-core CPU|	1 GPU|	2 GPU|	3 GPU|	4 GPU|
+|-|-|-|-|-|-|
+|256	|0.129	|0.062	|0.033	|0.024	|0.019|
+|512	|0.254	|0.122	|0.064	|0.045	|0.035|
+|1024	|0.506	|0.243|	0.127	|0.087|	0.068|
 
 ## Summary
 
