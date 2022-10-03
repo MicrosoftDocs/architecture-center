@@ -10,7 +10,9 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 > [!NOTE]
 > **SECTION TODOS**
-> - diagram: sign off, create final .png, upload final PowerPoint to blob storage
+> - diagram: sign off, create final .png, upload final PowerPoint to blob storage, update image in thumbnailUrl
+> - dataflow: Feedback from Chad: Should we be clear that it's "anonymized health data"?
+> - alternatives: Feedback from Chad: Is there ANYTHING from the MC4H portfolio that we should be mentioning?
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
@@ -69,6 +71,11 @@ The following dataflow corresponds to the above diagram:
 
 ## Scenario details
 
+> [!NOTE]
+> **SECTION TODOS**
+> - feedback from Chad: regarding support for the `description` metadata, can we add additional details to support the claim that the solution can "enhance the quality of care"?
+> - feedback from Chad: regarding the "care line manager" role, can we clarify how the solution helps them determine if you have enough staff to handle a patient going home (discharged)? Or is this about transferring departments (like from OR to med-surg?)
+
 This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care and operational workload efficiency. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
 
 ### Potential use cases
@@ -79,6 +86,10 @@ There are two different business users in hospital management who can expect to 
 - The care line manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients and ensuring that staff is available to meet the specific care requirements of their patients. A care line manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables care line managers to determine if staff resources will be adequate to handle the release of a patient.
 
 ## Considerations
+
+> [!NOTE]
+> **SECTION TODOS**
+> - Cost optimization - ask DJ, Dhanshri for a shared "saved estimate" [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) link for the final architecture.
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
