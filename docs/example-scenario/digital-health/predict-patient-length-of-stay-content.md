@@ -88,7 +88,7 @@ The most expensive component of this solution is the compute and there are sever
 
 ### Operational excellence  
 
-Although it isn't discussed in detail in this scenario as it's out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details, please see: https://azure.microsoft.com/products/machine-learning/mlops/#features.
+A solid Machine Learning operations (MLOps) practice and implementation plays a critical role in the productionalization this type of a solution. For more details, see [Machine learning operations (MLOps)](https://azure.microsoft.com/products/machine-learning/mlops/#features).
 
 ### Performance efficiency  
 
