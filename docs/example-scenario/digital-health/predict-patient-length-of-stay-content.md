@@ -22,7 +22,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 The following dataflow corresponds to the above diagram:  
 
-1. **Health Data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
+1. **Health data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
    
 2. **Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2)**. No data is stored in Azure Data Factory during this process, and failures like dropped connections can be handled/retried during this step.  
    
@@ -99,11 +99,11 @@ The most expensive component of this solution is the compute and there are sever
 
 ### Operational excellence  
 
-Although it isn't discussed in detail in this scenario as it's out of scope, MLOps would play a critical role in the productionalization of this type of a solution. For more details, please see: https://azure.microsoft.com/products/machine-learning/mlops/#features.
+A solid Machine Learning operations (MLOps) practice and implementation plays a critical role in the productionalization this type of a solution. For more details, see [Machine learning operations (MLOps)](https://azure.microsoft.com/products/machine-learning/mlops/#features).
 
 ### Performance efficiency  
 
-In this scenario, we do data pre-processing in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
+In this scenario, data pre-processing is performed in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
 
 ## Deploy this scenario
 
@@ -123,7 +123,6 @@ Principal authors:
 
 Other contributors: 
 
- - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Development Engineer
  - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
