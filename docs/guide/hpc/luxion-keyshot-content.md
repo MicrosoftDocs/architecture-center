@@ -53,11 +53,11 @@ To use AMD processors on [NVadsA10_v5](/azure/virtual-machines/ncv3-series) and 
 
 ## KeyShot installation
 
-Before you install KeyShot, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 Image, and install the required NVIDIA and AMD drivers.
+Before you install KeyShot, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 image, and install the required NVIDIA and AMD drivers.
 
 For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
  
-For information about deploying the VM and installing the drivers, [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 For information about installing KeyShot, see the [KeyShot website](https://manual.keyshot.com/keyshot11/manual/installation).
 
@@ -193,13 +193,13 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 This table shows elapsed times, in hours, for running all three models. 
 
-|Sample size|	12-core CPU|	1/3 GPU|	1/2 GPU|	1 GPU|	1 GPU (36adms<sup>2</sup> VM)|	2 GPU|
-|-|-|-|-|-|-|-|	
-|256|	0.665|	0.098	|0.060|	0.027|	0.022|	0.013|
-|12|	1.318	|0.196	|0.120	|0.054	|0.043	|0.024|
-|1024|	2.484	|0.388|	0.238|	0.107	|0.087	|0.047|
+|Sample size|12-core CPU|1/3 GPU|1/2 GPU|1 GPU|1 GPU (36adms* VM)|2 GPU|
+|-----------|-----------|-------|-------|-----|-----------------------------|-----|
+|256        |0.665      |0.098  |0.060  |0.027|0.022                        |0.013|
+|512        |1.318      |0.196  |0.120  |0.054|0.043                        |0.024|
+|1024       |2.484      |0.388  |0.238  |0.107|0.087                        |0.047|
 
-<sup>2</sup> *This number refers to a Standard_NV36adms_A10_v5 VM configuration.*
+\* *This number refers to a Standard_NV36adms_A10_v5 VM configuration.*
 
 ### NCAST4_V3 series
 
