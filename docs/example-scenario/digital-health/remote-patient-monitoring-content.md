@@ -87,7 +87,7 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 **Life365.health**  
 
-The advantage of Life365.health is that with one integration point, you can push measurements from a wide range of devices in the Life365 ecosystem into the Azure Health Data Services. Other wearable devices APIs exist, such as Garmin Activity API and Polar AccessLink API, for which a similar integration pattern can be achieved. However, these APIs are limited and exclusive to measurement from devices of their own manufacturers, such as Garmin and Polar respectively. 
+The advantage of Life365.health is that with one integration point, you can push measurements from a wide range of devices in the Life365 ecosystem into the Azure Health Data Services. Other wearable device APIs exist, such as Garmin Activity API and Polar AccessLink API, for which a similar integration pattern can be achieved. However, these APIs are exclusive to measurement from devices of their own manufacturers, such as Garmin and Polar respectively. 
 
 Devices and patients need to be defined, linked, and synchronized between the Azure Health Data Services and the Life365 API. This can be achieved by syncing the patient and device IDs between the Azure Health Data Services and Life365 API. In essence, a new patient and device is created and linked in the Azure FHIR Service first. Then the corresponding patient and device is created and linked in the Life365 API. The IDs of the patients and devices, first created in the Azure Health Data Services, will then be updated as external IDs in the respective patient and device entities in the Life365 API.
 
@@ -197,4 +197,4 @@ Other contributors:
 > **SECTION TODOS**
 > - add links to related healthcare related content and example workloads
 
-- The remote patient monitoring example workload provides a solution for the [Empower health team collaboration](/industry/healthcare/health-team-collaboration) capability of the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare).
+- This remote patient monitoring provides a solution for the [Empower health team collaboration](/industry/healthcare/health-team-collaboration) capability of the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare).
