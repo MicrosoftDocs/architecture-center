@@ -40,21 +40,19 @@ Performance tests of Samadii DEM on Azure used [NVv3](/azure/virtual-machines/nv
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [](), [](), [](), []() series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on []() ... and [](/azure/) series VMs, you need to install AMD drivers.
-
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
+To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series) and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install AMD drivers.
 
 ## Samadii DEM installation
 
-Before you install Samadii DEM, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+Before you install Samadii DEM, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers.
 
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure]()
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
+Install a license server, install Samadii DEM, configure the license server. 
 
 <Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.  >
 
