@@ -1,4 +1,4 @@
-There are many options for teams to build and deploy java applications on Azure. This article will help you understand which scenarios and use cases are best suited for Azure Spring Apps and how it compares to other options on Azure.
+There are many options for teams to build and deploy java applications on Azure. This article is designed to cover mainstream Java on Azure scenarios, and to provide high-level planning suggestions and considerations.
 
 ## Java Hosting Option comparisons
 
@@ -63,8 +63,92 @@ You may also refer to the Java application tree down below for additional hints.
 ![Decision tree for Java on Azure](images/Java-Application-Tree.png)
 
 ## Build or Migrate Java Apps
-Use the following graph to find build or migration guidance by application type and targeted Azure service destination.
-![Build or migrate java apps](images/Build-or-migrate-java-apps.png)
+To build or migrate the java apps, you also need to identify the java platform of your applications. The current popular platforms are Java SE, Jakarta EE, and MicroProfile.
+
+### Java SE
+Java Platform, Standard Edition (Java SE) is a computing platform for the development and deployment of portable code for desktop and server environments. Popular projects built on Java SE include Spring Boot, Spring Cloud, Spring Framework, and Tomcat.
+
+### Jakarta EE
+Jakarta Enterprise Edition (formerly Java EE) is the open source future of cloud native enterprise Java. 
+It is a set of specifications, extending Java SE with specifications for enterprise features such as distributed computing and web services. Jakarta EE applications are run on reference runtimes, which can be microservices or application servers, which handle transactions, security, scalability, concurrency, and management of the components it is deploying.
+
+### MicroProfile
+MicroProfile is a project that provides a collection of specifications designed to help developers build Enterprise Java cloud-native microservices. Quarkus and Open Liberty are the most popular implementation of MicroProfile.
+                                                                                                                                                                                                         
+You can use the following table to find build or migration guidance by application type and targeted Azure service destination.
+
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Platform→<br><br>Destination↓ </th>
+            <th>Java SE</th>
+            <th>MicroProfile</th>
+            <th>Jarkarta EE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2>IaaS</td>
+            <td>Virtual Machine</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+        </tr>
+        <tr>
+            <td>Vmware Tanzu</td>
+            <td> &#10004</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td rowspan=2>Containers</td>
+            <td>Azure Kubernetes Service</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+        </tr>
+        <tr>
+            <td>Redhat OpenShift</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+        </tr>
+        <tr>
+            <td rowspan=5>PaaS</td>
+            <td>Azure Container App</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>JBoss EAP</td>
+            <td> &#10004</td>
+            <td> </td>
+            <td> &#10004</td>
+        </tr>
+        <tr>
+            <td>Tomcat</td>
+            <td> &#10004</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>Java SE</td>
+            <td> &#10004</td>
+            <td> &#10004</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>Azure Spring Apps</td>
+            <td> &#10004</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </tbody>
+</table>
+
 
 
 <!-- reference links, for use with tables -->
