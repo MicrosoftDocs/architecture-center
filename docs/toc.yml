@@ -3426,7 +3426,7 @@ items:
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
-              - name: Automate build and deploy using GitOps
+              - name: Build and deploy apps on AKS
                 href: example-scenario/apps/devops-with-aks.yml
               - name: Firewall protection for an AKS cluster
                 href: example-scenario/aks-firewall/aks-firewall.yml
