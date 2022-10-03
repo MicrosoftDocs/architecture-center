@@ -6,6 +6,8 @@ A reference implementation for this architecture is available on [GitHub][github
 
 ![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
+
 ### Workflow
 
 The architecture defines a data flow that is entirely contained within [Azure Databricks][databricks] based on a set of sequentially executed [notebooks][notebooks]. It consists of the following components:
