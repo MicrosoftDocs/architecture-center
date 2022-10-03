@@ -646,6 +646,22 @@ items:
                   - name: Attach and detach policies
                     href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions
                     maintainContext: true
+              - name: AKS for AWS
+                items:
+                  - name: AKS for Amazon EKS professionals
+                    href: aws-professional/eks-to-aks/index.md
+                  - name: Identity and access management
+                    href: aws-professional/eks-to-aks/workload-identity.yml
+                  - name: Cluster monitoring and logging
+                    href: aws-professional/eks-to-aks/monitoring.yml
+                  - name: Network topologies and security
+                    href: aws-professional/eks-to-aks/private-clusters.yml
+                  - name: Storage options
+                    href: aws-professional/eks-to-aks/storage.md
+                  - name: Cost management and optimization
+                    href: aws-professional/eks-to-aks/cost-management.yml
+                  - name: Agent node management
+                    href: aws-professional/eks-to-aks/node-pools.yml
               - name: Migration from AWS
                 items:
                   - name: Azure Migrate
