@@ -40,7 +40,7 @@ Azure Web Apps offer numerous benefits that include:
 * An editor from [the Visual Studio family](https://visualstudio.microsoft.com/) for [Azure development](https://visualstudio.microsoft.com/vs/azure), including:
   * [Visual Studio](https://visualstudio.microsoft.com/vs): A creative launch pad for viewing and editing code, then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
   * [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/): Develop apps and games for iOS, Android, and the web using .NET on a Mac.
-  * [Visual Studio Code](https://code.visualstudio.com): A free, cross-platform, lightweight, extensible code editor, available as a [desktop application](https://code.visualstudio.com/Download) or [via the web](https://vscode.dev/).
+  * [Visual Studio Code](https://code.visualstudio.com): A free, cross-platform, lightweight, extensible code editor, available as a [desktop application](https://code.visualstudio.com/Download) or [via the web](https://vscode.dev/). Extensions are available for languages and frameworks supported by Azure Web Apps, including C#, Java, Python, Node.js, PHP, and Ruby.
 * [Azure Monitor](https://azure.microsoft.com/products/monitor/): Detect, triage, and diagnose issues in your web apps and services using [Application Insights](/azure/azure-monitor/app/app-insights-overview), an extension of Azure Monitor.
 
 ## Contributors
