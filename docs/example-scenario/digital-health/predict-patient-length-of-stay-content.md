@@ -112,7 +112,6 @@ Principal authors:
 
 Other contributors: 
 
- - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Development Engineer
  - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
