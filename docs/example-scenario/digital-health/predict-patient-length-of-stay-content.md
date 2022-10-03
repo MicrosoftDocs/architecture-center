@@ -92,7 +92,7 @@ A solid Machine Learning operations (MLOps) practice and implementation plays a 
 
 ### Performance efficiency  
 
-In this scenario, we do data pre-processing in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
+In this scenario, data pre-processing is performed in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
 
 ## Deploy this scenario
 
