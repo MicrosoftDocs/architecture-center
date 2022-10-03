@@ -288,7 +288,7 @@ Read the following articles for more information:
 - [Azure Virtual Desktop documentation](/azure/virtual-desktop/overview)
 - [FSLogix documentation](/fslogix/overview)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile)
-- [FSLogix profile containers and Azure files](/azure/virtual-desktop/fslogix-containers-azure-files)
+- [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-containers-azure-files)
 - [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml)
 
 ## Related resources
