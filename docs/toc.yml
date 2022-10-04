@@ -1356,7 +1356,7 @@ items:
               - name: Azure API for FHIR
                 items:
                   - name: Overview
-                    href: /azure/healthcare-apis/azure-api-for-fhir/overview#azure-iot-connector-for-fhir-preview
+                    href: /azure/healthcare-apis/azure-api-for-fhir/overview
                     maintainContext: true
                   - name: FHIR features
                     href: /azure/healthcare-apis/azure-api-for-fhir/fhir-features-supported
@@ -1410,7 +1410,7 @@ items:
             items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
-              - name: Analyze observational patient data by using OHDSI
+              - name: Analyze observational patient data
                 href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
@@ -1426,7 +1426,7 @@ items:
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
                 href: example-scenario/ai/risk-stratification-surgery.yml
-              - name: IoT Connected Platform for COVID detection
+              - name: IoT Connected Platform for COVID-19
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
@@ -1526,6 +1526,14 @@ items:
               - name: Compare Azure Government and Azure
                 href: /azure/azure-government/compare-azure-government-global-azure
                 maintainContext: true
+              - name: Dynamics 365 government accelerator
+                items:
+                  - name: Overview
+                    href: /dynamics365/industry/accelerators/government-overview
+                    maintainContext: true
+                  - name: Configure the accelerator
+                    href: /dynamics365/industry/accelerators/government-configure
+                    maintainContext: true
               - name: Considerations for naming resources
                 href: /azure/azure-government/documentation-government-concept-naming-resources
                 maintainContext: true
@@ -1599,7 +1607,7 @@ items:
             items:
               - name: All government architectures
                 href: /azure/architecture/browse/?terms=government
-              - name: Azure Automation in a hybrid environment
+              - name: Azure Automation for hybrid
                 href: hybrid/azure-automation-hybrid.yml
               - name: Azure Automation update management
                 href: hybrid/azure-update-mgmt.yml
@@ -1776,12 +1784,14 @@ items:
                   - name: Continuous manufacturing with Bonsai
                     href: /bonsai/concepts/continuous-manufacturing
                     maintainContext: true
+                  - name: Machine teaching for manufacturing
+                    href: solution-ideas/articles/machine-teaching.yml
+                  - name: MLOps to upscale ML lifecycle
+                    href: example-scenario/mlops/mlops-technical-paper.yml
                   - name: Predictive maintenance in manufacturing
                     href: industries/manufacturing/predictive-maintenance-overview.yml
                   - name: Predictive maintenance solution
                     href: industries/manufacturing/predictive-maintenance-solution.yml
-                  - name: MLOps framework to upscale ML lifecycle
-                    href: example-scenario/mlops/mlops-technical-paper.yml
               - name: IoT scenarios
                 items:
                   - name: Azure Sphere scenarios
@@ -1815,7 +1825,7 @@ items:
                       - name: Micro-fulfillment center
                         href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
                         maintainContext: true
-                  - name: Extract actionable insights from IoT data
+                  - name: Extract actionable insights
                     href: industries/manufacturing/extract-insights-iot-data.yml
                   - name: Industrial IoT
                     items:
@@ -1837,6 +1847,8 @@ items:
             items:
               - name: All manufacturing architectures
                 href: /azure/architecture/browse/?terms=manufacturing
+              - name: Anomaly detection for conveyor belts
+                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
@@ -1859,14 +1871,12 @@ items:
                 href: solution-ideas/articles/low-latency-network.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
-              - name: Real-time anomaly detection for conveyor belts
-                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Real-time asset tracking and management
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
               - name: Tiered data for manufacturing
-                href: /hybrid/app-solutions/pattern-tiered-data-analytics
+                href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
                 maintainContext: true
           - name: Compliance solutions
             items:
