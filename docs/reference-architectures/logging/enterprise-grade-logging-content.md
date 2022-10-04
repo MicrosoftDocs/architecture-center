@@ -1,4 +1,4 @@
-Applications use different tools and technologies with their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs populated from different systems cause similar problems for big data solutions.
+Applications use different tools and technologies that have their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs from different systems cause similar problems for big data solutions.
 
 This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. [Deploy this scenario.](#deploy-this-scenario)
 
@@ -6,13 +6,13 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ![Conceptual diagram that shows enterprise-grade logging.](media/enterprise-grade-logging.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/Enterprise-grade-logging.vsdx) that contains this architecture diagram.*
 
 ### Workflow
 
 1. Regardless of underlying technology or programming language, applications running on Azure compute services send their logs to shared or dedicated Azure Event Hubs instances by using built-in integration capabilities or the Event Hubs SDK.
 
-1. Azure Data Explorer clusters subscribe to these event hubs and ingest data directly to the relevant databases. For high availability needs, you can define another consumer group in Event Hubs and create a new cluster in another Azure region for dual ingestion.
+1. Azure Data Explorer clusters subscribe to these event hubs and ingest data directly to the relevant databases. For high availability, you can define another consumer group in Event Hubs and create a new Azure Data Explorer cluster in another Azure region for dual ingestion.
 
 ### Components
 
@@ -22,7 +22,7 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Alternatives
 
-- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has similar capabilities and benefits to the current architecture, but consolidating multiple applications into a single workspace is challenging for Azure Monitor.
+- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but consolidating multiple applications into a single workspace is a challenge in Azure Monitor.
 
 - [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but isn't suitable for application troubleshooting or end-to-end application traceability.
 
@@ -81,7 +81,7 @@ This table contains aggregated performance metrics or other numeric data to desc
 
 ### Traces
 
-This table contains logs that increase traceability. The table can contain any logs that aren't necessary to associate with an event or metric. This table can grow enormously over time if you don't use it conscientiously. The table design is the same as the `Events` table.
+This table contains logs that increase traceability. The table can contain any logs that you don't need to associate with an event or metric. This table can grow enormously over time if you don't use it carefully. The table design is the same as the `Events` table.
 
 |Column|Datatype|Remarks|
 |---|---|---|
@@ -96,7 +96,7 @@ This table contains logs that increase traceability. The table can contain any l
 
 ### Exceptions
 
-This table contains first-chance exceptions that the application catches. This table can also log second-chance exceptions if supported by the underlying platform.
+This table contains first-chance exceptions that the application catches. This table can also log second-chance exceptions if the underlying platform supports them.
 
 |Column|Datatype|Remarks|
 |---|---|---|
@@ -116,11 +116,11 @@ Typical uses for this architecture include:
 
 - Enterprise-grade or large-scale applications.
 - Telemetry monitoring for internet of things (IoT)-based applications.
-- Business activity monitoring for applications with a high number of transactions.
+- Business activity monitoring for applications with high numbers of transactions.
 
 ## Recommendations
 
-Include the preceding recommended reference tables in your logging design as starting points to customize as needed. Depending on business requirements and application model, you might need different tables and columns. You can introduce tables such as `Audits`, `Requests`, or `Dependencies`.
+Include the preceding recommended reference tables in your logging design as starting points to customize as needed. Depending on your business requirements and application model, you might need different tables and columns. You can introduce tables such as `Audits`, `Requests`, or `Dependencies`.
 
 - For a web-based application, log `Requests` details, such as URL, request size, response size, response code, and timing.
 - For a microservices-based application, a `Dependencies` table can log interactions among different components and services, such as caller, callee, time taken, and request and response details.
@@ -134,11 +134,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. If there's an Azure Data Explorer outage, Event Hubs retains its data for the number of days configured in its retention period, which depends on [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
+This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. If there's an Azure Data Explorer outage, Event Hubs retains its data for the number of days configured in its retention period, which depends on your [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
 
-If there's an Event Hubs outage, you could lose data. To prevent data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest multi-lined JSON records](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
+If there's an Event Hubs outage, you could lose data. To avoid data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest multi-lined JSON records](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
 
-[Azure availability zones](/azure/availability-zones/az-overview#availability-zones) are unique physical locations within an Azure region that can protect Azure Data Explorer compute clusters and data from partial region failure.
+[Azure availability zones](/azure/availability-zones/az-overview#availability-zones) are unique physical locations within an Azure region that can help protect Azure Data Explorer compute clusters and data from partial region failure.
 
 ### Security
 
@@ -154,7 +154,7 @@ The cost of running this scenario depends on the number of logs or records gener
 
 - Event Hubs pricing is based on the number of records generated, pricing tier, and the number of Event Hubs instances. See [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs).
 
-  Event Hubs Standard tier allows automatically scaling the throughput units. For more information, see [Automatically scale up Azure Event Hubs throughput units](/azure/event-hubs/event-hubs-auto-inflate).
+  Event Hubs Standard tier allows automatic scaling of throughput units. For more information, see [Automatically scale up Azure Event Hubs throughput units](/azure/event-hubs/event-hubs-auto-inflate).
 
   Auto-inflate doesn't automatically scale down the number of throughput units when ingress or egress rates drop below the limits, but you can use a simple script to scale down.
 
@@ -162,13 +162,13 @@ The cost of running this scenario depends on the number of logs or records gener
 
   Setting retention and caching policies affects storage costs. See [Create a table's retention and cache policies](/azure/data-explorer/one-click-table-retention-policy).
 
-  You can size two Azure Data Explorer clusters differently to achieve [active-active](https://www.webopedia.com/definitions/active-active) architecture. You can use one cluster only for ingestion but not querying, and use the larger cluster for both ingestion and querying.
+  You can size two Azure Data Explorer clusters differently to achieve [active-active](/azure/data-explorer/business-continuity-overview#active-active-configuration) architecture. You can use one cluster only for ingestion but not querying, and use the larger cluster for both ingestion and querying.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Azure Data Explorer provides built-in mechanisms for business continuity and disaster recovery. You can use different solutions depending on Recovery Point Objective (RPO), Recovery Time Objective (RTO), effort, and cost. For more information, see [Azure Data Explorer business continuity and disaster recovery](/azure/data-explorer/business-continuity-overview).
+Azure Data Explorer provides built-in mechanisms for business continuity and disaster recovery. You can choose different solutions based on Recovery Point Objective (RPO), Recovery Time Objective (RTO), effort, and cost. For more information, see [Azure Data Explorer business continuity and disaster recovery](/azure/data-explorer/business-continuity-overview).
 
 You can easily achieve active-active configurations with this architecture by using the dual ingestion approach.
 
@@ -178,11 +178,11 @@ Performance efficiency is the ability of your workload to scale in an efficient 
 
 Ingesting individual records into an Azure Data Explorer cluster can be expensive. With Event Hubs integration, Azure Data Explorer ingests data in bulk to optimize performance. Bulk operations are processed faster than batch operations.
 
-Bulk ingestion could introduce ingestion latency in a low-use application scenario. You can use batching policies to control ingestion latency. For more information, see [IngestionBatching policy](/azure/data-explorer/kusto/management/batchingpolicy). You can trigger ingestion by number of items, data size, or timespan to ensure an acceptable latency. It's important to balance latency and performance. Lowering latency results in higher Azure Data Explorer resource consumption.
+Bulk ingestion could introduce ingestion latency in a low-use application scenario. Batching policies can control ingestion latency. For more information, see [IngestionBatching policy](/azure/data-explorer/kusto/management/batchingpolicy). You can trigger ingestion by number of items, data size, or timespan to ensure an acceptable latency. It's important to balance latency and performance. Lowering latency results in higher Azure Data Explorer resource consumption.
 
 The Event Hubs SDK uses [AMQP protocol](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#what-is-amqp) to deliver events to Event Hubs. Reusing existing Event Hubs client connections reduces latency and promotes performance efficiency.
 
-You can scale Event Hubs based on the number of throughput units and partitions set at creation time. Choosing the appropriate partition numbers is important for performance and scalability. See [scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability) for prescriptive guidance on Event Hubs scalability. You can also consider using as many event hubs as you need. You can group applications or sources into multiple event hubs.
+You can scale Event Hubs based on the number of throughput units and partitions set at creation time. Choosing the appropriate partition numbers is important for performance and scalability. You can use as many event hubs as you need, and group applications or sources into multiple event hubs. For prescriptive guidance on Event Hubs scalability, see [Scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability).
 
 You can scale Azure Data Explorer both [horizontally](/azure/data-explorer/manage-cluster-horizontal-scaling) and [vertically](/azure/data-explorer/manage-cluster-vertical-scaling).
 
@@ -194,7 +194,7 @@ To deploy this scenario, create strongly typed class definitions for table colum
 
 - You need an active Azure account. If you don't have one, [create a free account](https://azure.microsoft.com/free).
 
-- In the Azure portal, create an Azure Data Explorer cluster and database by following the steps at [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
+- In the Azure portal, create an Azure Data Explorer cluster and database by following the steps in [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
 
 ### Create a table with common columns
 
@@ -223,7 +223,7 @@ public class LoggingEvent {
     }
 ```
 
-You can introduce a library to ease usage for developers. You just need to create one instance of the class and populate the necessary data. For example, you can use the following code snippet to populate data for code running on an Azure Functions app.
+You can introduce a library to make usage easier for developers. You just need to create one instance of the class and populate the necessary data. For example, you can use the following code snippet to populate data for code running on an Azure Functions app.
 
 ```csharp
 LoggingEvent loggingEvent = new LoggingEvent()
@@ -247,7 +247,7 @@ loggingEvent.Properties.Add("FunctionName", context.FunctionName);
 loggingEvent.Properties.Add("OSVersion", System.Environment.OSVersion.ToString());
 ```
 
-This record stores multiple metrics in a single record. The record contains database execution time and overall execution time. Execution times are set to random values for demonstration purposes only.
+This record stores multiple metrics in a single record. The record contains database execution time and overall execution time. Execution times are set to random values for demonstration purposes.
 
 You can send captured data to an event hub. For detailed .NET examples, see [Send events to Azure Event Hubs in .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#send-events). The same documentation section contains articles about using other code languages to send events.
 
@@ -267,13 +267,15 @@ Principal author:
 
 - [Yunus Emre Alpozen](https://www.linkedin.com/in/yemre) | Program Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [What is Event Hubs](/azure/event-hubs/event-hubs-about)
-- [What is Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
-- [Visualize data with Azure Data Explorer](/azure/data-explorer/azure-data-explorer-dashboards)
-- [Kusto Query Language](/azure/data-explorer/kusto/query)
+- [What is Event Hubs?](/azure/event-hubs/event-hubs-about)
+- [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview)
 - [Application profiling considerations for performance monitoring](/azure/architecture/framework/scalability/monitor-application)
+- [Kusto Query Language](/azure/data-explorer/kusto/query)
+- [Visualize data with Azure Data Explorer](/azure/data-explorer/azure-data-explorer-dashboards)
 
 ## Related resources
 
