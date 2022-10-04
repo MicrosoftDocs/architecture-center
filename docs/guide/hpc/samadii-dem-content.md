@@ -42,7 +42,7 @@ Performance tests of Samadii DEM on Azure used [NVv3](/azure/virtual-machines/nv
 
 To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series) and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install AMD drivers.
+To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install AMD drivers.
 
 ## Samadii DEM installation
 
@@ -66,25 +66,127 @@ The following two models were used for testing.
 
 ### Simple box
 
-:::image type="content" source="media/samadii-dem/simple-box.png" alt-text="Screenshot that shows the simple box model." border="false":::
+:::image type="content" source="media/samadii-dem/simple-box.png" alt-text="Screenshot that shows the simple box model." :::
 
+- **Size:** 13,560
+- **Cell type:** Shell
+- **Solver:** Samadii-dem-x64-v21 R2 
 
 ### Auger mixer
 
+:::image type="content" source="media/samadii-dem/auger-mixer.png" alt-text="Screenshot that shows the auger mixer model." :::
+
+- **Size:** 42,446
+- **Cell type:** Shell
+- **Solver:** Samadii-dem-x64-v21 R2 
+
 ### Results for the simple box model 
+
+The following table shows the elapsed runtimes and relative speed increases for various VM configurations.
+
+|VM series|	GPU |	1-GPU runtime, in seconds|	Relative speed increase|	2-GPU runtime, in seconds|	Relative speed increase|
+|-|-|-|-|-|-|
+|NDv4	|A100	|173<sup>1|	1.61|	252<sup>1|	1.34|
+|NCv3	|V100	|182|	1.53	|249	|1.35|
+|NCasT4_v3|	Tesla T4|	176|	1.58|	236<sup>2|	1.43|
+|NVv3|	Tesla M60	|278|	1.00	|337	|1.00|
+
+Here are the relative speed increases in graphical form:
+
+:::image type="content" source="media/samadii-dem/box-graph.png" alt-text="Graph that shows the relative speed increases for the simple box model." :::
 
 ### Results for the auger mixer model 
 
-### Additional notes about tests
-<Include any additional notes about the testing process used.>
+The following table shows the elapsed runtimes and relative speed increases for various VM configurations.
+
+|VM series|	GPU |	1-GPU runtime, in seconds|	Relative speed increase|	2-GPU runtime, in seconds|	Relative speed increase|
+|-|-|-|-|-|-|
+|NDv4	|A100	|1,766<sup>1	|2.15	|2,054<sup>1	|1.78|
+|NCv3	|V100	|1,885	|2.01|	2,140|	1.71|
+|NCasT4_v3|	Tesla T4|	2,601	|1.46	|2,543<sup>2|	1.44|
+|NVv3|	Tesla M60	|3,794	|1|	3,659|	1|
+
+<sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*<br>
+<sup>2</sup> *In these cases, the number of GPUs was artificially limited. This VM is available with one or four GPUs.*
+
+Here are the relative speed increases in graphical form:
+
+:::image type="content" source="media/samadii-dem/auger-mixer-graph.png" alt-text="Graph that shows the relative speed increases for the auger mixer model." :::
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.  >
+
+The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCsv3, and NDA100v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only simulation runtime is considered for these cost calculations. Application installation time and license costs aren't included. In some cases, the number of GPUs was artificially limited for the sake of testing.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+### Costs, simple box 
+
+|VM size	|Number of GPUs|	GPUs utilized	|	Wall-clock time, in hours|
+|-|-|-|-|
+|Standard_ND96asr_v4|	8|	1|		0.048|
+|Standard_ND96asr_v4	|8	|2	|	0.07|
+|Standard_NC6s_v3	|1|	1|		0.05|
+|Standard_NC12s_v3	|2	|2	|	0.07|
+|Standard_NC4as_T4_v3|	1|	1|		0.049|
+|Standard_NC64as_T4_v3	|4	|2	|	0.066|
+|Standard_NV12s_v3	|1	|1	|	0.077|
+|Standard_NV24s_v3	|2	|2	|	0.094|
+
+### Costs, auger mixer
+
+|VM size	|Number of GPUs|	GPUs utilized	|	Wall-clock time, in hours|
+|-|-|-|-|
+|Standard_ND96asr_v4|	8|1|0.49|
+|Standard_ND96asr_v4	|8|2|0.57|
+|Standard_NC6s_v3	|1|1|0.524|
+|Standard_NC12s_v3	|2|2|0.594|
+|Standard_NC4as_T4_v3|1|1|0.723|	
+|Standard_NC64as_T4_v3	|4|2|0.706|
+|Standard_NV12s_v3	|1|1|1.05|
+|Standard_NV24s_v3	|2|2|1.02|
 
 ## Summary
 
+- Samadii DEM was successfully tested on NDv4, NCv3, NCasT4_v3, and NVv3 VMs.
+- Samadii DEM performs well on NCasT4_v3 and NCv3 VMs.
+- We recommend NCasT4_v3 VMs with a one-GPU configuration because these VMs provide good scale-up and are cost efficient.
+
 ## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
-## Related resources 
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
