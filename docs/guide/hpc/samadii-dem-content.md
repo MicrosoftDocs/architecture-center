@@ -55,9 +55,25 @@ For information about deploying the VM and installing the drivers, see [Run a Wi
 The product installation process involves installing a license server, installing Samadii DEM, and configuring the license server. For more information about installing Samadii DEM, contact [Metariver Technology](https://www.metariver.kr/index.html).
 
 ## Samadii DEM performance results
-<Give a short intro to how performance was tested>
-<Results for X>
-<Results for Y etc>
+
+Windows 10 Professional, version 20H2, with an X86-64 architecture, was used for all tests. The following table presents shows the processors that were used. 
+
+|	|ND_A100_v4|	NCv3  | NC4as_T4_v3|	NVv3 |
+|-|-|-|-|-|
+|Processor	|AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)|	Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz|	Intel Xeon CPU E5-2690 v4|
+
+The following two models were used for testing.
+
+### Simple box
+
+:::image type="content" source="media/samadii-dem/simple-box.png" alt-text="Screenshot that shows the simple box model." border="false":::
+
+
+### Auger mixer
+
+### Results for the simple box model 
+
+### Results for the auger mixer model 
 
 ### Additional notes about tests
 <Include any additional notes about the testing process used.>
