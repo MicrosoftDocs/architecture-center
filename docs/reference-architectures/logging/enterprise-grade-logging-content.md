@@ -1,4 +1,4 @@
-Applications use different tools and technologies with their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenges become more complicated with distributed systems in the cloud and in high-scale environments. Logs populated from different systems cause similar problems for big data solutions.
+Applications use different tools and technologies with their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs populated from different systems cause similar problems for big data solutions.
 
 This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. [Deploy this scenario.](#deploy-this-scenario)
 
@@ -22,7 +22,7 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Alternatives
 
-- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can troubleshoot and do end-to-end tracing. These features use Azure Data Explorer behind the scenes. Azure Monitor has similar capabilities and benefits to the current architecture, but consolidating multiple applications into a single workspace is challenging for Azure Monitor.
+- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has similar capabilities and benefits to the current architecture, but consolidating multiple applications into a single workspace is challenging for Azure Monitor.
 
 - [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but isn't suitable for application troubleshooting or end-to-end application traceability.
 
@@ -32,9 +32,9 @@ For end-to-end traceability, it's important to design tables that share certain 
 
 - `Timestamp` (datetime):  The exact time the log is generated. Always set the time at origin, because there could be an ingestion delay, and ingestion order isn't guaranteed. Always log with UTC time to prevent any impact from time changes and time zone differences.
 
-- `ActivityId` (string):  A single unique activity identifier that can pass across different solution components. For example, a microservices single execution can include multiple calls to different services. This identifier is included on every table.
+- `ActivityId` (string):  A single unique activity identifier that can pass across different solution components. For example, a microservices single execution can include multiple calls to different services. Every table includes this identifier.
 
-- `Tag` (string):  An identifier for types of logs in a table. You could use GUIDs as tags. This tag should appear in the source code to make it easier to distinguish records for the same activity.
+- `Tag` (string):  An identifier for types of logs in a table. You can use GUIDs as tags. This tag should appear in source code to make it easier to distinguish records for the same activity.
 
 - `Level` (int):  Identifies the logging level of the record. The logging level for a particular component can change during a troubleshooting session. You can use this column to filter records to be ingested or aged differently. A common practice is using `0` for Trace, `1` for Debug, `2` for Information, `3` for Warning, `4` for Error, and `5` for Critical.
 
@@ -42,9 +42,9 @@ For end-to-end traceability, it's important to design tables that share certain 
 
 - `DataVersion` (string): Identifies data formatting changes in the log entries. If you build your own dashboard that relies on logging data, you can use this field to handle breaking changes.
 
-You can also add columns like `BinaryVersion` to identify your application version. You could use this field to catch whether any of your running application instances are still using older versions.
+You can also add columns like `BinaryVersion` to identify your application version. Use this field to catch whether any of your running application instances are still using older versions.
 
-You can include the following recommended reference tables in your logging design. These tables provide starting points that you can customize as needed. Depending on business needs and technical aspect of your application, you might need different tables and columns.
+You can include the following recommended reference tables in your logging design:
 
 ### Events
 
@@ -120,7 +120,7 @@ Typical uses for this architecture include:
 
 ## Recommendations
 
-The preceding recommended common reference tables are starting points that you can customize as needed. You can introduce more tables, such as `Audits`, `Requests`, or `Dependencies`, based on your business and application model.
+Include the preceding recommended reference tables in your logging design as starting points to customize as needed. Depending on business requirements and application model, you might need different tables and columns. You can introduce tables such as `Audits`, `Requests`, or `Dependencies`.
 
 - For a web-based application, log `Requests` details, such as URL, request size, response size, response code, and timing.
 - For a microservices-based application, a `Dependencies` table can log interactions among different components and services, such as caller, callee, time taken, and request and response details.
