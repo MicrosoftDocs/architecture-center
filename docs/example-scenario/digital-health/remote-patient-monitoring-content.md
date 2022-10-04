@@ -1,7 +1,3 @@
-> [!NOTE]
-> **ARTICLE TODOS**
-> - final reviews from all contributors
-
 Health systems, hospitals, and large physician practices are shifting to hospital@home initiatives (also known as remote patient monitoring). Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. 
 
 This article provides guidance on how to design a solution using Azure Health Data Services and devices for intelligent remote patient monitoring. The solution will help alleviate many of the device integration challenges your organization is bound to face when building such a solution at scale.  
@@ -11,6 +7,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 > [!NOTE]
 > **SECTION TODOS**
 > - diagram: after final review, upload to blob storage and create new .png
+> - update arch browser thumbnail
 
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
@@ -175,11 +172,6 @@ Principal authors:
  - [Janna Templin](https://www.linkedin.com/in/janna-templin-9081a165/) | Senior Program Manager
 
 
-Other contributors: 
-
- - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Development Engineer
- - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
- 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
