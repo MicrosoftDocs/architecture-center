@@ -52,7 +52,7 @@ For information about eligible Windows images, see [How to deploy Windows 10 on 
 
 For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-The product installation process involves installing a license server, installing Samadii DEM, and configuring the license server. For more information about installing Samadii DEM, contact [Metariver Technology](https://www.metariver.kr/index.html#top).
+The product installation process involves installing a license server, installing Samadii DEM, and configuring the license server. For more information about installing Samadii DEM, contact [Metariver Technology](https://www.metariver.kr/index.html).
 
 ## Samadii DEM performance results
 <Give a short intro to how performance was tested>
