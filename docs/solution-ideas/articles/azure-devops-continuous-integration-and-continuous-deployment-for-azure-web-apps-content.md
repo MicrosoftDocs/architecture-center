@@ -31,7 +31,7 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
   * [Visual Studio](https://visualstudio.microsoft.com/vs): A creative launch pad for viewing and editing code, then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
   * [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac): Develop apps and games for iOS, Android, and the web using .NET on a Mac.
   * [Visual Studio Code](https://code.visualstudio.com): A free, cross-platform, lightweight, extensible code editor. Visual Studio Code is available as a [desktop application](https://code.visualstudio.com/Download) or [via the web](https://vscode.dev). Extensions are available for languages and frameworks that are supported by Azure Web Apps, which include C#, Java, Python, Node.js, PHP, and Ruby.
-* [Azure Monitor](https://azure.microsoft.com/products/monitor): Detect, triage, and diagnose issues in your web apps and services using [Application Insights](/azure/azure-monitor/app/app-insights-overview), an feature of Azure Monitor.
+* [Azure Monitor](https://azure.microsoft.com/products/monitor): Detect, triage, and diagnose issues in your web apps and services using [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor.
 
 ## Scenario details
 
