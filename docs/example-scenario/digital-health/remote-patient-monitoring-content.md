@@ -6,8 +6,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 > [!NOTE]
 > **SECTION TODOS**
-> - diagram: after final review, upload to blob storage and create new .png
-> - update arch browser thumbnail
+> - diagram: after final review, upload to blob storage and create new .png, update image in thumbnailUrl
 
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
