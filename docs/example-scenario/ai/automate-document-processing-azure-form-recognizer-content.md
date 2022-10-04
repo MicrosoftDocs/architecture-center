@@ -355,7 +355,7 @@ Principal author:
 [Tutorial: Build an Azure Machine Learning pipeline for batch scoring]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
 [Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint]: /azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
-[Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api?pivots=programming-language-python
+[Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1902078-automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
@@ -370,13 +370,3 @@ Principal author:
 [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
 [What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
 [What is Text Analytics for health in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner
-
-
-
-
-
-
-
-
-
-

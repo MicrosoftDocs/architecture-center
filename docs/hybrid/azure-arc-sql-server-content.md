@@ -261,6 +261,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Introduction to Azure Arc - training content]: /training/modules/intro-to-azure-arc
 [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office]: ./azure-stack-robo.yml
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
-[Azure Arc hybrid management and deployment for Kubernetes clusters]: ./hybrid/arc-hybrid-kubernetes.yml
+[Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml
 [Multicloud blockchain DLT]: ../example-scenario/blockchain/multi-cloud-blockchain.yml
