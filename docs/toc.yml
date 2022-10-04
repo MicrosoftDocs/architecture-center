@@ -3316,6 +3316,8 @@ items:
                     href: guide/hpc/ultrafluidx.yml
                   - name: Ansys CFX
                     href: guide/hpc/ansys-cfx.yml
+                  - name: Ansys Fluent
+                    href: guide/hpc/ansys-fluent.yml  
                   - name: Autodesk Civil 3D
                     href: guide/hpc/civil-3d.yml
                   - name: Autodesk Inventor
