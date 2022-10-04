@@ -6,7 +6,9 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ## Architecture
 
-![Diagram Description automatically generated](./media/media/image1.png)
+![Conceptual diagram that shows enterprise-grade logging.](media/enterprise-grade-logging.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram.*
 
 ### Workflow
 
@@ -52,14 +54,14 @@ This table contains events that occur during an execution flow. These events can
 
 |Column|Datatype|Remarks|
 |---|---|---|
-|Timestamp|datetime|Time the event happened
-|ActivityId|string|Unique identifier for end-to-end traceability
-|Tag|string|Type of event
-|Level|int|Logging level, such as Information or Warning
-|Properties|dynamic|Bag that contains relevant event properties
-|DataVersion|string|Data format version to identify formatting changes
-|Name|string|Human-readable description
-|Metrics|dynamic|Bag that contains metrics for the event in key-value pairs format
+|`Timestamp`|datetime|Time the event happened
+|`ActivityId`|string|Unique identifier for end-to-end traceability
+|`Tag`|string|Type of event
+|`Level`|int|Logging level, such as Information or Warning
+|`Properties`|dynamic|Bag that contains relevant event properties
+|`DataVersion`|string|Data format version to identify formatting changes
+|`Name`|string|Human-readable description
+|`Metrics`|dynamic|Bag that contains metrics for the event in key-value pairs format
 
 ### Metrics
 
@@ -67,17 +69,17 @@ This table contains aggregated performance metrics or other numeric data to desc
 
 |Column|Datatype|Remarks|
 |---|---|---|
-|Timestamp|datetime|Metric collection time
-|ActivityId|string|Unique identifier for end-to-end traceability
-|Tag|string|Type of metric
-|Level|int|Logging level, such as Information or Warning
-|Properties|dynamic|Bag that contains relevant event properties
-|DataVersion|string|Data format version to identify formatting changes
-|Name|string|Human-readable description
-|Count|int|Number of measurements captured over the aggregation interval
-|Sum|real|Sum of all values captured over the aggregation interval
-|Min|real|Smallest value captured over the aggregation interval
-|Max|real|Largest value captured over the aggregation interval
+|`Timestamp`|datetime|Metric collection time
+|`ActivityId`|string|Unique identifier for end-to-end traceability
+|`Tag`|string|Type of metric
+|`Level`|int|Logging level, such as Information or Warning
+|`Properties`|dynamic|Bag that contains relevant event properties
+|`DataVersion`|string|Data format version to identify formatting changes
+|`Name`|string|Human-readable description
+|`Count`|int|Number of measurements captured over the aggregation interval
+|`Sum`|real|Sum of all values captured over the aggregation interval
+|`Min`|real|Smallest value captured over the aggregation interval
+|`Max`|real|Largest value captured over the aggregation interval
 
 ### Traces
 
@@ -85,14 +87,14 @@ This table contains logs that increase traceability. The table can contain any l
 
 |Column|Datatype|Remarks|
 |---|---|---|
-|Timestamp|datetime|Time the event happened
-|ActivityId|string|Unique identifier for end-to-end traceability
-|Tag|string|Type of event
-|Level|int|Logging level, such as Information or Warning
-|Properties|dynamic|Bag that contains relevant event properties
-|DataVersion|string|Data format version to identify formatting changes
-|Name|string|Human-readable description
-|Metrics|dynamic|Bag that contains metrics for the event in key-value pairs format
+|`Timestamp`|datetime|Time the event happened
+|`ActivityId`|string|Unique identifier for end-to-end traceability
+|`Tag`|string|Type of event
+|`Level`|int|Logging level, such as Information or Warning
+|`Properties`|dynamic|Bag that contains relevant event properties
+|`DataVersion`|string|Data format version to identify formatting changes
+|`Name`|string|Human-readable description
+|`Metrics`|dynamic|Bag that contains metrics for the event in key-value pairs format
 
 ### Exceptions
 
@@ -100,15 +102,15 @@ This table contains first-chance exceptions that the application catches. This t
 
 |Column|Datatype|Remarks|
 |---|---|---|
-|Timestamp|datetime|Time the exception was caught
-|ActivityId|string|Unique identifier for end-to-end traceability
-|Tag|string|Type of event for the log
-|Level|int|Logging level, usually Error
-|Properties|dynamic|Bag that contains relevant information
-|DataVersion|string|Data format version to identify formatting changes
-|Name|string|Human-readable description
-|UserMessage|string|Exception message
-|StackTrace|dynamic|Bag containing stack traces, including inner exceptions if any
+|`Timestamp`|datetime|Time the exception was caught
+|`ActivityId`|string|Unique identifier for end-to-end traceability
+|`Tag`|string|Type of event for the log
+|`Level`|int|Logging level, usually Error
+|`Properties`|dynamic|Bag that contains relevant information
+|`DataVersion`|string|Data format version to identify formatting changes
+|`Name`|string|Human-readable description
+|`UserMessage`|string|Exception message
+|`StackTrace`|dynamic|Bag containing stack traces, including inner exceptions if any
 
 ## Potential use cases
 
@@ -134,9 +136,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. In case of an Azure Data Explorer outage, Event Hubs retains all data sent to it for the number of days configured in its retention period, which depends on your [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
+This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. If there's an Azure Data Explorer outage, Event Hubs retains all data sent to it for the number of days configured in its retention period, which depends on your [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
 
-In case of an Event Hubs outage, you could lose data. To prevent data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest json records into Azure Data Explorer](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
+If there's an Event Hubs outage, you could lose data. To prevent data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest json records into Azure Data Explorer](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
 
 [Azure availability zones](/azure/availability-zones/az-overview#availability-zones) are unique physical locations within an Azure region that can protect Azure Data Explorer compute clusters and data from partial region failure.
 
@@ -176,9 +178,9 @@ Ingesting individual records into an Azure Data Explorer cluster could be expens
 
 You can use batching policies to control ingestion latency. For more information, see [Batching policies](/azure/data-explorer/kusto/management/batchingpolicy). You can trigger ingestion by number of items, data size, or by a timespan to ensure an acceptable latency. It's important to balance low latency and performance. Lowering latency results in higher Azure Data Explorer resource consumption.
 
-Event Hubs SDK uses [AMQP protocol](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#what-is-amqp) to deliver events to Event Hubs. Reusing existing Event Hub client connections reduces latency and promotes performance efficiency.
+The Event Hubs SDK uses [AMQP protocol](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#what-is-amqp) to deliver events to Event Hubs. Reusing existing Event Hubs client connections reduces latency and promotes performance efficiency.
 
-You can scale Event Hubs based on the number of throughput units and the number of partitions set during creation time. Choosing the appropriate partition numbers is important for performance and scalability. See [scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability) for prescriptive guidance on event hub scalability. You can also consider using as many event hubs as you need. You can group applications or sources into multiple event hubs.
+You can scale Event Hubs based on the number of throughput units and the number of partitions set during creation time. Choosing the appropriate partition numbers is important for performance and scalability. See [scaling with Event Hubs](/azure/event-hubs/event-hubs-scalability) for prescriptive guidance on Event Hub scalabilitys. You can also consider using as many event hubs as you need. You can group applications or sources into multiple event hubs.
 
 You can scale Azure Data Explorer both [horizontally](/azure/data-explorer/manage-cluster-horizontal-scaling) and [vertically](/azure/data-explorer/manage-cluster-vertical-scaling).
 
@@ -201,7 +203,7 @@ In the **Query** window for your Azure Data Explorer database, run the following
 
 For more information about creating tables, see [Create a table in Azure Data Explorer](/azure/data-explorer/one-click-table).
 
-### Send logs to Event Hub
+### Send logs to Event Hubs
 
 Having strongly typed class definitions for each table ensure that different teams within your organization use the same format. The following C# code shows a sample definition for the `Events` table. You can create similar typed objects in any programming language. Data ingested to Azure Data Explorer is in JSON format.
 
@@ -246,7 +248,7 @@ This record stores multiple metrics in a single record. The record contains data
 
 You can send captured data to an event hub. For detailed .NET examples, see [Send events to Azure Event Hubs in .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#send-events). The same documentation section contains articles about sending events in other code languages.
 
-### Ingest data from Event Hub to Azure Data Explorer
+### Ingest data from Event Hubs to Azure Data Explorer
 
 Azure Data Explorer can ingest data from Event Hubs. To create the necessary data connection, see [Connect to the event hub](/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub).
 
@@ -266,7 +268,7 @@ Principal author:
 
 ## Next steps
 
-- [What is Event Hubs](/azure/event-hubs/event-hubs-about).
+- [What is Event Hubs](/azure/event-hubs/event-hubs-about)
 - [What is Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
 - [Visualize data with Azure Data Explorer](/azure/data-explorer/azure-data-explorer-dashboards)
 - [Kusto Query Language](/azure/data-explorer/kusto/query)
@@ -277,5 +279,5 @@ Principal author:
 - [Unified logging for microservices apps](../../example-scenario/logging/unified-logging.yml)
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.md)
+- [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)
 - [Real time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
