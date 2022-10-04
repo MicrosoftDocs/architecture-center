@@ -3310,7 +3310,7 @@ items:
                     href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: VM security baselines
                 items:
-                  - name: Security baseline for VM scale sets
+                  - name: Security baseline for scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
