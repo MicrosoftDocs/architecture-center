@@ -17,8 +17,8 @@ This architecture details key components of an order processing pipeline. The da
 
 ### Components
 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
-- [Apache Kafka on Azure HDInsight](https://azure.microsoft.com/products/hdinsight/) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
+- [Apache Kafka on Azure HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
 
 ## Scenario details
 
@@ -63,7 +63,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 The [Azure Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Azure Cosmos DB database security](/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security/).
+For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security).
 
 ### Resiliency
 
@@ -101,10 +101,9 @@ See this other content:
 - *[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)* by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 - Other [Azure Cosmos DB use cases][docs-cosmos-db-use-cases]
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Consume an Azure Cosmos DB SQL API change feed using the SDK](/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk/)
+- [Consume an Azure Cosmos DB SQL API change feed using the SDK](/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk)
 - [What is Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
-- [Perform advanced streaming data transformations with Apache Spark and Kafka in Azure HDInsight](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka/)
-maybe:
+- [Perform advanced streaming data transformations with Apache Spark and Kafka in Azure HDInsight](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka)
 
 ## Related resources
 

@@ -63,8 +63,8 @@ Principal author:
 - [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network)
 - [Live Video Analytics on IoT Edge](https://techcommunity.microsoft.com/t5/azure-video-analyzer/new-product-features-for-live-video-analytics-on-iot-edge/ba-p/2118497)
 - [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
-- [Introduction to Azure IoT Hub](/training/modules/introduction-to-iot-hub/)
-- [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/)
+- [Introduction to Azure IoT Hub](/training/modules/introduction-to-iot-hub)
+- [Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
 
 ## Related resources
 
