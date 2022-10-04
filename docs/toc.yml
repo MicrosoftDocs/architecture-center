@@ -542,7 +542,7 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage M365 tenants with DevOps
+              - name: Manage Microsoft 365 with DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
@@ -1059,7 +1059,7 @@ items:
                 href: /industry/retail/compliance-overview
                 maintainContext: true
               - name: GDPR (EU)
-                itmes:
+                items:
                   - name: GDPR overview
                     href: /compliance/regulatory/gdpr
                     maintainContext: true
@@ -1250,7 +1250,7 @@ items:
                   - name: IRS 1075 regulatory compliance
                     href: /azure/governance/policy/samples/irs-1075-sept2016
                     maintainContext: true
-              - name: M365 financial services
+              - name: Microsoft 365 financial services
                 href: /microsoft-365/solutions/financial-services-secure-collaboration
                 maintainContext: true
               - name: PCI 3DS
@@ -3254,7 +3254,7 @@ items:
                 maintainContext: true
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
-              - name: Multi-cloud blockchain DLT
+              - name: Multicloud blockchain DLT
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
@@ -5920,9 +5920,9 @@ items:
                     href: solution-ideas/articles/map-threats-it-environment.yml
                   - name: "First layer of defense: Azure security"
                     href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
-                  - name: "Second layer of defense: M365 Defender"
+                  - name: "Second layer of defense: Defender"
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
-                  - name: Integrate Azure and M365 Defender
+                  - name: Integrate Azure and Defender
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
                   - name: Microsoft Sentinel automated responses
                     href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
