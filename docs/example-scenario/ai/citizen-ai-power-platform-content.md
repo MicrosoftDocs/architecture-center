@@ -2,9 +2,9 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
 
 ## Architecture
 
-:::image type="content" source="media/citizen-ai-power-platform.svg" alt-text="Architecture for Citizen AI with Microsoft Power Platform" lightbox="media/citizen-ai-power-platform.png" :::
+:::image type="content" source="media/citizen-ai-power-platform.png" alt-text="Architecture for Citizen AI with Microsoft Power Platform" lightbox="media/citizen-ai-power-platform.png" :::
 
-*Download an [SVG file](media/citizen-ai-power-platform.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/citizen-ai-power-platform.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -128,7 +128,7 @@ Consider this business scenario: a field agent uses an app that estimates a car'
 
 The model may prove the concept, but a user has no easy way to consume a model implemented as a REST API. Power Platform can help close this last mile as represented below.
 
-:::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="An ML model created in Machine Learning obtains car data from Azure Data Lake, and provides inferences to an endpoint. An app created with Power Platform accesses the endpoint and interacts with the user." lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
+:::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="An ML model created in Machine Learning obtains car data from Azure Data Lake, and provides inferences to an endpoint" lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
 
 Here's a user interface for the app, created in Power Apps by using the low-code interface that Power Apps provides.
 
