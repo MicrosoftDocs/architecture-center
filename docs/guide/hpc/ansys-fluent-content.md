@@ -71,7 +71,7 @@ The single-node configuration was evaluated for the following test cases.
 
 #### Aircraft wing test case
 
-:::image type="content" source="media/ansys-fluent/aircraft-wing.png" alt-text="Figure that shows the aircraft wing test case." border="false":::
+:::image type="content" source="media/ansys-fluent/aircraft-wing.png" alt-text="Screenshot that shows the aircraft wing test case." border="false":::
 
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
@@ -92,7 +92,7 @@ The following table and graph present the test results.
 
 #### Pump test case
 
-:::image type="content" source="media/ansys-fluent/pump.png" alt-text="Figure that shows the pump test case." border="false":::
+:::image type="content" source="media/ansys-fluent/pump.png" alt-text="Screenshot that shows the pump test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
@@ -112,7 +112,7 @@ The following table and graph present the test results.
 
 #### Landing gear test case
 
-:::image type="content" source="media/ansys-fluent/landing-gear.png" alt-text="Figure that shows the landing gear test case." border="false":::
+:::image type="content" source="media/ansys-fluent/landing-gear.png" alt-text="Screenshot that shows the landing gear test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
@@ -132,7 +132,7 @@ The following table and graph present the test results.
 
 #### Oil rig test case
 
-:::image type="content" source="media/ansys-fluent/oil-rig.png" alt-text="Figure that shows the oil rig test case." border="false":::
+:::image type="content" source="media/ansys-fluent/oil-rig.png" alt-text="Screenshot that shows the oil rig test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
@@ -152,7 +152,7 @@ The following table and graph present the test results.
 
 #### Sedan test case
 
-:::image type="content" source="media/ansys-fluent/sedan.png" alt-text="Figure that shows the sedan test case." border="false":::
+:::image type="content" source="media/ansys-fluent/sedan.png" alt-text="Screenshot that shows the sedan test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
@@ -192,7 +192,7 @@ The following table and graph present the test results.
 
 #### Exhaust system test case  
 
-:::image type="content" source="media/ansys-fluent/exhaust-system.png" alt-text="Figure that shows the exhaust system test case." border="false":::
+:::image type="content" source="media/ansys-fluent/exhaust-system.png" alt-text="Screenshot that shows the exhaust system test case." border="false":::
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
