@@ -134,7 +134,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. If there's an Azure Data Explorer outage, Event Hubs retains all data sent to it for the number of days configured in its retention period, which depends on your [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
+This scenario relies on the availability of the Event Hubs and Azure Data Explorer services. If there's an Azure Data Explorer outage, Event Hubs retains its data for the number of days configured in its retention period, which depends on [chosen tier](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers).
 
 If there's an Event Hubs outage, you could lose data. To prevent data loss, choose the right Event Hubs tier for your needs. As a backup mechanism, you could insert collected log data into blob storage and ingest the blob storage data to a Kusto cluster. For more information, see [Ingest multi-lined JSON records](/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language#ingest-multi-lined-json-records).
 
@@ -188,7 +188,7 @@ You can scale Azure Data Explorer both [horizontally](/azure/data-explorer/manag
 
 ## Deploy this scenario
 
-To deploy this scenario, create strongly typed class definitions for table columns that let you collect and store metrics from multiple applications. Send the data to Event Hubs, and connect Azure Data Explorer to ingest the Event Hubs data. Use Kusto Query Language in Azure Data Explorer to query the data.
+To deploy this scenario, create strongly typed class definitions for table columns that you can use to collect and store metrics from multiple applications. Send the data to Event Hubs, and connect Azure Data Explorer to ingest the Event Hubs data. Use Kusto Query Language in Azure Data Explorer to query the data.
 
 ### Prerequisites
 
@@ -208,7 +208,7 @@ For more information about creating tables, see [Create a table in Azure Data Ex
 
 ### Send logs to Event Hubs
 
-Strongly typed class definitions for each table ensure that different teams within your organization use the same format. The following C# code shows a sample definition for the `Events` table. You can create similar typed objects in any programming language. Data ingested to Azure Data Explorer is in JSON format.
+Create strongly typed class definitions for each table to ensure that different teams within your organization use the same format. The following C# code shows a sample definition for the `Events` table. You can create similar typed objects in any programming language. Data ingests to Azure Data Explorer in JSON format.
 
 ```csharp
 public class LoggingEvent {
@@ -249,13 +249,11 @@ loggingEvent.Properties.Add("OSVersion", System.Environment.OSVersion.ToString()
 
 This record stores multiple metrics in a single record. The record contains database execution time and overall execution time. Execution times are set to random values for demonstration purposes only.
 
-You can send captured data to an event hub. For detailed .NET examples, see [Send events to Azure Event Hubs in .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#send-events). The same documentation section contains articles about sending events in other code languages.
+You can send captured data to an event hub. For detailed .NET examples, see [Send events to Azure Event Hubs in .NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#send-events). The same documentation section contains articles about using other code languages to send events.
 
 ### Ingest data from Event Hubs to Azure Data Explorer
 
-Azure Data Explorer can ingest data from Event Hubs. To create the necessary data connection, see [Connect to the event hub](/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub).
-
-You can then use Kusto Query Language to query the data your application sends, and create dashboards to visualize the captured data.
+Azure Data Explorer can ingest data from Event Hubs. To create the necessary data connection, see [Connect to the event hub](/azure/data-explorer/ingest-data-event-hub#connect-to-the-event-hub). You can then use Kusto Query Language to query the data your application sends, and create dashboards to visualize the captured data.
 
 By following a similar approach, you can collect your infrastructure logs into the same Azure Data Explorer cluster. For more information, see [Query exported data from Azure Monitor using Azure Data Explorer](/azure/azure-monitor/logs/azure-data-explorer-query-storage).
 
