@@ -120,11 +120,6 @@ Principal authors:
  - [Dhanshri More](https://www.linkedin.com/in/dhanshrimore/L) | Principal Cloud Solution Architect
  - [DJ Dean](https://www.linkedin.com/in/deandaniel/) | Principal Cloud Solution Architect
 
-
-Other contributors: 
-
- - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
- 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -140,6 +135,6 @@ Other contributors:
 > **SECTION TODOS**
 > - Dhanshri has deeper links on ML lifecycle
 
-See the links below for technologies and resources that are related to this architecture:
+Technologies and resources that are related to this architecture:
 
 - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
