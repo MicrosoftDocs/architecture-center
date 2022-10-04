@@ -270,12 +270,12 @@ Principal author:
 - [What is Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
 - [Visualize data with Azure Data Explorer](/azure/data-explorer/azure-data-explorer-dashboards)
 - [Kusto Query Language](/azure/data-explorer/kusto/query)
+- [Application profiling considerations for performance monitoring](/azure/architecture/framework/scalability/monitor-application)
 
 ## Related resources
 
-- [Unified logging for microservices apps](../example-scenario/logging/unified-logging.yml)
-- [Application profiling](../framework/scalability/monitor-application.yml)
-- [Big data analytics with Azure Data Explorer](../solution-ideas/articles/big-data-azure-data-explorer.yml)
-- [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Long term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.md)
-- [Real time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml)
+- [Unified logging for microservices apps](../../example-scenario/logging/unified-logging.yml)
+- [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
+- [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
+- [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.md)
+- [Real time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
