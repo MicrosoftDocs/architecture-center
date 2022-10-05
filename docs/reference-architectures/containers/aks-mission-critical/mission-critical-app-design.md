@@ -109,7 +109,7 @@ Using well-known design patterns, such as [Queue-Based Load leveling pattern](/a
 **Azure Event Hubs** is used as the message broker between the API and worker.
 
 > [!IMPORTANT]
-> The message broker is not intended to be used as a persistent data store for a long periods of time. The Event Hubs service supports [capture feature](/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an event hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
+> The message broker is not intended to be used as a persistent data store for long periods of time. The Event Hubs service supports [capture feature](/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an event hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
 
 ### Implementation details for write operations
 
