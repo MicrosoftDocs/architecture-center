@@ -25,7 +25,7 @@ This reference architecture is for training and deploying a real-time recommende
 
 - [Azure Databricks][databricks]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
 - [Azure Kubernetes Service][aks] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
-- [Azure Cosmos DB][cosmosdb]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
+- [Azure Cosmos DB][cosmosdb]. Azure Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 - [Machine Learning][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 - [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
