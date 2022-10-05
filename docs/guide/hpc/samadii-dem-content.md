@@ -59,7 +59,7 @@ The product installation process involves installing a license server, installin
 
 ## Samadii DEM performance results
 
-Windows 10 Professional, version 20H2, with an X86-64 architecture, was used for all tests. The following table presents shows the processors that were used. 
+Windows 10 Professional, version 20H2, with an X86-64 architecture, was used for all tests. The following table shows the processors that were used. 
 
 |	|ND_A100_v4|	NCv3  | NC4as_T4_v3|	NVv3 |
 |-|-|-|-|-|
