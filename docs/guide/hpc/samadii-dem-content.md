@@ -4,8 +4,6 @@ Samadii DEM analyzes and interprets large-scale particles at high speed. It uses
 
 Samadii DEM:
 
-- 
-- Provides the adaptive field reconstruction based on the oct-tree algorithm of Barnes-Hut (BH) to reflect accurate field information.
 - Supports post-processing functions such as pathline of individual particles along with time step.
 - Provides support using four friction models such as Constant model, Coulomb model, Viscous model, and Coulomb-Viscous model.
 
