@@ -78,7 +78,7 @@ Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. H
 
 #### Database
 
-All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
+All state related to the workload is stored in an external database, **Azure Cosmos DB for NoSQL**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
 
 > [!NOTE]
 > While a multi-region-write configuration represents the gold standard for reliability, there is a significant trade-off on cost, which should be properly considered.

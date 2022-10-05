@@ -59,7 +59,7 @@ In the reference implementation, **Azure Cosmos DB** serves as the main data sto
 For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
 > [!NOTE]
-> New applications should use the Azure Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Azure Cosmos DB for NoSQL.
+> New applications should use Azure Cosmos DB for NoSQL. For legacy applications that use another NoSQL protocol, evaluate the migration path to Azure Cosmos DB.
 
 > [!TIP]
 > For mission-critical applications that prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
