@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-DevSecOps prioritizes security throughout the  development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
+DevSecOps prioritizes security in development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
 
 ## Architecture
 

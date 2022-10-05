@@ -6,6 +6,8 @@ The following graphic shows the Azure products that are installed. Each resource
 
 ![Component zones](images/healthcare-ai-blueprint/component-zones.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/component-zones.vsdx) of this architecture.*
+
 ## Scenario details
 
 Healthcare organizations are realizing that artificial intelligence (AI) and machine learning can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations don't have the technology staff to implement AI and machine learning systems. To improve this situation and get AI and machine learning solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI and machine learning quickly in a safe, compliant, secure, and reliable way.
