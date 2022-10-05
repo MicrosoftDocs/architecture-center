@@ -1,4 +1,17 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Samadii DEM](https://www.metariver.kr/smddem.html) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Samadii DEM on Azure.
+
+Samadii DEM analyzes and interprets large-scale particles at high speed. It uses a discrete element method (DEM), which is a Lagrangian method that determines the movement of particles by using the six-degrees-of-freedom equations of motion and considers all forces of individual particles. Uses explicit method for the time integration to calculate position and velocity of the particles in the next time step.
+
+Samadii DEM:
+
+- 
+- Provides the adaptive field reconstruction based on the oct-tree algorithm of Barnes-Hut (BH) to reflect accurate field information.
+- Supports post-processing functions such as pathline of individual particles along with time step.
+- Provides support using four friction models such as Constant model, Coulomb model, Viscous model, and Coulomb-Viscous model.
+
+Samadii-DEM was originally designed to perform analysis based on the GPU and parallel processing techniques to provide reliable results by analyzing a variety of large-scale grain boundary issues at a high speed. With its deposition and field analysis designed in 2D area, the software is very useful to model physical vapor deposition coating/OLED simulation. 
+
+Samadii-DEM used by industries such mechanical, electronic, chemical, display, and semiconductor. It helps to understand the behavior of stones, rock handling, and mixers devices for granular materials.
 
 ## Why deploy Samadii DEM on Azure?
 
