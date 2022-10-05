@@ -3328,6 +3328,8 @@ items:
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
                     href: guide/hpc/indica-labs-halo-ai.yml
+                  - name: OpenFOAM
+                    href: guide/hpc/openfoam.yml
                   - name: Siemens NX
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
