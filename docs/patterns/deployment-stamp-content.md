@@ -53,7 +53,7 @@ The Deployment Stamp pattern works well if each stamp is addressed independently
 
 - `unit1.aus.myapi.contoso.com` routes traffic to stamp `unit1` within an Australian region.
 - `unit2.aus.myapi.contoso.com` routes traffic to stamp `unit2` within an Australian region.
-- `unit1.eu.myapi.contoso.com` routes traffic to stamp `unit1` within an European region.
+- `unit1.eu.myapi.contoso.com` routes traffic to stamp `unit1` within a European region.
 
 Clients are then responsible for connecting to the correct stamp.
 
