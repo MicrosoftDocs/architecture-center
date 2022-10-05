@@ -1,32 +1,48 @@
-title: Deploy <workload name> on an Azure virtual machine
-description: 
-<Short description of the article, including keywords. Should list facts about what the product intends to do along with the targeted industry/business process.>
-<Description must include product name and related use cases but shall refrain from using marketing jargon or campaigning statements. >
-<H1> Deploy <workload name> on a virtual machine
-Make sure the title has all of the appropriate keywords for search.
 <Intro should cover a basic overview of the workload.>
-Why deploy <workload> on Azure
--	Simplifies migration to the cloud
--	Optimizes the workload in these ways….
--	Can be rapidly provisioned
--	Performance
-Architecture
-<Not generic. Product/Solution specific Architecture diagram>
-<The architecture diagram must be product associated and the VM (Virtual Machines) topology should match the above stated test conditions.>
-Components
-<List of links to more information on the discrete pieces of the architecture. The list below is just an example of the most common items, you might need to add or remove items based on your architecture diagram.>
-<link to the normal AAC standard links for these (Azure service pages)>
--	Virtual machine – description/context. Please also link Linux VMs on Azure or Windows VMs on Azure (whichever the architecture is based on) in the sentence that follows this.
--	Network – description/context
--	PIP – description/context
--	NSG – description/context
--	Storage – description/context
-Compute sizing and drivers
-<List of evaluated sizes for this workload and a table of the input sizes with corresponding evaluated output for the chosen input sizes.>
-Required drivers
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
-<Workload> installation
-Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+
+## Why deploy Samadii Plasma on Azure?
+- Modern and diverse compute options to align to your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Impressive performance results for both small and large simulations  
+
+## Architecture
+
+:::image type="content" source="media/samadii-plasma/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii Plasma." lightbox="media/samadii-plasma/architecture.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/samadii-plasma.vsdx) of this
+architecture.*
+
+### Components
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
+    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
+    used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+  - A public IP address connects the internet to the VM.
+- A physical solid-state drive (SSD) is used for storage.
+
+## Compute sizing and drivers
+
+Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
+
+|VM size|GPU|vCPU|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
+|-|-|-|-|-|-|-|-|-|-|
+|Standard_NV12s_v3|	Tesla M60|	12|	112|	12|	1|	8	|20,000 / 200|	320|	4|
+|Standard_NC4as_T4_v3|	Tesla T4|	4|	28|	8	|1	|16|	-|	180|	2|
+|Standard_NC6s_v3	|V100|	6	|112	|12|	1|	16|	20,000 / 200|	736|	4|
+|Standard_ND96asr v4|	A100|	96|	900	|32|	8	|40	|80,000 / 800	|6,000	|8|
+
+### Required drivers
+
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+
+To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install AMD drivers.
+
+## Samadii Plasma installation
+
+Before you install Samadii Plasma, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
  Important – if needed
 <if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
 For information about deploying the VM and installing the drivers, see one of these articles:
