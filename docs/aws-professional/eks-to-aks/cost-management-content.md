@@ -228,6 +228,11 @@ Principal authors:
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
 
+Other contributors:
+
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Ep Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+
 ## Next steps
 
 - [AKS for Amazon EKS professionals](index.md)
