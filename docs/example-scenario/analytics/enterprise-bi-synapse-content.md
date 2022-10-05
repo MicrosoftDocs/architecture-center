@@ -12,7 +12,7 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 #### Data source
 
-- The source data is located in an Azure SQL Server database. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
+- The source data is located in an SQL Server database in Azure. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
 
 #### Ingestion and data storage
 
