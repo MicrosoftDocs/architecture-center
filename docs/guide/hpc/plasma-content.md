@@ -42,12 +42,13 @@ To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), 
 
 ## Samadii Plasma installation
 
-Before you install Samadii Plasma, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
+Before you install Samadii Plasma, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers.
+
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
+
+nvlink note for ND A100 v4-series
+
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
 
 <Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
 <Should not list any ordered steps of installation.> 
