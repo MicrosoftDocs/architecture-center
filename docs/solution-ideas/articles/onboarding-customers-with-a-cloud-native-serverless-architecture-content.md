@@ -22,7 +22,7 @@ This scenario is for organizations that have customers, and it's ideal for the r
 1. The customer information is recorded in [Dynamics 365](/dynamics365) or other CRM.
 1. The information about a new customer is sent to [Power BI](/power-bi).
 1. The customer information is added to the mailing list ([MailChimp](https://mailchimp.com)).
-1. The solution creates a record of the member in [Cosmos DB](/azure/cosmos-db).
+1. The solution creates a record of the member in [Azure Cosmos DB](/azure/cosmos-db).
 
 ## Next Steps
 

@@ -33,7 +33,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 Other options for the data tier include:
 
-- [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Cosmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Cognitive Search also supports indexing the data from Cosmos DB directly.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Azure Cosmos DB provides a platform to run other data models such as MongoDB, Cassandra, Graph data, or simple table storage. Cognitive Search also supports indexing the data from Azure Cosmos DB directly.
 
 ## Scenario details
 
@@ -112,7 +112,7 @@ To learn more about Azure Cognitive Search, visit the [documentation center][doc
 ## Related resources
 
 - [Optimize and reuse an existing recommendation system](/azure/architecture/industries/retail/recommendation-engine-optimization)
-- [Visual search in retail with Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
+- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
 - [Build a content-based recommendation system](/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system)
 - [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)

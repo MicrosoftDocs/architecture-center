@@ -941,7 +941,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing"/>
         <updated>2022-09-09T19:23:30.000Z</updated>
-        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.]]></summary>
+        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Azure Cosmos DB and HDInsight.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1873,7 +1873,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Serverless apps using Cosmos DB]]></title>
+        <title type="html"><![CDATA[Serverless apps using Azure Cosmos DB]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db"/>
         <updated>2022-07-22T16:36:29.000Z</updated>
@@ -3225,7 +3225,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Retail and e-commerce using Cosmos DB]]></title>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Cosmos DB]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"/>
         <updated>2022-06-12T09:14:26.000Z</updated>
@@ -3589,7 +3589,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing"/>
         <updated>2022-06-07T23:15:43.000Z</updated>
-        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.]]></summary>
+        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Azure Cosmos DB and HDInsight.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

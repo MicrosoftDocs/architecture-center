@@ -30,9 +30,9 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 ![Diagram of load-balanced VMs](./images/load-balancing.svg)
 
-**Replicate databases**. Azure SQL Database and Cosmos DB automatically replicate the data within a region, and you can enable geo-replication across regions. If you are using an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
+**Replicate databases**. Azure SQL Database and Azure Cosmos DB automatically replicate the data within a region, and you can enable geo-replication across regions. If you are using an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
 
-**Enable geo-replication**. Geo-replication for [Azure SQL Database][sql-geo-replication] and [Cosmos DB][cosmos-db-geo-replication] creates secondary readable replicas of your data in one or more secondary regions. In the event of an outage, the database can fail over to the secondary region for writes.
+**Enable geo-replication**. Geo-replication for [Azure SQL Database][sql-geo-replication] and [Azure Cosmos DB][cosmos-db-geo-replication] creates secondary readable replicas of your data in one or more secondary regions. In the event of an outage, the database can fail over to the secondary region for writes.
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 

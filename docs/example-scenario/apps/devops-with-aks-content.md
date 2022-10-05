@@ -2,7 +2,7 @@ This example scenario is applicable to businesses that want to modernize applica
 
 Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous deployment (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
-By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
+By using Azure services such as Azure Kubernetes Service, Container Registry, and Azure Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
 ## Potential use cases
 
@@ -28,7 +28,7 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 4. The Jenkins build job uses a dynamic build agent in Azure Kubernetes Service to perform a container build process.
 5. A container image is created from the code in source control, and is then pushed to an Azure Container Registry.
 6. Through continuous deployment (CD), Jenkins deploys this updated container image to the Kubernetes cluster.
-7. The Node.js web application uses Cosmos DB as its back end. Both Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.
+7. The Node.js web application uses Azure Cosmos DB as its back end. Both Azure Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.
 8. A Grafana instance provides visual dashboards of the application performance based on the data from Azure Monitor.
 
 ### Components
@@ -37,9 +37,9 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 - [Azure Linux Virtual Machines][docs-virtual-machines] is the IaaS platform used to run the Jenkins and Grafana instances.
 - [Azure Container Registry][docs-acr] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
 - [Azure Kubernetes Service][docs-aks] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
-- [Azure Cosmos DB][docs-cosmos-db] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
+- [Azure Cosmos DB][docs-cosmos-db] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Azure Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
 - [Azure Monitor][docs-azure-monitor] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
-- [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
+- [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Azure Cosmos DB.
 
 ### Alternatives
 
@@ -59,7 +59,7 @@ As part of the Azure Kubernetes Service cluster, a load balancer distributes app
 
 Azure Kubernetes Service lets you scale the number of cluster nodes to meet the demands of your applications. As your application increases, you can scale out the number of Kubernetes nodes that run your service.
 
-Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
+Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Azure Cosmos DB abstracts the need to scale your infrastructure as with traditional database components, and you can choose to replicate your Azure Cosmos DB globally to meet the demands of your customers.
 
 For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 

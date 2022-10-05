@@ -61,7 +61,7 @@ Microsoft Learn modules:
 Azure Architecture Center overview articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+* [Choosing an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
 
 Azure Architecture Center articles describing other chatbot architectures:
 

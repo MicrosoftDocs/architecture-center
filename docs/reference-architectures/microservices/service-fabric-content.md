@@ -203,7 +203,7 @@ Here are some key points for securing your application on Service Fabric:
 
 Consider defining subnet boundaries for each virtual machine scale set to control the flow of communication. Each node type has its own virtual machine scale set in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 
-When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Azure Cosmos DB to store data, configure the Azure Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
 
 #### Endpoints and interservice communication
 
@@ -230,13 +230,13 @@ Store secrets such as connection strings to data stores in Azure Key Vault. The 
 
 - Store your secrets in the Key Vault.
 
-    Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, "--" is converted into ":".
+    Add secrets in a format that can be translated to a key-value pair. For example, Azure Cosmos DB--AuthKey. When the configuration is built, "--" is converted into ":".
 
 - Access those secrets in your service.
 
     Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, builds the configuration, and accesses the secret from the built configuration.
 
-Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database".
+Here's an example where the Workflow service stores a secret in the Key Vault in the format "Azure Cosmos DB--Database".
 
 ```c#
 namespace Fabrikam.Workflow.Service

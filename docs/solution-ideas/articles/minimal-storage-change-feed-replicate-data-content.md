@@ -56,7 +56,7 @@ The architecture may be appropriate for any application that uses massive amount
 - Implementation and maintenance of this solution will incur extra cost.
 - Using the change feed for replication requires less code maintenance than doing the replication in the core application.
 - Existing data needs to migrate which would require ad-hoc scripts/routines to copy old data to storage accounts. Make sure that you have timestamp and copy flags to track the progress of migration of data.
-- Make sure that you ignore delete feeds generated because of Azure Function deleting entries from Cosmos DB to avoid deleting entries from the secondary storage (Azure Table).
+- Make sure that you ignore delete feeds generated because of Azure Function deleting entries from Azure Cosmos DB to avoid deleting entries from the secondary storage (Azure Table).
 
 ## Contributors
 
@@ -64,7 +64,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 Principal author:
 
- * [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
 
 ## Next steps
 
@@ -72,7 +72,7 @@ Principal author:
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
-- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/training/modules/store-access-data-cosmos-table-api)
+- [Store and access NoSQL data with Azure Cosmos DB for Table](/training/modules/store-access-data-cosmos-table-api)
 - [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
 - [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
 - [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)

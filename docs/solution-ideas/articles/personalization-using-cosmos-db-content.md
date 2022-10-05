@@ -8,16 +8,16 @@ Organizations use customers' shopping history to provide relevant product recomm
 
 ## Architecture
 
-![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Cosmos D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
+![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Azure Cosmos DB D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
 ### Dataflow
 
 1. Shopper/User signs in to e-commerce app using their own credentials.
 1. Shopper/User places the order and order goes to Azure API Apps.
-1. Data gets stored in Cosmos DB (Customer Order).
-1. The change feed is enabled on the Cosmos DB and processes all the changes for available events.
-1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
+1. Data gets stored in Azure Cosmos DB (Customer Order).
+1. The change feed is enabled on the Azure Cosmos DB and processes all the changes for available events.
+1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Azure Cosmos DB (Product+ User Vectors)
 1. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 ### Components

@@ -33,7 +33,7 @@ The data flows through the solution as follows:
 
 ### Alternatives
 
-- [Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction).
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Azure Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
@@ -97,7 +97,7 @@ Guidance for big data architectures is available in the [Azure Data Architecture
 Additional IoT architectures:
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)

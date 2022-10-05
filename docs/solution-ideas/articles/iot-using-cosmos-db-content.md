@@ -12,7 +12,7 @@ Azure Cosmos DB is ideal for IoT workloads because it's capable of:
 
 ## Potential use cases
 
-- Use built-in, globally distributed Cosmos DB capabilities to enable low latency read-write for highly responsive IoT applications.
+- Use built-in, globally distributed Azure Cosmos DB capabilities to enable low latency read-write for highly responsive IoT applications.
 - Handle data from a wide variety of device vendors and data types.
 
 ## Architecture
@@ -99,7 +99,7 @@ Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for 
 
 ## Next steps
 
-- [IoT solutions and Cosmos DB](https://techcommunity.microsoft.com/t5/internet-of-things/iot-solutions-and-azure-cosmos-db/ba-p/1015605)
+- [IoT solutions and Azure Cosmos DB](https://techcommunity.microsoft.com/t5/internet-of-things/iot-solutions-and-azure-cosmos-db/ba-p/1015605)
 - [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data)
 - [Order device connection events from Azure IoT Hub using Azure Cosmos DB](/azure/iot-hub/iot-hub-how-to-order-connection-state-events)
 

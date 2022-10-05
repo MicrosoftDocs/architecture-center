@@ -21,12 +21,12 @@ Improve uptime and operations in travel and hospitality, manufacturing, retail, 
 
 ### Components
 
-* [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed-reality experiences.
-* [Azure AD](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale.
-* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs): Receive telemetry from millions of devices.
-* [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Build next-generation IoT spatial intelligence solutions.
+- [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed-reality experiences.
+- [Azure AD](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale.
+- [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs): Receive telemetry from millions of devices.
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Build next-generation IoT spatial intelligence solutions.
 
 ## Scenario details
 
@@ -38,7 +38,7 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 
 - [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 - [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-- [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+- [Build a .NET web app using Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
 - [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
 - [Azure Event Hubs - A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)

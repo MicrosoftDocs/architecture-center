@@ -44,7 +44,7 @@ This article showcases a practical, scalable, and manageable solution for implem
   - Spark technologies used for big data
   - Data Explorer for log and time-series analytics
   - Pipelines for data integration and ETL/ELT
-  - Deep integration with other Azure services, such as Power BI, Cosmos DB, and Machine Learning
+  - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Machine Learning
 
 ### Alternatives
 
