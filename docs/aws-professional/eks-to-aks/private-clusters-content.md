@@ -128,7 +128,7 @@ Principal authors:
 Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Ep Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 
 ## Next steps
 
