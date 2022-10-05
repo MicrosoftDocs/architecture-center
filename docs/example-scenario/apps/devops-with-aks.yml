@@ -2,7 +2,7 @@
 metadata:
   title: CI/CD pipeline for container-based workloads
   titleSuffix: Azure Example Scenarios
-  description: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana.
+  description: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
   author: iainfoulds
   ms.author: architectures
   ms.date: 07/26/2022
@@ -26,7 +26,7 @@ azureCategories:
   - devops
   - featured
   - compute
-summary: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana.
+summary: Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 products:
   - azure-container-registry
   - azure-cosmos-db
