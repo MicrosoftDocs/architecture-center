@@ -7,9 +7,7 @@ Samadii DEM:
 - Supports post-processing functions such as pathline of individual particles along with time step.
 - Provides support using four friction models such as Constant model, Coulomb model, Viscous model, and Coulomb-Viscous model.
 
-Samadii-DEM was originally designed to perform analysis based on the GPU and parallel processing techniques to provide reliable results by analyzing a variety of large-scale grain boundary issues at a high speed. With its deposition and field analysis designed in 2D area, the software is very useful to model physical vapor deposition coating/OLED simulation. 
-
-Samadii-DEM used by industries such mechanical, electronic, chemical, display, and semiconductor. It helps to understand the behavior of stones, rock handling, and mixers devices for granular materials.
+Samadii DEM used by industries such mechanical, electronic, chemical, display, and semiconductor. It helps to understand the behavior of stones, rock handling, and mixers devices for granular materials.
 
 ## Why deploy Samadii DEM on Azure?
 
