@@ -4,7 +4,7 @@ Samadii DEM analyzes and interprets large-scale particles at high speed. It uses
 
 Samadii DEM  supports the use of four friction models: the Constant model, the Coulomb model, the Viscous model, and the Coulomb-Viscous model.
 
-It's used in the mechanical, electronic, chemical, display, and semiconductor industries.
+It's used in the mechanical, electronic, chemical, and semiconductor industries.
 
 ## Why deploy Samadii DEM on Azure?
 
@@ -41,8 +41,8 @@ Performance tests of Samadii DEM on Azure used [NVv3](/azure/virtual-machines/nv
 |Standard_NC12s_v3	|12	|224	|24|	2|	32|	40,000 / 400|	1,474|	8|
 |Standard_NC4as_T4_v3|	4|	28	|8	|1	|16	|-|	180|	2|
 |Standard_NC64as_T4_v3|	64|	440|	32|	4|	64	|-|	2880|	8|
-|Standard_NV12s_v3	|12	|112|	12|	1|	112	|20,000/200	|320|	4|
-|Standard_NV24s_v3	|24	|224|	24|	2|	224	|40,000/400|	640	|8|
+|Standard_NV12s_v3	|12	|112|	12|	1|	112	|20,000 / 200	|320|	4|
+|Standard_NV24s_v3	|24	|224|	24|	2|	224	|40,000 / 400|	640	|8|
 
 ### Required drivers
 
@@ -65,7 +65,7 @@ The product installation process involves installing a license server, installin
 
 ## Samadii DEM performance results
 
-Windows 10 Professional, version 20H2, with an X86-64 architecture, was used for all tests. The following table shows the processors that were used. 
+Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used. 
 
 |	|ND_A100_v4|	NCv3  | NC4as_T4_v3|	NVv3 |
 |-|-|-|-|-|
