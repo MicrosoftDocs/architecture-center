@@ -1,24 +1,35 @@
-
 <Intro should cover a basic overview of the workload.>
-Why deploy <workload> on Azure
--	Simplifies migration to the cloud
--	Optimizes the workload in these ways….
--	Can be rapidly provisioned
--	Performance
-Architecture
-<Not generic. Product/Solution specific Architecture diagram>
-<The architecture diagram must be product associated and the VM (Virtual Machines) topology should match the above stated test conditions.>
-Components
-<List of links to more information on the discrete pieces of the architecture. The list below is just an example of the most common items, you might need to add or remove items based on your architecture diagram.>
-<link to the normal AAC standard links for these (Azure service pages)>
--	Virtual machine – description/context. Please also link Linux VMs on Azure or Windows VMs on Azure (whichever the architecture is based on) in the sentence that follows this.
--	Network – description/context
--	PIP – description/context
--	NSG – description/context
--	Storage – description/context
-Compute sizing and drivers
-<List of evaluated sizes for this workload and a table of the input sizes with corresponding evaluated output for the chosen input sizes.>
-Required drivers
+
+## Why deploy Samadii SCIV on Azure?
+
+- Modern and diverse compute options to align to your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Good performance scale-up, with configurations that provide optimized scaling or optimized cost efficiency
+
+## Architecture
+
+:::image type="content" source="media/samadii-sciv/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii SCIV." lightbox="media/samadii-sciv/architecture.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/samadii-sciv.vsdx) of this
+architecture.*
+
+### Components
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
+    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
+    used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+  - A public IP address connects the internet to the VM.
+- A physical solid-state drive (SSD) is used for storage.
+
+## Compute sizing and drivers
+
+Performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
+
+### Required drivers
+
 <Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
 <Workload> installation
 Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
