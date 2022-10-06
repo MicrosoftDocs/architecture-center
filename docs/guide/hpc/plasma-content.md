@@ -64,12 +64,57 @@ Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for
 Three models were used for testing, as shown in the following sections. 
 
 ### Results for the magnetron sputter model
+
+:::image type="content" source="media/samadii-plasma/magnetron-sputter.png" alt-text="Screenshot that shows the magnetron sputter model." :::
+
+The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+
+|VM |	Elapsed time, in seconds	|Relative speed increase|
+|-|-|-|
+|NVv3|	12,825.36|	1.00|
+|NC4as_T4_v3	|7,606.59|	1.69|
+|NCv3	|2,798.55|	4.58|
+|ND_A100_v4	|1,977|	6.49|
+
+This graph shows the relative speed increases: 
+
+:::image type="content" source="media/samadii-plasma/graph-magnetron-sputter.png" alt-text="Graph that shows the relative speed increases for the magnetron sputter model." border="false":::
+
 ### Results for the import inlet model
+
+:::image type="content" source="media/samadii-plasma/import-inlet.png" alt-text="Screenshot that shows the import inlet model." :::
+
+The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+
+|VM |	Elapsed time, in seconds	|Relative speed increase|
+|-|-|-|
+|NVv3|248.99| 1.00|
+|NC4as_T4_v3	|159.61|1.56|
+|NCv3	|141.59|1.76|
+|ND_A100_v4	|112|2.22|
+
+This graph shows the relative speed increases: 
+
+:::image type="content" source="media/samadii-plasma/graph-import-inlet.png" alt-text="Graph that shows the relative speed increases for the import inlet model." border="false":::
+
 ### Results for the sputtering target model
 
-### Additional notes about tests
-<Include any additional notes about the testing process used.>
-Azure cost
+:::image type="content" source="media/samadii-plasma/sputtering-target.png" alt-text="Screenshot that shows the sputtering target model.":::
+
+The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+
+|VM |	Elapsed time, in seconds	|Relative speed increase|
+|-|-|-|
+|NVv3|13.82| 1.00|
+|NC4as_T4_v3	|8.46|1.63|
+|NCv3	|6.86|2.01|
+|ND_A100_v4	|5.9|2.34|
+
+This graph shows the relative speed increases: 
+
+:::image type="content" source="media/samadii-plasma/graph-sputtering-target.png" alt-text="Graph that shows the relative speed increases for the sputtering target model." border="false":::
+
+## Azure cost
 <Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
 You can use the Azure pricing calculator, to estimate the costs for your configuration.
 <Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
