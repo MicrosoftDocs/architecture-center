@@ -23,7 +23,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. **Azure Health Data Services workspace sends notification messages to events subscribers** when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
 
-1. **A FHIR Analytics Pipelines OSS pipeline moves FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. 
+1. **FHIR Analytics Pipelines move FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. 
 
 1. **Further analysis of the FHIR data in the Parquet and JSON formats is done** using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
 
