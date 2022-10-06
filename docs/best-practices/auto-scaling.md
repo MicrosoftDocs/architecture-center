@@ -3,7 +3,7 @@ title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: EdPrice-MSFT
-ms.date: 05/17/2017
+ms.date: 10/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -123,7 +123,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without due care, such a task could prevent an instance of a process from being shut down cleanly when the system scales in, or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. The [Pipes and Filters pattern](../patterns/pipes-and-filters.yml) provides an example of how you can achieve this.
 
-- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, like [NServiceBus](https://docs.particular.net/nservicebus/sagas/) and [MassTransit](https://masstransit-project.com/usage/sagas/), which transparently persist state where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
+- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, such as [NServiceBus](https://docs.particular.net/nservicebus/sagas) and [MassTransit](https://masstransit-project.com/usage/sagas). They transparently persist state, where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
 
 - When background tasks run on separate compute instances, such as in worker roles of a cloud-services&ndash;hosted application, you may need to scale different parts of the application using different scaling policies. For example, you may need to deploy additional user interface (UI) compute instances without increasing the number of background compute instances, or the opposite of this. If you offer different levels of service (such as basic and premium service packages), you may need to scale out the compute resources for premium service packages more aggressively than those for basic service packages in order to meet SLAs.
 
