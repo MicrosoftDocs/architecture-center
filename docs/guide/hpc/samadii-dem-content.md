@@ -41,8 +41,8 @@ Performance tests of Samadii DEM on Azure used [NVv3](/azure/virtual-machines/nv
 |Standard_NC12s_v3	|12	|224	|24|	2|	32|	40,000 / 400|	1,474|	8|
 |Standard_NC4as_T4_v3|	4|	28	|8	|1	|16	|-|	180|	2|
 |Standard_NC64as_T4_v3|	64|	440|	32|	4|	64	|-|	2880|	8|
-|Standard_NV12s_v3	|12	|112|	12|	1|	112	|20,000 / 200	|320|	4|
-|Standard_NV24s_v3	|24	|224|	24|	2|	224	|40,000 / 400|	640	|8|
+|Standard_NV12s_v3	|12	|112|	12|	1|	8	|20,000 / 200	|320|	4|
+|Standard_NV24s_v3	|24	|224|	24|	2|	16	|40,000 / 400|	640	|8|
 
 ### Required drivers
 
