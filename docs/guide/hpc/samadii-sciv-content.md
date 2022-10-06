@@ -28,6 +28,14 @@ architecture.*
 
 Performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
 
+|VM size|	GPU|	vCPU|	Memory, in GiB|	Maximum data disks|	GPU	|GPU memory, in GiB|	Maximum uncached disk throughput, IOPS / MBps)|	Temporary storage (SSD), in GiB|	Maximum NICs|
+|-|-|-|-|-|-|-|-|-|-|
+|Standard NV12s v3|	Tesla M60|	12|	112|	12|	1|	8|	20000/200|	320|	4|
+Standard_NC4as_T4_v3	Tesla T4	4	28	8	1	16	-	180	2
+Standard_NC6s_v3	V100	6	112	12	1	16	20000 / 200	736	4
+Standard ND96asr v4	A100	96	900	32	8	40	80,000 / 800	6000	8
+
+
 ### Required drivers
 
 <Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
