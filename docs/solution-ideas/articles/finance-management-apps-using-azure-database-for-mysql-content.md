@@ -2,29 +2,40 @@
 
 Securely store data and provide high-value analytics over aggregated data, using in-built security and performance.
 
-## Potential use cases
-
-This architecture is a simple example of a tier-3 application design on Azure with Power BI for data analytics. A use of case for a finance management application is used to add business context, but this design is applicable for many use cases.
-
 ## Architecture
 
-![Architecture Diagram](../media/finance-management-apps-using-azure-database-for-mysql.png)
+:::image type="content" source="../media/finance-management-apps-using-azure-database-for-mysql.png" alt-text="Architecture diagram of a three-tier application. Data flows from a browser and other sources to hosts, into a database, and on to analytics services." border="false":::
+
 *Download an [SVG](../media/finance-management-apps-using-azure-database-for-mysql.svg) of this architecture.*
 
 ### Dataflow
 
-The architecture shows the flow of data in a common tier-3 application design:
+The architecture shows the flow of data in a common three-tier application design:
 
-* The presentation tier-1 is represented by the web app (browser) and/or mobile app used by clients. 
-* Azure App Service hosts backend APIs and business logic that comprise tier-2. 
-* Azure Database for MySQL offers a fully managed OSS database for the data layer tier-3. 
-* Power BI supports native connectivity with MySQL to ingest data for analytics.
+- A client interacts with a mobile app or a web app in a browser.
+- Azure App Service hosts backend APIs and business logic that process and aggregate the financial data.
+- Azure Database for MySQL stores the financial data.
+- Power BI ingests data for analytics.
 
 ### Components
 
-- [Azure App Service](/azure/app-service) - Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
-- [Azure Database for MySQL](/azure/mysql) - Azure Database for MySQL is a relational database service powered by the MySQL community edition.
-- [Power BI](/power-bi/fundamentals) - Power BI is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
+- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service that's powered by the MySQL community edition.
+- [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+
+## Scenario details
+
+This solution is a basic example of a three-tier application on Azure:
+
+- The presentation tier consists of a web app or browser and a mobile app.
+- In the application tier, App Service provides the logic and computing power for the application.
+- In the data tier, Azure Database for MySQL offers a fully managed OSS database.
+
+Power BI, which supports native connectivity with MySQL, provides data analytics in this solution.
+
+### Potential use cases
+
+You can use this solution to manage financial data. The architecture also applies to various other use cases, including retail, education, and travel scenarios.
 
 ## Contributors
 
@@ -32,18 +43,20 @@ The architecture shows the flow of data in a common tier-3 application design:
 
 Principal author:
 
- * [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Cloud Solution Architect
+- [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Cloud Solution Architect
 
 ## Next steps
-
-Learn more about the component technologies:
 
 - [Connect an existing Azure App Service to Azure Database for MySQL server](/azure/mysql/howto-connect-webapp)
 - [Tutorial: Design an Azure Database for MySQL database using the Azure portal](/azure/mysql/tutorial-design-database-using-portal)
 - [Power BI MySQL Database Connector](/power-query/connectors/mysqldatabase)
+- [App Service documentation](/azure/app-service)
+- [Azure Database for MySQL documentation](/azure/mysql)
+- [Power BI get started documentation](/power-bi/fundamentals)
 
 ## Related resources
 
-Explore related architectures:
-
-- [Finance management apps using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql)
+- [Finance management apps using Azure Database for PostgreSQL](./finance-management-apps-using-azure-database-for-postgresql.yml)
+- [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
+- [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
+- [Tier applications and data for analytics](./tiered-data-for-analytics.yml)

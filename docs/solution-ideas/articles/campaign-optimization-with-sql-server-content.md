@@ -11,17 +11,15 @@ This solution idea describes how to build and deploy a machine-learning model th
 
 This architecture includes the following services:
 
-* [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
- 
-* [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
+* [SQL Server Machine Learning Services](/sql/machine-learning/r/sql-server-r-services) is used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
 
-* [**Power BI**](/power-bi/fundamentals/power-bi-overview) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
+* [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
+
+* [Power BI](/power-bi/fundamentals/power-bi-overview) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
 
 ### Components
 
-- [SQL Server Machine](/sql/machine-learning/r/sql-server-r-services)
-- [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15)
-- [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15)
+- [SQL Server](https://www.microsoft.com/sql-server)
 - [Power BI](https://powerbi.microsoft.com)
 
 ## Scenario details
@@ -38,7 +36,7 @@ For example, a machine-learning model can be used to predict actions that are ex
 
 This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week, and the best time of day in which to make the contact.
 
-SQL Server R Services brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside'the SQL Server process and communicates securely with the R runtime.
+SQL Server Machine Learning Services, which was previously called R Services, brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside'the SQL Server process and communicates securely with the R runtime.
 
 This solution packet shows how to create and refine data, train R models, and perform predictions on the SQL Server machine. The final predictions table in SQL Server provides recommendations for how and when to contact each lead. This data is then visualized in Power BI.
 
@@ -60,7 +58,7 @@ Two roles in this solution idea are:
 
 ## Deploy this scenario
 
-The AI Gallery [campaign optimization with SQL Server solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this solution idea with SQL [Server 2016 R Services](/sql/machine-learning/r/sql-server-r-services) and [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) as an interactive visualization tool. The gallery solution uses simulated data, which can easily be configured to use custom data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
+The AI Gallery [campaign optimization with SQL Server solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this solution idea with [SQL Server 2016 R Services](/sql/machine-learning/r/sql-server-r-services) and [Power BI](https://powerbi.microsoft.com/what-is-power-bi) as an interactive visualization tool. The gallery solution uses simulated data, which can easily be configured to use custom data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
 
 ## Contributors
 
@@ -68,16 +66,18 @@ The AI Gallery [campaign optimization with SQL Server solution](https://gallery.
 
 Principal author:
 
- * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
+- [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
 
 ## Next steps
 
 Read product documentation:
 
-- [What is SQL Server 2016 R Services?](/sql/machine-learning/r/sql-server-r-services)
+- [SQL Server Machine Learning Services](/sql/machine-learning/r/sql-server-r-services)
+- [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15)
+- [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15)
 - [SQL Server Machine Learning Services with R](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15)
 - [Install on Windows - SQL Server Machine Learning Services**](/sql/machine-learning/install/sql-machine-learning-services-windows-install?view=sql-server-ver15)
-- [What is Power BI](https://powerbi.microsoft.com/what-is-power-bi/)
+- [What is Power BI](https://powerbi.microsoft.com/what-is-power-bi)
 - [What is MicrosoftML?](/machine-learning-server/r/concept-what-is-the-microsoftml-package) - used inside SQL Server Machine Learning Services.
 
 Try out some code:
