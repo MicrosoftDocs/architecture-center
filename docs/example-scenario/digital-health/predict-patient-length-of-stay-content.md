@@ -1,7 +1,3 @@
-> [!NOTE]
-> **ARTICLE TODOS**
-> - final reviews from all contributors listed
-
 For the people running a healthcare facility, length of stay (LOS)—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it hard to track patient flow and plan accordingly.
 
 This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A chief medical information officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities. A care line manager might use a model to determine whether there are adequate staff resources to handle the release of a patient.
