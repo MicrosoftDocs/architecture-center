@@ -1,10 +1,12 @@
 Organizations migrating from z/TPF mainframes to the cloud need a robust platform that can process high volume transactions. This solution delivers cloud-enabled applications and databases that are functionally equivalent to the z/TPF legacy counterparts. 
 
-## Mainframe architecture
+## Architecture
+
+### Mainframe architecture
 
 :::image type="content" border="false" source="media/mainframe-migration-before.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.png":::
 
-### Dataflow
+#### Dataflow
 
 - Users input data over TCP/IP, including TN3270 and HTTP(S).
 - Data is input into the mainframe via standard mainframe protocols.                                
@@ -15,7 +17,7 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 - Partitions are used to run separate workloads or segregate work types within the environment.
 - Operating systems provide interfaces between the engine and the software it runs.
 
-## Azure architecture
+### Azure architecture
 
 :::image type="content" border="false" source="media/mainframe-migration-after.png" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.png"::: 
 
@@ -27,7 +29,7 @@ The z/TPF mainframe uses a shared memory feature called a *coupling facility* to
 
 The Azure Cosmos DB NoSQL database is used for high-performance storage. This storage solution provides high speed and high-performance data persistence and retrieval.
 
-### Dataflow 
+#### Dataflow 
 
 1. Input, typically via either Azure ExpressRoute from remote clients or via other applications currently running in Azure. In either case, TCP/IP connections provide the primary means of connection to the system. User access for web-based applications is provided over TLS port 443. To improve security by minimizing open ports, you can use Azure Bastion hosts for admin access to the VMs.
 1. On Azure, an Azure load balancer is used to access the application compute clusters. Kubernetes provides robust load balancing and scaling. In this case, the front-end load balancer provides another level of failover capability to maintain business continuity if an entire cluster service goes down.
@@ -129,8 +131,8 @@ See these additional resources:
 
 ## Related resources
 
-- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Moving archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)

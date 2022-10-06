@@ -179,8 +179,8 @@ In managing Microsoft Sentinel solutions and DevOps, it's important to consider 
 Azure DevOps can use Microsoft-hosted agents or self-hosted agents for build, test, and deploy activities.
 Depending on your company's requirements, you can use Microsoft-hosted, self-hosted, or a combination of both models.
 
-* Microsoft-hosted agents - This option is the fastest way to work with Azure DevOps agents, because it's a shared infrastructure for your entire organization. For more information on using Microsoft-hosted agents in your pipeline, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml). Microsoft-hosted agents can work in hybrid-networking environments, granting access for the IP ranges. To download the IP ranges that these agents grant access to, see [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
-* Self-hosted agents - This option gives you dedicated resources and more control when installing dependent software for your builds and deployments. Self-hosted agents can work over VMs, scale sets, and containers on Azure. For more information on self-hosted agents, see [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
+* Microsoft-hosted agents - This option is the fastest way to work with Azure DevOps agents, because it's a shared infrastructure for your entire organization. For more information on using Microsoft-hosted agents in your pipeline, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?tabs=yaml). Microsoft-hosted agents can work in hybrid-networking environments, granting access for the IP ranges. To download the IP ranges that these agents grant access to, see [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+* Self-hosted agents - This option gives you dedicated resources and more control when installing dependent software for your builds and deployments. Self-hosted agents can work over VMs, scale sets, and containers on Azure. For more information on self-hosted agents, see [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
 
 #### GitHub runners
 
@@ -204,7 +204,7 @@ When choosing options for the agents and runners in your Microsoft Sentinel solu
 
 ### Orchestration and automation of release processes
 
-You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions).
+You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions).
 
 #### Azure DevOps
 
@@ -258,7 +258,7 @@ The following example shows how your code might be organized.
 
 Restrict access to this repository to the team that defines the architecture at the physical level, ensuring a homogeneous definition in the enterprise architecture.
 
-You can adapt the branching and merging strategy to the deployment strategy for each organization. If your team needs to start with the definition, see [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops).
+You can adapt the branching and merging strategy to the deployment strategy for each organization. If your team needs to start with the definition, see [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance).
 
 For more information on ARM templates, see [Using linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template).
 
@@ -443,7 +443,7 @@ When choosing the architecture for the Azure DevOps agents in your company for M
   * Attack simulation scenarios are a special case where dedicated agents can be required. Consider whether a dedicated pool is necessary for your testing needs.
 * Organizations that work on hybrid networking scenarios might consider integrating the agents inside the network.
 
-Organizations can create their own images for agents based on containers. For more information, see [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker?view=azure-devops#create-and-build-the-dockerfile-1).  
+Organizations can create their own images for agents based on containers. For more information, see [Run a self-hosted agent in Docker](/azure/devops/pipelines/agents/docker#create-and-build-the-dockerfile-1).  
 
 #### Microsoft Sentinel cross-tenant management with Azure DevOps
 
@@ -477,7 +477,7 @@ The following table compares the onboarding methods.
 
 For more information on publishing managed service offers, see [Publish a managed service offer to Azure Marketplace](/azure/lighthouse/how-to/publish-managed-services-offers).
 
-For more information on how to create an ARM template, see [Create and deploy ARM templates](/learn/modules/create-deploy-azure-resource-manager-templates).
+For more information on how to create an ARM template, see [Create and deploy ARM templates](/training/modules/create-deploy-azure-resource-manager-templates).
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
@@ -543,7 +543,7 @@ The following section describes the steps for deploying this scenario in the for
 
 First, set up the necessary NuGet components in a dedicated repository where different processes can consume the releases that you generate.
 
-If you're working with Azure DevOps, you can create a component feed to host the different NuGet packages from the Microsoft Sentinel framework for PowerShell. For more information, see [Get started with NuGet packages](/azure/devops/artifacts/get-started-nuget?view=azure-devops&tabs=windows).
+If you're working with Azure DevOps, you can create a component feed to host the different NuGet packages from the Microsoft Sentinel framework for PowerShell. For more information, see [Get started with NuGet packages](/azure/devops/artifacts/get-started-nuget?tabs=windows).
 
 ![Screenshot of how to create a component feed to host the NuGet packages.](./media/create-new-feed-to-host-nuget-package.png)
 
@@ -555,7 +555,7 @@ When you have an available NuGet repository, the pipeline contains a service con
 
 ![Screenshot of how to edit a service connection.](./media/edit-service-connection.png)
 
-After configuring the feed, you can import the pipeline for building the PowerShell framework directly from GitHub in a specific fork. For more information, see [Build GitHub repositories](/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml). In this case, you create a new pipeline and choose GitHub as the code source.
+After configuring the feed, you can import the pipeline for building the PowerShell framework directly from GitHub in a specific fork. For more information, see [Build GitHub repositories](/azure/devops/pipelines/repos/github?tabs=yaml). In this case, you create a new pipeline and choose GitHub as the code source.
 
 Another option is to import the Git repository as an Azure DevOps repository that's based on Git. In both cases, to import the pipeline, specify the following path:
 
@@ -770,8 +770,8 @@ If you use Microsoft Sentinel repositories, you can set up a release process to 
 
 Also, you can customize the deployment processes that the Microsoft Sentinel repositories do based on practices that are described in this document. One important aspect to consider is the release approval, which you can set up by following these approaches:
 
-* PR approval when committing the artifacts. For more information, see [Create pull requests](/azure/devops/repos/git/pull-requests?view=azure-devops&tabs=browser).
-* Release pipeline approval when running the deployment. For more information, see [Define approvals and checks](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass).
+* PR approval when committing the artifacts. For more information, see [Create pull requests](/azure/devops/repos/git/pull-requests?tabs=browser).
+* Release pipeline approval when running the deployment. For more information, see [Define approvals and checks](/azure/devops/pipelines/process/approvals?tabs=check-pass).
 
 #### Microsoft Sentinel deployment pipeline samples
 
@@ -803,9 +803,9 @@ Principal authors:
 * To learn about MSSP multi-tenant architecture, see [Combining Azure Lighthouse with Microsoft Sentinel's DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966).
 * For information on Managed identity with Microsoft Sentinel, see [What's new: Managed identity for Microsoft Sentinel Logic Apps connector](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-managed-identity-for-azure-sentinel-logic-apps/ba-p/2068204).
 * To learn how to deploy content from a Microsoft Sentinel repository, see [Deploy custom content from your repository](/azure/sentinel/ci-cd?tabs=github).
-* To learn about Azure DevOps Security considerations, see:[Default permissions quick reference](/azure/devops/organizations/security/permissions-access?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
-* To learn how to protect an Azure DevOps repository, see [Add protection to a repository resource](/azure/devops/pipelines/process/repository-resource?view=azure-devops).
-* For information on how to manage Azure DevOps service connection security, see [Service connections in Azure Pipelines](/azure/devops/pipelines/library/service-endpoints?tabs=yaml&view=azure-devops).
+* To learn about Azure DevOps Security considerations, see:[Default permissions quick reference](/azure/devops/organizations/security/permissions-access?toc=/azure/devops/get-started/toc.json&bc=/azure/devops/get-started/breadcrumb/toc.json).
+* To learn how to protect an Azure DevOps repository, see [Add protection to a repository resource](/azure/devops/pipelines/process/repository-resource).
+* For information on how to manage Azure DevOps service connection security, see [Service connections in Azure Pipelines](/azure/devops/pipelines/library/service-endpoints?tabs=yaml).
 
 ## Related resources
 

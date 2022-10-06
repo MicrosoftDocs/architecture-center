@@ -1,10 +1,4 @@
-This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework][bot-framework]. Each bot is different, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality.
-
-The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base].
-
-## Potential use cases
-
-This solution is ideal for the telecommunications industry. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework][bot-framework].
 
 ## Architecture
 
@@ -67,6 +61,16 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 - [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db)
 - [Azure AD](https://azure.microsoft.com/services/active-directory)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) 
+
+## Scenario details
+
+Each bot is different, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality.
+
+The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base].
+
+### Potential use cases
+
+This solution is ideal for the telecommunications industry. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
 ## Recommendations
 
@@ -164,11 +168,15 @@ Another option is to integrate your own custom AI service. This approach is more
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 As you roll out new features or bug fixes to your bot, it's best to use multiple deployment environments, such as staging and production. Using deployment [slots][slots] from [Azure DevOps][devops] allows you to do this with zero downtime. You can test your latest upgrades in the staging environment before swapping them to the production environment. In terms of handling load, App Service is designed to scale up or out manually or automatically. Because your bot is hosted in Microsoft's global datacenter infrastructure, the App Service SLA promises high availability.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 As with any other application, the bot can be designed to handle sensitive data. Therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
 
@@ -187,6 +195,8 @@ The bot itself is only part of a larger system that provides it with the latest 
 You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
@@ -229,7 +239,7 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  * Robert Alexander | Senior Software Engineer
 
@@ -248,13 +258,13 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
-- [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+- [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
+- [Build a bot with QnA Maker and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service)
 
 ## Related resources
 
 - [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 
 <!-- links -->
 

@@ -42,7 +42,7 @@ The issue is exacerbated when you work with Azure services that share SNAT port 
 
 If you determine you're experiencing SNAT exhaustion and are sure your application code correctly handles your outbound connections, consider deploying NAT Gateway. This approach is commonly used by customers who deploy multitenant solutions that are built on [Azure App Service and Azure Functions](/azure/app-service/networking/nat-gateway-integration).
 
-Each NAT gateway provides at least 64,000, and up to 1 million, SNAT ports. If you need to scale beyond this limit, you can consider [deploying multiple NAT Gateway instances across multiple subnets or VNets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance). Each virtual machine in a subnet can use any of the available SNAT ports, if it needs them.
+Each public IP address attached to NAT gateway provides 64,512 SNAT ports for connecting outbound to the internet. NAT gateway can scale to use up to 16 public IP addresses which provides over 1 million SNAT ports. If you need to scale beyond this limit, you can consider [deploying multiple NAT Gateway instances across multiple subnets or VNets](/azure/virtual-network/nat-gateway/nat-gateway-resource#performance). Each virtual machine in a subnet can use any of the available SNAT ports, if it needs them.
 
 ### Outbound IP address control
 
@@ -62,6 +62,22 @@ When a NAT Gateway instance is applied to a subnet, any outbound traffic from th
 If you need to provide different outbound public IP addresses for each tenant, you must deploy individual NAT Gateway resources. Each subnet can be associated with a single NAT Gateway instance. To deploy more NAT gateways, you need to deploy multiple subnets or virtual networks. In turn, you likely need to deploy multiple sets of compute resources.
 
 Review [Architectural approaches for networking in multitenant solutions](../approaches/networking.md) for more information about how to design a multitenant network topology.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Program Manager 2, Azure NAT Gateway
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -4,6 +4,8 @@ This scenario describes a web application, called the Baseball Machine Learning 
 
 ![An overview of the processing sequence of this architecture, detailed in accompanying text.](./images/baseball-machine-learning-workbench-diagram.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/baseball-machine-learning-workbench-diagram.vsdx) of this architecture.*
+
 ### Dataflow
 
 The processing sequence in this solution flows as follows:
@@ -63,6 +65,8 @@ This solution is ideal for the sports and finance industries. Consider this scen
 - Business goal and objective modeling (budgeting and project planning, for example)
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scalability
 

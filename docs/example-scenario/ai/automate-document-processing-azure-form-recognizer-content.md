@@ -69,8 +69,8 @@ The pipeline that's used for data enrichment depends on the use case.
 
    These possibilities exist for inferencing:
 
-   * Real-time processes. The models are deployed as a web service in [Azure Kubernetes Service (AKS)][What is Kubernetes?].
-   * Batch inferencing in Azure Virtual Machines.
+   * Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
+   * Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
 
 1. The enriched data enters Azure Cosmos DB.
 
@@ -128,7 +128,7 @@ Optical character recognition (OCR) can extract content from images and PDF file
 
 ### Potential use cases
 
-This solution is ideal for the finance industry. The following tasks can benefit from this solution:
+This solution is ideal for the finance industry. It can also apply to the automotive, travel, and hospitality industries. The following tasks can benefit from this solution:
 
 * Approving expense reports
 * Processing invoices, receipts, and bills for insurance claims and financial audits
@@ -139,6 +139,8 @@ This solution is ideal for the finance industry. The following tasks can benefit
 * Identifying purchase patterns and duplicate financial documents for fraud detection
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when you use this solution.
 
@@ -185,6 +187,8 @@ The availability of the architecture depends on the Azure services that make up 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 * Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
 * To improve App Service security, consider these options:
@@ -217,6 +221,8 @@ The availability of the architecture depends on the Azure services that make up 
 * Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The cost of implementing this solution depends on which components you use and which options you choose for each component.
 

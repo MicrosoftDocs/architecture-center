@@ -55,7 +55,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache to train the machine learning model.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform that's optimized for the Azure platform. It offers three environments for developing data-intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise-grade machine learning service for easier model development and deployment to a wide range of machine learning target computes. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
-- [Azure Machine Learning endpoints](https://docs.microsoft.com/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
+- [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
 - [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization.
 
 ### Alternatives
@@ -200,7 +200,7 @@ Other contributors:
 - [Azure Time Series Insights documentation](/azure/time-series-insights/index)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Detect and visualize anomalies in your data with the Anomaly Detector API - Jupyter Notebook demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-- [Identify anomalies by routing data via IoT Hub to a built-in machine learning model in Azure Stream Analytics](/learn/modules/examine-iot-hub-message-routing)
+- [Identify anomalies by routing data via IoT Hub to a built-in machine learning model in Azure Stream Analytics](/training/modules/examine-iot-hub-message-routing)
 - [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 
 ## Related resources
@@ -215,4 +215,3 @@ Other contributors:
 - [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
-

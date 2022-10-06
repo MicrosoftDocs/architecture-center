@@ -1,4 +1,4 @@
-This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's like that of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion).
+This example scenario describes a [high-availability](/azure/architecture/framework/resiliency/overview) solution for a jump server that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's like that of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion).
 
 *Apache®, Apache Guacamole, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -108,7 +108,7 @@ Operational excellence applies reliability, predictability, and automated operat
 
 Implement software engineering disciplines across your entire environment, including these practices:
 - Implement [Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code).
-- Build and release with [continuous integration](https://docs.microsoft.com/devops/develop/what-is-continuous-integration) and [continuous delivery](https://docs.microsoft.com/devops/deliver/what-is-continuous-delivery) (CI/CD) pipelines.
+- Build and release with [continuous integration](/devops/develop/what-is-continuous-integration) and [continuous delivery](/devops/deliver/what-is-continuous-delivery) (CI/CD) pipelines.
 - Use automated testing.
 
 For more information, see [Operational excellence design principles](/azure/architecture/framework/devops/principles).
@@ -144,8 +144,8 @@ Principal author:
 * [Azure Bastion documentation](/azure/bastion/bastion-overview)
 * [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 * [Azure Database for MySQL](/azure/mysql)
-* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion)
-* [Learn module: Introduction to Azure Load Balancer](/learn/modules/intro-to-azure-load-balancer)
+* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion)
+* [Learn module: Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
  
 ## Related resources
 

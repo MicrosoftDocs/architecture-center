@@ -4,9 +4,9 @@ The Price Analytics solution utilizes your transactional history data to show yo
 
 ## Architecture
 
-![Architecture Diagram](../media/interactive-price-analytics.png)
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
 
-*Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -71,6 +71,23 @@ The solution provides the following advantages:
 * Discovers related products (replacements and complements).
 * Lets you simulate promotional scenarios in Excel.
 
+## Considerations
+
+Considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
+
+* S1 standard ML service plan
+* S2 SQL Database
+* App hosting plan
+* Miscellaneous ADF data activities and storage costs
+
+If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
+
 ## Deploy this scenario
 
 The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers).
@@ -104,17 +121,6 @@ The solution uses an Azure SQL Database instance to store your transactional dat
 
 Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, including the topic of connecting your own data and customization (GitHub login required).
 
-## Pricing
-
-To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
-
-* S1 standard ML service plan
-* S2 SQL Database
-* App hosting plan
-* Miscellaneous ADF data activities and storage costs
-
-If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
-
 ## Next steps
 
 Learn more about the component technologies:
@@ -124,7 +130,7 @@ Learn more about the component technologies:
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi)
+- [Create dashboards in Power BI](/training/modules/create-dashboards-power-bi)
 
 Learn more about pricing solutions:
 
@@ -133,7 +139,7 @@ Learn more about pricing solutions:
   - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization.
   - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.
 - Blog post: [A Pricing Engine for Everyone built with AzureML and Python](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
-- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service)
+- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/training/paths/build-ai-solutions-with-azure-ml-service)
 
 ## Related resources
 

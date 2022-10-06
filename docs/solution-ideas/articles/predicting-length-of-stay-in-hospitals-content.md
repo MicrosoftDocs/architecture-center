@@ -2,10 +2,6 @@
 
 This solution enables a predictive model for the length of stay for in-hospital admissions. Length of stay (LOS) is defined in the number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
 
-## Potential use cases
-
-This solution enables a predictive model for length of stay for in-hospital admissions.
-
 ## Architecture
 
 ![Architecture Diagram shows the flow of information from ingest to score to predict length of stay in hospitals.](../media/predicting-length-of-stay-in-hospitals.png)
@@ -19,6 +15,10 @@ This solution enables a predictive model for length of stay for in-hospital admi
 ## Solution details
 
 Length of stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
+
+### Potential use cases
+
+This solution enables a predictive model for length of stay for in-hospital admissions.
 
 ### Business perspective
 
@@ -37,13 +37,19 @@ Data scientists who are testing and developing solutions can work conveniently f
 
 This solution includes the R code needed by a data scientist in the R folder. It shows the stored procedures (.sql files) that can be deployed in the SQLR folder. Click on the Deploy to Azure button to test the automation and the entire solution will be made available in your Azure subscription.
 
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).
+
 ## Deploy this scenario
 
 For deployment instructions and more details on the technical implementation, see [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
-
-## Pricing
-
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution. For pricing details, visit the [Azure Pricing Page](https://azure.microsoft.com/pricing/calculator).
 
 ## Next steps
 

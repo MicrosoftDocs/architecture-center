@@ -124,7 +124,7 @@ After 15 seconds, one or both jobs still will not be completed. As the leases ex
 
 ![GitHub logo](../_images/github.png) An implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
 
-## Related guidance
+## Related resources
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

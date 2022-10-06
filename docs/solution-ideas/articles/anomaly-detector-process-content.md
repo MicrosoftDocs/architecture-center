@@ -1,18 +1,10 @@
-The Azure Cognitive Services Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms of the API adapt by automatically identifying and applying the best-fitting models to your time series data, regardless of industry, scenario, or data volume. They determine boundaries for anomaly detection, expected values, and anomalous data points. This article presents an architecture for a near real-time implementation of an anomaly detection process.
-
-## Potential use cases
-
-Some areas that anomaly detection helps monitor:
-
-* Bank fraud (finance industry)
-* Structural defects (manufacturing industry)
-* Medical problems (healthcare industry)
+This article presents an architecture for a near real-time implementation of an anomaly detection process.
 
 ## Architecture
 
 ![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
 
-*Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/anomaly-detector-process.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -44,7 +36,21 @@ Key technologies used to implement this architecture:
 * [Azure Synapse Analytics][synapse-analytics]: An analytics service that brings together enterprise data warehousing and big data analytics.
 * [Azure Machine Learning](/azure/machine-learning): Build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
 
+## Scenario details
+
+The Azure Cognitive Services Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms of the API adapt by automatically identifying and applying the best-fitting models to your time series data, regardless of industry, scenario, or data volume. They determine boundaries for anomaly detection, expected values, and anomalous data points. 
+
+### Potential use cases
+
+Some areas that anomaly detection helps monitor:
+
+* Bank fraud (finance industry)
+* Structural defects (manufacturing industry)
+* Medical problems (healthcare industry)
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scalability
 
@@ -53,6 +59,8 @@ Most of the components used in this example scenario are managed services that w
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 [Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Allow those identities to access only requisite resources to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
@@ -64,7 +72,9 @@ All of the components in this scenario are managed, so at a regional level they'
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, see the pre-filled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
 
@@ -77,7 +87,7 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 * [Anomaly Detector API Documentation](/azure/cognitive-services/anomaly-detector)
 * [Interactive demo](https://algoevaluation.azurewebsites.net/#/)
 * [Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-* [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/learn/modules/data-anomaly-detection-using-azure-iot-hub)
+* [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/training/modules/data-anomaly-detection-using-azure-iot-hub)
 * [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 * [Service Bus Documentation](/azure/service-bus)
 * [Azure Databricks Documentation](/azure/azure-databricks)
@@ -102,7 +112,7 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 [event-hubs]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
-[serverless]: /learn/paths/create-serverless-applications
+[serverless]: /training/paths/create-serverless-applications
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security

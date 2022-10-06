@@ -5,17 +5,6 @@
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in auditing, risk, and compliance management.
 
-In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything when faced with thousands of pages of documentation. Knowledge mining can help organizations looking to stay compliant by enabling attorneys to quickly find information from documents and flag important ideas.
-
-## Potential use cases
-
-Organizations can utilize knowledge mining in order to:
-
-- Discover the root causes faster.
-- Forecast auditing times.
-- Assess and enforce compliance levels and risks.
-- Automate compliance reporting.
-
 ## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
@@ -48,11 +37,24 @@ This solution uses the following key technologies to implement tools for technic
 - [Text analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics) is a collection of APIs and other features from Azure Cognitive Service for Language that you can use to extract, classify, and understand text within documents.
 - [Azure Cognitive Services Translator](https://azure.microsoft.com/services/cognitive-services/translator) is part of the Cognitive Services family of REST APIs. You can use Translator for real-time document and text translation.
 
+## Scenario details
+
+In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything when faced with thousands of pages of documentation. Knowledge mining can help organizations looking to stay compliant by enabling attorneys to quickly find information from documents and flag important ideas.
+
+### Potential use cases
+
+Key industries for this scenario include government, nonprofit, finance and financial services, professional services, and legal services. Organizations can utilize knowledge mining in order to:
+
+- Discover the root causes faster.
+- Forecast auditing times.
+- Assess and enforce compliance levels and risks.
+- Automate compliance reporting.
+
 ## Next steps
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)

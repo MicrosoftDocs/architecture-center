@@ -109,6 +109,9 @@ The following sections provide detailed steps on how to:
 
 ### Import threat indicators with the TAXII data connector
 
+> [!WARNING]
+> The following instructions use Limo, Anomali's free STIX/TAXII feed. This feed has [reached end-of-life and is no longer being updated](https://www.anomali.com/resources/limo). The following instructions cannot be completed as written. You can subsititue this feed with another API-compatibile feed that you have access to.
+
 TAXII 2.x servers advertise API Roots, which are URLs that host threat intelligence collections. If you already know the TAXII server **API Root** and **Collection ID** you want to work with, you can skip ahead and just enable the TAXII connector in Microsoft Sentinel.
 
 If you don't have the API Root, you can usually get it from the threat intelligence provider's documentation page, but sometimes the only information available is the discovery endpoint URL. You can find the API Root using the discovery endpoint. The following example uses the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server.
@@ -288,5 +291,5 @@ To learn more about the featured technologies, see the following articles:
 
 - [Automate Sentinel integration with Azure DevOps](/azure/architecture/example-scenario/devops/automate-sentinel-integration)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
-- [Azure security solutions for AWS](/azure/architecture/reference-architectures/aws/aws-azure-security-solutions)
+- [Azure security solutions for AWS](/azure/architecture/guide/aws/aws-azure-security-solutions)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)

@@ -55,10 +55,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
-* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions)
-* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
+* [How to build a basic chatbot](/training/modules/how-build-basic-chatbot)
+* [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
+* [Create conversational AI solutions](/training/paths/create-conversational-ai-solutions)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/training/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 
@@ -71,4 +71,4 @@ Azure Architecture Center articles describing chatbot architectures:
 
 * [Chatbot for hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+* [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

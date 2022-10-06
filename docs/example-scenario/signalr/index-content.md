@@ -4,7 +4,9 @@ This scenario describes how to architect a solution that processes changes to un
 
 ## Architecture
 
-![Architectural diagram showing Azure service bus queue, Azure Functions, and SignalR sharing live location data.](./archdiagram.jpg)
+:::image type="content" alt-text="Architectural diagram showing Azure service bus queue, Azure Functions, and SignalR sharing live location data." source="./archdiagram.png" lightbox="./archdiagram.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/archdiagram.vsdx) of this architecture.*
 
 ### Components
 
@@ -14,11 +16,13 @@ This scenario describes how to architect a solution that processes changes to un
 
 ### Alternatives
 
-Alternatives exist to address this scenario, including [Pusher](https://pusher.com/). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
+Alternatives exist to address this scenario, including [Pusher](https://pusher.com). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
 
-There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
+There's also [PubNub](https://pubnub.com). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
 
-Although Pusher and PubNub are the most widely adopted platforms for real-time messaging, for this scenario, you'll do everything in Azure. We recommend SignalR as the go-to platform, because it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9&nbsp;thousand GitHub stars and 2.2&nbsp;thousand GitHub forks.
+[Ably](https://ably.com) is another alternative. It provides serverless publish/subscribe (pub/sub) messaging, which scales reliably with your needs. The messaging is delivered at the edge using WebSockets. The Ably platform provides a highly available, elastically scalable, and globally distributed real-time infrastructure, at the call of an API.
+
+Although Pusher, PubNub, and Ably are the most widely adopted platforms for real-time messaging, for this scenario, you'll do everything in Azure. We recommend SignalR as the go-to platform, because it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9&nbsp;thousand GitHub stars and 2.2&nbsp;thousand GitHub forks.
 
 For more information, see the [SignalR open-source repository](https://github.com/SignalR/SignalR) on GitHub.
 
@@ -61,7 +65,9 @@ Each Azure region is paired with another region within the same geography. In ge
 
 #### Azure Front Door
 
-![Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app.](./haarchitecture.jpg)
+:::image type="content" alt-text="Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app." source="./haarchitecture.png" lightbox="./haarchitecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/haarchitecture.vsdx) of this architecture.*
 
 Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. When you use *priority routing*, it automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. 
 
@@ -95,7 +101,7 @@ SignalRFunctionApp is a function app that creates an Azure Functions instance, w
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named `negotiate`. For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md),
+This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named `negotiate`. For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config),
 
 #### Message.cs
 
@@ -108,7 +114,7 @@ Before you begin:
 * Make sure that you have a SignalR service provisioned in serverless mode on Azure.
 
 1. Enter your connection strings (Service Bus and SignalR) in the *local.settings.json* file.
-1. Enter the URL of the client application (SignalR client) in CORS (Cross-Origin Resource Sharing). For the most recent syntax, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md).
+1. Enter the URL of the client application (SignalR client) in CORS (Cross-Origin Resource Sharing). For the most recent syntax, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
 1. Enter your service bus queue name in the service bus trigger in the *Message.cs* file.
 
 Now, let's configure the client application to test it. First, grab the example sources from the [solution-architectures](https://github.com/mspnp/solution-architectures/tree/master/signalr) GitHub page.

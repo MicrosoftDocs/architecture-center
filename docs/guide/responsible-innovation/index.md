@@ -22,11 +22,11 @@ keywords:
 
 # Responsible Innovation: A Best Practices Toolkit
 
-*Responsible innovation* is a toolkit that helps developers become good stewards for the future of science and its effect on society. This toolkit provides a set of practices in development, for anticipating and addressing the potential negative impacts of technology on people. We are sharing this as an early stage practice for feedback and learning.
+*Responsible innovation* is a toolkit that helps developers become good stewards for the future of science and its effect on society. This toolkit provides a set of practices in development for anticipating and addressing the potential negative impacts of technology on people. We are sharing this as an early-stage practice for feedback and learning.
 
 ## Judgment Call
 
-[Judgment Call](./judgmentcall.md) is an award-winning responsible innovation game and team-based activity that puts Microsoft's AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy through *scenario-imagining*. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
+[Judgment Call](./judgmentcall.md) is an award-winning responsible innovation game and team-based activity that puts Microsoft's AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy through *scenario-imagining*. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harm the technology could produce from their point of view.
 
 ## Harms Modeling
 
@@ -34,4 +34,4 @@ keywords:
 
 ## Community Jury
 
-[Community Jury](./community-jury/index.md) is a technique that brings together diverse stakeholders impacted by a technology. It is an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/). The stakeholders are provided an opportunity to learn from experts about a project, deliberate together, and give feedback on use cases and product design. This responsible innovation technique allows project teams to collaborate with researchers to identify stakeholder values, and understand the perceptions and concerns of impacted stakeholders.
+[Community Jury](./community-jury/index.md) is a technique that brings together diverse stakeholders impacted by a technology. It is an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/). The stakeholders are provided with an opportunity to learn from experts about a project, deliberate together, and give feedback on use cases and product design. In addition, this responsible innovation technique allows project teams to collaborate with researchers to identify stakeholder values and understand the perceptions and concerns of impacted stakeholders.

@@ -19,19 +19,17 @@ We also provide solution ideas for you to build on, which include links to all t
 
 ## Learn about databases on Azure
 
-If you're new to databases on Azure, the best place to start is Microsoft Learn.
-On this free online training platform, you'll find videos and tutorials that offer hands-on learning.
-Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
+If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
-[You can browse Azure data modules](/learn/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/learn/paths/azure-sql-fundamentals).
+[You can browse Azure data modules](/training/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals).
 
 Here are some Learn modules you might find useful:
 
-- [Choose a data storage approach in Azure](/learn/modules/choose-storage-approach-in-azure)
-- [Design your migration to Azure](/learn/modules/design-your-migration-to-azure)
-- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
-- [Explore Azure database and analytics services](/learn/modules/azure-database-fundamentals)
-- [Secure your Azure SQL Database](/learn/modules/secure-your-azure-sql-database)
+- [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure)
+- [Design your migration to Azure](/training/modules/design-your-migration-to-azure)
+- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
 
 ## Path to production
 

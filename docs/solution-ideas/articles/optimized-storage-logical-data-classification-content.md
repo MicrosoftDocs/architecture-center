@@ -1,20 +1,4 @@
-Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
-
-:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::
-
-1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
-1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
-1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at low cost.
-
-## Potential use cases
-
-The following architecture can be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
-
-1. Running multiple campaigns or promotions
-1. Performing global surveys
-1. Running research experiments
-1. Running multiple projects, managing documents and resourcing
-1. Managing university enrollment and scheduling
+This architecture is for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.
 
 ## Architecture
 
@@ -56,6 +40,26 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 - [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) is a platform for scaling and orchestrating containers and microservices.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
+## Scenario details
+
+Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
+
+:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Diagram of data segregated by customer and category.":::
+
+1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
+1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
+1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at low cost.
+
+### Potential use cases
+
+The following architecture can be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
+
+1. Running multiple campaigns or promotions
+1. Performing global surveys
+1. Running research experiments
+1. Running multiple projects, managing documents and resourcing
+1. Managing university enrollment and scheduling
+
 ## Considerations
 
 - Azure Data Factory or a third-party tool can migrate data from Azure Cosmos DB to Azure Table storage.
@@ -70,16 +74,16 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 ## Next steps
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
-- [Design a geographically distributed application](/learn/modules/design-a-geographically-distributed-application)
-- [Distribute your data globally with Azure Cosmos DB](/learn/modules/distribute-data-globally-with-cosmos-db)
-- [Choose the appropriate API for Azure Cosmos DB](/learn/modules/choose-api-for-cosmos-db)
-- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/learn/modules/store-access-data-cosmos-table-api)
-- [Work with NoSQL data in Azure Cosmos DB](/learn/paths/work-with-nosql-data-in-azure-cosmos-db)
+- [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
+- [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
+- [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
+- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/training/modules/store-access-data-cosmos-table-api)
+- [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
 - [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
 - [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)
 - [Migrate hundreds of terabytes of data into Azure Cosmos DB](/azure/cosmos-db/migrate-cosmosdb-data)
-- [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/learn/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
+- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
 - [Guidelines for table design](/azure/storage/tables/table-storage-design-guidelines)
 - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=current)
 

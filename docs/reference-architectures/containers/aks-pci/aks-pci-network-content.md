@@ -8,7 +8,7 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 
 > [!IMPORTANT]
 >
-> The guidance and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload.
+> The guidance and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload.
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated infrastructure. The implementation illustrates the use of various network and security controls within your CDE. This includes both network controls native to Azure and controls native to Kubernetes. It also includes an application just to demonstrate the interactions between the environment and a sample workload. The focus of this article is the infrastructure. The sample isn't indicative of an actual PCI-DSS 3.2.1 workload.
 
@@ -214,7 +214,7 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
    In addition to a firewall, some organizations might want to use an HTTP proxy to have additional controls on egress. We recommend you to still have the user-defined routes go to the firewall and to limit egress traffic to just go to the HTTP proxy. With this setup, if a pod tries to override the proxy, then the firewall can still block egress traffic. 
    
-   For more information, see [HTTP proxy support in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/http-proxy).
+   For more information, see [HTTP proxy support in Azure Kubernetes Service](/azure/aks/http-proxy).
 
 The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
 

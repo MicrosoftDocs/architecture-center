@@ -2,7 +2,7 @@
 
 Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical and sustainability requirements.
 
-The need for the block chain technology started with organizations trying to understand more about the products like:
+The need for the blockchain technology started with organizations trying to understand more about the products like:
 
 - Where did the product originate from?
 - How was a product built?
@@ -44,7 +44,7 @@ The following are features of QBS:
 QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
 
 - Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
-- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.qbs-contact-me?tab=Overview).
+- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview).
 - Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
 
 The elements of the architectural diagram are explained below:
@@ -121,7 +121,7 @@ Other contributor:
 - [Use Geth to attach to Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Geth/)
 - [Using Truffle - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Truffle/)
 - [Migrate - Quorum Blockchain Service](https://consensys.net/docs/qbs/latest/Get-Started/)
-- [Introduction to blockchain on Azure](/learn/modules/intro-to-blockchain/)
+- [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
 

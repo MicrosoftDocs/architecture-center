@@ -1,12 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Gain insights on how customers receive their current products, in relation to store layout. 
-
-## Potential use cases
-
-This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
-
-With this scenario, you don't have to place staff in every section, and you don't need a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
 
 ## Architecture
 
@@ -49,7 +41,17 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 
 An [Azure Function that's running on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) is a great compute option. However, there are other compute options, such as a custom app that runs on [Azure App Service](/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine).
 
+## Scenario details
+
+### Potential use cases
+
+This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+
+With this scenario, you don't have to place staff in every section, and you don't need a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
@@ -59,17 +61,23 @@ Depending on your business needs, you might want to implement a mechanism to cac
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 This solution captures customer images, which make security a paramount consideration. Refer to the WAF [Data protection](/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet your corporate and government privacy regulations.
 
 Provide security through [identity and access management](/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data that they need for their roles.
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 Monitoring and diagnostics are crucial. Cloud applications run in a remote datacenter, where you don't have full control of the infrastructure or, in some cases, the operating system. Use [Azure Monitor on Azure Stack Hub](/azure-stack/user/azure-stack-metrics-azure-data) to visualize, query, route, archive, and take other actions on metrics and logs. Follow the [Monitoring operations of cloud applications](/azure/architecture/framework/devops/checklist) checklist to implement a comprehensive monitoring strategy for the solution.
 
 This solution can span many devices and locations, which could get unwieldy. [Azure's IoT services](/azure/iot-fundamentals) can automatically bring new locations and devices online and keep them up to date.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 To enable this solution to scale across multiple cameras and locations, you'll need to make sure that all of the components can handle the increased load. You might need to take the following actions:
 
@@ -79,6 +87,16 @@ To enable this solution to scale across multiple cameras and locations, you'll n
 * In extreme cases, you might need to migrate from Azure Functions to a virtual machine.
 
 Use the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
+
+## Contributors
+
+_This article is maintained by Microsoft. It was originally written by the following contributors._
+
+Principal author:
+
+* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+_To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 

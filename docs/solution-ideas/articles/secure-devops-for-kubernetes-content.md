@@ -8,8 +8,9 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 
 ## Architecture
 
-![Architecture diagram shows Inner loop to source code through C I / C D pipelines to Helm chart and Azure Container to A K S production cluster.](../media/secure-devops-for-kubernetes.png)
-*Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
+:::image type="content" border="false" source="../media/secure-devops-for-kubernetes.png" alt-text="Architecture diagram shows Inner loop to source code through C I / C D pipelines to Helm chart and Azure Container to A K S production cluster." lightbox="../media/secure-devops-for-kubernetes.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-devops-for-kubernetes.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -25,7 +26,7 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 
 ### Components
 
-- [GitHub Enterprise](https://help.github.com/en/github) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
+- [GitHub Enterprise](https://docs.github.com/) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) hosts your Docker container images. This service includes container image scanning with the integration with Microsoft Defender for Cloud.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
@@ -47,8 +48,8 @@ Principal author:
 
 ## Related resources
 
-- If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/paths/intro-to-kubernetes-on-azure).
-- See [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
+- See [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 
 See the related architectures:
 

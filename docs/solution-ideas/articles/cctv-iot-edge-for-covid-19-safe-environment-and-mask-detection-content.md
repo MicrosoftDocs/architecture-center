@@ -1,27 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
-
-This article showcases a COVID-19 safe solution that is being implemented in workplace facilities across Europe, North America, and Latin America. The solution applies across industries as diverse as steel manufacturing, building construction, and automotive assembly. The goals of the solution are to:
-
-- Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
-- Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
-- Increase visibility and control through efficient reporting and interactive dashboards.
-- Deliver alerts and notifications so health and safety stakeholders could address safety violations and concerns.
-- Improve compliance, reduce violations, and enable well-informed safety decisions over time.
-
-## Potential use cases
-
-- Spaces with existing CCTV infrastructure.
-- Public areas including stores, restaurants, public transportation, hospitals, schools, and entertainment and recreation spaces.
-- Work areas including offices, factories, and warehouses.
-- Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
+This article showcases a COVID-19 safe solution that is being implemented in workplace facilities across Europe, North America, and Latin America.
 
 ## Architecture
 
-![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
+:::image type="content" alt-text="Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge." source="../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png" lightbox="../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png":::
 
-*Download the [Visio file][visio-download] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -48,6 +33,25 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 - Integration with Microsoft [Teams](https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d) allows automated notifications of relevant stakeholders like HR and Security.
 - [Microsoft Power BI](https://powerbi.microsoft.com) visualizations enable well-informed and data-driven reporting and decision making.
 
+## Scenario details
+
+As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
+
+This solution applies across industries as diverse as steel manufacturing, building construction, and automotive assembly. The goals of the solution are to:
+
+- Ensure a safe work environment when resuming manufacturing after the COVID-19 lockdown.
+- Monitor and enforce compliance with face mask policy, social distancing, and occupancy limits on factory premises.
+- Increase visibility and control through efficient reporting and interactive dashboards.
+- Deliver alerts and notifications so health and safety stakeholders could address safety violations and concerns.
+- Improve compliance, reduce violations, and enable well-informed safety decisions over time.
+
+### Potential use cases
+
+- Spaces with existing CCTV infrastructure.
+- Public areas including stores, restaurants, public transportation, hospitals, schools, and entertainment and recreation spaces.
+- Work areas including offices, factories, and warehouses.
+- Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
+
 ## Next steps
 
 For more information about this solution:
@@ -63,8 +67,8 @@ Product documentation:
 
 Learning paths:
 
-- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
-- [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+- [Build the intelligent edge with Azure IoT Edge](/training/paths/build-intelligent-edge-with-azure-iot-edge)
+- [Implement a data streaming solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
 
 [visio-download]: https://arch-center.azureedge.net/bosch-cctv-mask-detection.vsdx
 
@@ -74,4 +78,3 @@ Learning paths:
 - [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)
-

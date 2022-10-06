@@ -83,7 +83,7 @@ Instead of connecting spoke virtual networks directly to each other, you can use
 
 - **Azure VPN Gateway.** You can use an Azure VPN gateway as a next hop type of user-defined route, but Microsoft doesn't recommend using VPN virtual network gateways to route spoke-to-spoke traffic. They're designed for encrypting traffic to on-premises sites or VPN users. For example, there's no guarantee of the bandwidth between spokes that a VPN gateway can route.
 
-- **ExpressRoute.** In certain configurations, an ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication, sending traffic to the Microsoft edge router, where it's routed to the destination spoke. Microsoft strongly discourages this scenario because it introduces latency by sending traffic to the Microsoft backbone edge and back. This scenario also presents multiple problems caused by putting extra pressure on the ExpressRoute infrastructure (the gateway and physical routers). This additional pressure can cause packet drops.
+- **ExpressRoute.** In certain configurations, an ExpressRoute gateway can advertise routes that attract spoke-to-spoke communication, sending traffic to the Microsoft edge router, where it's routed to the destination spoke. Microsoft strongly discourages this scenario because it introduces latency by sending traffic to the Microsoft backbone edge and back. On top of that, Microsoft does not recommend this approach, due to the single point of failure and the large blast radius. This scenario also presents multiple problems caused by putting extra pressure on the ExpressRoute infrastructure (the gateway and physical routers). This additional pressure can cause packet drops.
 
 In hub-and-spoke network designs that have centralized NVAs, the appliance is typically placed in the hub. Virtual network peerings between hub-and-spoke virtual networks need to be created manually or automatically with Azure Virtual Network Manager:
 
@@ -172,8 +172,8 @@ Other contributors:
 - [Azure Virtual Network Manager][avnm]
 - [Virtual WAN][vwan]
 - [Azure Firewall][azfw]
-- [Secure network connectivity on Azure](/learn/modules/secure-network-connectivity-azure)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Secure network connectivity on Azure](/training/modules/secure-network-connectivity-azure)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 - [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)

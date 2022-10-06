@@ -63,7 +63,7 @@ This scenario uses virtual machine scale sets for the two front-end web server c
 
 The back end is a MariaDB cluster in an availability set. For more information, see the [MariaDB cluster tutorial][mariadb-tutorial].
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For more resiliency and scalability guidance, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service)] in the Azure Architecture Center.
 
 ### Security
 
@@ -77,7 +77,7 @@ In combination with the use of multiple regions, data replication and virtual ma
 
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
@@ -110,19 +110,18 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Build a scalable application with virtual machine scale sets](/learn/modules/build-app-with-scale-sets)
-- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
-- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
-- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
-- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/learn/modules/create-cdn-static-resources-blob-storage)
-- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Build a scalable application with virtual machine scale sets](/training/modules/build-app-with-scale-sets)
+- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
+- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/training/modules/create-cdn-static-resources-blob-storage)
+- [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 - [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](../../solution-ideas/articles/scalable-web-apps.yml)
 
 <!-- links -->
 

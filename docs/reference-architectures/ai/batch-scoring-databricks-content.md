@@ -1,10 +1,12 @@
-This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks]. Azure Databricks is an Apache Spark-based analytics platform optimized for Azure. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. You can use this reference architecture as a template that can be generalized to other scenarios.
+This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks]. Azure Databricks is an Apache Spark-based analytics platform optimized for Azure. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. You can use this reference architecture as a template that can be generalized to other scenarios. A reference implementation for this architecture is available on [GitHub][github].
 
-A reference implementation for this architecture is available on [GitHub][github].
+*Apache® and Apache Spark® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
 ![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -131,8 +133,8 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
 [github]: https://github.com/Azure/BatchSparkScoringPredictiveMaintenance
 [job]: https://docs.databricks.com/user-guide/jobs.html
-[learn1]: /learn/paths/perform-data-science-azure-databricks
-[learn2]: /learn/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
+[learn1]: /training/paths/perform-data-science-azure-databricks
+[learn2]: /training/modules/deploy-batch-inference-pipelines-with-azure-machine-learning
 [log]: https://docs.databricks.com/user-guide/clusters/event-log.html
 [metrics]: https://docs.databricks.com/user-guide/clusters/metrics.html
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html

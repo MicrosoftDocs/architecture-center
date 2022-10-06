@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Multicloud solutions with the Serverless Framework
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Develop and deploy serverless microservices across cloud providers with the open-source Serverless Framework and Serverless Multicloud Library.
   author: EdPrice-MSFT
   ms.author: architectures

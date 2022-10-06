@@ -40,6 +40,8 @@ This architecture is relevant for the following scenarios:
 
 In this scenario, users need to use a mobile client that supports modern authentication. We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
 
+#### Workflow
+
 1. The user starts Outlook profile configuration by entering an email address. Outlook mobile connects to the AutoDetect service. 
 2. The AutoDetect service makes an anonymous AutoDiscover V2 request to Exchange Online to get the mailbox. Exchange Online replies with a 302 redirect response that contains the ActiveSync URL address for the mailbox, pointing to Exchange Online. You can see an [example of this type of request here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow).
 3. Now that the AutoDetect service has information about the endpoint of the mailbox content, it can call ActiveSync without authentication.
@@ -56,6 +58,8 @@ In this scenario, users need to use a mobile client that supports modern authent
 14.	Azure AD returns access and refresh tokens to the client.
 15. The client uses the access token to connect to Exchange Online and retrieve the mailbox content.
 
+#### Configuration
+
 To block attempts to access Exchange Online ActiveSync via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook mobile service uses. Specifically, you need to disable AutoDiscover, ActiveSync, and Outlook Service. Here's the corresponding authentication policy configuration:
 ```
 AllowBasicAuthAutodiscover         : False
@@ -71,6 +75,8 @@ For federated domains, you can configure AD FS to trigger multi-factor authentic
 :::image type="content" border="false" source="./media/mobile-on-premises.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange on-premises." lightbox="./media/mobile-on-premises.png":::
 
 In this scenario, users need to use a mobile client that supports modern authentication, as described in [Using hybrid modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019). We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
+
+#### Workflow
 
 1. The user starts Outlook profile configuration by entering an email address. Outlook mobile connects to the AutoDetect service.
 2. The AutoDetect service makes an anonymous AutoDiscover V2 request to Exchange Online to get the mailbox. 
@@ -92,6 +98,8 @@ In this scenario, users need to use a mobile client that supports modern authent
 18.	If the mailbox isn't provisioned, the provisioning API creates a mailbox.
 19.	The provisioning API establishes a secure connection to the on-premises ActiveSync endpoint. The API synchronizes the user's messaging data by using the second access token as the authentication mechanism. The refresh token is used periodically to generate a new access token so that data can synchronize in the background without user intervention.
 20.	Data is returned to the client.
+
+#### Configuration
 
 To block attempts to access Exchange on-premises ActiveSync via legacy authentication (the red dashed lines in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook mobile service uses. Specifically, you need to disable AutoDiscover and ActiveSync. Here's the corresponding authentication policy configuration:
 ```
@@ -167,7 +175,7 @@ For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](
 
 For information about hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
-### Performance
+### Performance efficiency
 
 Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
@@ -205,16 +213,7 @@ For information about the resiliency of the components in this architecture, see
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
-## Deploy this scenario
-
-To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
-Here are the high-level steps:
-
-1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
-2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication)
-3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 
-
-## Pricing
+### Cost optimization
 
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. The total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
@@ -228,13 +227,25 @@ For more pricing information, see these resources:
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
+## Deploy this scenario
+
+To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
+Here are the high-level steps:
+
+1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
+2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication)
+3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Pavel Kondrashov](/) | Senior Customer Engineer
+* [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+* [Ella Parkum](https://www.linkedin.com/in/ella-parkum-15036923) | Principal Customer Solution Architect-Engineering
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

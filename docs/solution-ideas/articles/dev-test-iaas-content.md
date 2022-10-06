@@ -73,9 +73,12 @@ In situations where VM Image Builder and a Shared Image Gallery don't work, you 
 
 ## Next steps
 
+- [Set up Azure DevOps](/azure/devops/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+- [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+
+## Related resources
+
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
 - [DevTest and DevOps for microservices](dev-test-microservice.yml)
-- [Set up Azure DevOps](/azure/devops/get-started/)
-- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
-- [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)

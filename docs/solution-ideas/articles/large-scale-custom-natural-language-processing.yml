@@ -5,7 +5,7 @@ metadata:
   description: Implement a custom natural language processing (NLP) solution in Azure. Use Spark NLP for tasks like topic and sentiment detection and analysis.
   author: msteller-Ai
   ms.author: msteller
-  ms.date: 07/11/2022
+  ms.date: 08/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

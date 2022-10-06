@@ -2,10 +2,6 @@
 
 This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.
 
-## Potential use cases
-
-This solution is based on a gaming scenario. However, the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
-
 ## Architecture
 
 ![Architecture Diagram](../media/gaming-using-azure-database-for-mysql.png)
@@ -43,6 +39,12 @@ This architecture includes the following components:
 
 - (Optional) [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
+## Scenario details
+
+### Potential use cases
+
+This solution is based on a gaming scenario. However, the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
+
 ## Next steps
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
@@ -62,7 +64,6 @@ Product documentation:
 
 The following solution ideas feature Azure Database for MySQL:
 
-* [Digital Marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
 * [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
 * [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
 * [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)

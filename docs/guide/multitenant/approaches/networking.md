@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/29/2022
+ms.date: 08/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -132,11 +132,9 @@ Examples of Microsoft services that provide agents for connectivity to tenants' 
 
 ### Azure Private Link service
 
-[Azure Private Link service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own VNet, to access your service from an on-premises environment.
+[Azure Private Link service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own VNet, to access your service from an on-premises environment. Azure securely routes the traffic to the service using private IP addresses.
 
-Tenants can deploy a private endpoint within their VNet and configure it to your Private Link service instance. Azure securely routes the traffic to the service. Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake), [Confluent Cloud](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link/), and [MongoDB Atlas](https://www.mongodb.com/blog/post/announcing-azure-private-link-integration-for-mongo-db-atlas).
-
-[Private endpoints typically require approval](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow), when the destination resource is in a different Azure subscription to the resource. You can [automate the approval process](/azure/private-link/manage-private-endpoint#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service) within your solution by using Azure PowerShell, the Azure CLI, and the Azure Resource Manager API.
+For more information about Private Link and multitenancy, see [Multitenancy and Azure Private Link](../service/private-link.md).
 
 ### Domain names, subdomains, and TLS
 
@@ -194,6 +192,21 @@ When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloadi
 However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Apps. For more information, see the [host name preservation best practice](../../../best-practices/host-name-preservation.yml).
 
 Ensure you test your application's behavior with the gateway configuration that you plan to use.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

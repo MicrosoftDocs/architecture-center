@@ -1,13 +1,4 @@
-The healthcare industry has traditionally struggled to effectively use the vast amount of data it creates. Most of the medical data is unstructured and inaccessible for data driven decisions. When looking for insights, providers spend a considerable amount of time on data ingestion and unification. Healthcare organizations also face security and compliance pressures and risks of data breaches. By using [Microsoft Cloud for Healthcare](/industry/healthcare/overview), you can build solutions to improve clinical and operational insights. This article discusses one such potential solution, and builds on the knowledge learned from [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml).
-
-## Potential use cases
-
-This solution is ideal for the healthcare industry. The scenario also demonstrates the following capabilities, which are applicable to many industries:
-
-- Gather structured and unstructured data from multiple sources, and visualize trends and insights using Power BI.
-- Set up automated operational tasks based on these insights.
-- Interpret the data from disparate systems by using machine learning, and assist various roles in the system.
-- Share the data and insights securely, and collaborate with different departments and roles by using Microsoft Teams.
+By using [Microsoft Cloud for Healthcare](/industry/healthcare/overview), you can build solutions to improve clinical and operational insights. This article discusses one such potential solution, and builds on the knowledge learned from [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml).
 
 ## Architecture
 
@@ -21,15 +12,13 @@ As in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml)
 
 As in the previous solution, data flows into this architecture through external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on, and is then ingested by using Azure. This process can also ingest other structured data required for specific insights, such as financial data. This data is then stored in Microsoft Dataverse in the [Common Data Model (CDM)](/common-data-model) format, to be consumed by [Dynamics 365](https://dynamics.microsoft.com) and [Power BI](https://powerbi.microsoft.com) components in this solution.
 
-This solution also uses Azure Data Lake to store the large amounts of data required for reporting and analytics. This data is analyzed by using Azure Synapse, for use by the machine learning module and Power BI visualizations. Synapse can also pull in unstructured data, such as X-ray images, and feed it into the machine learning algorithm to generate interpretations. These interpretations are stored in a Microsoft Word document, along with a snapshot of the image. This document is stored as a blob or file in Dataverse, for future reference.
-
 ### Dataflow
 
 This solution supports the following data flows for each of the user groups shown in the diagram:
 
 1. **Care manager**. Continuing from the virtual visit flow, the care manager can review current patient records through Teams, with the help of the patient monitoring queue. This Dynamics 365 application provides a list of patients along with an index score for each that indicates the urgency of attending to them. The care manager can select the patient with the highest index score, and view information such as medical records, care plan, and appointments, in the care management app. This app is also able to show insights into the patient's daily lifestyle by pulling in data such as heart rate from their registered IoMT device, in near real time. The app tracks the incoming device data and displays it with custom Power BI visualizations. Thresholds are set for each device metric and, if exceeded, Power Automate triggers a sales insights alert within the app. These thresholds and alerts can be set for each patient individually. If necessary, the care manager can call the patient directly from Teams, using the contact information stored in Dataverse.
 
-1. **ED admin**. A patient that needs to visit the ED can coordinate the transportation with the care manager. An ED admin is responsible for the resources and schedules in the department. Resources such as bed usage, rooms, and personnel, as well as trends in intake and readmission events, are monitored with Power BI reports that are customized for the department and integrated with Teams. These reports are created using hospital and patient data stored in Dataverse, and analyzed by Azure Synapse. The ED queue, a custom Dynamics 365 web resource, displays a queue of incoming patients at various stages such as in-transit, check-in, intake, room assignment, and so on. The ED admin can use this information to triage patients based on their arrival times and medical conditions. A decision tree is created with Power Automate flows, which automates tasks required for patient care. Examples of such tasks are room or ICU assignment, medical equipment setup, ordering of required tests, and assignment to available medical staff. These reports and automated tasks support efficient patient care and ED management.
+1. **ED admin**. A patient that needs to visit the ED can coordinate the transportation with the care manager. An ED admin is responsible for the resources and schedules in the department. Resources such as bed usage, rooms, and personnel, as well as trends in intake and readmission events, are monitored with Power BI reports that are customized for the department and integrated with Teams. These reports are created using hospital and patient data stored in Dataverse, and analyzed by Azure Synapse. The ED queue, a custom Dynamics 365 web resource, displays a queue of incoming patients at various stages such as in-transit, check-in, intake, room assignment, and so on. The ED admin can use this information to triage patients based on their arrival times and medical conditions. A decision tree is created with Power Automate flows, which automate tasks required for patient care. Examples of such tasks are room or ICU assignment, medical equipment setup, ordering of required tests, and assignment to available medical staff. These reports and automated tasks support efficient patient care and ED management.
 
 1. **Specialist physician**. The ED admin assigns a specialist physician to review the tests that are recommended for the patient. For example, if X-ray tests are required, a pulmonologist is assigned to review them. Saving the test results triggers Power Automate, which displays a Sales Insights alert in the physician's view of the care management app. Tests such as X-rays are considered unstructured data. This data is pulled into Azure Synapse through Azure Data Lake, and fed into a custom machine learning model to interpret the results. These interpretations can help the physician make the diagnosis and plan the care.
 
@@ -47,10 +36,10 @@ This solution supports the following data flows for each of the user groups show
 
 Most of the components used in this solution are detailed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml). The following components are also used:
 
-- **Azure Synapse Analytics**. Azure Synapse is used to demonstrate how unstructured medical data such as diagnostic test results, patient data such as medical history, and day-to-day health metrics can be interpreted by machine learning algorithms. These machine-generated findings assist medical providers in diagnosing and treating patients.
-- **Azure Data Lake**. [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) provides a fast and secure data warehouse for Azure Synapse Analytics. Unlike traditional data warehouses, once the large amount of data required for analytics is stored in Azure Data Lake, it's ready to be queried. This eliminates repeated loading.
-- **Azure Machine Learning**. This solution uses [Azure Machine Learning](/azure/machine-learning) to demonstrate a potential use as a medical provider's assistant. It can be modeled to use [publicly available medical data](https://guides.lib.berkeley.edu/publichealth/healthstatistics/rawdata) and diagnostic test results to provide additional insights into the medical conditions of patients. The final diagnostic responsibility lies with the medical professional.
-- **Power BI**. Visualizing large amounts of data makes it easier to assimilate insights and identify patterns or trends. See [Visualization types in Power BI](/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a) and [Visualizations in Power BI reports](/power-bi/visuals/power-bi-report-visualizations) to learn how to create different Power BI visualizations. You can use Microsoft Teams to share the visuals across departments to improve collaboration. See [Collaborate with Power BI in Microsoft Teams, Outlook, and Office](/power-bi/collaborate-share/service-collaborate-microsoft-teams) for more information.
+- **Azure Synapse Analytics**. [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is used to demonstrate how unstructured medical data such as diagnostic test results, patient data such as medical history, and day-to-day health metrics can be interpreted by machine learning algorithms. These machine-generated findings assist medical providers in diagnosing and treating patients.
+- **Azure Data Lake Storage**. [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a fast and secure data warehouse for Azure Synapse Analytics. Unlike traditional data warehouses, once the large amount of data required for analytics is stored in Azure Data Lake, it's ready to be queried. This eliminates repeated loading.
+- **Azure Machine Learning**. This solution uses [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to demonstrate a potential use as a medical provider's assistant. It can be modeled to use [publicly available medical data](https://guides.lib.berkeley.edu/publichealth/healthstatistics/rawdata) and diagnostic test results to provide additional insights into the medical conditions of patients. The final diagnostic responsibility lies with the medical professional.
+- **Power BI**. With [Power BI](https://powerbi.microsoft.com), visualizing large amounts of data makes it easier to assimilate insights and identify patterns or trends. See [Visualization types in Power BI](/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a) and [Visualizations in Power BI reports](/power-bi/visuals/power-bi-report-visualizations) to learn how to create different Power BI visualizations. You can use Microsoft Teams to share the visuals across departments to improve collaboration. See [Collaborate with Power BI in Microsoft Teams, Outlook, and Office](/power-bi/collaborate-share/service-collaborate-microsoft-teams) for more information.
 
   This solution uses Azure Synapse Analytics to create the following Power BI visualizations:
   - A [Power BI dashboard integrated with Teams](/workplace-analytics/tutorials/power-bi-teams#set-up-the-dashboard) for the ED that provides a snapshot of the following:
@@ -61,7 +50,7 @@ Most of the components used in this solution are detailed in [Virtual health on 
     - Other ED metrics.
   - A population health dashboard that helps providers compare the effectiveness of treatment plans with similar demographics and conditions.
   - Cross-department analytics and reports for hospital administration.
-- **Power Automate**. [Power Automate](/power-automate/getting-started) provides a no-code and low-code platform to automate repetitive manual tasks. Every workflow that's created is specific to a business or scenario and, as such, is inherently customized. In this solution, Power Automate ingests data that's stored in Dataverse and runs automated flows to act on it, such as sending notifications when data changes. See [Create a cloud flow that uses Microsoft Dataverse](/power-automate/common-data-model-intro) for information about creating customized data-based flows.
+- **Power Automate**. [Power Automate](https://powerplatform.microsoft.com/power-automate) provides a no-code and low-code platform to automate repetitive manual tasks. Every workflow that's created is specific to a business or scenario and, as such, is inherently customized. In this solution, Power Automate ingests data that's stored in Dataverse and runs automated flows to act on it, such as sending notifications when data changes. See [Create a cloud flow that uses Microsoft Dataverse](/power-automate/common-data-model-intro) for information about creating customized data-based flows.
 
   Power Automate flows are also used to automate procedures in the ED, such as room and staff assignments.
 - **Dynamics 365 Sales Insights**. This solution uses [Sales Insights](/dynamics365/ai/sales/overview), a Dynamics 365 add-in, to provide alerts and notifications for the following events:
@@ -84,21 +73,40 @@ The alternatives listed in [Virtual health on Microsoft Cloud for Healthcare](vi
 
 - The components shown in the architecture diagram that don't have blue outlines need to be created or replaced by available tools, according to the needs of the healthcare organization.
 
+## Scenario details
+
+The healthcare industry has traditionally struggled to effectively use the vast amount of data it creates. Most of the medical data is unstructured and inaccessible for data driven decisions. When looking for insights, providers spend a considerable amount of time on data ingestion and unification. Healthcare organizations also face security and compliance pressures and risks of data breaches.
+
+This solution uses Azure Data Lake to store the large amounts of data required for reporting and analytics. This data is analyzed by using Azure Synapse, for use by the machine learning module and Power BI visualizations. Synapse can also pull in unstructured data, such as X-ray images, and feed it into the machine learning algorithm to generate interpretations. These interpretations are stored in a Microsoft Word document, along with a snapshot of the image. This document is stored as a blob or file in Dataverse, for future reference.
+
+### Potential use cases
+
+This solution is ideal for the healthcare industry. The scenario also demonstrates the following capabilities, which are applicable to many industries:
+
+- Gather structured and unstructured data from multiple sources, and visualize trends and insights using Power BI.
+- Set up automated operational tasks based on these insights.
+- Interpret the data from disparate systems by using machine learning, and assist various roles in the system.
+- Share the data and insights securely, and collaborate with different departments and roles by using Microsoft Teams.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
-The security considerations for any architecture that uses Microsoft Cloud for Healthcare apply here. For example, see the security considerations discussed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#security-considerations).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-## Pricing
+The security considerations for any architecture that uses Microsoft Cloud for Healthcare apply here. For example, see the security considerations discussed in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#security).
 
-Pricing considerations for this architecture are similar to those in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#pricing).
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Pricing considerations for this architecture are similar to those in [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#cost-optimization).
 
 ## Deploy this scenario
 
-To deploy this solution, do steps one through four of [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#deploy-the-solution).
+To deploy this solution, do steps one through four of [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#deploy-this-scenario).
 
 The following are the additional components that are created specifically for this solution. You can choose to create similar applications, or to use tools provided by your current EHR system.
 
@@ -114,6 +122,9 @@ The following are the additional components that are created specifically for th
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
 - [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare)
 - [Questionnaire to detect the socioeconomic conditions of patients](https://icd.who.int/browse10/2016/en#/Z55-Z65)
+- [Azure Data Lake overview](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [Power Automate overview](/power-automate/getting-started)
 
 ## Related resources
 
@@ -122,7 +133,7 @@ The following are the additional components that are created specifically for th
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Health data consortium on Azure](..//data/azure-health-data-consortium.yml)
 - [Confidential computing on a healthcare platform](../confidential/healthcare-inference.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
 - [Predict length of stay and patient flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
 - [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)

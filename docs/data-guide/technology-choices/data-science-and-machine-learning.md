@@ -15,7 +15,7 @@ ms.custom:
   - guide
 ---
 
-# Compare the machine learning products and technologies from Microsoft
+# Compare Microsoft machine learning products and technologies
 
 Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to most effectively build, deploy, and manage your machine learning solutions.
 
@@ -181,4 +181,4 @@ Principal author:
 ## Next steps
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai).
-- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](/learn/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
+- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn training](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).

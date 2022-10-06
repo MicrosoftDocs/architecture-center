@@ -260,9 +260,13 @@ The company's goals include:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 The following considerations apply to this solution.
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 #### Scalability
 
@@ -280,11 +284,15 @@ Design your smart space to be well integrated but also flexible. Smart places us
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Legacy building solutions often rely on a lack of external connectivity as their primary source of security. But even data that doesn't identify people can provide information about a business or the people in a building. For instance, organizations use cameras to count people, track assets, and provide security data.
 
 Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data life cycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of an IoT solution.
 
@@ -298,7 +306,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 Principal author:
 - [Mark Kottke](https://www.linkedin.com/in/markkottke) | Senior Architect
 
-Other contributors:
+Other contributor:
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
 
 ## Next steps
@@ -354,7 +362,7 @@ Other contributors:
 [Cognizant Safe Buildings with IoT and Azure]: ../../solution-ideas/articles/safe-buildings.yml
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
-[Develop with Azure Digital Twins]: /learn/paths/develop-azure-digital-twins
+[Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins
 [Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
 [Digital Twins Definition Language (DTDL)]: /azure/digital-twins/concepts-models
 [Digital Twins ontologies]: /azure/digital-twins/concepts-ontologies

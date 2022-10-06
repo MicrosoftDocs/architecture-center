@@ -163,9 +163,9 @@ The scalability pillar of the SAP on Azure Architecture Guide describes performa
 
 [SAP Note \#1928533](https://launchpad.support.sap.com/#/notes/1928533) details the [SAPS](https://www.sap.com/about/benchmark/measuring.html) value for the virtual machines that are supported to run SAP applications. (To access this SAP note, an SAP Service Marketplace account is required.) For more information about the network and storage throughput per Azure virtual machine type, see these resources:
 
-- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-n...)
+- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
 
-- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-net...)
+- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes)
 
 The agility of Azure allows you to scale your SAP system with ease. For example, you can increase the compute capacity of the database server or scale horizontally by adding application servers when demand arises. You can also temporarily bulk up your infrastructure to accelerate your SAP migration throughput and reduce the downtime.
 
@@ -237,9 +237,9 @@ Cloud applications often use managed services that have access keys. It bears re
 
 Make sure that your data remains in the correct geopolitical zone when using highly available regions in Azure. Azure Storage, like [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), can provide geo-replication based on the concept of a [paired region](/azure/best-practices-availability-paired-regions) in the same geopolitical zone.
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users.
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to use this platform to maximize those advantages for their users.
 
-When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. More details at https://docs.microsoft.com/azure/storage/common/storage-redundancy
+When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. In case, customers would like to replicate their SAP on Azure infrastructure to other Azure regions for Business continuity and Disaster recovery purpose, they can achieve the same with Storage replication, for example GRS or Disaster Recovery mechanisms like Azure Site Recovery. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 We recommend using Key Vault to safeguard cryptographic keys and secrets. You can use Key Vault to encrypt keys and small secrets, like passwords, that use keys stored in hardware security modules (HSMs).  Azure Key Vault supports the SQL server from DBMS point of view. Many storage and database services support data encryption at rest, including [Azure Storage](/azure/storage/storage-service-encryption), [Azure SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault), [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), and [Azure Cosmos DB](/azure/cosmos-db/database-security).
 
@@ -278,45 +278,6 @@ The following scenarios outline a few of the common ways SAP solutions are built
             </article>
         </a>
     </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/sap/sap-netweaver">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P NetWeaver in Windows on Azure." src="./images/sap-netweaver.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Run SAP NetWeaver in Windows on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability.</p>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </li>
-    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/sap/sap-s4hana">
-            <article class="card has-outline-hover is-relative is-fullheight">
-                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P S/4HANA in Linux on Azure." src="./images/sap-s4hana.png">
-                    </figure>
-                <div class="card-content has-text-overflow-ellipsis">
-                    <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">SAP S/4HANA in Linux on Azure</h3>
-                    </div>
-                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.</p>
-                    </div>
-                </div>
-            </article>
-        </a>
-    </li>
-</ul>
-
-<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines">

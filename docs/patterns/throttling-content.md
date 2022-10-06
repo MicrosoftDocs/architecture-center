@@ -78,7 +78,7 @@ The following guidance may also be relevant when implementing this pattern:
 - [Service Metering Guidance](/previous-versions/msp-n-p/dn589796(v=pandp.10)). Describes how to meter the use of services in order to gain an understanding of how they are used. This information can be useful in determining how to throttle a service.
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). Throttling can be used as an interim measure while a system autoscales, or to remove the need for a system to autoscale. Contains information on autoscaling strategies.
 
-## Related guidance
+## Related resources
 
 The following patterns may also be relevant when implementing this pattern:
 

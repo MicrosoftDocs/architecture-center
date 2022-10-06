@@ -52,7 +52,7 @@ The decision is much easier when you already have existing SSIS packages that ha
 
 Ultimately, the intent is to move the processed data into the cloud for further refinement or combining with other data stored in the cloud. As part of the design process, keep track of the number of activities used in the Data Factory pipelines. For more information, see [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities).
 
-## Pricing
+### Cost optimization
 
 Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on the several factors.
 
