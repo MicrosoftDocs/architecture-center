@@ -9,7 +9,7 @@ This solution is ideal for the media and entertainment industry and the travel a
 
 ## Architecture
 
-![Architecture diagram shows the flow of a user accessing an app, Azure Traffic Manager routes the connection to the best location for access, to the Azure Cosmos DB D B. ](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
+![Architecture diagram shows the flow of a user accessing an app, Azure Traffic Manager routes the connection to the best location for access, to Azure Cosmos D B. ](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
 <br /> *Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
 ### Dataflow

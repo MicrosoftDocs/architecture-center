@@ -230,15 +230,15 @@ Store secrets such as connection strings to data stores in Azure Key Vault. The 
 
 - Store your secrets in the Key Vault.
 
-    Add secrets in a format that can be translated to a key-value pair. For example, Azure Cosmos DB--AuthKey. When the configuration is built, "--" is converted into ":".
+    Add secrets in a format that can be translated to a key-value pair. For example, `CosmosDB--AuthKey`. When the configuration is built, `--` is converted into `:`.
 
 - Access those secrets in your service.
 
     Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, builds the configuration, and accesses the secret from the built configuration.
 
-Here's an example where the Workflow service stores a secret in the Key Vault in the format "Azure Cosmos DB--Database".
+Here's an example where the Workflow service stores a secret in the Key Vault in the format `CosmosDB--Database`.
 
-```c#
+```csharp
 namespace Fabrikam.Workflow.Service
 {
     public class ServiceStartup
@@ -262,7 +262,7 @@ namespace Fabrikam.Workflow.Service
 
 To access the secret, specify the secret name in the built config.
 
-```c#
+```csharp
        if(builtConfig["CosmosDB:Database"] is var database && !string.IsNullOrEmpty(database))
        {
             // Use the secret.
@@ -326,7 +326,7 @@ Application telemetry provides data about your service that can help you monitor
 
 To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling the **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
 
-```c#
+```csharp
     .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddApplicationInsights(hostingContext.Configuration ["ApplicationInsights:InstrumentationKey"]);

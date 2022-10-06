@@ -8,7 +8,7 @@ Organizations use customers' shopping history to provide relevant product recomm
 
 ## Architecture
 
-![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Azure Cosmos DB D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
+![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Azure Cosmos D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
 ### Dataflow
