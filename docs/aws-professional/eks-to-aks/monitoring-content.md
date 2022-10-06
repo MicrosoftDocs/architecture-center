@@ -84,8 +84,15 @@ Before enabling Container Insights, estimate costs and understand how to control
 
 Principal authors:
 
+- [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+
+Other contributors:
+
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 
 ## Next steps
 
