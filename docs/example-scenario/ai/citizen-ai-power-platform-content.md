@@ -2,7 +2,7 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
 
 ## Architecture
 
-:::image type="content" source="media/citizen-ai-power-platform.png" alt-text="Architecture for Citizen AI with Microsoft Power Platform" lightbox="media/citizen-ai-power-platform.png" :::
+:::image type="content" source="media/citizen-ai-power-platform.png" alt-text="diagram that demonstrates the architecture for citizen AI with Microsoft Power Platform." lightbox="media/citizen-ai-power-platform.png" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/citizen-ai-power-platform.vsdx) of this architecture.*
 
@@ -126,17 +126,17 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Consider this business scenario: a field agent uses an app that estimates a car's market price. You can use Machine Learning to quickly prototype an ML model of this app. You use a low-code designer and ML features to create the model, and then deploy it as a real-time REST endpoint.
 
-The model may prove the concept, but a user has no easy way to consume a model implemented as a REST API. Power Platform can help close this last mile as represented below.
+The model may prove the concept, but a user has no easy way to consume a model implemented as a REST API. Power Platform can help close this last mile, as represented below.
 
-:::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="An ML model created in Machine Learning obtains car data from Azure Data Lake, and provides inferences to an endpoint" lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
+:::image type="content" source="media/citizen-ai-power-platform-rest-ui.png" alt-text="Screenshot showing an ML model that's created in Machine Learning. The model obtains car data from Azure Data Lake, and it provides inferences to an endpoint." lightbox="media/citizen-ai-power-platform-rest-ui.png" :::
 
 Here's a user interface for the app, created in Power Apps by using the low-code interface that Power Apps provides.
 
-:::image type="content" source="media/citizen-ai-power-platform-car-price.png" alt-text="The UI provides various controls, such as buttons and drop-down lists, for the user to enter car data. The app predicts a price and displays it when the when the user selects the Predict button." lightbox="media/citizen-ai-power-platform-car-price.png" :::
+:::image type="content" source="media/citizen-ai-power-platform-car-price.png" alt-text="A UI screenshot that shows various controls, such as buttons and drop-down lists, for the user to enter car data. The app predicts a price and displays it when the when the user selects the Predict button." lightbox="media/citizen-ai-power-platform-car-price.png" :::
 
 You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
-:::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
+:::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="An image that shows the schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 
 To deploy this end-to-end example, follow [step by step instructions using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
 
