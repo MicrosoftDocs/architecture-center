@@ -1,4 +1,10 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [OpenFOAM](https://www.openfoam.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running OpenFOAM on Azure.
+
+OpenFOAM is a free, open-source computational fluid dynamics (CFD) application. Users have permission to modify and compile the package based on the needs and the physics of the problem they're solving.
+
+The software is a C++ toolbox for the development of customized numerical solvers. It uses explicit methods for configuring a simulation by selecting numerical schemes, solvers and their parameters, and algorithm controls.
+
+OpenFOAM is used in academia and in industries like transportation, manufacturing, and healthcare.
 
 ## Why deploy OpenFOAM on Azure?
 
