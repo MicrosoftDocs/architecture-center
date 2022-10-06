@@ -2,7 +2,7 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
 
 ## Architecture
 
-:::image type="content" source="media/citizen-ai-power-platform.png" alt-text="diagram that demonstrates the architecture for citizen AI with Microsoft Power Platform." lightbox="media/citizen-ai-power-platform.png" :::
+:::image type="content" source="media/citizen-ai-power-platform.png" alt-text="A diagram that demonstrates the architecture for citizen AI with Microsoft Power Platform." lightbox="media/citizen-ai-power-platform.png" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/citizen-ai-power-platform.vsdx) of this architecture.*
 
