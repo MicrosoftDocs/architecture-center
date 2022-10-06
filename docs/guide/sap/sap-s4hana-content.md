@@ -254,7 +254,7 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 - Availability of the same Azure services (VM types) in the chosen zones
 
 > [!NOTE]
-> We don't recommend availability zones for disaster recovery. A disaster recovery site should be at least 100 miles from the primary site in case of natural disaster. There is no certainty of the distance between the datacenters.
+> We don't recommend availability zones for disaster recovery. A disaster recovery site should be at least 100 miles from the primary site, in case of a natural disaster. There is no certainty of the distance between the datacenters.
 
 **Active/passive deployment example**
 
