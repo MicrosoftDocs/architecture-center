@@ -47,6 +47,10 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 [Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) connects to [over 300 supported bluetooth devices](https://www.life365.health/en/supported-devices) for ingestion by Azure Event Hubs. The devices span multiple categories and OEMs, ranging from spirometers, thermometers, weight scales, pill reminders, activity trackers, blood glucose meters, blood pressure monitors, EKG / ECG, fetal dopplers, heart rate monitors, pulse oximeters, sleep trackers and more. The Life365 app also allows manual recording of readings taken from non-Bluetooth devices. This architecture utilizes the Life365 API to ingest the device measurements from the Life365 devices into Event Hubs.
 
+**Other**
+
+While the above options help make it easier, this architecture supports any similar data sources that can securely be ingested into Event Hubs, directly or indirectly through an intermediary API.
+
 #### Azure services
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges. In this architecture it's used for collecting and aggregating the device data, for transfer to Azure Health Data Services.
