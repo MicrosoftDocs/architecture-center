@@ -135,8 +135,14 @@ To use Azure AD Workload Identity end-to-end in a Kubernetes cluster:
 
 Principal authors:
 
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+
+Other contributors:
+
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 
 ## Next steps
 
