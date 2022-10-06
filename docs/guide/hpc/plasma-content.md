@@ -25,7 +25,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
+Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
 
 |VM size|GPU|vCPU|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
@@ -36,9 +36,9 @@ Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
+To use AMD processors on [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
 
 ## Samadii Plasma installation
 
@@ -57,7 +57,7 @@ The product installation process involves installing a license server, installin
 
 Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used.
 
-||ND_A100_v4|	NCv3|	NC4as_T4_v3|	NVv3|
+||ND_A100_v4|	NCv3|	NCas_T4_v3|	NVv3|
 |-|-|-|-|-|
 |Processor|	AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)|	Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz|	Intel Xeon CPU E5-2690 v4|
 
@@ -72,7 +72,7 @@ The following table shows the elapsed runtimes and relative speed increases for 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
 |NVv3|	12,825.36|	1.00|
-|NC4as_T4_v3	|7,606.59|	1.69|
+|NCas_T4_v3	|7,606.59|	1.69|
 |NCv3	|2,798.55|	4.58|
 |ND_A100_v4	|1,977|	6.49|
 
@@ -89,7 +89,7 @@ The following table shows the elapsed runtimes and relative speed increases for 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
 |NVv3|248.99| 1.00|
-|NC4as_T4_v3	|159.61|1.56|
+|NCas_T4_v3	|159.61|1.56|
 |NCv3	|141.59|1.76|
 |ND_A100_v4	|112|2.22|
 
@@ -106,7 +106,7 @@ The following table shows the elapsed runtimes and relative speed increases for 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
 |NVv3|13.82| 1.00|
-|NC4as_T4_v3	|8.46|1.63|
+|NCas_T4_v3	|8.46|1.63|
 |NCv3	|6.86|2.01|
 |ND_A100_v4	|5.9|2.34|
 
