@@ -1,6 +1,6 @@
 The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.
 
-![Logical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-logical.svg)
+![Logical diagram of Web-Queue-Worker architecture style.](./images/web-queue-worker-logical.svg)
 
 Other components that are commonly incorporated into this architecture include:
 
@@ -50,7 +50,9 @@ Consider this architecture style for:
 
 This section describes a recommended Web-Queue-Worker architecture that uses Azure App Service.
 
-![Physical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-physical.png)
+![Physical diagram of Web-Queue-Worker architecture style.](./images/web-queue-worker-physical.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
 
 - The front end is implemented as an Azure App Service web app, and the worker is implemented as an Azure Functions app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
 
