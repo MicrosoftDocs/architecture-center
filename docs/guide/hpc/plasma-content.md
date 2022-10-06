@@ -25,20 +25,20 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
+Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
 
 |VM size|GPU|vCPU|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
 |Standard_NV12s_v3|	Tesla M60|	12|	112|	12|	1|	8	|20,000 / 200|	320|	4|
 |Standard_NC4as_T4_v3|	Tesla T4|	4|	28|	8	|1	|16|	-|	180|	2|
 |Standard_NC6s_v3	|V100|	6	|112	|12|	1|	16|	20,000 / 200|	736|	4|
-|Standard_ND96asr v4|	A100|	96|	900	|32|	8	|40	|80,000 / 800	|6,000	|8|
+|Standard_ND96asr_v4|	A100|	96|	900	|32|	8	|40	|80,000 / 800	|6,000	|8|
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) series VMs, you need to install AMD drivers.
+To use AMD processors on [NC4as_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
 
 ## Samadii Plasma installation
 
@@ -49,7 +49,7 @@ For information about eligible Windows images, see [How to deploy Windows 10 on 
 > [!IMPORTANT]
 > NVIDIA Fabric Manager installation is required for VMs that use NVLink. ND_A100_v4 VMs use this technology. 
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 The product installation process involves installing a license server, installing Plasma, and configuring the license server. For more information about installing Plasma, contact [Metariver Technology](https://www.metariver.kr/index.html).
 
@@ -115,8 +115,86 @@ This graph shows the relative speed increases:
 :::image type="content" source="media/samadii-plasma/graph-sputtering-target.png" alt-text="Graph that shows the relative speed increases for the sputtering target model." border="false":::
 
 ## Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
-Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+
+The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCsv3, and NDA100v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only simulation runtime is considered for these cost calculations. Application installation time and license costs aren't included.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+### Costs, magnetron sputter model
+
+|VM size|	Number of GPUs|		Wall-clock time, in hours|
+|-|-|-|
+|Standard_NV12s_v3|	1*		|3.56|
+|Standard_NC4as_T4_v3|	1|		2.11|
+|Standard_NC6s_v3	|1		|0.78|
+|Standard_ND96asr_v4|	8	|	0.55|
+
+\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
+
+### Costs, import inlet model
+
+|VM size|	Number of GPUs|		Wall-clock time, in hours|
+|-|-|-|
+|Standard_NV12s_v3|1*|0.07|
+|Standard_NC4as_T4_v3|1|0.04|
+|Standard_NC6s_v3	|1|0.04|
+|Standard_ND96asr_v4|8|0.03|
+
+\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
+
+### Costs, sputtering target model
+
+|VM size|	Number of GPUs|		Wall-clock time, in hours|
+|-|-|-|
+|Standard_NV12s_v3|1*|0.0038|
+|Standard_NC4as_T4_v3|1|0.0024|
+|Standard_NC6s_v3	|1|0.0019|
+|Standard_ND96asr_v4|8|0.0016|
+
+\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
+
+## Summary
+
+- Samadii Plasma was successfully tested on NDv4, NCv3, NCasT4_v3, and NVv3 VMs.
+- For smaller models, the NCasT4_v3 VM provides good scale-up and is cost efficient.
+- For larger models, the NCv3 and NDv4 VMs provide good results.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
