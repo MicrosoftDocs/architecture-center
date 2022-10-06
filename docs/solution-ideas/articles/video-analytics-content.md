@@ -16,7 +16,7 @@ This solution describes how retailers like grocery stores can monitor storefront
 
 1. The packet core authenticates the devices, applies Quality of Service (QoS) policies, and routes the video traffic to the target application.
 
-1. The custom IoT edge module also runs on the edge server, which provides the low latency necessary for transporting and processing the video feeds.
+1. The custom IoT Edge module also runs on the edge server, which provides the low latency necessary for transporting and processing the video feeds.
 
 1. The custom module simplifies setting up a video streaming pipeline and pre-processing the video for spatial analysis.
 
