@@ -26,19 +26,19 @@ This article showcases a practical, scalable, and manageable solution for implem
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is a scalable and secure data lake for high-performance analytics workloads. By using Data Lake Storage, you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads. By using Data Lake Storage, you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data-integration and transformation layer that works with various data stores.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a scalable and serverless service that provides a data-integration and transformation layer that works with various data stores.
 
-- [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi/) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) is a cloud service for accelerating and managing the lifecycle of a machine learning project. Machine learning professionals, data scientists, and engineers can use Azure Machine Learning in their day-to-day workflows, to train and deploy models, and to manage Machine Learning Operations (MLOps).
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud service for accelerating and managing the lifecycle of a machine learning project. Machine learning professionals, data scientists, and engineers can use Azure Machine Learning in their day-to-day workflows, to train and deploy models, and to manage Machine Learning Operations (MLOps).
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/): Azure SQL Database is a fully managed platform as a service (PaaS) that handles most of the database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database): Azure SQL Database is a fully managed platform as a service (PaaS) that handles most of the database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics brings together the following technologies:
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse Analytics brings together the following technologies:
 
   - The best of the SQL technologies used in enterprise data warehousing
   - Spark technologies used for big data
@@ -48,15 +48,15 @@ This article showcases a practical, scalable, and manageable solution for implem
 
 ### Alternatives
 
-In this solution, Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks/) or Azure Synapse Analytics to perform the same type of analytics when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview).
+In this solution, Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks) or Azure Synapse Analytics to perform the same type of analytics when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview).
 
-As an alternative to [mapping data flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory to curate and perform ETL on data in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), you can use Azure Databricks for a code-first approach.
+As an alternative to [mapping data flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory to curate and perform ETL on data in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), you can use Azure Databricks for a code-first approach.
 
 Depending on your specific use case and your choice of analytics platform for end users, you can use other relational or storage services, such as Azure Synapse Analytics or [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), instead of storing your data in Azure SQL. For example, if the data has accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
 Instead of running the Ray framework on Kubernetes, you can use the Ray framework on a compute instance in Azure Machine Learning to perform inferencing. If you incorporate the Ray framework on Azure Machine Learning, you might find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub, helpful.
 
-You could use [Web Apps](https://azure.microsoft.com/services/app-service/web/) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
+You could use [Web Apps](https://azure.microsoft.com/services/app-service/web) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
 
 ## Scenario details
 
@@ -102,13 +102,15 @@ The implemented reference solution uses advanced machine learning and deep learn
 
 ## Considerations
 
-Consider following the Microsoft Azure Well-Architected Framework when deploying the solution to production. The Well-Architected Framework provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected](/training/paths/azure-well-architected-framework/).
+Consider following the Microsoft Azure Well-Architected Framework when deploying the solution to production. The Well-Architected Framework provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected](/training/paths/azure-well-architected-framework).
 
 Follow MLOps guidelines to standardize and manage end to end a scalable Machine Learning lifecycle across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. For more information about implementing MLOps in Azure, see [Machine learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2), a project on GitHub.
 
 ### Security
 
-Consider using Azure Databricks Premium for more security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks/).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Consider using Azure Databricks Premium for more security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks).
 
 Follow the best practices for Databricks security and data governance. For more information, see [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity).
 
@@ -119,13 +121,15 @@ Consider implementing the following additional security features in this archite
 
 ### Cost optimization
 
-To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned in this article. You might also find [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) to be helpful in planning your strategy to efficiently scale out your architecture and implementation.
+To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) for the services mentioned in this article. You might also find [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) to be helpful in planning your strategy to efficiently scale out your architecture and implementation.
 
-Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing/).
+Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
 
 Depending on the volume of data and complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations that would affect your cost. For best practices on cluster configuration, see the Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
@@ -151,9 +155,9 @@ Other contributors:
 
 - [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
 - [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
-- [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes/)
+- [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes)
 - [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
-- [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes/)
+- [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes)
 - [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
 - [Security baseline for Azure Machine Learning service](/security/benchmark/azure/baselines/machine-learning-security-baseline?bc=/azure/architecture/_bread/toc.json&toc=/azure/architecture/toc.json)
 

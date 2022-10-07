@@ -109,6 +109,6 @@ Docker images for each deployment eliminate dependency issues between different 
 
 ## Next steps
 
-- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://docs.mongodb.com/manual/mongo).
+- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://www.mongodb.com/docs/mongodb-shell/).
 - To learn more about hybrid cloud apps, see [Hybrid Cloud Solutions.](/azure-stack/user).
 - Modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

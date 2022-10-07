@@ -18,8 +18,8 @@ This architecture details key components of an order processing pipeline. The da
 
 ### Components
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB change feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
-- [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
+- [Apache Kafka on Azure HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
 
 ## Scenario details
 
@@ -64,7 +64,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 The [Azure Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Azure Cosmos DB database security](/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security/).
+For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security).
 
 ### Resiliency
 
@@ -74,15 +74,15 @@ The event sourcing architecture and associated technologies in this example scen
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Azure Cosmos DB and a Kafka cluster for processing events raised from the Azure Cosmos DB change feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
+To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Azure Cosmos DB and a Kafka cluster for processing events raised from the Azure Cosmos DB change feed. Event processors and microservices for originating systems and other downstream systems aren't included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
 The currency of Azure Cosmos DB is the request unit (RU). With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units required by your solution is dependent on data element size and the number of database read and write operations per second. For more information, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units). These estimated prices are based on Azure Cosmos DB running in two Azure regions.
 
-We have provided three sample cost profiles based on amount of activity you expect:
+We've provided three sample cost profiles based on amount of activity you expect:
 
-- [Small][small-pricing]: this pricing example correlates to 5 RUs reserved with a 1 TB data store in Azure Cosmos DB and a small (D3 v2) Kafka cluster.
-- [Medium][medium-pricing]: this pricing example correlates to 50 RUs reserved with a 10 TB data store in Azure Cosmos DB and a midsized (D4 v2) Kafka cluster.
-- [Large][large-pricing]: this pricing example correlates to 500 RUs reserved with a 30 TB data store in Azure Cosmos DB and a large (D5 v2) Kafka cluster.
+- [Small][small-pricing]: this pricing example correlates to 5 RUs reserved with a 1-TB data store in Azure Cosmos DB and a small (D3 v2) Kafka cluster.
+- [Medium][medium-pricing]: this pricing example correlates to 50 RUs reserved with a 10-TB data store in Azure Cosmos DB and a midsized (D4 v2) Kafka cluster.
+- [Large][large-pricing]: this pricing example correlates to 500 RUs reserved with a 30-TB data store in Azure Cosmos DB and a large (D5 v2) Kafka cluster.
 
 ## Contributors
 
@@ -101,6 +101,10 @@ See this other content:
 - *[Designing Data-Intensive Applications](https://dataintensive.net)* by Martin Kleppmann (O'Reilly Media, 2017).
 - *[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)* by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 - Other [Azure Cosmos DB use cases][docs-cosmos-db-use-cases]
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Consume an Azure Cosmos DB SQL API change feed using the SDK](/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk)
+- [What is Apache Kafka in Azure HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Perform advanced streaming data transformations with Apache Spark and Kafka in Azure HDInsight](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka)
 
 ## Related resources
 
