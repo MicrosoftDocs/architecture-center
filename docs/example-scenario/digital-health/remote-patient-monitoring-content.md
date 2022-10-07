@@ -65,7 +65,7 @@ While the above options help make it easier, this architecture supports any simi
 
    - [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - provides a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) in which protected health information can travel. 
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be consumed by Azure Event Grid.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be broadcast by Azure Event Grid to downstream consumers to act on event-based data.
 
 - [FHIR Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture, the data is converted to JavaScript Object Notation (JSON) and [Parquet](/azure/databricks/data/data-sources/read-parquet) format, making it available for analytics with a variety of Azure data services. 
 
