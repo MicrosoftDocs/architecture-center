@@ -1,6 +1,6 @@
 This article briefly describes the steps for running [Samadii SCIV](https://www.metariver.kr/smdsciv.html) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Samadii SCIV on Azure.
 
-Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the DSMC (direct simulation Monte Carlo) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also offers functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarified gas regions. 
+Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the DSMC (direct simulation Monte Carlo) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also offers functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarified gas regions.
 
 SCIV is used by manufacturers of display devices and semiconductors, in aerospace, and in other rarefied gas industrial fields.
 
@@ -54,7 +54,7 @@ For information about eligible Windows images, see [How to deploy Windows 10 on 
 > [!IMPORTANT]
 > NVIDIA Fabric Manager installation is required for VMs that use NVLink. ND_A100_v4 VMs use this technology.
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 The product installation process involves installing a license server, installing Samadii SCIV, and configuring the license server. For more information about installing SCIV, contact [Metariver Technology](https://www.metariver.kr/index.html).
 
