@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Securely store data and provide high-value analytics over aggregated data, using in-built security and performance.
+This article outlines a three-tier application for securely storing data and providing high-value analytics over aggregated data. The architecture takes advantage of Azure built-in security and high-performance features.
 
 ## Architecture
 
@@ -12,16 +12,16 @@ Securely store data and provide high-value analytics over aggregated data, using
 
 The architecture shows the flow of data in a common three-tier application design:
 
-- A client interacts with a mobile app or a web app in a browser.
-- Azure App Service hosts backend APIs and business logic that process and aggregate the financial data.
-- Azure Database for MySQL stores the financial data.
+- A client interacts with the application's presentation tier—a mobile app or a web app in a browser.
+- Azure App Service hosts back-end APIs and business logic in the application tier. These components process and aggregate the financial data.
+- Azure Database for MySQL stores the financial data in the data tier.
 - Power BI ingests data for analytics.
 
 ### Components
 
 - [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service that's powered by the MySQL community edition.
-- [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 ## Scenario details
 
