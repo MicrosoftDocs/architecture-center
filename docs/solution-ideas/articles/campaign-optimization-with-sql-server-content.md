@@ -76,7 +76,7 @@ Read product documentation:
 - [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15)
 - [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15)
 - [SQL Server Machine Learning Services with R](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15)
-- [Install on Windows - SQL Server Machine Learning Services**](/sql/machine-learning/install/sql-machine-learning-services-windows-install?view=sql-server-ver15)
+- [Install on Windows - SQL Server Machine Learning Services](/sql/machine-learning/install/sql-machine-learning-services-windows-install?view=sql-server-ver15)
 - [What is Power BI](https://powerbi.microsoft.com/what-is-power-bi)
 - [What is MicrosoftML?](/machine-learning-server/r/concept-what-is-the-microsoftml-package) - used inside SQL Server Machine Learning Services.
 

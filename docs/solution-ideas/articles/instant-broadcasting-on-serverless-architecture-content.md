@@ -51,7 +51,7 @@ Principal author:
 ## Next steps
 
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Azure App Service Overview](/azure/app-service/app-service-web-overview)
+- [Azure App Service overview](/azure/app-service/app-service-web-overview)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [What is Azure SignalR Service?](/azure/azure-signalr/signalr-overview)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)

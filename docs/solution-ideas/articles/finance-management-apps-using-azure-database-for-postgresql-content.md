@@ -20,7 +20,7 @@ The architecture shows the flow of data in a common three-tier application desig
 ### Components
 
 - [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a relational database service powered by the PostgreSQL community edition.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a relational database service that's powered by the PostgreSQL community edition.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 ## Scenario details
@@ -50,7 +50,7 @@ Principal author:
 - [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices)
 - [Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal](/azure/postgresql/tutorial-design-database-using-azure-portal)
 - [Tutorial: Create an Azure Database for PostgreSQL - Flexible Server with App Services Web App in Virtual network](/azure/postgresql/flexible-server/tutorial-webapp-server-vnet)
-- [Power BI PostgreSQL Database Connector](/power-query/connectors/postgresql)
+- [Power BI PostgreSQL database connector](/power-query/connectors/postgresql)
 - [App Service documentation](/azure/app-service)
 - [Azure Database for PostgreSQL documentation](/azure/postgresql)
 - [Power BI get started documentation](/power-bi/fundamentals)

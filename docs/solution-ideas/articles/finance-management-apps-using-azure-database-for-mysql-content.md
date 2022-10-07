@@ -49,7 +49,7 @@ Principal author:
 
 - [Connect an existing Azure App Service to Azure Database for MySQL server](/azure/mysql/howto-connect-webapp)
 - [Tutorial: Design an Azure Database for MySQL database using the Azure portal](/azure/mysql/tutorial-design-database-using-portal)
-- [Power BI MySQL Database Connector](/power-query/connectors/mysqldatabase)
+- [Power BI MySQL database connector](/power-query/connectors/mysqldatabase)
 - [App Service documentation](/azure/app-service)
 - [Azure Database for MySQL documentation](/azure/mysql)
 - [Power BI get started documentation](/power-bi/fundamentals)

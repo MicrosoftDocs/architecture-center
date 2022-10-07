@@ -47,7 +47,7 @@ This solution has many applications. Examples include automating the following t
 - [How to subscribe to events in the Azure portal](/azure/event-grid/subscribe-through-portal)
 - [What is Azure Event Grid?](/azure/event-grid/overview)
 - [Quickstart: Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-azure-automation-account-portal)
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 
 ## Related resources
 
