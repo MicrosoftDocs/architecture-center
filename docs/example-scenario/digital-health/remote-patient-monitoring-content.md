@@ -7,6 +7,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 > [!NOTE]
 > **SECTION TODOS**
 > - diagram: after final review, upload to blob storage and create new .png, update image in thumbnailUrl
+> - dataflow: Mustafa/Janna to clarify whether the data flowing out of the AHDS workspace is anonymized, or contains direct PHI? If not, should we specify this and/or include pointers to more resources (perhaps the Tools for Health Data Anonymization repo or others?)? We could call this out in the Security considerations as well, just so we're explicit.
 
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
@@ -87,6 +88,12 @@ The advantage of Life365.health is that with one integration point, you can push
 
 Devices and patients need to be defined, linked, and synchronized between the Azure Health Data Services and the Life365 API. This can be achieved by syncing the patient and device IDs between the Azure Health Data Services and Life365 API. In essence, a new patient and device is created and linked in the Azure FHIR Service first. Then the corresponding patient and device is created and linked in the Life365 API. The IDs of the patients and devices, first created in the Azure Health Data Services, will then be updated as external IDs in the respective patient and device entities in the Life365 API.
 
+**Microsoft Cloud for HealthCare**
+
+This remote patient monitoring example workload addresses the [Empower health team collaboration](/industry/healthcare/health-team-collaboration#remote-patient-monitoring) capability of the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare). 
+
+See the Microsoft Cloud for Healthcare [Remote Patient Monitoring solution guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring/1/1) for more details.
+
 ## Scenario details
 
 There's a plenitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
@@ -111,7 +118,9 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 > [!NOTE]
 > **SECTION TODOS**
+> - Cost optimization - need to change the calculator link to a shared "saved estimate" [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) link for the final architecture.
 > - determine which 2 of the other 4 sections to complete (reliability, security, ops excellence, perf efficiency)
+> - if we go with performance efficiency, make sure we call out the "near-real-time" nature of this architecture, which implies that the data flow from devices is not real-time.
 
 These considerations address the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
@@ -187,5 +196,3 @@ Principal authors:
 > [!NOTE]
 > **SECTION TODOS**
 > - add links to related healthcare related content and example workloads
-
-- This remote patient monitoring provides a solution for the [Empower health team collaboration](/industry/healthcare/health-team-collaboration) capability of the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare).

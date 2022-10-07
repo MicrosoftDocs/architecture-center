@@ -19,7 +19,6 @@ products:
   - azure-data-lake-storage
   - azure-databricks
   - azure-event-hubs
-  - azure-event-grid
   - azure-machine-learning
   - azure-synapse-analytics
   - power-bi
