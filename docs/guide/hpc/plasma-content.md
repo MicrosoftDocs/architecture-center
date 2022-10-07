@@ -47,7 +47,7 @@ The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-mach
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
 To use AMD processors on [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
 
@@ -78,7 +78,7 @@ Three models were used for testing, as shown in the following sections.
 
 :::image type="content" source="media/samadii-plasma/magnetron-sputter.png" alt-text="Screenshot that shows the magnetron sputter model." :::
 
-The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+The following table shows the elapsed runtimes and relative speed increases on the four VMs.
 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
@@ -95,7 +95,7 @@ This graph shows the relative speed increases:
 
 :::image type="content" source="media/samadii-plasma/import-inlet.png" alt-text="Screenshot that shows the import inlet model." :::
 
-The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+The following table shows the elapsed runtimes and relative speed increases on the four VMs.
 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
@@ -112,7 +112,7 @@ This graph shows the relative speed increases:
 
 :::image type="content" source="media/samadii-plasma/sputtering-target.png" alt-text="Screenshot that shows the sputtering target model.":::
 
-The following table shows the elapsed runtimes and relative speed increases for the four VMs.
+The following table shows the elapsed runtimes and relative speed increases on the four VMs.
 
 |VM |	Elapsed time, in seconds	|Relative speed increase|
 |-|-|-|
@@ -127,44 +127,38 @@ This graph shows the relative speed increases:
 
 ## Azure cost
 
-The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCsv3, and NDA100v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCsv3, and NDA100v4 VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
-Only simulation runtime is considered for these cost calculations. Application installation time and license costs aren't included.
+Only simulation runtime is considered in these cost calculations. Application installation time and license costs aren't included.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-### Costs, magnetron sputter model
+### Cost, magnetron sputter model
 
 |VM size|	Number of GPUs|		Wall-clock time, in hours|
 |-|-|-|
-|Standard_NV12s_v3|	1*		|3.56|
+|Standard_NV12s_v3|	1		|3.56|
 |Standard_NC4as_T4_v3|	1|		2.11|
 |Standard_NC6s_v3	|1		|0.78|
 |Standard_ND96asr_v4|	8	|	0.55|
 
-\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
-
-### Costs, import inlet model
+### Cost, import inlet model
 
 |VM size|	Number of GPUs|		Wall-clock time, in hours|
 |-|-|-|
-|Standard_NV12s_v3|1*|0.07|
+|Standard_NV12s_v3|1|0.07|
 |Standard_NC4as_T4_v3|1|0.04|
 |Standard_NC6s_v3	|1|0.04|
 |Standard_ND96asr_v4|8|0.03|
 
-\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
-
-### Costs, sputtering target model
+### Cost, sputtering target model
 
 |VM size|	Number of GPUs|		Wall-clock time, in hours|
 |-|-|-|
-|Standard_NV12s_v3|1*|0.0038|
+|Standard_NV12s_v3|1|0.0038|
 |Standard_NC4as_T4_v3|1|0.0024|
 |Standard_NC6s_v3	|1|0.0019|
 |Standard_ND96asr_v4|8|0.0016|
-
-\* *In this case, the number of GPUs was artificially limited for the sake of testing. This VM has two GPUs.*
 
 ## Summary
 
