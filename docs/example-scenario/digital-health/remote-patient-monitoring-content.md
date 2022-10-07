@@ -108,7 +108,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 - **Enable healthcare providers** - Providers will be able to: 
    - gain better insights into patient health status
-   - create proactive digital health care models
+   - create proactive digital health care models for preventative medical care
    - take more informed actions based on the physiological indicators/notifications
    - provide pathways for remote physiologic monitoring reimbursement 
 
