@@ -1,8 +1,8 @@
 This article briefly describes the steps for running [Samadii SCIV](https://www.metariver.kr/smdsciv.html) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Samadii SCIV on Azure.
 
-Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the DSMC (direct simulation Monte Carlo) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also offers functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarified gas regions.
+Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the DSMC (direct simulation Monte Carlo) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also provides functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarefied gas regions.
 
-SCIV is used by manufacturers of display devices and semiconductors, in aerospace, and in other rarefied gas industrial fields.
+SCIV is used by manufacturers of display devices and semiconductors, in aerospace, and in other industries.
 
 ## Why deploy Samadii SCIV on Azure?
 
