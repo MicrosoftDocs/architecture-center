@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: <Article title, which becomes the title metadata>
+  title: Build and Deploy Social Media Analytics Solution
   titleSuffix: Azure Architecture Center
   description: Quickly build and deploy an end-to-end Social Medial Analytics Solution using external data, using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
   author: ChristinaSka
@@ -19,8 +19,8 @@ products:
   - azure-machine-learning
   - azure-data-lake
   - azure-powerbi-embedded
-name: Build and Deploy Social Media Analytics Solution 
+name: Build and Deploy Social Media Analytics Solution
 summary: Quickly build and deploy an end-to-end Social Medial Analytics Solution using external data, using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
 thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-social-media-analytics-solution.png
 content: |
-  [!include[](build-deploy-social-media-analytics-solution.md)]
+  [!include[](build-deploy-social-media-analytics-solution-content.md)]

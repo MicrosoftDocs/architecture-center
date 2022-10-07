@@ -1,7 +1,6 @@
+Organizations nowadays are capitalizing on various ways in order to extract valuable insights about their customers and how to best address their needs. On this article we have presented some of the use cases in which this architecture would be valuable.
 
-Organizations nowadays are capitalizing on various ways n order to extract valuable insights about their customers and how to best address their needs. On this article we have presented some of the use cases in which this architecture would be valuable.
-
-This article covers a wider spectrum of applications for analyzing news/social media data. We have build this article as an extension to an existing Solution Accelerator, which helps developers with all the resources needed to build and deploy a Social Media monitoring platform on Azure, that helps you to collect data from social media and websites and evaluate that data to make business decisions.
+This article covers a wider spectrum of applications for analyzing news/social media data. This article is an extension to a Solution Accelerator, which helps developers with all the resources needed to build and deploy a Social Media monitoring platform on Azure, which helps you to collect data from social media and websites and evaluate the data to make business decisions.
 
 Leveraging the NEWS API as well as the Twitter API someone can access information around the web about a specific topic. For instance, if someone would like to find out the latest discussions about Satya Nadella, he/she would need to just provide this as query.
 
