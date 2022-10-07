@@ -15,7 +15,7 @@ Organizations that use Samadii Plasma include manufacturers of flat panel and OL
 - Modern and diverse compute options to meet your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- Impressive performance results for both small and large simulations  
+- Impressive performance results for simulations with varying levels of complexity  
 
 ## Architecture
 
@@ -163,8 +163,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Samadii Plasma was successfully tested on NDv4, NCv3, NCasT4_v3, and NVv3 VMs.
-- For smaller models, the NCasT4_v3 VM provides good scale-up and is cost efficient.
-- For larger models, the NCv3 and NDv4 VMs provide good results.
+- For models with less complexity, the NCasT4_v3 VM provides good scale-up and is cost efficient.
+- For complex models, the NCv3 and NDv4 VMs provide good results.
 
 ## Contributors
 
