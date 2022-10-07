@@ -163,8 +163,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Samadii Plasma was successfully tested on NDv4, NCv3, NCasT4_v3, and NVv3 VMs.
-- For models with less complexity, the NCasT4_v3 VM provides good scale-up and is cost efficient.
 - For complex models, the NCv3 and NDv4 VMs provide good results.
+- For models with less complexity, the NCasT4_v3 VM provides good scale-up and is cost efficient.
 
 ## Contributors
 
