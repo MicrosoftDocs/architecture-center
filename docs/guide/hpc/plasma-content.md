@@ -1,7 +1,18 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Samadii Plasma](https://www.metariver.kr/smdplasma.html) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Samadii Plasma on Azure.
+
+Samadii Plasma is a particle-based solution for the analysis of plasma behavior.
+
+Samadii Plasma:
+
+- Enables high-speed plasma analysis by means of high-speed electromagnetic field analysis and particle-based gas analysis.
+- Uses the finite element method to analyze the Maxwell equation.
+- Calculates various reactions based on collision theory by freely inputting collision cross section and chemical reaction equations.
+
+Organizations that use Samadii Plasma include manufacturers of flat panel and OLED displays and manufacturers of semiconductors.
 
 ## Why deploy Samadii Plasma on Azure?
-- Modern and diverse compute options to align to your workload's needs
+
+- Modern and diverse compute options to meet your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
 - Impressive performance results for both small and large simulations  
@@ -25,7 +36,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
+The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
 
 |VM size|GPU|vCPU|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
