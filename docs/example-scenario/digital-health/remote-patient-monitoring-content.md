@@ -1,4 +1,4 @@
-Health systems, hospitals, and large physician practices are shifting to hospital@home initiatives (also known as remote patient monitoring). Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. 
+Health systems, hospitals, and large physician practices are shifting to hospital-at-home initiatives (also known as remote patient monitoring). Remote patient monitoring is a subset of clinical care where care is accessed and delivered using remote health devices and care is based on individualized care plan parameters. 
 
 This article provides guidance on how to design a solution using Azure Health Data Services and devices for intelligent remote patient monitoring. The solution will help alleviate many of the device integration challenges your organization is bound to face when building such a solution at scale.  
 
@@ -23,7 +23,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. **Azure Health Data Services workspace sends notification messages to events subscribers** when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
 
-1. **A FHIR Analytics Pipelines OSS pipeline moves FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. 
+1. **FHIR Analytics Pipelines move FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. 
 
 1. **Further analysis of the FHIR data in the Parquet and JSON formats is done** using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
 
@@ -47,6 +47,10 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 [Life365.health remote patient monitoring](https://www.life365.health/solutions-remote-patient-monitoring) connects to [over 300 supported bluetooth devices](https://www.life365.health/en/supported-devices) for ingestion by Azure Event Hubs. The devices span multiple categories and OEMs, ranging from spirometers, thermometers, weight scales, pill reminders, activity trackers, blood glucose meters, blood pressure monitors, EKG / ECG, fetal dopplers, heart rate monitors, pulse oximeters, sleep trackers and more. The Life365 app also allows manual recording of readings taken from non-Bluetooth devices. This architecture utilizes the Life365 API to ingest the device measurements from the Life365 devices into Event Hubs.
 
+**Other**
+
+While the above options help make it easier, this architecture supports any similar data sources that can securely be ingested into Event Hubs, directly or indirectly through an intermediary API.
+
 #### Azure services
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges. In this architecture it's used for collecting and aggregating the device data, for transfer to Azure Health Data Services.
@@ -61,7 +65,7 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
    - [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - provides a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) in which protected health information can travel. 
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be consumed by Azure Event Grid.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates FHIR CRUD events, which can be broadcast by Azure Event Grid to downstream consumers to act on event-based data.
 
 - [FHIR Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture, the data is converted to JavaScript Object Notation (JSON) and [Parquet](/azure/databricks/data/data-sources/read-parquet) format, making it available for analytics with a variety of Azure data services. 
 
@@ -110,7 +114,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 - **Enable healthcare providers** - Providers will be able to: 
    - gain better insights into patient health status
-   - create proactive digital health care models
+   - create proactive digital health care models for preventative medical care
    - take more informed actions based on the physiological indicators/notifications
    - provide pathways for remote physiologic monitoring reimbursement 
 
