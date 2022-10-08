@@ -1150,7 +1150,7 @@ items:
                   - name: Change data in Azure Data Lake
                     href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
                     maintainContext: true
-              - name: Compliance Risk Analysis by using Azure Cognitive Search
+              - name: Compliance risk analysis
                 href: guide/ai/compliance-risk-analysis-using-azure-cognitive-search.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
@@ -2717,8 +2717,6 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
-              - name: Compliance Risk Analysis by using Azure Cognitive Search
-                href: guide/ai/compliance-risk-analysis-using-azure-cognitive-search.yml
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure
@@ -2763,6 +2761,8 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
               - name: Industry guidance
                 items:
+                  - name: Compliance risk analysis
+                    href: guide/ai/compliance-risk-analysis-using-azure-cognitive-search.yml
                   - name: Enable the financial services risk lifecycle
                     href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
