@@ -3,7 +3,7 @@ title: SaaS digital business journey on Azure
 description: "Build your Software as a Service (Saas). There are links that help you: get started with Azure; build, deploy, and publish your app; and build audience."
 author: mekenthompson
 ms.author: kethomps
-ms.date: 01/17/2022
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,8 +24,8 @@ Follow this guidance to get the basics right when you build your software as a s
 ## Evaluate Azure
 
 Get informed and make the right platform and partnership decisions for your SaaS business.
-- If you are a startup, join [Microsoft Founders Hub](https://www.microsoft.com/en-us/startups?rtc=1) to get free access to the Microsoft cloud to build your product (Azure, GitHub, Visual Studio) and run your business (Microsoft 365, Dynamics 365).
-- Consider the [core startup stack architecture](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/startups/core-startup-stack) as a basis for your product
+- If you are a startup, join [Microsoft Founders Hub](https://www.microsoft.com/startups) to get free access to the Microsoft cloud, to build your product (via Azure, GitHub, or Visual Studio) and to run your business (via Microsoft 365 or Dynamics 365).
+- Consider the [core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack) as a basis for your product.
   - If the core startup stack architecture is not relevant, evaluate these [Azure service architecture options](../../browse/index.yml) to find the right real-world Azure architecture for your service.
 - Evaluate complementary [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) services to enhance your app.
 - Evaluate the [enablement options](https://aka.ms/partnerskillshub) that are available for Microsoft partners.
