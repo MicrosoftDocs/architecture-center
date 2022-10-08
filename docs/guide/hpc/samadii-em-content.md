@@ -5,23 +5,40 @@
 - Modern and diverse compute options to meet your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- for varying levels of simulation complexity  
+- VM options that enable you to optimize for varying levels of simulation complexity  
 
 ## Architecture
 
+:::image type="content" source="media/samadii-em/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii EM." lightbox="media/samadii-em/architecture.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/samadii-em.vsdx) of this
+architecture.*
+
 ### Components
- 
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
+    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
+    used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+  - A public IP address connects the internet to the VM.
+- A physical solid-state drive (SSD) is used for storage.
+
 ## Compute sizing and drivers
-<List of evaluated sizes for this workload and a table of the input sizes with corresponding evaluated output for the chosen input sizes.>
-Required drivers
+
+The performance tests of Samadii EM on Azure used [NVadsA10_v5](/azure/virtual-machines/nva10v5-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
+
+### Required drivers
 <Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
-<Workload> installation
-Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+
+## Samadii EM installation
+
+Before you install Samadii EM, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+
  Important – if needed
 <if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
+
+For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure]().
 
 <Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
 <Should not list any ordered steps of installation.> 
@@ -38,7 +55,8 @@ You can use the Azure pricing calculator, to estimate the costs for your configu
 <Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
 
 ## Summary
-- Samadii-EM Application is successfully deployed and tested on NCv3, NCasT4 & NVv5 series Azure Virtual Machines.
+
+- Samadii EM was successfully tested on NCv3, NCas_T4_v3, and NVadsA10_v5 VMs.
 - From the Performance Benchmarking results, considering the elapsed time as benchmarking parameter it can be observed that for smaller models (lesser complexity) all the configurations of NCv4 and NVv5 VM (including partial usage of GPU’s) are performing better in comparison with NCasT4 NCv3 for Samadii-EM application
 - For models with increased complexity considering the elapsed time as benchmarking parameter, NCv4, NCv3, NCasT4, NVv5 (full GPU) VM’s are performing better than the NVv5 (partial usage of GPU’s)
 - Considering the Azure cost as the criteria for performance evaluation NCasT4 VM’s shows better performance in comparison with other VM’s
