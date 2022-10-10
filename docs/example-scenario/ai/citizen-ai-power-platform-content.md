@@ -136,7 +136,7 @@ Here's a user interface for the app, created in Power Apps by using the low-code
 
 You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
-:::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="An image that shows the schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
+:::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Architecture showing schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 
 To deploy this end-to-end example, follow [step by step instructions using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
 
