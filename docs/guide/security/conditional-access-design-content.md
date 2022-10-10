@@ -57,7 +57,7 @@ You can extend the Azure Active Directory Conditional Access policy engine to ot
 - VPN and remote access solutions: Solutions like Microsoft Always On VPN, Cisco AnyConnect, Palo Alto Networks, F5, Fortinet, Citrix, and Zscaler.
 - Documents, email, and other files: Via Microsoft Information Protection.
 - SaaS applications.
-- Applications running in other clouds, like AWS or GCP (based on federation)
+- Applications running in other clouds, like AWS or Google Cloud (based on federation).
 
 ### Principles of Zero Trust
 
@@ -119,11 +119,13 @@ The following diagram shows dependencies and related technologies. Some of the t
 
 For more information, see [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture).
 
-## Next steps 
+## Next steps
+
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 - [Common Conditional Access policies](/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## Related resources
+
 - [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
 - [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture)
 - [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework)
