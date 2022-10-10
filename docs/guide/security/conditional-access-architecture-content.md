@@ -9,15 +9,18 @@ You first need to choose an architecture. We recommend that you consider either 
 The Zero Trust Conditional Access architecture is the one that best fits the principles of Zero Trust. If you select the **All cloud apps** option in a Conditional Access policy, all endpoints are protected by the provided grant controls, like known user and known or compliant device. But the policy doesn't just apply to the endpoints and apps that support Conditional Access. It applies to any endpoint that the user interacts with.
 
 An example is a device-login flow endpoint that's used in various new PowerShell and Microsoft Graph tools. Device-login flow provides a way to allow sign-in from a device on which it's not possible to show a sign-in screen, like an IoT device.
-A device-based sign-in command is run on the given device, and a code is shown to the user. This code is used on another device. The user goes to https://aka.ms/devicelogin and specifies their user name and password. After sign-in from the other device, the sign-in succeeds on the IoT device in that user context.
+
+A device-based sign-in command is run on the given device, and a code is shown to the user. This code is used on another device. The user goes to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and specifies their user name and password. After sign-in from the other device, the sign-in succeeds on the IoT device in that user context.
 
 The challenge with this sign-in is that it doesn't support device-based Conditional Access. This means that nobody can use the tools and commands if you apply a baseline policy that requires known user and known device for all cloud apps. There are other applications that have the same problem with device-based Conditional Access.
 
-The other architecture, the Targeted one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, endpoints like device-login endpoints aren't protected by the Conditional Access policies, so they continue to work.
+The other architecture, the *targeted* one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, device-login for endpoints previously covered by all cloud apps, such as graph calls to Azure Active Directory, is not protected by the Conditional Access policies, so they continue to work.
 
-The challenge with this architecture is that you might forget to protect all your cloud apps. The number of Office 365 and Azure Active Directory (Azure AD) apps increases over time as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD.
+When using device-login as an example to differentiate the two architectures, you can authenticate with device-login. Device-login can potentially be allowed for one or a few individual applications, given that each application is targetable and thereby can be excluded in a Conditional Access policy that requires device-based login.
 
-Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and automatically applies a policy to it. Creating and maintaining such a script might be difficult.
+The challenge with the *targeted* architecture is that you might forget to protect all your cloud apps. Even so, you would choose all the selectable applications in the Conditional Access policies. You leave access to the applications that can't be selected unprotected. Examples include access to the Office portal, the Azure EA (Enterprise Agreement) portal, and the security information portal, which are all very sensitive portals. 
+
+Another consideration is that the number of Office 365 and Azure Active Directory (Azure AD) apps increases over time, as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD. Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and that automatically applies a policy to it. Creating and maintaining such a script might be difficult.
 
 Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get an error about payload being exceeded, but that number isn't supported.
 
@@ -98,7 +101,7 @@ This persona contains user-based service accounts that have all of these charact
 
 **WorkloadIdentities**
 
-This persona contains machine identities, like Azure AD service principals and managed identities. Conditional Access now supports protecting access to resources from these accounts.
+This persona contains machine identities, like Azure AD service principals and managed identities. Conditional Access now supports protecting access to resources from these accounts, with some limitations in regards to which conditions and grant controls are available.
 
 ## Access template cards
 
