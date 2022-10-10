@@ -24,7 +24,7 @@ The data flows through the scenario as follows:
 
 - An [Azure Repos](https://azure.microsoft.com/products/devops/repos) Git repository serves as a code repository that provides version control and a platform for collaborative projects.
 
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) provide a way to build, test, package and release application and infrastructure code. This example has three distinct pipelines with the following responsibilities:
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) provides a way to build, test, package and release application and infrastructure code. This example has three distinct pipelines with the following responsibilities:
   - PR pipelines validate code before allowing a PR to merge through linting, building and unit testing.
   - CI pipelines run after code is merged. They perform the same validation as PR pipelines, but add integration testing and publish build artifacts if everything succeeds.
   - CD pipelines deploy build artifacts, run acceptance tests, and release to production.
