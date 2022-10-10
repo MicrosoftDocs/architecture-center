@@ -3334,6 +3334,8 @@ items:
                     href: guide/hpc/luxion-keyshot.yml
                   - name: Samadii DEM
                     href: guide/hpc/samadii-dem.yml
+                  - name: Samadii Plasma
+                    href: guide/hpc/plasma.yml
                   - name: Samadii SCIV
                     href: guide/hpc/samadii-sciv.yml  
                   - name: Siemens NX
