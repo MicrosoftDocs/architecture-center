@@ -18,7 +18,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 The following dataflow corresponds to the above diagram:  
 
-1. **Health data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
+1. **Anonymized health data from electronic health records (EHR) and electronic medical records (EMR)** is extracted using Azure Data Factory with the appropriate runtime (for example: Azure, Self-hosted). In this scenario, we assume anonymized data is accessible for batch extraction using one of the Azure Data Factory connectors, such as ODBC, Oracle, SQL. Other data sources such as FHIR data, may require the inclusion of an intermediary ingestion service like Azure Functions.
    
 2. **Azure Data Factory data flows through the Data Factory into Azure Data Lake Storage (gen 2)**. No data is stored in Azure Data Factory during this process, and failures like dropped connections can be handled/retried during this step.  
    
@@ -83,29 +83,36 @@ There are two different business users in hospital management who can expect to 
 
 ## Considerations
 
-> [!NOTE]
-> **SECTION TODOS**
-> - Cost optimization - ask DJ, Dhanshri for a shared "saved estimate" [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) link for the final architecture.
-
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 The most expensive component of this solution is the compute and there are several ways to scale the compute cost-effectively with data volume. One example would be to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for the data engineering work, as opposed to a single node solution. Spark scales horizontally and is more cost-effective compared to large, vertically scaled single node solutions.  
+
+The pricing for all Azure components as configured in this architecture can be found in this [Azure Pricing Calculator saved estimate](https://azure.com/e/c6d436e53c7142c9a5f1622fa13da72e). This estimate is configured to show the estimated upfront and  monthly costs, for a basic implementation that runs 9am-5pm Monday through Friday.
 
 ### Operational excellence  
 
-A solid Machine Learning operations (MLOps) practice and implementation plays a critical role in the productionalization this type of a solution. For more details, see [Machine learning operations (MLOps)](https://azure.microsoft.com/products/machine-learning/mlops/#features).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+A solid Machine Learning operations (MLOps) practice and implementation plays a critical role in the productionalization this type of a solution. For more information, see [Machine learning operations (MLOps)](https://azure.microsoft.com/products/machine-learning/mlops/#features).
 
 ### Performance efficiency  
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 In this scenario, data pre-processing is performed in Azure Machine Learning. While this design will work for small to medium data volumes, large data volumes or scenarios with near real-time SLAs may struggle from a performance standpoint. One way to address this type of concern is to use a Spark service like Azure Synapse Analytics Spark or Azure Databricks for data engineering or data science workloads. Spark scales horizontally and is distributed by design, allowing it to process large datasets very effectively. 
 
-## Deploy this scenario
+### Security
 
-> [!NOTE]
-> **SECTION TODOS**
-> - this section is optional - verify w/Dhanshri whether she has a deployable solution based on this architecture
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+> [!IMPORTANT]
+> This architecture will work with both anonymized and non-anonymized health data. However, for the sake of a secure implementation, we recommend that health data is sourced in anonyized form from EHR and EMR sources.
+
+For more information on security and governance features available for Azure Machine Learning, see [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 
 ## Contributors
 
@@ -119,18 +126,23 @@ Principal authors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-> [!NOTE]
-> **SECTION TODOS**
-> - add more links?
 
-- [Predict hospital readmissions with traditional and ML techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
- 
-## Related resources
-
-> [!NOTE]
-> **SECTION TODOS**
-> - Dhanshri has deeper links on ML lifecycle
-
-Technologies and resources that are related to this architecture:
+Technologies and resources that are related to implementing this architecture:
 
 - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
+- Try the available quickstarts and tutorials for the Azure services mentioned in this architecture:
+  - [Azure Data Factory](/azure/data-factory/quickstart-get-started)
+  - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-integrate-with-services-tutorials)
+  - [Azure Machine Learning](/azure/machine-learning/quickstart-create-resources)
+  - [Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+  - [Power BI](/power-bi/fundamentals/desktop-getting-started)
+- [Microsoft Cloud for Healthcare](/industry/healthcare/) resources:
+   - Learn about [Data management considerations](/industry/healthcare/data-management)
+   - Try one of the [Data management solutions](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare#) available in the Microsoft Cloud Solution Center
+   - Review the available reference architectures, including [Characteristics of healthcare data](/industry/healthcare/architecture/data-characteristics)
+
+## Related resources
+
+See additional Azure Architecture Center content that's related to this architecture:
+
+- [Predict hospital readmissions with traditional and ML techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
