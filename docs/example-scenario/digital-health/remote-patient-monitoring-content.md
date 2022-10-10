@@ -94,9 +94,7 @@ Devices and patients need to be defined, linked, and synchronized between the Az
 
 **Microsoft Cloud for HealthCare**
 
-This example workload addresses one way of implementing a solution to address the [Empower health team collaboration](/industry/healthcare/health-team-collaboration#remote-patient-monitoring) capability of the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare). 
-
-The Microsoft Cloud for Healthcare also provides a Remote Patient Monitoring solution. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring/1/1).
+This example workload addresses one way of implementing a solution to help [Empower health team collaboration](/industry/healthcare/health-team-collaboration#remote-patient-monitoring). The [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare) includes a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
 
 ## Scenario details
 
