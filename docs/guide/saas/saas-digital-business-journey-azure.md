@@ -1,8 +1,8 @@
 ---
 title: SaaS digital business journey on Azure
 description: "Build your Software as a Service (Saas). There are links that help you: get started with Azure; build, deploy, and publish your app; and build audience."
-author: mekenthompson
-ms.author: kethomps
+author: nickward13 
+ms.author: nickward
 ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -74,6 +74,20 @@ Accelerate your marketing strategy and innovate your product to drive competitiv
 - Schedule quarterly [Azure Advisor](https://azure.microsoft.com/services/advisor) reviews of cost-saving, performance, and security recommendations.
 - Schedule an annual [cost optimization and well architected framework review](/assessments/?mode=pre-assessment&session=local).
 - Stay up to date with the latest expert guidance from the [Microsoft SaaS Academy](https://www.microsoft.com/en-us/saas-academy/main).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Ken Thompson](https://www.linkedin.com/in/mekenthompson) | Senior Manager of SaaS Architecture
+
+Other contributor:
+
+- [Nick Ward](https://www.linkedin.com/in/nickward13) | Chief Architect of SaaS
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
