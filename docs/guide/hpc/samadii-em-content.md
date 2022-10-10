@@ -30,9 +30,9 @@ The performance tests of Samadii EM on Azure used [NVadsA10_v5](/azure/virtual-m
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install AMD drivers.
+To use AMD processors on [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install AMD drivers.
 
 ## Samadii EM installation
 
