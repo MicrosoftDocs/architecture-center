@@ -1,27 +1,10 @@
-Your development team can use observability patterns and metrics to find bottlenecks and improve the performance of a big data system. Your team has to do load testing of a high-volume stream of metrics on a high-scale application.
-
-This scenario offers guidance for performance tuning. Since the scenario presents a performance challenge for logging per customer, it uses Azure Databricks, which can monitor these items robustly:
-
-- Custom application metrics
-- Streaming query events
-- Application log messages
-
-Azure Databricks can send this monitoring data to different logging services, such as Azure Log Analytics.
-
-This scenario outlines the ingestion of a large set of data that has been grouped by customer and stored in a GZIP archive file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ user interface, so your team needs a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it's important to find an optimal combination executor pool and virtual machine (VM) size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements, so that system throughput doesn't degrade unexpectedly with increasing work volume. The scenario must guarantee that the system meets service-level agreements (SLAs) that are established with your customers.
-
-## Potential use cases
-
-Scenarios that can benefit from this solution include:
-
-- System health monitoring.
-- Performance maintenance.
-- Monitoring day-to-day system usage.
-- Spotting trends that might cause future problems if unaddressed.
+This solution demonstrates observability patterns and metrics to improve the processing performance of a big data system that uses Azure Databricks.
 
 ## Architecture
 
 :::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
+
+### Workflow
 
 The solution involves the following steps:
 
@@ -52,13 +35,44 @@ The solution involves the following steps:
 - [Azure Monitor](/azure/azure-monitor/overview) collects and analyzes app telemetry, such as performance metrics and activity logs.
 - [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview) is a tool used to edit and run log queries with data.
 
+## Scenario details
+
+Your development team can use observability patterns and metrics to find bottlenecks and improve the performance of a big data system. Your team has to do load testing of a high-volume stream of metrics on a high-scale application.
+
+This scenario offers guidance for performance tuning. Since the scenario presents a performance challenge for logging per customer, it uses Azure Databricks, which can monitor these items robustly:
+
+- Custom application metrics
+- Streaming query events
+- Application log messages
+
+Azure Databricks can send this monitoring data to different logging services, such as Azure Log Analytics.
+
+This scenario outlines the ingestion of a large set of data that has been grouped by customer and stored in a GZIP archive file. Detailed logs are unavailable from Azure Databricks outside of the real-time Apache Spark™ user interface, so your team needs a way to store all the data for each customer, and then benchmark and compare. With a large data scenario, it's important to find an optimal combination executor pool and virtual machine (VM) size for the fastest processing time. For this business scenario, the overall application relies on the speed of ingestion and querying requirements, so that system throughput doesn't degrade unexpectedly with increasing work volume. The scenario must guarantee that the system meets service-level agreements (SLAs) that are established with your customers.
+
+### Potential use cases
+
+Scenarios that can benefit from this solution include:
+
+- System health monitoring.
+- Performance maintenance.
+- Monitoring day-to-day system usage.
+- Spotting trends that might cause future problems if unaddressed.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when considering this architecture:
 
 - Azure Databricks can automatically allocate the computing resources necessary for a large job, which avoids problems that other solutions introduce. For example, with [Databricks-optimized autoscaling on Apache Spark](https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html), excessive provisioning may cause the suboptimal use of resources. Or you might not know the number of executors required for a job.
 
 - A queue message in Azure Queue Storage can be up to 64 KB in size. A queue may contain millions of queue messages, up to the total capacity limit of a storage account.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ## Deploy this scenario
 
@@ -89,9 +103,9 @@ The steps to set up performance tuning for a big data system are as follows:
 
     Read more about viewing and running prebuilt and custom queries in the next section.
 
-## Query the logs and metrics in Azure Log Analytics
+### Query the logs and metrics in Azure Log Analytics
 
-### Access prebuilt queries
+#### Access prebuilt queries
 
 The prebuilt query names for retrieving Spark metrics are listed below.
 
@@ -143,7 +157,7 @@ The prebuilt query names for retrieving Spark metrics are listed below.
     :::column-end:::
 :::row-end:::
 
-### Write custom queries
+#### Write custom queries
 
 You can also write your own queries in [Kusto Query Language (KQL)](/azure/data-explorer/kql-quick-reference). Just select the top middle pane, which is editable, and customize the query to meet your needs.
 
@@ -179,7 +193,7 @@ SparkMetric_CL
 | summarize max(memUsed_GB) by tostring(name_s), bin(TimeGenerated, 1m)
 ```
 
-### Query terminology
+#### Query terminology
 
 The following table explains some of the terms that are used when you construct a query of application logs and metrics.
 
@@ -194,7 +208,7 @@ The following table explains some of the terms that are used when you construct 
 
 The following sections contain the typical metrics used in this scenario for monitoring system throughput, Spark job running status, and system resources usage.
 
-#### System throughput
+##### System throughput
 
 | Name | Measurement | Units |
 |------|-------------|-------|
@@ -206,7 +220,7 @@ The following sections contain the typical metrics used in this scenario for mon
 | Task duration | Average finished tasks duration per minute | Duration(s) per minute |
 | Task count | Average number of finished tasks per minute | Number of tasks per minute |
 
-#### Spark job running status
+##### Spark job running status
 
 | Name | Measurement | Units |
 |------|-------------|-------|
@@ -214,7 +228,7 @@ The following sections contain the typical metrics used in this scenario for mon
 | Number of running executors | Number of running executors per minute | Number of running executors |
 | Error trace | All error logs with `Error` level and the corresponding tasks/stage ID (shown in `thread_name_s`) |  |
 
-#### System resources usage
+##### System resources usage
 
 | Name | Measurement | Units |
 |------|-------------|-------|
@@ -227,9 +241,9 @@ Decide how to relate the customer input, which was combined into a GZIP archive 
 
 For more detailed definitions of each metric, see [Visualizations in the dashboards](dashboards.md#visualizations-in-the-dashboards) on this website, or see the [Metrics](http://spark.apache.org/docs/latest/monitoring.html#metrics) section in the Apache Spark documentation.
 
-## Assess performance tuning options
+### Assess performance tuning options
 
-### Baseline definition
+#### Baseline definition
 
 You and your development team should establish a baseline, so that you can compare future states of the application.
 
@@ -259,7 +273,7 @@ In the streaming throughput/batch latency chart above, the orange line represent
 
 Because the processing rate doesn't match the input rate in the graph, look to improve the process rate to cover the input rate fully. One possible reason might be the imbalance of customer data in each partition key that leads to a bottleneck. For a next step and potential solution, take advantage of the scalability of Azure Databricks.
 
-### Partitioning investigation
+#### Partitioning investigation
 
 First, further identify the correct number of scaling executors that you need with Azure Databricks. Apply the rule of thumb of assigning each partition with a dedicated CPU in running executors. For instance, if you have 200 partition keys, the number of CPUs multiplied by the number of executors should equal 200. (For example, eight CPUs combined with 25 executors would be a good match.) With 200 partition keys, each executor can work only on one task, which reduces the chance of a bottleneck.
 
@@ -267,7 +281,7 @@ Because some slow partitions are in this scenario, investigate the high variance
 
 :::image type="content" source="_images/databricks-observability-check-skew.png" alt-text="List of results of a check skew query for performance tuning. The query is used for a partitioning investigation.":::
 
-### Error tracing
+#### Error tracing
 
 Add a dashboard for error tracing so that you can spot customer-specific data failures. In data preprocessing, there are times when files are corrupted, and records within a file don't match the data schema. The following dashboard catches many bad files and bad records.
 
@@ -275,11 +289,11 @@ Add a dashboard for error tracing so that you can spot customer-specific data fa
 
 This dashboard displays the error count, error message, and task ID for debugging. In the message, you can easily trace the error back to the error file. There are several files in error while reading. You review the top timeline and investigate at the specific points in our graph (16:20 and 16:40).
 
-### Other bottlenecks
+#### Other bottlenecks
 
 For more examples and guidance, see [Troubleshoot performance bottlenecks in Azure Databricks](performance-troubleshooting.md).
 
-### Performance tuning assessment summary
+#### Performance tuning assessment summary
 
 For this scenario, these metrics identified the following observations:
 
@@ -299,20 +313,16 @@ To diagnose these issues, you used the following metrics:
 - Task duration (max, mean, min) per stage
 - Error trace (count, message, task ID)
 
-## Pricing
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
-
 ## Next steps
 
-Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).
+- Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).
+- [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
+- [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
+- [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
 
 ## Related resources
 
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
 - [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
 - [Best practices for monitoring cloud applications](../best-practices/monitoring.yml)
-- [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
-- [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
-- [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
 - [Retry pattern](../patterns/retry.yml)

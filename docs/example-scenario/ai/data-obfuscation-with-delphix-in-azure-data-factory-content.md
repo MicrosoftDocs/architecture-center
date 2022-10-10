@@ -166,6 +166,7 @@ Principal authors:
 Other contributors:
 
 - [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) | Senior Content Developer
+- [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) | Senior Program Manager
 - [Doug Smith](https://www.linkedin.com/in/doug-smith-b2324b5/) | Global Practice Director, DevOps, CI/CD
 - [Michael Torok](https://www.linkedin.com/in/michaelatorok/) | Senior Director, Community Management & Experience
 
