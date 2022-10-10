@@ -1,6 +1,20 @@
-title: Deploy <workload name> on an Azure virtual machine
-description: 
-<Short description of the article, including keywords. Should list facts about what the product intends to do along with the targeted industry/business process.>
-<Description must include product name and related use cases but shall refrain from using marketing jargon or campaigning statements. >
-<H1> Deploy <workload name> on a virtual machine
-Make sure the title has all of the appropriate keywords for search.
+### YamlMime:Architecture
+metadata:
+  title: Deploy Samadii EM on an Azure virtual machine
+  description: Find out how the Samadii EM performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Samadii EM on a virtual machine
+summary: Find out how Samadii EM performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/samadii-em-thumbnail.png
+content: |
+  [!include[](samadii-em-content.md)]
