@@ -26,7 +26,7 @@ Azure Cognitive Search has built-in AI and custom skills that improve business p
 
 The following diagram shows a high-level view of how Azure Cognitive Search works, from data ingestion and indexing to making results available to the user.
 
-:::image type="content" source="media/compliance-risk-analysis-diagram-cognitive-search.png" alt-text="Diagram of high-level view of how Azure Cognitive Search work}" lightbox="media/compliance-risk-analysis-diagram-cognitive-search.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-diagram-cognitive-search.png" alt-text="Diagram of high-level view of how Azure Cognitive Search works." lightbox="media/compliance-risk-analysis-diagram-cognitive-search.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
@@ -52,7 +52,7 @@ The following diagram provides a high-level view of the risk analysis solution.
 
 The following illustration provides a conceptual overview of the solution architecture:
 
-:::image type="content" source="media/compliance-risk-analysis-diagram-solution-architecture.png" alt-text="Diagram of the conceptual overview of the solution architecture" lightbox="media/compliance-risk-analysis-diagram-solution-architecture.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-diagram-solution-architecture.png" alt-text="Diagram of the conceptual overview of the solution architecture." lightbox="media/compliance-risk-analysis-diagram-solution-architecture.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
@@ -96,7 +96,7 @@ The development and implementation of an Azure Cognitive Search solution is freq
 
 The first step of an Azure Cognitive Search solution is [creating a service instance in the Azure portal](/azure/search/search-create-service-portal). Besides the search service itself, you need several search assets, including a search index, indexer, data source, and skillset. You can create a baseline configuration with little effort by using the Import data wizard of Azure Cognitive Search, which is in the Azure portal. This wizard, illustrated here, guides the user through the basic steps of creating and loading a simple search index that uses data from an external data source.
 
-:::image type="content" source="media/compliance-risk-analysis-screenshot-import-data-wizard.png" alt-text="Screenshot of the import data wizard" lightbox="media/compliance-risk-analysis-screenshot-import-data-wizard.png" border="true":::
+:::image type="content" source="media/compliance-risk-analysis-screenshot-import-data-wizard.png" alt-text="Screenshot of the import data wizard." lightbox="media/compliance-risk-analysis-screenshot-import-data-wizard.png" border="true":::
 
 The creation of the search index by the Import data wizard has four steps:
 
@@ -165,7 +165,7 @@ For Office 365 customers, [Microsoft Graph Data Connect](/graph/data-connect-con
 > [!NOTE]
 > The use of this mechanism is subject to a [data consent process](/graph/data-connect-concept-overview#granular-data-consent).
 
-:::image type="content" source="media/compliance-risk-analysis-diagram-microsoft-graph-data-connect.png" alt-text="Diagram of Microsoft Graph Data Connect" lightbox="media/compliance-risk-analysis-diagram-microsoft-graph-data-connect.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-diagram-microsoft-graph-data-connect.png" alt-text="Diagram of Microsoft Graph Data Connect." lightbox="media/compliance-risk-analysis-diagram-microsoft-graph-data-connect.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
@@ -326,7 +326,7 @@ After the indexing process is done, the extracted and augmented documents are pe
 
   The following illustration shows an implementation of a knowledge store:
 
-  :::image type="content" source="media/compliance-risk-analysis-diagram-implement-knowledge-store.png" alt-text="Diagram that illustrates how to implement a knowledge store" lightbox="media/compliance-risk-analysis-diagram-implement-knowledge-store.png" border="false":::
+  :::image type="content" source="media/compliance-risk-analysis-diagram-implement-knowledge-store.png" alt-text="Diagram that illustrates how to implement a knowledge store." lightbox="media/compliance-risk-analysis-diagram-implement-knowledge-store.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
@@ -415,7 +415,7 @@ The pipeline of applied AI enrichments is called an [Azure Cognitive Search skil
 
   :::image type="content" source="media/compliance-risk-analysis-screenshot-content-embedded-in-image.png" alt-text="Screenshot of an example of content embedded in an image." lightbox="media/compliance-risk-analysis-screenshot-content-embedded-in-image.png" border="false":::
 
-  All slides of the deck contain only graphics content. To make use of the information, the [OCR cognitive skill](/azure/search/cognitive-search-skill-ocr) is used for emails (it's especially relevant for attachments) and market news documents. This ensures that search queries such as "capital expenditures" in the earlier example find the text from the slide even though the original content isn't machine-readable. Search relevance is improved further by semantic search in cases where where users utilize deviating terms for "capital expenditures" that aren't contained in the text.
+  All slides of the deck contain only graphics content. To make use of the information, the [OCR cognitive skill](/azure/search/cognitive-search-skill-ocr) is used for emails (it's especially relevant for attachments) and market news documents. This ensures that search queries such as "capital expenditures" in the earlier example find the text from the slide even though the original content isn't machine-readable. Search relevance is improved further by semantic search in cases where users utilize deviating terms for "capital expenditures" that aren't contained in the text.
 
 - **Language detection:** In a global organization, support for machine translation is a common requirement. Assuming that the team of compliance analysts prefers to read and communicate consistently in English, for example, the solution needs to be able to translate the content accurately. The [language detection cognitive skill](/azure/search/cognitive-search-skill-language-detection) is used to identify the language of the original document. This information is used to identify whether a translation to the desired target language is required and is also shown in the user interface to indicate the original language to the user.
 
@@ -548,7 +548,7 @@ The URI specifies the web address of the Functions app that gets the following i
 - **text** contains the content in English language.
 - **doc_type** is used to distinguish between transcriptions, emails, and market news—they require different preprocessing steps.
 
-After the Functions app receives the risk scores from the conversational language understanding feature of [Azure Cognitive Service for Language](/products/cognitive-services/language-service/#overview), it returns the consolidated results to Azure Cognitive Search.
+After the Functions app receives the risk scores from the conversational language understanding feature of [Azure Cognitive Service for Language](https://azure.microsoft.com/products/cognitive-services/language-service), it returns the consolidated results to Azure Cognitive Search.
 
 Financial services organizations need a modular approach for flexibly combining existing and new risk models. Therefore, no hard coding of specific models is performed. Instead, **risk_models** is a complex data type that returns details for each risk type (for example, inside trade) including the risk score and the identified sentence with the highest risk score. Compliance and traceability are key concerns for financial services organizations. However, risk models are constantly improved (for example, utilizing new training data), so the predictions for a document can change over time. To ensure traceability, the specific version of the risk model is also returned with each prediction.
 
@@ -619,7 +619,7 @@ In a few steps, the template UI can be configured to connect and query the searc
 
 The following screenshot shows a sample user interface for our risk scenario, created by customizing the Azure Cognitive Search UI template. This UI shows a way to show the search solution by providing an intuitive view of cross channel communications and risk information.
 
-:::image type="content" source="media/compliance-risk-analysis-screenshot-custom-UI-risk-scenario.png" alt-text="Screenshot of a custom user interface created from the Azure Cognitive Search UI template." lightbox="media/compliance-risk-analysis-screenshot-custom-UI-risk-scenario.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-screenshot-custom-ui-risk-scenario.png" alt-text="Screenshot of a custom user interface created from the Azure Cognitive Search UI template." lightbox="media/compliance-risk-analysis-screenshot-custom-ui-risk-scenario.png" border="false":::
 
 The start page provides interaction with the search solution. It empowers the user to search, refine, visualize, and explore results:
 
@@ -639,14 +639,14 @@ A details page is also provided for each document:
 
 The details page provides access to the content of the communication and to enrichments and metadata:
 
-1. The content that was extracted during the document cracking process is displayed. Some files such as PDFs can be viewed directly in the details page.
-1. The results of the custom risk models are summarized.
-1. Top people and organizations that are mentioned in the document are shown in this page.
-1. Additional metadata that was captured during the indexing process can be added and shown in additional tabs of the details page.
+8. The content that was extracted during the document cracking process is displayed. Some files such as PDFs can be viewed directly in the details page.
+9. The results of the custom risk models are summarized.
+10. Top people and organizations that are mentioned in the document are shown in this page.
+11. Additional metadata that was captured during the indexing process can be added and shown in additional tabs of the details page.
 
 If non-English content is ingested, the user can review the content in either the original language or in English. The following example is from the details page of a German document.
 
-:::image type="content" source="media/compliance-risk-analysis-screenshot-english-translation.png" alt-text="Screenshot that shows a translation of German to English" lightbox="media/compliance-risk-analysis-screenshot-english-translation.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-screenshot-english-translation.png" alt-text="Screenshot that shows a translation of German to English." lightbox="media/compliance-risk-analysis-screenshot-english-translation.png" border="false":::
 
 The transcription tab of the details page shows the original content and the translated content side by side. This demonstrates that, during the indexing process, both languages are persisted, allowing both to be consumed by the user interface.
 

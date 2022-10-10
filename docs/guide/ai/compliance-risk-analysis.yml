@@ -20,4 +20,4 @@ name: Compliance risk analysis by using Azure Cognitive Search
 summary: Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.
 thumbnailUrl: /azure/architecture/browse/thumbs/compliance-risk-analysis-diagram-solution-architecture-thumb.png
 content: |
-  [!include[](compliance-risk-analysis-using-azure-cognitive-search-content.md)]
+  [!include[](compliance-risk-analysis-content.md)]

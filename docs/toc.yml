@@ -1151,7 +1151,7 @@ items:
                     href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
                     maintainContext: true
               - name: Compliance risk analysis
-                href: guide/ai/compliance-risk-analysis-using-azure-cognitive-search.yml
+                href: guide/ai/compliance-risk-analysis.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
               - name: Detect mobile bank fraud
@@ -2762,7 +2762,7 @@ items:
               - name: Industry guidance
                 items:
                   - name: Compliance risk analysis
-                    href: guide/ai/compliance-risk-analysis-using-azure-cognitive-search.yml
+                    href: guide/ai/compliance-risk-analysis.yml
                   - name: Enable the financial services risk lifecycle
                     href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
