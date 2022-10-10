@@ -104,7 +104,7 @@ The solution presents two options for triggering an Azure Synapse Analytics pipe
 
 An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline on GitHub that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or Event Grid trigger.
 
-## Potential use cases
+### Potential use cases
 
 The use cases for this solution span many industries and areas:
 
@@ -137,7 +137,7 @@ Here are two specific examples:
 
 The following sections take a closer look at two retail industry use cases.
 
-### Product bundling
+#### Product bundling
 
 To promote the sale of a product, you can sell the product as part of a bundle together with other related products. The objective is to use sales pattern data to develop strategies for bundling a product into packages.
 
@@ -157,7 +157,7 @@ The analysis makes two suggestions for yielding better sales:
 - Bundling the pen and ink-based refill
 - Promoting the bundle in certain areas
 
-### Product promotion
+#### Product promotion
 
 To promote the sale of a product, you can recommend the product to customers who are interested in related products. The objective is to use sales data and customer buying pattern data to develop strategies for recommending a product to customers.
 

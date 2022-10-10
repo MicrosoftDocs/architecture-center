@@ -2,12 +2,180 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-10-03T00:01:16.810Z</updated>
+    <updated>2022-10-10T00:01:18.116Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Enterprise-grade logging on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/logging/enterprise-grade-logging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/logging/enterprise-grade-logging"/>
+        <updated>2022-10-05T19:26:57.000Z</updated>
+        <summary type="html"><![CDATA[See how to achieve enterprise-grade logging with a common logging method that enables end-to-end traceability across different applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy GROMACS on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/gromacs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/gromacs"/>
+        <updated>2022-10-04T18:25:38.000Z</updated>
+        <summary type="html"><![CDATA[Find out how GROMACS molecular dynamics simulation software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Ansys Fluent on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/ansys-fluent</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/ansys-fluent"/>
+        <updated>2022-10-04T18:05:42.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Ansys Fluent on an Azure virtual machine (VM), and find out how Ansys Fluent performs on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy HALO AI on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/indica-labs-halo-ai</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/indica-labs-halo-ai"/>
+        <updated>2022-10-04T16:47:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Indica Labs HALO AI deep learning classifier performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cost management for Kubernetes]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/cost-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/cost-management"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS for Amazon EKS professionals]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes monitoring and logging]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes node and node pool management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure network access to Kubernetes]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/private-clusters"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand networking options to securely access the Kubernetes API server, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Storage options for a Kubernetes cluster]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/storage"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes workload identity and access]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/eks-to-aks/workload-identity"/>
+        <updated>2022-10-03T19:31:22.000Z</updated>
+        <summary type="html"><![CDATA[Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Finance management apps with Azure DB for MySQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql"/>
+        <updated>2022-10-09T08:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for MySQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Finance management apps using Azure Database for PostgreSQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql"/>
+        <updated>2022-10-09T08:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for PostgreSQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Instant broadcasting with serverless code]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture"/>
+        <updated>2022-10-09T08:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Simplify one-to-many real-time communication and updates by using SignalR Service and the serverless code of Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ops automation using Event Grid]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ops-automation-using-event-grid</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ops-automation-using-event-grid"/>
+        <updated>2022-10-09T08:28:00.000Z</updated>
+        <summary type="html"><![CDATA[Event Grid can speed up automation and simplify policy enforcement by covering tasks that range from checking service configurations to filing work items.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Plan deployment for updating Windows VMs in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wsus/index</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wsus/index"/>
+        <updated>2022-10-07T22:29:14.000Z</updated>
+        <summary type="html"><![CDATA[A discussion of how best to configure your environment for Windows Server Update Services (WSUS).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate document processing with Azure Form Recognizer]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/automate-document-processing-azure-form-recognizer</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/automate-document-processing-azure-form-recognizer"/>
+        <updated>2022-10-06T23:56:41.000Z</updated>
+        <summary type="html"><![CDATA[Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent e-commerce product search engine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search"/>
+        <updated>2022-10-06T23:56:41.000Z</updated>
+        <summary type="html"><![CDATA[This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Administer SQL Server with Azure Arc]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server"/>
+        <updated>2022-10-06T23:56:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CI/CD for Azure Web Apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps"/>
+        <updated>2022-10-04T16:07:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a CI/CD pipeline.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy apps on AKS using DevOps and GitOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-with-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-with-aks"/>
+        <updated>2022-10-03T16:02:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build and deploy container applications using Azure Kubernetes Service, DevOps, and GitOps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[E-commerce front end]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-scenario</id>
@@ -97,7 +265,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache SQoop migration to Azure]]></title>
+        <title type="html"><![CDATA[Apache Sqoop migration to Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/hadoop/apache-sqoop-migration</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/hadoop/apache-sqoop-migration"/>
         <updated>2022-09-29T17:35:53.000Z</updated>

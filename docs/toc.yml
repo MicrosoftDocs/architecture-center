@@ -3324,12 +3324,18 @@ items:
                     href: guide/hpc/autodesk-inventor.yml
                   - name: Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: Barracuda Virtual Reactor
+                    href: guide/hpc/barracuda-virtual-reactor.yml
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
                     href: guide/hpc/indica-labs-halo-ai.yml
+                  - name: Luxion KeyShot
+                    href: guide/hpc/luxion-keyshot.yml
                   - name: Samadii DEM
                     href: guide/hpc/samadii-dem.yml
+                  - name: Samadii SCIV
+                    href: guide/hpc/samadii-sciv.yml  
                   - name: Siemens NX
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
@@ -4182,6 +4188,8 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
+                   - name: Enterprise-grade logging on Azure
+                     href: reference-architectures/logging/enterprise-grade-logging.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
@@ -5548,7 +5556,7 @@ items:
                 maintainContext: true
               - name: Azure Firewall guidance
                 items:
-                  - name: Azure Firewall architecture overview
+                  - name: Azure NVA Firewall architecture overview
                     href: example-scenario/firewalls/index.yml
                   - name: Security baseline for Azure Firewall
                     href: /security/benchmark/azure/baselines/firewall-security-baseline
