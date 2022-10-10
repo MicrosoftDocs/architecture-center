@@ -138,7 +138,7 @@ Your policies will probably change over time to accommodate use cases that are i
 - Implement information protection to ensure that sensitive information isn't downloaded without improved protection provided by Azure Information Protection.
 - Provide protection against copy and paste by guests.
   
-Multiple previews are currently going into public preview, so expect updates to the suggested set of CA starter policies soon.
+Multiple previews are currently going into public preview, so expect updates to the suggested set of Conditional Access (CA) starter policies soon.
   
 ## Conditional Access guidance
 
