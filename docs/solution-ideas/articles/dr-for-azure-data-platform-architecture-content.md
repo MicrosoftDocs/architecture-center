@@ -63,7 +63,7 @@ The following tables presents a breakdown of each Azure service and component us
 | Recovery   Services Vault                          | Microsoft                         | Microsoft                               |     Default   (GRS)    | Enabling   Cross Region Restore enabling data restoration in the secondary, paired   region.                          | While   LRS is available, it requires configuration activities off the default   setting                                              |
 | Azure DevOps           | Microsoft                                 | Microsoft                               | DevOps Services       | [DevOps service and data resiliency is part of its SaaS offering](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-# [Stateless services](#tabl/stateless)
+# [Stateless services](#tab/stateless)
 
 |Service/Component|Component Recovery Responsibility|Workload/Config Recovery Responsibility|Contoso SKU selection|DR Uplift Options|Notes|
 |---|---|---|---|---|---|
