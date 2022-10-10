@@ -3736,6 +3736,16 @@ items:
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
+              - name: DR for Azure data platform overview
+                href: solution-ideas/articles/dr-for-azure-data-platform-overview.yml
+              - name: DR for Azure data platform Architecture
+                href: solution-ideas/articles/dr-for-azure-data-platform-architecture.yml
+              - name: DR for Azure data platform Recommendations
+                href: solution-ideas/articles/dr-for-azure-data-platform-recommendations.yml
+              - name: DR for Azure data platform Deploy this scenario
+                href: solution-ideas/articles/dr-for-azure-data-platform-deploy-this-scenario.yml
+              - name: DR for Azure data platform Summary
+                href: solution-ideas/articles/dr-for-azure-data-platform-summary.yml
       - name: DataOps
         items:
           - name: Get started
