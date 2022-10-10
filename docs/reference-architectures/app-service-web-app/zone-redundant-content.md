@@ -1,25 +1,24 @@
-This reference architecture shows how to run a web-app workload on Azure App Services in a zone-redundant configuration. [Zone-redundant services][az-ha-services] provide high-availability by replicating your services and data across availability zones to protect from single points of failure.
+This reference architecture shows how to run a web-app workload on Azure App Services using a zone-redundant configuration. [Zone-redundant services][az-ha-services] provide high availability by replicating your services and data across availability zones to protect against single points of failure.
 
 ## Architecture
 
-![Screenshot of reference architecture for a web app with high availability.](./images/zone-redundant-web-app-diagram.png)
+[ ![Screenshot of reference architecture for a web app with high availability.](./images/zone-redundant-web-app-diagram.png) ](./images/zone-redundant-web-app-diagram.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/zone-redundant-web-app-diagram.vsdx) that contains this architecture diagram.*
 
 ### Workflow
 
-A single-page application (SPA) that runs in a browser requests static assets such as scripts, stylesheets, and media assets.
-Once loaded, the SPA makes API calls that provide functionality.
+A single-page application that runs in a browser requests static assets such as scripts, stylesheets, and media assets. Once loaded, the single-page application makes API calls that provide functionality.
 
 ### Components
 
-* SPA users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
+* The application's users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
 * [Azure Front Door][afd] is a public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several Azure services. Front Door also provides automatic protection from layer 3 and 4 DDoS attacks, and a range of other features including WAF (web application firewall), caching, and custom rules to enhance the security and performance of your application.
-* [Azure Static Web Apps][swa] hosts all of the SPA assets, including scripts, stylesheets, and media.
-* [Azure App Service][app-services] hosts the "front-end" API applications that are called by the SPA. Deployment slots are used to provide zero-downtime releases.
+* [Azure Static Web Apps][swa] hosts all of the application assets, including scripts, stylesheets, and media.
+* [Azure App Service][app-services] hosts the front-end API applications that are called by the app. Deployment slots are used to provide zero-downtime releases.
 * App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend Azure services over a private VNet.
 * [Azure Functions][functions] provides a data access layer for Azure SQL Database. APIs hosted in App Services trigger these functions synchronously via HTTPS requests and asynchronously via Service Bus messages.
-* [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session and general-purpose caching.
+* [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session, and general-purpose caching.
 * [Azure Service Bus][service-bus] acts as an asynchronous high-speed bus between front-end and back-end application services.
 * [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end application services.
 * [Azure SQL DB][sql-db] provides a transactional and relational database for back-end application services.
@@ -32,22 +31,22 @@ Once loaded, the SPA makes API calls that provide functionality.
 
 ### Networking
 
-Private endpoints are used throughout this architecture to improve security. While private endpoints don't directly improve (or reduce) the availability of this solution, they allow important security principals to be applied. For more information about security design principals, see [Azure well architected framework - Security pillar][waf-security].
+Private endpoints are used throughout this architecture to improve security. While private endpoints don't directly improve, or reduce, the availability of this solution, they allow important security principles to be applied. For more information about security design principles, see [Azure well architected framework - Security pillar][waf-security].
 
-Network segmentation boundaries are established along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service.
+Network segmentation boundaries are established along public and private lines. Azure Front Door, Azure Static Web Apps, and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service.
 
-Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. Private DNS zones are linked to each private endpoint (via private DNS zone groups and Virtual network links) to ensure that private link DNS records are automatically created and updated.
+Azure services that don't require access from the public internet have private endpoints enabled and public endpoints disabled. The Azure data services Cosmos DB, SQL DB, Azure Cache for Redis, Cognitive Search, and Storage all have public endpoints disabled. Each private endpoint is deployed into its own subnet. Azure service firewalls are used to only allow traffic from other authorized Azure services. Private DNS zones are linked to each private endpoint, via private DNS zone groups and virtual network links, to ensure that private link DNS records are automatically created and updated.
 
-> For network and subnet topology details, see the [Azure sample template][azuresample] for this architecture.
+For network and subnet topology details, see the [Azure sample template][azure-sample] for this architecture.
 
 ### Alternatives
 
-* Either Azure AD or Azure AD B2C can be used as an IdP (identity provider) in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
-* You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
-* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching isn't required. [Azure DDoS Protection Standard][ddos-standard] is recommended for protecting internet-facing Application Gateway services.
-* Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app will resolve, and public access to the App Service will be rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis].
-* [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
-* A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
+* Either Azure AD or Azure AD B2C can be used as an identity provider in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
+* You can choose to use Azure-managed DNS, which is recommended, or your own DNS provider.
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and when content caching isn't required. [Azure DDoS Protection Standard][ddos-standard] is recommended for protecting internet-facing Application Gateway services.
+* Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app resolve, and public access to the App Service is rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis].
+* [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However, static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
+* A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs, or both. For more information about zone-redundancy in API Manager, see [Availability zone support][apim-zr].
 
 ### Solution details
 
@@ -59,7 +58,7 @@ Zone-redundant Azure services automatically manage and mitigate failures to main
 
 This architecture shows how to combine zone-redundant services into a solution that provides high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits, including:
 
-* **You don't need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
+* **No need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
 * **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
 * **Simplified networking.** All VNet traffic can remain in the same Azure region.
 
@@ -82,8 +81,8 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Azure Front Door is a global service, always available across all Azure geographies and resilient to zone-wide outages and region-wide outages.
 
-* Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
-* Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
+* Use [Azure managed certificates][afd-certs] on all front ends to prevent certificate mis-configuration and expiration issues.
+* Enable [caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
 * Use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 
@@ -91,25 +90,25 @@ For more recommendations and information, see [Best practices for Front Door][af
 
 ### Azure Static Web Apps
 
-Azure Static Web Apps is a global service resilient to zone and region failures. Deploy a Standard plan for production apps. API support and Enterprise-grade edge aren't required for this architecture as Premium Functions and Azure Front Door are used instead. 
+Azure Static Web Apps is a global service resilient to zone and region failures. Deploy a Standard plan for production apps. API support and Enterprise-grade edge aren't required for this architecture as Premium Functions and Azure Front Door are used instead.
 
 ### App Services
 
-[App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and availability zones.
+[App Service Premium v2, Premium v3][app-services-zr], and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and availability zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
-* Implement health check endpoints in your apps and configure the App Service Health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using Health check][appservicehealthchecks]. For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core][healthchecksaspnet].
-* Create auto-scale rules to automatically add more instances to take the load if a zone or instance fails. For more information about auto-scale best practices in Azure, see [Autoscaling][autoscale].
-* Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
+* Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check][appservicehealthchecks]. For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core][healthchecksaspnet].
+* Create auto-scale rules to automatically add more instances to take the load if a zone or instance fails. For more information about autoscale best practices in Azure, see [Autoscaling][autoscale].
+* Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF. For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend Azure services.
 
 ### Azure Functions
 
-[Azure Functions Elastic Premium][functions-zr] offers zone redundancy  when you deploy a minimum of three instances of your plan and opt into zone redundancy.
+[Azure Functions Elastic Premium][functions-zr] offers zone redundancy when you deploy a minimum of three instances of your plan and opt into zone redundancy.
 
 * Deploy a minimum of three instances for zone-redundancy.
-* Enable a Private endpoint and deny access to public endpoint traffic.
-* Enable Virtual Network (VNet) Integration for private networking with backend services.
+* Enable a private endpoint and deny access to public endpoint traffic.
+* Enable VNet Integration for private networking with backend services.
 
 For more information about Private endpoints and VNet integration in Azure Functions, see [Integrate Azure Functions with an Azure virtual network][func-vnet].
 
@@ -119,7 +118,7 @@ For more information about Private endpoints and VNet integration in Azure Funct
 
 * Deploy Azure SQL DB General Purpose, Premium, or Business Critical with zone-redundancy enabled.
 * [Configure SQL DB backups][sql-backups-zr] to use ZRS (zone-redundant storage) or GZRS (geo-zone-redundant storage).
-* [Create a Private link for Azure SQL DB][sql-pep] and disable the public endpoint.
+* [Create a private link for Azure SQL DB][sql-pep] and disable the public endpoint.
 
 ### Cosmos DB
 
@@ -127,7 +126,7 @@ Enable [zone-redundancy in Azure Cosmos DB][cosmos-ha] when selecting a region t
 
 * Enable zone-redundancy when adding the local read/write region to the Azure Cosmos account.
 * [Enable continuous backups][cosmos-backup].
-* [Configure private link for the Cosmos DB account][cosmos-pep]. Enabling the private endpoint will disable the public endpoint.
+* [Configure private link for the Cosmos DB account][cosmos-pep]. Enabling the private endpoint disables the public endpoint.
 
 ### Blob storage
 
@@ -144,7 +143,7 @@ Azure [Zone-Redundant Storage][zrs] (ZRS) replicates your data synchronously acr
 
 * Enable zone-redundancy on a new Azure Service Bus Premium namespace.
 * [Configure private link][sb-pep] for the Azure Service Bus namespace.
-* Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. Adding a rule will disable the public endpoint.
+* Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. Adding a rule disables the public endpoint.
 
 ### Cache for Redis
 
@@ -159,18 +158,18 @@ For more information about private endpoints on Azure Redis Cache, see [Azure Ca
 
 ### Cognitive Search
 
-You can utilize [availability zones with Azure Cognitive Search][cog-search-az] by adding more replicas to your search service. Each replica will be placed in a different availability zone within the region.
+You can utilize [availability zones with Azure Cognitive Search][cog-search-az] by adding more replicas to your search service. Each replica is placed in a different availability zone within the region.
 
 * Deploy a minimum of three replicas for zone-redundancy and maximum availability.
-* [Create a private endpoint for Azure Cognitive Search][cog-search-pep]. Adding a private endpoint will disable the public endpoint.
+* [Create a private endpoint for Azure Cognitive Search][cog-search-pep]. Adding a private endpoint disables the public endpoint.
 
 ### Key Vault
 
-Key Vault is automatically zone-redundant in any region where availability zones are available. The Key Vault used in this architecture is deployed with a private endpoint enabled and public disabled for backend services to access secrets. For more information about Private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link][akv-pep].
+Key Vault is automatically zone-redundant in any region where availability zones are available. The Key Vault used in this architecture is deployed with a private endpoint enabled and public disabled for backend services to access secrets. For more information about private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link][akv-pep].
 
 ### Azure DNS Private Zones
 
-Integrate Private Endpoints with Azure DNS Private Zones to simplify DNS management. For more information, see [Azure Private Endpoint DNS configuration][pep-dns].
+Integrate private endpoints with Azure DNS Private Zones to simplify DNS management. For more information, see [Azure Private Endpoint DNS configuration][pep-dns].
 
 ## Considerations
 
@@ -182,7 +181,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture will provide excellent availability for lower cost and operational overhead than other solutions. However, improvements can always be made. The risk of a zone failure in an Azure region is mitigated by this design. Zone redundant services in Azure are designed to withstand a zone failure while still operating within SLA. 
+This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. However, improvements can always be made. The risk of a zone failure in an Azure region is mitigated by this design. Zone-redundant services in Azure are designed to withstand a zone failure while still operating within SLA.
 
 Region failures are unlikely, but possible. Region failures are where services are unavailable throughout all availability zones in a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
 
@@ -201,9 +200,9 @@ For example, Azure Storage supports [object replication for block blobs][object-
 
 #### Global services
 
-Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs. 
+Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but the impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs.
 
-For example, Front Door service downtime may be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
+For example, Front Door service downtime may be reduced with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
 
 See also this important guidance for increasing resilience to Azure AD failures by [building resilience in identity and access management infrastructure][aad-resilience].
 
@@ -213,8 +212,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 * Private endpoints are used on Azure services that don't need to be accessed from the public internet.
 * Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
-* Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). 
-* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps should be configured to accept HTTPS traffic only, and the minimum TLS version set.
+* Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF.
+* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services, and Azure Static Web Apps should be configured to accept HTTPS traffic only, and the minimum TLS version set.
 * Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
 
 ### Cost optimization
@@ -224,23 +223,23 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Zone-redundant architectures are less expensive than multi-region alternatives because services can be deployed in a single region. However, there are several cost implications that customers should be aware of:
 
 * Some zone-redundant services incur charges for inter-zone bandwidth. For more information, see [Bandwidth pricing][bandwidth-pricing].
-* Some services require a minimum number of instances or replicas to be deployed to achieve zone-redundancy.
-* Zone redundant storage (ZRS) is priced differently to Locally redundant storage (LRS). For more information, see [Storage pricing][storage-pricing].
+* Some services require a minimum number of instances or replicas to be deployed to achieve zone redundancy.
+* Zone-redundant storage (ZRS) is priced differently than locally redundant storage (LRS). For more information, see [Storage pricing][storage-pricing].
 * Private endpoints are mostly available on Premium Azure service SKUs. Private endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
 
 Some cost optimization considerations include:
 
-* Save money when you reserve resources in advance. Several services in this architecture are eligible for Reserved capacity pricing. For more information about Reserved capacity, see [Reservations][reservations].
-* Function Apps can be hosted in the same dedicated App Service Plan as the API Apps. Combining the plans removes the segmentation of frontend and backend services and introduces risk of noisy neighbor effect; backend services could consume resources needed by frontend services, and vice-versa. Hosting Functions in an App Service plans also negates the elasticity benefits the Elastic Premium plan.
+* Save money when you reserve resources in advance. Several services in this architecture are eligible for reserved capacity pricing. For more information about reserved capacity, see [Reservations][reservations].
+* Function Apps can be hosted in the same dedicated App Service Plan as the API Apps. Combining the plans removes the segmentation of front-end and back-end services and introduces risk of noisy neighbor effect. Back-end services could consume resources needed by front-end services, and reverse. Hosting Functions in an App Service plans also negates the elasticity benefits the Elastic Premium plan.
 * Private endpoints can be removed to save costs. Conduct a risk assessment to determine the risk of enabling public endpoints on backend services. Use managed identities and enable service firewalls to provide defense in depth.
 
-> An example bill of materials for this architecture can be viewed in [Azure Pricing Calculator][bom].
+An example bill of materials for this architecture can be viewed in the [Azure pricing calculator][bom].
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-All Azure PaaS (Platform as a Service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
+All Azure PaaS (platform as a service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
 
 * Configure the right amount of log data collection.
 * Create Azure Dashboards for "single pane of glass" views for operations teams.
@@ -249,7 +248,7 @@ All Azure PaaS (Platform as a Service) services are integrated with [Azure Monit
 
 Azure App Services and Azure Functions provide deployment slots. Practice [staged deployments][app-service-staging] for zero-downtime releases.
 
-Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [sample Bicep file][azuresample] is provided for this architecture that can be used to automatically deploy the entire solution.
+Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [sample Bicep file][azure-sample] is provided for this architecture that can be used to automatically deploy the entire solution.
 
 Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
@@ -259,21 +258,21 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture can be highly optimized for performance and scale:
 
-* Develop web apps as Single page applications (SPAs)
-* Host SPAs in Azure Static Web Apps
-* Cache SPA assets in Azure Front Door to distribute workloads to the Azure Microsoft Edge.
+* Develop web apps as single-page applications.
+* Host applications in Azure Static Web Apps.
+* Cache assets in Azure Front Door to distribute workloads to the Azure Microsoft Edge.
 * Use premium services for maximum performance and scale, including App Services Premium and Azure Functions Premium.
 * Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
-* Review [subscription limits and quotas][quotas] to ensure services will scale to demand.
+* Review [subscription limits and quotas][quotas] to ensure that services scale to demand.
 * Configure [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
-* Monitor application performance using [Azure Monitor - Application Insights][insights]
-* Performance-test workloads to measure latency caused by cross-zone connections (if any).
+* Monitor application performance using [Azure Monitor - Application Insights][insights].
+* Performance-test workloads to measure latency caused by cross-zone connections, if any.
 
 ## Deploy this scenario
 
-Deploy this reference architecture using this [Azure sample on GitHub](https://github.com/Azure-Samples/highly-available-zone-redundant-webapp)
+Deploy this reference architecture using this [Azure sample on GitHub][azure-sample].
 
-* Azure AD / Azure AD B2C and Azure DNS aren't deployed by this sample.
+* Azure AD, Azure AD B2C, and Azure DNS aren't deployed by this sample.
 * Custom domain names and TLS/SSL certificates aren't created and configured. Default frontend DNS names are used instead.
 
 ## Contributors
@@ -304,6 +303,7 @@ Other contributors:
 * [Basic web application architecture](./basic-web-app.yml)
 
 <!-- links -->
+[azure-sample]:https://github.com/Azure-Samples/highly-available-zone-redundant-webapp
 [aad]:https://azure.microsoft.com/services/active-directory/
 [aad-b2c]:https://azure.microsoft.com/services/active-directory/external-identities/b2c/
 [afd]:https://azure.microsoft.com/services/frontdoor/
@@ -335,7 +335,7 @@ Other contributors:
 [redis-pep]:/azure/azure-cache-for-redis/cache-private-link
 [cog-search-az]:/azure/search/search-performance-optimization#availability-zones
 [cog-search-pep]:/azure/search/service-create-private-endpoint
-[akv-pep]:https:/azure/key-vault/general/private-link-service
+[akv-pep]:/azure/key-vault/general/private-link-service
 [app-services-zr]:/azure/app-service/how-to-zone-redundancy
 [functions-zr]:/azure/azure-functions/azure-functions-az-redundancy
 [func-vnet]:/azure/azure-functions/functions-create-vnet
@@ -382,5 +382,5 @@ Other contributors:
 [appservicehealthchecks]:/azure/app-service/monitor-instances-health-check
 [healthchecksaspnet]:/aspnet/core/host-and-deploy/health-checks
 [ddos-standard]:/azure/ddos-protection/ddos-protection-overview
-[bicep]:https:/azure/azure-resource-manager/bicep/overview?tabs=bicep
+[bicep]:/azure/azure-resource-manager/bicep/overview?tabs=bicep
 [afd-best-practices]:/azure/frontdoor/best-practices
