@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 10/03/2022
+ms.date: 10/10/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -24,8 +24,32 @@ The following new and updated articles have recently been published in the Azure
 
 ## October 2022
 
+### New articles
+
+- [Enterprise-grade logging on Azure](./reference-architectures/logging/enterprise-grade-logging.yml)
+- [Deploy GROMACS on an Azure virtual machine](./guide/hpc/gromacs.yml)
+- [Deploy Ansys Fluent on an Azure virtual machine](./guide/hpc/ansys-fluent.yml)
+- [Deploy HALO AI on an Azure virtual machine](./guide/hpc/indica-labs-halo-ai.yml)
+- [Cost management for Kubernetes](./aws-professional/eks-to-aks/cost-management.yml)
+- [AKS for Amazon EKS professionals](./aws-professional/eks-to-aks/index.md)
+- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)
+- [Kubernetes node and node pool management](./aws-professional/eks-to-aks/node-pools.yml)
+- [Secure network access to Kubernetes](./aws-professional/eks-to-aks/private-clusters.yml)
+- [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)
+- [Kubernetes workload identity and access](./aws-professional/eks-to-aks/workload-identity.yml)
+
 ### Updated articles
 
+- [Finance management apps with Azure DB for MySQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Finance management apps using Azure Database for PostgreSQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Instant broadcasting with serverless code](./solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Ops automation using Event Grid](./solution-ideas/articles/ops-automation-using-event-grid.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#b2cfbfb58](https://github.com/MicrosoftDocs/architecture-center/commit/b2cfbfb58))
+- [Automate document processing with Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [CI/CD for Azure Web Apps](./solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)  ([#47c08039d](https://github.com/MicrosoftDocs/architecture-center/commit/47c08039d))
+- [Build and deploy apps on AKS using DevOps and GitOps](./example-scenario/apps/devops-with-aks.yml)  ([#73a070014](https://github.com/MicrosoftDocs/architecture-center/commit/73a070014))
 - [E-commerce front end](./example-scenario/apps/ecommerce-scenario.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
 - [Buy online, pick up in store (retail)](./example-scenario/iot/vertical-buy-online-pickup-in-store.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
 - [Reuse recommender systems and algorithms from R with Azure](./industries/retail/recommendation-engine-optimization.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
@@ -42,7 +66,7 @@ The following new and updated articles have recently been published in the Azure
 - [Apache HBase migration to Azure](./guide/hadoop/apache-hbase-migration.yml)
 - [Apache HDFS migration to Azure](./guide/hadoop/apache-hdfs-migration.yml)
 - [Apache Kafka migration to Azure](./guide/hadoop/apache-kafka-migration.yml)
-- [Apache SQoop migration to Azure](./guide/hadoop/apache-sqoop-migration.yml)
+- [Apache Sqoop migration to Azure](./guide/hadoop/apache-sqoop-migration.yml)
 - [Apache Storm migration to Azure](./guide/hadoop/apache-storm-migration.yml)
 - [Hadoop migration to Azure](./guide/hadoop/overview.md)
 - [Deploy Siemens NX on an Azure virtual machine](./guide/hpc/siemens-nx.yml)
