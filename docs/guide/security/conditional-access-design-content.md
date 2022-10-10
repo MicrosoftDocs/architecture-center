@@ -99,13 +99,13 @@ Here are some more detailed principles and recommended practices for Conditional
 - Use block mode for general access only if and where you need to.
 - Ensure that all applications and your platform are protected. Conditional Access has no implicit "deny all."
 - Protect privileged users in all Microsoft 365 role-based access control (RBAC) systems.
-- Require password change and multi-factor authentication for high-risk users and sign-ins (enforced by sign-in requency)
+- Require password change and multi-factor authentication for high-risk users and sign-ins (enforced by sign-in frequency).
 - Restrict access from high-risk devices. Use an Intune compliance policy with a compliance check in Conditional Access.
-- Protect privileged systems, like access to the admininistrator portals for Office 365, Azure, AWS, and GCP.
+- Protect privileged systems, like access to the admininistrator portals for Office 365, Azure, AWS, and Google Cloud.
 - Prevent persistent browser sessions for admins and on untrusted devices.
 - Block legacy authentication.
 - Restrict access from unknown or unsupported device platforms.
-- Require compliant device for access to resources where possible
+- Require compliant device for access to resources, when possible.
 - Restrict strong credential registration.
 - Consider using default session policy that allows sessions to continue if there's an outage, if the appropriate conditions were satisfied before the outage.
 
