@@ -45,8 +45,8 @@ Every company has different requirements and security policies. When you create 
 For example, a company might have these requirements:
 - All access must be protected by at least two factors.
 - No data on unmanaged devices.
-- Require compliant device for access to resources whereever possible
-- Guest user access must be governed by Identity Governance using Access Packages and Access Reviews
+- Require a compliant device for access to resources, whenever possible.
+- Guest user access must be governed by Identity Governance using access packages and access reviews.
 - Access to cloud services must be based on passwordless authentication.
 
 ## Conditional Access guidance
