@@ -144,7 +144,6 @@ Principal author:
 Other contributors:
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- - Mick Bengtson | Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
