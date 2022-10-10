@@ -3,7 +3,7 @@ title: Conditional Access for Zero Trust
 description: An introduction to a design and framework for implementing Zero Trust principles by using Azure AD Conditional Access. 
 author: clajes
 ms.author: clajes
-ms.date: 01/26/2022
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -45,7 +45,8 @@ Every company has different requirements and security policies. When you create 
 For example, a company might have these requirements:
 - All access must be protected by at least two factors.
 - No data on unmanaged devices.
-- No guest access allowed.
+- Require compliant device for access to resources whereever possible
+- Guest user access must be governed by Identity Governance using Access Packages and Access Reviews
 - Access to cloud services must be based on passwordless authentication.
 
 ## Conditional Access guidance
