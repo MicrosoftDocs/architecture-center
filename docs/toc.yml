@@ -3324,14 +3324,20 @@ items:
                     href: guide/hpc/autodesk-inventor.yml
                   - name: Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: Barracuda Virtual Reactor
+                    href: guide/hpc/barracuda-virtual-reactor.yml
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
                     href: guide/hpc/indica-labs-halo-ai.yml
                   - name: Luxion KeyShot
                     href: guide/hpc/luxion-keyshot.yml
+                  - name: Samadii DEM
+                    href: guide/hpc/samadii-dem.yml
                   - name: Samadii Plasma
                     href: guide/hpc/plasma.yml
+                  - name: Samadii SCIV
+                    href: guide/hpc/samadii-sciv.yml  
                   - name: Siemens NX
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
