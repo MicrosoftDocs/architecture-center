@@ -36,10 +36,9 @@ To use AMD processors on [NVadsA10](/azure/virtual-machines/nva10v5-series), [NC
 
 ## Samadii EM installation
 
-Before you install Samadii EM, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+Before you install Samadii EM, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers.
 
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
 For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure]().
 
