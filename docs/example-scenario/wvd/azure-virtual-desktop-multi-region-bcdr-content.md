@@ -129,7 +129,7 @@ For diagnostics and monitoring, use the same Log Analytics workspace for both th
     :::image type="content" source="images/azure-compute-gallery-hires.png" alt-text="Diagram that shows Azure Compute Gallery and Image replicas." lightbox="images/azure-compute-gallery-hires.png":::
     
 - The Azure Compute Gallery is not a global resource, then it is recommended to have at least a secondary gallery in the secondary region. Once you have created in the primary region a Gallery, a VM Image Definition and a VM Image Version, you should create the same three objects also in the secondary region. When creating the VM Image Version, there is the possibility to copy the VM Image Version created in the primary region. To achieve this, from the secondary region, you have to specify the Gallery, the VM Image Definition and VM Image Version used in the primary region, and Azure will copy the image and create a local VM Image Version.
-It is possible to execute this operation using the Azure Portal or AZ CLI command as outlined below:
+It is possible to execute this operation using the Azure portal or AZ CLI command as outlined below:
 
   [Create an image definition and an image version](https://learn.microsoft.com/azure/virtual-machines/image-version)
   
