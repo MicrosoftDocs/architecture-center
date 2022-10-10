@@ -16,6 +16,9 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.pptx) of this architecture.*
 
+> [!NOTE]
+> The architecture described in this article is based on Azure Machine Learning's CLI and Python SDK v1. For more information on the new v2 SDK and CLI, see [What is CLI and SDK v2](/azure/machine-learning/concept-v2).
+
 ### Dataflow
 
 1. Bring together all your structured, unstructured, and semi-structured data (logs, files, and media) into Azure Data Lake Storage Gen2.

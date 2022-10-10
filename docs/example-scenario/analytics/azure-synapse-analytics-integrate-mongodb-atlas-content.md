@@ -45,7 +45,9 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
-- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are logical groupings of activities that you use to work with data. This solution uses a pipeline to copy data from Data Lake Storage into a dedicated SQL pool.
+- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, and load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
+
+- [Mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations in Azure Synapse Analytics. Data flows provide a way for data engineers to develop data transformation logic without writing code. You can run the resulting data flows as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. You can put data flow activities into operation by using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
 - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) provides data warehousing capabilities for data after the data is processed and normalized. This feature of Azure Synapse Analytics was formerly known as SQL Data Warehouse. Dedicated SQL pools make the refined data available to your end users and applications.
 
@@ -61,7 +63,7 @@ MongoDB Atlas serves as the operational data layer of many enterprise applicatio
 
 ### Batch integration
 
-In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Azure Data Factory.
+In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises instances and MongoDB Atlas as a source or sink resource. MongoDB is the only NoSQL database that has source and sink connectors for Azure Synapse Analytics and Data Factory.
 
 With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for specific periods by using a filter in batch mode. Then you can use SQL pools and Apache Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
 
@@ -102,7 +104,7 @@ The solution presents two options for triggering an Azure Synapse Analytics pipe
 
 An Azure Synapse Analytics pipeline propagates the changes to a dedicated SQL pool. The solution provides a *CopyPipeline_mdb_synapse_ded_pool_RTS* pipeline on GitHub that copies the change in the blob from Data Lake Storage to the dedicated SQL pool. This pipeline is triggered by either the storage or Event Grid trigger.
 
-## Potential use cases
+### Potential use cases
 
 The use cases for this solution span many industries and areas:
 
@@ -135,7 +137,7 @@ Here are two specific examples:
 
 The following sections take a closer look at two retail industry use cases.
 
-### Product bundling
+#### Product bundling
 
 To promote the sale of a product, you can sell the product as part of a bundle together with other related products. The objective is to use sales pattern data to develop strategies for bundling a product into packages.
 
@@ -155,7 +157,7 @@ The analysis makes two suggestions for yielding better sales:
 - Bundling the pen and ink-based refill
 - Promoting the bundle in certain areas
 
-### Product promotion
+#### Product promotion
 
 To promote the sale of a product, you can recommend the product to customers who are interested in related products. The objective is to use sales data and customer buying pattern data to develop strategies for recommending a product to customers.
 
