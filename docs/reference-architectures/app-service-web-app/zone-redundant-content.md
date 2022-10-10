@@ -281,11 +281,11 @@ Deploy this reference architecture using this [Azure sample on GitHub][azure-sam
 
 Principal authors:
 
- - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz/) | FastTrack for Azure Customer Engineer
+ - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
  
 Other contributors:
 
- - [John Downs](https://www.linkedin.com/in/john-downs/) | FastTrack for Azure Customer Engineer
+ - [John Downs](https://www.linkedin.com/in/john-downs) | FastTrack for Azure Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
