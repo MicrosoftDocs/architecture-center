@@ -124,6 +124,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 > **SECTION TODOS**
 > - Cost optimization - need to change the calculator link to a shared "saved estimate" [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) link for the final architecture.
 > - determine which 2 of the other 4 sections to complete (reliability, security, ops excellence, perf efficiency)
+> - if we go with security, consider calling out the anonymization of data flowing from AHDS workspace
 > - if we go with performance efficiency, make sure we call out the "near-real-time" nature of this architecture, which implies that the data flow from devices is not real-time.
 
 These considerations address the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
