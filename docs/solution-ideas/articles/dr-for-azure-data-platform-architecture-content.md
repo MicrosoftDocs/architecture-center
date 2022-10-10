@@ -5,7 +5,7 @@ To support this worked example, the fictitious firm “Contoso” will be used w
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure structure, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture).
-![Azure landing zone diagram](../../media/dr-for-azure-analytics-alz-architecture.png)
+![Azure landing zone diagram](../media/dr-for-azure-analytics-alz-architecture.png)
 
 *The numbers in the following descriptions correspond to the preceding diagram above.*
 
@@ -23,7 +23,7 @@ Contoso has implemented the following foundational Azure structure, which is a s
 >Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is Azure Site recovery. Site Recovery will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
 Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs:
-![data platform diagram](../../media/AzureAnalyticsEndToEnd.png)
+![data platform diagram](../media/AzureAnalyticsEndToEnd.png)
 *Contoso's data platform*
 
 Contoso’s Data Platform - Workflow  
