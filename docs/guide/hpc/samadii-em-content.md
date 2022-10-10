@@ -30,7 +30,7 @@ The performance tests of Samadii EM on Azure used [NVadsA10_v5](/azure/virtual-m
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVadsA10_v5](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
 To use AMD processors on [NVadsA10](/azure/virtual-machines/nva10v5-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install AMD drivers.
 
@@ -40,12 +40,20 @@ Before you install Samadii EM, you need to deploy and connect a VM, install an e
 
 For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
-For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
+For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
-<Workload> performance results
-<Give a short intro to how performance was tested>
+The product installation process involves installing a license server, installing Samadii EM, and configuring the license server. For more information about installing Samadii EM, contact [Metariver Technology](https://www.metariver.kr/index.html). 
+
+## Samadii EM performance results
+
+The following table shows information about the operating systems that were used for testing.
+
+||	NCv3| NCasT4_v3|	NVadsA10_v5 |	NC_A100_v4|
+|-|-|-|-|-|
+|Operating system version	|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|	Windows 10, version 20H2|	Windows 10, version 21H2|
+|OS architecture|	x86-64|	x86-64|	x86-64|	x86-64|
+|Processor|	Intel Xeon CPU E5-2690 v4	|AMD EPYC 7V12, 64-core processor, 2.44 GHz|	AMD EPYC 74F3V, (Milan)|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+
 <Results for X>
 <Results for Y etc>
 
