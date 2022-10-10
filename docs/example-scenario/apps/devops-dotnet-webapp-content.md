@@ -107,7 +107,7 @@ Azure DevOps is billed on a per-user per-month basis. There might be more charge
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Rob Bagby](https://www.linkedin.com/in/robbagby) | Principal Architecture Content Lead
 
