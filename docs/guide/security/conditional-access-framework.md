@@ -3,7 +3,7 @@ title: Conditional Access framework and policies
 description: Get a detailed description of a recommended Conditional Access framework and a starting point for policies. 
 author: clajes
 ms.author: clajes
-ms.date: 01/26/2022
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -137,6 +137,8 @@ Your policies will probably change over time to accommodate use cases that are i
 - Implement read-only access to Exchange Online for employees using any unmanaged device based on multi-factor authentication, app protection, and an approved client app.
 - Implement information protection to ensure that sensitive information isn't downloaded without improved protection provided by Azure Information Protection.
 - Provide protection against copy and paste by guests.
+  
+Multiple previews are currently going into public preview, so expect updates to the suggested set of CA starter policies soon.
   
 ## Conditional Access guidance
 
