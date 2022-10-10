@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Distributed hyperparameter tuning for Python ML models
+  description: Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning ML models in Python.
+  author: fboylu
+  ms.author: fboylu
+  ms.date: 10/10/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - azcat-ai
+    - ai-machine-learning
+    - aml-project-improvement
+name: Distributed hyperparameter tuning for Python ML models
+azureCategories:
+  - ai-machine-learning
+summary: Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning ML models in Python.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-machine-learning
+  - azure-storage
+  - azure-data-science-vm
+thumbnailUrl: /azure/architecture/browse/thumbs/tune-hyperparameters.png
+content: |
+  [!include[](training-python-models-content.md)]
