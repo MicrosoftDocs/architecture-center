@@ -40,7 +40,7 @@ Before you install Samadii EM, you need to deploy and connect a VM, install an e
 
 For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
-For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure]().
+For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
 
 <Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
 <Should not list any ordered steps of installation.> 
