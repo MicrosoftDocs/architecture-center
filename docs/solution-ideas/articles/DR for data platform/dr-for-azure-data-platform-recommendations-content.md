@@ -5,18 +5,18 @@
 1. Ensure all the parties involved understand the difference between High Availability and Disaster Recovery: a common pitfall is to confuse the two concepts and mismatch the solutions associated with them 
 1. Discuss with the business stakeholders about their expectations regarding the following aspects to define the Recovery Point Objectives (RPO) and Recovery Time Objectives (RTO):
     1. How much downtime they can tolerate, keeping in mind that usually, the faster the recovery, the higher the cost
-    1. The type of incidents they want to be protected from, mentioning the related likelihood of such event i.e. the probability of a server going down is higher than a natural disaster that impacts all the datacentres across a region
+    1. The type of incidents they want to be protected from, mentioning the related likelihood of such event i.e. the probability of a server going down is higher than a natural disaster that impacts all the datacenters across a region
     1. What impact does the system being unavailable has on their business?
     1. The OPEX budget for the solution moving forward
 1. Consider what degraded service options your end-users can accept. These may include:
-    1. Still having access to visualisation dashboards even without the most up-to-date data i.e. if the ingestion pipelines don't work, your end-users will still have access to their data
+    1. Still having access to visualization dashboards even without the most up-to-date data i.e. if the ingestion pipelines don't work, your end-users will still have access to their data
     1. Having read access but no write access
 1. Your target RTO and RPO metrics can define what disaster recovery strategy you choose to implement:
     1. Active/Active
     1. Active/Passive
     1. Active/Redeploy on disaster
     1. Rely on Microsoft's SLA
-1. Ensure you understand all the componenets that might impact the availability of your systems, such as:
+1. Ensure you understand all the components that might impact the availability of your systems, such as:
     1. Identity management
     1. Networking topology
     1. Secret/key management
@@ -77,7 +77,7 @@ While the end-to-end simulation of a DR event will be difficult across a modern 
 
 - **Relying on Microsoft to do it all**
 Within the Microsoft Azure services, there is a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
-![Shared Responsibility diagram](shared_responsibility_diagram)
+![Shared Responsibility diagram](../../media/shared-responsibility-model.png)
 Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy
@@ -85,7 +85,7 @@ Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, t
 ### Disaster event scope
 
 Different events will have a different scope of impact and, therefore, a different response. The following diagram illustrates this for a disaster event:
-![Event scope and recovery process diagram](event_scope_diagram)
+![Event scope and recovery process diagram](../../media/dr-for-azure-data-platform-event-scope.png)
 
 ### Disaster strategy options
 
@@ -104,7 +104,7 @@ While the operating cost attributed to the higher levels of service resiliency o
 
 The DR scenario for this worked example is a complete Azure regional outage that directly impacts the primary region which hosts the Contoso Data Platform. 
 For this outage scenario, the relative impact on the four high-level DR Strategies are:
-![DR Strategy Impacts art](dr_strategy_art)
+![DR Strategy Impacts art](../../media/dr-for-azure-data-platform-strategy.png)
 
 *Classification Key*
 
