@@ -49,7 +49,7 @@ Azure Web Apps offer numerous benefits that include:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principle author:
+Principal author:
 
 - [Sarah Dutkiewicz](https://www.linkedin.com/in/sadukie) | Principal Consultant
 

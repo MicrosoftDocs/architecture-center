@@ -3328,6 +3328,8 @@ items:
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
                     href: guide/hpc/indica-labs-halo-ai.yml
+                  - name: Luxion KeyShot
+                    href: guide/hpc/luxion-keyshot.yml
                   - name: OpenFOAM
                     href: guide/hpc/openfoam.yml
                   - name: Siemens NX
@@ -5550,7 +5552,7 @@ items:
                 maintainContext: true
               - name: Azure Firewall guidance
                 items:
-                  - name: Azure Firewall architecture overview
+                  - name: Azure NVA Firewall architecture overview
                     href: example-scenario/firewalls/index.yml
                   - name: Security baseline for Azure Firewall
                     href: /security/benchmark/azure/baselines/firewall-security-baseline
