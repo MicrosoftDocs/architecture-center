@@ -6263,6 +6263,8 @@ items:
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
+              - name: Highly available zone-redundant web app
+                href: reference-architectures/app-service-web-app/zone-redundant.yml
               - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Improved access to multitenant web apps
