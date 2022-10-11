@@ -123,7 +123,6 @@ Principal authors:
 
 Technologies and resources that are related to implementing this architecture:
 
-- [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
 - Try the available quickstarts and tutorials for the Azure services mentioned in this architecture:
   - [Azure Data Factory](/azure/data-factory/quickstart-get-started)
   - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-integrate-with-services-tutorials)
@@ -139,4 +138,5 @@ Technologies and resources that are related to implementing this architecture:
 
 See additional Azure Architecture Center content that's related to this architecture:
 
+- [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
 - [Predict hospital readmissions with traditional and ML techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
