@@ -187,15 +187,26 @@ Principal authors:
 
 ## Next steps
 
-> [!NOTE]
-> **SECTION TODOS**
-> - add links to other articles that would be next in sequence: Docs and Learn articles, third-party documentation
+Technologies and resources that are relevant to implementing this architecture:
 
-- [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare)
-- [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)
+- Try the available quickstarts and tutorials for the components mentioned in this architecture:
+  - [Azure Event Hubs](/azure/event-hubs/event-hubs-create)
+  - [Azure Healthcare Data Services](/azure/healthcare-apis/get-started-with-health-data-services) resource and related components:
+    - [AHDS workspace](/azure/healthcare-apis/healthcare-apis-quickstart)
+    - [MedTech service](/azure/healthcare-apis/iot/get-started-with-iot)
+    - [FHIR Service](/azure/healthcare-apis/fhir/get-started-with-fhir)
+    - [Azure Event Grid](/azure/healthcare-apis/events/events-deploy-portal)
+  - [Azure Data Lake Storage and data analysis using Azure services](/azure/storage/blobs/data-lake-storage-integrate-with-services-tutorials)
+  - [Azure Synapse Analytics serverless SQL pools](/azure/synapse-analytics/quickstart-serverless-sql-pool)
+  - [SQL Server Management Studio](/sql/ssms/quickstarts/ssms-connect-query-sql-server)
+  - [Power BI](/power-bi/fundamentals/desktop-getting-started)
+  
+- [Microsoft Cloud for Healthcare](/industry/healthcare/) resources:
+   - Learn about [Data management considerations](/industry/healthcare/data-management)
+   - Try one of the [Data management solutions](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare#) available in the Microsoft Cloud Solution Center
+   - Review the available reference architectures, including [Characteristics of healthcare data](/industry/healthcare/architecture/data-characteristics)
 
 ## Related resources
 
-> [!NOTE]
-> **SECTION TODOS**
-> - add links to related healthcare related content and example workloads
+- [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)
+- Review the [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
