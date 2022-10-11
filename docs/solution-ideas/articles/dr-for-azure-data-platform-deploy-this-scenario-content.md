@@ -59,7 +59,7 @@ For a “Redeploy on Disaster” strategy, the following high-level process flow
 - This step is a prerequisite to the recovery of the data platform 
 - This would be completed by the various Contoso Operational Support groups responsible for the Enterprise shared services, operational source systems, etc
 
-1. **Recover Azure services**
+2. **Recover Azure services**
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
 ![Recover Azure services art](../media/dr-for-azure-data-platform-recover-azure.png)
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
@@ -67,7 +67,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 - This step is a prerequisite to the recovery of data platform
 - This would be completed by Microsoft and other PaaS/SaaS partners
 
-1. **Recover the Data Platform Foundation**  
+3. **Recover the Data Platform Foundation**  
 ![Recover Platform Foundations art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
 
 - This is the entry point for the Platform recovery activities
@@ -82,13 +82,13 @@ Azure Services refers to the applications and services that make the Azure Cloud
     - This handover should include confirmation of the current timestamp of the data/processes
     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this i.e. inbound/outbound flows
 
-1. **Recover the Individual Solutions Hosted by the Platform**  
+4. **Recover the Individual Solutions Hosted by the Platform**  
 ![Individual Solution Recovery art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
 - Each individual solution should have its own DR runbook. This should at least contain the nominated business stakeholders who will test/signoff that DR has been completed
 - Depending on resource contention or priority, key solutions/workloads may be prioritized over others i.e. core enterprise processes over ad hoc labs
 - Once the validation steps have been completed, there is a handover to the downstream solutions to start their DR recovery process
 
-1. **Handover to Downstream, Dependent Systems**
+5. **Handover to Downstream, Dependent Systems**
 ![Dependant Services art](../media/dr-for-azure-data-platform-recover-dependent-services.png)
 
 - Once the Dependent services have been recovered, this brings the E2E DR recovery process to an end
@@ -96,7 +96,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 >[!NOTE]
 >While it is theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
 
-1.    **Fallback to the Primary Region**
+6.    **Fallback to the Primary Region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it is available for BAU.  
 
 Depending on the nature of the source systems and various data processes, fallback of the data platform could be done independently of other parts of the data eco-system.  
