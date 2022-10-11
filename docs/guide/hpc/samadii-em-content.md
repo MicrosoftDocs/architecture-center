@@ -4,7 +4,7 @@ Samadii EM (electromagnetic) analyzes the electromagnetic field in three-dimensi
 
 The application provides a multi-physics solution to complex electromagnetic problems. It can analyze problems in electrostatic fields, AC electromagnetic fields, and electromagnetic wave fields.
 
-Samadii EM is used in wireless communications and by manufacturers of radar, motors, semiconductors, and display devices.
+Samadii EM is used in wireless communications and by manufacturers of radar devices, motors, semiconductors, and display devices.
 
 ## Why deploy Samadii EM on Azure?
 
@@ -54,7 +54,7 @@ Before you install Samadii EM, you need to deploy and connect a VM, install an e
 
 For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
-For information about deploying the VM and installing the drivers, see one [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 The product installation process involves installing a license server, installing Samadii EM, and configuring the license server. For more information about installing Samadii EM, contact [Metariver Technology](https://www.metariver.kr/index.html). 
 
@@ -69,7 +69,7 @@ The nonlinear current model was used for testing:
 
 The following table shows the test results.
 
-|VM / processor|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
+|VM/processor|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
 |-|-|-|-|-|
 |Intel i7-3770 CPU|	-|	-|	4,471|	1.00|
 |NVadsA10_v5	|NVIDIA A10	|1/6	|17,181	|0.26|
@@ -105,7 +105,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Samadii EM was successfully tested on NCv3, NCasT4_v3, NC_A100_v4, and NVadsA10_v5 VMs.
-- For complex models, NC_A100_v4, NCv3, and NCasT4_v3 VMs, and the one-GPU configuration of the NVadsA10_v5 VM all perform better than the NVadsA10_v5 VM with partial GPUs.
+- For complex models, NC_A100_v4, NCv3, and NCasT4_v3 VMs, and the one-GPU configuration of the NVadsA10_v5 VM, all perform better than the NVadsA10_v5 VM with partial GPUs.
 - For models that are less complex, configurations of NC_A100_v4 and NVadsA10_v5 VMs, including configurations that use partial GPUs, perform better than NCasT4_v3 and NCv3 VMs.
 - If we take cost into consideration, NCasT4_v3 is the best choice.
 
