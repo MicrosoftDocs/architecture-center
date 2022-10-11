@@ -34,7 +34,7 @@ architecture.*
 
 The performance tests of Samadii EM on Azure used [NVadsA10_v5](/azure/virtual-machines/nva10v5-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows 10.
 
-The following table shows information about the operating systems that were used for testing.
+The following table shows information about the operating systems that were used for testing:
 
 ||	NCv3| NCasT4_v3|	NVadsA10_v5 |	NC_A100_v4|
 |-|-|-|-|-|
@@ -67,11 +67,17 @@ The nonlinear current model was used for testing:
 - **Model size:** 219,398
 - **Solver:** Samadii EM V21 V22 R1
 
-The following table shows the test results.
+To get a baseline, this model was tested on an on-premises VM with the following configuration:
+
+|Processor| 	GPU| 	Elapsed time (seconds)|
+|-|-|-|
+|Intel i7-3770 CPU|	NVIDIA Titan X (Pascal)	|		4,471|
+
+
+The following table shows the relative speed increases over this baseline:
 
 |VM/processor|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
 |-|-|-|-|-|
-|Intel i7-3770 CPU|	-|	-|	4,471|	1.00|
 |NVadsA10_v5	|NVIDIA A10	|1/6	|17,181	|0.26|
 |NVadsA10_v5	|NVIDIA A10|			1/3|	9,350|	0.48|
 |NVadsA10_v5	|NVIDIA A10	|		1/2|	6,743|	0.66|
