@@ -188,7 +188,7 @@ items:
                   - name: PostgreSQL options
                     href: /azure/postgresql/single-server/overview-postgres-choose-server-options
                     maintainContext: true
-                  - name: Database transfer options
+                  - name: Data transfer options
                     href: data-guide/scenarios/data-transfer.md
                   - name: Choose an API in Cosmos DB
                     href: /azure/cosmos-db/choose-api
