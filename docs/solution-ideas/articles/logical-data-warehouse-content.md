@@ -53,7 +53,7 @@ The LDW with Synapse Serverless SQL can be considered an implementation of the [
 
 However, Databricks SQL will lack the HTAP capability that Synapse Link offers with Cosmos DB. Synapse Serverless SQL also offers a familiar environnement for SQL Server administrators and developers. For example, see an example below of SQL Server Management Studio (SSMS) connected to a Synapse Serverless SQL pool.
 
-:::image type="content" source="../media/logical-data-warehouse-ssms-connect.png" alt-text="SQL Server Management Studio connected to the Synapse On-demand SQL Server endpoint. In Object explorer, Databases is expanded with a database named Gold. There are several Fact and Dim views seen in the Gold database." lightbox="../media/logical-data-warehouse-ssms-connect.png.png":::
+:::image type="content" source="../media/logical-data-warehouse-ssms-connect.png" alt-text="SQL Server Management Studio connected to the Synapse On-demand SQL Server endpoint. In Object explorer, Databases is expanded with a database named Gold. There are several Fact and Dim views seen in the Gold database." lightbox="../media/logical-data-warehouse-ssms-connect.png":::
 
 ## Next Steps
 
