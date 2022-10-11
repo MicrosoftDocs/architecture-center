@@ -96,7 +96,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 >[!NOTE]
 >While it is theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
 
-6.    **Fallback to the Primary Region**
+6. **Fallback to the Primary Region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it is available for BAU.  
 
 Depending on the nature of the source systems and various data processes, fallback of the data platform could be done independently of other parts of the data eco-system.  
