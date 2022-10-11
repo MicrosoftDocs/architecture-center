@@ -76,7 +76,7 @@ To get a baseline, this model was tested on an on-premises VM with the following
 
 The following table shows the relative speed increases over this baseline:
 
-|VM/processor|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
+|VM|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
 |-|-|-|-|-|
 |NVadsA10_v5	|NVIDIA A10	|1/6	|17,181	|0.26|
 |NVadsA10_v5	|NVIDIA A10|			1/3|	9,350|	0.48|
