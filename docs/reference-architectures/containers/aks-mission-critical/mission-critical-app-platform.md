@@ -184,7 +184,7 @@ For other considerations on secret management, see [Misson-critical guidance in 
 
 ### Event Hubs
 
-As mentioned earlier, for use cases that require additional message guarantees, [Azure Service Bus](/azure/service-bus-messaging/) is recommended. It is reasonable for a given architecture to make use of both Azure Event Hubs and Azure Service Bus.
+As mentioned earlier, for use cases that require additional message guarantees, [Azure Service Bus](/azure/service-bus-messaging/) is recommended. It is reasonable for a given architecture to make use of both Azure Event Hubs and Azure Service Bus. See the [Design Considerations below](#design-considerations-4) for more guidance about which service to use for which use cases.
 
 The only stateful service in the stamp is the message broker, Azure Event Hubs, which stores requests for a short period. The broker serves the **need for buffering and reliable messaging**. The processed requests are persisted in the global database.
 
