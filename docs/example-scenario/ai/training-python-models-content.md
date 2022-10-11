@@ -102,6 +102,16 @@ You can use GPU-enabled compute nodes, such as Standard_NC6s_v3, for deep learni
 
 While adding more nodes can significantly speed up run time, increased start-up times typically add several minutes of overhead. Choose a configuration with appropriate compute capacity to minimize runtime vs unit costs and start-up times.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Ashish Chauhan](https://www.linkedin.com/in/ashishrchauhan) | Sr Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Hyperparameter tuning a model](/azure/machine-learning/how-to-tune-hyperparameters)
