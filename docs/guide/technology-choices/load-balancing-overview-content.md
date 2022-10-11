@@ -45,7 +45,7 @@ Here are the main load-balancing services currently available in Azure:
 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
 > [!NOTE]
-> Azure Load Balancer support for cross-region load balancing is in preview. For more information, see [Cross-region load balancer](azure/load-balancer/cross-region-overview).
+> Azure Load Balancer support for cross-region load balancing is in preview. For more information, see [Cross-region load balancer](/azure/load-balancer/cross-region-overview).
 
 ## Choose a load balancing solution using Azure portal
 
