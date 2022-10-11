@@ -54,21 +54,21 @@ Once this process has been completed, technical and business SME validation can 
 For a “Redeploy on Disaster” strategy, the following high-level process flow can be described.
 
 1. **Recover Contoso – Enterprise Shared Services and source systems**  
-![Recover Contoso art](recover_contoso_art)
+![Recover Contoso art](../media/dr-for-azure-data-platform-recover-contoso.png)
 
 - This step is a prerequisite to the recovery of the data platform 
 - This would be completed by the various Contoso Operational Support groups responsible for the Enterprise shared services, operational source systems, etc
 
 1. **Recover Azure services**
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
-![Recover Azure services art](recover_azure_art)
+![Recover Azure services art](../media/dr-for-azure-data-platform-recover-azure.png)
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
 
 - This step is a prerequisite to the recovery of data platform
 - This would be completed by Microsoft and other PaaS/SaaS partners
 
 1. **Recover the Data Platform Foundation**  
-![Recover Platform Foundations art](recover_platform_foundations_art)
+![Recover Platform Foundations art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
 
 - This is the entry point for the Platform recovery activities
 - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
@@ -83,13 +83,13 @@ Azure Services refers to the applications and services that make the Azure Cloud
     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this i.e. inbound/outbound flows
 
 1. **Recover the Individual Solutions Hosted by the Platform**  
-![Individual Solution Recovery art](individual_solution_art)
+![Individual Solution Recovery art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
 - Each individual solution should have its own DR runbook. This should at least contain the nominated business stakeholders who will test/signoff that DR has been completed
 - Depending on resource contention or priority, key solutions/workloads may be prioritized over others i.e. core enterprise processes over ad hoc labs
 - Once the validation steps have been completed, there is a handover to the downstream solutions to start their DR recovery process
 
 1. **Handover to Downstream, Dependent Systems**
-![Dependant Services art](dependant_services_art)
+![Dependant Services art](../media/dr-for-azure-data-platform-recover-dependent-services.png)
 
 - Once the Dependent services have been recovered, this brings the E2E DR recovery process to an end
 
@@ -103,9 +103,9 @@ Depending on the nature of the source systems and various data processes, fallba
 
 Customers are advised to review their own data platform’s dependencies (both upstream and downstream) to make the appropriate decision. The following section assumes an independent recovery of the data platform.
 
-- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate theis Microsoft recovery 
+- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery 
 - Component/Service configuration would be validated. Deltas would be addressed via redeployment from source control
-- The system datea in the primary region would be established across stateful components. The delta between this and date/timestamp in the secondary region should be addressed by re-executing or replaying the data ingestion processes from that point forward
+- The system date in the primary region would be established across stateful components. The delta between this and date/timestamp in the secondary region should be addressed by re-executing or replaying the data ingestion processes from that point forward
 - With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, during a lull in system activity and process
 - During the fallback, the primary region would be brought into sync with the secondary region, before the system was switched over
 - After a period of a parallel run, the secondary region would be taken offline from the system
@@ -163,7 +163,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
 - Technical Recovery - Post requisites
     - Confirm the current date timestamp of the system across key components
     - Confirm the DR system URL’s & IP’s
-    - Prepare for the Business Stakeholder review process, including confirmation of systems access and the business SME’s completing the validation and signoff
+    - Prepare for the Business Stakeholder review process, including confirmation of systems access and the business SME’s completing the validation and sign-off
 - Business Stakeholder Review and Approval
     - Business resource contact details
     - The Business validation steps as per the technical recovery above
@@ -226,3 +226,16 @@ There is strong guidance for:
 - [Executing a DR failover to a Secondary Region](/azure/site-recovery/azure-to-azure-tutorial-failover-failback)
 - [Executing a DR fallback to the Primary Region](/azure/site-recovery/azure-to-azure-tutorial-failback)
 - [Enabling automation of a DR Plan](/azure/site-recovery/site-recovery-runbook-automation)
+
+## Related resources
+
+- [Architecting for resiliency and availability](azure/architecture/reliability/architect)
+- [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)
+- [Backup and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
+    - [Recover from the loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region)
+- [Resiliency in Azure](/azure/availability-zones/overview)
+    - [Business continuity management in Azure](/azure/availability-zones/business-continuity-management-program)
+- [Service Level Agreements Summary](https://azure.microsoft.com/en-us/support/legal/sla/summary/)
+    - [Azure Status](https://status.azure.com/en-us/status)
+    - [Azure DevOps Status](https://status.dev.azure.com/)
+- [Five Best Practices to Anticipate Failure](https://techcommunity.microsoft.com/t5/azure-architecture-blog/five-best-practices-to-anticipate-failure/ba-p/3314035)
