@@ -1,4 +1,4 @@
-This article describes distributed hyperparameter tuning for Python machine learning (ML) models. Hyperparameters are adjustable parameters that control the ML model training process. ML model performance depends heavily on hyperparameters.
+This article describes distributed hyperparameter tuning for Python machine learning models. Hyperparameters are adjustable parameters that control the machine learning model training process. Machine learning model performance depends heavily on hyperparameters.
 
 Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that produce the best model training performance. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can help automate and distribute hyperparameter tuning.
 
@@ -28,9 +28,9 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides a massively scalable and secure data lake for high-performance analytics workloads.
 
-- [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines) (DSVM) offers Windows Server and Linux virtual machine (VM) images configured with data analytics and ML tools. The scenarios in this article use Ubuntu Linux DSVMs.
+- [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines) (DSVM) offers Windows Server and Linux virtual machine (VM) images configured with data analytics and machine learning tools. The scenarios in this article use Ubuntu Linux DSVMs.
 
-- [Machine Learning](https://azure.microsoft.com/products/machine-learning/#product-overview) trains, tests, deploys, automates, and manages ML and AI models at cloud scale. [Machine Learning managed compute](/azure/machine-learning/service/concept-compute-target#azure-machine-learning-compute-managed) allocates [compute target](/azure/machine-learning/concept-compute-target) nodes on demand, based on an automatic [scaling](/azure/virtual-machine-scale-sets/overview) option. Each compute node is a VM that runs a training job for a particular hyperparameter set.
+- [Machine Learning](https://azure.microsoft.com/products/machine-learning/#product-overview) trains, tests, deploys, automates, and manages machine learning and AI models at cloud scale. [Machine Learning managed compute](/azure/machine-learning/service/concept-compute-target#azure-machine-learning-compute-managed) allocates [compute target](/azure/machine-learning/concept-compute-target) nodes on demand, based on an automatic [scaling](/azure/virtual-machine-scale-sets/overview) option. Each compute node is a VM that runs a training job for a particular hyperparameter set.
 
 - [Container Registry](https://azure.microsoft.com/products/container-registry) stores images for Docker container deployments. In this workload, containers on each compute node run Python training scripts they pull from Container Registry.
 
@@ -40,7 +40,7 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 ## Scenario details
 
-Adjustable training parameters or hyperparameters control the ML model training process. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
+Adjustable training parameters or hyperparameters control the machine learning model training process. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
 
 The hyperparameter tuning or optimization process is typically manual, computationally expensive, and time consuming. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can automate hyperparameter tuning and let you run experiments in parallel to efficiently tune hyperparameters.
 
@@ -54,7 +54,7 @@ This scenario uses grid sampling, a hyperparameter tuning technique that does a 
 
 ### Out-of-stock detection scenario
 
-This scenario tunes an object detection model deployed as a web service to help predict empty store shelf space. The model uses images of store shelves filled with products, and combines empty space predictions with other information sources, such as planograms and databases, to detect out of stock products. This model uses a dataset distributed under the CC-BY 4.0 license and covers only empty space prediction.
+This scenario tunes an object detection model deployed as a web service to help detect out of stock products on store shelves. The model uses images of store shelves filled with products to predict empty spaces, and combines empty space predictions with other information sources, such as planograms and databases. This model uses a dataset distributed under the CC-BY 4.0 license and covers only empty space prediction.
 
 You can distribute hyperparameter tuning in neural networks by configuring multiple sets of hyperparameters, like number of hidden layers and learning rate, and running them on GPU-enabled compute clusters in parallel. For more information about state-of-the-art object detection algorithms, see [A Survey of Modern Deep Learning-based Object Detection Models](https://arxiv.org/abs/2104.11892).
 
