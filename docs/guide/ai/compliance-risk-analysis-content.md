@@ -619,7 +619,7 @@ In a few steps, the template UI can be configured to connect and query the searc
 
 The following screenshot shows a sample user interface for our risk scenario, created by customizing the Azure Cognitive Search UI template. This UI shows a way to show the search solution by providing an intuitive view of cross channel communications and risk information.
 
-:::image type="content" source="media/compliance-risk-analysis-screenshot-custom-ui-risk-scenario.png" alt-text="Screenshot of a custom user interface created from the Azure Cognitive Search UI template." lightbox="media/compliance-risk-analysis-screenshot-custom-ui-risk-scenario.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-screenshot-custom-risk-scenario.png" alt-text="Screenshot of a custom user interface created from the Azure Cognitive Search UI template." lightbox="media/compliance-risk-analysis-screenshot-custom-risk-scenario.png" border="false":::
 
 The start page provides interaction with the search solution. It empowers the user to search, refine, visualize, and explore results:
 
@@ -644,15 +644,11 @@ The details page provides access to the content of the communication and to enri
 10. Top people and organizations that are mentioned in the document are shown in this page.
 11. Additional metadata that was captured during the indexing process can be added and shown in additional tabs of the details page.
 
-If non-English content is ingested, the user can review the content in either the original language or in English. The following example is from the details page of a German document.
-
-:::image type="content" source="media/compliance-risk-analysis-screenshot-english-translation.png" alt-text="Screenshot that shows a translation of German to English." lightbox="media/compliance-risk-analysis-screenshot-english-translation.png" border="false":::
-
-The transcription tab of the details page shows the original content and the translated content side by side. This demonstrates that, during the indexing process, both languages are persisted, allowing both to be consumed by the user interface.
+If non-English content is ingested, the user can review the content in either the original language or in English. The **Transcript** tab of the details page shows the original content and the translated content side by side. This demonstrates that, during the indexing process, both languages are persisted, allowing both to be consumed by the user interface.
 
 Finally, the user can do semantic searches. The next example shows the top result where the expression "how were capex" (short for "how did capital expenditures develop in the reporting quarter?") was searched by using semantic search.
 
-:::image type="content" source="media/compliance-risk-analysis-screenshot-sample-ui-semantic-search.png" alt-text="Screenshot of a sample UI for a user to enable semantic search." lightbox="media/compliance-risk-analysis-screenshot-sample-ui-semantic-search.png" border="false":::
+:::image type="content" source="media/compliance-risk-analysis-screenshot-semantic-search.png" alt-text="Screenshot of a sample UI for a user to enable semantic search." lightbox="media/compliance-risk-analysis-screenshot-semantic-search.png" border="false":::
 
 An equivalent search in full-text mode results in the search query searching for an exact match for "capex", which does not appear in the document. The semantic capability, however, makes it possible for the query engine to identify that "capex" relates to "capital expenditures", so that this communication is identified as the most relevant. Moreover, semantic search generates semantic highlights (12), summarizing the document with the most relevant sentences.
 
