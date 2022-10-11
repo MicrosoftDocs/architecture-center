@@ -3336,6 +3336,8 @@ items:
                     href: guide/hpc/openfoam.yml
                   - name: Samadii DEM
                     href: guide/hpc/samadii-dem.yml
+                  - name: Samadii EM
+                    href: guide/hpc/samadii-em.yml                  
                   - name: Samadii Plasma
                     href: guide/hpc/plasma.yml
                   - name: Samadii SCIV

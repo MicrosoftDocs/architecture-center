@@ -40,7 +40,7 @@ The following table shows information about the operating systems that were used
 |-|-|-|-|-|
 |Operating system version	|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|	Windows 10, version 20H2|	Windows 10, version 21H2|
 |OS architecture|	x86-64|	x86-64|	x86-64|	x86-64|
-|Processor|	Intel Xeon CPU E5-2690 v4	|AMD EPYC 7V12, 64-core processor, 2.44 GHz|	AMD EPYC 74F3V, (Milan)|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+|Processor|	Intel Xeon CPU E5-2690 v4	|AMD EPYC 7V12, 64-core processor, 2.44 GHz|	AMD EPYC 74F3V (Milan)|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 
 ### Required drivers
 
@@ -80,6 +80,10 @@ The following table shows the test results.
 |NCv3	|V100|	1	|1,689	|2.65|
 |NC_A100_v4	|A100 80-GB PCle	|1	|1,290|	3.47|
 
+This graph shows the relative speed increases for the previous GPU configurations: 
+
+:::image type="content" source="media/samadii-em/em-graph.png" alt-text="Graph that shows the relative speed increases." border="false":::
+
 ## Azure cost
 
 The following table shows wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVadsA10v5, NCas_T4_v3, NCsv3, or NCA100v4 VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
@@ -102,8 +106,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 - Samadii EM was successfully tested on NCv3, NCasT4_v3, NC_A100_v4, and NVadsA10_v5 VMs.
 - For complex models, NC_A100_v4, NCv3, and NCasT4_v3 VMs, and the one-GPU configuration of the NVadsA10_v5 VM all perform better than the NVadsA10_v5 VM with partial GPUs.
-- For models that are less complex, configurations of NC_A100_v4 and NVadsA10_v5 VMs, including those that use partial GPUs, perform better than NCasT4_v3 and NCv3 VMs.
-- Taking cost into consideration, NCasT4_v3 is the best choice.
+- For models that are less complex, configurations of NC_A100_v4 and NVadsA10_v5 VMs, including configurations that use partial GPUs, perform better than NCasT4_v3 and NCv3 VMs.
+- If we take cost into consideration, NCasT4_v3 is the best choice.
 
 ## Contributors
 
