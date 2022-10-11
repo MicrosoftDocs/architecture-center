@@ -90,7 +90,7 @@ While the above options help make it easier, this architecture supports any simi
 
 The advantage of Life365.health is that with one integration point, you can push measurements from a wide range of devices in the Life365 ecosystem into the Azure Health Data Services. Other wearable device APIs exist, such as Garmin Activity API and Polar AccessLink API, for which a similar integration pattern can be achieved. However, these APIs are exclusive to measurement from devices of their own manufacturers, such as Garmin and Polar respectively. 
 
-Devices and patients need to be defined, linked, and synchronized between the Azure Health Data Services and the Life365 API. This can be achieved by syncing the patient and device IDs between the Azure Health Data Services and Life365 API. In essence, a new patient and device is created and linked in the Azure FHIR Service first. Then the corresponding patient and device is created and linked in the Life365 API. The IDs of the patients and devices, first created in the Azure Health Data Services, will then be updated as external IDs in the respective patient and device entities in the Life365 API.
+Devices and patients need to be defined, linked, and synchronized between the Azure Health Data Services and the Life365 API. This configuration can be achieved by syncing the patient and device IDs between the Azure Health Data Services and Life365 API. In essence, a new patient and device is created and linked in the Azure FHIR Service first. Then the corresponding patient and device is created and linked in the Life365 API. The IDs of the patients and devices, first created in the Azure Health Data Services, will then be updated as external IDs in the respective patient and device entities in the Life365 API.
 
 **Microsoft Cloud for HealthCare**
 
@@ -203,10 +203,9 @@ Technologies and resources that are relevant to implementing this architecture:
   
 - [Microsoft Cloud for Healthcare](/industry/healthcare/) resources:
    - Learn about [Data management considerations](/industry/healthcare/data-management)
-   - Try one of the [Data management solutions](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare#) available in the Microsoft Cloud Solution Center
    - Review the available reference architectures, including [Characteristics of healthcare data](/industry/healthcare/architecture/data-characteristics)
 
 ## Related resources
 
-- [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch)
 - Review the [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
+- [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch) shows a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers.
