@@ -1,6 +1,6 @@
-This article describes distributed hyperparameter tuning for Python machine learning (ML) models. Hyperparameters are adjustable parameters that let you control the ML model training process. ML model performance depends heavily on hyperparameters.
+This article describes distributed hyperparameter tuning for Python machine learning (ML) models. Hyperparameters are adjustable parameters that control the ML model training process. ML model performance depends heavily on hyperparameters.
 
-Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that produce the best model training performance. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can automate and distribute hyperparameter tuning.
+Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that produce the best model training performance. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can help automate and distribute hyperparameter tuning.
 
 ## Architecture
 
@@ -11,11 +11,17 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 ### Workflow
 
 1. The Machine Learning ecosystem ingests data from Azure Data Lake Storage.
+
 1. Python or YAML can configure sets of hyperparameters.
+
 1. Distributed hyperparameter tuning trains model instances on multiple CPUs and GPUs to identify the best performing model.
+
 1. An Azure Container Registry model registry holds the trained models. Registering the models into the model registry makes them easy to organize and track.
+
 1. The best-performing model registers with Machine Learning and deploys through Machine Learning managed endpoints.
-1. Azure Cosmos DB stores the model so web and mobile applications can consume it.
+
+1. Azure Cosmos DB stores the model so the web or mobile application can consume it.
+
 1. Azure Monitor monitors and logs activities throughout the process.
 
 ### Components
@@ -34,11 +40,11 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 ## Scenario details
 
-Hyperparameters are adjustable parameters that help control the ML model training process. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
+Adjustable training parameters or hyperparameters control the ML model training process. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
 
-Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that result in the best model training performance. This process is typically manual, computationally expensive, and time consuming. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can automate hyperparameter tuning and let you run experiments in parallel to efficiently tune hyperparameters. The following sections describe hyperparameter optimization for two scenarios: scikit-learn models and deep learning models with graphics processing units (GPUs).
+The hyperparameter tuning or optimization process is typically manual, computationally expensive, and time consuming. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can automate hyperparameter tuning and let you run experiments in parallel to efficiently tune hyperparameters.
 
-To operationalize these scenarios, see [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml).
+The following sections describe hyperparameter optimization scenarios for scikit-learn models and deep learning models with graphics processing units (GPUs). To operationalize these scenarios, see [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml).
 
 ### Stack Overflow FAQ matching scenario
 
@@ -48,7 +54,7 @@ This scenario uses grid sampling, a hyperparameter tuning technique that does a 
 
 ### Out-of-stock detection scenario
 
-This scenario shows how to tune a convolutional neural network (CNN) object detection model. The model deploys as a web service that helps predict empty store shelf space by using images of store shelves filled with products. The model combines the predictions with other information sources, such as planograms and databases, to detect out of stock products. This model uses a dataset distributed under the CC-BY 4.0 license. The model covers only empty space prediction.
+This scenario tunes an object detection model deployed as a web service to help predict empty store shelf space. The model uses images of store shelves filled with products, and combines empty space predictions with other information sources, such as planograms and databases, to detect out of stock products. This model uses a dataset distributed under the CC-BY 4.0 license and covers only empty space prediction.
 
 You can distribute hyperparameter tuning in neural networks by configuring multiple sets of hyperparameters, like number of hidden layers and learning rate, and running them on GPU-enabled compute clusters in parallel. For more information about state-of-the-art object detection algorithms, see [A Survey of Modern Deep Learning-based Object Detection Models](https://arxiv.org/abs/2104.11892).
 
@@ -76,7 +82,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The cost of a hyperparameter tuning run depends on the Machine Learning Compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
 
-Ongoing costs when the cluster isn't in use depend on the minimum number of nodes the cluster requires. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum when needed, and removes nodes down to the requested minimum when they're no longer needed. If the cluster can autoscale down to zero nodes, it doesn't cost anything when not in use.
+Ongoing costs when the cluster isn't in use depend on the minimum number of nodes the cluster requires. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum when needed, and removes nodes down to the requested minimum when no longer needed. If the cluster can autoscale down to zero nodes, it doesn't cost anything when not in use.
 
 For more information about Machine Learning costs, see [Plan to manage costs for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost).
 
@@ -90,7 +96,7 @@ For this workload, Monitor can log training, registry, and deployment activities
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Each set of hyperparameters runs on one Machine Learning compute node. For the FAQ matching scenario, each node can be a Standard_D4_v5 VM, which has four cores. This scenario uses a LightGBM classifier, a gradient boosting framework for machine learning. As a result, the hyperparameter tuning run takes one quarter of the original time required to search through all sets on a single node. The compute requirements might change depending on use case and dataset.
+Each set of hyperparameters runs on one Machine Learning compute node. For the FAQ matching scenario, each node can be a Standard_D4_v5 VM, which has four cores. This scenario uses a LightGBM classifier, a gradient boosting framework for machine learning. As a result, the hyperparameter tuning run takes one quarter of the original time to search through all sets on a single node. The compute requirements might change depending on use case and dataset.
 
 You can use GPU-enabled compute nodes, such as Standard_NC6s_v3, for deep learning use cases like the out-of-stock detection scenario. Each hyperparameter tuning run uses a single GPU on each Standard_NC6s_v3 VM. The compute requirements might change depending on use case.
 

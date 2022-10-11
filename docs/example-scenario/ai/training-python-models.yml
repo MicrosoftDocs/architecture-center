@@ -15,13 +15,14 @@ metadata:
 name: Distributed hyperparameter tuning for Python ML models
 azureCategories:
   - ai-machine-learning
+  - compute
 summary: Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning ML models in Python.
 products:
-  - azure-blob-storage
   - azure-container-registry
-  - azure-machine-learning
-  - azure-storage
+  - azure-cosmos-db
+  - azure-data-lake-storage
   - azure-data-science-vm
+  - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/tune-hyperparameters.png
 content: |
   [!include[](training-python-models-content.md)]
