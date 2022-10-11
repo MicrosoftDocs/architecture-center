@@ -189,7 +189,7 @@ Principal authors:
 
 Technologies and resources that are relevant to implementing this architecture:
 
-- Try the available quickstarts and tutorials for the components mentioned in this architecture:
+- Try the available quickstarts and tutorials for components used in this architecture:
   - [Azure Event Hubs](/azure/event-hubs/event-hubs-create)
   - [Azure Healthcare Data Services](/azure/healthcare-apis/get-started-with-health-data-services) resource and related components:
     - [AHDS workspace](/azure/healthcare-apis/healthcare-apis-quickstart)
@@ -201,7 +201,7 @@ Technologies and resources that are relevant to implementing this architecture:
   - [SQL Server Management Studio](/sql/ssms/quickstarts/ssms-connect-query-sql-server)
   - [Power BI](/power-bi/fundamentals/desktop-getting-started)
   
-- [Microsoft Cloud for Healthcare](/industry/healthcare/) resources:
+- Review [Microsoft Cloud for Healthcare](/industry/healthcare/) resources:
    - Learn about [Data management considerations](/industry/healthcare/data-management)
    - Review the available reference architectures, including [Characteristics of healthcare data](/industry/healthcare/architecture/data-characteristics)
 
