@@ -7,7 +7,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 > [!NOTE]
 > **SECTION TODOS**
 > - diagram: after final review, upload to blob storage and create new .png, update image in thumbnailUrl
-> - dataflow: Mustafa/Janna to clarify whether the data flowing out of the AHDS workspace is anonymized, or contains direct PHI? If not, should we specify this and/or include pointers to more resources (perhaps the Tools for Health Data Anonymization repo or others?)? We could call this out in the Security considerations as well, just so we're explicit.
+> - dataflow: Mustafa/Janna to clarify whether the data flowing out of the AHDS workspace is anonymized, or contains direct PHI? If not, should we specify this and/or include pointers to more resources (perhaps the [Tools for Health Data Anonymization repo](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) or others?)? We could call this out in the Security considerations as well, just so we're explicit.
 
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
