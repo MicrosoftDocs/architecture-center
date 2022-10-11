@@ -1,4 +1,4 @@
-This article describes distributed hyperparameter tuning for Python machine learning models. Hyperparameters are adjustable parameters that control the machine learning model training process. Machine learning model performance depends heavily on hyperparameters.
+This article describes distributed hyperparameter tuning for Python machine learning models. Hyperparameters are adjustable parameters that control machine learning model training. Machine learning model performance depends heavily on hyperparameters.
 
 Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that produce the best model training performance. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can help automate and distribute hyperparameter tuning.
 
@@ -14,7 +14,7 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 1. Python or YAML can configure sets of hyperparameters.
 
-1. Distributed hyperparameter tuning trains model instances on multiple CPUs and GPUs to identify the best performing model.
+1. Distributed hyperparameter tuning trains model instances on multiple CPUs and GPUs to identify the best-performing model.
 
 1. An Azure Container Registry model registry holds the trained models. Registering the models into the model registry makes them easy to organize and track.
 
@@ -34,13 +34,13 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 - [Container Registry](https://azure.microsoft.com/products/container-registry) stores images for Docker container deployments. In this workload, containers on each compute node run Python training scripts they pull from Container Registry.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed, serverless NoSQL database that high-performance applications of any size or scale can use.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.
 
 - [Monitor](https://azure.microsoft.com/products/monitor) collects, analyzes, and acts on telemetry data from Azure and on-premises environments. Monitor helps maximize the performance and availability of applications and proactively identify problems.
 
 ## Scenario details
 
-Adjustable training parameters or hyperparameters control the machine learning model training process. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
+Adjustable training parameters or hyperparameters control machine learning model training. For example, hyperparameters for deep learning neural networks include the number of hidden layers and the number of nodes in each layer. It's important to determine the sets of hyperparameters that produce the best model training performance.
 
 The hyperparameter tuning or optimization process is typically manual, computationally expensive, and time consuming. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can automate hyperparameter tuning and let you run experiments in parallel to efficiently tune hyperparameters.
 
@@ -48,13 +48,13 @@ The following sections describe hyperparameter optimization scenarios for scikit
 
 ### Stack Overflow FAQ matching scenario
 
-This scenario tunes a [scikit-learn](https://pypi.org/project/scikit-learn) pipeline to address frequently asked question (FAQ) matching. The scenario uses a subset of Stack Overflow question data that includes original questions, their duplicate questions, and their answers. The model predicts the probability that a duplicate question matches one of the original questions. The goal is to build a model that finds similarities between duplicate questions.
+This scenario tunes a [scikit-learn](https://pypi.org/project/scikit-learn) pipeline to address frequently asked questions (FAQ) matching. The scenario uses a subset of Stack Overflow question data that includes original questions, their duplicate questions, and their answers. The model predicts the probability that a duplicate question matches one of the original questions. The goal is to build a model that finds similarities between duplicate questions.
 
 This scenario uses grid sampling, a hyperparameter tuning technique that does a simple grid search over values based on specified range and increment. This technique can exhaustively search over the entire search space. The grid sampling technique supports discrete hyperparameters and early termination of low-performing jobs.
 
 ### Out-of-stock detection scenario
 
-This scenario tunes an object detection model deployed as a web service to help detect out of stock products on store shelves. The model uses images of store shelves filled with products to predict empty spaces, and combines empty space predictions with other information sources, such as planograms and databases. This model uses a dataset distributed under the CC-BY 4.0 license and covers only empty space prediction.
+This scenario tunes an object detection model deployed as a web service to help detect out-of-stock products on store shelves. The model uses images of store shelves filled with products to predict empty spaces, and combines empty space predictions with other information sources, such as planograms and databases. This model uses a dataset distributed under a [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0) and covers only empty space prediction.
 
 You can distribute hyperparameter tuning in neural networks by configuring multiple sets of hyperparameters, like number of hidden layers and learning rate, and running them on GPU-enabled compute clusters in parallel. For more information about state-of-the-art object detection algorithms, see [A Survey of Modern Deep Learning-based Object Detection Models](https://arxiv.org/abs/2104.11892).
 
@@ -80,7 +80,7 @@ For more information about Machine Learning security, see [Enterprise security a
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The cost of a hyperparameter tuning run depends on the Machine Learning Compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
+The cost of a hyperparameter tuning run depends on the Machine Learning compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
 
 Ongoing costs when the cluster isn't in use depend on the minimum number of nodes the cluster requires. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum when needed, and removes nodes down to the requested minimum when no longer needed. If the cluster can autoscale down to zero nodes, it doesn't cost anything when not in use.
 
