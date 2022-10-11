@@ -46,7 +46,7 @@ These applications are packaged into archives with the .jar extension (JAR files
 ## Hosting options grid
 Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓            | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS           | Virtual<br>Machines |
+| Destination&nbsp;→<br><br>Supportability↓            | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS           | Virtual<br>Machines |
 |-------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
 | Spring Boot / JAR applications                                    | &#x2714;                  | &#x2714;                 |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
 | Spring Cloud applications                                         | &#x2714;                  |                          |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
@@ -57,6 +57,8 @@ Use the following grid to identify potential destinations for your application t
 | Application server-level clustering                               |                           |                          |                          | &#x2714;                        |                      | &#x2714;      | &#x2714;            |
 | Batch / scheduled jobs                                            | &#x2714;                  |                          |                             |                        | &#x2714;             | &#x2714;      | &#x2714;            |
 | VNet Integration/Hybrid Connectivity                              | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
+| Serverless                | Coming Soon          | ?         | ?      |?            | ?      | ?      | ?       |
+| Containerization          | &#x2714;          | ?         | ?      |?            |&#x2714;| ?      | ?       |
 | Azure region availability                                         | [Details][1]               | [Details][2]             | [Details][2]            | [Details][2]               | [Details][3]        | [Details][4] | [Details][5]       |
 
 You may also refer to the Java application tree down below for additional hints.
@@ -74,82 +76,23 @@ It is a set of specifications, extending Java SE with specifications for enterpr
 
 ### MicroProfile
 MicroProfile is a project that provides a collection of specifications designed to help developers build Enterprise Java cloud-native microservices. Quarkus and Open Liberty are the most popular implementation of MicroProfile.
-                                                                                                                                                                                                         
-You can use the following table to find build or migration guidance by application type and targeted Azure service destination.
+                                                                                                                                                                       You can use the following table to find build or migration guidance by application type and targeted Azure service destination.
 
+| Platform&nbsp;→<br>Destination&nbsp;↓                | Java SE    |  MicroProfile | JarkartaSE     |
+|------------------------------------------------------|------------|---------------|----------------|
+|Virtual Machine                                       | &#x2714;   | &#x2714;      | &#x2714;       |
+|Vmware Tanzu                                          | &#x2714;   |               |                |
+|Azure Kubernetes Service                              | &#x2714;   | &#x2714;      | &#x2714;       |
+|Redhat OpenShift                                      | &#x2714;   | &#x2714;      | &#x2714;       |
+|Azure Container App                                   | &#x2714;   | &#x2714;      |                |
+|JBoss EAP                                             | &#x2714;   |               | &#x2714;       |
+|Tomcat                                                | &#x2714;   |               |                |
+|Java SE                                               | &#x2714;   | &#x2714;      |                |
+|Azure Spring Apps                                     | &#x2714;   |               |                |
 
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Platform→<br><br>Destination↓ </th>
-            <th>Java SE</th>
-            <th>MicroProfile</th>
-            <th>Jarkarta EE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2>IaaS</td>
-            <td>Virtual Machine</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-        </tr>
-        <tr>
-            <td>Vmware Tanzu</td>
-            <td> &#10004</td>
-            <td> </td>
-            <td> </td>
-        </tr>
-        <tr>
-            <td rowspan=2>Containers</td>
-            <td>Azure Kubernetes Service</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-        </tr>
-        <tr>
-            <td>Redhat OpenShift</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-        </tr>
-        <tr>
-            <td rowspan=5>PaaS</td>
-            <td>Azure Container App</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-            <td> </td>
-        </tr>
-        <tr>
-            <td>JBoss EAP</td>
-            <td> &#10004</td>
-            <td> </td>
-            <td> &#10004</td>
-        </tr>
-        <tr>
-            <td>Tomcat</td>
-            <td> &#10004</td>
-            <td> </td>
-            <td> </td>
-        </tr>
-        <tr>
-            <td>Java SE</td>
-            <td> &#10004</td>
-            <td> &#10004</td>
-            <td> </td>
-        </tr>
-        <tr>
-            <td>Azure Spring Apps</td>
-            <td> &#10004</td>
-            <td> </td>
-            <td> </td>
-        </tr>
-    </tbody>
-</table>
+Use the following graph to find more details.
 
-
+![Build or migrate java apps](images/Build-or-migrate-java-apps.png)
 
 <!-- reference links, for use with tables -->
 [1]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
