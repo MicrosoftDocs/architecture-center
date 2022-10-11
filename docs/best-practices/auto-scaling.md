@@ -3,7 +3,8 @@ title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: EdPrice-MSFT
-ms.date: 05/17/2017
+ms.author: architectures
+ms.date: 10/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -123,11 +124,14 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - If the solution implements a long-running task, design this task to support both scaling out and scaling in. Without due care, such a task could prevent an instance of a process from being shut down cleanly when the system scales in, or it could lose data if the process is forcibly terminated. Ideally, refactor a long-running task and break up the processing that it performs into smaller, discrete chunks. The [Pipes and Filters pattern](../patterns/pipes-and-filters.yml) provides an example of how you can achieve this.
 
-- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance.
+- Alternatively, you can implement a checkpoint mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, such as [NServiceBus](https://docs.particular.net/nservicebus/sagas) and [MassTransit](https://masstransit-project.com/usage/sagas). They transparently persist state, where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
 
 - When background tasks run on separate compute instances, such as in worker roles of a cloud-services&ndash;hosted application, you may need to scale different parts of the application using different scaling policies. For example, you may need to deploy additional user interface (UI) compute instances without increasing the number of background compute instances, or the opposite of this. If you offer different levels of service (such as basic and premium service packages), you may need to scale out the compute resources for premium service packages more aggressively than those for basic service packages in order to meet SLAs.
 
-- Consider using the length of the queue over which UI and background compute instances communicate as a criterion for your autoscaling strategy. This is the best indicator of an imbalance or difference between the current load and the processing capacity of the background task.
+- Consider the length of the queue over which UI and background compute instances communicate. Use it as a criterion for your autoscaling strategy. This is one possible indicator of an imbalance or difference between the current load and the processing capacity of the background task. There is a slightly more complex, but better attribute to base scaling decisions on. Use the time between when a message was sent and when its processing was complete, known as the *critical time*. If this critical time value is below a meaningful business threshold, then it is unnecessary to scale, even if the queue length is long. 
+  - For example, there could be 50,000 messages in a queue, but the critical time of the oldest message is 500 ms, and that endpoint is dealing with integration with a 3rd-party web service for sending out emails. It is likely that business stakeholders would consider that to be a period of time that wouldn't justify spending extra money for scaling. 
+  - On the other hand, there could be 500 messages in a queue, with the same 500 ms critical time, but the endpoint is part of the critical path in some real-time online game, where business stakeholders defined a 100 ms or less response time. In that case, scaling out would make sense.
+  - In order to make use of critical time in auto-scaling decisions, it's helpful to have a library automatically add the relevant information to the headers of messages, while they are sent and processed. One such library that provides this functionality is [NServiceBus](https://docs.particular.net/monitoring/metrics/definitions#metrics-captured-critical-time).
 
 - If you base your autoscaling strategy on counters that measure business processes, such as the number of orders placed per hour or the average execution time of a complex transaction, ensure that you fully understand the relationship between the results from these types of counters and the actual compute capacity requirements. It may be necessary to scale more than one component or compute unit in response to changes in business process counters.
 

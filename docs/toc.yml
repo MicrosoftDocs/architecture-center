@@ -3324,10 +3324,22 @@ items:
                     href: guide/hpc/autodesk-inventor.yml
                   - name: Autodesk VRED
                     href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: Barracuda Virtual Reactor
+                    href: guide/hpc/barracuda-virtual-reactor.yml
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
                     href: guide/hpc/indica-labs-halo-ai.yml
+                  - name: Luxion KeyShot
+                    href: guide/hpc/luxion-keyshot.yml
+                  - name: OpenFOAM
+                    href: guide/hpc/openfoam.yml
+                  - name: Samadii DEM
+                    href: guide/hpc/samadii-dem.yml
+                  - name: Samadii Plasma
+                    href: guide/hpc/plasma.yml
+                  - name: Samadii SCIV
+                    href: guide/hpc/samadii-sciv.yml  
                   - name: Siemens NX
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
@@ -6251,6 +6263,8 @@ items:
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
+              - name: Highly available zone-redundant web app
+                href: reference-architectures/app-service-web-app/zone-redundant.yml
               - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Improved access to multitenant web apps
