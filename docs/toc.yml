@@ -3740,6 +3740,8 @@ items:
                 href: solution-ideas/articles/dr-for-azure-data-platform-overview.yml
               - name: DR for Azure data platform Architecture
                 href: solution-ideas/articles/dr-for-azure-data-platform-architecture.yml
+              - name: DR for Azure data platform Scenario Details
+                href: solution-ideas/articles/dr-for-azure-data-platform-scenario-details.yml
               - name: DR for Azure data platform Recommendations
                 href: solution-ideas/articles/dr-for-azure-data-platform-recommendations.yml
               - name: DR for Azure data platform Deploy this scenario
