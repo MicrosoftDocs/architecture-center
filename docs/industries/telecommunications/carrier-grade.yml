@@ -9,12 +9,12 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - azure
+  - management-and-governance
 products:
   - azure-traffic-manager
-  - azure-cosmosdb
+  - azure-cosmos-db
 name: Carrier-grade architecture for telecommunications on Azure
 summary: How to apply the design principles of a well-architected carrier-grade workload to an architecture. 
 thumbnailUrl: /azure/architecture/browse/thumbs/recommendation-architecture-thumbnail.png
 content: |
-  [!include[](recommendation-engine-optimization-content.md)]
+  [!include[](carrier-grade-content.md)]
