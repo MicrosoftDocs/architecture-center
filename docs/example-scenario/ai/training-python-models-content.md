@@ -26,17 +26,17 @@ Hyperparameter tuning, also called hyperparameter optimization, is the process o
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides a massively scalable and secure data lake for high-performance analytics workloads.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides a massively scalable and secure data lake for high-performance analytics workloads.
 
 - [Microsoft Data Science Virtual Machine](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines) (DSVM) offers Windows Server and Linux virtual machine (VM) images configured with data analytics and machine learning tools. The scenarios in this article use Ubuntu Linux DSVMs.
 
-- [Machine Learning](https://azure.microsoft.com/products/machine-learning/#product-overview) trains, tests, deploys, automates, and manages machine learning and AI models at cloud scale. [Machine Learning managed compute](/azure/machine-learning/service/concept-compute-target#azure-machine-learning-compute-managed) allocates [compute target](/azure/machine-learning/concept-compute-target) nodes on demand, based on an automatic [scaling](/azure/virtual-machine-scale-sets/overview) option. Each compute node is a VM that runs a training job for a particular hyperparameter set.
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/#product-overview) trains, tests, deploys, automates, and manages machine learning and AI models at cloud scale. [Machine Learning managed compute](/azure/machine-learning/service/concept-compute-target#azure-machine-learning-compute-managed) allocates [compute target](/azure/machine-learning/concept-compute-target) nodes on demand, based on an automatic [scaling](/azure/virtual-machine-scale-sets/overview) option. Each compute node is a VM that runs a training job for a particular hyperparameter set.
 
-- [Container Registry](https://azure.microsoft.com/products/container-registry) stores images for Docker container deployments. In this workload, containers on each compute node run Python training scripts they pull from Container Registry.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores images for Docker container deployments. In this workload, containers on each compute node run Python training scripts they pull from Container Registry.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.
 
-- [Monitor](https://azure.microsoft.com/products/monitor) collects, analyzes, and acts on telemetry data from Azure and on-premises environments. Monitor helps maximize the performance and availability of applications and proactively identify problems.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects, analyzes, and acts on telemetry data from Azure and on-premises environments. Monitor helps maximize the performance and availability of applications and proactively identify problems.
 
 ## Scenario details
 
@@ -122,11 +122,9 @@ Principal author:
 
 ## Related resources
 
-
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Real-time scoring of Python models](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 - [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 - [Many models machine learning with Spark](many-models-machine-learning-azure-spark.yml)
 - [Azure Machine Learning decision guide for optimal tool selection](../mlops/aml-decision-tree.yml)
-
