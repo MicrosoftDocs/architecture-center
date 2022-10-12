@@ -50,7 +50,7 @@ Other options for the web tier and functions include:
 
 Other options for the data tier include:
 
-- [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as MongoDB, Cassandra, Graph data, or simple table storage.
 
 ## Scenario details
 

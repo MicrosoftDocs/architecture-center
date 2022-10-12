@@ -81,7 +81,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table] and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Table][cosmos-table] and [Azure Cosmos DB for NoSQL][cosmos-sql-key-value] | [(Azure Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 - [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
 - [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
@@ -115,7 +115,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB SQL API][cosmos-db] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for NoSQL][cosmos-db] | [(Azure Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 
 ### Workload
 
@@ -150,7 +150,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ### Azure services
 
-- [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Apache Gremlin][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
 - [SQL Server][sqlserver] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 
 ### Workload
@@ -218,7 +218,7 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ### Azure services
 
-- [Azure Cosmos DB Cassandra API][cassandra] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Apache Cassandra][cassandra] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
 - [HBase in HDInsight][hbase] | [(Security Baseline)](/azure/hdinsight/security-baseline)
 
 ### Workload

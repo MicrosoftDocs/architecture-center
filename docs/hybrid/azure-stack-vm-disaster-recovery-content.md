@@ -2,7 +2,7 @@ This document describes the architecture and design considerations of a solution
 
 ## Architecture
 
-![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components runing on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include an geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.][architectural-diagram]
+![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components running on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include a geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 

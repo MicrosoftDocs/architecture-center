@@ -56,9 +56,9 @@ Consider these points when implementing this solution:
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple of notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-You can provision Cosmos DB to [autoscale](/azure/cosmos-db/how-to-provision-autoscale-throughput?tabs=api-async) for SQL API only. If you plan to use other APIs see guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Cosmos DB.
+You can provision Azure Cosmos DB to [autoscale](/azure/cosmos-db/how-to-provision-autoscale-throughput?tabs=api-async) in Azure Cosmos DB for NoSQL only. If you plan to use other APIs, see guidance on estimating your requirements in [Request units](/azure/cosmos-db/request-units). To fully take advantage of the scaling in Azure Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Azure Cosmos DB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Cosmos DB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Azure Cosmos DB.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
@@ -94,8 +94,8 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Principal authors:
 
-* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
-* [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
+- [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+- [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
 
 ## Next steps
 

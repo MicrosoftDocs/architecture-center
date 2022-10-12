@@ -69,12 +69,12 @@ Rotating (renewing) keys and secrets should be a standard procedure in any workl
 
 Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. If secrets in one stamp expire, the application as a whole would continue to function.
 
-Management of secrets to access long-living global resources, however, are critical. A notable example is the Cosmos DB API keys. If Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
+Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
 
-The following is Azure mission critical tested and documented approach for rotating Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
+The following is Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
 
-1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code to use the secondary Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
-2. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
+1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code to use the secondary Azure Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
+2. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Azure Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
 
    ```bash
    kubectl rollout restart deployment/CatalogService-deploy -n workload
@@ -138,7 +138,7 @@ Messages that can't be processed should be routed to a dead-letter queue with an
 
 ### Azure Cosmos DB restore
 
-When Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
+When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
 Restoring from a periodic backup can only be accomplished via a support case. This process should be documented and periodically tested.
 
 ### Quota increases
