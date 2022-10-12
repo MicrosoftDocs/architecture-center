@@ -8,12 +8,12 @@ This scenario describes how to extend the reporting capabilities of Project Onli
 
 ### Dataflow
 
-1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online ODATA endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
+1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online OData endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
 
 > [!NOTE]
-> For government customers, please follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
+> For government customers, follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
 
-2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an ODATA protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
+2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an OData protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
 3. After the data is parsed, Logic Apps places the data into Azure SQL Server or storage in Data Lake for further processing. The ability to set up data pulls differs by organization and by system. Follow the process required, such as by Logic Apps, Azure Data Factory, or Azure Synapse Pipelines.
 
