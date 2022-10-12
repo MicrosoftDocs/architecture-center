@@ -198,7 +198,7 @@ The messaging system acts as a buffer between message producers and consumers. T
 
 The health of the messaging system must be considered in the health checks for a mission critical application. Consider the following factors:
 
-- The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker.
+- The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker and if consumers are able to successfully process messages from the broker.
 - The health check should ensure that messages can be sent to the message system.
 
 ## Next steps
