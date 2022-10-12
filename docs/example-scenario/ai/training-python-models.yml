@@ -4,7 +4,7 @@ metadata:
   description: Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning machine learning models in Python.
   author: fboylu
   ms.author: fboylu
-  ms.date: 10/12/2022
+  ms.date: 10/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
