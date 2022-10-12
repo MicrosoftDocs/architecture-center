@@ -636,10 +636,10 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
 1. The client application sends the initial request to the web API.
 2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables/) or [Microsoft Azure Cache](/azure/azure-cache-for-redis/), and generates a unique key for this entry, possibly in the form of a GUID. Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging/) as well.
 3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io/). The web API records the state of the task in the table as *Running*.
-  - If using Azure Service Bus, the processing of the message would be done separately from the API, possibly using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
+  - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
 5. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
-6. When the task has completed, the web API stores the results in the table, and sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
-  - Consider apply [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
+6. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
+  - Consider applying [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
 8. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
 9. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
   - If the long-running process has more intermediate states, it is better to use a library that supports the saga pattern like [NServiceBus](https://docs.particular.net/nservicebus/sagas/) or [MassTransit](https://masstransit-project.com/usage/sagas/).
@@ -730,10 +730,10 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 
-2. Connect the API management service to the web API. Requests sent to the URL of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
+2. Connect the API management service to the web API. Requests sent to the URI of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
 
      > [!NOTE]
-     > The URIs in HATEOAS links generated as part of the response for HTTP GET requests should reference the URL of the API management service and not the web server hosting the web API.
+     > The URIs, in the HATEOAS links that are generated as part of the response for HTTP GET requests, should reference the URI of the API management service and not the web server that's hosting the web API.
 
 3. For each web API, specify the HTTP operations that the web API exposes together with any optional parameters that an operation can take as input. You can also configure whether the API management service should cache the response received from the web API to optimize repeated requests for the same data. Record the details of the HTTP responses that each operation can generate. This information is used to generate documentation for developers, so it is important that it is accurate and complete.
 
