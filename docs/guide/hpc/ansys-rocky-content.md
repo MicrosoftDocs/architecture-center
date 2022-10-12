@@ -70,17 +70,25 @@ The following table presents the wall-clock times for running the simulation, fo
 
 |Rocky version	|VM series|	96 CPUs	|1 GPU	|2 GPUs|	3 GPUs|	4 GPUs|
 |-|-|-|-|-|-|-|
-|2021 R2.2|	ND_A100_v4|	10:57:58|	00:53:24|	00:44:30|	00:40:42	|00:46:01|
-|2022 R1.1|	ND_A100_v4|	-	|00:44:41|	00:37:47|	00:39:40|	00:42:29|
-|2022 R1.1|	NC_A100_v4|	-	|00:40:19|	00:32:11|	00:30:55|	00:32:42|
+|2021 R2.2|	ND_A100_v4|	10:57:58|	00:53:24<sup>1|	00:44:30<sup>1|	00:40:42<sup>1	|00:46:01<sup>1|
+|2022 R1.1|	ND_A100_v4|	-	|00:44:41<sup>1|	00:37:47<sup>1|	00:39:40<sup>1|	00:42:29<sup>1|
+|2022 R1.1|	NC_A100_v4|	-	|00:40:19|	00:32:11|	00:30:55<sup>2|	00:32:42|
+
+<sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
+
+<sup>2</sup> *In this case, the number of GPUs was artificially limited. This VM is available with one, two, or four GPUs.*
 
 The following table shows the relative speed increases as the CPUs are replaced by GPUs in increasing numbers. The 96-CPU configuration in the preceding table is used as the baseline for the comparisons.
 
 |Rocky version	|VM series|	96 CPUs	|1 GPU	|2 GPUs|	3 GPUs|	4 GPUs|
 |-|-|-|-|-|-|-|
-|2021 R2.2|	ND_A100_v4|	1.00|12.32|14.79|16.17|14.30|
-|2022 R1.1|	ND_A100_v4|	1.00	|14.73	|17.41	|16.59	|15.49|
-|2022 R1.1|	NC_A100_v4|	1.00	|16.32	|20.45	|21.29	|20.12|
+|2021 R2.2|	ND_A100_v4|	1.00|12.32<sup>1|14.79<sup>1|16.17<sup>1|14.30<sup>1|
+|2022 R1.1|	ND_A100_v4|	1.00	|14.73<sup>1	|17.41<sup>1	|16.59<sup>1	|15.49<sup>1|
+|2022 R1.1|	NC_A100_v4|	1.00	|16.32	|20.45|21.29<sup>2	|20.12|
+
+<sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
+
+<sup>2</sup> *In this case, the number of GPUs was artificially limited. This VM is available with one, two, or four GPUs.*
 
 Here's the same data, presented graphically:
 
@@ -90,18 +98,27 @@ Here's the same data, presented graphically:
 
 ## Azure cost
 
-The following tables present wall-clock times that you can use to calculate Azure costs.
+The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the number of nodes and the Azure hourly rates for NCA100v4-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing) or 
 
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
+Only the wall-clock times for running the model are presented in this table. Application installation time isn't included. These times are indicative. The actual times depend on the size of the model.
 
-You can use the [Azure pricing calculator]() to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
+The wall-clock times for a full production-level simulation of the combine harvester model are longer than the times presented here, so the associated costs are higher.
+
+The times here represent tests performed on Ansys Rocky 2022 R1.1.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size|	Number of GPUs|	Elapsed time, in hours|
+|-|-|-|
+|Standard_NC24ads_A100_v4	|	1|	0.67|
+|Standard_NC48ads_A100_v4	|	2|	0.53|
+|Standard_NC96ads_A100_v4	|	4	|0.54|
 
 ## Summary
 
-- Ansys-Rocky Application is successfully deployed and tested on ND A100v4 and NC A100v4 series Azure Virtual Machine
-- The expected speed up is achieved when compared between CPU and one GPU.
-- For all models, there is an optimal amount of computational hardware that achieves best price/performance, after which adding additional hardware does not scale the performance substantially. For this particular harvester model, we see the peak optimal performance achieved when we utilized 3 GPUs. For larger or more complex models, we expect this optimal GPU number to be higher, and for smaller ones we expect it to be lower.
+- Ansys Rocky was successfully tested on ND_A100_v4 and NC_A100_v4 VMs on Azure.
+- The speed increase of one GPU over 96 CPUs is significant.
+- For all models, there's an optimal configuration that achieves the best combination of price and performance, after which adding hardware doesn't scale the performance substantially. For this particular harvester model, optimal performance occurs with three GPUs. For more complex models, we expect the optimal number of GPUs to be higher. For models that are less complex, we expect it to be lower.
 
 ## Contributors
 
