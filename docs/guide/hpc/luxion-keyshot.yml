@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Luxion KeyShot on an Azure virtual machine
+  description: Find out how Luxion KeyShot real-time 3D rendering software performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/06/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Luxion KeyShot on a virtual machine
+summary: Find out how Luxion KeyShot performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/keyshot-thumb.png
+content: |
+  [!include[](luxion-keyshot-content.md)]

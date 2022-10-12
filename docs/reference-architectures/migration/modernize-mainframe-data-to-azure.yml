@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Modernize mainframe and midrange data
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 11/04/2020
+  ms.date: 09/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
