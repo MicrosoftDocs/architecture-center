@@ -55,4 +55,4 @@ To achieve this, disable the primary endpoint of Traffic Manager after failover.
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[Health Endpoint Monitoring pattern]: ../../patterns/health-endpoint-monitoring-content.md
+[Health Endpoint Monitoring pattern]: ../../patterns/health-endpoint-monitoring.yml
