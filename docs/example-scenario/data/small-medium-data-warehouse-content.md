@@ -86,6 +86,8 @@ Several scenarios can benefit from this workload:
 
 - Using innovative techniques to interact with centralized Data Lake Storage data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration.
 
+- How eCommerce companies can adopt data warehouse to optimize their operations [Data Warehouse for Ecommerce](https://algoscale.com/blog/how-to-create-the-right-data-warehouse-solution-for-your-e-commerce-business/) sources
+
 This solution isn't recommended for:
 
 - [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses that are estimated to be > 1 TB within one year.
