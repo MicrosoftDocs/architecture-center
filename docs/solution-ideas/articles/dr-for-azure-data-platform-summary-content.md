@@ -26,7 +26,7 @@ HSM|Hardware Security Module|[Azure Managed HSM documentation](/azure/key-vault/
 IAC|Infrastructure As Code| 
 IAAS|Infrastructure As A Service|[What is IaaS? Infrastructure as a Service](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-iaas/#overview)
 IOT|Internet of Things| 
-ITIL|Information Technology Infrastructure Library|ITIL - Wikipedia  
+ITIL|Information Technology Infrastructure Library|
 KDD|Key Design Decision| 
 LRS|Locally Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy)
 MSEE|Microsoft Enterprise Edge| 
