@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This mobile client app offers social image sharing with a companion web app. The app back-end service does background image processing using an Azure Function, and it can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Azure Traffic Manager.
+This mobile client app offers social image sharing with a companion web app. The app back-end service does background image processing using an Azure function, and it can notify users of progress via a notification hub. Non-image data is stored in Azure Cosmos DB. The web app accesses the back end service data and images via Azure Traffic Manager.
 
 See the following services, which are featured in this solution architecture:
 
@@ -25,7 +25,7 @@ The mobile client app works in offline mode, which allows you to view and upload
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
 1. Implement authentication through social identity providers.
-1. Store non-image data in Cosmos DB and cache it in Azure Cache for Redis.
+1. Store non-image data in Azure Cosmos DB and cache it in Azure Cache for Redis.
 1. Store uploaded images in Azure Blob Storage.
 1. Queue messages about newly uploaded images.
 1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.

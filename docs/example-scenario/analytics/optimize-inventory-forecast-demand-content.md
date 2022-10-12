@@ -44,7 +44,7 @@ This article showcases a practical, scalable, and manageable solution for implem
   - Spark technologies used for big data
   - Data Explorer for log and time-series analytics
   - Pipelines for data integration and ETL/ELT
-  - Deep integration with other Azure services, such as Power BI, Cosmos DB, and Machine Learning
+  - Deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Machine Learning
 
 ### Alternatives
 
@@ -52,7 +52,7 @@ In this solution, Machine Learning performs forecasting and inventory management
 
 As an alternative to [mapping data flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory to curate and perform ETL on data in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), you can use Azure Databricks for a code-first approach.
 
-Depending on your specific use case and your choice of analytics platform for end users, you can use other relational or storage services, such as Azure Synapse Analytics or [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), instead of storing your data in Azure SQL Server. For example, if the data has accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
+Depending on your specific use case and your choice of analytics platform for end users, you can use other relational or storage services, such as Azure Synapse Analytics or [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), instead of storing your data in Azure SQL. For example, if the data has accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
 Instead of running the Ray framework on Kubernetes, you can use the Ray framework on a compute instance in Azure Machine Learning to perform inferencing. If you incorporate the Ray framework on Azure Machine Learning, you might find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub, helpful.
 

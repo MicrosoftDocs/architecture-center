@@ -122,7 +122,7 @@ The components deployed using the above Resource Manager template needs to be fu
 5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure
    - web app to use the TLS certificate
    - Application Insights to the above apps: api-insights
-   - Create a Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
+   - Create an Azure Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
    - Create DNS entries on the Private DNS zone created
    - You could make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network
    - For testing the API App internally, create a test VM within the VNet subnet

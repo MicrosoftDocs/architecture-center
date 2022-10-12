@@ -17,7 +17,7 @@
             <li>7/10/2018</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.</p>
+        <p class="card-content-description">This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Azure Cosmos DB and HDInsight.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

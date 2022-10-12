@@ -69,12 +69,13 @@ This solution uses Logic Apps and Azure Functions for workflow orchestration.
 
 ### Resiliency
 
-The solution's resiliency depends on the failure modes of the individual services in the architecture. 
+The solution's resiliency depends on the failure modes of the individual services in the architecture.
 
 You can make Form Recognizer resilient by designing it to fail over to another region and/or by splitting the workload into two or more regions. For guidance on Form Recognizer disaster recovery, see [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
 For information about resiliency for other services, see these checklists:
-- [Azure Cosmos DB](../../checklist/resiliency-per-service.md#cosmos-db)
+
+- [Azure Cosmos DB](../../checklist/resiliency-per-service.md#azure-cosmos-db)
 - [Azure Storage](../../checklist/resiliency-per-service.md#storage)
 - [Azure Synapse Analytics](../../checklist/resiliency-per-service.md#azure-synapse-analytics)
 

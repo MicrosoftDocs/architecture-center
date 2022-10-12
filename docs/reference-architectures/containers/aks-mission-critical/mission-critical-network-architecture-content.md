@@ -44,7 +44,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-**Azure Cosmos DB with SQL API** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
+**Azure Cosmos DB for NoSQL** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -118,7 +118,7 @@ To connect over a private endpoint, you need a DNS record. It's recommended that
 
 :::image type="content" source="./images/mission-critical-private-endpoint-snet.png" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-private-endpoint-snet.png":::
 
-In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network.
+In this architecture, private endpoints have been configured for Azure Container Registry, Azure Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network.
 
 There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
 
