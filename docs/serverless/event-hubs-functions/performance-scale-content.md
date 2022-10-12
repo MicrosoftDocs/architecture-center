@@ -180,7 +180,7 @@ This section covers the key areas that must be considered when writing code to p
 
 It's recommended to have your function employ non-blocking, [asynchronous](/azure/azure-functions/functions-best-practices#use-async-code-but-avoid-blocking-calls) code. This is important when I/O calls are involved.
 
-When considering asynchronous programming in an Functions, there are some essential guidelines that should be followed:
+When considering asynchronous programming in a function, there are some essential guidelines that should be followed:
 
 - **All asynchronous or all synchronous:** If a function is configured to run asynchronously, all the I/O calls should be asynchronous as well. In most cases, being partially asynchronous can be worse than code that is entirely synchronous. Choose either asynchronous or synchronous for the implementation of the function and follow it all the way through.
 

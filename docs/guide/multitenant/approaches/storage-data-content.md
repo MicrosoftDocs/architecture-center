@@ -124,8 +124,8 @@ For relational databases, these include:
 There are some features that can be useful for multitenancy. However, these aren't available in all database services. Consider whether you need these, when you decide on the service to use for your scenario:
 
 - **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in Azure SQL and Postgres Flex, but it's not available in other databases, like MySQL or Azure Cosmos DB.
-- **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
-- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB's [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database), although each option has limitations you should be aware of.
+- **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Azure Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
+- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database), although each option has limitations you should be aware of.
 - **Sharding and partitioning** has stronger native support in some services than others. This feature is available in Azure Cosmos DB, by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview), and in [PostgreSQL Hyperscale](/azure/postgresql/concepts-hyperscale-distributed-data). While Azure SQL doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
 Additionally, when working with relational databases or other schema-based databases, consider where the schema upgrade process should be triggered, when you maintain a fleet of databases. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As you grow, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
@@ -148,13 +148,13 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -162,6 +162,6 @@ Other contributors:
 
 For more information about multitenancy and specific Azure services, see:
 
-* [Multitenancy and Azure Storage](../service/storage.md)
-* [Multitenancy and Azure SQL Database](../service/sql-database.md)
-* [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)
+- [Multitenancy and Azure Storage](../service/storage.md)
+- [Multitenancy and Azure SQL Database](../service/sql-database.md)
+- [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)

@@ -69,7 +69,7 @@ Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed
 
 ## Azure Cosmos DB
 
-[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
+[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
 Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It's also multi-model, natively supporting document, key-value, graph, and column-family data models.
 

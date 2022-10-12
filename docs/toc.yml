@@ -372,7 +372,7 @@ items:
         items:
             - name: Mission-critical baseline architecture
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-            - name: Mission-critical with network controls
+            - name: Mission-critical baseline with network controls
               href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Design areas
               items:
@@ -1012,7 +1012,7 @@ items:
                     maintainContext: true
               - name: SKU optimization for consumer brands
                 href: industries/retail/sku-optimization-solution-guide.yml
-              - name: Visual search in retail with Cosmos DB
+              - name: Visual search in retail with Azure Cosmos DB
                 href: industries/retail/visual-search-use-case-overview.yml
           - name: Architectures
             items:
@@ -1152,6 +1152,8 @@ items:
                   - name: Change data in Azure Data Lake
                     href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
                     maintainContext: true
+              - name: Compliance risk analysis
+                href: guide/ai/compliance-risk-analysis.yml
               - name: Data management in banking
                 href: industries/finance/data-management-banking-overview.yml
               - name: Detect mobile bank fraud
@@ -2299,7 +2301,7 @@ items:
                     items:
                       - name: Gaming using Azure MySQL
                         href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-                      - name: Gaming using Cosmos DB
+                      - name: Gaming using Azure Cosmos DB
                         href: solution-ideas/articles/gaming-using-cosmos-db.yml
                   - name: Game streaming
                     items:
@@ -2761,6 +2763,8 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
               - name: Industry guidance
                 items:
+                  - name: Compliance risk analysis
+                    href: guide/ai/compliance-risk-analysis.yml
                   - name: Enable the financial services risk lifecycle
                     href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
@@ -3721,7 +3725,7 @@ items:
               - name: High availability for SQL DB and SQL MI
                 href: /azure/azure-sql/database/high-availability-sla
                 maintainContext: true
-              - name: Cosmos DB guidance
+              - name: Azure Cosmos DB guidance
                 items:
                   - name: Azure Cosmos DB resource model
                     href: /azure/cosmos-db/account-databases-containers-items
@@ -3731,10 +3735,10 @@ items:
                       - name: Distribute data globally
                         href: /azure/cosmos-db/distribute-data-globally
                         maintainContext: true
-                      - name: Consistency levels in Cosmos DB
+                      - name: Consistency levels in Azure Cosmos DB
                         href: /azure/cosmos-db/consistency-levels
                         maintainContext: true
-                      - name: High availability with Cosmos DB
+                      - name: High availability with Azure Cosmos DB
                         href: /azure/cosmos-db/high-availability
                         maintainContext: true
                       - name: Global distribution functional details
@@ -3745,7 +3749,7 @@ items:
                     maintainContext: true
                   - name: Capacity
                     items:
-                     - name: Request units in Cosmos DB
+                     - name: Request units in Azure Cosmos DB
                        href: /azure/cosmos-db/request-units
                        maintainContext: true
                      - name: Provisioned throughput
@@ -3754,7 +3758,7 @@ items:
                      - name: Autoscale throughput
                        href: /azure/cosmos-db/provision-throughput-autoscale
                        maintainContext: true
-                     - name: Serverless in Cosmos DB
+                     - name: Serverless in Azure Cosmos DB
                        href: /azure/cosmos-db/serverless
                        maintainContext: true
                      - name: Autoscale and standard throughput
@@ -3768,7 +3772,7 @@ items:
                        maintainContext: true                    
                   - name: Security
                     items:
-                      - name: Security in Cosmos DB
+                      - name: Security in Azure Cosmos DB
                         href: /azure/cosmos-db/database-security
                         maintainContext: true
                       - name: Data encryption
@@ -3783,15 +3787,15 @@ items:
                       - name: Azure Policy Regulatory Compliance
                         href: /azure/cosmos-db/security-controls-policy
                         maintainContext: true
-                      - name: Security baseline for Cosmos DB
+                      - name: Security baseline for Azure Cosmos DB
                         href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
                         maintainContext: true
                   - name: Backup
                     items:
-                      - name: Backup and restore in Cosmos DB
+                      - name: Backup and restore in Azure Cosmos DB
                         href: /azure/cosmos-db/continuous-backup-restore-introduction
                         maintainContext: true
-                      - name: Continuous backup in Cosmos DB
+                      - name: Continuous backup in Azure Cosmos DB
                         href: /azure/cosmos-db/continuous-backup-restore-introduction
                         maintainContext: true
                   - name: Cost optimization
@@ -3829,7 +3833,7 @@ items:
                       - name: Optimize with rate limiting
                         href: /azure/cosmos-db/rate-limiting-requests
                         maintainContext: true
-                  - name: Change feed in Cosmos DB
+                  - name: Change feed in Azure Cosmos DB
                     href: /azure/cosmos-db/change-feed
                     maintainContext: true
                   - name: Built-in Jupyter Notebooks support
@@ -3856,7 +3860,7 @@ items:
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Extend Project Online reporting
                 href: example-scenario/data/extend-reporting-capabilities.yml
-              - name: Globally distributed apps using Cosmos DB
+              - name: Globally distributed apps using Azure Cosmos DB
                 href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Hybrid ETL with Azure Data Factory
                 href: example-scenario/data/hybrid-etl-with-adf.yml
@@ -3917,7 +3921,7 @@ items:
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
               - name: Gaming using MySQL
                 href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-              - name: Gaming using Cosmos DB
+              - name: Gaming using Azure Cosmos DB
                 href: solution-ideas/articles/gaming-using-cosmos-db.yml
               - name: Intelligent apps using MySQL
                 href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml
@@ -3937,19 +3941,19 @@ items:
                 href: solution-ideas/articles/messaging.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
-              - name: Multi-region web app with Cosmos DB
+              - name: Multi-region web app with Azure Cosmos DB
                 href: solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
-              - name: Personalization using Cosmos DB
+              - name: Personalization using Azure Cosmos DB
                 href: solution-ideas/articles/personalization-using-cosmos-db.yml
               - name: Retail and e-commerce using MySQL
                 href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml
               - name: Retail and e-commerce using PostgreSQL
                 href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
-              - name: Retail and e-commerce using Cosmos DB
+              - name: Retail and e-commerce using Azure Cosmos DB
                 href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
-              - name: Serverless apps using Cosmos DB
+              - name: Serverless apps using Azure Cosmos DB
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
@@ -4287,7 +4291,7 @@ items:
                     href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
-                  - name: Serverless apps using Cosmos DB
+                  - name: Serverless apps using Azure Cosmos DB
                     href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
                   - name: Serverless computing LOB apps
                     href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
@@ -4964,7 +4968,7 @@ items:
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT Edge safety and maintenance system
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
-              - name: IoT using Cosmos DB
+              - name: IoT using Azure Cosmos DB
                 href: solution-ideas/articles/iot-using-cosmos-db.yml
               - name: Smart places with Azure Digital Twins
                 href: example-scenario/iot/smart-places.yml

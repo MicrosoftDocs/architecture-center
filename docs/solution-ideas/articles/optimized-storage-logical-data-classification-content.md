@@ -63,13 +63,13 @@ The following architecture can be appropriate for any application that uses mass
 ## Considerations
 
 - Azure Data Factory or a third-party tool can migrate data from Azure Cosmos DB to Azure Table storage.
-- If you're migrating data from an old storage system, you need to write routines to copy old data to Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
+- If you're migrating data from an old storage system, you need to write routines to copy old data to Azure Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
- * [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
 
 ## Next steps
 
@@ -77,7 +77,7 @@ The following architecture can be appropriate for any application that uses mass
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
-- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/training/modules/store-access-data-cosmos-table-api)
+- [Store and access NoSQL data with Azure Cosmos DB for Table](/training/modules/store-access-data-cosmos-table-api)
 - [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
 - [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
 - [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)

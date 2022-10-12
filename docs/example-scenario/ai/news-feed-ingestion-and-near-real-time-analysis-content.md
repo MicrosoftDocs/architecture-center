@@ -23,7 +23,7 @@ The data flows through the solution as follows:
 
 2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].
 
-3. A notification triggers an ingest function in Azure Functions that stores the article text in Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.
+3. A notification triggers an ingest function in Azure Functions that stores the article text in Azure Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.
 
 4. A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure Cognitive Services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.
 

@@ -48,7 +48,7 @@ An App Service Environment can run regular web apps on Windows or, as in this ex
 
 Other options for the data tier include:
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction): If most of your data is in non-relational format, Cosmos DB is a good alternative. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction): If most of your data is in non-relational format, Azure Cosmos DB is a good alternative. This service provides a platform to run other data models such as MongoDB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
