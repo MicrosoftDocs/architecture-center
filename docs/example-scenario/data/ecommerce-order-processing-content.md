@@ -1,6 +1,7 @@
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
 ## Architecture
+
 :::image type="content" alt-text="Diagram of example architecture for a scalable order processing pipeline." source="./media/architecture-ecommerce-order-processing.png" lightbox="./media/architecture-ecommerce-order-processing.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-ecommerce-order-processing.vsdx)* of this architecture.
@@ -12,8 +13,8 @@ This architecture details key components of an order processing pipeline. The da
 1. Event messages enter the system via customer-facing applications (synchronously over HTTP) and various back-end systems (asynchronously via Apache Kafka). These messages are passed into a command processing pipeline.
 2. Each event message is ingested and mapped to one of a defined set of commands by a command processor microservice. The command processor retrieves any current state relevant to executing the command from an event stream snapshot database. The command is then executed, and the output of the command is emitted as a new event.
 3. Each event emitted as the output of a command is committed to an event stream database using Azure Cosmos DB.
-4. For each database insert or update committed to the event stream database, an event is raised by the Azure Cosmos DB Change Feed. Downstream systems can subscribe to any event topics that are relevant to that system.
-5. All events from the Azure Cosmos DB Change Feed are also sent to a snapshot event stream microservice, which calculates any state changes caused by events that have occurred. The new state is then committed to the event stream snapshot database stored in Azure Cosmos DB. The snapshot database provides a globally distributed, low latency data source for the current state of all data elements. The event stream database provides a complete record of all event messages that have passed through the architecture, which enables robust testing, troubleshooting, and disaster recovery scenarios.
+4. For each database insert or update committed to the event stream database, an event is raised by the Azure Cosmos DB change feed. Downstream systems can subscribe to any event topics that are relevant to that system.
+5. All events from the Azure Cosmos DB change feed are also sent to a snapshot event stream microservice, which calculates any state changes caused by events that have occurred. The new state is then committed to the event stream snapshot database stored in Azure Cosmos DB. The snapshot database provides a globally distributed, low latency data source for the current state of all data elements. The event stream database provides a complete record of all event messages that have passed through the architecture, which enables robust testing, troubleshooting, and disaster recovery scenarios.
 
 ### Components
 
@@ -73,7 +74,7 @@ The event sourcing architecture and associated technologies in this example scen
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Azure Cosmos DB and a Kafka cluster for processing events raised from the Azure Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems aren't included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
+To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Azure Cosmos DB and a Kafka cluster for processing events raised from the Azure Cosmos DB change feed. Event processors and microservices for originating systems and other downstream systems aren't included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
 The currency of Azure Cosmos DB is the request unit (RU). With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units required by your solution is dependent on data element size and the number of database read and write operations per second. For more information, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units). These estimated prices are based on Azure Cosmos DB running in two Azure regions.
 
@@ -102,7 +103,7 @@ See this other content:
 - Other [Azure Cosmos DB use cases][docs-cosmos-db-use-cases]
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Consume an Azure Cosmos DB SQL API change feed using the SDK](/training/modules/consume-azure-cosmos-db-sql-api-change-feed-use-sdk)
-- [What is Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [What is Apache Kafka in Azure HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction)
 - [Perform advanced streaming data transformations with Apache Spark and Kafka in Azure HDInsight](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka)
 
 ## Related resources

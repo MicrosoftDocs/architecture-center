@@ -5,7 +5,7 @@ metadata:
   description: Use Microsoft Sentinel playbooks to generate automated responses and deliver intelligent security analytics for enterprises.
   author: EdPrice-MSFT
   ms.author: ruolivei
-  ms.date: 06/20/2022
+  ms.date: 10/10/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

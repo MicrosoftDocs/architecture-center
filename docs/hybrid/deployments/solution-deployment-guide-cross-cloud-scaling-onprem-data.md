@@ -277,14 +277,14 @@ You can use App Service environment variables to pass a different connection str
 
 2. Open Startup.cs and find the following code block:
 
-    ```c#
+    ```csharp
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
 3. Replace the previous code block with the following code, which uses a connection string defined in the *appsettings.json* file:
 
-    ```c#
+    ```csharp
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
      // Automatically perform database migration
