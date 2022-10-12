@@ -48,7 +48,7 @@ For network and subnet topology details, see the [Azure sample template][azure-s
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However, static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs, or both. For more information about zone-redundancy in API Manager, see [Availability zone support][apim-zr].
 
-## Solution details
+## Scenario details
 
 Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, with tradeoffs between data consistency and high performance.
 
