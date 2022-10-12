@@ -121,12 +121,12 @@ Take advantage of autoscaling features of the services, where possible, to ensur
 
 ### Managing keys, secrets, and certificates
 
-Use Managed Identities where possible to avoid having to manage API keys or secrets such as passwords.
+Use managed identities where possible to avoid having to manage API keys or secrets such as passwords.
 
 When you're using keys, secrets, or certificates, use Azure-native platform capabilities whenever possible. The following are some examples of these platform-level capabilities:
 
 - Azure Front Door has built-in capabilities for TLS certificate management and renewal.
-- Key Vault supports automatic key rotation.
+- Azure Key Vault supports automatic key rotation.
 
 ## Manual operations
 
