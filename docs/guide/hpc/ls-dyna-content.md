@@ -52,13 +52,13 @@ The following table provides the details of the operating system that was used f
 
 |Operating system	|OS architecture|Processor|
 |-|-|-|
-|Ubuntu 20.04.3 LTS|x86-64|	AMD EPYC 7V73X|
+|Ubuntu 20.04.3 LTS|x86-64|	AMD EPYC 7V73X (Milan-X)|
 
 A crash simulation model was used for testing:
 
 :::image type="content" source="media/ls-dyna/crash-simulation.png" alt-text="Screenshot that shows the crash simulation that was used for testing." border="false":::
 
-These are the details of the model: 
+Here are the details of the model: 
 
 - **Size:** 18,299,158
 - **Cell type:** Shell and solid
@@ -68,7 +68,7 @@ These are the details of the model:
 
 Based on the results of testing on a single node, the 64-core VM Standard_HB120-64rs_v3 is the best configuration, taking into account performance and license costs. This configuration was used in multi-node tests, with one, two, three, and four nodes.
 
-The following table shows the elapsed times and the relative speed increases as the number of CPUs increases. LS-DYNA 2022 R1 and LS-DYNA 2022 R2 were tested.
+The following table shows the wall-clock times for running the simulation and the relative speed increases as the number of CPUs increases. LS-DYNA 2022 R1 on an HBv3 VM with an AMD Milan processor is used as a reference baseline to determine the speed increases. LS-DYNA 2022 R1 and LS-DYNA 2022 R2 were tested.
 
 |Number of compute nodes|	Number of CPUs|2022 R1 (seconds)| 	2022 R2 (seconds)| 2022 R1, increase| 	2022 R2, increase |
 |-|-|-|-|-|-|
@@ -79,11 +79,15 @@ The following table shows the elapsed times and the relative speed increases as 
 
 The performance scales impressively as the number of nodes increases.
 
+This graph shows the relative speed increases:
+
+:::image type="content" source="media/ls-dyna/ls-dyna-graph.png" alt-text="Graph that shows the relative speed increases." border="false":::
+
 ## Azure cost
 
 The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the number of nodes and the Azure hourly rates for HBv3-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-Only the wall-clock times for running the model is presented in this table. Application installation time and license costs aren't included. These times are indicative. The actual times depend on the size of the model.
+Only the wall-clock times for running the model are presented in this table. Application installation time and license costs aren't included. These times are indicative. The actual times depend on the size of the model.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
