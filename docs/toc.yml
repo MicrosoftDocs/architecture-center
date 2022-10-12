@@ -3736,11 +3736,11 @@ items:
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
-              - name: DR for Azure data platform overview
+              - name: DR for Azure data platform Scenario overview
                 href: solution-ideas/articles/dr-for-azure-data-platform-overview.yml
               - name: DR for Azure data platform Architecture
                 href: solution-ideas/articles/dr-for-azure-data-platform-architecture.yml
-              - name: DR for Azure data platform Scenario Details
+              - name: DR for Azure data platform Scenario details
                 href: solution-ideas/articles/dr-for-azure-data-platform-scenario-details.yml
               - name: DR for Azure data platform Recommendations
                 href: solution-ideas/articles/dr-for-azure-data-platform-recommendations.yml
