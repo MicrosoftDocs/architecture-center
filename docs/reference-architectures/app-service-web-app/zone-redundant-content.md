@@ -52,26 +52,25 @@ For network and subnet topology details, see the [Azure sample template][azure-s
 
 Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, with tradeoffs between data consistency and high performance.
 
-[Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Availability zones spread a solution across multiple independent zones within a region, allowing an application to continue functioning when one zone fails.
+[Availability zones][azs] resolve many of these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Availability zones spread a solution across multiple independent zones within a region, allowing an application to continue functioning when one zone fails.
 
-Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zone failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run.
+Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zonal failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run within the remaining available zones. Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime, so there is no need to manage zone pinning or zonal deployments.
 
-This architecture shows how to combine zone-redundant services into a solution that provides high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits, including:
+This architecture shows how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures. 
 
-* **No need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
-* **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
-* **Simplified networking.** All VNet traffic can remain in the same Azure region.
-
-All of the Azure services in this architecture are either always-available or zone-redundant services. Azure Front Door, Azure AD, Azure DNS, and Static Web Apps are always-available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
+All of the Azure services in this architecture are either globally available or zone-redundant services. Azure Front Door, Azure AD, Azure DNS, and Static Web Apps are globally available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
 
 ### Potential use cases
 
-* Business critical systems with high availability requirements
 * Public website hosting
 * Mobile app hosting
 * E-commerce
 * Media streaming
 * Machine learning workloads
+
+> [!IMPORTANT]
+> For mission-critical workloads it is recommended to combine zone-redundancy and regional-redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions. 
+> For more details please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-criticl baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 ## Recommendations
 
@@ -181,16 +180,16 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. However, improvements can always be made. The risk of a zone failure in an Azure region is mitigated by this design. Zone-redundant services in Azure are designed to withstand a zone failure while still operating within SLA.
+This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. The risk of a zone failure in an Azure region is mitigated by this design, since zone-redundant services are designed to withstand a zonal failure while still operating within the defined SLA.
 
-Region failures are unlikely, but possible. Region failures are where services are unavailable throughout all availability zones in a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
+Regional failures are unlikely, but are possible. Region failures are where services are unavailable throughout all availability zones within a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
 
 Mitigate the risk of region failure by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is unavailable.
 
-Multi-region designs are more complex and often more expensive than multi-zone designs within a single region.
+Multi-region designs are more complex and often more expensive than multi-zone designs within a single region, but provide an opportunity to  further optimize availability and overall reliability.
 
 > [!NOTE]
-> You should perform a risk assessment to determine if a multi-region architecture is required for your solution.
+> You should perform a risk assessment to determine if a [multi-region architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) is required for your solution.
 
 #### Resilience
 
@@ -241,6 +240,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 All Azure PaaS (platform as a service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
 
+* Build a [health model](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#video-define-a-health-model-for-your-mission-critical-workload) to quantify application health in the context of business requirements.
 * Configure the right amount of log data collection.
 * Create Azure Dashboards for "single pane of glass" views for operations teams.
 * Create a successful alerting strategy.
@@ -250,7 +250,7 @@ Azure App Services and Azure Functions provide deployment slots. Practice [stage
 
 Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [sample Bicep file][azure-sample] is provided for this architecture that can be used to automatically deploy the entire solution.
 
-Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
+[Continuously validate](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload) the workload to test the performance and resilience of the entire solution using services such as [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
 ### Performance efficiency
 
@@ -295,9 +295,12 @@ Other contributors:
 * [Azure regions with availability zones][az-regions]
 * [Find an availability zone region near you][region-roadmap]
 * [Microsoft Azure Well-Architected Framework - Reliability][learn-ha]
+* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview)
 
 ## Related resources
 
+* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+* [Design principles for mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-design-principles)
 * [Highly available multi-region web app](./multi-region.yml)
 * [Design principles for Azure applications](/azure/architecture/guide/design-principles)
 * [Basic web application architecture](./basic-web-app.yml)
