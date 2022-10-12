@@ -77,7 +77,7 @@ While the end-to-end simulation of a DR event will be difficult across a modern 
 
 - **Relying on Microsoft to do it all**
 Within the Microsoft Azure services, there is a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
-![Shared Responsibility diagram](../../media/shared-responsibility-model.png)
+![Shared Responsibility diagram](../media/shared-responsibility-model.png)
 Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy
@@ -85,7 +85,7 @@ Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, t
 ### Disaster event scope
 
 Different events will have a different scope of impact and, therefore, a different response. The following diagram illustrates this for a disaster event:
-![Event scope and recovery process diagram](../../media/dr-for-azure-data-platform-event-scope.png)
+![Event scope and recovery process diagram](../media/dr-for-azure-data-platform-event-scope.png)
 
 ### Disaster strategy options
 
@@ -117,3 +117,5 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 >[!NOTE]
 >The above table should be read as a comparison between the options i.e. a strategy that has a green indicator is better for that classification than another strategy with a yellow or red indicator
 
+## Next steps
+Now that you have learned about the recommendations related to the scenario, you can learn about [details related to the scenario](../articles/dr-for-azure-data-platform-scenario-details.yml)
