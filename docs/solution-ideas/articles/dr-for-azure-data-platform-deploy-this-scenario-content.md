@@ -239,3 +239,6 @@ There is strong guidance for:
     - [Azure Status](https://status.azure.com/en-us/status)
     - [Azure DevOps Status](https://status.dev.azure.com/)
 - [Five Best Practices to Anticipate Failure](https://techcommunity.microsoft.com/t5/azure-architecture-blog/five-best-practices-to-anticipate-failure/ba-p/3314035)
+
+## Next steps
+Now that you have learned how to deploy the scenario, you can read a [summary](../articles/dr-for-azure-data-platform-summary.yml) of the DR for Azure data platform series.
