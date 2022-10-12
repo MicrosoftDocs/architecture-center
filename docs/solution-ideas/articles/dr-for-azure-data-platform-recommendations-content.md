@@ -104,7 +104,7 @@ While the operating cost attributed to the higher levels of service resiliency o
 
 The DR scenario for this worked example is a complete Azure regional outage that directly impacts the primary region which hosts the Contoso Data Platform. 
 For this outage scenario, the relative impact on the four high-level DR Strategies are:
-![DR Strategy Impacts art](../../media/dr-for-azure-data-platform-strategy.png)
+![DR Strategy Impacts art](../media/dr-for-azure-data-platform-strategy.png)
 
 *Classification Key*
 
