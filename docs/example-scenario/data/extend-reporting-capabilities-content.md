@@ -1,6 +1,6 @@
 There might be occasions when you're asked to gather data from various unrelated places, and to clean, transform, and join that data in order to provide an actionable metric. Doing these actions securely, efficiently, and with minimum cost presents various technical challenges.
 
-This scenario describes how to use Project Online, a flexible solution for project portfolio management (PPM) and everyday work from Microsoft, to track and process data from multiple tenants.
+This scenario describes how to extend the reporting capabilities of Project Online, a flexible solution for project portfolio management (PPM) from Microsoft, to track and process data from multiple tenants.
 
 ## Architecture
 
@@ -10,13 +10,12 @@ This scenario describes how to use Project Online, a flexible solution for proje
 
 ### Dataflow
 
-Data is generated in its source system.
+1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online ODATA endpoint configuration to single or multiple instances from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
 
-1. Azure Logic Apps makes a request to the source system with the stored credentials in Azure Key Vault. Key Vault stores Project Online ODATA endpoint configuration to single or multiple instances from one or more Microsoft 365 tenants, or any other data sources. Azure Key vault keeps the cloud credentials safe. The cloud credentials are used in Logic Apps to connect each Project Online data source.
+> [!NOTE]
+> For government customers, please follow the guidance under "Customers with Common Access Cards (CAC) / Personal Identity Verification (PIV) requirements."
 
-> ![NOTE] For government customers, please follow the guidance under "Customers with Common Access Cards (CAC) / Personal Identity Verification (PIV) requirements."
-
-2. The source system responds to the Logic App request with the data. Logic Apps parses the data into JSON format. If the source system is formatted in an ODATA protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
+2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an ODATA protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
 3. After the data is parsed, Logic Apps places the data into Azure SQL Server or storage in Data Lake for further processing. The ability to set up data pulls differs by organization and by system/platform. Follow the process required, such as by Logic Apps, Azure Data Factory, Azure Synapse Pipelines.
 
@@ -24,9 +23,15 @@ Data is generated in its source system.
 
 5. Data is further processed to the next level, where data is ready to use for the final tier.
 
-6. Complex calculations and metrics complete the transformation processes. Data is published to either the Power BI Report Server in Microsoft 365, or it's published to a Power BI server in Azure or on-premises. Transformed data can be directly queried or imported into Power BI Service, or Power BI Report Server. An alternative process is pushing the data into Azure Analysis Services.
+6. Complex calculations and metrics complete the transformation processes. Data is published to either the Power BI Report Server in Microsoft 365, or it's published to a Power BI server in Azure or on-premises. Transformed data can be directly queried or imported into Power BI Service or Power BI Report Server. An alternative process is pushing the data into Azure Analysis Services.
 
 7. Data is published and reports are created and made available for consumption.
+
+**Sample Logic Apps dataflow**
+
+Your dataflow might look something like the following example:
+
+[ ![Screenshot of Logic Apps steps for Project Online data refresh.](media/project-online-sample-workflow.png) ](media/project-online-sample-workflow.png#lightbox)
 
 ### Components
 
@@ -47,35 +52,24 @@ This architecture uses the following components:
 
 - [Power BI Service](https://powerbi.microsoft.com/what-is-power-bi) is a collection of software services, apps, and connectors that work together to help you create, share, and consume business insights in the way that serves you and your business effectively. In the context of this solution, you'll use this service to neatly display the state of a dynamic, complex project to stakeholders.
 
-**Sample Logic App Workflow**
-
-Your Logic App workflow might look something like:
-
-[ ![Screenshot of Logic Apps steps for Project Online data refresh.](media/project-online-sample-workflow.png) ](media/project-online-sample-workflow.png#lightbox)
-
 ### Alternatives
 
 This reporting model isn't limited to Project Online. Using the schema provided in Project Online can save time and money, but the general concept can be applied to any data source connected from Logic Apps. Logic Apps is a powerful workflow tool that can connect many Microsoft first-party and third-party data sources, such as SharePoint, Dataverse, or even data in on-premises networks.
 
-Furthermore, other components can be replaced based on the type of data you'll handle and how those datasets are transformed. You can use different data storage and processing types, from Dataverse to traditional SQL on VMs, Azure SQL, Databricks, data lakes, or Oracle on IaaS in Azure.
+Furthermore, other components can be replaced based on the type of data and how those datasets are transformed. You can use different data storage and processing types, from Dataverse to traditional SQL on VMs, Azure SQL, Databricks, data lakes, or Oracle on IaaS in Azure.
 
-Logic Apps isn't the only option to consider. For example, Azure Data Factory and Azure Functions are excellent alternative data and job processing services, especially as the scale of the data grows.
+Logic Apps isn't the only option to consider. For example, Azure Data Factory and Azure Functions are excellent data and job-processing services, especially as the scale of the data grows.
 
 ## Scenario details
 
-Microsoft Project is an application that's been developed over 20+ years and there are some strong data relationship and tracking functionality for this solution. Typical solution requirements are:
+Microsoft Project offers strong data relationship and tracking functionality for this solution. Features include:
 
-1. The solution is easy to set up
-
+1. Easy set up
 2. Near real-time data refreshes
-
 3. Can accommodate more than 100 GB of unstructured and structured data at any given time
-
 4. Not domain or tenant dependent
-
 5. Flexible
-
-6. Follow ISC2's CIA triad. Security model with the three security concepts of confidentiality, integrity, and availability make up the CIA Triad. It's also sometimes referred to as the AIC Triad.
+6. Follows the CIA or AIC triad model, which is made up of *confidentiality*, *integrity*, and *availability*
 
 ### Potential use cases
 
@@ -126,13 +120,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 To explore the cost of running this scenario, all the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We've provided three sample cost profiles based on amount of traffic and data:
+The following sample cost estimates are based on the amount of traffic and data:
 
-- [Small](https://azure.com/e/f96c5a16b2c44ce78e1957f22d49895a): this pricing example correlates to processing 30 GB Project Online instance.
+- [Small pricing example](https://azure.com/e/f96c5a16b2c44ce78e1957f22d49895a) for 30 GB Project Online instance.
 
-- [Medium](https://azure.com/e/f1158343bc954bd0b5a97ff21aad869a): this pricing example correlates to processing 30 GB \* 5 Project Online instances.
+- [Medium pricing example](https://azure.com/e/f1158343bc954bd0b5a97ff21aad869a) for 30 GB \* 5 Project Online instances.
 
-- [Large](https://azure.com/e/49491ee9585d4711926b6661b691e1f3): this pricing example correlates to processing 50 GB \* 10 Project Online instances.
+- [Large pricing example](https://azure.com/e/49491ee9585d4711926b6661b691e1f3) for 50 GB \* 10 Project Online instances.
 
 ### Performance efficiency
 
@@ -151,7 +145,7 @@ You need the following information from your Azure AD client registration:
 - Application (client) ID
 - Client secret
 
-The client secret should be stored in and then come from Key Vault. Create an HTTP Request method in your Logic Apps steps to post to your appropriate [token endpoint](/azure/active-directory/develop/v2-app-types#daemons-and-server-side-apps), and parse out the access_token in the HTTP response.
+The client secret should be stored in, and then come from, Key Vault. Create an HTTP Request method in Logic Apps to post to your appropriate [token endpoint](/azure/active-directory/develop/v2-app-types#daemons-and-server-side-apps), and parse out the access_token in the HTTP response.
 
 ## Contributors
 
@@ -166,13 +160,18 @@ Principal authors:
 
 ## Next steps
 
-- [Project Online](/projectonline/project-online)
-- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
-- [Azure Key Vault](/azure/key-vault/general/overview)
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Azure Storage](/azure/storage)
-- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [Learn about Project Online](/projectonline/project-online)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [Describe analytics capabilities in Microsoft 365](/training/modules/describe-analytics-capabilities-microsoft-365)
+- [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis)
 
 ## Related resources
+
+- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
+- [Enterprise business intelligence](../analytics/enterprise-bi-synapse.yml)
+- [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
