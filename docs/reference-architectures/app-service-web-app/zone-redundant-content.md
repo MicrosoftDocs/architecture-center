@@ -68,6 +68,7 @@ All of the Azure services in this architecture are either always-available or zo
 
 * Business critical systems with high availability requirements
 * Public website hosting
+* Intranet portal
 * Mobile app hosting
 * E-commerce
 * Media streaming
