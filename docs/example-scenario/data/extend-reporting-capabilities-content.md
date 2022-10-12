@@ -11,7 +11,7 @@ This scenario describes how to extend the reporting capabilities of Project Onli
 1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online ODATA endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
 
 > [!NOTE]
-> For government customers, please follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#customers-with-common-access-cards-cac-or-personal-identity-verification-piv).
+> For government customers, please follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
 
 2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an ODATA protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
