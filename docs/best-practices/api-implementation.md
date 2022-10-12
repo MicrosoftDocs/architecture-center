@@ -188,7 +188,7 @@ public IHttpActionResult DeleteCustomer(int id)
 ```
 
 > [!TIP]
-> Do not include information that could be useful to an attacker attempting to penetrate your API.
+> Don't include information that could be useful to an attacker attempting to penetrate your API.
 
 Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
 
@@ -340,7 +340,7 @@ Content-Length: ...
 ```
 
 > [!TIP]
-> For security reasons, do not allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
+> For security reasons, don't allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
 
 A client application can issue a subsequent GET request to retrieve the same resource at any time, and if the resource has changed (it has a different ETag) the cached version should be discarded and the new version added to the cache. If a resource is large and requires a significant amount of bandwidth to transmit back to the client, repeated requests to fetch the same data can become inefficient. To combat this, the HTTP protocol defines the following process for optimizing GET requests that you should support in a web API:
 
@@ -571,7 +571,7 @@ You can minimize the size of large objects transmitted over the network by using
 
 You can combine encoded compression with streaming; compress the data first before streaming it, and specify the gzip content encoding and chunked transfer encoding in the message headers. Also note that some web servers (such as Internet Information Server) can be configured to automatically compress HTTP responses regardless of whether the web API compresses the data or not.
 
-### Implement partial responses for clients that do not support asynchronous operations
+### Implement partial responses for clients that don't support asynchronous operations
 
 As an alternative to asynchronous streaming, a client application can explicitly request data for large objects in chunks, known as partial responses. The client application sends an HTTP HEAD request to obtain information about the object. If the web API supports partial responses it should respond to the HEAD request with a response message that contains an Accept-Ranges header and a Content-Length header that indicates the total size of the object, but the body of the message should be empty. The client application can use this information to construct a series of GET requests that specify a range of bytes to receive. The web API should return a response message with HTTP status 206 (Partial Content), a Content-Length header that specifies the actual amount of data included in the body of the response message, and a Content-Range header that indicates which part (such as bytes 4000 to 8000) of the object this data represents.
 
@@ -619,7 +619,7 @@ public class OrdersController : ApiController
 A client application can issue a request to retrieve 30 orders starting at offset 50 by using the URI `https://www.adventure-works.com/api/orders?limit=30&offset=50`.
 
 > [!TIP]
-> Avoid enabling client applications to specify query strings that result in a URI that is more than 2000 characters long. Many web clients and servers cannot handle URIs that are this long.
+> Avoid enabling client applications to specify query strings that result in a URI that is more than 2000 characters long. Many web clients and servers can't handle URIs that are this long.
 
 ## Maintaining responsiveness, scalability, and availability
 
@@ -634,15 +634,15 @@ The web API should also provide a mechanism to return the results of the process
 You can implement a simple polling mechanism by providing a *polling* URI that acts as a virtual resource using the following approach:
 
 1. The client application sends the initial request to the web API.
-2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables/) or [Microsoft Azure Cache](/azure/azure-cache-for-redis/), and generates a unique key for this entry, possibly in the form of a GUID. Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging/) as well.
-3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io/). The web API records the state of the task in the table as *Running*.
-  - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
+2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables) or [Microsoft Azure Cache](/azure/azure-cache-for-redis), and generates a unique key for this entry, possibly in the form of a GUID. Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging) as well.
+3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
+  - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
 5. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
 6. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
   - Consider applying [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
 8. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
 9. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
-  - If the long-running process has more intermediate states, it is better to use a library that supports the saga pattern like [NServiceBus](https://docs.particular.net/nservicebus/sagas/) or [MassTransit](https://masstransit-project.com/usage/sagas/).
+  - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit-project.com/usage/sagas).
 
 Options for implementing notifications include:
 
@@ -665,20 +665,20 @@ The HTTP protocol supports persistent HTTP connections where they are available.
 Keeping a connection open can help to improve responsiveness by reducing latency and network congestion, but it can be detrimental to scalability by keeping unnecessary connections open for longer than required, limiting the ability of other concurrent clients to connect. It can also affect battery life if the client application is running on a mobile device; if the application only makes occasional requests to the server, maintaining an open connection can cause the battery to drain more quickly. To ensure that a connection is not made persistent with HTTP 1.1, the client can include a Connection:Close header with messages to override the default behavior. Similarly, if a server is handling a very large number of clients it can include a Connection:Close header in response messages which should close the connection and save server resources.
 
 > [!NOTE]
-> Persistent HTTP connections are a purely optional feature to reduce the network overhead associated with repeatedly establishing a communications channel. Neither the web API nor the client application should depend on a persistent HTTP connection being available. Do not use persistent HTTP connections to implement Comet-style notification systems; instead you should use sockets (or web sockets if available) at the TCP layer. Finally, note Keep-Alive headers are of limited use if a client application communicates with a server via a proxy; only the connection with the client and the proxy will be persistent.
+> Persistent HTTP connections are a purely optional feature to reduce the network overhead associated with repeatedly establishing a communications channel. Neither the web API nor the client application should depend on a persistent HTTP connection being available. Don't use persistent HTTP connections to implement Comet-style notification systems; instead you should use sockets (or web sockets if available) at the TCP layer. Finally, note Keep-Alive headers are of limited use if a client application communicates with a server via a proxy; only the connection with the client and the proxy will be persistent.
 
 ## Publishing and managing a web API
 
 To make a web API available for client applications, the web API must be deployed to a host environment. This environment is typically a web server, although it may be some other type of host process. You should consider the following points when publishing a web API:
 
 - All requests must be authenticated and authorized, and the appropriate level of access control must be enforced.
-- A commercial web API might be subject to various quality guarantees concerning response times. It is important to ensure that host environment is scalable if the load can vary significantly over time.
+- A commercial web API might be subject to various quality guarantees concerning response times. It's important to ensure that host environment is scalable if the load can vary significantly over time.
 - It may be necessary to meter requests for monetization purposes.
 - It might be necessary to regulate the flow of traffic to the web API, and implement throttling for specific clients that have exhausted their quotas.
 - Regulatory requirements might mandate logging and auditing of all requests and responses.
 - To ensure availability, it may be necessary to monitor the health of the server hosting the web API and restart it if necessary.
 
-It is useful to be able to decouple these issues from the technical issues concerning the implementation of the web API. For this reason, consider creating a [façade](https://wikipedia.org/wiki/Facade_pattern), running as a separate process and that routes requests to the web API. The façade can provide the management operations and forward validated requests to the web API. Using a façade can also bring many functional advantages, including:
+It's useful to be able to decouple these issues from the technical issues concerning the implementation of the web API. For this reason, consider creating a [façade](https://wikipedia.org/wiki/Facade_pattern), running as a separate process and that routes requests to the web API. The façade can provide the management operations and forward validated requests to the web API. Using a façade can also bring many functional advantages, including:
 
 - Acting as an integration point for multiple web APIs.
 - Transforming messages and translating communications protocols for clients built by using varying technologies.
@@ -692,7 +692,7 @@ The nature of a web API brings its own additional requirements to verify that it
 
 - Test all routes to verify that they invoke the correct operations. Be especially aware of HTTP status code 405 (Method Not Allowed) being returned unexpectedly as this can indicate a mismatch between a route and the HTTP methods (GET, POST, PUT, DELETE) that can be dispatched to that route.
 
-    Send HTTP requests to routes that do not support them, such as submitting a POST request to a specific resource (POST requests should only be sent to resource collections). In these cases, the only valid response *should* be status code 405 (Not Allowed).
+    Send HTTP requests to routes that don't support them, such as submitting a POST request to a specific resource (POST requests should only be sent to resource collections). In these cases, the only valid response *should* be status code 405 (Not Allowed).
 
 - Verify that all routes are protected properly and are subject to the appropriate authentication and authorization checks.
 
@@ -821,6 +821,6 @@ You can use this information to determine whether a particular web API or operat
 - [Run background tasks with WebJobs](/azure/app-service-web/web-sites-create-web-jobs) provides information and examples on using WebJobs to perform background operations.
 - [Azure Notification Hubs notify users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
 - [API Management](https://azure.microsoft.com/services/api-management) describes how to publish a product that provides controlled and secure access to a web API.
-- [Azure API Management REST API reference](/rest/api/apimanagement/) describes how to use the API Management REST API to build custom management applications.
+- [Azure API Management REST API reference](/rest/api/apimanagement) describes how to use the API Management REST API to build custom management applications.
 - [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
 - [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
