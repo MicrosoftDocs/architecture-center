@@ -3,7 +3,7 @@
 ## Data service topology
 
 At a high-level the data service topology for Contoso’s data platform can be illustrated as:
-![Contoso data service topology](../media/dr-for-azure-data-contoso-service-topology)
+![Contoso data service topology](../media/dr-for-azure-data-contoso-service-topology.png)
 
 ## DR Impact vs Customer Activity 
 The following tables present a breakdown of Contoso activity required across DR events of varying impacts.
