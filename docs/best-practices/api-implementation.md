@@ -634,12 +634,15 @@ The web API should also provide a mechanism to return the results of the process
 You can implement a simple polling mechanism by providing a *polling* URI that acts as a virtual resource using the following approach:
 
 1. The client application sends the initial request to the web API.
-2. The web API stores information about the request in a table held in table storage or Microsoft Azure Cache, and generates a unique key for this entry, possibly in the form of a GUID.
-3. The web API initiates the processing as a separate task. The web API records the state of the task in the table as *Running*.
-4. The web API returns a response message with HTTP status code 202 (Accepted), and the GUID of the table entry in the body of the message.
-5. When the task has completed, the web API stores the results in the table, and sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
-6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI */polling/{guid}* where *{guid}* is the GUID returned in the 202 response message by the web API.
-7. The web API at the */polling/{guid}* URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
+2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables/) or [Microsoft Azure Cache](/azure/azure-cache-for-redis/), and generates a unique key for this entry, possibly in the form of a GUID. Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging/) as well.
+3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io/). The web API records the state of the task in the table as *Running*.
+  - If using Azure Service Bus, the processing of the message would be done separately from the API, possibly using [Azure Functions](/azure/azure-functions/) or [AKS](/azure/aks/).
+5. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
+6. When the task has completed, the web API stores the results in the table, and sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
+  - Consider apply [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
+8. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
+9. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
+  - If the long-running process has more intermediate states, it is better to use a library that supports the saga pattern like [NServiceBus](https://docs.particular.net/nservicebus/sagas/) or [MassTransit](https://masstransit-project.com/usage/sagas/).
 
 Options for implementing notifications include:
 
