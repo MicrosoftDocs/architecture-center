@@ -730,7 +730,7 @@ On Azure, consider using [Azure API Management](/azure/api-management) to publis
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 
-2. Connect the API management service to the web API. Requests sent to the URI of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
+2. Connect the API management service to the web API. Requests sent to the URL of the management API are mapped to URIs in the web API. The same API management service can route requests to more than one web API. This enables you to aggregate multiple web APIs into a single management service. Similarly, the same web API can be referenced from more than one API management service if you need to restrict or partition the functionality available to different applications.
 
      > [!NOTE]
      > The URIs, in the HATEOAS links that are generated as part of the response for HTTP GET requests, should reference the URL of the API management service and not the web server that's hosting the web API.
