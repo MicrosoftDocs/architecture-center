@@ -1,4 +1,4 @@
-This scenario describes how to extend the reporting capabilities of Project Online, a flexible solution for project portfolio management (PPM) from Microsoft. You can track and process data from various unrelated places, and then clean, transform, and join that data in order to provide an actionable metric. Doing these actions securely, efficiently, and with minimum cost presents various technical challenges.
+This scenario describes how to extend the reporting capabilities of Project Online, a flexible solution for project portfolio management (PPM) from Microsoft. You can track and process data from various unrelated sources, and then clean, transform, and combine that data in order to provide an actionable metric. Doing these actions securely, efficiently, and with minimum cost presents various technical challenges.
 
 ## Architecture
 
@@ -11,7 +11,7 @@ This scenario describes how to extend the reporting capabilities of Project Onli
 1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online ODATA endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
 
 > [!NOTE]
-> For government customers, please follow the guidance under [Customers with common access cards (CAC) or personal identity verification (PIV) requirements](#customers-with-common-access-cards-cac-or-personal-identity-verification-piv-requirements).
+> For government customers, please follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#customers-with-common-access-cards-cac-or-personal-identity-verification-piv).
 
 2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an ODATA protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
@@ -52,7 +52,7 @@ This architecture uses the following components:
 
 ### Alternatives
 
-This reporting model isn't limited to Project Online. Using the schema provided in Project Online can save time and money, but the general concept can be applied to any data source connected from Logic Apps. Logic Apps is a powerful workflow tool that can connect many Microsoft first-party and third-party data sources, such as SharePoint, Dataverse, or even data in on-premises networks.
+Using the schema provided in Project Online can save time and money, but the general concept can be applied to any data source connected from Logic Apps. Logic Apps is a powerful workflow tool that can connect many Microsoft first-party and third-party data sources, such as SharePoint, Microsoft Dataverse, or even data in on-premises networks.
 
 Furthermore, other components can be replaced based on the type of data and how those datasets are transformed. You can use different data storage and processing types, from Dataverse to traditional SQL on VMs, Azure SQL, Databricks, data lakes, or Oracle on IaaS in Azure.
 
@@ -80,7 +80,7 @@ When working on complex reports with Project Online data, you might face challen
 - Tracking baselines for trends over months or even years.
 - Always ensuring compliance and government retention policies.
 
-Although the out-of-the-box reporting model might work in many cases, directly querying Project Online data from Power BI isn't sufficient for this scenario. You might need to collect, consolidate, and transform data before visualizing in Power BI.
+Although the out-of-the-box reporting model might work in many cases, directly querying Project Online data from Power BI isn't always sufficient. You might need to collect, consolidate, and transform data before visualizing in Power BI.
 
 Here are some more potential use cases:
 
@@ -100,7 +100,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This scenario is built on top of Azure Logic Apps and Azure SQL Database, which are reliable products from Microsoft. Azure SQL Database has 99.99% reliability.
 
-Besides the underlying technology, the scenario adds retry policy, additional behaviors for error handling, and uses Azure Monitor to capture logs from the solution.
+Aside from the underlying technology, the scenario adds retry policy, additional behaviors for error handling, and uses Azure Monitor to capture logs from the solution.
 
 ### Security
 
@@ -133,7 +133,7 @@ This scenario uses Azure Logic Apps and Azure SQL Database. With Logic Apps and 
 
 One major concern of this scenario is the size of data it processes. In Project Online, most of data won't change day by day. It's a waste of bandwidth to reload every bit of data even if it isn't changed. This scenario reduces the amount of data to pull and process by keeping a timestamp of all objects. Only data that has changed is reloaded.
 
-## Customers with common access cards (CAC) or personal identity verification (PIV) requirements
+## Common access cards (CAC) or personal identity verification (PIV)
 
 The Logic Apps connector to Project Online doesn't natively support tenants that require the use of CAC or PIV for user-less connections. In order for Logic Apps to establish authentication to Project Online, a service principal needs to exist with appropriate permissions, or scopes, and licensing within the source tenant. The OAuth [client credential grant flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) should be used to acquire an access token that's used in the API access to Project Online.
 
@@ -142,7 +142,7 @@ You need the following information from your Azure AD client registration:
 - Application (client) ID
 - Client secret
 
-The client secret should be stored in, and then come from, Key Vault. Create an HTTP Request method in Logic Apps to post to your appropriate [token endpoint](/azure/active-directory/develop/v2-app-types#daemons-and-server-side-apps), and parse out the access_token in the HTTP response.
+The client secret should be stored in, and then come from, Key Vault. Create an HTTP request method in Logic Apps to post to your appropriate [token endpoint](/azure/active-directory/develop/v2-app-types#daemons-and-server-side-apps), and parse out the `access_token` in the HTTP response.
 
 ## Contributors
 

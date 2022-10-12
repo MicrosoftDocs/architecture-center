@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extend reporting capabilities with Project Online
+  title: Extend Project Online reporting capabilities
   titleSuffix: Azure Architecture Center
   description: Use Microsoft Project Online and Azure Logic Apps to import, combine, and process data from multiple tenants.
   author: amberdohdo
@@ -18,7 +18,7 @@ products:
   - power-bi
   - azure-sql-database
   - azure-key-vault
-name: Extend reporting capabilities with Project Online
+name: Extend Project Online reporting capabilities
 summary: Use Microsoft Project Online and Azure Logic Apps to import, combine, and process data from multiple tenants.
 thumbnailUrl: /azure/architecture/browse/thumbs/extend-reporting-architecture-thumb.png
 content: |
