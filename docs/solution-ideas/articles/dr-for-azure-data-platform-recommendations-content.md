@@ -118,4 +118,4 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 >The above table should be read as a comparison between the options i.e. a strategy that has a green indicator is better for that classification than another strategy with a yellow or red indicator
 
 ## Next steps
-Now that you have learned about the recommendations related to the scenario, you can learn about [details related to the scenario](../articles/dr-for-azure-data-platform-scenario-details.yml)
+Now that you have learned about the recommendations related to the scenario, you can learn how to  [deploy this scenario](../articles/dr-for-azure-data-platform-deploy-this-scenario.yml)
