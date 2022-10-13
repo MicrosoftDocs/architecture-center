@@ -34,31 +34,51 @@ The performance tests of Remcom XFdtd used an [ND_A100_v4](/azure/virtual-machin
 
 ## Required drivers
 
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
+To take advantage of the GPU capabilities of [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+
+To use AMD processors on [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
 
 ## Remcom XFdtd installation
 
-Before you install Remcom XFdtd, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers. 
+Before you install Remcom XFdtd, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers. 
+
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
 > [!IMPORTANT]
 >  NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch. ND_A100_v4 VMs use NVLink. 
 
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
-<Workload> performance results
-<Give a short intro to how performance was tested>
+Before you install XFdtd, you need to install a floating license server. For detailed instructions on [installing XFdtd](https://support.remcom.com/xfdtd/installation/xfdtd-installation.php), [installing the license server](https://support.remcom.com/xfdtd/installation/floating-license.php), [setting up an MPI cluster](https://support.remcom.com/xfdtd/installation/mpi-cluster-setup.php), and more, see the [installation manual](https://support.remcom.com/xfdtd/installation.html).
+
+## Remcom XFdtd performance results
+
+Remcom XFdtd 7.10.0.1 was tested. A patch in body model was used for the tests: 
+
+:::image type="content" source="media/remcom-xfdtd/patch-body-model.png" alt-text="Screenshot that shows the patch in body model." border="false":::
+
+The following table provides details about the model.
+
+|Model name|Frequency range of interest|Minimum cells per wavelength|Frequency of interest|Minimum cell size|
+|-|-|-|-|-|
+|Patch in body|0 GHz to 10 GHz|15|2.45 GHz|0.735 mm|
+
+Throughput is used as a metric to test the performance of the simulation. The following table.. 
+
+|Number of GPUs|	Simulation timesteps (ts)|Total cells|Ts time (s)|Ts/s|(throughput) (cells/sec)|C (throughput) (gcells/sec)|
+|-|-|-|-|-|-|-|
+|1	|39141	|1077552576	|3003	|13.03	|14044783675	|14.04|
+|4|	39141|	1077552576|	954|	41.03|	44210152387|	44.21|
+|8|	39141	|1077552576|	834	|46.93|	50571325392	|50.57|
+
 <Results for X>
 <Results for Y etc>
 
-Additional notes about tests
-<Include any additional notes about the testing process used.>
-Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
-Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+### Additional notes about tests
+
+## Azure cost
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+## Summary
+
