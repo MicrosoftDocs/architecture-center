@@ -1,4 +1,8 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Ansys LS-DYNA](https://www.ansys.com/products/structures/ansys-ls-dyna) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running LS-DYNA on Azure.
+
+Ansys LS-DYNA is explicit simulation software for applications like drop tests, impact and penetration, smashes and crashes, and occupant safety. It simulates the response of materials to short periods of severe loading. It provides elements, contact formulations, material models, and other controls that can be used to simulate complex models with control over all the details of the problem.
+
+LS-DYNA is used in the automotive, aerospace, construction, military, manufacturing, and bio-engineering industries.
 
 ## Why deploy LS-DYNA on Azure?
 

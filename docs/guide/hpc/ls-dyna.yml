@@ -4,7 +4,7 @@ metadata:
   description: Find out how the Ansys LS-DYNA multiphysics solver application performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 10/14/2022
+  ms.date: 10/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
