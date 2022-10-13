@@ -6,39 +6,57 @@ Leveraging the NEWS API as well as the Twitter API someone can access informatio
 
 ## Architecture
 
-This architecture is an extension to the existing [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) - which helps you build an end-to-end social media analytics solution  in just few hours.
+This architecture is an extension to the existing [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) - which helps you build an end-to-end social media analytics solution in just few hours.
 
-![Diagram of the Social Media Analytics Solution Architecture.](./media/build-deploy-social-media-analytics-solution.png)
+:::image type="content" source="./media/build-deploy-social-media-analytics-solution-architecture.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards and inferencing apps in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-architecture.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/US-1996849-build-deploy-social-media-analytics-solution.vsdx) of this architecture.*
 
 ### Dataflow
 
-The following dataflow corresponds to the above diagram:
+1. Azure Synapse Analytics pipelines ingest external data and store that data in Azure Data Lake. One pipeline ingests data from news APIs. The other pipeline ingests data from the Twitter API.
 
-1. In Azure Synapse Analytics, two pipelines are responsible to ingest the external data from News API and Twitter API into the Azure Data Lake.
-2. This data is then processed using Apache Spark pools in Azure Synapse Analytics.
-3. Apache Spark pools are responsible for executing the data processing and enrichment logic using Azure Cognitive Services for Language, Translator and Azure Maps. The following features are used:
-    - [Translator](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/translator-overview): is a Cognitive Service that translates text from the original language to another (see list of [supported languages for Translator](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/language-support#translation)).
-    - [Named Entity Recognition(NER)](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/named-entity-recognition/overview): is a cognitive services feature used to identify and categorize entities in unstructured text. For example: people, places, organizations, and quantities.
-    - [Key Phrase Extraction](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/key-phrase-extraction/overview): is a cognitive services feature which is used to identify the key main talking points in a post or an article. 
-    - [Sentiment Analysis](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis):  is used in order to extract sentiment insights (positive, negative, neutral and mixed) out of the posts, etc.
-    - [Azure Maps](https://azure.microsoft.com/en-us/products/azure-maps/#azuremaps-overview) is an Azure Service which is used to easily incorporate location-based data into web/mobile solutions. Using location and map data we can generate better user experience and link our data with geographical coordinates. e.g. mapping of latitude and Longitude coordinates of countries, with their news and posts onto an actual map.
-4. The enriched data is stored in the Azure Data Lake.
-5. 6, and 7. Enriched data can be either:
-    1. used directly through Azure Synapse Serverless pool(step 5) to populate a Microsoft Power BI Dashboard (step 6) in order to provide insights onto the Power BI Desktop or alternatively those dashboards could be also embed into an Azure Web App Service to enhance the Web/Mobile App end user experience (step 7).
-    2. or can be used to train a custom ML model in Azure Machine Learning (step 5), which can be deployed to an Managed Online Endpoint(step 6) for real-time /online model inference (such as mobile app) or Managed Batch Endpoint for offline model inference (step 7).
+1. Apache Spark pools in Azure Synapse Analytics are used to process and enrich the data.
+
+1. The Apache Spark pools use the following services:
+   - Azure Cognitive Service for Language, for named entity recognition (NER), key phrase extraction, and sentiment analysis.
+   - Translator, to translate text.
+   - Azure Maps, to link data to geographical coordinates.
+
+1. The enriched data is stored in Data Lake.
+
+1. A serverless SQL pool in Azure Synapse Analytics makes the enriched Data Lake data available to Power BI.
+
+1. Power BI Desktop dashboards provide insights into the data.
+
+1. As an alternative to the previous step, Power BI dashboards that are embedded in Azure App Service web apps provide web and mobile app users with insights into the data.
+
+1. As an alternative to steps 5 through 7, the enriched data is used to train a custom machine learning model in Azure Machine Learning.
+
+1. The model is deployed to a Machine Learning endpoint.
+
+1. A managed online endpoint is used for online, real-time inferencing, for instance, on a mobile app (**A**). Alternatively, a batch endpoint is used for offline model inferencing (**B**).
 
 ### Components
 
-  - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
-  - [Azure Cognitive Services for Language](https://azure.microsoft.com/en-us/products/cognitive-services/language-service/) consists of cloud-based services that provide AI functionality. The REST APIs and client library SDKs help you build cognitive intelligence into apps even if you don't have AI or data science skills.
-  - [Azure Cognitive Services Translator](https://azure.microsoft.com/en-us/products/cognitive-services/translator/) helps you to translate text instantly or in batches across more than 100 languages, powered by the latest innovations in machine translation. Support a wide range of use cases, such as translation for call centers, multilingual conversational agents, or in-app communication.
-  - [Azure Maps](https://azure.microsoft.com/en-us/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help organizations easily incorporate location-based data into web and mobile solutions. Use location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences.
-  - [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure data lake for high-performance analytics workloads.
-  - [Azure App Service](https://azure.microsoft.com/services/app-service): provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
-  - [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
-  - [Azure Power BI](https://powerbi.microsoft.com/) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
+- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
+
+- [Azure Cognitive Service for Language](https://azure.microsoft.com/en-us/products/cognitive-services/language-service/) consists of cloud-based services that provide AI functionality. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps even if you don't have AI or data science skills. Features include:
+  - [Named entity recognition (NER)](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/named-entity-recognition/overview) for identifying and categorizing people, places, organizations, and quantities in unstructured text.
+  - [Key phrase extraction](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/key-phrase-extraction/overview) for identifying key talking points in a post or an article.
+  - [Sentiment analysis](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis) for providing insight into the sentiment of posts by detecting positive, negative, neutral, and mixed-sentiment content.
+
+- [Azure Cognitive Services Translator](https://azure.microsoft.com/en-us/products/cognitive-services/translator/) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. It supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication.
+
+- [Azure Maps](https://azure.microsoft.com/en-us/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
+
+- [Azure Data Lake](https://azure.microsoft.com/en-us/solutions/data-lake/) is a massively scalable and secure data lake for high-performance analytics workloads.
+
+- [Azure App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+
+- [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
+
+- [Azure Power BI](https://powerbi.microsoft.com/) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
 #### Prerequisites
 
@@ -123,6 +141,10 @@ Operational excellence covers the operations processes that deploy an applicatio
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+- Azure Synapse supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
+- For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-pool-configurations).
+- You can Azure scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
 
 ## Deploy this scenario
 
