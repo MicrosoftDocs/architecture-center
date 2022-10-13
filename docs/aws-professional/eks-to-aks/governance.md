@@ -15,6 +15,8 @@ products:
   - azure-policy
 ---
 
+# Cluster Governance
+
 Governance provides mechanisms and processes to maintain control over your applications and resources in the cloud. It involves planning your initiatives and setting strategic priorities. Governance is put in place to mitigate risks and ensure minimal interruption to adoption or innovation in your organization.
 
 When we look at governance of Kubernetes clusters in the cloud we can distinguish two aspects of it:
@@ -89,7 +91,7 @@ Other contributors:
 
 ## Related resources
 
-- [Policy for Kubernetes](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes)
-- [Secure your AKS cluster with Azure Policy](https://docs.microsoft.com/azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json)
-- [Governance disciplines for AKS](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/aks/eslz-security-governance-and-compliance)
+- [Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes)
+- [Secure your AKS cluster with Azure Policy](/azure/aks/use-azure-policy)
+- [Governance disciplines for AKS](/azure/cloud-adoption-framework/scenarios/app-platform/aks/security)
 - [OPA Gatekeeper: Policy and Governance for Kubernetes](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
