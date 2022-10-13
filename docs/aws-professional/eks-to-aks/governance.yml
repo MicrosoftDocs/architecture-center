@@ -16,5 +16,5 @@ products:
 name:  Governance for Kubernetes
 summary: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
 content: |
-   [!include[](cost-management-content.md)]
+   [!include[](governance.md)]
 ---
