@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Globally distributed applications using Cosmos DB
+  title: Globally distributed applications using Azure Cosmos DB
   titleSuffix: Azure Example Scenarios
   description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft global datacenters.
   author: EdPrice-MSFT
@@ -18,7 +18,7 @@ metadata:
     - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db"
   social_image_url: /azure/architecture/solution-ideas/articles/media/globally-distributed-mission-critical-applications-using-cosmos-db.png
-name: Globally distributed applications using Cosmos DB
+name: Globally distributed applications using Azure Cosmos DB
 azureCategories:
   - databases
   - management-and-governance

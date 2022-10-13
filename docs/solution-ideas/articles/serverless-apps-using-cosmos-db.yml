@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Serverless apps using Cosmos DB
+  title: Serverless apps using Azure Cosmos DB
   titleSuffix: Azure Architecture Center
   description: Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable, serverless applications.
   author: EdPrice-MSFT
@@ -18,7 +18,7 @@ metadata:
     - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db"
   social_image_url: /azure/architecture/solution-ideas/articles/media/serverless-apps-using-cosmos-db.png
-name: Serverless apps using Cosmos DB
+name: Serverless apps using Azure Cosmos DB
 azureCategories:
   - databases
   - developer-tools

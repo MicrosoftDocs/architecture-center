@@ -2463,6 +2463,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/ai/training-python-models.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/training-python-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/migrate-existing-applications-with-aks.yml",
       "redirect_url": "/azure/cloud-adoption-framework/migrate",
       "redirect_document_id": false
