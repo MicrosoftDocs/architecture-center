@@ -9,7 +9,7 @@
 
 ## Architecture
 
-:::image type="content" source="media/remcom-xfdtd/architecture.png" alt-text="Diagram that shows an architecture for deploying Remcom XFdtd." lightbox="media/remcom-xtdtd/architecture.png" border="false":::
+:::image type="content" source="media/remcom-xfdtd/architecture.png" alt-text="Diagram that shows an architecture for deploying Remcom XFdtd." lightbox="media/remcom-xfdtd/architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/remcom-xfdtd.vsdx) of this
 architecture.*
