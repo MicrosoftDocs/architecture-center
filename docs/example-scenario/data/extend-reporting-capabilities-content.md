@@ -1,4 +1,4 @@
-This scenario describes how to extend the reporting capabilities of Project Online, a flexible solution for project portfolio management (PPM) from Microsoft. You can track and process data from various unrelated sources, and then clean, transform, and combine that data in order to provide an actionable metric. Doing these actions securely, efficiently, and with minimum cost presents various technical challenges.
+This scenario describes how to use Azure Logic Apps and Power BI to extend the reporting capabilities of Project Online. You can track and process data from various unrelated sources, and then clean, transform, and combine that data in order to create complex reports and provide actionable metrics.
 
 ## Architecture
 
@@ -13,9 +13,9 @@ This scenario describes how to extend the reporting capabilities of Project Onli
 > [!NOTE]
 > For government customers, follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
 
-2. The source system responds to the Logic Apps request with the data. Logic Apps parses the data into JSON format. If the source data is formatted in an OData protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
+2. The source system responds to the Logic Apps request with the data. Logic Apps parses and converts the data into JSON format. If the source data is formatted in an OData protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
-3. After the data is parsed, Logic Apps places the data into Azure SQL Server or storage in Data Lake for further processing. The ability to set up data pulls differs by organization and by system. Follow the process required, such as by Logic Apps, Azure Data Factory, or Azure Synapse Pipelines.
+3. After the data is parsed, Logic Apps places the data into Azure SQL Server or in data lake storage for further processing. The ability to set up data pulls differs by organization and by system. Follow the process required, such as by Logic Apps, Azure Data Factory, or Azure Synapse Pipelines.
 
 4. Data is processed within the initial tier, where all the source data is consolidated.
 
@@ -35,7 +35,7 @@ Your dataflow might look something like the following example:
 
 This architecture uses the following components:
 
-- [Project Online](https://powerautomate.microsoft.com/connectors/details/shared_projectonline/project-online) provides powerful project management capabilities for planning, prioritizing, and managing projects, from almost anywhere on almost any device. Its data store is the source of truth for project and program schema relationships for your reports.
+- [Project Online](https://powerautomate.microsoft.com/connectors/details/shared_projectonline/project-online) is a flexible solution for project portfolio management (PPM) and everyday work. Delivered through Microsoft 365, Project Online provides powerful project management capabilities for planning, prioritizing, and managing projects, from almost anywhere on almost any device. Its data store is the source of truth for project and program schema relationships for your reports.
 
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across clouds. This service provides a way to securely access and process data in real time. Its serverless solutions take care of building, hosting, scaling, managing, maintaining, and monitoring apps. It's used to automate the data flow processes. Depending on the scale, it might make more sense to use Azure Data Factory and Azure Functions.
 
@@ -52,7 +52,7 @@ This architecture uses the following components:
 
 ### Alternatives
 
-Using the schema provided in Project Online can save time and money, but the general concept can be applied to any data source connected from Logic Apps. Logic Apps is a powerful workflow tool that can connect many Microsoft first-party and third-party data sources, such as SharePoint, Microsoft Dataverse, or even data in on-premises networks.
+Using the schema provided in Project Online can save time and money, but the general concept can be applied to any data source connected through Logic Apps. Logic Apps is a powerful workflow tool that can connect many Microsoft first-party and third-party data sources, such as SharePoint, Microsoft Dataverse, or even data in on-premises networks.
 
 Furthermore, other components can be replaced based on the type of data and how those datasets are transformed. You can use different data storage and processing types, from Dataverse to traditional SQL on VMs, Azure SQL, Databricks, data lakes, or Oracle on IaaS in Azure.
 

@@ -2,7 +2,7 @@
 metadata:
   title: Extend Project Online reporting capabilities
   titleSuffix: Azure Architecture Center
-  description: Use Microsoft Project Online and Azure Logic Apps to import, combine, and process data from multiple tenants.
+  description: Extend the reporting capabilities of Project Online using Azure Logic Apps to import, combine, and process data from multiple tenants.
   author: amberdohdo
   ms.author: Amber.Jimenez, Sean.Day
   ms.date: 10/11/2022
@@ -19,7 +19,7 @@ products:
   - azure-sql-database
   - azure-key-vault
 name: Extend Project Online reporting capabilities
-summary: Use Microsoft Project Online and Azure Logic Apps to import, combine, and process data from multiple tenants.
+summary: Extend the reporting capabilities of Project Online using Azure Logic Apps to import, combine, and process data from multiple tenants.
 thumbnailUrl: /azure/architecture/browse/thumbs/extend-reporting-architecture-thumb.png
 content: |
    [!include[](extend-reporting-capabilities-content.md)]
