@@ -56,7 +56,7 @@ Traditionally, it's been hard to keep hosting platforms highly available at scal
 
 Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zonal failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run within the remaining available zones. Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime, so there is no need to manage zone pinning or zonal deployments.
 
-This architecture shows how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures. 
+This architecture shows how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
 
 All of the Azure services in this architecture are either globally available or zone-redundant services. Azure Front Door, Azure AD, Azure DNS, and Static Web Apps are globally available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
 
@@ -69,8 +69,8 @@ All of the Azure services in this architecture are either globally available or 
 * Machine learning workloads
 
 > [!IMPORTANT]
-> For mission-critical workloads it is recommended to combine zone-redundancy and regional-redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions. 
-> For more details please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-criticl baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+> For mission-critical workloads it is recommended to combine zone-redundancy and regional-redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
+> For more details please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 ## Recommendations
 
@@ -282,7 +282,7 @@ Deploy this reference architecture using this [Azure sample on GitHub][azure-sam
 Principal authors:
 
  - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
- 
+
 Other contributors:
 
  - [John Downs](https://www.linkedin.com/in/john-downs) | FastTrack for Azure Customer Engineer
@@ -324,7 +324,6 @@ Other contributors:
 [akv]:https://azure.microsoft.com/services/key-vault/
 [insights]:/azure/azure-monitor/app/app-insights-overview
 [appgw]:https://azure.microsoft.com/services/application-gateway/
-[cdn]:https://azure.microsoft.com/services/cdn/
 [storage-spa]:/azure/storage/blobs/storage-blob-static-website
 [azs]:https://azure.microsoft.com/global-infrastructure/availability-zones/
 [az-ha-services]:/azure/availability-zones/az-region#highly-available-services
@@ -345,7 +344,6 @@ Other contributors:
 [ise-zr]:/azure/app-service/environment/overview-zone-redundancy
 [sql-gp-zr]:/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
 [cosmos-ha]:/azure/cosmos-db/high-availability
-[waf]:/azure/architecture/framework/
 [object-replication]:/azure/storage/blobs/object-replication-overview
 [cosmos-continuous-backup]:/azure/cosmos-db/continuous-backup-restore-introduction
 [afd-certs]:/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#azure-managed-certificates
@@ -357,7 +355,6 @@ Other contributors:
 [sql-pep]:/azure/azure-sql/database/private-endpoint-overview?view=azuresql
 [cosmos-backup]:/azure/cosmos-db/provision-account-continuous-backup
 [cosmos-pep]:/azure/cosmos-db/how-to-configure-private-endpoints
-[storage-spa]:/azure/storage/blobs/storage-blob-static-website
 [sb-pep]:/azure/service-bus-messaging/private-link-service
 [swa-apis]:/azure/static-web-apps/apis-overview
 [pep-dns]:/azure/key-vault/general/private-link-service
