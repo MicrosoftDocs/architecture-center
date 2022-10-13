@@ -2959,6 +2959,8 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
+              - name: Distributed model hyperparameter tuning
+                href: example-scenario/ai/training-python-models.yml
               - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
@@ -3003,8 +3005,6 @@ items:
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech transcription pipeline
                 href: example-scenario/ai/speech-to-text-transcription-analytics.yml
-              - name: Training Python models
-                href: reference-architectures/ai/training-python-models.yml
           - name: Solution ideas
             items:
               - name: AI at the edge
