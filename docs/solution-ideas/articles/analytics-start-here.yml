@@ -19,6 +19,6 @@ products:
   - power-bi
 name: Analytics architecture design
 summary: Analytics solutions turn volumes of data into useful business intelligence (BI) and inventive artificial intelligence (AI).
-thumbnailUrl: /azure/architecture/browse/thumbs/advanced-analytics-on-big-data-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-get-started-diagram-thumb.png
 content: |
    [!include[](analytics-start-here-content.md)]

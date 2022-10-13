@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real-time. This can include streaming interviews, conferences, and sporting events online. In this solution, video is captured by a video camera and sent to a Live Event input endpoint. The Live Event receives the input stream and makes it available for streaming through a Streaming Endpoint to a web browser or mobile app. The Live Event also provides a preview monitoring endpoint to preview and validate your stream before further processing and delivery. The Live Event can also record and store the ingested content in order to be streamed later (video-on-demand).
-
 This solution is built on the Azure managed service: [Media Services](/azure/media-services) and [Content Delivery Network](https://azure.microsoft.com/services/cdn). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
-## Potential use cases
-
-This solution applies to anyone from large corporations to small content creators.
 
 ## Architecture
 
@@ -23,6 +17,14 @@ This solution applies to anyone from large corporations to small content creator
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
 * [Preview monitoring](/azure/media-services/latest/live-event-outputs-concept#live-event-preview-url): Preview and validate a live stream before further processing and delivery.
 * [Multi-DRM content protection](/azure/media-services/previous/media-services-content-protection-overview): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
+
+## Solution details
+
+A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real-time. This can include streaming interviews, conferences, and sporting events online. In this solution, video is captured by a video camera and sent to a Live Event input endpoint. The Live Event receives the input stream and makes it available for streaming through a Streaming Endpoint to a web browser or mobile app. The Live Event also provides a preview monitoring endpoint to preview and validate your stream before further processing and delivery. The Live Event can also record and store the ingested content in order to be streamed later (video-on-demand).
+
+### Potential use cases
+
+This solution applies to anyone from large corporations to small content creators.
 
 ## Next steps
 

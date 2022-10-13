@@ -82,7 +82,7 @@ The solution that uses Azure DNS Private Resolver contains the following compone
 - Spoke networks.
 
   - VMs are hosted in all spoke networks for testing and validating DNS resolution.
-  - All Azure spoke virtual networks use the default Azure DNS server at the IP address 192.63.129.16. All spoke networks are peered with the hub virtual network.
+  - All Azure spoke virtual networks use the default Azure DNS server at the IP address 168.63.129.16. All spoke networks are peered with the hub virtual network.
   - The spoke virtual networks are linked to private DNS zones, which makes it possible to resolve the names of private endpoint link services like privatelink.blob.core.windows.net.
 
 #### Traffic flow for an on-premises DNS query

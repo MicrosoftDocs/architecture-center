@@ -96,7 +96,9 @@ The batch speech API is designed for high volume, but other Cognitive Services A
 
 Principal authors:
 
-* [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Dir Specialist GBB 
+* [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content Program Manager
+* [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Dir Specialist GBB
+* [Kirpa Singh](https://www.linkedin.com/in/kirpa-singh-80676713) | Senior Software Engineer
 * [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki) | Cloud Solution Architect
 
 Other contributor:
@@ -113,8 +115,8 @@ Other contributor:
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-- [Extract insights from text with the Language service](/learn/modules/extract-insights-text-with-text-analytics-service)
--  [Model, query, and explore data in Azure Synapse](/learn/paths/model-query-explore-data-for-azure-synapse)
+- [Extract insights from text with the Language service](/training/modules/extract-insights-text-with-text-analytics-service)
+-  [Model, query, and explore data in Azure Synapse](/training/paths/model-query-explore-data-for-azure-synapse)
 
 ## Related resources
 

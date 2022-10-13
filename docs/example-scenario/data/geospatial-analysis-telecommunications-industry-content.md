@@ -1,24 +1,8 @@
-Location intelligence and geospatial analytics can uncover important regional trends and behaviors that affect telecommunications companies. The companies can use such knowledge to enhance their radio signal and wireless coverage, and thus gain competitive advantage.
-
-Telecommunications companies have large volumes of geographically dispersed asset data, most of which is user telemetry. The data comes from radio networks, IoT sensing devices, and remote sensing devices that capture geospatial data. It's in various structured and semi-structured formats such as imagery, GPS, satellite, and textural. Making use of it requires aggregating it and joining it with other sources such as regional maps and traffic data.
-
-After the data is aggregated and joined, the challenge is to extract insights from it. Historically, telecommunications companies relied on legacy systems such as on-premises databases with geospatial capabilities. Eventually such systems hit scalability limits due to the ever-increasing amount of data. Also, they require third-party software to perform tasks that the geospatial database systems can't.
-
 The focus of this article is to showcase a practical architecture that uses Azure Cloud Services to process large volumes of geospatial data. It provides a path forward when on-premises solutions don't scale. It also allows for continued use of the current geospatial analysis tools.
 
 *Apache®, Apache Spark®, GeoSpark®, and Sedona® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 *GeoPandas®, QGIS®, and ArcGIS® are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is ideal for the telecommunications industry, and it applies to the following scenarios:
-
-- Analyzing signal information across locations to assess network quality
-- Analyzing real-time network infrastructure data to guide maintenance and repair
-- Analyzing market segmentation and market demand
-- Identifying relationships between customer locations and company marketing campaigns
-- Creating capacity and coverage plans to ensure connectivity and quality of service
 
 ## Architecture
 
@@ -60,7 +44,27 @@ This solution is ideal for the telecommunications industry, and it applies to th
 - Like Event Hubs, [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) can ingest large amounts of data from sensor and telecom IoT devices. You can use the IoT Hub bi-directional capability to communicate securely with devices and potentially manage and control them from a centralized platform in the cloud.
 - You can use [Azure Maps](/azure/azure-maps/about-azure-maps) to provide geographic context to your web and mobile applications. In addition to location intelligence, Azure Maps can search services to locate addresses, places, and points of interest to get real-time traffic information. [Azure Maps Power BI Visual](/azure/azure-maps/power-bi-visual-get-started) provides the same capabilities in both [Power BI Desktop](/power-bi/fundamentals/desktop-what-is-desktop) and the [Power BI service](/power-bi/fundamentals/power-bi-service-overview).
 
+## Scenario details
+
+Location intelligence and geospatial analytics can uncover important regional trends and behaviors that affect telecommunications companies. The companies can use such knowledge to enhance their radio signal and wireless coverage, and thus gain competitive advantage.
+
+Telecommunications companies have large volumes of geographically dispersed asset data, most of which is user telemetry. The data comes from radio networks, IoT sensing devices, and remote sensing devices that capture geospatial data. It's in various structured and semi-structured formats such as imagery, GPS, satellite, and textural. Making use of it requires aggregating it and joining it with other sources such as regional maps and traffic data.
+
+After the data is aggregated and joined, the challenge is to extract insights from it. Historically, telecommunications companies relied on legacy systems such as on-premises databases with geospatial capabilities. Eventually such systems hit scalability limits due to the ever-increasing amount of data. Also, they require third-party software to perform tasks that the geospatial database systems can't.
+
+### Potential use cases
+
+This solution is ideal for the telecommunications industry, and it applies to the following scenarios:
+
+- Analyzing signal information across locations to assess network quality
+- Analyzing real-time network infrastructure data to guide maintenance and repair
+- Analyzing market segmentation and market demand
+- Identifying relationships between customer locations and company marketing campaigns
+- Creating capacity and coverage plans to ensure connectivity and quality of service
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Consider following the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you implement this solution. The framework provides technical guidance across five pillars: cost optimization, security, reliability, performance efficiency, and operational excellence.
 
@@ -73,6 +77,8 @@ Consider following the [Microsoft Azure Well-Architected Framework](/azure/archi
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 For better security, consider following this guidance:
 
 - [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
@@ -82,7 +88,9 @@ For better security, consider following this guidance:
 - [Consider using Azure Databricks Premium tier instead of Standard for more security features](https://azure.microsoft.com/pricing/details/databricks)
 - [Databricks security guide](/azure/databricks/security)
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) for the services mentioned above.
 - Power BI comes with various licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
@@ -95,7 +103,7 @@ For better security, consider following this guidance:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
 
@@ -112,7 +120,7 @@ Principal authors:
 - [Apache Sedona programming guides](https://sedona.apache.org/tutorial/core-python)
 - [Getting Started](https://geopandas.org/en/stable/getting_started.html) with GeoPandas
 - [Getting started](https://www.geomesa.org/documentation/stable/user/getting_started) with GeoMesa
-- [Processing Geospatial Data at Scale With Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks)
+- [Processing Geospatial Data at Scale With Databricks](https://www.databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html)
 - [GIS file formats](https://en.wikipedia.org/wiki/GIS_file_formats)
 - [Apache Sedona reference](https://sedona.apache.org/archive/api/sql/GeoSparkSQL-Function)
 - [Overview of the H3 Geospatial Indexing System](https://h3geo.org/docs/core-library/overview)

@@ -35,6 +35,9 @@ In the last part of this article, variations of the previous fundamental designs
 
 You can add other reverse proxy services like an [API Management][apim-overview] gateway or [Azure Front Door][frontdoor]. Or you can replace the Azure resources with third-party [network virtual appliances](#other-network-virtual-appliances).
 
+ > [!NOTE]
+ > In the following scenarios an Azure virtual machine is used as an example of web application workload. The scenarios are also valid to other workload types such as containers or Azure Web Apps. For setups including private endpoints please consider the recommendations in [Use Azure Firewall to inspect traffic destined to a private endpoint][azfw-endpoint]
+
 ## Azure Firewall only
 
 If there are no web-based workloads in the virtual network that can benefit from WAF, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow will help understand more complex designs. In this design, all inbound traffic is sent to the Azure Firewall via user defined routes (UDRs) for connections from on-premises or other Azure VNets. It is addressed to the Azure Firewall's public IP address for connections from the public internet, as the diagram below shows. Outbound traffic from Azure VNets is sent to the Firewall via UDRs, as shown in the dialog below.
@@ -190,8 +193,9 @@ Network traffic from the public internet follows this flow:
    - Source IP address: 192.168.200.7 (private IP address of the Application Gateway instance)
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: ClientPIP
-3. Azure Firewall doesn't SNAT the traffic, because the traffic is going to a private IP address. It forwards the traffic to the application VM if rules allow it. For more information, see [Azure Firewall SNAT][azfw-snat].
-   - Source IP address: 192.168.200.7 (the private IP address of the Application Gateway instance)
+3. Azure Firewall doesn't SNAT the traffic, because the traffic is going to a private IP address. It forwards the traffic to the application VM if rules allow it. For more information, see [Azure Firewall SNAT][azfw-snat]. However, if the traffic hits an application rule in the firewall, the workload will see the source IP address of the specific firewall instance that processed the packet, since the Azure Firewall will proxy the connection:
+   - Source IP address if the traffic is allowed by an Azure Firewall network rule: 192.168.200.7 (the private IP address of one of the Application Gateway instances).
+   - Source IP address if the traffic is allowed by an Azure Firewall application rule: 192.168.100.7 (the private IP address of one of the Azure Firewall instances).
    - Destination IP address: 192.168.1.4
    - X-Forwarded-For header: ClientPIP
 4. The VM answers the request, reversing source and destination IP addresses. The UDR to `192.168.200.0/24` captures the packet sent back to the Application Gateway and redirects it to Azure Firewall, while preserving the destination IP toward the Application Gateway.
@@ -357,7 +361,7 @@ Explore related architectures:
 - [Multitenant SaaS on Azure](../multi-saas/multitenant-saas.yml)
 - [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
 - [High availability enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 [azfw-overview]: /azure/firewall/overview
 [azfw-premium-features]: /azure/firewall/premium-features
@@ -366,6 +370,7 @@ Explore related architectures:
 [azfw-snat]: /azure/firewall/snat-private-range
 [azfw-issues]: /azure/firewall/overview#known-issues
 [azfw-dns]: /azure/firewall/fqdn-filtering-network-rules
+[azfw-endpoint]: /azure/private-link/inspect-traffic-with-azure-firewall
 [appgw-overview]: /azure/application-gateway/overview
 [appgw-docs]: /azure/application-gateway/
 [waf-docs]: /azure/web-application-firewall/

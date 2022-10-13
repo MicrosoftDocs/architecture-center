@@ -66,6 +66,8 @@ You can use this scenario to:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability and scalability
 
 - Azure API Management can be [scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
@@ -74,6 +76,8 @@ You can use this scenario to:
 - Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 API Management is offered in four tiers: developer, basic, standard, and premium. You can find detailed guidance on the difference in these tiers at the [Azure API Management pricing guidance here.][apim-pricing]
 
@@ -107,9 +111,9 @@ Product documentation:
 
 Learn modules:
 
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service/)
-- [Deploy a website to Azure with Azure App Service](/learn/paths/deploy-a-website-with-azure-app-service/)
-- [Protect your APIs on Azure API Management](/learn/modules/protect-apis-on-api-management/)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service/)
+- [Deploy a website to Azure with Azure App Service](/training/paths/deploy-a-website-with-azure-app-service/)
+- [Protect your APIs on Azure API Management](/training/modules/protect-apis-on-api-management/)
 
 ## Related resources
 

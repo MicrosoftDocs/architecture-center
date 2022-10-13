@@ -4,14 +4,6 @@ Medium Umbraco CMS web app configured to scale and optimal for high-traffic site
 
 This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Storage Accounts](https://azure.microsoft.com/services/storage), Application Insights and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
 
-## Potential use cases
-
-Some industries that utilize Umbraco include:
-
-- Banking, finance, and financial services
-- Retail
-- Logistics, distribution, and manufacturing
-
 ## Architecture
 
 ![Architecture Diagram](../media/medium-umbraco-web-app.png)
@@ -25,7 +17,17 @@ Some industries that utilize Umbraco include:
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache) to improve performance and reduce the load on your web front ends.
 
-## Deploy this solution
+## Scenario details
+
+### Potential use cases
+
+Some industries that utilize Umbraco include:
+
+- Banking, finance, and financial services
+- Retail
+- Logistics, distribution, and manufacturing
+
+## Deploy this scenario
 
 Use the following pre-built template to deploy this architecture to Azure:
 

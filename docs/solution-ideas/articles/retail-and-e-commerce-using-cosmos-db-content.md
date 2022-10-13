@@ -8,7 +8,7 @@ This solution is ideal for the retail industry.
 
 ## Architecture
 
-![Architecture diagram shows data into Azure App Services, through Azure Storage and Cosmos D B, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.png)
+![Architecture diagram shows data into Azure App Services, through Azure Storage and Azure Cosmos D B, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
 
 ### Dataflow
@@ -33,7 +33,7 @@ This architecture includes the following components:
 
 Principal author:
 
- * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
+* [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
 
 ## Next steps
 

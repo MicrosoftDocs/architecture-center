@@ -2,7 +2,7 @@
 title: Advanced Azure Resource Manager templates
 description: Learn tips for getting the most out of Azure Resource Manager template functionality by following advanced examples.
 author: hallihan
-ms.date: 09/07/2021
+ms.date: 10/05/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

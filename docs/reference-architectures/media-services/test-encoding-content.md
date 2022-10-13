@@ -175,9 +175,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Explore Azure Event Grid](/training/modules/azure-event-grid)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
 
 ## Related resources
 

@@ -20,7 +20,7 @@ This solution is ideal for the media and entertainment industry. The scenario is
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data, using Python, Scala, or .NET, with notebook experiences in Apache Spark pools.
 1. Apply Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
 1. Build analytics dashboards and embedded reports in dedicated SQL pool to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.
-1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through real time apps.
+1. Take the insights from Apache Spark pools to Azure Cosmos DB to make them accessible through real time apps.
 
 ### Components
 
@@ -36,7 +36,7 @@ This solution is ideal for the media and entertainment industry. The scenario is
 
 ### Alternatives
 
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
 ## Pricing
 

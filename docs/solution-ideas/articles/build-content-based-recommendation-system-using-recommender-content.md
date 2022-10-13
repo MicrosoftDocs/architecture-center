@@ -68,7 +68,7 @@ Principal author:
 
 Other contributor:
 
-- Andrew Ajulawa | Program Manager
+- Andrew Ajaluwa | Program Manager
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -85,7 +85,7 @@ Other contributor:
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 - [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
-- [Personalization using Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
+- [Personalization using Azure Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
 - [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Create personalized marketing solutions in near real time](../../solution-ideas/articles/personalized-marketing.yml)

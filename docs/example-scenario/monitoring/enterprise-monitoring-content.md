@@ -263,7 +263,7 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 - [Azure Monitor data platform](/azure/azure-monitor/data-platform)
 - [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview)
 - [Azure Monitor best practices - Analyze and visualize data](/azure/azure-monitor/visualizations)
-- [Azure Monitor learning path](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Azure Monitor learning path](/training/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 

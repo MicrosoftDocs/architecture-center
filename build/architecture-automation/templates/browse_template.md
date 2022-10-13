@@ -260,11 +260,11 @@ ms.date: 04/03/2020
                         <!-- end feedback report section -->
                         <div class="footerContainer is-visible-interactive has-default-focus has-border-top has-margin-none">
 <footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
-    <a data-mscc-ic="false" class="locale-selector-link" href="/en-us/locale?target=https://review.docs.microsoft.com/en-us/azure/architecture/architectures/test/?branch=pr-en-us-1049&amp;product=featured" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text has-inner-focus">English (United States)</span></a>
+    <a data-mscc-ic="false" class="locale-selector-link" href="/en-us/locale?target=https://review.learn.microsoft.com/en-us/azure/architecture/architectures/test/?branch=pr-en-us-1049&amp;product=featured" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text has-inner-focus">English (United States)</span></a>
     <ul class="links" data-bi-name="footerlinks">
-        <li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
-        <li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
-        <li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+        <li><a data-mscc-ic="false" href="https://learn.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Versions</a></li>
+        <li><a data-mscc-ic="false" href="https://learn.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
+        <li><a data-mscc-ic="false" href="https://learn.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
             <li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
         <li><a data-mscc-ic="false" href="/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
         <li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>

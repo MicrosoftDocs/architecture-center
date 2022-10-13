@@ -2,10 +2,6 @@
 
 This solution enables a predictive model for the length of stay for in-hospital admissions. Length of stay (LOS) is defined in the number of days from the initial admit date to the date that the patient is discharged from any given hospital facility.
 
-## Potential use cases
-
-This solution enables a predictive model for length of stay for in-hospital admissions.
-
 ## Architecture
 
 ![Architecture Diagram shows the flow of information from ingest to score to predict length of stay in hospitals.](../media/predicting-length-of-stay-in-hospitals.png)
@@ -19,6 +15,10 @@ This solution enables a predictive model for length of stay for in-hospital admi
 ## Solution details
 
 Length of stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
+
+### Potential use cases
+
+This solution enables a predictive model for length of stay for in-hospital admissions.
 
 ### Business perspective
 

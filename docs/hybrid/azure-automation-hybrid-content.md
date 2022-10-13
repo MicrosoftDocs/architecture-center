@@ -1,13 +1,5 @@
 Runbooks in Azure Automation might not have access to resources in other clouds or your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-## Potential use cases
-
-- To execute Azure Automation runbooks directly on an existing Azure virtual machine (VM) or on-premises Arc-enabled server.
-- To overcome the Azure Automation sandbox limitation - the common scenarios include executing long-running operations beyond three-hour limit for cloud jobs, performing the resource-intensive automation operations, interacting with local services running on-premise or in hybrid environment, run scripts that require elevated permissions and so on.
-- To overcome organization restrictions to keep data in Azure due to governance and security reasons - as you can't execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a Hybrid Runbook Worker.
-- To automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
-- To access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
-
 ## Architecture
 
 ![Diagarm that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
@@ -21,11 +13,11 @@ The Hybrid Runbook Worker architecture consists of the following:
 - **Automation Account**: A cloud service that automates configuration and management across your Azure and non-Azure environments.
 - **Hybrid Runbook Worker**: A computer that is configured with the Hybrid Runbook Worker feature and can execute runbooks directly on the computer and against the resources in the local environment.
 - **Hybrid Runbook Worker Group**: Group with multiple Hybrid runbook workers for higher availability and scale to run a set of runbooks.
-- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7]
+- **Runbook**: A collection of one or more linked activities that together automate a process or operation. [Learn more][7].
 - **On-premises machines and VMs**: On-premises computers and VMs with Windows or Linux operating system hosted in a private local-area network.
 - Components applicable for extension-based approach (V2):
     - **Hybrid Runbook Worker VM Extension**: A small application installed on a computer that configures it as a Hybrid Runbook Worker.
-    - **Arc-enabled Server**: Azure Arc-enabled servers allows you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8]
+    - **Arc-enabled Server**: Azure Arc-enabled servers allow you to manage your Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. [Learn more][8].
 - Components applicable for agent-based approach (V1):
     - **Log Analytics Workspace**: A Log Analytics workspace is a data repository for log data collected from resources that run in Azure, on-premises or in another cloud provider.
     - **Automation Hybrid Worker solution**: With this, you can create Hybrid Runbook Workers to run Azure Automation runbooks on your Azure and non-Azure computers.
@@ -52,9 +44,19 @@ For machines hosting the system Hybrid Runbook Worker managed by Update Manageme
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid worker works on a polling mechanism (every 30 secs) and follows an order of first-come, first-serve.
 
-## Hybrid Runbook Worker installation approach
+## Scenario details
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that is supported by Azure Automation.
+### Potential use cases
+
+- To execute Azure Automation runbooks directly on an existing Azure virtual machine (VM) or on-premises Arc-enabled server.
+- To overcome the Azure Automation sandbox limitation - the common scenarios include executing long-running operations beyond three-hour limit for cloud jobs, performing the resource-intensive automation operations, interacting with local services running on-premise or in hybrid environment, run scripts that require elevated permissions and so on.
+- To overcome organization restrictions to keep data in Azure due to governance and security reasons - as you can't execute Automation jobs on the cloud, you can run it on an on-premises machine that is onboarded as a Hybrid Runbook Worker.
+- To automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
+- To access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
+
+### Hybrid Runbook Worker installation approach
+
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that are supported by Azure Automation.
 
 |**Platform** | **Description**
 --- | ---
@@ -63,7 +65,7 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 
 A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension based (V2). If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [Learn more][3]
 
-## Runbook worker types
+### Runbook worker types
 
 There are two types of Runbook workers - System and User.
 
@@ -75,7 +77,11 @@ The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook 
 
 Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] reporting to an Azure Monitor [Log Analytics workspace][5]. The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker. When Azure Automation [Update Management][6] is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 - A Hybrid Runbook Worker doesn't have many of the [Azure sandbox][9] resource [limits][10] on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources, and they aren't constrained by the [fair share][11] time limit that Azure sandboxes have.
 
@@ -92,13 +98,13 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 - To control the distribution of runbooks on Hybrid Runbook Workers and when or how the jobs are triggered, you can register the hybrid worker against different Hybrid Runbook Worker groups within your Automation account. Target the jobs against the specific group or groups to support your execution arrangement.
 - Applicable only for agent-based approach (V1) - the Log Analytics Agent for Windows and Linux have very minimal impact on the machine performance. Scale up your workers by configuring to run on more powerful machines with higher performance including memory, CPU, and IOPs.
 
-## Availability considerations
+### Availability
 
 - A Hybrid Runbook Worker Group with more than one machine configured with Hybrid Worker Role provides high availability because runbooks will start only on servers that are running and healthy.
 - The extension-based (V1) Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
 - Applicable only for agent-based approach (V1) - Currently, mappings between Log Analytics Workspace and Automation account are supported in several regions. For more information, see [Supported regions for linked Log Analytics workspace.][12]
 
-## Manageability considerations
+### Manageability
 
 - The extension-based approach (V2) offers ease of manageability as compared to agent-based approach (V1) through:
     - Native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
@@ -109,7 +115,9 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
     - To accelerate deployment of the Log Analytics Agent with Hybrid Worker Role running on Windows machine, use the PowerShell script [New-OnPremiseHybridWorker.ps1][17]
     - Deployment of many agents in on-premises infrastructure can be orchestrated using command line scripts and deployed using Group Policy or System Center Configuration Manager.
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Encryption of sensitive assets in Automation: An Azure Automation Account can contain sensitive assets such as credentials, certificate, connection, and encrypted variables that might be used by the runbooks. Each secure asset is encrypted by default using a Data Encryption key that is generated for each Automation Account. These keys are encrypted and stored in Azure Automation with an Account Encryption Key (AEK) that can be stored in the Key vault for customers who want to manage encryption with their own keys. By default, AEK is encrypted using Microsoft-managed keys. Use the following guidelines to [apply encryption of secure assets in Azure Automation][18].
 - Runbook permission: By default, runbook permissions for a Hybrid Runbook Worker run in a system context on the machine where they're deployed. A runbook provides its own authentication to local resources. Authentication can be configured using managed identities for Azure resources or by specifying a Run As account to provide a user context for all runbooks.
@@ -120,15 +128,26 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 
 - Azure Security baseline for Automation: [The Azure security baseline for Automation][19] contains recommendations on how to increase overall security configuration to protect your asset following the best-practice guidance.
 
-## DevOps considerations
+### DevOps
 
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
 - For information on how to integrate Azure Automation with your Source Control environment, see [Use source control integration][13].
 
-## Cost optimization
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. For more information about the Azure Automation pricing models, see [Automation pricing][15].
-- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. For the pricing models for Log Analytics, see [Azure Monitor pricing][16].
+- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days is free of charge. For the pricing models for Log Analytics, see [Azure Monitor pricing][16].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

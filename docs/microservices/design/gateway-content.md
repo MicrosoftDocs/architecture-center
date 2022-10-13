@@ -73,7 +73,7 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 
 ## Next steps
 
-The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as an opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.yml)

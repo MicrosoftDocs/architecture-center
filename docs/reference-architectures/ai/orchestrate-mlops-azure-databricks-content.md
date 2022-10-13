@@ -32,7 +32,7 @@ In the development environment, data scientists and engineers develop machine le
 
 In the staging environment, CI infrastructure tests changes to machine learning pipelines in an environment that mimics production.
 
-4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/?view=azure-devops) runs tests.
+4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/) runs tests.
 
 5. **Unit and CI tests**: Unit tests run in CI infrastructure, and integration tests run end-to-end [workflows](/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
 
@@ -50,7 +50,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 1. **Model deployment**: As a model enters production, it's deployed for scoring or serving. The most common deployment modes are:
     - [**Batch or streaming scoring**](/azure/databricks/applications/machine-learning/model-inference/#offline-batch-predictions): For latencies of minutes or longer, batch and streaming are the most cost-effective options. The scoring pipeline reads the latest data from the Feature Store, loads the latest production model version from the Model Registry, and performs inference in a Databricks job. It can publish predictions to Lakehouse tables, a Java Database Connectivity (JDBC) connection, flat files, message queues, or other downstream systems.
-    - **Online serving (REST APIs)**: For low-latency use cases, online serving is generally necessary. MLflow can deploy models to [MLflow Model Serving on Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-serving), cloud provider serving systems, and other systems. In all cases, the serving system is initialized with the latest production model from the Model Registry. For each request, it fetches features from an online Feature Store and makes predictions.
+    - **Online serving (REST APIs)**: For low-latency use cases, online serving is generally necessary. MLflow can deploy models to [MLflow Model Serving on Azure Databricks](/azure/databricks/applications/mlflow/model-serving), cloud provider serving systems, and other systems. In all cases, the serving system is initialized with the latest production model from the Model Registry. For each request, it fetches features from an online Feature Store and makes predictions.
 
 1. **Monitoring**: Continuous or periodic [workflows](/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. [Delta Live Tables](/azure/databricks/data-engineering/delta-live-tables) can simplify the automation of monitoring pipelines, storing the metrics in Lakehouse tables. [Databricks SQL](/azure/databricks/sql), [Power BI](/power-bi), and other tools can read from those tables to create dashboards and alerts.
 
@@ -93,6 +93,7 @@ By using this architecture, you can:
 ### Potential use cases
 
 This architecture applies to all types of machine learning, deep learning, and advanced analytics. Common machine learning / AI techniques used in this architecture include:
+
 - Classical machine learning, like linear models, tree-based models, and boosting.
 - Modern deep learning, like TensorFlow and PyTorch.
 - Custom analytics, like statistics, Bayesian methods, and graph analytics.
@@ -114,11 +115,11 @@ For examples, see the [Databricks website](https://databricks.com/customers).
 
 Principal author:
 
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect 
+- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect
 
 Other contributor:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -149,7 +150,7 @@ Other contributor:
 - [Share models across workspaces](/azure/databricks/applications/machine-learning/manage-model-lifecycle/multiple-workspaces)
 - [Notebooks](/azure/databricks/notebooks)
 - [Developer tools and guidance](/azure/databricks/dev-tools)
-- [Deploy MLflow models to online endpoints in Azure Machine Learning](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?tabs=endpoint%2Cstudio) 
+- [Deploy MLflow models to online endpoints in Azure Machine Learning](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?tabs=endpoint%2Cstudio)
 - [Deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-mlflow-models#deploy-to-azure-kubernetes-service-aks)
 
 ## Related resources

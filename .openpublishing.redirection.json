@@ -1799,6 +1799,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/aws/aws-azure-security-solutions.yml",
+      "redirect_url": "/azure/architecture/guide/aws/aws-azure-security-solutions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -2233,6 +2238,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-synapse",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks-content",
       "redirect_document_id": true
@@ -2391,6 +2401,76 @@
       "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/loosely-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/tightly-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cicd-for-quantum-computing-jobs.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps-content.md",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/training-python-models.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/training-python-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-existing-applications-with-aks.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/migrate",
+      "redirect_document_id": false
     }
   ]
 }

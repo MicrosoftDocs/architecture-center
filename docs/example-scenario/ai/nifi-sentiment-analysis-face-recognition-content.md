@@ -174,9 +174,9 @@ Principal authors:
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create and consume Cognitive Services](/learn/modules/create-manage-cognitive-services)
-- [Analyze text with the Language service](/learn/modules/analyze-text-with-text-analytics-service)
-- [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces)
+- [Create and consume Cognitive Services](/training/modules/create-manage-cognitive-services)
+- [Analyze text with the Language service](/training/modules/analyze-text-with-text-analytics-service)
+- [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces)
 
 ## Related resources
 

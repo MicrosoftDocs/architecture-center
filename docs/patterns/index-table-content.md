@@ -83,10 +83,13 @@ You can duplicate the movie data in the values held by each partition by adoptin
 
 ![Figure 8 - Actor partitions acting as index tables for movie data](./_images/index-table-figure-8.png)
 
-## Related guidance
-
-The following patterns and guidance might also be relevant when implementing this pattern:
+## Next steps
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). An index table must be maintained as the data that it indexes changes. In the cloud, it might not be possible or appropriate to perform operations that update an index as part of the same transaction that modifies the data. In that case, an eventually consistent approach is more suitable. Provides information on the issues surrounding eventual consistency.
+
+## Related resources
+
+The following patterns might also be relevant when implementing this pattern:
+
 - [Sharding pattern](./sharding.yml). The Index Table pattern is frequently used in conjunction with data partitioned by using shards. The Sharding pattern provides more information on how to divide a data store into a set of shards.
 - [Materialized View pattern](./materialized-view.yml). Instead of indexing data to support queries that summarize data, it might be more appropriate to create a materialized view of the data. Describes how to support efficient summary queries by generating prepopulated views over data.

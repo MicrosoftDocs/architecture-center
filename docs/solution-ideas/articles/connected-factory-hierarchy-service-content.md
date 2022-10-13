@@ -1,34 +1,4 @@
-This article explores a connected factory hierarchy service implementation. A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
-
-## Problem
-
-Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems have different definitions for asset hierarchies.
-
-Multiple IT systems might define hierarchical structures redundantly. Information from ERP systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
-
-Changes to hierarchical structures and the metadata that defines them are very time consuming. If an enterprise adds new machines or reorganizes a production line, it must apply and verify the changes manually in multiple places. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
-
-Another challenge is that individual sites or organizations might use different ERP systems, often for historical reasons such as acquisitions. Standardizing ERP systems might not be feasible within a reasonable time frame. This heterogeneous ERP landscape adds even more complexity and challenge to the process of integrating shop floor applications with ERP systems.
-
-## Solution
-
-A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition for assets. Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
-
-The service issues every node in the hierarchy a system-defined unique identifier. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
-
-To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains actual master data records or application-specific parameters separately. A dedicated master data document service can provide master data records. A shop floor application can maintain parameters that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
-
-The service provides access control to govern changes. Different views cover the needs of maintenance and operational perspectives. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel.
-
-The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. Users can integrate with ERP systems via graphical UI, bulk import, or an API the hierarchy service provides.
-
-## Potential use cases
-
-- Standardize asset organization across IT systems.
-- Easily incorporate new machines or changes to production lines.
-- Centrally manage different ERP systems within an enterprise.
-- Identify machines that can fulfill a given order.
-- Aggregate machine data.
+This article explores a connected factory hierarchy service implementation. 
 
 ## Architecture
 
@@ -117,7 +87,43 @@ This system design is intentionally simple to avoid the introduction of more ser
 
 - Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin) can provide contextualization.
 
+## Scenario details
+
+A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
+
+### Problem
+
+Production assets like machines are organized within factories in context-specific hierarchies. Machines can be organized by their physical location, maintenance requirements, or products. Individual stakeholders, processes, and IT systems have different definitions for asset hierarchies.
+
+Multiple IT systems might define hierarchical structures redundantly. Information from ERP systems might be replicated across multiple applications. These redundancies can lead to inconsistencies, heterogeneous governance concepts, and missing correlations between master data and application-specific hierarchies.
+
+Changes to hierarchical structures and the metadata that defines them are very time consuming. If an enterprise adds new machines or reorganizes a production line, it must apply and verify the changes manually in multiple places. Decentralized access control increases the need for manual processes, and makes links between application-specific hierarchies difficult to establish. These issues impact business agility and scalability. 
+
+Another challenge is that individual sites or organizations might use different ERP systems, often for historical reasons such as acquisitions. Standardizing ERP systems might not be feasible within a reasonable time frame. This heterogeneous ERP landscape adds even more complexity and challenge to the process of integrating shop floor applications with ERP systems.
+
+### Solution
+
+A hierarchy service addresses these problems by providing a centralized, consolidated, and consistent overall hierarchy definition for assets. Anytime an application needs to reference hierarchy data, it retrieves the latest definitions from the hierarchy service. Any changes to the hierarchy always reflect across all applications, without manual steps.
+
+The service issues every node in the hierarchy a system-defined unique identifier. This ID uniquely identifies items, such as a specific machine in a specific factory, across applications throughout an entire organization. The ID can also be added to telemetry data sent by machines, to contextualize that data based on the hierarchy.
+
+To maintain a separation of concerns, the hierarchy service only contains information about nodes, relationships, and references to corresponding master data. The system maintains actual master data records or application-specific parameters separately. A dedicated master data document service can provide master data records. A shop floor application can maintain parameters that are defined on a machine level. The hierarchy service remains lean and efficient, and avoids evolving into a parallel master data management system.
+
+The service provides access control to govern changes. Different views cover the needs of maintenance and operational perspectives. Business stakeholders can define and maintain the hierarchy by using a graphical UI, without involving IT personnel.
+
+The hierarchy service acts as the single point of integration with ERP systems, decoupling the lifecycle of ERP systems from the hierarchy. Users can integrate with ERP systems via graphical UI, bulk import, or an API the hierarchy service provides.
+
+### Potential use cases
+
+- Standardize asset organization across IT systems.
+- Easily incorporate new machines or changes to production lines.
+- Centrally manage different ERP systems within an enterprise.
+- Identify machines that can fulfill a given order.
+- Aggregate machine data.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 The following considerations apply to this solution:
 
@@ -137,11 +143,15 @@ Azure App Service can also scale up or out, manually or automatically.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources. Limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate the cost of running AKS in Azure. See the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
 
@@ -156,8 +166,8 @@ Principal author:
 ## Next steps
 
 - [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
-- [Develop with Azure Digital Twins (Learning path)](/learn/paths/develop-azure-digital-twins)
-- [Introduction to Kubernetes on Azure (Learning path)](/learn/paths/intro-to-kubernetes-on-azure)
+- [Develop with Azure Digital Twins (Learning path)](/training/paths/develop-azure-digital-twins)
+- [Introduction to Kubernetes on Azure (Learning path)](/training/paths/intro-to-kubernetes-on-azure)
 
 ## Related resources
 

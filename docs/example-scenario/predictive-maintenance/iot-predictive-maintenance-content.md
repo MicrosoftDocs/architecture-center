@@ -1,38 +1,4 @@
-This article describes a collaboration between Microsoft and a major railroad company to create an internet-of-things (IoT) train maintenance and safety solution. [Azure IoT Edge](/azure/iot-edge/about-iot-edge) enables data processing and storage closer to the data source. Processing workloads at the edge enables fast, consistent responses with less dependency on cloud connectivity and resources.
-
-Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
-
-Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
-
-The railroad company wanted to use Azure IoT Edge to improve safety and efficiency by providing:
-
-- Proactive identification of defective components.
-- Predictive scheduling of maintenance and repair.
-- Continuous improvement of analysis and predictions.
-
-The pilot project for the IoT Edge solution is a train wheel health analysis system. In this system, over 4,000 trackside detectors continuously monitor and stream wheel data from the company's trains. The detectors:
-
-- Measure heat and force of equipment on the tracks.
-- Listen for invisible wheel bearing defects or wheel cracks.
-- Identify missing or misplaced parts.
-
-Azure IoT Edge modules process and act on the continuous streaming data in near real-time. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads. The IoT Edge-based solution:
-
-- Identifies at-risk equipment.
-- Determines repair urgency.
-- Generates alerts.
-- Sends data to the Azure cloud for storage.
-
-The wheel health analysis system provides early identification of potential equipment failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance schedules.
-
-## Potential use cases
-
-This solution is ideal for the transportation, telecommunications, and manufacturing industries. It focuses on the following scenarios:
-
-- A telecommunications network that has to maintain 99% or better uptime.
-- Production quality control, equipment repair, and predictive maintenance in a factory.
-- A transportation safety system that must process real-time streaming data with little or no latency.
-- Transit systems that need to provide timely schedule notifications and alerts.
+This article describes a collaboration between Microsoft and a major railroad company to create an internet-of-things (IoT) train maintenance and safety solution. 
 
 ## Architecture
 [ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.png) ](./media/iot-predictive-maintenance.png#lightbox)
@@ -77,7 +43,47 @@ The system also uses the following Azure cloud components:
 
 - The railway company only owns the inferencing system, and relies on a third-party vendor for ML model generation. The black-box nature of the ML module poses some risk of dependency. Long-term solution maintenance requires understanding how the third party governs and shares assets. The system might be able to use placeholder ML modules for future engagements when ML assets aren't available.
 
+## Scenario details
+
+[Azure IoT Edge](/azure/iot-edge/about-iot-edge) enables data processing and storage closer to the data source. Processing workloads at the edge enables fast, consistent responses with less dependency on cloud connectivity and resources.
+
+Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
+
+Edge computing can incorporate artificial intelligence (AI) and ML models to create *intelligent edge* devices and networks. The edge network can determine which data to send to the cloud for further processing, and prioritize urgent and important data.
+
+The railroad company wanted to use Azure IoT Edge to improve safety and efficiency by providing:
+
+- Proactive identification of defective components.
+- Predictive scheduling of maintenance and repair.
+- Continuous improvement of analysis and predictions.
+
+The pilot project for the IoT Edge solution is a train wheel health analysis system. In this system, over 4,000 trackside detectors continuously monitor and stream wheel data from the company's trains. The detectors:
+
+- Measure heat and force of equipment on the tracks.
+- Listen for invisible wheel bearing defects or wheel cracks.
+- Identify missing or misplaced parts.
+
+Azure IoT Edge modules process and act on the continuous streaming data in near real-time. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads. The IoT Edge-based solution:
+
+- Identifies at-risk equipment.
+- Determines repair urgency.
+- Generates alerts.
+- Sends data to the Azure cloud for storage.
+
+The wheel health analysis system provides early identification of potential equipment failures that could lead to train derailment. The company can use stored data to spot trends and inform prescriptive maintenance schedules.
+
+### Potential use cases
+
+This solution is ideal for the transportation, telecommunications, and manufacturing industries. It focuses on the following scenarios:
+
+- A telecommunications network that has to maintain 99% or better uptime.
+- Production quality control, equipment repair, and predictive maintenance in a factory.
+- A transportation safety system that must process real-time streaming data with little or no latency.
+- Transit systems that need to provide timely schedule notifications and alerts.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Several considerations apply to this example.
 
@@ -109,6 +115,8 @@ Building and deploying the solution also uses:
 - This solution doesn't replace existing manual inspection requirements determined by company and federal regulatory authorities.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Security and monitoring are considerations for IoT Edge systems. For this example:
 
@@ -142,7 +150,7 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
 - [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)
-- [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
+- [Serverless Streaming At Scale with Azure Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
 - [When to avoid CQRS](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Related resources

@@ -84,7 +84,7 @@ See these resources:
 
 - [Use Jupyter Notebooks in Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance)
 - [Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-- [What is Azure Repos in Azure DevOps?](/azure/devops/repos/get-started/what-is-repos?view=azure-devops)
+- [What is Azure Repos in Azure DevOps?](/azure/devops/repos/get-started/what-is-repos)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [An introduction to Azure Automation](/azure/automation/automation-intro)
 - [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
