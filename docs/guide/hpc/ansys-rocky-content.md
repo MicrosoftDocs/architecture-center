@@ -1,4 +1,12 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Ansys Rocky](https://www.ansys.com/products/fluids/ansys-rocky) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Ansys Rocky on Azure.
+
+Ansys Rocky is a 3D DEM (discrete element modeling) particle simulation application that simulates the flow behavior of bulk materials with complex particle shapes and size distributions. Typical applications include conveyor chutes, mills, mixers, and other material-handling equipment. 
+
+The solver in Rocky distributes and manages the combined memory of two or more GPU cards in a single motherboard to overcome memory limitations.
+
+Ansys Rocky enables you to simulate a system with real particle shapes and sizes, specifying both spherical and non-spherical particle shapes, including shells and fibers. 
+
+Rocky is used in industries like food processing, pharmaceutical and biotech, agriculture equipment, and mining/metals.
 
 ## Why deploy Ansys Rocky on Azure?
 
@@ -17,7 +25,7 @@ architecture.*
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml) or [].
+    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
@@ -26,7 +34,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-The performance tests of Ansys Rocky on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running . The following table provides details about the VMs.
+The performance tests of Ansys Rocky on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows. The following table provides details about the VMs.
 
 |VM size|vCPU|Memory, GiB|Number of GPUs|	GPU memory, in GiB|Maximum data disks|Maximum uncached disk throughput, in IOPS / MBps|
 |-|-|-|-|-|-|-|
@@ -43,14 +51,14 @@ To use AMD processors on [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series)
 
 ## Ansys Rocky installation
 
-Before you install Ansys Rocky, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
+Before you install Ansys Rocky, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 image, and install the required NVIDIA and AMD drivers.
+
+For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
 
 > [!IMPORTANT]
 > NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch. NC_A100_v4 and ND_A100_v4 VMs use NVLink. 
 
-For information about deploying the VM and installing the drivers, see one of these articles:
-- [Run a Windows VM on Azure]
-- [Run a Linux VM on Azure]
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 For information about installing Ansys Rocky, see the [Ansys website](https://www.ansys.com/products/fluids/ansys-rocky).
 
@@ -98,7 +106,7 @@ Here's the same data, presented graphically:
 
 ## Azure cost
 
-The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the number of nodes and the Azure hourly rates for NCA100v4-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing) or 
+The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the number of nodes and the Azure hourly rates for NCA100v4-series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). 
 
 Only the wall-clock times for running the model are presented in this table. Application installation time isn't included. These times are indicative. The actual times depend on the size of the model.
 
@@ -153,3 +161,7 @@ Other contributors:
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
+
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
