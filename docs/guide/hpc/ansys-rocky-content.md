@@ -36,7 +36,7 @@ architecture.*
 
 The performance tests of Ansys Rocky on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows. The following table provides details about the VMs.
 
-|VM size|vCPU|Memory, GiB|Number of GPUs|	GPU memory, in GiB|Maximum data disks|Maximum uncached disk throughput, in IOPS / MBps|
+|VM size|vCPU|Memory, in GiB|Number of GPUs|	GPU memory, in GiB|Maximum data disks|Maximum uncached disk throughput, in IOPS / MBps|
 |-|-|-|-|-|-|-|
 |Standard_ND96asr_v4|96|900|8 |40|32|80,000 / 800|
 |Standard_NC24ads_A100_v4|24|220|1|80|12|30,000 / 1,000|
@@ -106,7 +106,7 @@ Here's the same data, presented graphically:
 
 ## Azure cost
 
-The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the number of nodes and the Azure hourly rates for NCA100v4-series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). 
+The following table presents wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NCA100v4-series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). 
 
 Only the wall-clock times for running the model are presented in this table. Application installation time isn't included. These times are indicative. The actual times depend on the size of the model.
 
@@ -125,8 +125,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Ansys Rocky was successfully tested on ND_A100_v4 and NC_A100_v4 VMs on Azure.
-- The speed increase of one GPU over 96 CPUs is significant.
-- For all models, there's an optimal configuration that achieves the best combination of price and performance, after which adding hardware doesn't scale the performance substantially. For this particular harvester model, optimal performance occurs with three GPUs. For more complex models, we expect the optimal number of GPUs to be higher. For models that are less complex, we expect it to be lower.
+- The speed increases significantly when you upgrade from 96 CPUs to one GPU.
+- For all models, there's an optimal configuration that achieves the best combination of price and performance. After that point, adding hardware doesn't scale the performance substantially. For this particular harvester model, optimal performance occurs with three GPUs. For more complex models, we expect the optimal number of GPUs to be higher. For models that are less complex, we expect it to be lower.
 
 ## Contributors
 
