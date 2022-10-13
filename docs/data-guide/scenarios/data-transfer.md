@@ -81,6 +81,8 @@ Consider the following options if you're only transferring a few files or data o
 
 - **[Azure Data Factory](/azure/data-factory)** is a managed service best suited for regularly transferring files between many Azure services, on-premises, or a combination of the two. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that ingest data from disparate data stores. It can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Create data-driven workflows for [orchestrating](../technology-choices/pipeline-orchestration-data-movement.md) and automating data movement and data transformation.
 
+- **[Pipelines and activities](/azure/data-factory/concepts-pipelines-activities)** in Azure Data Factory and Azure Synapse Analytics can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, the [Azure Data Factory Integration Runtime](https://learn.microsoft.com/azure/data-factory/concepts-integration-runtime) (IR) is used to provide data integration capabilities across different network environments.
+
 - **[Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview)** transfers data to and from Azure, but it's a virtual appliance instead of hard drives. Virtual machines residing in your on-premises network write data to Azure Data Box Gateway using the NFS and SMB protocols. The device then transfers your data to Azure.
 
 ## Key Selection Criteria
@@ -129,7 +131,7 @@ The following tables summarize the key differences in capabilities.
 **Other:**
 
 | Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
 | Copy to relational database | No | No | No | No | Yes |
