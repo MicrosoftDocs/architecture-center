@@ -256,7 +256,7 @@ Product documentation:
 - [What is Azure Logic Apps?][logic-apps]
 - [Azure Functions][functions]
 
-Microsoft Learn modules:
+Microsoft Learn Training modules:
 
 - [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
 - [Build a bot with QnA Maker and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service)
