@@ -1,4 +1,4 @@
-Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
+This article is about the open-source version of Magento, an e-commerce platform written in PHP. This article isn't about Adobe Commerce. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS) and describes common best practices for hosting Magento on Azure.
 
 ## Architecture
 
