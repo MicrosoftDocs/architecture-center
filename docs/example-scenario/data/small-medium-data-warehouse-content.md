@@ -86,14 +86,13 @@ Several scenarios can benefit from this workload:
 
 - Using innovative techniques to interact with centralized Data Lake Storage data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration.
 
-- How eCommerce companies can adopt data warehouse to optimize their operations [Data Warehouse for Ecommerce](https://algoscale.com/blog/how-to-create-the-right-data-warehouse-solution-for-your-e-commerce-business/) sources
+- Setting up eCommerce companies to adopt a data warehouse to optimize their operations.
 
 This solution isn't recommended for:
 
 - [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses that are estimated to be > 1 TB within one year.
 
 - Migrating on-premises data warehouses that are > 1 TB or projected to grow to that size within a year.
-
 
 ## Considerations
 
@@ -133,7 +132,7 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - Galina Polyakova | Senior Cloud Solution Architect
 
