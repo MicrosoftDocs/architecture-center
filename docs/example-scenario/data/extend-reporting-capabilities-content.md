@@ -8,10 +8,10 @@ This scenario describes how to use Azure Logic Apps and Power BI to extend the r
 
 ### Dataflow
 
-1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials safely stored in Azure Key Vault. Key Vault stores Project Online OData endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
+1. Data is generated in its source system. Azure Logic Apps makes a request to the source system with credentials more safely stored in Azure Key Vault. Key Vault stores Project Online OData endpoint configurations from one or more Microsoft 365 tenants, or any other data sources. The cloud credentials are used in Logic Apps to connect each Project Online data source.
 
-> [!NOTE]
-> For government customers, follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
+    > [!NOTE]
+    > Government customers should follow the guidance under [Common access cards (CAC) or personal identity verification (PIV)](#common-access-cards-cac-or-personal-identity-verification-piv).
 
 2. The source system responds to the Logic Apps request with the data. Logic Apps parses and converts the data into JSON format. If the source data is formatted in an OData protocol, as Project Online is, use the `odata.nextlink` variable in order to overcome the limitations of the protocol.
 
@@ -25,25 +25,19 @@ This scenario describes how to use Azure Logic Apps and Power BI to extend the r
 
 7. Data is published and reports are created and made available for consumption.
 
-**Sample Logic Apps dataflow**
-
-Your dataflow might look something like the following example:
-
-[ ![Screenshot of Logic Apps steps for Project Online data refresh.](media/project-online-sample-workflow.png) ](media/project-online-sample-workflow.png#lightbox)
-
 ### Components
 
 This architecture uses the following components:
 
 - [Project Online](https://powerautomate.microsoft.com/connectors/details/shared_projectonline/project-online) is a flexible solution for project portfolio management (PPM) and everyday work. Delivered through Microsoft 365, Project Online provides powerful project management capabilities for planning, prioritizing, and managing projects, from almost anywhere on almost any device. Its data store is the source of truth for project and program schema relationships for your reports.
 
-- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across clouds. This service provides a way to securely access and process data in real time. Its serverless solutions take care of building, hosting, scaling, managing, maintaining, and monitoring apps. It's used to automate the data flow processes. Depending on the scale, it might make more sense to use Azure Data Factory and Azure Functions.
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across clouds. This service provides a way to more securely access and process data in real time. Its serverless solutions take care of building, hosting, scaling, managing, maintaining, and monitoring apps. It's used to automate the data flow processes. Depending on the scale, it might make more sense to use Azure Data Factory and Azure Functions.
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. It's used to secure Project Online and other data source credentials, certificates, and secrets.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. It's used to help secure Project Online and other data source credentials, certificates, and secrets.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions, such as upgrading, patching, backups, and monitoring without user involvement. It's used as a cost-effective data sync for project data. In addition to storing data, it can also be used to hold materialized views of data and metrics.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions, such as upgrading, patching, backups, and monitoring, without user involvement. It's used as a cost-effective data sync for project data. In addition to storing data, it can also be used to hold materialized views of data and metrics.
 
-- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects data on environments and Azure resources. It helps maintain availability and performance monitoring. In addition to analyzing and maintaining costs for other Azure services, such as [Azure Storage](https://azure.microsoft.com/free/storage) and [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs), Monitor can also help to quickly resolve issues using diagnostic data. Monitor uses two data platforms:
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects data on environments and Azure resources. It helps maintain availability and performance monitoring. In addition to analyzing and maintaining costs for other Azure services, such as [Azure Storage](https://azure.microsoft.com/free/storage) and [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs), Monitor can also help to quickly resolve issues by using diagnostic data. Monitor uses two data platforms:
 
     - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) records and stores log and performance data. For Logic Apps, this data includes information on trigger events, run events, and action events.
     - [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) collects numerical values at regular intervals. For Logic Apps, this data includes the run latency, rate, and success percentage.
@@ -62,12 +56,12 @@ Logic Apps isn't the only option to consider. For example, Azure Data Factory an
 
 Project Online offers strong functionality to track and understand data relationships. Features include:
 
-1. Easy setup
-2. Near real-time data refreshes
-3. Can accommodate more than 100 GB of unstructured and structured data at any given time
-4. Not domain or tenant dependent
-5. Flexible
-6. Follows the CIA or AIC triad model, which is made up of *confidentiality*, *integrity*, and *availability*
+- Easy setup
+- Near real-time data refreshes
+- Can accommodate more than 100 GB of unstructured and structured data at any given time
+- Not domain or tenant dependent
+- Flexible
+- Follows the CIA or AIC triad model, which is made up of *confidentiality*, *integrity*, and *availability*
 
 ### Potential use cases
 
@@ -75,7 +69,7 @@ When working on complex reports with Project Online data, you might face challen
 
 - Combining data from multiple Project Online instances of unrelated Microsoft 365 tenants.
 - Importing extremely large datasets, in a wide variety of states. Some data might be clean, but most datasets require "help" and transformations.
-- Joining and filtering from multiply tables.
+- Joining and filtering from multiple tables.
 - Tracking changes of major data points.
 - Tracking baselines for trends over months or even years.
 - Always ensuring compliance and government retention policies.
@@ -129,13 +123,13 @@ The following sample cost estimates are based on the amount of traffic and data:
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This scenario uses Azure Logic Apps and Azure SQL Database. With Logic Apps and Azure SQL Database, you can scale up or down depending on how much data you'll process and the overall data size. This functionality lets you keep up with customer demand and keep the initial costs down.
+This scenario uses Azure Logic Apps and Azure SQL Database. With Logic Apps and Azure SQL Database, you can scale up or down depending on how much data you process and the overall data size. This functionality lets you keep up with customer demand and keep the initial costs down.
 
-One major concern of this scenario is the size of data it processes. In Project Online, most of data won't change day by day. It's a waste of bandwidth to reload every bit of data even if it isn't changed. This scenario reduces the amount of data to pull and process by keeping a timestamp of all objects. Only data that has changed is reloaded.
+One major concern of this scenario is the size of data it processes. In Project Online, most data won't change day by day. It's a waste of bandwidth to reload every bit of data even if it isn't changed. This scenario reduces the amount of data to pull and process by keeping a timestamp of all objects. Only data that has changed is reloaded.
 
 ## Common access cards (CAC) or personal identity verification (PIV)
 
-The Logic Apps connector to Project Online doesn't natively support tenants that require the use of CAC or PIV for user-less connections. In order for Logic Apps to establish authentication to Project Online, a service principal needs to exist with appropriate permissions, or scopes, and licensing within the source tenant. The OAuth [client credential grant flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) should be used to acquire an access token that's used in the API access to Project Online.
+The Logic Apps connector to Project Online doesn't natively support tenants that require the use of CAC or PIV for user-less connections. In order for Logic Apps to establish authentication to Project Online, a service principal needs to exist with appropriate permissions, or scopes, and licensing within the source tenant. Use the OAuth [client credential grant flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to acquire an access token for API access to Project Online.
 
 You need the following information from your Azure AD client registration:
 
@@ -164,8 +158,8 @@ Principal authors:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Describe analytics capabilities in Microsoft 365](/training/modules/describe-analytics-capabilities-microsoft-365)
-- [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis)
+- [Learn how to describe analytics capabilities in Microsoft 365](/training/modules/describe-analytics-capabilities-microsoft-365)
+- [Learn about deploying serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis)
 
 ## Related resources
 
