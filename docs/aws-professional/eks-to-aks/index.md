@@ -60,7 +60,6 @@ Other contributors:
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 
-
 ## Next steps
 
 - [Kubernetes identity and access management](workload-identity.yml)
