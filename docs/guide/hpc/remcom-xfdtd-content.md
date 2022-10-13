@@ -32,7 +32,7 @@ The performance tests of Remcom XFdtd used an [ND_A100_v4](/azure/virtual-machin
 |-|-|-|-|-|-|-|
 |Standard_ND96asr_v4	|96	|900	|6,000	|8 A100	|40	|32|
 
-## Required drivers
+### Required drivers
 
 To take advantage of the GPU capabilities of [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
 
@@ -63,22 +63,73 @@ The following table provides details about the model.
 |-|-|-|-|-|
 |Patch in body|0 GHz to 10 GHz|15|2.45 GHz|0.735 mm|
 
-Throughput is used as a metric to test the performance of the simulation. The following table.. 
+Throughput is used as a metric to test the performance of the simulation. The following table provides the test results. 
 
-|Number of GPUs|	Simulation timesteps (ts)|Total cells|Ts time (s)|Ts/s|(throughput) (cells/sec)|C (throughput) (gcells/sec)|
+|Number of GPUs|	Simulation timesteps |Total cells|Elapsed time (seconds)|Timesteps per second|Throughput (cells per second)|Throughput (Gcells<sup>1</sup> per second)|
 |-|-|-|-|-|-|-|
-|1	|39141	|1077552576	|3003	|13.03	|14044783675	|14.04|
-|4|	39141|	1077552576|	954|	41.03|	44210152387|	44.21|
-|8|	39141	|1077552576|	834	|46.93|	50571325392	|50.57|
+|1<sup>2	|39,141	|1,077,552,576	|3,003	|13.03	|14,044,783,675	|14.04|
+|4<sup>2|	39,141|	1,077,552,576|	954|	41.03|	44,210,152,387|	44.21|
+|8|	39,141	|1,077,552,576|	834	|46.93|	50,571,325,392	|50.57|
 
-<Results for X>
-<Results for Y etc>
+<sup>1</sup> *Gcells is the cell count divided by 1,000,000,000.*
 
-### Additional notes about tests
+<sup>2</sup> *In these cases, the number of GPUs was artificially limited. The Standard_ND96asr_v4 VM has eight GPUs.*
+
+This graph shows the throughput for the different numbers of GPUs: 
+
+:::image type="content" source="media/remcom-xfdtd/xfdtd-graph.png" alt-text="Graph that shows the performance of the model." border="false":::
 
 ## Azure cost
 
+The following table shows the wall-clock time for running the simulation, in hours. To compute the total cost, multiply this time by the Azure VM hourly cost for the NDA100v4 VM. For the current hourly cost, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+
+Only simulation runtime is included in the reported time. Application installation time isn't included.
+
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size|	Number of GPUs|	Elapsed time (hours)|
+|-|-|-|
+|Standard_ND96asr_v4	|	8|	0.23| 
 
 ## Summary
 
+- Remcom XFdtd was successfully tested on the Standard_ND96asr_v4 VM.
+- A complex simulation ran in 0.23 hours. 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
