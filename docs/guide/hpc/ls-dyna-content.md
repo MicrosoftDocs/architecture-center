@@ -70,7 +70,7 @@ Here are the details of the model:
 - **Termination time:** 4 ms
 - **Compiler:** Intel Fortran Compiler 19.0 SSE2
 
-Based on the results of testing on a single node, the 64-core VM Standard_HB120-64rs_v3 is the best configuration, taking into account performance and license costs. This configuration was used in multi-node tests, with one, two, three, and four nodes.
+Based on the results of testing on a single node, the 64-core VM Standard_HB120-64rs_v3 is the best configuration, taking into account performance and license costs. This configuration was used in multi-node tests, with two, three, and four nodes.
 
 The following table shows the wall-clock times for running the simulation and the relative speed increases as the number of CPUs increases. LS-DYNA 2022 R1 on an HBv3 VM with an AMD Milan processor is used as a reference baseline to determine the speed increases. LS-DYNA 2022 R1 and LS-DYNA 2022 R2 were tested.
 
@@ -108,7 +108,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 - Based on earlier testing of LS-DYNA 2021 R2, simulations on a single-node configuration scale well up to 64 cores. After that point, the relative speed increase saturates.
 - At each increment from one to four nodes, performance increases as the number of nodes increases.
 - If we take costs into consideration, single-node and 2-node configurations are optimal.
-- To optimize only for computation time, the 4-node configuration is best. Further testing is needed for 8-node and 16-node configurations.
+- To optimize only for computation time, the 4-node configuration is best. Further testing is needed on 8-node and 16-node configurations.
 
 ## Contributors
 
