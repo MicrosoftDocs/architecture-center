@@ -21,7 +21,7 @@ This section of the Azure Kubernetes Service (AKS) day-2 operations guide descri
 
 ## Node image upgrades
 
-Microsoft provides patches and new images for image nodes weekly. For AKS Linux nodes we have two mechanisms to patch the nodes (unattended updates, node image upgrade). (a) Unattended updates are automatic, but doesn’t account for kernel level patches, and using something like KURED, or Node Image upgrade to reboot the node to complete the cycle is required.  (b) For Node Image Upgrade we create a patched node every week for customers to utilize, which would require applying that patched VHD.  We have released auto-upgrade w/Node Image Update SKU so it can be automated as well. 
+Microsoft provides patches and new images for image nodes weekly. For AKS Linux nodes, we have two mechanisms to patch the nodes: unattended updates and node image upgrade. **Unattended updates** are automatic, but they don’t account for kernel level patches. Using something like KURED or node image upgrade to reboot the node to complete the cycle is required.  For Node Image Upgrade we create a patched node every week for customers to utilize, which would require applying that patched VHD.  We have released auto-upgrade w/Node Image Update SKU so it can be automated as well. 
 
 AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades bi-weekly, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
 
