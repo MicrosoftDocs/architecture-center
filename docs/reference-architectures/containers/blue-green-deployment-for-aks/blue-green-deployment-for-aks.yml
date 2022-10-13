@@ -1,33 +1,25 @@
 ### YamlMime:Architecture
 metadata:
-  title: Blue-green-deployment-for-aks
-  description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
-  author: PageWriter-MSFT
-  ms.author: prwilk
-  ms.date: 07/14/2022
+  title: Blue-green deployment for AKS
+  titleSuffix: Azure Architecture Center
+  description: Learn how to implement a blue-green deployment system on AKS that uses Azure managed services and native Kubernetes features. 
+  author: vimorra
+  ms.author: vimorra
+  ms.date: 10/24/2022
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: reference-architecture
-  ms.category:
-    - containers
-    - kubernetes
-    - aks
-  ms.custom:
-    - seojul20
-    - containers
-    - reference-architecture
-    - internal-intro
-    - e2e-aks
-name: Baseline architecture for an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers
-summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
+  - devops
+  - management-and-governance
 products:
+  - azure-kubernetes-service
   - azure-application-gateway
   - azure-container-registry
-  - azure-firewall
-  - azure-kubernetes-service
-  - azure-rbac
-thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment-for-aks-thumb.png
+  - azure-front-door
+  - azure-dns
+name: Blue-green deployment for AKS
+summary: Learn how to implement a blue-green deployment system on AKS that uses Azure managed services and native Kubernetes features. 
+thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-aks-deployment-diagram-public-architecture-thumb.png
 content: |
    [!include[](blue-green-deployment-for-aks-content.md)]
