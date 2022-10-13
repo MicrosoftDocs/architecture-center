@@ -44,6 +44,10 @@ When managing a multi-region AKS cluster, multiple AKS instances are deployed ac
 
 Each of these items is detailed with specific guidance in the following sections of this reference architecture.
 
+## Fleet management
+
+This solution represents a multi-cluster and multi-region topology, without the inclusion of an advanced orchestrator to treat all clusters as part of a unified fleet. When cluster count increases, consider enrolling the members in [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/) for better at-scale management of the particpating clusters. The infrastructure architecture presented here doesn't fundimentally change with the enrollment into Fleet Manager, but day-2 operations and similar activities will benefit from a control plane that can target multiple clusters simulatiously.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
