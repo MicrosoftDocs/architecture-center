@@ -1,3 +1,19 @@
+---
+title: Governance options for a Kubernetes cluster
+description: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
+author:  gjoshevski
+ms.author: mgjoshevski
+ms.date: 10/10/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+categories:
+  - containers
+  - management-and-governance
+products:
+  - azure-kubernetes-service
+  - azure-policy
+---
 
 Governance provides mechanisms and processes to maintain control over your applications and resources in the cloud. It involves planning your initiatives and setting strategic priorities. Governance is put in place to mitigate risks and ensure minimal interruption to adoption or innovation in your organization.
 
