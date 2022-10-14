@@ -538,6 +538,8 @@ items:
                 href: solutions/microsoft-365-scenarios.md
               - name: All Microsoft 365 architectures
                 href: /azure/architecture/browse/?products=m365
+              - name: Extend Project Online reporting
+                href: example-scenario/data/extend-reporting-capabilities.yml
               - name: Governance of Teams guest users
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
@@ -3863,6 +3865,8 @@ items:
                 href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Extend Project Online reporting
+                href: example-scenario/data/extend-reporting-capabilities.yml
               - name: Globally distributed apps using Azure Cosmos DB
                 href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Hybrid ETL with Azure Data Factory
