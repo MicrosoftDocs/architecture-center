@@ -46,23 +46,23 @@ These applications are packaged into archives with the .jar extension (JAR files
 ## Hosting options grid
 Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-| Destination&nbsp;→<br><br>Supportability↓            | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS           | Virtual<br>Machines |
-|-------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
-| Spring Boot / JAR applications                                    | &#x2714;                  | &#x2714;                 |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
-| Spring Cloud applications                                         | &#x2714;                  |                          |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
-| Web applications                                                  | &#x2714;                  |                          | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;      | &#x2714;            |
-| Java EE applications                                              |                           |                          |                         |&#x2714;               |                      | &#x2714;      | &#x2714;            |
-| Commercial application servers<br>(such as WebLogic or WebSphere) |                           |                          |                             |                         | &#x2714;             | &#x2714;      | &#x2714;            |
-| Long-term persistence on local filesystem                         |                           | &#x2714;                 | &#x2714;                 | &#x2714;                    |                      | &#x2714;      | &#x2714;            |
-| Application server-level clustering                               |                           |                          |                          | &#x2714;                        |                      | &#x2714;      | &#x2714;            |
-| Batch / scheduled jobs                                            | &#x2714;                  |                          |                             |                        | &#x2714;             | &#x2714;      | &#x2714;            |
-| VNet Integration/Hybrid Connectivity                              | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Serverless                | Coming Soon          | ?         | ?      |?            | ?      | ?      | ?       |
-| Containerization          | &#x2714;          | ?         | ?      |?            |&#x2714;| ?      | ?       |
-| Azure region availability                                         | [Details][1]               | [Details][2]             | [Details][2]            | [Details][2]               | [Details][3]        | [Details][4] | [Details][5]       |
+| Destination&nbsp;→<br><br>Supportability↓                         | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS          | Virtual<br>Machines |
+|-------------------------------------------------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|----------------------|--------------|---------------------|
+| Spring Boot / JAR applications                                    | &#x2714;                | &#x2714;                  |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| Spring Cloud applications                                         | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| Web applications                                                  | &#x2714;                |                           | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
+| Java EE applications                                              |                         |                           |                          | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
+| Commercial application servers<br>(such as WebLogic or WebSphere) |                         |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| Long-term persistence on local filesystem                         |                         | &#x2714;                  | &#x2714;                 | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
+| Application server-level clustering                               |                         |                           |                          | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
+| Batch / scheduled jobs                                            | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| VNet Integration/Hybrid Connectivity                              | &#x2714;                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
+| Serverless                                                        | Coming Soon             | ?                         | ?                        |?                            | ?                    | ?            | ?                   |
+| Containerization                                                  | &#x2714;                | ?                         | ?                        |?                            | &#x2714;             | ?            | ?                   |
+| Azure region availability                                         | [Details][1]            | [Details][2]              | [Details][2]             | [Details][2]                | [Details][3]         | [Details][4] | [Details][5]        |
 
-You may also refer to the Java application tree down below for additional hints.
-![Decision tree for Java on Azure](images/Java-Application-Tree.png)
+You may also refer to the decision tree below for additional hints.
+![Decision tree for Java on Azure](images/java-application-tree.png)
 
 ## Build or Migrate Java Apps
 To build or migrate the java apps, you also need to identify the java platform of your applications. The current popular platforms are Java SE, Jakarta EE, and MicroProfile.

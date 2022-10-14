@@ -17,6 +17,6 @@ products:
   - azure-kubernetes-service
 name: Comparing Java Applications Hosting options on Azure
 summary: This topic provides an overview of recommended strategies for hosting Java applications to Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/Java-Application-Tree.png
+thumbnailUrl: /azure/architecture/browse/thumbs/java-application-tree.png
 content: |
   [!include[](service-for-java-comparison-content.md)]
