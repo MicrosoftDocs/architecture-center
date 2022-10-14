@@ -1,12 +1,8 @@
-Organizations nowadays are capitalizing on various ways in order to extract valuable insights about their customers and how to best address their needs. On this article we have presented some of the use cases in which this architecture would be valuable.
+To best address customer needs, organizations need to extract insights from social media about their customers. This article presents a solution for analyzing news and social media data. The solution extends the [Azure Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator), which gives developers the resources needed to build and deploy a social media monitoring platform on Azure in a few hours. That platform collects social media and website data and presents the data in a format that supports the business decision–making process.
 
-This article covers a wider spectrum of applications for analyzing news/social media data. This article is an extension to a Solution Accelerator, which helps developers with all the resources needed to build and deploy a Social Media monitoring platform on Azure, which helps you to collect data from social media and websites and evaluate the data to make business decisions.
-
-Leveraging the NEWS API as well as the Twitter API someone can access information around the web about a specific topic. For instance, if someone would like to find out the latest discussions about Satya Nadella, he/she would need to just provide this as query.
+*Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
-
-This architecture is an extension to the existing [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) - which helps you build an end-to-end social media analytics solution in just few hours.
 
 :::image type="content" source="./media/build-deploy-social-media-analytics-solution-architecture.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards and inferencing apps in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-architecture.png" border="false":::
 
@@ -46,7 +42,7 @@ This architecture is an extension to the existing [Social Media Analytics Soluti
   - [Key phrase extraction](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/key-phrase-extraction/overview) for identifying key talking points in a post or an article.
   - [Sentiment analysis](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis) for providing insight into the sentiment of posts by detecting positive, negative, neutral, and mixed-sentiment content.
 
-- [Azure Cognitive Services Translator](https://azure.microsoft.com/en-us/products/cognitive-services/translator/) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. It supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication.
+- [Azure Cognitive Services Translator](https://azure.microsoft.com/en-us/products/cognitive-services/translator/) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. It supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication. For the languages that Translator supports, see [Translation](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/language-support#translation).
 
 - [Azure Maps](https://azure.microsoft.com/en-us/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
 
@@ -58,63 +54,59 @@ This architecture is an extension to the existing [Social Media Analytics Soluti
 
 - [Azure Power BI](https://powerbi.microsoft.com/) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
-#### Prerequisites
-
-To use this solution accelerator, you will need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/). While not required, a prior understanding of Azure Synapse Analytics, Azure Cognitive Services, Azure Maps and Power BI  will be helpful.
-
-Note: The deployment of the [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) assumes you have already a Twitter developer account with "Elevated" access to the Twitter API's features and a News API account(see Deploy this Scenario section for the step-by-step deployment guide).
-
 ### Alternatives
 
-In case that someone is not interested to use custom ML models in AML, this architecture could be simplified. Considering this scenario, the following end-to-end architecture could be deployed by following the [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) deployment guide.
+You can simplify this solution by eliminating Machine Learning and the custom machine learning models, as the following diagram shows. For more information, see [Deploy this scenario](#deploy-this-scenario), later in this article.
 
-For more information, see the "Deploy this scenario" section below, on this article.
-![Diagram of the Social Media Analytics Solution Architecture.](./media/build-deploy-social-media-analytics-solution-alternative.png) 
+:::image type="content" source="./media/build-deploy-social-media-analytics-solution-alternative.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-alternative.png" border="false":::
 
 ## Scenario details
 
-Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
-Those campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
+Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction. Those campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
 
-Leveraging the architecture presented on this article, and quickly deploying such solution into an Azure Subscription reduces the "time to market" for deploying manually all resources. This solution can help customers to quickly extract news and twitter posts which talk about a specific topic, translate them to their preferred language, extracting the various key points mentioned, or the entities mentioned in those texts, as well as identifying the sentiment. Those insights are very important for a variety of use cases, which are presented in detail in the next section.
+This article's solution benefits a wide spectrum of social media and news analysis applications. By deploying the solution instead of manually deploying its resources, you can reduce your time to market. You can also:
+
+- Extract news and Twitter posts about a specific subject.
+- Translate the extracted text to your preferred language.
+- Extract key points and entities from the news and posts.
+- Identify the sentiment about the subject.
+
+For instance, to see the latest discussions about Satya Nadella, you enter his name in a query. The solution then accesses news APIs and the Twitter API to provide you with information about him from around the web.
 
 ### Potential use cases
 
-Extracting information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
+By extracting information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
 
-- **Measuring brand health:**
-
+- Measuring brand health:
   - Capturing customer reactions and feedback for new products or services on social media.
   - Analyzing sentiment on social media interactions for a newly introduced product or service.
-  - Capturing the perception and sentiment about a company's or organization's Brand, e.g. positive/negative
+  - Capturing the sentiment about a brand, and determining whether the overall perception is positive or negative.
 
-- **Building and maintaining customer relationships:**
-
+- Building and maintaining customer relationships:
   - Quickly identifying customer concerns.
   - Listening to untagged brand mentions.
 
-- **Optimizing marketing investments:**
-
+- Optimizing marketing investments:
   - Extracting insights from social media for campaign analysis.
-  - Targeted marketing optimization.
-  - Find new leads, influencers to reach more audience.
+  - Doing targeted marketing optimization.
+  - Reaching a wider audience by finding new leads and influencers.
 
-Marketing is an integral part of every organization nowadays. Therefore, the above mentioned use cases and the Social Media Analytics Solution can be applicable to a variety of industries, such as:
+Marketing is an integral part of every organization. As a result, you can use this social media analytics solution for these use cases in various industries:
 
-- retail
-- finance
-- manufacturing
-- healthcare
-- government
-- energy
-- telecommunications
-- automotive
-- nonprofit
-- game
-- media (media and entertainment)
-- travel (e.g. hospitality, restaurants)
-- facilities (e.g. real estate)
-- and sports.
+- Retail
+- Finance
+- Manufacturing
+- Healthcare
+- Government
+- Energy
+- Telecommunications
+- Automotive
+- Nonprofit
+- Gaming
+- Media and entertainment
+- Travel, including hospitality and restaurants
+- Facilities, including real estate
+- Sports
 
 ## Considerations
 
@@ -124,6 +116,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
+- Use Azure Monitor and Application Insights to monitor the health of Azure resources.
+- Review the following resiliency considerations before you implement this solution:
+  - [Azure Synapse Analytics](/azure/architecture/checklist/resiliency-per-service#azure-synapse-analytics)
+  - [App Service](/azure/architecture/checklist/resiliency-per-service#app-service)
+- For more information about resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+- For availability guarantees of various Azure components, see the following service level agreements (SLAs):
+  - [SLA for Azure Synapse Analytics](https://azure.microsoft.com/en-us/support/legal/sla/synapse-analytics/v1_1/)
+  - [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/)
+  - [SLA for Azure Maps](https://azure.microsoft.com/en-us/support/legal/sla/azure-maps/v1_0/)
+  - [SLA for Azure Cognitive Services](https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/)
+  - [SLA for Azure Machine Learning](https://azure.microsoft.com/en-us/support/legal/sla/machine-learning-service/v1_0/)
+  - [SLA for App Service](https://azure.microsoft.com/en-us/support/legal/sla/app-service/v1_5/)
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
@@ -132,7 +137,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Regarding the pricing of such solution, please see the link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) and add all those resources in order to estimate the price.
+To estimate the cost of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator).
 
 ### Operational excellence
 
@@ -142,19 +147,25 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Azure Synapse supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 - For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-pool-configurations).
 - You can Azure scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
+- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics#availability).
+- Azure Synapse supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
 ## Deploy this scenario
 
-In order to deploy this end-to-end solution there is detailed step-by-step deployment guide which will help you to set-up the architecture as well as run an example Social Media Analytics scenario. All these resources are available on the [Social Media Analytics Solution Accelerator(SA)](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git), on the "Getting Started" section.
+To deploy this solution and run a sample social media analytics scenario, see the deployment guide in [Getting Started](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator#getting-started). This guide helps you set up the [Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) resources, which the architecture diagram in [Alternatives](#alternatives) shows. The deployment doesn't include the following components: Machine Learning, the managed endpoints, and the App Service web app.
 
-Please note that following the above mentioned solution accelerator, will help you to set-up the end-to-end architecture and the connection to resources which are marked with blue solid arrows in the architecture. All resources which are connected with dashed blue arrows, are complementary and therefore are not part of this Solution Accelerator (e.g. Azure Machine Learning, managed endpoints,etc.).The architecture diagram is included in the "Alternatives" section of this article.
+### Prerequisites
+
+- To use the solution accelerator, you need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/).
+- A basic understanding of Azure Synapse Analytics, Azure Cognitive Services, Azure Maps, and Power BI is helpful but not required.
+- A news API account is required.
+- A Twitter developer account with **Elevated** access to Twitter API features is required.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -162,20 +173,19 @@ Principal author:
 
 ## Next steps
 
-Learn more with the following materials and learning paths:
-
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/services/synapse-analytics/)
-- [Azure Text Analytics](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics)
-- [Azure Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator)
-- [Azure Maps](https://docs.microsoft.com/en-us/azure/azure-maps/about-azure-maps)
-- [Power BI](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)
-- [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
-- [Text Analytics with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+- [What is Azure Synapse Analytics?](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Azure Cognitive Service for Language documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/)
+- [What is Azure Cognitive Services Translator?](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/translator-overview)
+- [What is Azure Maps?](https://docs.microsoft.com/en-us/azure/azure-maps/about-azure-maps)
+- [What is Power BI?](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)
+- [Tutorial: Sentiment analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
+- [Tutorial: Text Analytics with Cognitive Service in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
 ## Related resources
 
-Links to further resources:
-  - [Azure Machine Learning documentation](/azure/machine-learning)
-  - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-  - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-  - [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
+- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
+- [Spaceborne data analysis with Azure Synapse Analytics](../../industries/aerospace/geospatial-processing-analytics.yml)
