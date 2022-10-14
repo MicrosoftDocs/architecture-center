@@ -5,7 +5,7 @@ metadata:
   description: Extend the reporting capabilities of Project Online using Azure Logic Apps to import, combine, and process data from multiple tenants.
   author: amberdohdo
   ms.author: Amber.Jimenez, Sean.Day
-  ms.date: 10/11/2022
+  ms.date: 10/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

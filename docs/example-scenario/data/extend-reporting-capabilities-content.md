@@ -127,7 +127,7 @@ This scenario uses Azure Logic Apps and Azure SQL Database. With Logic Apps and 
 
 One major concern of this scenario is the size of data it processes. In Project Online, most data won't change day by day. It's a waste of bandwidth to reload every bit of data even if it isn't changed. This scenario reduces the amount of data to pull and process by keeping a timestamp of all objects. Only data that has changed is reloaded.
 
-## Common access cards (CAC) or personal identity verification (PIV)
+### Common access cards (CAC) or personal identity verification (PIV)
 
 The Logic Apps connector to Project Online doesn't natively support tenants that require the use of CAC or PIV for user-less connections. In order for Logic Apps to establish authentication to Project Online, a service principal needs to exist with appropriate permissions, or scopes, and licensing within the source tenant. Use the OAuth [client credential grant flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to acquire an access token for API access to Project Online.
 
