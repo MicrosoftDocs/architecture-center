@@ -63,10 +63,11 @@ The following dataflow corresponds to the above diagram:
 
 > [!NOTE]
 > **SECTION TODOS**
-> - feedback from Chad: can we add additional details to support the claim that the solution can "enhance the quality of care"?
 > - feedback from Chad: regarding the "care line manager" role, can we clarify how the solution helps them determine if you have enough staff to handle a patient going home (discharged)? Or is this about transferring departments (like from OR to med-surg?)
 
-This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. Studies (e.g., [Is patient length of stay related to quality of care?](https://pubmed.ncbi.nlm.nih.gov/10174462/)) have shown that a longer risk-adjusted LOS is correlated with lower received quality of care. Advanced LOS prediction at the time of admission can enhance patient quality of care by giving providers an expected length of stay which they can use as a metric to compare against current patient LOS. This can help to ensure patients with longer than expected LOS receive appropriate attention. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
+This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. 
+
+Studies such as [Is patient length of stay related to quality of care?](https://pubmed.ncbi.nlm.nih.gov/10174462/)) have shown that a longer risk-adjusted LOS is correlated with lower received quality of care. Advanced LOS prediction at the time of admission can enhance patient quality of care, by giving providers an expected LOS which they can use as a metric to compare against current patient LOS. This can help to ensure patients with longer than expected LOS receive appropriate attention. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
 
 ### Potential use cases
 
