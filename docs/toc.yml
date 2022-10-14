@@ -2273,6 +2273,27 @@ items:
                       - name: Overview
                         href: /gaming/azure/game-dev-virtual-machine/overview
                         maintainContext: true
+                      - name: Tools included
+                        href: /gaming/azure/game-dev-virtual-machine/tools-included-azure-game-dev-kit
+                        maintainContext: true
+                      - name: GPU SKUs and optimizing costs
+                        href: /gaming/azure/game-dev-virtual-machine/choosing-gpu-sku
+                        maintainContext: true
+                      - name: Striped disks for more IOPS
+                        href: /gaming/azure/game-dev-virtual-machine/striped-disks-iops
+                        maintainContext: true
+                      - name: Integrate with Azure AD
+                        href: /gaming/azure/game-dev-virtual-machine/integrate-vm-with-aad
+                        maintainContext: true
+                      - name: Azure Files with Unreal Engine
+                        href: /gaming/azure/game-dev-virtual-machine/use-azure-files-for-global-ddc
+                        maintainContext: true
+                      - name: Azure DevOps build pipelines
+                        href: /gaming/azure/reference-architectures/azurecloudbuilds-0-intro
+                        maintainContext: true
+                  - name: Set up a STUN and TURN Server
+                    href: /gaming/azure/reference-architectures/stun-turn-server-in-azure
+                    maintainContext: true
               - name: Architectures
                 items:
                   - name: All game development architectures
@@ -2353,27 +2374,24 @@ items:
                         maintainContext: true
                       - name: Real-time multiplayer
                         items:
-                          - name: Custom game server scaling
-                            href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                          - name: Azure Batch
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
                             maintainContext: true
-                          - name: Multiplayer hosting with Service Fabric
-                            href: /gaming/azure/reference-architectures/multiplayer-synchronous
-                            maintainContext: true
-                          - name: Multiplayer server hosting with ACI
+                          - name: Azure Container Instances (ACI)
                             href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                             maintainContext: true
-                          - name: Multiplayer server hosting with AKS
+                          - name: Azure Kubernetes Services (AKS)
                             href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
                             maintainContext: true
-                          - name: Multiplayer server hosting with Batch
-                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                          - name: Custom server scaling
+                            href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
                             maintainContext: true
                       - name: Turn-based multiplayer
                         items:
                           - name: Asynchronous multiplayer basics
                             href: /gaming/azure/reference-architectures/multiplayer-asynchronous
                             maintainContext: true
-                          - name: Serverless asynchronous multiplayer
+                          - name: Azure Functions (serverless)
                             href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                             maintainContext: true
                   - name: Server hosting
@@ -2409,8 +2427,8 @@ items:
                       - name: Data controllers with Azure
                         href: /compliance/regulatory/gdpr-dpia-azure
                         maintainContext: true
-                      - name: Identity protection
-                        href: /compliance/regulatory/gdpr-information-protection
+                      - name: Information protection
+                        href: /microsoft-365/solutions/information-protection-deploy
                         maintainContext: true
                   - name: FERPA, COPPA, and CIPA
                     href: /compliance/regulatory/offering-FERPA
@@ -2423,6 +2441,9 @@ items:
                 items:
                   - name: Media Services guidance
                     items:
+                      - name: Media Services architectures
+                        href: /azure/media-services/latest/architecture-concept
+                        maintainContext: true
                       - name: Terminology and concepts
                         href: /azure/media-services/latest/concepts-overview
                         maintainContext: true
@@ -2439,8 +2460,11 @@ items:
                       - name: Content Production solution
                         href: /dynamics365/industry/accelerators/content-production
                         maintainContext: true
-                      - name: Configure the accelerator with Azure AD
+                      - name: Configure the accelerator with AAD
                         href: /dynamics365/industry/accelerators/configure-media
+                        maintainContext: true
+                      - name: Fan and guest engagement
+                        href: /dynamics365/industry/accelerators/fan-engagement
                         maintainContext: true
                   - name: Mixed reality scenarios
                     items:
@@ -2471,6 +2495,8 @@ items:
                     href: /azure/architecture/browse/?terms=media
                   - name: 3D video rendering
                     href: example-scenario/infrastructure/video-rendering.yml
+                  - name: Analyze news feeds
+                    href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
                   - name: Digital image-based modeling on Azure
                     href: example-scenario/infrastructure/image-modeling.yml
                   - name: Gridwich cloud media system
