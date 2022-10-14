@@ -3357,6 +3357,8 @@ items:
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
                     href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Turbostream
+                    href: guide/hpc/turbostream.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing

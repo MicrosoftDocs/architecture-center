@@ -1,45 +1,141 @@
 
 <Intro should cover a basic overview of the workload.>
-Why deploy <workload> on Azure
--	Simplifies migration to the cloud
--	Optimizes the workload in these ways….
--	Can be rapidly provisioned
--	Performance
-Architecture
-<Not generic. Product/Solution specific Architecture diagram>
-<The architecture diagram must be product associated and the VM (Virtual Machines) topology should match the above stated test conditions.>
-Components
-<List of links to more information on the discrete pieces of the architecture. The list below is just an example of the most common items, you might need to add or remove items based on your architecture diagram.>
-<link to the normal AAC standard links for these (Azure service pages)>
--	Virtual machine – description/context. Please also link Linux VMs on Azure or Windows VMs on Azure (whichever the architecture is based on) in the sentence that follows this.
--	Network – description/context
--	PIP – description/context
--	NSG – description/context
--	Storage – description/context
-Compute sizing and drivers
-<List of evaluated sizes for this workload and a table of the input sizes with corresponding evaluated output for the chosen input sizes.>
-Required drivers
-<Information about any specialized drivers required for the recommended sizes. List the specific size and link it to the appropriate page in the VM sizes documentation – for example: https://docs.microsoft.com/azure/virtual-machines/nda100-v4-series>
-<Workload> installation
-Before you install <Workload>, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
- Important – if needed
-<if needed – for example: NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.>
-For information about deploying the VM and installing the drivers, see one of these articles:
-•	Run a Windows VM on Azure
-•	Run a Linux VM on Azure
 
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
-<Workload> performance results
-<Give a short intro to how performance was tested>
-<Results for X>
-<Results for Y etc>
+## Why deploy Turbostream on Azure?
 
-Additional notes about tests
-<Include any additional notes about the testing process used.>
-Azure cost
-<Description of the costs that might be associated with running this workload in Azure. Make sure to have a link to the Azure pricing calculator.>
-You can use the Azure pricing calculator, to estimate the costs for your configuration.
-<Show the pricing calculation or a direct link to this specific workload with the configuration(s) used.>
-Summary
-<One or two sentences or bullet points reinforcing why Azure is the right platform for this workload>
+- Modern and diverse compute options to meet your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- With an eight-GPU configuration, performance increase of 4.51 times that of a single GPU
+
+## Architecture
+
+:::image type="content" source="media/turbostream/architecture.png" alt-text="Diagram that shows an architecture for deploying Turbostream." lightbox="media/turbostream/architecture.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/turbostream.vsdx) of this
+architecture.*
+
+### Components
+
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
+    used to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
+    used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+  - A public IP address connects the internet to the VM.
+- A physical solid-state drive (SSD) is used for storage.
+
+## Compute sizing and drivers
+
+The performance tests of Turbostream used an [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VM running Linux. The following table provides details about the VM.
+
+|VM size|vCPU|Memory (GiB)|SSD (GiB)|GPUs|GPU memory (GiB)|Maximum data disks|
+|-|-|-|-|-|-|-|
+|Standard_ND96asr_v4|96|900|6,000|8 A100|40|32|
+
+### Required drivers
+
+To take advantage of the GPU capabilities of [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+
+To use AMD processors on [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
+
+## Turbostream installation
+
+Before you install Turbostream, you need to deploy and connect a Linux VM and install the required NVIDIA and AMD drivers.
+
+> [!IMPORTANT]
+> NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch. ND_A100_v4 VMs use NVLink.
+
+For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+
+You can install Turbostream by signing in to [ExaVault](https://app.exavault.com/login) as a customer. The downloadable files include documentation, a release package, a license file, and a test simulation package (*scaling_test.zip*). For more information, contact [Turbostream](https://www.turbostream-cfd.com/#contact).
+
+## Turbostream performance results
+
+Four simulations were tested, as described in the following table.  
+
+|Model number|	Number of grid nodes (millions)|
+|-|-|
+|1|	6|
+| 2|12|
+|3|24|
+| 4|48|
+
+The following table describes the performance results. *Performance* is the number of grid nodes processed per second. *Relative performance* is relative to the performance described in the first line of the table. 
+
+Model number|Number of GPUs|Time (seconds, average of 200 iterations)|Performance| Relative performance|
+|-|-|-|-|-|
+|1|1*|0.0743|80,753,701.21|1|
+|2|2*|0.0944|127,118,644.1|1.57|
+|3|4*|0.1145|209,606,986.9|2.60|
+|4|8|0.1319|363,912,054.6|4.51|
+
+\* *In these cases, the number of GPUs was artificially limited. The Standard_ND96asr_v4 VM has eight GPUs.*
+
+The relative performance increases are presented graphically here: 
+
+:::image type="content" source="media/turbostream/performance-graph.png" alt-text="Graph that shows the relative performance increases."  border="false":::
+
+
+### Additional notes about tests
+
+The following table provides details about the operating system and the NVIDIA drivers that were used for testing.
+
+|OS version |OS architecture |GPU driver version|CUDA version|
+|-|-|-|-|
+|CentOS Linux release 8.1.1911 (Core)|x86-64|470.57.02|11.4|
+
+## Azure cost
+
+the following table...elapsed time to do what? You can use this time and the Azure VM hourly cost for the NDA100v4 VM to calculate costs. For the current hourly cost, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+Only simulation runtime is included in the reported time. Application installation time isn't included.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size|	GPUs	|Elapsed time (seconds)|
+|-|-|-|
+|Standard_ND96asr_v4	|	8 A100|	196.10|
+
+## Summary
+
+- Turbostream was successfully tested on the ND_A100_v4 VM.
+- Performance with eight GPUs is 4.51 times faster than the performance with one GPU.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
