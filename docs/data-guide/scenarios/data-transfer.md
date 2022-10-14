@@ -75,7 +75,7 @@ Consider the following options if you're only transferring a few files or data o
 
 - **[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)** is a cross-platform tool that lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob storage to manage blobs and folders, as well as upload and download blobs between your local file system and Blob storage, or between storage accounts.
 
-- **Azure portal**. Both Blob storage and Data Lake Store provide a web-based interface for exploring files and uploading new files. This is a good option if you don't want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
+- **Azure portal**. Both Blob storage and Data Lake Store provide a web-based interface for exploring files and uploading new files one at a time. This is a good option if you don't want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
 
 ## Data sync and pipelines
 
@@ -152,10 +152,12 @@ The following tables summarize the key differences in capabilities.
 | Optimized for big data | No | No | Yes | Yes |
 | Copy to relational database | No | No | Yes | No |
 | Copy from relational database | No | No | Yes | No |
-| Upload to Blob storage | Yes | Yes | Yes | Yes |
+| Copy to Blob storage | Yes | No | Yes | Yes |
 | Copy from Blob storage | Yes | No | Yes | No |
-| Upload to Data Lake Store | Yes | Yes | Yes | Yes |
+| Copy to Data Lake Store | No | No | Yes | No |
 | Copy from Data Lake Store | No | No | Yes | No |
+| Upload to Blob storage | Yes | Yes | Yes | Yes |
+| Upload to Data Lake Store | Yes | Yes | Yes | Yes |
 | Orchestrate data transfers | No | No | Yes | No |
 | Custom data transformations | No | No | Yes | No |
 | Pricing model | Free | Free | Pay per usage | Pay per unit |
