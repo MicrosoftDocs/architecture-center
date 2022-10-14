@@ -61,20 +61,21 @@ The following dataflow corresponds to the above diagram:
 
 ## Scenario details
 
-> [!NOTE]
-> **SECTION TODOS**
-> - feedback from Chad: regarding the "care line manager" role, can we clarify how the solution helps them determine if you have enough staff to handle a patient going home (discharged)? Or is this about transferring departments (like from OR to med-surg?)
-
 This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. 
 
 Studies such as [Is patient length of stay related to quality of care?](https://pubmed.ncbi.nlm.nih.gov/10174462/)) have shown that a longer risk-adjusted LOS is correlated with lower received quality of care. Advanced LOS prediction at the time of admission can enhance patient quality of care, by giving providers an expected LOS which they can use as a metric to compare against current patient LOS. This can help to ensure patients with longer than expected LOS receive appropriate attention. LOS prediction also helps with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
 
+Predicting the LOS in ICU is beneficial for patient and family, as well as the insurance companies. The ability to predict LOS as an initial assessment of patients’ risk is critical for better resource planning and allocation [reference], especially when the resources are limited, as in ICUs. The care line manager can take accurate medical decisions and align right resources well in advance. Patient can get a good estimate of their medical plan that will help their family with the information about the expected date to leave the ICU/ hospital. This also give family and idea about patient's speed of recovery and can help them to arrange discharge and manage their budgets.
+
 ### Potential use cases
 
-There are two different business users in hospital management who can expect to benefit from more reliable predictions of the length of stay:
+There are two different business users in hospital management who can expect to benefit from more reliable predictions of the length of stay, as well as the patients' families:
 
 - The chief medical information officer (CMIO), who straddles the divide between informatics/technology and healthcare professionals in a healthcare organization. Their duties typically include using analytics to determine if resources are being allocated appropriately in a hospital network. The CMIO needs to be able to determine which facilities are being overtaxed, and specifically what resources at those facilities may need to be bolstered to realign such resources with demand.
-- The care line manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients and ensuring that staff is available to meet the specific care requirements of their patients. A care line manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables care line managers to determine if staff resources will be adequate to handle the release of a patient.
+- The care line manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients and ensuring that staff is available to meet the specific care requirements of their patients. The care line manager can make accurate medical decisions and align the right resources well in advance, for example:
+  - The ability to predict LOS as an initial assessment of patients' risk is critical for better [resource planning and allocation](https://www.sciencedirect.com/science/article/abs/pii/S0167923602000714?via%3Dihub), especially when the resources are limited, as in ICUs.
+  - A care line manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables care line managers to determine if staff resources will be adequate to handle the release of a patient.
+- Predicting the LOS in ICU is also beneficial for patients and their families, as well as insurance companies. An expected date for discharge from the hospital helps patients and their families understand and estimate medical costs. This also gives families an idea about a patient's speed of recovery, and helps them plan for discharge and manage their budgets. 
 
 ## Considerations
 
