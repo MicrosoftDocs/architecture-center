@@ -620,7 +620,7 @@ items:
                     maintainContext: true
               - name: Hybrid solutions for AWS
                 items:
-                  - name: AWS Ubuntu with Terraform and Azure Arc
+                  - name: AWS Ubuntu with Terraform and Azure
                     href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-ubuntu
                     maintainContext: true
                   - name: AWS Linux with Terraform and Azure Arc
@@ -1982,12 +1982,12 @@ items:
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
                     href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
-              - name: Dynamics 365 telecommunications accelerator
+              - name: Dynamics 365 telecommunications
                 items:
                   - name: Overview
                     href: /dynamics365/industry/accelerators/telecommunications-overview
                     maintainContext: true
-                  - name: Configure the accelerator for Azure Maps
+                  - name: Configure for Azure Maps
                     href: /dynamics365/industry/accelerators/telecommunications-configure
                     maintainContext: true
               - name: Private multi-access edge compute
@@ -2223,47 +2223,54 @@ items:
                 href: industries/game-development.md
               - name: Guides
                 items:
-                  - name: Azure PlayFab overview
-                    href: /gaming/playfab/what-is-playfab
-                    maintainContext: true
-                  - name: Azure AD authentication for PlayFab
-                    href: /gaming/playfab/features/authentication/aad-authentication/index
-                    maintainContext: true
-                  - name: PlayFab CloudScript with Azure Functions
-                    href: /gaming/playfab/features/automation/cloudscript-af/index
-                    maintainContext: true
-                  - name: Multiplayer guidance
+                  - name: Azure PlayFab
                     items:
-                      - name: Multiplayer with PlayFab
-                        href: /gaming/playfab/features/multiplayer/mpintro
+                      - name: Overview
+                        href: /gaming/playfab/what-is-playfab
                         maintainContext: true
-                      - name: Host multiplayer games
-                        href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
+                      - name: Azure AD authentication
+                        href: /gaming/playfab/features/authentication/aad-authentication/index
                         maintainContext: true
-                      - name: Create virtual machines
-                        href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
+                      - name: CloudScript with Azure Functions
+                        href: /gaming/playfab/features/automation/cloudscript-af/index
                         maintainContext: true
-                      - name: Build definition
-                        href: /gaming/playfab/features/multiplayer/servers/build-definition
+                      - name: Multiplayer guidance
+                        items:
+                          - name: Multiplayer with PlayFab
+                            href: /gaming/playfab/features/multiplayer/mpintro
+                            maintainContext: true
+                          - name: Host multiplayer games
+                            href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
+                            maintainContext: true
+                          - name: Create virtual machines
+                            href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
+                            maintainContext: true
+                          - name: Build definition
+                            href: /gaming/playfab/features/multiplayer/servers/build-definition
+                            maintainContext: true
+                          - name: Linux container images
+                            href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
+                            maintainContext: true
+                          - name: Measure player latency
+                            href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
+                            maintainContext: true
+                          - name: Connect clients to servers
+                            href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
+                            maintainContext: true
+                          - name: Increase core limits and regions
+                            href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
+                            maintainContext: true
+                      - name: PlayFab Insights
+                        href: /gaming/playfab/features/insights/overview
                         maintainContext: true
-                      - name: Linux container images
-                        href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
+                      - name: PlayFab samples
+                        href: /gaming/playfab/resources/playfab-samples
                         maintainContext: true
-                      - name: Measure player latency to Azure
-                        href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
+                  - name: Azure Game Development VMs
+                    items:
+                      - name: Overview
+                        href: /gaming/azure/game-dev-virtual-machine/overview
                         maintainContext: true
-                      - name: Connect clients to game servers
-                        href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
-                        maintainContext: true
-                      - name: Increase core limits and Azure regions
-                        href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
-                        maintainContext: true
-                  - name: PlayFab Insights
-                    href: /gaming/playfab/features/insights/overview
-                    maintainContext: true
-                  - name: PlayFab samples
-                    href: /gaming/playfab/resources/playfab-samples
-                    maintainContext: true
               - name: Architectures
                 items:
                   - name: All game development architectures
@@ -2335,7 +2342,7 @@ items:
                     items:
                       - name: 3D video rendering
                         href: example-scenario/infrastructure/video-rendering.yml
-                      - name: Digital image-based modeling on Azure
+                      - name: Digital image-based modeling
                         href: example-scenario/infrastructure/image-modeling.yml
                   - name: Scalable gaming servers
                     items:
