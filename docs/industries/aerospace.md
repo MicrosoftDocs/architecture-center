@@ -46,7 +46,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Ingest FAA SWIM content to analyze flight data](../example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml?view=azs-2206)|Integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and create data analytics environments.| Analytics|
 |[Serverless web application](../reference-architectures/serverless/web-app.yml?view=azs-2206) |Review a reference architecture that shows a serverless web application that serves static content from Azure Blob Storage.  An example scenario describes a company that uses a drone-based delivery service.|Serverless|
 |[Spaceborne data analysis with Azure Synapse Analytics](./aerospace/geospatial-processing-analytics.yml) |View a reference architecture that enables geospatial workloads on Azure by using Azure Synapse.|Analytics|
-| [SAR/Remote Sensing Data Processing](https://learn.microsoft.com/en-us/azure/orbital/sar-reference-architecture) | View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse. | Data Processing |
+| [SAR/Remote Sensing Data Processing](https://learn.microsoft.com/azure/orbital/sar-reference-architecture) | View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse. | Data Processing |
 
 ## Solution ideas for aerospace
 
