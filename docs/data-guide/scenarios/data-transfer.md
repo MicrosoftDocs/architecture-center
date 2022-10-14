@@ -145,22 +145,20 @@ The following tables summarize the key differences in capabilities.
 
 [2] PolyBase [performance can be increased](/sql/relational-databases/polybase/polybase-guide#performance) by pushing computation to Hadoop and using [PolyBase scale-out groups](/sql/relational-databases/polybase/polybase-scale-out-groups) to enable parallel data transfer between SQL Server instances and Hadoop nodes.
 
-### Graphical interface and Azure Data Factory
+### Graphical interfaces, data sync, and data pipelines
 
-| Capability | Azure Storage Explorer | Azure portal * | Azure Data Factory |
-| --- | --- | --- | --- |
-| Optimized for big data | No | No | Yes |
-| Copy to relational database | No | No | Yes |
-| Copy from relational database | No | No | Yes |
-| Copy to Blob storage | Yes | No | Yes |
-| Copy from Blob storage | Yes | No | Yes |
-| Copy to Data Lake Store | No | No | Yes |
-| Copy from Data Lake Store | No | No | Yes |
-| Upload to Blob storage | Yes | Yes | Yes |
-| Upload to Data Lake Store | Yes | Yes | Yes |
-| Orchestrate data transfers | No | No | Yes |
-| Custom data transformations | No | No | Yes |
-| Pricing model | Free | Free | Pay per usage |
+| Capability | Azure Storage Explorer | Azure portal * | Azure Data Factory | Azure Data Box Gateway |
+| --- | --- | --- | --- | --- |
+| Optimized for big data | No | No | Yes | Yes |
+| Copy to relational database | No | No | Yes | No |
+| Copy from relational database | No | No | Yes | No |
+| Upload to Blob storage | Yes | Yes | Yes | Yes |
+| Copy from Blob storage | Yes | No | Yes | No |
+| Upload to Data Lake Store | Yes | Yes | Yes | Yes |
+| Copy from Data Lake Store | No | No | Yes | No |
+| Orchestrate data transfers | No | No | Yes | No |
+| Custom data transformations | No | No | Yes | No |
+| Pricing model | Free | Free | Pay per usage | Pay per unit |
 
 \* Azure portal in this case means using the web-based exploration tools for Blob storage and Data Lake Store.
 
