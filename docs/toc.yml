@@ -3374,26 +3374,32 @@ items:
                 items:
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
-                  - name: Altair AcuSolve
-                    href: guide/hpc/hpc-altair-acusolve.yml
-                  - name: Altair EDEM
-                    href: guide/hpc/altair-edem.yml
-                  - name: Altair nanoFluidX
-                    href: guide/hpc/nanofluidx.yml
-                  - name: Altair Radioss
-                    href: guide/hpc/altair-radioss.yml
-                  - name: Altair ultraFluidX
-                    href: guide/hpc/ultrafluidx.yml
-                  - name: Ansys CFX
-                    href: guide/hpc/ansys-cfx.yml
-                  - name: Ansys Fluent
-                    href: guide/hpc/ansys-fluent.yml  
-                  - name: Autodesk Civil 3D
-                    href: guide/hpc/civil-3d.yml
-                  - name: Autodesk Inventor
-                    href: guide/hpc/autodesk-inventor.yml
-                  - name: Autodesk VRED
-                    href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: Altair deployments
+                    items:
+                      - name: Altair AcuSolve
+                        href: guide/hpc/hpc-altair-acusolve.yml
+                      - name: Altair EDEM
+                        href: guide/hpc/altair-edem.yml
+                      - name: Altair nanoFluidX
+                        href: guide/hpc/nanofluidx.yml
+                      - name: Altair Radioss
+                        href: guide/hpc/altair-radioss.yml
+                      - name: Altair ultraFluidX
+                        href: guide/hpc/ultrafluidx.yml
+                  - name: Ansys deployments
+                    items:
+                      - name: Ansys CFX
+                        href: guide/hpc/ansys-cfx.yml
+                      - name: Ansys Fluent
+                        href: guide/hpc/ansys-fluent.yml  
+                  - name: Autodesk deployments
+                    items:
+                      - name: Autodesk Civil 3D
+                        href: guide/hpc/civil-3d.yml
+                      - name: Autodesk Inventor
+                        href: guide/hpc/autodesk-inventor.yml
+                      - name: Autodesk VRED
+                        href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
                   - name: GROMACS
@@ -3404,16 +3410,20 @@ items:
                     href: guide/hpc/luxion-keyshot.yml
                   - name: OpenFOAM
                     href: guide/hpc/openfoam.yml
-                  - name: Samadii DEM
-                    href: guide/hpc/samadii-dem.yml
-                  - name: Samadii Plasma
-                    href: guide/hpc/plasma.yml
-                  - name: Samadii SCIV
-                    href: guide/hpc/samadii-sciv.yml  
-                  - name: Siemens NX
-                    href: guide/hpc/siemens-nx.yml
-                  - name: Siemens Tecnomatix
-                    href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Samadii deployments
+                    items:
+                      - name: Samadii DEM
+                        href: guide/hpc/samadii-dem.yml
+                      - name: Samadii Plasma
+                        href: guide/hpc/plasma.yml
+                      - name: Samadii SCIV
+                        href: guide/hpc/samadii-sciv.yml  
+                  - name: Siemens deployments
+                    items:
+                      - name: Siemens NX
+                        href: guide/hpc/siemens-nx.yml
+                      - name: Siemens Tecnomatix
+                        href: guide/hpc/siemens-tecnomatix.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
