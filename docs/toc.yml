@@ -2132,8 +2132,19 @@ items:
                     href: /azure/education-hub/azure-dev-tools-teaching/about-program
                     maintainContext: true
               - name: Dynamics 365 education accelerator
-                href: /dynamics365/industry/accelerators/edu-overview 
-                maintainContext: true
+                items:
+                  - name: Overview
+                    href: /dynamics365/industry/accelerators/edu-overview 
+                    maintainContext: true
+                  - name: Higher education
+                    href: /dynamics365/industry/accelerators/hied
+                    maintainContext: true
+                  - name: K-12 education
+                    href: 
+                    maintainContext: true
+                  - name: Configure portals
+                    href: /dynamics365/industry/accelerators/edu-k12
+                    maintainContext: true
               - name: Identity for education
                 items:
                   - name: Azure Active Directory for education
@@ -2169,8 +2180,12 @@ items:
             items:
               - name: All education architectures
                 href: /azure/architecture/browse/?terms=education
+              - name: Create smart campuses
+                href: example-scenario/iot/smart-places.yml
               - name: Governance of Teams guest users
                 href: example-scenario/governance/governance-teams-guest-users.yml
+              - name: Knowledge mining for content research
+                href: solution-ideas/articles/content-research.yml
               - name: Moodle deployment with NetApp Files
                 href: example-scenario/file-storage/moodle-azure-netapp-files.yml
               - name: Predict student attrition
@@ -2179,6 +2194,8 @@ items:
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Teacher-provisioned virtual labs in Azure
                 href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
+              - name: Training and guidance with mixed reality
+                href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
           - name: Compliance solutions
             items:
               - name: FERPA overview
@@ -2507,6 +2524,14 @@ items:
                     href: example-scenario/ai/intelligent-apps-image-processing.yml
                   - name: Live streaming digital media
                     href: solution-ideas/articles/digital-media-live-stream.yml
+                  - name: Mixed reality solutions
+                    items:
+                      - name: Design review
+                        href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
+                      - name: Facilities management
+                        href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
+                      - name: Training and procedural guidance
+                        href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
                   - name: Movie recommendations on Azure
                     href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Datasets
@@ -2541,10 +2566,10 @@ items:
                 items:
                   - name: AI scenarios
                     items:
-                      - name: Create a Cognitive Search index for hotels
+                      - name: Create a search index for hotels
                         href: /azure/search/search-get-started-portal
                         maintainContext: true
-                      - name: Data science using Spark for airport travel
+                      - name: Data science for airport travel
                         href: data-science-process/spark-overview.md
                   - name: IoT spatial analytics - Car rental tracking
                     href: /azure/azure-maps/tutorial-iot-hub-maps
@@ -2552,8 +2577,9 @@ items:
                   - name: No-code voice assistant for hospitality
                     href: /azure/azure-percept/tutorial-no-code-speech
                     maintainContext: true
-                  - name: Observer pattern - Airport baggage claims
+                  - name: Observer pattern - baggage claims
                     href: /dotnet/standard/events/observer-design-pattern
+                    /dotnet/standard/events/observer-design-pattern
                     maintainContext: true
               - name: Architectures
                 items:
