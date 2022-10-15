@@ -2614,7 +2614,7 @@ items:
                 href: industries/facilities-real-estate.md
               - name: Guides
                 items:
-                  - name: Smart buildings and smart cities ontologies
+                  - name: Smart buildings ontologies
                     href: /azure/digital-twins/concepts-ontologies-adopt
                     maintainContext: true
                   - name: Azure Maps indoor maps
@@ -2635,13 +2635,15 @@ items:
                 items:
                   - name: All facilities and real estate architectures
                     href: /azure/architecture/browse/?terms=facilities
-                  - name: Azure digital twins builder (construction)
+                  - name: Azure digital twins (construction)
                     href: solution-ideas/articles/azure-digital-twins-builder.yml
                   - name: Cognizant Safe Buildings with IoT
                     href: solution-ideas/articles/safe-buildings.yml
                   - name: COVID-19 IoT safe environments
                     href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-                  - name: Facilities management with mixed reality
+                  - name: Customer 360 for property management
+                    href: example-scenario/analytics/synapse-customer-insights.yml
+                  - name: Facilities management with MR
                     href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
                   - name: IoT and data analytics for construction
                     href: example-scenario/data/big-data-with-iot.yml
@@ -2665,9 +2667,9 @@ items:
                   - name: Modular Datacenter
                     href: /azure-stack/mdc/mdc-overview
                     maintainContext: true
-                  - name: Drone delivery reference implementation
+                  - name: Drone delivery
                     items:
-                      - name: Domain-driven design for drone delivery
+                      - name: Domain-driven design for drones
                         items:
                           - name: Domain analysis
                             href: /azure/architecture/microservices/model/domain-analysis
@@ -2675,7 +2677,7 @@ items:
                             href: /azure/architecture/microservices/model/tactical-ddd
                           - name: Identify microservice boundaries
                             href: /azure/architecture/microservices/model/microservice-boundaries
-                      - name: Design a microservices drone solution
+                      - name: Design microservices for drones
                         items:
                           - name: Introduction
                             href: microservices/design/index.yml
@@ -2687,7 +2689,7 @@ items:
                             href: /azure/architecture/microservices/design/data-considerations
                       - name: Monitor drone delivery in production
                         href: microservices/logging-monitoring.yml
-                      - name: Performance tuning for drone delivery
+                      - name: Performance tuning for drones
                         items:
                           - name: Distributed business transactions
                             href: /azure/architecture/performance/distributed-transaction
@@ -2703,13 +2705,13 @@ items:
                     href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
                   - name: Geospatial analysis of spaceborne data
                     href: industries/aerospace/geospatial-processing-analytics.yml
-                  - name: Ingest FAA content to analyze flight data
+                  - name: Ingest FAA content to analyze flights
                     href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
                   - name: Predictive maintenance for aircraft
                     href: /azure/architecture/solution-ideas/articles/predictive-maintenance
                   - name: Serverless web app for drone delivery
                     href: reference-architectures/serverless/web-app.yml
-                  - name: Vision classifier model - simulated drone
+                  - name: Vision classifier - simulated drone
                     href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
           - name: Agriculture
             items:
@@ -2742,6 +2744,9 @@ items:
             items:
               - name: Guides
                 items:
+                  - name: Fan Engagement solution
+                    href: /dynamics365/industry/accelerators/fan-engagement
+                    maintainContext: true
                   - name: Analyze Olympic sports with vision AI
                     href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
                     maintainContext: true
@@ -2753,7 +2758,7 @@ items:
                       href: data-guide/big-data/baseball-ml-workload.yml
                     - name: Smart stadiums
                       items:
-                        - name: Create smart stadiums with Digital Twins
+                        - name: Create smart stadiums
                           href: example-scenario/iot/smart-places.yml
                         - name: IoT platform for COVID-19 detection
                           href: solution-ideas/articles/iot-connected-platform.yml
@@ -2799,8 +2804,6 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
-                  - name: Detect mobile bank fraud
-                    href: guide/ai/bank-fraud-solution.yml  
                   - name: Machine learning on Azure IoT Edge
                     href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
                     maintainContext: true
@@ -2824,7 +2827,9 @@ items:
                 items:
                   - name: Compliance risk analysis
                     href: guide/ai/compliance-risk-analysis.yml
-                  - name: Enable the financial services risk lifecycle
+                  - name: Detect mobile bank fraud
+                    href: guide/ai/bank-fraud-solution.yml  
+                  - name: Financial services risk lifecycle
                     href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
                     href: industries/healthcare/healthcare-ai-blueprint.yml
@@ -2984,12 +2989,12 @@ items:
                         href: data-science-process/deploy-models-in-production.md
           - name: Architectures
             items:
-              - name: AI enrichment with Cognitive Search
-                href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
-              - name: Analyze observational patient data by using OHDSI
+              - name: Analyze observational patient data
                 href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
+              - name: Anomaly detection for conveyor belts
+                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
@@ -3004,8 +3009,6 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Content-based recommendations
-                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: Build custom document processing models
                 href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Chatbot for hotel booking
@@ -3036,7 +3039,7 @@ items:
                 href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Many models ML with Spark
                 href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
-              - name: Many models with Azure Machine Learning
+              - name: Many models with Machine Learning
                 href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
               - name: MLOps for Python models
                 href: reference-architectures/ai/mlops-python.yml
@@ -3050,8 +3053,6 @@ items:
                 href: example-scenario/ai/student-attrition-prediction.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
-              - name: Real-time anomaly detection for conveyor belts
-                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Real-time machine learning on Azure
                 href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
               - name: Real-time recommendation API
@@ -3070,6 +3071,8 @@ items:
             items:
               - name: AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge.yml
+              - name: AI enrichment with Cognitive Search
+                href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Auditing and risk management
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
               - name: Autonomous systems
@@ -3078,6 +3081,8 @@ items:
                 href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
               - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
+              - name: Content-based recommendations
+                href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
               - name: Content research
                 href: solution-ideas/articles/content-research.yml
               - name: Content tagging with NLP
