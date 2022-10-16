@@ -94,7 +94,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Data disks
 
-For disk usage, consider using a striped set of disks for repositories. In test deployments that used virtual machine scale sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
+For disk usage, consider using a striped set of disks for repositories. In test deployments that used Virtual Machine Scale Sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
 
 ```config
 nifi.flowfile.repository.directory=/data/partition1/flowfiles
