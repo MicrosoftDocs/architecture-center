@@ -3281,8 +3281,16 @@ items:
                 href: guide/data/monitor-apache-nifi-monitofi.yml
               - name: App integration using Event Grid
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
-              - name: Big data analytics with Azure Data Explorer
-                href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Azure Data Explorer solutions
+                items:                
+                  - name: Big data analytics with Data Explorer
+                    href: solution-ideas/articles/big-data-azure-data-explorer.yml
+                  - name: Interactive analytics with Data Explorer
+                    href: solution-ideas/articles/interactive-azure-data-explorer.yml
+                  - name: IoT analytics with Data Explorer
+                    href: solution-ideas/articles/iot-azure-data-explorer.yml
+                  - name: Monitoring with Data Explorer
+                    href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Big data analytics with enterprise security
                 href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
@@ -3307,18 +3315,12 @@ items:
                 href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
               - name: Ingestion, ETL, and stream processing
                 href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-              - name: Interactive analytics with Data Explorer
-                href: solution-ideas/articles/interactive-azure-data-explorer.yml
-              - name: IoT analytics with Azure Data Explorer
-                href: solution-ideas/articles/iot-azure-data-explorer.yml
               - name: Manage data across the Azure SQL estate
                 href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
                 href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Modern analytics with Azure Databricks
                 href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
-              - name: Monitoring solution with Data Explorer
-                href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
               - name: Predict the length of stay in hospitals
@@ -3335,16 +3337,41 @@ items:
             href: guide/blockchain/multiparty-compute.yml
           - name: Guides
             items:
-              - name: Azure Confidential Ledger architecture
-                href: /azure/confidential-ledger/architecture
-                maintainContext: true
-              - name: Authenticate Confidential Ledger nodes
-                href: /azure/confidential-ledger/authenticate-ledger-nodes
-                maintainContext: true
+              - name: Azure Confidential Ledger guidance
+                items:
+                  - name: Overview
+                    href: /azure/confidential-ledger/overview
+                    maintainContext: true
+                  - name: Architecture
+                    href: /azure/confidential-ledger/architecture
+                    maintainContext: true
+                  - name: Authenticate Confidential Ledger nodes
+                    href: /azure/confidential-ledger/authenticate-ledger-nodes
+                    maintainContext: true
+                - name: SQL Database ledger guidance
+                  items:
+                    - name: Overview
+                      href: /sql/relational-databases/security/ledger/ledger-database-ledger
+                      maintainContext: true
+                    - name: Updatable ledger tables
+                      href: /sql/relational-databases/security/ledger/ledger-updatable-ledger-tables
+                      maintainContext: true
+                    - name: Append-only ledger tables
+                      href: /sql/relational-databases/security/ledger/ledger-append-only-ledger-tables
+                      maintainContext: true
+                    - name: Digest management
+                      href: /sql/relational-databases/security/ledger/ledger-digest-management
+                      maintainContext: true
+                    - name: Database verification
+                      href: /sql/relational-databases/security/ledger/ledger-database-verification
+                      maintainContext: true
+                    - name: Ledger considerations
+                      href:/sql/relational-databases/security/ledger/ledger-limits
+                      maintainContext: true
           - name: Architectures
             items:
               - name: Azure SQL Database ledger
-                href: /azure/azure-sql/database/ledger-overview
+                href: /sql/relational-databases/security/ledger/ledger-overview
                 maintainContext: true
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
@@ -3352,10 +3379,10 @@ items:
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
-              - name: Supply chain with Quorum Blockchain Service
-                href: guide/blockchain/quorum-blockchain-service.yml
               - name: Blockchain workflow application
                 href: solution-ideas/articles/blockchain-workflow-application.yml
+              - name: Supply chain management with QBS
+                href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
@@ -3484,7 +3511,7 @@ items:
                   - name: Red Hat JBoss EAP on Azure
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
-              - name: Interruptible workloads using Azure Spot VM
+              - name: Interruptible workloads using Spot VMs
                 href: guide/spot/spot-eviction.yml
           - name: Architectures
             items:
@@ -3652,16 +3679,13 @@ items:
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml              
               - name: Microservices with Container Apps
                 href: example-scenario/serverless/microservices-with-container-apps.yml
-              - name: Microservices with Container Apps and Dapr
+              - name: Microservices with Dapr and KEDA
                 href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
               - name: Multiplayer server hosting with AKS
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
-                maintainContext: true
-              - name: Multiplayer hosting with Service Fabric
-                href: /gaming/azure/reference-architectures/multiplayer-synchronous
                 maintainContext: true
               - name: Multitenancy with AKS and AGIC
                 href: example-scenario/aks-agic/aks-agic.yml
@@ -3926,7 +3950,7 @@ items:
                 href: example-scenario/data/azure-sql-htap.yml
               - name: Data governance with Profisee
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
-              - name: Data obfuscation with Delphix in Azure Data Factory and Synapse Analytics
+              - name: Data obfuscation with Delphix
                 href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
