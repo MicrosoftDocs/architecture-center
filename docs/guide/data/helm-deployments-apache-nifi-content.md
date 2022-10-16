@@ -1,16 +1,12 @@
-[Apache NiFi][Apache NiFi] users often need to deploy NiFi on Kubernetes. A Kubernetes deployment involves many objects, such as pods, volumes, and services. It's difficult to manage the *manifests*, or specification files, that Kubernetes uses for this number of objects. The difficulty increases when you deploy several NiFi clusters that use different configurations.
+This solution shows you how to use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.
 
-Helm *charts* provide a solution for managing the manifests. Helm is the package manager for Kubernetes. By using the Helm tool, you can streamline the process of installing and managing Kubernetes applications.
-
-A chart is the packaging format that Helm uses. You enter configuration requirements into chart files. Helm keeps track of each chart's history and versions. Helm then uses charts to generate Kubernetes manifest files.
-
-From a single chart, you can deploy applications that use different configurations. When you run [NiFi on Azure][Apache NiFi on Azure], you can use Helm charts to deploy different NiFi configurations on Kubernetes.
-
-Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+*Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
 :::image type="content" source="./media/helm-deployments-apache-nifi-architecture.png" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
+
+### Workflow
 
 - A Helm chart contains a `values.yaml` file. That file lists input values that users can edit.
 
@@ -37,17 +33,17 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
   - A Kubernetes service that makes the NiFi UI available to users.
   - Ingress routes if the cluster uses ingress to make the UI available externally.
 
-## Components
+### Components
 
 A Helm chart is a collection of files in a folder with a tree structure. These files describe Kubernetes resources. You can configure the following components in a Helm chart:
 
-### ZooKeeper
+#### ZooKeeper
 
 ZooKeeper uses a separate chart. You can use the standard ZooKeeper chart that Kubernetes supplies in its [incubator chart repository][Helm Incubator]. But when your dependencies include public registry content, you introduce risk into your image development and deployment workflows. To mitigate this risk, keep local copies of public content when you can. For detailed information, see [Manage public content with Azure Container Registry][Manage public content with Azure Container Registry].
 
 As an alternative, you can deploy ZooKeeper on your own. If you choose this option, provide the ZooKeeper server and port number so that the pods that run NiFi can access the ZooKeeper service.
 
-### Kubernetes StatefulSet
+#### Kubernetes StatefulSet
 
 To run an application on Kubernetes, you run a pod. This basic unit runs different containers that implement the application's different activities.
 
@@ -57,6 +53,44 @@ Kubernetes offers two solutions for managing pods that run an application like N
 - A *StatefulSet*, which is the workload API object that you use to manage stateful applications. A StatefulSet manages pods that are based on an identical container specification. Kubernetes creates these pods from the same specification. But these pods aren't interchangeable. Each pod has a persistent identifier that it maintains across rescheduling.
 
 Since you use NiFi to manage data, a StatefulSet provides the best solution for NiFi deployments.
+
+#### ConfigMaps
+
+Kubernetes offers *ConfigMaps* for storing non-confidential data. Kubernetes uses these objects to manage various configuration files like `nifi.properties`. The container that runs the application accesses the configuration information through mounted volumes and files. ConfigMaps make it easy to manage post-deployment configuration changes.
+
+#### ServiceAccount
+
+In secured instances, NiFi uses authentication and authorization. NiFi manages this information in file system files. Specifically, each cluster node needs to maintain an `authorizations.xml` file and a `users.xml` file. All members need to be able to write to these files. And each node in the cluster needs to have an identical copy of this information. Otherwise, the cluster goes out of sync and breaks down.
+
+To meet these conditions, you can copy these files from the first member of the cluster to every member that comes into existence. Each new member then maintains its own copies. Pods generally don't have authorization to copy content from another pod. But a Kubernetes *ServiceAccount* provides a way to get authorization.
+
+#### Services
+
+Kubernetes services make the application service available to users of the Kubernetes cluster. Service objects also make it possible for member nodes of NiFi clusters to communicate with each other. For Helm chart deployments, use two service types: headless services and IP-based services.
+
+#### Ingress
+
+An ingress manages external access to cluster services. Specifically, a pre-configured ingress controller exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. You can define ingress rules that determine how the controller routes the traffic. The Helm chart includes the ingress route in the configuration.
+
+#### Secrets
+
+To configure secured NiFi clusters, you need to store credentials. Kubernetes secrets provide a secure way to store and retrieve these credentials.
+
+## Scenario details
+
+[Apache NiFi][Apache NiFi] users often need to deploy NiFi on Kubernetes. A Kubernetes deployment involves many objects, such as pods, volumes, and services. It's difficult to manage the *manifests*, or specification files, that Kubernetes uses for this number of objects. The difficulty increases when you deploy several NiFi clusters that use different configurations.
+
+Helm *charts* provide a solution for managing the manifests. Helm is the package manager for Kubernetes. By using the Helm tool, you can streamline the process of installing and managing Kubernetes applications.
+
+A chart is the packaging format that Helm uses. You enter configuration requirements into chart files. Helm keeps track of each chart's history and versions. Helm then uses charts to generate Kubernetes manifest files.
+
+From a single chart, you can deploy applications that use different configurations. When you run [NiFi on Azure][Apache NiFi on Azure], you can use Helm charts to deploy different NiFi configurations on Kubernetes.
+
+Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Data disks
 
@@ -70,29 +104,7 @@ nifi.content.repository.directory.stripe3=/data/partition3/content
 
 This configuration uses three volumes of equal size. You can adjust the values and the striping to meet your system requirements.
 
-### ConfigMaps
-
-Kubernetes offers *ConfigMaps* for storing non-confidential data. Kubernetes uses these objects to manage various configuration files like `nifi.properties`. The container that runs the application accesses the configuration information through mounted volumes and files. ConfigMaps make it easy to manage post-deployment configuration changes.
-
-### ServiceAccount
-
-In secured instances, NiFi uses authentication and authorization. NiFi manages this information in file system files. Specifically, each cluster node needs to maintain an `authorizations.xml` file and a `users.xml` file. All members need to be able to write to these files. And each node in the cluster needs to have an identical copy of this information. Otherwise, the cluster goes out of sync and breaks down.
-
-To meet these conditions, you can copy these files from the first member of the cluster to every member that comes into existence. Each new member then maintains its own copies. Pods generally don't have authorization to copy content from another pod. But a Kubernetes *ServiceAccount* provides a way to get authorization.
-
-### Services
-
-Kubernetes services make the application service available to users of the Kubernetes cluster. Service objects also make it possible for member nodes of NiFi clusters to communicate with each other. For Helm chart deployments, use two service types: headless services and IP-based services.
-
-### Ingress
-
-An ingress manages external access to cluster services. Specifically, a pre-configured ingress controller exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. You can define ingress rules that determine how the controller routes the traffic. The Helm chart includes the ingress route in the configuration.
-
-### Secrets
-
-To configure secured NiFi clusters, you need to store credentials. Kubernetes secrets provide a secure way to store and retrieve these credentials.
-
-## Deployment scenarios
+### Deployment scenarios
 
 You can use a public or private load balancer or an ingress controller to expose a NiFi cluster. When you use Helm charts for this implementation, two configurations are available:
 
@@ -105,7 +117,7 @@ If you configure a NiFi cluster to run as a secured cluster with TLS communicati
 - LDAP-based user authentication. An LDAP server authenticates user credentials. When you deploy the chart, provide information about the LDAP server and the information tree.
 - OpenID-based user authentication. Users provide information to the OpenID server to configure the deployment.
 
-## Resource configuration and usage
+### Resource configuration and usage
 
 To optimize resource usage, use these Helm options to configure CPU and memory values:
 
@@ -121,7 +133,9 @@ When you configure NiFi, consider your system's memory configuration. Because Ni
 - `parallelGcThreads`
 - `initiatingHeapOccupancyPercent`
 
-## Security
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Use a Kubernetes security context to improve the security of the underlying containers that run the NiFi binary. A security context manages access to those containers and their pods. Through a security context, you can grant non-root users permissions to run the containers.
 
@@ -131,7 +145,7 @@ Other uses of security contexts include:
 - Specifying which groups can access the containers.
 - Limiting access to the file system.
 
-## Container images
+### Container images
 
 Kubernetes containers are the basic units that run NiFi binaries. To configure a NiFi cluster, focus on the image that you use to run these containers. You have two options for this image:
 
