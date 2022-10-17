@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Dual-stack network traffic on AKS
+  description: Learn about the infrastructure considerations of Azure Kubernetes Service (AKS) cluster on dual-stack network (using both IPv4 and IPv6 addresses).
+  author: EdPrice-MSFT
+  ms.author: architectures 
+  ms.date: 10/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - containers
+    - kubernetes
+    - aks
+  ms.subservice: reference-architecture
+  ms.custom:
+    - containers
+    - reference-architecture
+name: Dual-stack network traffic on Azure Kubernetes Service
+azureCategories:
+  - containers
+summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster to multiple regions.
+products:
+  - azure-kubernetes-service
+  - azure-load-balancer
+  - azure-virtual-network
+  - azure-container-registry
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-dualstack.png
+content: |
+   [!include[](aks-dualstack.md)]
