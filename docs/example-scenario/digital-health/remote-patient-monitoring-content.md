@@ -17,7 +17,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. **Patient devices generate activity and physiological data.** The data is then extracted from the devices using one of the available Microsoft open-source (OSS) SDKs and ingested by Azure Event Hubs.
 
-1. **Life365.health platform is integrated with more than 300 Bluetooth patient monitoring devices.** Life365 API ingests the activity and physiological data from the patient monitoring devices into Azure Event Hub.
+1. **Life365.health platform is integrated with more than 300 Bluetooth patient monitoring devices.** Life365 API ingests the activity and physiological data from the patient monitoring devices into Azure Event Hubs.
 
 1. **The Azure MedTech service pulls the device measurements from Event Hubs**, transforming them into FHIR format [Fast Healthcare Interoperability Resources (FHIR®)](https://hl7.org/fhir/), and passes them into the Azure FHIR service. The Azure Health Data Services workspace is a logical container for healthcare service instances, such as the FHIR and MedTech services.  
 
@@ -95,7 +95,7 @@ Devices and patients need to be defined, linked, and synchronized between the Az
 
 **Microsoft Cloud for HealthCare**
 
-This example workload addresses one way of implementing a solution to help [Empower health team collaboration](/industry/healthcare/health-team-collaboration#remote-patient-monitoring). The [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare) includes a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
+This example workload addresses one way of implementing a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare). For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
 
 ## Scenario details
 
@@ -138,7 +138,7 @@ The availalblity of clinical data and insights is critical for many healthcare o
 
 - Azure Event Hubs spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span [multiple failure domains within a datacenter](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet#availability). For more information, see Azure Event Hubs - [Geo-disaster recovery](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr?tabs=portal).
 
-- Databricks provides [disaster recovery guidance[(https://review.learn.microsoft.com/en-us/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
+- Databricks provides [disaster recovery guidance](https://review.learn.microsoft.com/en-us/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
 
 - The Machine Learning deployment can be [multi-regional](https://review.learn.microsoft.com/en-us/azure/machine-learning/how-to-high-availability-machine-learning).
 
@@ -152,7 +152,7 @@ Healthcare data often includes sensitive protected health information (PHI) and 
 
 - Azure Health Data Services is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://learn.microsoft.com/en-us/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization) for more details.
 
-- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints]([https://learn.microsoft.com/en-us/azure/event-hubs/network-security#network-service-endpoints](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#private-endpoints) and [virtual network](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
+- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#private-endpoints) and [virtual network](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
 
 - [Synapse RBAC](https://learn.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-synapse-rbac) extends the capabilities of [Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 
