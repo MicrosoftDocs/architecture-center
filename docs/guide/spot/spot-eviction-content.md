@@ -1,47 +1,23 @@
-You can take advantage of Azure's unused capacity at a significant cost savings by using Spot [virtual machines](/azure/virtual-machines/overview) (VM) and [scale sets](/azure/virtual-machine-scale-sets/overview). However, at any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot VMs. Therefore, This means that Azure Spot VMs should only be used for workloads that can handle interruptions like delayable batch or queue processing jobs, non-critical dev/test environments, and large, delayable compute workloads.
-
-Azure Spot VM and scale sets do not have an SLA once created, which means that they can be terminated at any moment with *up to* 30 seconds of notice. Whenever Azure needs the capacity back, the Azure infrastructure will send your compute instance an eviction notice and proceed to evict that same instance based on your configured eviction policy.
-
-This guide is meant to walk you through Azure Spot Eviction fundamentals and help you design a solution to support workload interruptions.
-
-<!--- NOTE: Team will add a diagram here after publishing to further clarify this solution. --->
-
-## Cost optimization
-
-Azure provisions its spare capacity along all its offered regions so it can respond on demand when new resources are created. While that capacity remains idle, you have an opportunity to deploy VMs in your subscription at [discount prices and capped at pay-as-you-go prices using Azure Spot VMs and virtual machine scale sets](https://azure.microsoft.com/pricing/spot-advisor/).
-
-Keeping operational expenses under control is common practice when running solutions on the cloud and the [cost optimizations pillar from the Well Architected Framework](/azure/architecture/framework/cost/overview) can help you find the right strategy for your architecture.
-
-We recommend that you use the [Retail Rates Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to get retail prices for all Azure services. You will want to get familiar with this pricing API, because it will be another input parameter to consider along with eviction rates based on location and SKUs.
-
-For more details on how to plan with costs in mind, see [step 2 in the Planning section](https://github.com/mspnp/interruptible-workload-on-spot/blob/main/README.md#planning) of our implementation process.
-
 ## Purpose
 
-While the number one reason to choose Azure Spot is the significant cost savings at the infrastructure level, keep in mind that you need to build reliable **interruptible** workloads that can run on top of this Azure managed service.
-
-The goal is to design a workload that is fault tolerant and resilient, so that it's capable of being unexpectedly and reliably interrupted. Successful designs have workloads that are able to deal with high levels of uncertainty at the time of being deployed and can recover after being forcedly shut down. Even better, they can gracefully shut down with under 30 seconds of notice prior to eviction.
+build reliable **interruptible** workloads that can run on top of this Azure managed service.
 
 ## Technology choice
 
 Avoid using Azure Spot if:
 
-- Your application is under a strict SLA that could be compromised by compute interruptions
-- You're planning to provision sticky session solutions
-- Your workload isn't specifically designed and tested to be interrupted
-- Your workload is stateful by nature
+- Service level agreements (SLAs)
+- Sticky sessions
+- Stateful workload
 
-If you find that Azure Spot is not the right service for you, go to [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) for further assistance.
+Aren't time critical, lower priority, short processing times
 
-Some good candidates to run on top of Azure Spot VMs are:
+Examples:
 
 - Batch processing applications
-- Workloads that aren't time critical for background processing jobs
-- Large workloads that aren't required to finish in a certain period of time (ex. data analytics)
-- Tasks that are optional or have lower priority (ex. spawning a CI/CD agent for a dev/test environment)
-- Short lived jobs that can lose their progress repeatedly without having an effect on the end result
-
-Azure Virtual Machine Scale Sets are also offered with priority **Spot** and is an underlying service that will represent nodes for an Azure Kubernetes Service (AKS) cluster. As a result, stateless applications and opportunistic scale-out scenarios are possible candidates to build with Azure Spot [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) in mind if they're meant to run from an AKS cluster.
+- Background processing
+- Data analytics
+- CI/CD agent for a dev/test
 
 ## Considerations
 
