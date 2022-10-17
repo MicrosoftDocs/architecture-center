@@ -714,12 +714,6 @@ Security reporting is concerned with tracking customers' use of the system. It c
 
 In many cases, batch processes can generate reports according to a defined schedule. (Latency is not normally an issue.) But they should also be available for generation on an ad hoc basis if needed. As an example, if you are storing data in a relational database such as Azure SQL Database, you can use a tool such as SQL Server Reporting Services to extract and format data and present it as a set of reports.
 
-## Related patterns and guidance
-
-- [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
-- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
-- [Priority Queue pattern](../patterns/priority-queue.yml) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
-
 ## Next steps
 
 - [Azure Monitor overview](/azure/azure-monitor/overview)
@@ -729,3 +723,9 @@ In many cases, batch processes can generate reports according to a defined sched
 - [What is Application Insights?](/azure/application-insights/app-insights-overview)
 - [Performance diagnostics for Azure virtual machines](/azure/virtual-machines/troubleshooting/performance-diagnostics)
 - [Download and install SQL Server Data Tools (SSDT) for Visual Studio](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)
+
+## Related resources
+
+- [Autoscaling guidance](../best-practices/auto-scaling.md) describes how to decrease management overhead by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
+- [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
+- [Priority Queue pattern](../patterns/priority-queue.yml) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.

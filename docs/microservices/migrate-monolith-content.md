@@ -18,7 +18,7 @@ Despite these limitations, a monolithic design can make sense as a starting poin
 - Easier to debug, because the code runs within a single process and memory space.
 - Easier to reason about, because there are fewer moving parts.
 
-As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a microservices architecture. Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
+As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a [microservices architecture](/azure/architecture/guide/architecture-styles/microservices). Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
 
 ![A typical microservices architecture](./images/monolith/figure2.png)
 
