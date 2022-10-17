@@ -1,17 +1,3 @@
----
-title: Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI 
-description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
-author: sethmanheim
-ms.topic: conceptual
-ms.date: 10/17/2022
-ms.author: sethm 
-
-# Intent: As an IT Pro, I need to learn how to design and implement a baseline architecture for AKS.
-# Keyword: AKS architecture
----
-
-# Baseline architecture for AKS on Azure Stack HCI
-
 This scenario illustrates how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
@@ -188,7 +174,7 @@ Focus on the entire stack by securing the host and containers.
 
 ## Next steps
 
-[AKS overview](overview.md)
+- [AKS overview](/azure-stack/aks-hci/overview)
 
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview.md
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
