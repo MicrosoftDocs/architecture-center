@@ -1,6 +1,6 @@
 ---
 title: High availability for multitier AKS applications
-description: Read about high availability for multitiered application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
+description: Read about high availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
 author: akanso
 ms.author: alkanso
 ms.date: 10/19/2022
@@ -19,9 +19,8 @@ categories:
 
 # High availability for multitier AKS applications
 
-This guide discusses high availability (HA) for multitiered application deployment in Azure Kubernetes Service (AKS) clusters. This article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of failure.
+This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of failure.
 
-## Identify and eliminate single points of failure
 
 There are two fundamental tasks for implementing HA for AKS applications.
 
@@ -32,13 +31,26 @@ Eliminating single points of failure requires an HA solution.
 
 ## The four HA pillars
 
-Four HA pillars appear in every highly available system: **Redundancy**, **Monitoring**, **Recovery**, and **Checkpointing**. Consider a multitiered AKS application, where traffic arrives to the business logic tier, the data tier preserves state, and the application returns responses to users.
+Four HA pillars appear in every highly available system:
+
+- **Redundancy**
+- **Monitoring**
+- **Recovery**
+- **Checkpointing**
+
+Consider a multitiered AKS application, where traffic arrives to the business logic tier, the data tier preserves state, and the application returns responses to users.
 
 ![An illustration of an AKS multitiered application.](media/application.png)
 
-To identify single points of failure, start by determining the critical path between client requests and the components involved in serving those requests. Any component on this path that isn't managed according to the [four HA pillars](#the-four-ha-pillars), or three pillars if it's a stateless component without checkpointing, is a single point of failure. Even a replicated component is considered a single point of failure if it isn't monitored, because its failure goes silently undetected.
+### Identify single points of failure
 
-To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all of those aspects.
+To identify single points of failure, start by determining the critical path between client requests and the components serving those requests. Any component on this path that isn't managed according to the four HA pillars, or three pillars if it's a stateless component without checkpointing, is a single point of failure. Even a replicated component is considered a single point of failure if it isn't monitored, because its failure goes silently undetected.
+
+### Eliminate single points of failure
+
+To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all of these mechanisms.
+
+![An illustration of replicated components in an AKS multitiered application.](media/replicas.png)
 
 In a replicated application:
 
@@ -47,7 +59,7 @@ In a replicated application:
 
 Kubernetes offers several constructs and mechanisms, such as load balancing and liveness probes, that help implement the HA pillars. The following checklist and discussion divide these constructs and mechanisms into categories that map to the four HA pillars.
 
-### The Kubernetes HA checklist
+## The Kubernetes HA checklist
 
 Other than state management, Kubernetes does an exceptional job of maintaining application HA. The HA checklist lists common configurations you can use to optimize Kubernetes HA management. To use the checklist, evaluate your Kubernetes deployment against the following mechanisms and constructs, and implement any that are missing.
 
@@ -88,9 +100,9 @@ Azure offers [deeper insights](/azure/azure-monitor/containers/container-insight
 
 The main purpose of monitoring is to trigger recovery when it detects a failure. A recovery process involves three phases:
 
-1. Isolate and redirect: Make sure the faulty replica isn't receiving traffic, and direct its workload to healthy replicas.
-2. Repair: Restart the faulty replica, which can repair transient errors.
-3. Rejoin: After repair, if monitoring deems the replica healthy, rejoin the replica to other replicas in handling the workload.
+1. **Isolate and redirect:** Make sure the faulty replica isn't receiving traffic, and direct its workload to healthy replicas.
+2. **Repair:** Restart the faulty replica, which can repair transient errors.
+3. **Rejoin:** After repair, if monitoring deems the replica healthy, rejoin the replica to other replicas in handling the workload.
 
 - **Service type**, configuration `spec.type`. Exposing your pods through a service can be classified under redundancy as well as recovery. However, in some cases, you might have a single-replica deployment. There are still benefits for exposing the pods through a service, even though there's no load balancing.
 
@@ -114,31 +126,31 @@ You can persist application state in three levels:
 
 - The **data records level** stores the data in a database. Each database record can replicate across multiple database instances. Database records are the dominant form of state persistence, especially using managed cloud databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/#overview).
 
-- The **file system level** typically replicates data files, such as write-ahead logging (WAL) files. Most cloud providers offer plugins for their solutions, such as [Azure Files](https://kubernetes.io/docs/concepts/storage/volumes/#azurefile).
+- The **file system level** typically replicates data files, such as write-ahead logging (WAL) files. Most cloud providers offer plugins for their solutions, such as [Azure Files](https://azure.microsoft.com/products/storage/files).
 
-- The **disk level** persists data at the block level, which provides flexibility to define the file system to use, as in [Azure Disk Storage](https://kubernetes.io/docs/concepts/storage/volumes/#azuredisk).
+- The **disk level** persists data at the block level, which provides flexibility to define the file system to use, as in [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks).
 
 Kubernetes [volumes, persistent volumes, and persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes) can persist the state of the application at the file system or disk level. The most common pattern to store state is still the data records level.
 
 ## HA and DR
 
-In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.md) are important.
+In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.yml) are important.
 
-However, DR requires [multiregion service deployment](/azure/availability-zones/az-overview) involving the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region, depending on application type, application architecture, and latency tolerance between components.
+However, DR requires [multiregion service deployment](/azure/availability-zones/az-overview#regions) involving the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
 
-Instead of using multiple regions, HA benefits from [multizones deployments](/azure/availability-zones/az-overview) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
+Instead of using multiple regions, HA benefits from [multizone deployments](/azure/availability-zones/az-overview#availability-zones) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
 
-![A diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.png)
+![Diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.png)
 
-This article focused on HA at the application level within one AKS cluster. For more information about DR in AKS multicluster deployments, see [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
+This article focuses on HA at the application level within one AKS cluster. For more information about DR in AKS multicluster deployments, see [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
 
 ## Other considerations
 
-- To maintain application HA, make sure your Kubernetes control plane, including the API server and controller manager, is highly available. Consider using an [uptime SLA](/azure/aks/uptime-sla) to ensure HA.
+- To maintain application HA, make sure your Kubernetes control plane, including the API server and controller manager, is highly available. Consider using an [AKS Uptime SLA](/azure/aks/uptime-sla) to ensure HA.
 
 - The HA redundancy pillar directly contravenes a resource consolidation strategy. Therefore, you should carefully analyze the cost of redundancy. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can help.
 
-- See the highly available Microsoft service [Project Bonsai: AI for engineers](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) for an example of project design that exemplifies HA principles. This project motivated the Kubernetes HA constructs checklist and this guide.
+- The highly available Microsoft service [Project Bonsai: AI for engineers](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) is an example of project design that exemplifies HA principles. This project motivated the Kubernetes HA constructs checklist and this guide.
 
 ## Contributors
 
@@ -160,13 +172,13 @@ Other contributors:
 ## Next steps
 
 - [High availability Kubernetes cluster pattern](/hybrid/app-solutions/pattern-highly-available-kubernetes)
-- [Regions and availability zones in Azure](/azure/availability-zones/az-overview)
+- [Regions and availability zones](/azure/availability-zones/az-overview)
 - [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](/azure/aks/quotas-skus-regions)
 - [Azure Kubernetes Service (AKS) cluster architecture and operations](/training/paths/aks-cluster-architecture)
 
 ## Related resources
 
-- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Elastic demand handling with AKS](../../solution-ideas/articles/aks-demand-spikes.yml)
 - [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
