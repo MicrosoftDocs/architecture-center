@@ -2477,7 +2477,7 @@ items:
                       - name: Content Production solution
                         href: /dynamics365/industry/accelerators/content-production
                         maintainContext: true
-                      - name: Configure the accelerator with AAD
+                      - name: Configure the accelerator
                         href: /dynamics365/industry/accelerators/configure-media
                         maintainContext: true
                       - name: Fan and guest engagement
