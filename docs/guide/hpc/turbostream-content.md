@@ -1,5 +1,11 @@
 
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Turbostream](https://www.turbostream-cfd.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running TurboStream on Azure.
+
+Turbostream is advanced simulation software that's based on a computational fluid dynamics (CFD) solver. It can run on high-speed GPUs and on conventional CPUs. 
+
+The software enables high-fidelity methods like unsteady full-annulus simulations to be used as part of the routine design process for the first time.
+
+Turbostream is used by NASA and in the design of aircraft engines, turbomachinery, and gas turbines.
 
 ## Why deploy Turbostream on Azure?
 
