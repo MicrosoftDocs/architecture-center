@@ -19,7 +19,7 @@ categories:
 
 # High availability for multitier AKS applications
 
-This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of failure.
+This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of HA failure.
 
 
 There are two fundamental tasks for implementing HA for AKS applications.
@@ -48,7 +48,7 @@ To identify single points of failure, start by determining the critical path bet
 
 ### Eliminate single points of failure
 
-To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all of these mechanisms.
+To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all of these actions.
 
 ![An illustration of replicated components in an AKS multitiered application.](media/replicas.png)
 
@@ -142,7 +142,7 @@ Instead of using multiple regions, HA benefits from [multizone deployments](/azu
 
 ![Diagram that compares availability zones and Azure regions for HA and DR.](media/load-balancing.png)
 
-This article focuses on HA at the application level within one AKS cluster. For more information about DR in AKS multicluster deployments, see [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
+This guide focused on HA at the application level within one AKS cluster. For more information about DR in AKS multicluster deployments, see [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml).
 
 ## Other considerations
 
@@ -174,6 +174,7 @@ Other contributors:
 - [High availability Kubernetes cluster pattern](/hybrid/app-solutions/pattern-highly-available-kubernetes)
 - [Regions and availability zones](/azure/availability-zones/az-overview)
 - [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](/azure/aks/quotas-skus-regions)
+- [Orchestrating microservices and multi-container applications for high scalability and availability](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability)
 - [Azure Kubernetes Service (AKS) cluster architecture and operations](/training/paths/aks-cluster-architecture)
 
 ## Related resources

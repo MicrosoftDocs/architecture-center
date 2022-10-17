@@ -3467,6 +3467,7 @@ items:
             href: reference-architectures/containers/aks-start-here.md
           - name: Guides
             items:
+              - name: Access an AKS API server
               - name: AKS cluster best practices
                 href: /azure/aks/best-practices
                 maintainContext: true
@@ -3506,16 +3507,28 @@ items:
                     href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
                   - name: Choose a bare-metal Kubernetes option
                     href: operator-guides/aks/choose-bare-metal-kubernetes.yml
-              - name: Access an AKS API server
                 href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
-              - name: Orchestrate multi-container applications
-                href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability
-                maintainContext: true
               - name: Cost governance with Kubecost
                 href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost
                 maintainContext: true
+              - name: Docker guidance
+                items:
+                  - name: Monolithic applications
+                    href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications
+                    maintainContext: true
+                  - name: Containerize monolithic applications
+                    href: /dotnet/architecture/microservices/architect-microservice-container-applications/containerize-monolithic-applications
+                    maintainContext: true
+                  - name: Containers for DevOps collaboration
+                    href: /dotnet/architecture/containerized-lifecycle/docker-application-lifecycle/containers-foundation-for-devops-collaboration
+                    maintainContext: true
+              - name: High availability for multitier AKS apps
+                href: guide/aks/aks-high-availability.md
               - name: Operations management for AKS
                 href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
+                maintainContext: true
+              - name: Orchestrate multi-container applications
+                href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability
                 maintainContext: true
               - name: Security considerations
                 items:
@@ -3527,17 +3540,6 @@ items:
                     maintainContext: true
                   - name: Security baseline for AKS
                     href: /security/benchmark/azure/baselines/aks-security-baseline
-                    maintainContext: true
-              - name: Docker guidance
-                items:
-                  - name: Monolithic applications
-                    href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications
-                    maintainContext: true
-                  - name: Containerize monolithic applications
-                    href: /dotnet/architecture/microservices/architect-microservice-container-applications/containerize-monolithic-applications
-                    maintainContext: true
-                  - name: Containers for DevOps collaboration
-                    href: /dotnet/architecture/containerized-lifecycle/docker-application-lifecycle/containers-foundation-for-devops-collaboration
                     maintainContext: true
           - name: Architectures
             items:
