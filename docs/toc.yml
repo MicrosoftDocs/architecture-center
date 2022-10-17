@@ -2660,9 +2660,20 @@ items:
                 href: industries/aerospace.md
               - name: Guides
                 items:
-                  - name: Azure Orbital for space communication
-                    href: /azure/orbital/overview
-                    maintainContext: true
+                  - name: Azure Orbital guidance
+                    items:
+                      - name: Overview
+                        href: /azure/orbital/overview
+                        maintainContext: true
+                      - name: Ground station contact
+                        href: /azure/orbital/concepts-contact
+                        maintainContext: true
+                      - name: Contact profile
+                        href: /azure/orbital/concepts-contact-profile
+                        maintainContext: true
+                      - name: Spacecraft object
+                        href: /azure/orbital/spacecraft-object
+                        maintainContext: true
                   - name: Modular Datacenter
                     href: /azure-stack/mdc/mdc-overview
                     maintainContext: true
@@ -2701,17 +2712,26 @@ items:
                   - name: All aerospace architectures
                     href: /azure/architecture/browse/?terms=aircraft
                   - name: Advanced (AKS) microservices - drones
-                    href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
-                  - name: Geospatial analysis of spaceborne data
-                    href: industries/aerospace/geospatial-processing-analytics.yml
+                    href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+                  - name: End-to-end geospatial solution
+                    href: /azure/orbital/geospatial-reference-architecture
+                    maintainContext: true
                   - name: Ingest FAA content to analyze flights
-                    href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
+                    href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
+                  - name: Organize spaceborne geospatial data
+                    href: /azure/orbital/organize-stac-data
+                    maintainContext: true
                   - name: Predictive maintenance for aircraft
-                    href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+                    href: solution-ideas/articles/predictive-maintenance.yml
+                  - name: SAR reference architecture
+                    href: /azure/orbital/sar-reference-architecture
+                    maintainContext: true
                   - name: Serverless web app for drone delivery
                     href: reference-architectures/serverless/web-app.yml
+                  - name: Spaceborne data analysis
+                    href: industries/aerospace/geospatial-processing-analytics.yml
                   - name: Vision classifier - simulated drone
-                    href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
+                    href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
           - name: Agriculture
             items:
               - name: Guides
