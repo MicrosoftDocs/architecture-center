@@ -1,8 +1,8 @@
 ---
 title: High availability for multitier AKS applications
 description: Read about high availability for multitiered application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
-author: 
-ms.author: 
+author: akanso
+ms.author: alkanso
 ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
