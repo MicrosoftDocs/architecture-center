@@ -3357,6 +3357,8 @@ items:
                     href: guide/hpc/siemens-nx.yml
                   - name: Siemens Tecnomatix
                     href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Visiopharm
+                    href: guide/hpc/visiopharm.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
