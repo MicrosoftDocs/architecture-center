@@ -1,39 +1,40 @@
-> The H1 title is the same as the title metadata. Don't enter it here, but as the **name** value in the corresponding YAML file.
+For some scenarios you would like your application to be available in multiple Azure regions. This is the case when you would like to have global reach for your application and for instance make it available in both Europe, Asia and the Americas, bringing the workload closer to the end user, making latency as low as possible. Or you can make use of multiple regions to increase the overall SLA of your application. You might also use a secondary region as a failover site for your first region. 
 
-_Brief introduction goes here (1-3 sentences, one paragraph only)._ [**Deploy this scenario**.](#deploy-this-scenario)
+This architecture describes a multi region setup for Azure Spring Apps service. It also takes into account how you load balance the incoming requests to your application to 1 of the regions your application is deployed in. It also provides host name preservation all the way from the browser request to your application code. [**Deploy this scenario**.](#deploy-this-scenario)
 
 ## Architecture
 
-![alt text.](./media/folder_name/architecture-diagram.png)
+![Multi region Azure Spring Apps reference architecture](./_images/ha-zr-spring-apps-reference-architecture.png)
 
-_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
+Download a [Visio file](https://arch-center.azureedge.net/ha-zr-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.
 
 ### Workflow
 
-> Use a numbered list if there are corresponding numbers in the diagram. If not, use a bulleted list.
+The following workflow corresponds to the above diagram:
 
-The following workflow (or dataflow) corresponds to the above diagram:
+- **User browser**. The user navigates to the application by using the applications HTTP host name, for instance `www.contoso.com`.
 
-- **Thing 1**. Explain what happens with the first technology in the diagram.
+- **Azure DNS**. Either Azure DNS or another public DNS service will need to be configured to forward the request for this host name to the Azure Front Door service.
 
-- **Thing 2**. Explain what happens with the second technology in the diagram.
+- **Azure Front Door**. Azure Front Door is configured with this same host name and a certificate signed by a certificate authority for this host name. Front door is also configured with multiple origins for the requests, one per region you want to deploy your application to. Each origin is pointing to an Application Gateway in this region. Azure Front Door service can use multiple load balancing configurations to forward the request to one region or the other.
+
+- **Application Gateway**. Each region you want to deploy to will have an Application Gateway configured with a Web Application Firewall. The Web Application Firewall will only allow incoming calls from your specific Azure Front Door service. The Application Gateway is also configured with the same host name which is backed by the same certificate from a well known certificate authority. In each region, the Application Gateway will send the call to the Azure Spring Apps load balancer.
+
+- **Azure Spring Apps**. Azure Spring Apps will be deployed inside a virtual network, in each region. Incoming calls to the Azure Spring Apps load balancer are only allowed from the Application Gateway. This is where your application workload will run.
+
+- **MySQL Server**. As a database in this setup we are using Azure MySQL Server, however each database would be ok for data storage. Do note that data syncing may also be needed by your application, this architecture will not describe data sychonisation. You should double check with the data service of your choice what the best setup would be for syncing the data between regions. An additional option would be using Azure CosmosDb as a backend for storing data with multi master write enabled.
+
+- **Key Vault**. Key Vault is used in this architecture to store both application secrets, like database username and password, but also the certificate used by Azure Spring Apps, Application Gateway and Azure Front Door service.
 
 ### Components
 
-> A bulleted list of components in the architecture (including all relevant Azure services) with links to the product service pages. This is for lead generation (what business, marketing, and PG want). It helps drive revenue.
-
-> Why is each component there?
-> What does it do and why was it necessary?
-> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
-
-- Examples: 
-  - [Azure App Service](https://azure.microsoft.com/services/app-service)
-  - [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
-  - [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-  - [Azure Cognitive Services Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services)
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
-  - [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- [Azure DNS Service](https://learn.microsoft.com/azure/dns/dns-overview): Used for DNS resolution from your custom domain to your Azure Front Door endpoint.
+- [Azure Front Door Service](https://learn.microsoft.com/azure/frontdoor/front-door-overview): Used for global load balancing incoming calls to all available regions that host your workload.
+- [Azure Application Gateway Service](https://learn.microsoft.com/azure/application-gateway/overview): Used as a local reverse proxy in each region you are running your application.
+- [Azure Spring Apps Service](https://learn.microsoft.com/azure/spring-apps/overview): Used for hosting your backend applications.
+- [Azure Database for MySQL](https://learn.microsoft.com/azure/mysql/)
+- [Azure Key Vault Service](https://learn.microsoft.com/azure/key-vault/general/overview): Used for storing application secrets and the certificates used by Front Door, Application Gateway and Spring apps.
+- [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 
