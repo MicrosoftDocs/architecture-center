@@ -200,6 +200,14 @@ In order to test the Azure environment where the applications are running, it sh
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower/) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
