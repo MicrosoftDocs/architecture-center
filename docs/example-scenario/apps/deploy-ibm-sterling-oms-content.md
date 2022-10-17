@@ -47,3 +47,4 @@ The following services typically aren't necessary, but they're effective alterna
 - [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) NetApp Files supports of any type of workload with high availability and high performance and is ideal for IO sensitive workloads, such as IBM DB2 on Azure Virtual Machines.
 - [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to Azure Postgres SQL Flexible Server.
 - [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) 
+
