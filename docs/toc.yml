@@ -3365,7 +3365,7 @@ items:
                     href: /sql/relational-databases/security/ledger/ledger-database-verification
                     maintainContext: true
                   - name: Ledger considerations
-                    href:/sql/relational-databases/security/ledger/ledger-limits
+                    href: /sql/relational-databases/security/ledger/ledger-limits
                     maintainContext: true
           - name: Architectures
             items:
