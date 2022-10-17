@@ -2,7 +2,7 @@ This article briefly describes the steps for running [Remcom XFdtd](https://www.
 
 XFdtd is electromagnetic simulation software that includes full-wave, static, biothermal, optimization, and circuit solvers. 
 
-XFdtd includes a schematic editor specially designed for antenna engineers who need to analyze matching networks and corporate feed networks. 
+XFdtd includes a schematic editor designed for antenna engineers who need to analyze matching networks and corporate feed networks. 
 
 The software enables in-depth analysis of a device's stand-alone performance, with 5G-device design features that support high-frequency array antennas and complex devices that operate at millimeter wave frequencies.
 
@@ -61,7 +61,7 @@ Before you install XFdtd, you need to install a floating license server. For det
 
 ## Remcom XFdtd performance results
 
-Remcom XFdtd 7.10.0.1 was tested. A patch in body model was used for the tests: 
+Remcom XFdtd version 7.10.0.1 was tested. A patch in body model was used for the tests: 
 
 :::image type="content" source="media/remcom-xfdtd/patch-body-model.png" alt-text="Screenshot that shows the patch in body model." border="false":::
 
