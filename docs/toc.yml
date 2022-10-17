@@ -3741,8 +3741,6 @@ items:
                     href: data-guide/scenarios/time-series.yml
                   - name: Working with CSV and JSON files
                     href: data-guide/scenarios/csv-and-json.md
-              - name: Build a scalable system for massive data
-                href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
               - name: Big data
                 items:
                   - name: Big data architectures
@@ -3779,10 +3777,28 @@ items:
                     href: data-guide/technology-choices/search-options.md
                   - name: Stream processing
                     href: data-guide/technology-choices/stream-processing.md
+              - name: Database scenarios
+                items:
+                  - name: Build a scalable system for massive data
+                    href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
+                  - name: Use the best data store
+                    href: guide/design-principles/use-best-data-store.md
+                  - name: Use the Transactional Outbox pattern
+                    href: best-practices/transactional-outbox-cosmos.yml
+                  - name: Transfer data to and from Azure
+                    href: data-guide/scenarios/data-transfer.md
+                  - name: Extend on-premises data solutions to Azure
+                    href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
+                  - name: Secure data solutions
+                    href: data-guide/scenarios/securing-data-solutions.md
+                  - name: Database security checklist
+                    href: /azure/security/fundamentals/database-security-checklist
+                    maintainContext: true
+                  - name: High availability for SQL DB and SQL MI
+                    href: /azure/azure-sql/database/high-availability-sla
+                    maintainContext: true
               - name: Data management patterns
                 href: patterns/category/data-management.md
-              - name: Use the Transactional Outbox pattern
-                href: best-practices/transactional-outbox-cosmos.yml
               - name: Industry guidance
                 items:
                   - name: Data management in banking
@@ -3805,12 +3821,6 @@ items:
                   - name: "Relecloud: multiple landing zones"
                     href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-relecloud
                     maintainContext: true
-              - name: Transfer data to and from Azure
-                href: data-guide/scenarios/data-transfer.md
-              - name: Extend on-premises data solutions to Azure
-                href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-              - name: Secure data solutions
-                href: data-guide/scenarios/securing-data-solutions.md
               - name: Tenancy models for SaaS apps
                 items:
                   - name: Overview
@@ -3818,9 +3828,6 @@ items:
                   - name: Multitenant SaaS database patterns
                     href: /azure/azure-sql/database/saas-tenancy-app-design-patterns
                     maintainContext: true
-              - name: High availability for SQL DB and SQL MI
-                href: /azure/azure-sql/database/high-availability-sla
-                maintainContext: true
               - name: Azure Cosmos DB guidance
                 items:
                   - name: Azure Cosmos DB resource model
@@ -3956,7 +3963,7 @@ items:
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Extend Project Online reporting
                 href: example-scenario/data/extend-reporting-capabilities.yml
-              - name: Globally distributed apps using Azure Cosmos DB
+              - name: Globally distributed apps with Cosmos DB
                 href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
               - name: Hybrid ETL with Azure Data Factory
                 href: example-scenario/data/hybrid-etl-with-adf.yml
@@ -3978,7 +3985,7 @@ items:
                 href: databricks-monitoring/databricks-observability.yml
               - name: Optimize SQL Server with Azure Arc
                 href: hybrid/azure-arc-sql-server.yml
-              - name: Optimized storage – time based multi writes
+              - name: Optimized storage – multi writes
                 href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
               - name: Optimized storage – time based Data Lake
                 href: solution-ideas/articles/optimized-storage-time-based-data-lake.yml
@@ -4047,7 +4054,7 @@ items:
                 href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml
               - name: Retail and e-commerce using PostgreSQL
                 href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
-              - name: Retail and e-commerce using Azure Cosmos DB
+              - name: Retail and e-commerce with Cosmos DB
                 href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
               - name: Serverless apps using Azure Cosmos DB
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
@@ -4065,12 +4072,6 @@ items:
                 href: data-guide/technology-choices/analysis-visualizations-reporting.md
               - name: Build a scalable system for massive data
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-              - name: Apache NiFi guidance
-                items:
-                  - name: Apache NiFi monitoring with MonitoFi
-                    href: guide/data/monitor-apache-nifi-monitofi.yml
-                  - name: Helm-based deployments for Apache NiFi
-                    href: guide/data/helm-deployments-apache-nifi.yml
               - name: Microsoft Purview guidance
                 items:
                   - name: Accounts architectures and best practices
@@ -4192,6 +4193,8 @@ items:
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: Helm-based deployments
+                href: guide/data/helm-deployments-apache-nifi.yml
               - name: Hybrid ETL with Azure Data Factory
                 href: example-scenario/data/hybrid-etl-with-adf.yml
               - name: Master data management with CluedIn
@@ -4206,10 +4209,12 @@ items:
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
               - name: Power BI data write-back
                 href: example-scenario/data/power-bi-write-back-power-apps.yml
-              - name: Replicate and sync mainframe data in Azure
+              - name: Replicate and sync mainframe data
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
           - name: Solution ideas
             items:
+              - name: Apache NiFi monitoring with MonitoFi
+                href: guide/data/monitor-apache-nifi-monitofi.yml
               - name: Azure Data Explorer monitoring
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Data management with Azure Purview
@@ -4294,20 +4299,20 @@ items:
                         maintainContext: true
               - name: Architectures
                 items:
+                   - name: Blue/green deployments
+                     href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
                    - name: Enterprise-grade logging on Azure
                      href: reference-architectures/logging/enterprise-grade-logging.yml
-                   - name: High-availability blue/green deployment
-                     href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
                    - name: Microservices with Azure Spring Apps
-                     href: /azure/spring-cloud/reference-architecture
+                     href: /azure/spring-apps/reference-architecture
                      maintainContext: true
                    - name: Microservices with Container Apps
                      href: example-scenario/serverless/microservices-with-container-apps.yml
-                   - name: Microservices with Container Apps and Dapr
+                   - name: Microservices with Dapr and KEDA
                      href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
@@ -4331,9 +4336,9 @@ items:
                         href: serverless-quest/poc-pilot.md
                   - name: Develop and deploy serverless apps
                     items:
-                      - name: Serverless Functions app development
+                      - name: App development and deployment
                         href: serverless-quest/application-development.md
-                      - name: Serverless Functions code walkthrough
+                      - name: Code walkthrough
                         href: serverless/code.yml
                       - name: CI/CD for a serverless frontend
                         href: serverless/guide/serverless-app-cicd-best-practices.yml
@@ -4367,7 +4372,7 @@ items:
                     href: hybrid/azure-functions-hybrid.yml
                   - name: Event-based cloud automation
                     href: reference-architectures/serverless/cloud-automation.yml
-                  - name: Multicloud with the Serverless Framework
+                  - name: Multicloud with Serverless Framework
                     href: example-scenario/serverless/serverless-multicloud.yml
                   - name: Real-time location sharing
                     href: example-scenario/signalr/index.yml
@@ -4416,7 +4421,7 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
-                  - name: Infrastructure as code with Bicep and ACR
+                  - name: Infrastructure as code with Bicep
                     href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
               - name: DevTest Labs guidance
                 items:
