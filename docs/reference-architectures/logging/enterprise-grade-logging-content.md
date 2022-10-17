@@ -1,6 +1,8 @@
 Applications use different tools and technologies that have their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs from different systems cause similar problems for big data solutions.
 
-This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. [Deploy this scenario.](#deploy-this-scenario)
+This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. This reference architecture is not a replacement for Azure Monitor. This architecture is mainly targeted for application logs, neither for infrastructure logs which can be achieved with Log Analytics component of Azure Monitor nor for application performance monitoring which can be achieved with Application Insights component for Azure Monitor.
+
+[Deploy this scenario.](#deploy-this-scenario)
 
 ## Architecture
 
@@ -22,8 +24,9 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Alternatives
 
-- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but consolidating multiple applications into a single workspace is a challenge in Azure Monitor.
-
+- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but consolidating multiple applications into a single workspace is a challenge in Azure Monitor. [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) provides a capability to centralize logs from Application Insights into a common Log Analytics workspace. Azure Monitor allows custom logs to be ingested and data format to be extended for these custom logs. There are two different pitfalls with this alternate:
+  - Custom logs will be ingested to different tables than original tables. `trackEvent()` for custom logs will be stored in `customEvents` table whereas original events will be stored in `Events` table. 
+  - Developers can extend table schema for custom tables as needed which is a feature of Azure Monitor. Without a strict governance model, table schema can become complicated over time. With the help this reference architecture, you can introduce your own governance model whereas you can still benefit from [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) capabilities by running cross cluster queries. 
 - [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but isn't suitable for application troubleshooting or end-to-end application traceability.
 
 ## Scenario details
