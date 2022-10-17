@@ -181,7 +181,7 @@ Focus on the entire stack by securing the host and containers.
   [Azure Kubernetes Service (AKS) on Azure Stack HCI / Windows Server]: /azure-stack/aks-hci/
   [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
-  [**Azure Arc**]: https://azure.microsoft.com/services/azure-arc/
+  [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
   [Azure role-based access control (RBAC]: /azure/role-based-access-control/
   [Azure Monitor]: https://azure.microsoft.com/services/monitor/
   [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
