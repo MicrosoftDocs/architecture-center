@@ -26,4 +26,4 @@ products:
   - azure-container-registry
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-dualstack.png
 content: |
-   [!include[](aks-dualstack.md)]
+   [!include[](aks-dualstack-content.md)]
