@@ -3,7 +3,7 @@ title: Background jobs guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
 author: EdPrice-MSFT
-ms.date: 11/05/2018
+ms.date: 10/18/2022
 categories: azure
 ms.topic: conceptual
 ms.service: architecture-center
@@ -292,6 +292,18 @@ Background tasks must offer sufficient performance to ensure they do not block t
 
 - By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file that contains the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app. This can be a useful technique for scheduled jobs that must run as only a single instance.
 
-## Related patterns
+## Next steps
 
 - [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10))
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10))
+- [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns)
+
+## Related resources
+
+- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml)
+- [Priority Queue pattern](../patterns/priority-queue.yml)
+- [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
+- [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
+- [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
+- [Leader Election pattern](../patterns/leader-election.yml)
+- [Competing Consumers pattern](../patterns/competing-consumers.yml)
