@@ -874,15 +874,7 @@ Some options to consider include:
 
 - [gRPC](https://www.grpc.io) is an open-source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
 
-## Related patterns and guidance
-
-The following patterns might also be relevant to your scenario when you implement caching in your applications:
-
-- [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
-
-- The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
-
-## More information
+## Next steps
 
 - [Azure Cache for Redis documentation](/azure/azure-cache-for-redis)
 - [Azure Cache for Redis FAQ](/azure/redis-cache/cache-faq)
@@ -890,3 +882,11 @@ The following patterns might also be relevant to your scenario when you implemen
 - [Redis documentation](https://redis.io/documentation)
 - [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis)
 - [Data partitioning guide](/previous-versions/msp-n-p/dn589795(v=pandp.10))
+
+## Related resources
+
+The following patterns might also be relevant to your scenario when you implement caching in your applications:
+
+- [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
+
+- The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
