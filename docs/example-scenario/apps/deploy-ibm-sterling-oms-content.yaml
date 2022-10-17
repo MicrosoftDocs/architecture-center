@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy IBM Sterling Order Management (OMS) on Azure
+  description: Learn how to run IBM Sterling Order Management (OMS) on Azure. See guidance for designing and implementing cloud solutions with OMS that use Azure.
+  author: anfurgiu
+  ms.author: anfurgiu,ronieuwe,dbaumgarten
+  ms.date: 10/15/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - containers
+  - storage
+  - analytics
+products:
+  - azure-files
+  - azure-load-balancer
+  - azure-redhat-openshift
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-postgres-flexible-server
+name: Deploy IBM Sterling Order Management on Azure
+summary: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with OMS that use Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-sterling-oms-thumbnail.svg
+content: |
+  [!include[](deploy-ibm-sterling-oms-content.md)]
