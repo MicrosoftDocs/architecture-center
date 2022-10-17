@@ -3347,26 +3347,26 @@ items:
                   - name: Authenticate Confidential Ledger nodes
                     href: /azure/confidential-ledger/authenticate-ledger-nodes
                     maintainContext: true
-                - name: SQL Database ledger guidance
-                  items:
-                    - name: Overview
-                      href: /sql/relational-databases/security/ledger/ledger-database-ledger
-                      maintainContext: true
-                    - name: Updatable ledger tables
-                      href: /sql/relational-databases/security/ledger/ledger-updatable-ledger-tables
-                      maintainContext: true
-                    - name: Append-only ledger tables
-                      href: /sql/relational-databases/security/ledger/ledger-append-only-ledger-tables
-                      maintainContext: true
-                    - name: Digest management
-                      href: /sql/relational-databases/security/ledger/ledger-digest-management
-                      maintainContext: true
-                    - name: Database verification
-                      href: /sql/relational-databases/security/ledger/ledger-database-verification
-                      maintainContext: true
-                    - name: Ledger considerations
-                      href:/sql/relational-databases/security/ledger/ledger-limits
-                      maintainContext: true
+              - name: SQL Database ledger guidance
+                items:
+                  - name: Overview
+                    href: /sql/relational-databases/security/ledger/ledger-database-ledger
+                    maintainContext: true
+                  - name: Updatable ledger tables
+                    href: /sql/relational-databases/security/ledger/ledger-updatable-ledger-tables
+                    maintainContext: true
+                  - name: Append-only ledger tables
+                    href: /sql/relational-databases/security/ledger/ledger-append-only-ledger-tables
+                    maintainContext: true
+                  - name: Digest management
+                    href: /sql/relational-databases/security/ledger/ledger-digest-management
+                    maintainContext: true
+                  - name: Database verification
+                    href: /sql/relational-databases/security/ledger/ledger-database-verification
+                    maintainContext: true
+                  - name: Ledger considerations
+                    href:/sql/relational-databases/security/ledger/ledger-limits
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Azure SQL Database ledger
