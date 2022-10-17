@@ -2,7 +2,7 @@ This article briefly describes the steps for running [Remcom XFdtd](https://www.
 
 XFdtd is electromagnetic simulation software that includes full-wave, static, biothermal, optimization, and circuit solvers. 
 
-XFdtd includes a schematic editor designed for antenna engineers who need to analyze matching networks and corporate feed networks. 
+XFdtd includes a schematic editor that's designed for antenna engineers who need to analyze matching networks and corporate feed networks. 
 
 The software enables in-depth analysis of a device's stand-alone performance, with 5G-device design features that support high-frequency array antennas and complex devices that operate at millimeter wave frequencies.
 
