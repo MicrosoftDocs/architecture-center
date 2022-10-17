@@ -274,7 +274,7 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
+For more information on how to implement this approach, see [Providing asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
 
 ## Filter and paginate data
 
