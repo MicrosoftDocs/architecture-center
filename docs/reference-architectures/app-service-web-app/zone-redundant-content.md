@@ -83,7 +83,7 @@ Azure Front Door is a global service, always available across all Azure geograph
 * Use [Azure managed certificates][afd-certs] on all front ends to prevent certificate mis-configuration and expiration issues.
 * Enable [caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
-* Use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+* Deployments with higher security requirements could also use [Private Link in Azure Front Door Premium](/azure/frontdoor/private-link) to secure connectivity to Azure App Service.
 
 For more recommendations and information, see [Best practices for Front Door][afd-best-practices].
 
@@ -210,7 +210,7 @@ See also this important guidance for increasing resilience to Azure AD failures 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 * Private endpoints are used on Azure services that don't need to be accessed from the public internet.
-* Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+* Deployments with higher security requirements could also use [Private Link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 * Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF.
 * All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services, and Azure Static Web Apps should be configured to accept HTTPS traffic only, and the minimum TLS version set.
 * Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
@@ -279,11 +279,11 @@ Deploy this reference architecture using this [Azure sample on GitHub][azure-sam
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
 
-Other contributors:
+Other contributor:
 
  - [John Downs](https://www.linkedin.com/in/john-downs) | FastTrack for Azure Customer Engineer
 
