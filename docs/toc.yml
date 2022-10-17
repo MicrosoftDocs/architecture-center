@@ -2579,7 +2579,6 @@ items:
                     maintainContext: true
                   - name: Observer pattern - baggage claims
                     href: /dotnet/standard/events/observer-design-pattern
-                    /dotnet/standard/events/observer-design-pattern
                     maintainContext: true
               - name: Architectures
                 items:
