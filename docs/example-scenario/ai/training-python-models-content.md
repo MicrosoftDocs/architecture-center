@@ -108,7 +108,7 @@ While adding more nodes can significantly speed up run time, increased start-up 
 
 Principal author:
 
-- [Ashish Chauhan](https://www.linkedin.com/in/ashishrchauhan) | Sr Cloud Solution Architect
+- [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Sr Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
