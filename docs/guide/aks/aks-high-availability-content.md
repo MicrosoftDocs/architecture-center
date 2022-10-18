@@ -31,6 +31,8 @@ To eliminate single points of failure, deploy your application to replicate crit
 
 ![An illustration of replicated components in an AKS multitiered application.](media/replicas.png)
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/aac-high-availability-for-enterprise-applications-on-aks.pptx) with the diagrams in this article.*
+
 In a replicated application:
 
 - You replicate the business tier components with a different number of replicas per component, depending on their performance and workload.
