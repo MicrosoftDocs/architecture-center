@@ -117,6 +117,14 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 - Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
 ## Next steps
 
 - For more information, please contact datasqlninja@microsoft.com.
