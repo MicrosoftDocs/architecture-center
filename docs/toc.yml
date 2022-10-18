@@ -3482,8 +3482,8 @@ items:
                         href: guide/hpc/siemens-nx.yml
                       - name: Siemens Tecnomatix
                         href: guide/hpc/siemens-tecnomatix.yml
-                      - name: WRF
-                        href: guide/hpc/weather-research-forecasting.yml
+                  - name: WRF
+                    href: guide/hpc/weather-research-forecasting.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
