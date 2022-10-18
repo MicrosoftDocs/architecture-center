@@ -148,6 +148,8 @@ Principal authors:
 
  - [Praneet Singh Solanki](https://www.linkedin.com/in/praneetsolanki/) | Senior Software Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops/).
