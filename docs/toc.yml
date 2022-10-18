@@ -4574,8 +4574,10 @@ items:
                   href: hybrid/azure-arc-sql-server.yml
                 - name: Run containers in a hybrid environment
                   href: hybrid/hybrid-containers.yml
-              - name: AKS on Azure Stack HCI
+              - name: AKS on Azure Stack HCI baseline architecture
                 href: example-scenario/hybrid/aks-baseline.yml
+              - name: AKS on Azure Stack HCI network architecture
+                href: aks-network.yml
               - name: Azure Automation solutions
                 items:
                   - name: Azure Automation hybrid environment

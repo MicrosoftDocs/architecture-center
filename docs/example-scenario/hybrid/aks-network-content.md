@@ -4,6 +4,8 @@ This article includes recommendations for networking design for Kubernetes nodes
 
 ## Architecture
 
+:::image type="content" source="media/aks-network.png" alt-text="Conceptual graphic showing network baseline architecture." lightbox="media/aks-network.png":::
+
 ### Components
 
 The architecture consists of the following components and capabilities:
@@ -122,471 +124,214 @@ To route HTTP traffic to multiple host names on the same IP address, you can use
 
 ## Container networking concepts in Azure Kubernetes Service (AKS) on Azure Stack HCI
 
-Kubernetes provides an abstraction layer to a virtual network, so the
-container-based applications can communicate internally or externally.
-The *kube-proxy* component runs on each node and can either provide
-direct access to the service, distribute traffic using load balances, or
-use ingress controllers for more complex application routing. Kubernetes
-use services to logically group together a set of pods and provide
+Kubernetes provides an abstraction layer to a virtual network, so the container-based applications can communicate internally or externally.
+The *kube-proxy* component runs on each node and can either provide direct access to the service, distribute traffic using load balances, or
+use ingress controllers for more complex application routing. Kubernetes use services to logically group together a set of pods and provide
 network connectivity. The following Kubernetes services are available:
 
--   **Cluster IP**: This service creates an internal IP address for
-    internal-only applications.
-
--   **NodePort**: This service creates port mapping on the underlying
-    node, which makes the application directly accessible with the node
-    IP address and port.
-
--   **LoadBalance**r: You can expose Kubernetes services externally
-    using load-balancer rules or an ingress controller.
-
--   **ExternalName**:. This service uses a specific DNS entry for the
-    Kubernetes application.
+- **Cluster IP**: This service creates an internal IP address for internal-only applications.
+- **NodePort**: This service creates port mapping on the underlying node, which makes the application directly accessible with the node IP address and port.
+- **LoadBalance**r: You can expose Kubernetes services externally using load-balancer rules or an ingress controller.
+- **ExternalName**:. This service uses a specific DNS entry for the Kubernetes application.
 
 ## Kubernetes networks
 
-In AKS on Azure Stack HCI, the cluster can be deployed using one of the
-following network models:
+In AKS on Azure Stack HCI, the cluster can be deployed using one of the following network models:
 
--   [Project Calico networking][]. This is a default networking model
-    > for AKS on Azure Stack HCI and is based on an open-source
-    > networking that provides network security for containers, virtual
-    > machines, and native host-based workloads. Calico network policy
-    > can be applied on any kind of endpoint such as pods, containers,
-    > VMs, or host interfaces. Each policy consists of rules that
-    > control ingress and egress traffic by using actions that can,
-    > either allow, deny, log, or pass the traffic between source and
-    > destination endpoints. Calico can use either Linux extended
-    > Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline
-    > for traffic delivery. Calico is also supported on Windows using
-    > Host Networking Service (HNS) for creating network namespaces per
-    > container endpoint. In the Kubernetes network model, every pod
-    > gets its own IP address that's shared between containers within
-    > that pod. Pods communicate on the network using pod IP addresses
-    > and the isolation is defined using network policies. Calico is
-    > using CNI ( Container Network Interface) plugins for adding or
-    > deleting pods to and from the Kubernetes pod network and CNI IPAM
-    > (IP Address Management) plugins for allocating and releasing IP
-    > addresses.
-
--   [Flannel overlay networking.][] Flannel creates a virtual network
-    > layer that overlays the host network. Overlay networking uses
-    > encapsulation of the network packets over the existing physical
-    > network. Flannel simplifies IP Address Management (IPAM), supports
-    > IP re-use between different applications and namespaces, and
-    > provides logical separation of container networks from the
-    > underlay network used by the Kubernetes nodes. Network isolation
-    > is achieved using Virtual eXtensible Local Area Network (VXLAN),
-    > an encapsulation protocol that provides data center connectivity
-    > using tunneling to stretch Layer 2 connections over an underlying
-    > Layer 3 network. Flannel is supported both by Linux containers
-    > using *DaemonSet* and Windows containers using Flannel CNI plugin.
+- [Project Calico networking][]. This is a default networking model for AKS on Azure Stack HCI and is based on an open-source networking that provides network security for containers, virtual machines, and native host-based workloads. Calico network policy can be applied on any kind of endpoint such as pods, containers, VMs, or host interfaces. Each policy consists of rules that control ingress and egress traffic by using actions that can, either allow, deny, log, or pass the traffic between source and destination endpoints. Calico can use either Linux extended Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline for traffic delivery. Calico is also supported on Windows using Host Networking Service (HNS) for creating network namespaces per container endpoint. In the Kubernetes network model, every pod gets its own IP address that's shared between containers within that pod. Pods communicate on the network using pod IP addresses and the isolation is defined using network policies. Calico is using CNI ( Container Network Interface) plugins for adding or deleting pods to and from the Kubernetes pod network and CNI IPAM (IP Address Management) plugins for allocating and releasing IP addresses.
+- [Flannel overlay networking.][] Flannel creates a virtual network layer that overlays the host network. Overlay networking uses encapsulation of the network packets over the existing physical network. Flannel simplifies IP Address Management (IPAM), supports IP re-use between different applications and namespaces, and provides logical separation of container networks from the underlay network used by the Kubernetes nodes. Network isolation is achieved using Virtual eXtensible Local Area Network (VXLAN), an encapsulation protocol that provides data center connectivity using tunneling to stretch Layer 2 connections over an underlying Layer 3 network. Flannel is supported both by Linux containers using *DaemonSet* and Windows containers using Flannel CNI plugin.
 
 ## Azure Stack HCI networking design
 
-The overall networking design includes planning activities for the Azure
-Stack HCI.
+The overall networking design includes planning activities for the Azure Stack HCI.
 
-First, start by planning the hardware and installation of Azure Stack
-HCI. You can either purchase integrated systems from a Microsoft
-hardware partner with the Azure Stack HCI operating system
-pre-installed, or you can buy validated nodes and install the operating
-system yourself. Azure Stack HCI is intended as a virtualization host,
-so Kubernetes server roles must run inside VMs.
+First, start by planning the hardware and installation of Azure Stack HCI. You can either purchase integrated systems from a Microsoft
+hardware partner with the Azure Stack HCI operating system pre-installed, or you can buy validated nodes and install the operating
+system yourself. Azure Stack HCI is intended as a virtualization host, so Kubernetes server roles must run inside VMs.
 
 ### Physical network requirements for Azure Stack HCI
 
-Microsoft doesn't certify network switches, but it has certain
-requirements that the vendor of the equipment must satisfy:
+Microsoft doesn't certify network switches, but it has certain requirements that the vendor of the equipment must satisfy:
 
--   Standard: IEEE 802.1Q that defines a virtual local area network
-    (VLAN).
-
--   Standard: IEEE 802.1Qbb that defines Priority Flow Control (PFC).
-
--   Standard: IEEE 802.1Qaz that defines Enhanced Transmission Selection
-    (ETS).
-
--   Standard: IEEE 802.1AB that defines Link Layer Topology Discovery
-    (LLTD) protocol.
+- Standard: IEEE 802.1Q that defines a virtual local area network (VLAN).
+- Standard: IEEE 802.1Qbb that defines Priority Flow Control (PFC).
+- Standard: IEEE 802.1Qaz that defines Enhanced Transmission Selection (ETS).
+- Standard: IEEE 802.1AB that defines Link Layer Topology Discovery (LLTD) protocol.
 
 ### Host network requirements for Azure Stack HCI
 
-Consider using a network adapter that has achieved the Windows Server
-Software Defined Data Center (SDDC) certification with the Standard or
+Consider using a network adapter that has achieved the Windows Server Software Defined Data Center (SDDC) certification with the Standard or
 Premium Additional Qualification (AQ).
 
 Ensure that the network adapter supports:
 
--   [Dynamic Virtual Machine Multi-Queue][] (Dynamic VMMQ or d.VMMQ) is
-    an intelligent, receive-side technology for automatic tuning of
-    network traffic processing to CPU cores.
+- [Dynamic Virtual Machine Multi-Queue][] (Dynamic VMMQ or d.VMMQ) is an intelligent, receive-side technology for automatic tuning of network traffic processing to CPU cores.
+- Remote Direct Memory Access (RDMA) is a network stack offload to the network adapter. It allows SMB storage traffic to bypass the    operating system for processing.
+- Guest RDMA enables SMB workloads for VMs to gain the same benefits of using RDMA on hosts.
+- Switch Embedded Teaming (SET) is a software-based teaming technology.
 
--   Remote Direct Memory Access (RDMA) is a network stack offload to the
-    network adapter. It allows SMB storage traffic to bypass the
-    operating system for processing.
+Consider using [Network ATC][], which provides intent-based control to simplify host networking configuration.
 
--   Guest RDMA enables SMB workloads for VMs to gain the same benefits
-    of using RDMA on hosts.
-
--   Switch Embedded Teaming (SET) is a software-based teaming
-    technology.
-
-Consider using [Network ATC][], which provides intent-based control to
-simplify host networking configuration.
-
-AKS on an Azure Stack HCI requires a reliable high-bandwidth,
-low-latency network connection between each server node. Ensure that at
-least one network adapter is available and dedicated for cluster
-management. Also verify that physical switches in your network are
+AKS on an Azure Stack HCI requires a reliable high-bandwidth, low-latency network connection between each server node. Ensure that at
+least one network adapter is available and dedicated for cluster management. Also verify that physical switches in your network are
 configured to allow traffic on any VLANs you'll use.
 
-### Virtual Switch
+### Virtual switch
 
-Azure Stack HCI simplifies the networking design by configuring a
-virtual switch that can be used for network classification. The virtual
-network interface card (vNIC) can be placed in different VLANs for the
-hosts to provide different traffic flow for the following networks:
+Azure Stack HCI simplifies the networking design by configuring a virtual switch that can be used for network classification. The virtual
+network interface card (vNIC) can be placed in different VLANs for the hosts to provide different traffic flow for the following networks:
 
--   Management network. The management network is part of the
-    north-south network and is used for host communication.
+- Management network. The management network is part of the north-south network and is used for host communication.
+- Compute network. The compute network is part of the north-south network and is used for virtual machine traffic. Use Quality of Service (QOS), single-root I/O virtualization (SR-IOV), and virtual Remote Direct Memory Access (vRDMA) to tune the network performance based on demand.
+- Storage network. The storage network is part of the east-west network and requires RDMA with recommended throughput 10GB+. It's used for live migration of the VMs.
+- VM guest network.
 
--   Compute network. The compute network is part of the north-south
-    network and is used for virtual machine traffic. Use Quality of
-    Service (QOS), single-root I/O virtualization (SR-IOV), and virtual
-    Remote Direct Memory Access (vRDMA) to tune the network performance
-    based on demand.
+#### East-West traffic benefit of RDMA traffic
 
--   Storage network. The storage network is part of the east-west
-    network and requires RDMA with recommended throughput 10GB+. It's
-    used for live migration of the VMs.
+East-West network traffic represents communication between the hosts, and it doesn't expose any external access. Traffic remains within the
+Top of Rack (ToR) switch and Layer-2 boundary. It includes the following types of traffic:
 
--   VM guest network
+- Cluster heartbeats and inter-node communication
+- \[SMB\] Storage Bus Layer
+- \[SMB\] Cluster Shared Volume
+- \[SMB\] Storage Rebuild
 
-#### East-West traffic benefit of RDMA traffic 
+#### North-South traffic
 
-East-West network traffic represents communication between the hosts,
-and it doesn't expose any external access. Traffic remains within the
-Top of Rack (ToR) switch and Layer-2 boundary. It includes the following
-types of traffic:
-
--   Cluster heartbeats and inter-node communication
-
--   \[SMB\] Storage Bus Layer
-
--   \[SMB\] Cluster Shared Volume
-
--   \[SMB\] Storage Rebuild
-
-#### North-South traffic 
-
-North-South traffic is the external traffic that reaches the AKS on
-Azure Stack HCI cluster. You can plan the traffic for the range of Azure
-services that enable monitoring, billing, and security management
-through the integration of Azure ARC. North-south traffic has the
+North-South traffic is the external traffic that reaches the AKS on Azure Stack HCI cluster. You can plan the traffic for the range of Azure
+services that enable monitoring, billing, and security management through the integration of Azure ARC. North-south traffic has the
 following characteristics:
 
--   Traffic flows out of a ToR switch to the spine or in from the spine
-    to a ToR switch.
+- Traffic flows out of a ToR switch to the spine or in from the spine to a ToR switch.
+- Traffic leaves the physical rack or crosses a Layer-3 boundary (IP).
+- Traffic includes management (PowerShell, Windows Admin Center), compute (VM), and inter-site stretched cluster traffic.
+- Uses an an Ethernet switch for connectivity to the physical network.
 
--   Traffic leaves the physical rack or crosses a Layer-3 boundary (IP).
+AKS on Azure Stack HCI can use several cluster network deployment options:
 
--   Traffic includes management (PowerShell, Windows Admin Center),
-    compute (VM), and inter-site stretched cluster traffic.
-
--   Uses an an Ethernet switch for connectivity to the physical network.
-
-AKS on Azure Stack HCI can use several cluster network deployment
-options:
-
--   Converged Network Combining Multiple Network Intents (MGMT, Compute,
-    Storage). This is the recommended deployment for more than three
-    physical nodes and requires that all physical network adapters are
-    connected to the same ToR switches. ROCEv2 is highly recommended.
-
--   Switchless deployment uses North-South communication as a network
-    team by combining compute and management networks.
-
--   Hybrid deployment as a combination of both deployments.
+- Converged Network Combining Multiple Network Intents (MGMT, Compute, Storage). This is the recommended deployment for more than three physical nodes and requires that all physical network adapters are connected to the same ToR switches. ROCEv2 is highly recommended.
+- Switchless deployment uses North-South communication as a network team by combining compute and management networks.
+- Hybrid deployment as a combination of both deployments.
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow the
-recommendations unless you have a specific requirement that overrides
-it.
+The following recommendations apply for most scenarios. Follow the recommendations unless you have a specific requirement that overrides it.
 
 ### Network recommendations
 
-The major concern in the networking design for the AKS on Azure Stack
-HCI is selecting a network model that provides enough IP addresses for
+The major concern in the networking design for the AKS on Azure Stack HCI is selecting a network model that provides enough IP addresses for
 your Kubernetes cluster, it's services and applications.
 
--   Consider implementing static IP addresses to allow AKS on Azure
-    Stack HCI to control the IP address assignment.
+- Consider implementing static IP addresses to allow AKS on Azure Stack HCI to control the IP address assignment.
+- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require additional IP addresses. You can plan the following:
+  - Addressing/hostnames for Proxy settings
+  - IP addresses for the target cluster control plane
+  - IP addresses for the Azure ARC
+  - IP addresses for horizontal scaling of worker and control plane nodes in target clusters
+- Your virtual IP pool should be big enough to support the deployment of the application services that require connectivity to the external router.
+- Implement Calico CNI to provide enhanced network policy for controlling the pod and application communication.
+- Ensure that the physical cluster nodes (HCI or Windows Server) are located in the same rack and connected to the same ToR switches.
+- Disable IPv6 on all network adapters.
+- Ensure that the existing virtual switch and its name is the same across all cluster nodes.
+- Verify that all subnets you define for your cluster are routable among each other and to the Internet.
+- Make sure there is network connectivity between Azure Stack HCI hosts and the tenant VMs.
+- Enable dynamic DNS updates in your DNS environment to allow AKS on Azure Stack HCI to register the cloud agent generic cluster name in the DNS system for discovery.
 
--   Dimension properly the IP address ranges so you have enough free IP
-    addresses for a Kubernetes node pool and for a virtual IP pool.
-    Ensure that your virtual IP pool is large enough so that whenever
-    you're upgrading you can use rolling upgrades, which require
-    additional IP addresses. You can plan the following:
-
-    -   Addressing/hostnames for Proxy settings
-
-    -   IP addresses for the target cluster control plane
-
-    -   IP addresses for the Azure ARC
-
-    -   IP addresses for horizontal scaling of worker and control plane
-        nodes in target clusters
-
--   Your virtual IP pool should be big enough to support the deployment
-    of the application services that require connectivity to the
-    external router.
-
--   Implement Calico CNI to provide enhanced network policy for
-    controlling the pod and application communication.
-
--   Ensure that the physical cluster nodes (HCI or Windows Server) are
-    located in the same rack and connected to the same ToR switches.
-
--   Disable IPv6 on all network adapters.
-
--   Ensure that the existing virtual switch and its name is the same
-    across all cluster nodes.
-
--   Verify that all subnets you define for your cluster are routable
-    among each other and to the Internet.
-
--   Make sure there is network connectivity between Azure Stack HCI
-    hosts and the tenant VMs.
-
--   Enable dynamic DNS updates in your DNS environment to allow AKS on
-    Azure Stack HCI to register the cloud agent generic cluster name in
-    the DNS system for discovery.
-
-### Integrate AKS on Azure Stack HCI deployments with Azure to minimize the total cost of ownership (TCO). Consider using the following Azure services:
-
--   <u>[Azure Monitor Container Insight][]s</u> monitors the performance
-    of container workloads that are running on both Linux and Windows
-    clusters. It collects memory and processor metrics, from
-    controllers, nodes, and containers through the Metric API. With
-    container insights, you can identify memory and processor
-    utilization, detect overall pod's performance, understand the
-    behavior of the cluster, and configure alerts for proactive
-    monitoring. 
-
--   Backup and restore workload clusters using [<u>Velero and Azure Blob
-    Storage</u>][]. Velero is an open-source tool that supports
-    on-demand backup, scheduled backup, and restoration of all objects
-    in the Kubernetes cluster for any resources that are defined and
-    stored in an etcd database as a Kubernetes custom resource
-    definition (CRD). It provides backup of Kubernetes resources and
-    volumes for an entire cluster or part of a cluster by using
-    namespaces or label selectors. Store the backup set created with the
-    Velero tool in an Azure storage account in a blob container. 
-
--   [<u>Azure Arc–enabled Kubernetes service</u>][] provides Azure
-    Resource manager representation of AKS on Azure Stack HCI cluster.
-    Deploy Azure Arc–enabled agents in a Kubernetes namespace to collect
-    logs and metrics, to gather cluster metadata, cluster versions, and
-    node counts. Ensure that agents are exhibiting optimal performance. 
-
--   Deploy and enforce GitOps using Azure Policy. GitOps is the practice
-    of declaring the desired state of Kubernetes configuration
-    (deployments, namespaces, and so on) in a Git repository. 
-
--   [<u>Azure Policy for Kubernetes</u>][] makes it possible to manage
-    and report on the compliance state of your Kubernetes clusters from
-    one place.
-
--   Use [<u>Azure RBAC</u>][] for role assignment and to manage access
-    to Azure Arc–enabled Kubernetes.
-
-<!-- -->
-
--   ### Consider implementing classification of the network traffic by its direction.
-
-<!-- -->
-
--   North-South traffic is the traffic from Azure Stack HCI and rest of
-    the network,
-
-    -   Management
-
-    -   Compute
-
-    -   Intersite stretched cluster traffic
-
--   East-West traffic whitin the Azure Stack HCI
-
-    -   Storage traffic including live migration between nodes in the
-        same cluster
-
-    -   Ethernet switch or direct connection
+- Consider implementing classification of the network traffic by its direction:
+  - North-South traffic is the traffic from Azure Stack HCI and rest of the network,
+    - Management
+    - Compute
+    - Inter-site stretched cluster traffic
+  - East-West traffic within Azure Stack HCI:
+    - Storage traffic including live migration between nodes in the same cluster.
+    - Ethernet switch or direct connection.
 
 ## Storage traffic models
 
--   Use multiple subnets and VLANs to separate storage traffic in Azure
-    Stack HCI.
+- Use multiple subnets and VLANs to separate storage traffic in Azure Stack HCI.
+- Consider implementing traffic bandwidth allocation of various traffic types.
 
--   Consider implementing traffic bandwidth allocation of various
-    traffic types.
+## Considerations
 
-## Well-Architected Framework
-
-The [Microsoft Azure Well-Architected Framework][] is a set of guiding
-tenets that are followed in this reference architecture. The following
+The [Microsoft Azure Well-Architected Framework][] is a set of guiding tenets that are followed in this scenario. The following
 considerations are framed in the context of these tenets.
 
 ### Cost optimization
 
--   ### Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. Other best practices are described in the [cost optimization][] section in [Microsoft Azure Well-Architected Framework.][]
-
--   Consider implementing hyper-threading on your physical computer, to
-    optimize the cost, because the AKS on Azure Stack HCI billing unit
-    is a virtual core.
-
--   Azure Arc control plane functionality is provided at no extra cost.
-    This includes support for resource organization through Azure
-    management groups and tags, and access control through Azure RBAC.
-    Azure services used in conjunction to Azure Arc–enabled servers
-    incur costs according to their usage.
-
--   For cost-effectiveness, you can use as few as two cluster nodes with
-    only four disks and 64 gigabytes (GB) of memory per node. To further
-    minimize costs, you can use switchless interconnects between nodes,
-    thereby eliminating the need for redundant switch devices.
+- Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. Other best practices are described in the [cost optimization][] section in [Microsoft Azure Well-Architected Framework.][]
+- Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Stack HCI billing unit is a virtual core.
+- Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure RBAC. Azure services used in conjunction to Azure Arc–enabled servers incur costs according to their usage.
+- For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices.
 
 ### Operational excellence
 
--   Simplified management using Windows Admin Center. Windows Admin
-    Center is the user interface for creating and managing AKS on Azure
-    Stack HCI. It can be installed on Windows 10/11 or Windows Server VM
-    that need to be registered in Azure and are in the same domain as
-    the Azure Stack HCI or Windows Server Datacenter cluster.
-
--   Integration with Azure Arc or a range of Azure services that provide
-    additional management, maintenance, and resiliency capabilities
-    (Azure Monitor, Azure Backup).
-
--   If your Kubernetes cluster is [attached to Azure
-    Arc][<u>Azure Arc–enabled Kubernetes service</u>], you can [manage
-    your Kubernetes cluster using GitOps][]. To review best practices
-    for connecting a hybrid Kubernetes cluster to Azure Arc, refer to
-    the [Azure Arc hybrid management and deployment for Kubernetes
-    clusters][] reference architecture.
-
--   The Azure Stack HCI platform also helps to simplify virtual
-    networking for AKS on Azure Stack HCI clusters by providing the
-    "underlay" network in a highly available manner.
+- Simplified management using Windows Admin Center. Windows Admin Center is the user interface for creating and managing AKS on Azure Stack HCI. It can be installed on Windows 10/11 or Windows Server VM that need to be registered in Azure and are in the same domain as the Azure Stack HCI or Windows Server Datacenter cluster.
+- Integration with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (Azure Monitor, Azure Backup).
+- If your Kubernetes cluster is [attached to Azure Arc][Azure Arc–enabled Kubernetes service], you can [manage your Kubernetes cluster using GitOps][]. To review best practices for connecting a hybrid Kubernetes cluster to Azure Arc, see the [Azure Arc hybrid management and deployment for Kubernetes clusters][] scenario.
+- The Azure Stack HCI platform also helps to simplify virtual networking for AKS on Azure Stack HCI clusters by providing the "underlying" network in a highly available manner.
 
 ### Performance efficiency
 
--   Use Azure Stack HCI certified hardware for improved application
-    uptime and performance, simplified management and operations, and
-    lower total cost of ownership.
-
--   Storage: Storage Spaces Direct
-
-    -   Volume configuration (nested two-way mirror versus nested
-        mirror-accelerated parity)
-
-    -   Disk configuration (caching, tiers)
-
--   Ensure that the cluster nodes are physically located in the same
-    rack and connected to the same ToR switches.
-
--   Plan IP address reservations to configure AKS hosts, workload
-    clusters, Cluster API servers, Kubernetes Services, and Application
-    services. Microsoft recommends reserving a minimum of 256 IP
-    addresses for AKS deployment on Azure stack HCI.
-
--   Consider implementing an ingress controller that works at layer 7
-    and uses more intelligent rules to distribute application traffic.
-
--   Use graphics processing unit (GPU) acceleration for extensive
-    workloads.
+- Use Azure Stack HCI certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
+- Storage: Storage Spaces Direct
+  - Volume configuration (nested two-way mirror versus nested mirror-accelerated parity)
+  - Disk configuration (caching, tiers)
+- Ensure that the cluster nodes are physically located in the same rack and connected to the same ToR switches.
+- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure stack HCI.
+- Consider implementing an ingress controller that works at layer 7 and uses more intelligent rules to distribute application traffic.
+- Use graphics processing unit (GPU) acceleration for extensive workloads.
 
 ### Reliability
 
--   Built-in resiliency, inherent to Microsoft software-defined compute
-    (failover cluster of Hyper-V nodes), storage (Storage Spaces Direct
-    nested resiliency), and networking (Software Defined Networking).
-
--   Consider selecting the network switch that supports industry
-    standards and ensures reliable communications between nodes. The
-    following standards include:
-
-    -   Standard: IEEE 802.1Q
-
-    -   Standard IEEE 802.1Qbb
-
-    -   Standard IEEE 802.1 Qas
-
-    -   Standard IEEE 802.1 AB
-
--   Consider implementing multiple hosts in the management cluster and
-    in the Kubernetes cluster to meet the minimum level of availability
-    for workloads.
-
--   AKS on Azure Stack HCI uses failover clustering and live migration
-    for high availability and fault tolerance. Live migration is a
-    Hyper-V feature that allows you to transparently move running
-    virtual machines from one Hyper-V host to another without perceived
-    downtime.
-
--   You should ensure that services referenced in the Architecture
-    section are supported in the region to which Azure Arc is deployed.
+- Built-in resiliency, inherent to Microsoft software-defined compute (failover cluster of Hyper-V nodes), storage (Storage Spaces Direct nested resiliency), and networking (Software Defined Networking).
+- Consider selecting the network switch that supports industry standards and ensures reliable communications between nodes. The following standards include:
+  - Standard: IEEE 802.1Q
+  - Standard IEEE 802.1Qbb
+  - Standard IEEE 802.1 Qas
+  - Standard IEEE 802.1 AB
+- Consider implementing multiple hosts in the management cluster and in the Kubernetes cluster to meet the minimum level of availability for workloads.
+- AKS on Azure Stack HCI uses failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
+- You should ensure that services referenced in the [Architecture](#architecture) section are supported in the region to which Azure Arc is deployed.
 
 ### Security
 
--   Secure traffic between pods using network policies in AKS on Azure
-    Stack HCI.
+- Secure traffic between pods using network policies in AKS on Azure Stack HCI.
+- The API server in AKS on Azure Stack HCI contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
+- Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
+- You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
--   The API server in AKS on Azure Stack HCI contains the Certificate
-    Authority which signs certificates for communication from the
-    Kubernetes API server to *kubelet*.
+## Next steps
 
--   Use Azure Active Directory (Azure AD) single sign-on (SSO) to create
-    a secure connection to Kubernetes API server.
+- [AKS overview](/azure-stack/aks-hci/overview)
 
--   You can use Azure RBAC to manage access to Azure Arc–enabled
-    Kubernetes across Azure and on-premises environments using Azure AD
-    identities. For more information, refer to [Use Azure RBAC for
-    Kubernetes Authorization][].
-
-  [Azure Stack HCI (20H2)]: https://docs.microsoft.com/en-us/azure-stack/hci/overview
-  [Azure Kubernetes Service on Azure Stack HCI]: https://docs.microsoft.com/en-us/azure-stack/aks-hci/overview
-  [Active Directory Domain Services]: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
-  [Management cluster]: https://learn.microsoft.com/en-us/azure-stack/aks-hci/kubernetes-concepts#the-management-cluster
-  [Workload Cluster]: https://learn.microsoft.com/en-us/azure-stack/aks-hci/kubernetes-concepts#the-workload-cluster
-  [Azure Arc]: https://docs.microsoft.com/en-us/azure/azure-arc/overview
-  [Azure Policy]: https://docs.microsoft.com/en-us/azure/governance/policy/overview
-  [Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/overview
-  [Microsoft Defender for Cloud]: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction
+  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+  [Azure Kubernetes Service on Azure Stack HCI]: /azure-stack/aks-hci/overview
+  [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+  [Management cluster]: /azure-stack/aks-hci/kubernetes-concepts#the-management-cluster
+  [Workload Cluster]: /azure-stack/aks-hci/kubernetes-concepts#the-workload-cluster
+  [Azure Arc]: /azure/azure-arc/overview
+  [Azure Policy]: /azure/governance/policy/overview
+  [Azure Monitor]: /azure/azure-monitor/overview
+  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
-  [Windows Server 2019/2022 datacenter failover cluster]: https://docs.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview
+  [Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
   [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-  [Windows Admin Center ]: https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview
+  [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [2]: https://azure.microsoft.com/services/azure-arc/
-  [Azure role-based access control (RBAC)]: https://docs.microsoft.com/azure/role-based-access-control/
+  [Azure role-based access control (RBAC)]: /azure/role-based-access-control/
   [3]: https://azure.microsoft.com/services/monitor/
   [4]: https://azure.microsoft.com/services/defender-for-cloud/
-  [ingress controller]: https://docs.microsoft.com/en-us/azure-stack/aks-hci/create-ingress-controller
+  [ingress controller]: /azure-stack/aks-hci/create-ingress-controller
   [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
   [Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082
   [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
-  [Network ATC]: https://docs.microsoft.com/en-us/azure-stack/hci/concepts/network-atc-overview
-  [Azure Monitor Container Insight]: https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview
-  [<u>Velero and Azure Blob Storage</u>]: https://docs.microsoft.com/azure-stack/aks-hci/backup-workload-cluster
-  [<u>Azure Arc–enabled Kubernetes service</u>]: https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/
-  [<u>Azure Policy for Kubernetes</u>]: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes
-  [<u>Azure RBAC</u>]: https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-azure-rbac
-  [Microsoft Azure Well-Architected Framework]: https://docs.microsoft.com/en-us/azure/architecture/framework
+  [Network ATC]: /azure-stack/hci/concepts/network-atc-overview
+  [Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
+  [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-  [cost optimization]: https://docs.microsoft.com/en-us/azure/architecture/framework/cost/overview
-  [Microsoft Azure Well-Architected Framework.]: https://docs.microsoft.com/en-us/azure/architecture/framework/
-  [manage your Kubernetes cluster using GitOps]: https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/use-gitops-connected-cluster
-  [Azure Arc hybrid management and deployment for Kubernetes clusters]: https://docs.microsoft.com/en-us/azure/architecture/hybrid/arc-hybrid-kubernetes
-  [Use Azure RBAC for Kubernetes Authorization]: https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac
+  [cost optimization]: /azure/architecture/framework/cost/overview
+  [Microsoft Azure Well-Architected Framework.]: /azure/architecture/framework/
+  [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+  [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
+  [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
