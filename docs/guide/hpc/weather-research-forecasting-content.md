@@ -56,7 +56,7 @@ Installation steps include setting up your environment and configuring and compi
 
 ## WRF performance results
 
- The new_conus2.5km model was tested:
+ The New CONUS 2.5 km model was tested:
 
 :::image type="content" source="media/wrf/new-conus25km-model.png" alt-text="Screenshot that shows the New CONUS 2.5 km model." border="false":::
 
@@ -110,7 +110,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - WRF was successfully tested on HBv3-series series VMs on Azure.
-- Expected mean time per step was achieved with all CPU configurations. However, scalability might vary depending on the dataset used and the node count. Be sure to test the impact of the tile size, process, and threads per process.
+- Expected mean time per step was achieved with all CPU configurations. However, scalability might vary depending on the dataset used and the node count. Be sure to test the affect of the tile size, process, and threads per process.
  
 ## Contributors
 
