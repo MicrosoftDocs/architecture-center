@@ -453,6 +453,8 @@ Principal authors:
 
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
