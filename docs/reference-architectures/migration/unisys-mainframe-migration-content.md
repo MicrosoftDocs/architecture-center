@@ -131,6 +131,8 @@ Principal authors:
 
  - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next Steps
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
