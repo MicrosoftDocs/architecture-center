@@ -190,6 +190,14 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370/) | Senior Cloud Solution Architect
+
 ## Next Steps
 
 * [Azure Activity Directory Documentation](/azure/active-directory)
