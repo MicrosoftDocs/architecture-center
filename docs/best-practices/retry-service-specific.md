@@ -67,7 +67,7 @@ Consider the following guidelines when using Azure Active Directory:
 - For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response.
 - Do not retry on errors other than 429 and 5xx.
 
-### More information
+### Next steps
 
 - [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 
@@ -98,7 +98,7 @@ EventHubClient client = EventHubClient.CreateFromConnectionString("[event_hub_co
 client.RetryPolicy = RetryPolicy.Default;
 ```
 
-### More information
+### Next steps
 
 [.NET Standard client library for Azure Event Hubs](https://github.com/Azure/azure-event-hubs-dotnet)
 
@@ -116,7 +116,7 @@ The default retry policy is *exponential back-off with random jitter*, but it ca
 
 Policy configuration differs by language. For more details, see [IoT Hub retry policy configuration](/azure/iot-hub/iot-hub-reliability-features-in-sdks#retry-policy-apis).
 
-### More information
+### Next steps
 
 - [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
 - [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
@@ -304,7 +304,7 @@ namespace RetryCodeSamples
 
 For more examples, see [Configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Configuration.md) on the project website.
 
-### More information
+### Next steps
 
 - [Redis website](https://redis.io)
 
@@ -497,7 +497,7 @@ namespace RetryCodeSamples
 }
 ```
 
-### More information
+### Next steps
 
 - [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging)
 
@@ -524,7 +524,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
     new ServicePartitionKey(0));
 ```
 
-### More information
+### Next steps
 
 - [Remote exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
 
@@ -604,7 +604,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 }
 ```
 
-### More information
+### Next steps
 
 - [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
@@ -765,7 +765,7 @@ namespace RetryCodeSamples
 
 More examples of using the Entity Framework retry mechanism can be found in [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic).
 
-### More information
+### Next steps
 
 - [Azure SQL Database performance and elasticity guide](https://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
@@ -1061,7 +1061,7 @@ namespace RetryCodeSamples
 }
 ```
 
-### More information
+### Next steps
 
 - [Azure Storage client Library retry policy recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations)
 
@@ -1133,7 +1133,7 @@ The following are the typical types of retry strategy intervals:
 
 [Polly](http://thepollyproject.org) is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.yml) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
 
-### More information
+### Next steps
 
 - [connection resiliency](/ef/core/miscellaneous/connection-resiliency)
 - [Data Points - EF Core 1.1](/archive/msdn-magazine/2017/january/data-points-ef-core-1-1-a-few-of-my-favorite-things)
