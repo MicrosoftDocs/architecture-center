@@ -1,4 +1,6 @@
-For some scenarios you would like your application to be available in multiple Azure regions. This is the case when you would like to have global reach for your application and for instance make it available in both Europe, Asia and the Americas, bringing the workload closer to the end user, making latency as low as possible. Or you can make use of multiple regions to increase the overall SLA of your application. You might also use a secondary region as a failover site for your first region. 
+This reference architecture details how to run multiple instances of an Azure Spring Apps service across multiple regions in an active/active and highly available configuration.
+
+For some scenarios you would like your application to be available in multiple Azure regions. This is the case when you would like to have global reach for your application and for instance make it available in both Europe, Asia and the Americas. It brings the workload closer to the end user, making latency as low as possible. Or you can make use of multiple regions to increase the overall SLA of your application. You might also use a secondary region as a failover site for your first region and opt for an active/passive setup of 1 or more regions.
 
 This architecture describes a multi region setup for Azure Spring Apps service. It also takes into account how you load balance the incoming requests to your application to 1 of the regions your application is deployed in. It also provides host name preservation all the way from the browser request to your application code. [**Deploy this scenario**.](#deploy-this-scenario)
 
@@ -41,9 +43,37 @@ The following workflow corresponds to the above diagram:
 
 ### Alternatives
 
-> Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives. Customers find this valuable because they want to know what other services or technologies they can use as part of this architecture.
+#### Multi zone deployment
 
-> What alternative technologies were considered and why didn't we use them?
+For increasing the overall resilience and reliability of an application, setting up the application in multiple zones within the same region, can also be utilized. In this case the application gets deployed in 1 region, however the multiple zones guarantee the application workload is spread across physically separate locations within each Azure region that are tolerant to local failures. Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. The added benefit would be that for data workloads you don't have to rely on asynchronous replication, which in most cases calls for additional design concerns.
+
+When deploying your workload to multiple zones instead of multiple regions take the following into account:
+- The region you are deploying to should support multiple zones. For a list of supported regions, you can check the [list of Azure regions that support availability zones](https://learn.microsoft.com/azure/availability-zones/az-overview#azure-regions-with-availability-zones).
+- Preferably all services in your setup should support a multi-zone setup. You can check the [list of Azure services that support availability zones](https://learn.microsoft.com/azure/availability-zones/az-region).
+
+For the services used in this setup:
+
+|Service|Resiliency|
+|---|---|
+|Azure DNS|Globally available|
+|Azure Front Door|Globally available|
+|Azure Application Gateway|Zone redundant|
+|Azure Web Application Firewall|Zone redundant|
+|Azure Spring Apps|Zone redundant|
+|Azure Database for MySQL|Zone redundant|
+|Azure Key Vault|Zone redundant|
+|Azure Resource Groups|not applicable|
+|Azure Virtual Network|Zone redundant|
+|Azure Private Endpoint|???Zone redundant because Private Link is???|
+
+When deploying this setup to multiple zones instead of multipl regions for higher resilience and reliability, it still makes sense to front your single region setup with an Azure Front Door service. This allows for future expansion, and is an easy way to get a first version of a active/passive setup.
+
+Additionaly you can also combine a multi-zone setup with a multi-region setup.
+
+#### Backend database
+
+
+
 
 ## Solution details
 
@@ -54,6 +84,10 @@ The following workflow corresponds to the above diagram:
 >   What does this example scenario show? What are the customer's goals?
 
 > What were the benefits of implementing the solution described below?
+
+### Design patterns
+
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../patterns/geodes.yml), where any region can service any request, and [Deployment Stamps](../../patterns/deployment-stamp.yml) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
 
 ### Potential use cases
 
