@@ -21,7 +21,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 1. The enriched data is stored in Data Lake.
 
-1. A serverless SQL pool in Azure Synapse Analytics makes the enriched Data Lake data available to Power BI.
+1. A serverless SQL pool in Azure Synapse Analytics makes the enriched data available to Power BI.
 
 1. Power BI Desktop dashboards provide insights into the data.
 
@@ -44,7 +44,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 - [Translator](https://azure.microsoft.com/products/cognitive-services/translator) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. Translator supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication. For the languages that Translator supports, see [Translation](/azure/cognitive-services/translator/language-support#translation).
 
-- [Azure Maps](https://azure.microsoft.com/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
+- [Azure Maps](https://azure.microsoft.com/products/azure-maps) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
 
 - [Data Lake](https://azure.microsoft.com/solutions/data-lake) is a massively scalable and secure data lake for high-performance analytics workloads.
 
@@ -59,6 +59,8 @@ To best address customer needs, organizations need to extract insights from soci
 You can simplify this solution by eliminating Machine Learning and the custom machine learning models, as the following diagram shows. For more information, see [Deploy this scenario](#deploy-this-scenario), later in this article.
 
 :::image type="content" source="./media/build-deploy-social-media-analytics-solution-alternative.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-alternative.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1996849-build-deploy-social-media-analytics-solution.vsdx) of this architecture.*
 
 ## Scenario details
 
@@ -149,12 +151,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-pool-configurations).
 - You can scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
-- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](../data/synapse-exploratory-data-analytics#availability.yml).
+- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](../data/synapse-exploratory-data-analytics.yml#availability).
 - Azure Synapse Analytics supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467).
 
 ## Deploy this scenario
 
-To deploy this solution and run a sample social media analytics scenario, see the deployment guide in [Getting Started](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator#getting-started). This guide helps you set up the [Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) resources, which the architecture diagram in [Alternatives](#alternatives) shows. The deployment doesn't include the following components: Machine Learning, the managed endpoints, and the App Service web app.
+To deploy this solution and run a sample social media analytics scenario, see the deployment guide in [Getting Started](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator#getting-started). That guide helps you set up the [Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) resources, which the architecture diagram in [Alternatives](#alternatives) shows. The deployment doesn't include the following components: Machine Learning, the managed endpoints, and the App Service web app.
 
 ### Prerequisites
 
