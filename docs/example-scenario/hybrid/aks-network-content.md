@@ -1,14 +1,14 @@
-The following guidance describes how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on Azure Stack HCI and Windows Server clusters.
+This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on Azure Stack HCI and Windows Server clusters.
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers.
 
-## Architecture
+## Workflow
+
+The following image shows the network architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter clusters:
 
 :::image type="content" source="media/aks-network.png" alt-text="Conceptual graphic showing network baseline architecture." lightbox="media/aks-network.png":::
 
-### Components
-
-The architecture consists of the following components and capabilities:
+The scenario consists of the following components and capabilities:
 
 - [Azure Stack HCI (20H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
@@ -37,9 +37,15 @@ The architecture consists of the following components and capabilities:
 - [Azure Monitor][3]
 - [Microsoft Defender for Cloud][4]
 
-## Design consideration
+## Scenario details
 
-## Kubernetes node networking
+### Potential use cases
+
+Implement highly available, container-based workloads in an on-premises Kubernetes implementation of AKS.
+- Automate running containerized applications at scale.
+- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
+
+### Kubernetes node networking
 
 The major consideration in the networking design for the AKS on Azure Stack HCI is selecting the network model that provides enough IP addresses. AKS on Azure Stack HCI uses virtual networking to allocate IP addresses to the Kubernetes node resources. You can use two IP address assignment models:
 
@@ -86,6 +92,8 @@ You can also use a custom load balancer for managing traffic to your services. T
 
 AKS on Azure Stack HCI also supports the use of MetalLB or other OSS Kubernetes based load balancers to balance traffic destined for services in a workload cluster. MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols, such as Border Gateway protocol BGP. It can work with both network add-ons, Calico and Flannel, but you need to ensure that the virtual IP address range provided during the installation of AKS on Azure stack HCI isn't overlapping with the IP address range planned for the custom load balancer.
 
+## Deploy this scenario
+
 ### Deploy an ingress controller
 
 Consider implementing an [ingress controller][] for TLS termination, reversable proxy or configurable traffic routing. Ingress controllers work at Layer 7 and can use intelligent rules to distribute application traffic. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. When you define an ingress controller, you consolidate the traffic-routing rules into a single resource that runs as part of your cluster.
@@ -122,7 +130,7 @@ Use an ingress controller to balance the traffic between different backends of t
 
 To route HTTP traffic to multiple host names on the same IP address, you can use a different ingress resource for each host. The traffic that comes through the load balancer IP address is routed based on the host name and the path provided in the ingress rule.
 
-## Container networking concepts in Azure Kubernetes Service (AKS) on Azure Stack HCI
+### Container networking concepts in Azure Kubernetes Service (AKS) on Azure Stack HCI
 
 Kubernetes provides an abstraction layer to a virtual network, so the container-based applications can communicate internally or externally.
 The *kube-proxy* component runs on each node and can either provide direct access to the service, distribute traffic using load balances, or
@@ -134,14 +142,14 @@ network connectivity. The following Kubernetes services are available:
 - **LoadBalance**r: You can expose Kubernetes services externally using load-balancer rules or an ingress controller.
 - **ExternalName**:. This service uses a specific DNS entry for the Kubernetes application.
 
-## Kubernetes networks
+### Kubernetes networks
 
 In AKS on Azure Stack HCI, the cluster can be deployed using one of the following network models:
 
 - [Project Calico networking][]. This is a default networking model for AKS on Azure Stack HCI and is based on an open-source networking that provides network security for containers, virtual machines, and native host-based workloads. Calico network policy can be applied on any kind of endpoint such as pods, containers, VMs, or host interfaces. Each policy consists of rules that control ingress and egress traffic by using actions that can, either allow, deny, log, or pass the traffic between source and destination endpoints. Calico can use either Linux extended Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline for traffic delivery. Calico is also supported on Windows using Host Networking Service (HNS) for creating network namespaces per container endpoint. In the Kubernetes network model, every pod gets its own IP address that's shared between containers within that pod. Pods communicate on the network using pod IP addresses and the isolation is defined using network policies. Calico is using CNI ( Container Network Interface) plugins for adding or deleting pods to and from the Kubernetes pod network and CNI IPAM (IP Address Management) plugins for allocating and releasing IP addresses.
 - [Flannel overlay networking.][] Flannel creates a virtual network layer that overlays the host network. Overlay networking uses encapsulation of the network packets over the existing physical network. Flannel simplifies IP Address Management (IPAM), supports IP re-use between different applications and namespaces, and provides logical separation of container networks from the underlay network used by the Kubernetes nodes. Network isolation is achieved using Virtual eXtensible Local Area Network (VXLAN), an encapsulation protocol that provides data center connectivity using tunneling to stretch Layer 2 connections over an underlying Layer 3 network. Flannel is supported both by Linux containers using *DaemonSet* and Windows containers using Flannel CNI plugin.
 
-## Azure Stack HCI networking design
+### Azure Stack HCI networking design
 
 The overall networking design includes planning activities for the Azure Stack HCI.
 
@@ -186,7 +194,7 @@ network interface card (vNIC) can be placed in different VLANs for the hosts to 
 - Storage network. The storage network is part of the east-west network and requires RDMA with recommended throughput 10GB+. It's used for live migration of the VMs.
 - VM guest network.
 
-#### East-West traffic benefit of RDMA traffic
+### East-West traffic benefit of RDMA traffic
 
 East-West network traffic represents communication between the hosts, and it doesn't expose any external access. Traffic remains within the
 Top of Rack (ToR) switch and Layer-2 boundary. It includes the following types of traffic:
@@ -196,7 +204,7 @@ Top of Rack (ToR) switch and Layer-2 boundary. It includes the following types o
 - \[SMB\] Cluster Shared Volume
 - \[SMB\] Storage Rebuild
 
-#### North-South traffic
+### North-South traffic
 
 North-South traffic is the external traffic that reaches the AKS on Azure Stack HCI cluster. You can plan the traffic for the range of Azure
 services that enable monitoring, billing, and security management through the integration of Azure ARC. North-south traffic has the
@@ -299,6 +307,10 @@ considerations are framed in the context of these tenets.
 - The API server in AKS on Azure Stack HCI contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
 - Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
 - You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
+
+## Related resources
+
+- [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
 
 ## Next steps
 

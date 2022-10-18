@@ -2,17 +2,11 @@ This scenario illustrates how to design and implement a baseline architecture fo
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
 
-## Potential use cases
-
-- Implement highly available, container-based workloads in an on-premises Kubernetes implementation of AKS.
-- Automate running containerized applications at scale.
-- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
+## Workflow
 
 The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover cluster:
 
 :::image type="content" source="media/aks-baseline.png" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server." lightbox="media/aks-baseline.png":::
-
-## Components
 
 The architecture consists of the following components and capabilities:
 
@@ -37,7 +31,13 @@ The architecture consists of the following components and capabilities:
 - [Azure Monitor][]
 - [Microsoft Defender for Cloud][]
 
-## Design considerations
+## Scenario details
+
+### Potential use cases
+
+- Implement highly available, container-based workloads in an on-premises Kubernetes implementation of AKS.
+- Automate running containerized applications at scale.
+- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
 
 ### Certified hardware
 
@@ -107,6 +107,8 @@ To minimize the TCO, integrate AKS on Azure Stack HCI deployments with Azure Arc
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Cost optimization
 
 - Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices.
@@ -171,6 +173,10 @@ Focus on the entire stack by securing the host and containers.
 - Keep secrets out of the images and mount them only through the container orchestration engine.
 - Secure the images in an Azure Container Registry that supports vulnerability scanning and RBAC.
 - [Use isolation of containers][], and avoid running containers in privileged mode to prevent attackers to escalate the privileges if the container is compromised.
+
+## Related resources
+
+- [Network architecture for AKS on Azure Stack HCI](aks-network.yml)
 
 ## Next steps
 
