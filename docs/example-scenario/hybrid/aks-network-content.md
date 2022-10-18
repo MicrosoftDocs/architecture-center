@@ -25,12 +25,12 @@ The scenario consists of the following components and capabilities:
 - [Azure Monitor][] is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 - [Microsoft Defender for Cloud][] is a unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 
-## Services and components used in this architecture
+## Components
 
 - [Azure Stack HCI (20H2)][1]
 - [Windows Server 2019/2022 datacenter failover cluster][]
 - [Azure Kubernetes Service (AKS)][]
-- [Windows Admin Center ][]
+- [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][2]
 - [Azure role-based access control (RBAC)][]
@@ -42,6 +42,7 @@ The scenario consists of the following components and capabilities:
 ### Potential use cases
 
 Implement highly available, container-based workloads in an on-premises Kubernetes implementation of AKS.
+
 - Automate running containerized applications at scale.
 - Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
 

@@ -10,21 +10,21 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 The architecture consists of the following components and capabilities:
 
-- **[Azure Stack HCI (20H2)][].** A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
-- **Azure Kubernetes Service on Azure Stack HCI.** An on-premises implementation of AKS, which automates running containerized applications at scale.
-- **Azure Arc.** A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
-- **Azure Policy.** A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. This also includes Azure Policy for Kubernetes which applies policies to the workloads running inside the cluster.
-- **Azure Monitor.** A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-- **Microsoft Defender for Cloud.** A unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
+- [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
+- [Azure Kubernetes Service on Azure Stack HCI][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
+- [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
+- [Azure Policy][]. A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. This also includes Azure Policy for Kubernetes which applies policies to the workloads running inside the cluster.
+- [Azure Monitor][]. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+- [Microsoft Defender for Cloud][]. A unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 - **Azure Automation.** Delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
-- **Velero.** An open-source tool that supports on-demand backup and scheduled backup and restores all objects in the Kubernetes cluster.
-- **Azure Blob Storage.** Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
+- [Velero][]. An open-source tool that supports on-demand backup and scheduled backup and restores all objects in the Kubernetes cluster.
+- [Azure Blob Storage][]. Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 
-## Services and components used in this architecture
+## Components
 
 - [Azure Stack HCI (20H2)][1]
 - [Azure Kubernetes Service (AKS) on Azure Stack HCI / Windows Server][]
-- [Windows Admin Center ][]
+- [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][]
 - [Azure role-based access control (RBAC][])
@@ -97,13 +97,13 @@ The following recommendations apply for most scenarios. Follow the recommendatio
 
 To minimize the TCO, integrate AKS on Azure Stack HCI deployments with Azure Arc. Consider using the following Azure services:
 
-- [**Azure Monitor Container Insights.**][] Monitors the performance of container workloads that are running on both Linux and Windows clusters. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall pod's performance, understand the behavior of the cluster, and configure alerts for proactive monitoring.
-- **Automation capabilities**. AKS on Azure stack HCI provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. You can run Windows PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of additional automation scenarios for [virtualized][] and [containerized][] workloads.
-- [**Velero and Azure Blob Storage**][]. Velero is an open-source tool that supports on-demand backup, scheduled backup, and restoration of all objects in the Kubernetes cluster for any resources defined and stored in an etcd database as a Kubernetes Custom Resource Definition (CRD). It provides backup of Kubernetes resources and volumes for an entire cluster or part of a cluster by using namespaces or label selectors. Store the backup set created with the Velero tool in an Azure storage account in a blob container.
-- [**Azure Arc–enabled Kubernetes Service**][]. Provides Azure Resource manager representation of AKS on Azure Stack HCI cluster. Deploy Azure Arc–enabled agents in a Kubernetes namespace, to collect logs and metrics, to gather cluster metadata, cluster version, and node count and ensure that agents are exhibiting optimal performance.
-- **Azure Policy.** Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to enforce GitOps, which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository.
-- [**Azure Policy for Kubernetes**][]. Manage internal cluster policies implemented by Gatekeeper, deploys policy definition into the cluster as constraint template and report on the compliance state of your Kubernetes clusters from one place.
-- [**Azure RBAC**][]. Use for role assignment and to manage access to Azure Arc–enabled Kubernetes.
+- [Azure Monitor Container Insights.][] Monitors the performance of container workloads that are running on both Linux and Windows clusters. It collects memory and processor metrics, from controllers, nodes, and containers through the Metric API. With container insights, you can identify memory and processor utilization, detect overall pod's performance, understand the behavior of the cluster, and configure alerts for proactive monitoring.
+- [Automation capabilities](/azure/automation/automation-hybrid-runbook-worker). AKS on Azure stack HCI provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. You can run Windows PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][] and Azure Arc facilitates a wide range of additional automation scenarios for [virtualized][] and [containerized][] workloads.
+- [Velero and Azure Blob Storage][]. Velero is an open-source tool that supports on-demand backup, scheduled backup, and restoration of all objects in the Kubernetes cluster for any resources defined and stored in an etcd database as a Kubernetes Custom Resource Definition (CRD). It provides backup of Kubernetes resources and volumes for an entire cluster or part of a cluster by using namespaces or label selectors. Store the backup set created with the Velero tool in an Azure storage account in a blob container.
+- [Azure Arc–enabled Kubernetes Service][]. Provides Azure Resource manager representation of AKS on Azure Stack HCI cluster. Deploy Azure Arc–enabled agents in a Kubernetes namespace, to collect logs and metrics, to gather cluster metadata, cluster version, and node count and ensure that agents are exhibiting optimal performance.
+- [Azure Policy](/azure/governance/policy/overview). Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to enforce GitOps, which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository.
+- [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes). Manage internal cluster policies implemented by Gatekeeper, deploys policy definition into the cluster as constraint template and report on the compliance state of your Kubernetes clusters from one place.
+- [Azure RBAC](/azure/role-based-access-control/overview). Use for role assignment and to manage access to Azure Arc–enabled Kubernetes.
 
 ## Considerations
 
@@ -117,7 +117,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Operational excellence
 
 - **Create Cluster Wizard**. Experience a simplified provisioning and management experience with Windows Admin Center. The [Create Cluster Wizard in Windows Admin Center][] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. The Create Cluster Wizard is a tradeoff for ease vs creating deploy scripts that you can source control for auditing and repeatability across multiple deployments. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][].
-- [**Azure ARC**][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
+- [Azure ARC][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
 - **GitOps.** Instead of manually configuring Kubernetes components, use automated tooling to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. In this architecture, we recommend using the Microsoft-provided GitOps extension, which is based on Flux.
 - **Azure Arc–enabled [Open Service Mesh (OSM)][].** A lightweight, extensible, cloud-native service mesh that allows users to uniformly manage, help secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -185,18 +185,21 @@ Focus on the entire stack by securing the host and containers.
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview.md
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Stack HCI / Windows Server]: /azure-stack/aks-hci/
+  [Azure Kubernetes Service on Azure Stack HCI]: /azure-stack/aks-hci/
   [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
   [Azure role-based access control (RBAC]: /azure/role-based-access-control/
   [Azure Monitor]: https://azure.microsoft.com/services/monitor/
   [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
-  [**Azure Monitor Container Insights.**]: /azure/azure-monitor/containers/container-insights-overview
+  [Azure Monitor Container Insights.]: /azure/azure-monitor/containers/container-insights-overview
   [Azure Automation]: /azure/automation/automation-hybrid-runbook-worker
   [virtualized]: /azure/azure-arc/servers/manage-vm-extensions
   [containerized]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
-  [**Velero and Azure Blob Storage**]: /azure-stack/aks-hci/backup-workload-cluster
-  [**Azure Arc–enabled Kubernetes Service**]: /azure/azure-arc/kubernetes/
+  [Velero]: /azure-stack/aks-hci/backup-workload-cluster
+  [Azure Blob Storage]: /azure-stack/aks-hci/backup-workload-cluster
+  [Velero and Azure Blob Storage]: /azure-stack/aks-hci/backup-workload-cluster
+  [Azure Arc–enabled Kubernetes Service]: /azure/azure-arc/kubernetes/
   [**Azure Policy for Kubernetes**]: /azure/governance/policy/concepts/policy-for-kubernetes
   [**Azure RBAC**]: /azure/azure-arc/kubernetes/conceptual-azure-rbac
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
