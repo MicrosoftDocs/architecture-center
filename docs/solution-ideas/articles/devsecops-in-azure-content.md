@@ -52,7 +52,9 @@ Some organizations utilize DevSecOps:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
+Principal author: 
+
+- [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
 ## Next steps
 
