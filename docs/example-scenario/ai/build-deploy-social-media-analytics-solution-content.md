@@ -14,10 +14,10 @@ To best address customer needs, organizations need to extract insights from soci
 
 1. Apache Spark pools in Azure Synapse Analytics are used to process and enrich the data.
 
-1. The Apache Spark pools use the following services:
-   - Azure Cognitive Service for Language, for named entity recognition (NER), key phrase extraction, and sentiment analysis.
-   - Translator, to translate text.
-   - Azure Maps, to link data to geographical coordinates.
+1. The Spark pools use the following services:
+   - Azure Cognitive Service for Language, for named entity recognition (NER), key phrase extraction, and sentiment analysis
+   - Azure Cognitive Services Translator, to translate text
+   - Azure Maps, to link data to geographical coordinates
 
 1. The enriched data is stored in Data Lake.
 
@@ -35,24 +35,24 @@ To best address customer needs, organizations need to extract insights from soci
 
 ### Components
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
 
-- [Azure Cognitive Service for Language](https://azure.microsoft.com/en-us/products/cognitive-services/language-service/) consists of cloud-based services that provide AI functionality. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps even if you don't have AI or data science skills. Features include:
-  - [Named entity recognition (NER)](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/named-entity-recognition/overview) for identifying and categorizing people, places, organizations, and quantities in unstructured text.
-  - [Key phrase extraction](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/key-phrase-extraction/overview) for identifying key talking points in a post or an article.
-  - [Sentiment analysis](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis) for providing insight into the sentiment of posts by detecting positive, negative, neutral, and mixed-sentiment content.
+- [Cognitive Service for Language](https://azure.microsoft.com/products/cognitive-services/language-service) consists of cloud-based services that provide AI functionality. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps even if you don't have AI or data science skills. Features include:
+  - [Named entity recognition (NER)](/azure/cognitive-services/language-service/named-entity-recognition/overview) for identifying and categorizing people, places, organizations, and quantities in unstructured text.
+  - [Key phrase extraction](/azure/cognitive-services/language-service/key-phrase-extraction/overview) for identifying key talking points in a post or an article.
+  - [Sentiment analysis](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview#sentiment-analysis) for providing insight into the sentiment of posts by detecting positive, negative, neutral, and mixed-sentiment content.
 
-- [Azure Cognitive Services Translator](https://azure.microsoft.com/en-us/products/cognitive-services/translator/) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. It supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication. For the languages that Translator supports, see [Translation](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/language-support#translation).
+- [Translator](https://azure.microsoft.com/products/cognitive-services/translator) helps you to translate text instantly or in batches across more than 100 languages. This service uses the latest innovations in machine translation. Translator supports a wide range of use cases, such as translation for call centers, multilingual conversational agents, and in-app communication. For the languages that Translator supports, see [Translation](/azure/cognitive-services/translator/language-support#translation).
 
-- [Azure Maps](https://azure.microsoft.com/en-us/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
+- [Azure Maps](https://azure.microsoft.com/products/azure-maps/#azuremaps-overview) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
 
-- [Azure Data Lake](https://azure.microsoft.com/en-us/solutions/data-lake/) is a massively scalable and secure data lake for high-performance analytics workloads.
+- [Data Lake](https://azure.microsoft.com/solutions/data-lake) is a massively scalable and secure data lake for high-performance analytics workloads.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
-- [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
+- [Machine Learning](https://azure.microsoft.com/products/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
 
-- [Azure Power BI](https://powerbi.microsoft.com/) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
+- [Power BI](https://powerbi.microsoft.com) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
 ### Alternatives
 
@@ -78,18 +78,18 @@ For instance, to see the latest discussions about Satya Nadella, you enter his n
 By extracting information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
 
 - Measuring brand health:
-  - Capturing customer reactions and feedback for new products or services on social media.
-  - Analyzing sentiment on social media interactions for a newly introduced product or service.
-  - Capturing the sentiment about a brand, and determining whether the overall perception is positive or negative.
+  - Capturing customer reactions and feedback for new products or services on social media
+  - Analyzing sentiment on social media interactions for a newly introduced product or service
+  - Capturing the sentiment about a brand, and determining whether the overall perception is positive or negative
 
 - Building and maintaining customer relationships:
-  - Quickly identifying customer concerns.
-  - Listening to untagged brand mentions.
+  - Quickly identifying customer concerns
+  - Listening to untagged brand mentions
 
 - Optimizing marketing investments:
-  - Extracting insights from social media for campaign analysis.
-  - Doing targeted marketing optimization.
-  - Reaching a wider audience by finding new leads and influencers.
+  - Extracting insights from social media for campaign analysis
+  - Doing targeted marketing optimization
+  - Reaching a wider audience by finding new leads and influencers
 
 Marketing is an integral part of every organization. As a result, you can use this social media analytics solution for these use cases in various industries:
 
@@ -118,16 +118,16 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - Use Azure Monitor and Application Insights to monitor the health of Azure resources.
 - Review the following resiliency considerations before you implement this solution:
-  - [Azure Synapse Analytics](/azure/architecture/checklist/resiliency-per-service#azure-synapse-analytics)
-  - [App Service](/azure/architecture/checklist/resiliency-per-service#app-service)
+  - [Azure Synapse Analytics](../../checklist/resiliency-per-service.md#azure-synapse-analytics)
+  - [App Service](../../checklist/resiliency-per-service.md#app-service)
 - For more information about resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 - For availability guarantees of various Azure components, see the following service level agreements (SLAs):
-  - [SLA for Azure Synapse Analytics](https://azure.microsoft.com/en-us/support/legal/sla/synapse-analytics/v1_1/)
-  - [SLA for Storage Accounts](https://azure.microsoft.com/en-us/support/legal/sla/storage/v1_5/)
-  - [SLA for Azure Maps](https://azure.microsoft.com/en-us/support/legal/sla/azure-maps/v1_0/)
-  - [SLA for Azure Cognitive Services](https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/)
-  - [SLA for Azure Machine Learning](https://azure.microsoft.com/en-us/support/legal/sla/machine-learning-service/v1_0/)
-  - [SLA for App Service](https://azure.microsoft.com/en-us/support/legal/sla/app-service/v1_5/)
+  - [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1)
+  - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5)
+  - [SLA for Azure Maps](https://azure.microsoft.com/support/legal/sla/azure-maps/v1_0)
+  - [SLA for Azure Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1)
+  - [SLA for Azure Machine Learning](https://azure.microsoft.com/support/legal/sla/machine-learning-service/v1_0)
+  - [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_5)
 
 ### Security
 
@@ -137,7 +137,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To estimate the cost of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator).
+To estimate the cost of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ### Operational excellence
 
@@ -147,10 +147,10 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-pool-configurations).
-- You can Azure scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
-- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics#availability).
-- Azure Synapse supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
+- For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-pool-configurations).
+- You can scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
+- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](../data/synapse-exploratory-data-analytics#availability.yml).
+- Azure Synapse Analytics supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467).
 
 ## Deploy this scenario
 
@@ -158,14 +158,14 @@ To deploy this solution and run a sample social media analytics scenario, see th
 
 ### Prerequisites
 
-- To use the solution accelerator, you need access to an [Azure subscription](https://azure.microsoft.com/en-us/free/).
+- To use the solution accelerator, you need access to an [Azure subscription](https://azure.microsoft.com/free).
 - A basic understanding of Azure Synapse Analytics, Azure Cognitive Services, Azure Maps, and Power BI is helpful but not required.
 - A news API account is required.
 - A Twitter developer account with **Elevated** access to Twitter API features is required.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributor.*
 
 Principal author:
 
@@ -173,13 +173,13 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure Synapse Analytics?](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Azure Machine Learning documentation](/azure/machine-learning)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-- [Azure Cognitive Service for Language documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/)
-- [What is Azure Cognitive Services Translator?](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/translator-overview)
-- [What is Azure Maps?](https://docs.microsoft.com/en-us/azure/azure-maps/about-azure-maps)
-- [What is Power BI?](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)
+- [Azure Cognitive Service for Language documentation](/azure/cognitive-services/language-service)
+- [What is Azure Cognitive Services Translator?](/azure/cognitive-services/translator/translator-overview)
+- [What is Azure Maps?](/azure/azure-maps/about-azure-maps)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Tutorial: Sentiment analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
 - [Tutorial: Text Analytics with Cognitive Service in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
