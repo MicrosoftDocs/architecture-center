@@ -1,4 +1,14 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [Visiopharm](https://visiopharm.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Visiopharm on Azure.
+
+Visiopharm is an AI-based image analysis and tissue mining tool that supports drug development research and other research.  
+
+Visionpharm:
+
+- Provides the ability to align and subsequently analyze digitized serial sections. 
+- Enables tissue-based researchers to analyze both simple and complex datasets to generate reliable quantitative results.
+- Uses pre-trained nuclei segmentation APPs, suitable for bright-field and fluorescence applications.
+
+Visiopharm is used in academic institutions, the biopharmaceutical industry, and diagnostic centers.
 
 ## Why deploy Visiopharm on Azure?
 
