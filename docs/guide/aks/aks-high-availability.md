@@ -74,7 +74,7 @@ Other than state management, Kubernetes does an exceptional job of maintaining a
 
 Redundancy mitigates having a single point of failure. You need redundancy across all tiers of an application. To achieve redundancy, you replicate a component of a given tier with one or more identical replicas.
 
-- **Controller type**, configuration: `kind: Deployment`. Kubernetes offers several controllers that can manage the lifecycle of your application's pod. The most popular controller is the `Deployment`. Other controllers include the `Statefulset`, which comes in handy when it's important to maintain pod identity after a recovery. Other controllers such as `Replicasets` don't offer the same useful functionality, such as rollbacks, that the deployment offers.
+- **Controller type**, configuration `kind: Deployment`. Kubernetes offers several controllers that can manage the lifecycle of your application's pod. The most popular controller is the `Deployment`. Other controllers include the `Statefulset`, which comes in handy when it's important to maintain pod identity after a recovery. Other controllers such as `Replicasets` don't offer the same useful functionality, such as rollbacks, that the deployment offers.
 
 - **Number of replicas**, configuration `spec.replicas`. Setting the number of replicas to only one is a deliberate decision to use a cold standby model. Cold standby means that when a failure happens, a new instance starts from scratch, which affects availability. This model might work for components with low-volume workloads, but for stateless components with high volumes, reconsider using a single replica.
 
@@ -90,7 +90,7 @@ Without monitoring, redundancy can become ineffective. You need a constant monit
 
 - **Liveness probes**, configuration `spec.containers.livenessProbe`, monitor the health of your pods. If a container crashes or exits, Kubernetes can detect it. When liveness fails, Kubernetes restarts the container.
 
-- **Readiness probes**, configuration `spec.containers.readinessProbe`, determine whether to send traffic to the pod. If any pods of a deployment aren't ready, they won't be part of the endpoints of the Kubernetes service abstracting the deployment, and therefore won't be useful. It's important to carefully set the readiness probes, because they don't trigger a restart, but are used more in isolation.
+- **Readiness probes**, configuration `spec.containers.readinessProbe`, determine whether to send traffic to the pod. If any pods of a deployment aren't ready, they won't be part of the endpoints of the Kubernetes service abstracting the deployment, and therefore won't be useful. It's important to carefully set the readiness probes, because they don't trigger a restart, but are used more to isolate the pods from receiving traffic until they're ready.
 
 - **Startup probes**, configuration `spec.containers.startupProbe`, mainly prevent false positives for readiness and liveness in slow-starting applications. Once the startup probe has succeeded, the liveness probe kicks in.
 
