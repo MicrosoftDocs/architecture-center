@@ -52,26 +52,100 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 
 You can download WRF from the [WRF users page](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html).
 
-Installation steps include setting up your environment for paths and libraries and configuring and compiling WRF. For detailed compilation instructions, see [How to Compile WRF](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
-
-<Must include a sentence or two to outline the installation context along with link/s (no internal links, it must be official/accessible) to install information of the product docs for the workload solution.>
-<Should not list any ordered steps of installation.> 
+Installation steps include setting up your environment and configuring and compiling WRF and WRF Preprocessing System (WPS). (You need WPS if you want to run simulations that use real data rather than idealized simulations.) For detailed compilation instructions, see [How to Compile WRF](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 
 ## WRF performance results
 
-<Give a short intro to how performance was tested>
-<Results for X>
-<Results for Y etc>
+ The new_conus2.5km model was tested:
+
+:::image type="content" source="media/wrf/new-conus25km-model.png" alt-text="Screenshot that shows the New CONUS 2.5 km model." border="false":::
+
+The following table provides details about the model. 
+
+|Model|	Resolution (km)|	e_we|	e_sn|	e_vert|	Total grid points|	Time step (seconds)|	Simulation hours|
+|-|-|-|-|-|-|-|-|
+|New CONUS 2.5 km	|2.5	|1901|	1301|	35	|2,473,201|	15|	6|
+
+Because thread configuration improves performance, we need to consider it in these performance tests. The thread settings shown in the following table provide improved hardware performance.
+
+The results were obtained by averaging the WRF computation time of each time step in the *rsl.out.0000* output file.
+
+|CPU|	Threads|	Tile|	MPI rank|	Simulation time (hours)|	Mean time per step (seconds)|
+|-|-|-|-|-|-|
+|16	|1|	162|	16|	3.25|	7.85|
+|32	|2|	162	|16	|2.08	|4.97|
+|64	|4	|325|	16	|1.59|	3.75|
+|96|	6|	325|	16|	1.46|	3.44|
+|120|	6|	260	|20|	1.43|	3.34|
+
+The following graph shows the mean times per step, in seconds. 
+
+:::image type="content" source="media/wrf/graph.png" alt-text="Graph that shows the mean times per step." border="false":::
+
 
 ### Additional notes about tests
-<Include any additional notes about the testing process used.>
+
+WRF version 4.3.1 was tested. The following table provides information about the VM that was used for testing.
+
+| Operating system version | OS architecture | MPI |Compiler  |
+|---------|---------|---------|---------|
+|CentOS Linux release 8.1.1911 (Core)     |  x86-64       |  Open MPI 4.1.0       |  ICC 2021.4.0   |
 
 ## Azure cost
 
-You can use the [Azure pricing calculator] to estimate the costs for your configuration.
+The following table presents the wall-clock times for running the New CONUS 2.5 km simulation. You can multiply these times by the Azure VM hourly costs for HBv3-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+Only the simulation time is represented in these times. Application installation time isn't considered.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
+
+|VM size|	 	Number of CPUs|	Simulation time (hours)|
+|-|-|-|
+|Standard_HB120-16rs_v3|		16	|3.25|		
+|Standard_HB120-32rs_v3|	32	|2.08		|
+|Standard_HB120-64rs_v3|	64	|1.59|		
+|Standard_HB120-96rs_v3|	96	|1.46|		
+|Standard_HB120rs_v3|	120|	1.43|
 
 ## Summary
 
-- WRF is successfully deployed and tested on HB120rs_v3 series VM on Azure Platform.
-- Expected meantime per step is achieved in all CPU cores.
-- However, the scalability might vary depending on the dataset being used and the node count being tested. Ensure that to test the impact of the tile size, process, and threads per process before use.
+- WRF was successfully tested on HBv3-series series VMs on Azure.
+- Expected mean time per step was achieved with all CPU configurations. However, scalability might vary depending on the dataset used and the node count. Be sure to test the impact of the tile size, process, and threads per process.
+ 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by
+the following contributors.*
+
+Principal authors:
+
+-   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+    Senior Manager
+-   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+    Principal Program Manager
+-   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+    HPC Performance Engineer
+
+Other contributors:
+
+-   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+    Technical Writer
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+    Business Strategy
+-   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+    Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+
+## Related resources
+
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
