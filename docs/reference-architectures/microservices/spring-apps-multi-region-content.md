@@ -16,7 +16,7 @@ The following workflow corresponds to the above diagram:
 
 - **Azure DNS**. Either Azure DNS or another public DNS service will need to be configured to forward the request for this host name to the Azure Front Door service.
 
-- **Azure Front Door**. Azure Front Door is configured with this same host name and a certificate signed by a certificate authority for this host name. Front door is also configured with multiple origins for the requests, one per region you want to deploy your application to. Each origin is pointing to an Application Gateway in this region. Azure Front Door service can use multiple load balancing configurations to forward the request to one region or the other.
+- **Azure Front Door**. Azure Front Door is configured with this same host name and a certificate signed by a certificate authority for this host name. Front door is also configured with multiple origins for the requests, one per region you want to deploy your application to. Each origin is pointing to an Application Gateway in this region. Azure Front Door service can use multiple load balancing configurations to forward the request to one region or the other. Currently the solution is configured with an equal weight load balancing rule between the 2 regions.
 
 - **Application Gateway**. Each region you want to deploy to will have an Application Gateway configured with a Web Application Firewall. The Web Application Firewall will only allow incoming calls from your specific Azure Front Door service. The Application Gateway is also configured with the same host name which is backed by the same certificate from a well known certificate authority. In each region, the Application Gateway will send the call to the Azure Spring Apps load balancer.
 
@@ -28,13 +28,16 @@ The following workflow corresponds to the above diagram:
 
 ### Components
 
-- [Azure DNS Service](https://learn.microsoft.com/azure/dns/dns-overview): Used for DNS resolution from your custom domain to your Azure Front Door endpoint.
-- [Azure Front Door Service](https://learn.microsoft.com/azure/frontdoor/front-door-overview): Used for global load balancing incoming calls to all available regions that host your workload.
-- [Azure Application Gateway Service](https://learn.microsoft.com/azure/application-gateway/overview): Used as a local reverse proxy in each region you are running your application.
-- [Azure Spring Apps Service](https://learn.microsoft.com/azure/spring-apps/overview): Used for hosting your backend applications.
-- [Azure Database for MySQL](https://learn.microsoft.com/azure/mysql/)
-- [Azure Key Vault Service](https://learn.microsoft.com/azure/key-vault/general/overview): Used for storing application secrets and the certificates used by Front Door, Application Gateway and Spring apps.
-- [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- [Azure DNS Service](https://learn.microsoft.com/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. In this setup Azure DNS can be used for DNS resolution from your custom domain to your Azure Front Door endpoint.
+- [Azure Front Door Service](https://learn.microsoft.com/azure/frontdoor/front-door-overview) can help you deliver higher availability, lower latency, greater scale, and more secure experiences to your users wherever they are. In this solution it is used to load balance incoming calls to the regions that host your workload.
+- [Azure Application Gateway Service](https://learn.microsoft.com/azure/application-gateway/overview) is a web traffic load balancer that enables you to manage traffic to your web applications. It is used as a local reverse proxy in each region you are running your application.
+- [Azure Web Application Firewall](https://learn.microsoft.com/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It is configured on the Application Gateway to only allow incoming calls from the Azure Front Door service and to track OWASP exploits.
+- [Azure Spring Apps Service](https://learn.microsoft.com/azure/spring-apps/overview) makes it easy to deploy Java Spring Boot applications to Azure without any code changes.
+- [Azure Database for MySQL](https://learn.microsoft.com/azure/mysql/single-server/overview) is a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+- [Azure Key Vault Service](https://learn.microsoft.com/azure/key-vault/general/overview) is one of several key management solutions in Azure, which helps solve keys, secrets and certificate management problems. In this setup it is used for storing application secrets and the certificates used by Front Door, Application Gateway and Spring apps.
+- [Resource Groups](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. We use resource groups to organize everything related to this setup per region. As a naming convention the setup also contains a short string for the region a component is deployed to so it easy to identify which region a component is running in.
+- [Virtual Network](https://learn.microsoft.com/azure/virtual-network/virtual-networks-overview) is the fundamental building block for your private network in Azure. This setup contains a virtual network per region you deploy this solution to.
+- [Private Endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link. By enabling a private endpoint, you're bringing the service into your virtual network. A private endpoint is used for the database and the Key Vault service.
 
 ### Alternatives
 
