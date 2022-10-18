@@ -20,6 +20,8 @@ The system could implement several throttling strategies, including:
 
 - Deferring operations being performed on behalf of lower priority applications or tenants. These operations can be suspended or limited, with an exception generated to inform the tenant that the system is busy and that the operation should be retried later.
 
+- When integrating with some 3rd party that may become unavailable or is returning errors, reducing the number of concurrent requests being processed so that logs do not unnecessarily fill up with errors and to avoid the costs associated with needlessly retrying the processing of requests that would fail because of that 3rd party. Then, when requests start being processed successfully, going back to regular unthrottled request processing. One library that implements this functionality is [NServiceBus](https://docs.particular.net/nservicebus/recoverability/#automatic-rate-limiting).
+
 The figure shows an area graph for resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
 
 ![Figure 1 - Graph showing resource use against time for applications running on behalf of three users](./_images/throttling-resource-utilization.png)
