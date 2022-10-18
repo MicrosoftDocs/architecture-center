@@ -8,6 +8,8 @@ The following image shows the network architecture for Azure Kubernetes Service 
 
 :::image type="content" source="media/aks-network.png" alt-text="Conceptual graphic showing network baseline architecture." lightbox="media/aks-network.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/AKS-AzureStackHCI-Arch2-Networking-V5.vsdx) of this architecture.*
+
 The scenario consists of the following components and capabilities:
 
 - [Azure Stack HCI (20H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.

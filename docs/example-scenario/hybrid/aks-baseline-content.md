@@ -8,6 +8,8 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 :::image type="content" source="media/aks-baseline.png" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server." lightbox="media/aks-baseline.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/AKS-AzureStackHCI-Baseline-V8.vsdx) of this architecture.*
+
 The architecture consists of the following components and capabilities:
 
 - [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
