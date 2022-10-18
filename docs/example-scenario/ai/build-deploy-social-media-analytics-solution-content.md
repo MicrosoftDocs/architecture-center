@@ -46,7 +46,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 - [Azure Maps](https://azure.microsoft.com/products/azure-maps) is a suite of geospatial services that help you incorporate location-based data into web and mobile solutions. You can use the location and map data to generate insights, inform data-driven decisions, enhance security, and improve customer experiences. This solution uses Azure Maps to link news and posts to geographical coordinates.
 
-- [Data Lake](https://azure.microsoft.com/solutions/data-lake) is a massively scalable and secure data lake for high-performance analytics workloads.
+- [Data Lake](https://azure.microsoft.com/solutions/data-lake) is a massively scalable data lake for high-performance analytics workloads.
 
 - [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
@@ -64,7 +64,7 @@ You can simplify this solution by eliminating Machine Learning and the custom ma
 
 ## Scenario details
 
-Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction. Those campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
+Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction. Those campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss opportunities to use these insights to inform their strategies and plans.
 
 This article's solution benefits a wide spectrum of social media and news analysis applications. By deploying the solution instead of manually deploying its resources, you can reduce your time to market. You can also:
 
@@ -73,7 +73,7 @@ This article's solution benefits a wide spectrum of social media and news analys
 - Extract key points and entities from the news and posts.
 - Identify the sentiment about the subject.
 
-For instance, to see the latest discussions about Satya Nadella, you enter his name in a query. The solution then accesses news APIs and the Twitter API to provide you with information about him from around the web.
+For instance, to see the latest discussions about Satya Nadella, you enter his name in a query. The solution then accesses news APIs and the Twitter API to provide information about him from around the web.
 
 ### Potential use cases
 
@@ -81,7 +81,7 @@ By extracting information about your customers from social media, you can enhanc
 
 - Measuring brand health:
   - Capturing customer reactions and feedback for new products or services on social media
-  - Analyzing sentiment on social media interactions for a newly introduced product or service
+  - Analyzing sentiment on social media interactions for a new product or service
   - Capturing the sentiment about a brand, and determining whether the overall perception is positive or negative
 
 - Building and maintaining customer relationships:
