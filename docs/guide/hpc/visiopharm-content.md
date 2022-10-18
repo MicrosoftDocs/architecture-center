@@ -4,7 +4,7 @@ Visiopharm is an AI-based image analysis and tissue mining tool that supports dr
 
 Visionpharm:
 
-- Provides the ability to align and subsequently analyze digitized serial sections. 
+- Enables researchers to align and subsequently analyze digitized serial sections. 
 - Enables tissue-based researchers to analyze both simple and complex datasets to generate reliable quantitative results.
 - Uses pre-trained nuclei segmentation APPs, suitable for bright-field and fluorescence applications.
 
@@ -68,7 +68,7 @@ Three Visiopharm solutions (APPs) were run:
 - APP2: Segmentation
 - APP3: Cell detection AI 
 
-The image is called LuCa 6Plex. It's a set of pathology data that's provided by Visiopharm. The three APPs predominantly use the GPU capabilities of the VMs to run the analysis.
+The image is called LuCa 6Plex. It's a set of pathology data that's provided by Visiopharm. The three APPs predominantly use the GPU capabilities of the VMs to run analyses.
 
 The following table shows the results.
 
