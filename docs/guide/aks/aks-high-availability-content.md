@@ -1,24 +1,3 @@
----
-title: High availability for multitier AKS applications
-description: Read about high availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
-author: akanso
-ms.author: alkanso
-ms.date: 10/19/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-cosmos-db
-  - azure-disk-storage
-  - azure-files
-  - azure-kubernetes-service
-  - azure-load-balancer
-categories:
-  - containers
----
-
-# High availability for multitier AKS applications
-
 This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of HA failure.
 
 

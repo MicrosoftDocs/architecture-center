@@ -3523,7 +3523,7 @@ items:
                     href: /dotnet/architecture/containerized-lifecycle/docker-application-lifecycle/containers-foundation-for-devops-collaboration
                     maintainContext: true
               - name: High availability for multitier AKS apps
-                href: guide/aks/aks-high-availability.md
+                href: guide/aks/aks-high-availability.yml
               - name: Operations management for AKS
                 href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
                 maintainContext: true
