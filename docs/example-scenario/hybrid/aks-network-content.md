@@ -309,9 +309,21 @@ considerations are framed in the context of these tenets.
 - Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
 - You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
-## Related resources
+## Contributors
 
-- [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+- [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
+- [Kenny Harder](https://www.linkedin.com/in/kenny-harder-03b14a64) | Project Manager
+- [Mike Kostersitz](https://www.linkedin.com/in/mikekostersitz) | Principal Program Manager Lead
+- [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
+- [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
+
+**Other contributors:**
+
+- [Walter Oliver](https://www.linkedin.com/in/walterov) | Senior Program Manager
 
 ## Next steps
 
@@ -348,3 +360,7 @@ considerations are framed in the context of these tenets.
   [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
   [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
   [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
+
+## Related resources
+
+- [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)

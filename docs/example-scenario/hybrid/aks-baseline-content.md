@@ -13,7 +13,7 @@ The architecture consists of the following components and capabilities:
 - [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
 - [Azure Kubernetes Service on Azure Stack HCI][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
-- [Azure Policy][]. A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. This also includes Azure Policy for Kubernetes which applies policies to the workloads running inside the cluster.
+- [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. This also includes [Azure Policy for Kubernetes][] which applies policies to the workloads running inside the cluster.
 - [Azure Monitor][]. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 - [Microsoft Defender for Cloud][]. A unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 - **Azure Automation.** Delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
@@ -27,7 +27,7 @@ The architecture consists of the following components and capabilities:
 - [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][]
-- [Azure role-based access control (RBAC][])
+- [Azure role-based access control (Azure RBAC)][])
 - [Azure Monitor][]
 - [Microsoft Defender for Cloud][]
 
@@ -102,8 +102,8 @@ To minimize the TCO, integrate AKS on Azure Stack HCI deployments with Azure Arc
 - [Velero and Azure Blob Storage][]. Velero is an open-source tool that supports on-demand backup, scheduled backup, and restoration of all objects in the Kubernetes cluster for any resources defined and stored in an etcd database as a Kubernetes Custom Resource Definition (CRD). It provides backup of Kubernetes resources and volumes for an entire cluster or part of a cluster by using namespaces or label selectors. Store the backup set created with the Velero tool in an Azure storage account in a blob container.
 - [Azure Arc–enabled Kubernetes Service][]. Provides Azure Resource manager representation of AKS on Azure Stack HCI cluster. Deploy Azure Arc–enabled agents in a Kubernetes namespace, to collect logs and metrics, to gather cluster metadata, cluster version, and node count and ensure that agents are exhibiting optimal performance.
 - [Azure Policy](/azure/governance/policy/overview). Deploy and enforce built-in security policies on AKS cluster using Azure Policy. You can also use custom policy definition to enforce GitOps, which is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository.
-- [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes). Manage internal cluster policies implemented by Gatekeeper, deploys policy definition into the cluster as constraint template and report on the compliance state of your Kubernetes clusters from one place.
-- [Azure RBAC](/azure/role-based-access-control/overview). Use for role assignment and to manage access to Azure Arc–enabled Kubernetes.
+- [Azure Policy for Kubernetes][]. Manage internal cluster policies implemented by Gatekeeper, deploys policy definition into the cluster as constraint template and report on the compliance state of your Kubernetes clusters from one place.
+- [Azure RBAC][]. Use for role assignment and to manage access to Azure Arc–enabled Kubernetes.
 
 ## Considerations
 
@@ -163,7 +163,7 @@ Focus on the entire stack by securing the host and containers.
 
 - Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Stack HCI to further protect your secrets that are used by different applications, by storing them in Azure Key Vault service.
 - Use [Open Service Mesh AKS add-on][] to secure service to service communication by enabling mutual TLS (mTLS). You can also used for defining and executing fine grained access control policies for services.
-- Use Azure Policy for Kubernetes to enforce cluster security policies such as no privileged pods,
+- Use [Azure Policy for Kubernetes][] to enforce cluster security policies such as no privileged pods,
 - Use an Azure Container Registry that contains vulnerability scanning in its container repo.
 - Use group-managed security accounts for Windows workloads with a non-domain joined host. (Only applicable for Windows Server.)
 
@@ -174,9 +174,21 @@ Focus on the entire stack by securing the host and containers.
 - Secure the images in an Azure Container Registry that supports vulnerability scanning and RBAC.
 - [Use isolation of containers][], and avoid running containers in privileged mode to prevent attackers to escalate the privileges if the container is compromised.
 
-## Related resources
+## Contributors
 
-- [Network architecture for AKS on Azure Stack HCI](aks-network.yml)
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+- [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
+- [Kenny Harder](https://www.linkedin.com/in/kenny-harder-03b14a64) | Project Manager
+- [Mike Kostersitz](https://www.linkedin.com/in/mikekostersitz) | Principal Program Manager Lead
+- [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
+- [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
+
+**Other contributors:**
+
+- [Walter Oliver](https://www.linkedin.com/in/walterov) | Senior Program Manager
 
 ## Next steps
 
@@ -189,7 +201,7 @@ Focus on the entire stack by securing the host and containers.
   [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
-  [Azure role-based access control (RBAC]: /azure/role-based-access-control/
+  [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/
   [Azure Monitor]: https://azure.microsoft.com/services/monitor/
   [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
   [Azure Monitor Container Insights.]: /azure/azure-monitor/containers/container-insights-overview
@@ -200,8 +212,8 @@ Focus on the entire stack by securing the host and containers.
   [Azure Blob Storage]: /azure-stack/aks-hci/backup-workload-cluster
   [Velero and Azure Blob Storage]: /azure-stack/aks-hci/backup-workload-cluster
   [Azure Arc–enabled Kubernetes Service]: /azure/azure-arc/kubernetes/
-  [**Azure Policy for Kubernetes**]: /azure/governance/policy/concepts/policy-for-kubernetes
-  [**Azure RBAC**]: /azure/azure-arc/kubernetes/conceptual-azure-rbac
+  [Azure Policy for Kubernetes]: /azure/governance/policy/concepts/policy-for-kubernetes
+  [Azure RBAC]: /azure/azure-arc/kubernetes/conceptual-azure-rbac
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
   [cost optimization]: /azure/architecture/framework/cost/overview
   [Create Cluster Wizard in Windows Admin Center]: /azure-stack/hci/deploy/create-cluster
@@ -214,3 +226,7 @@ Focus on the entire stack by securing the host and containers.
   [Azure Key Vault Secrets provider extension]: /azure/azure-arc/kubernetes/tutorial-akv-secrets-provider
   [Open Service Mesh AKS add-on]: /azure/aks/open-service-mesh-about
   [Use isolation of containers]: /azure-stack/aks-hci/container-security#practice-isolation
+
+## Related resources
+
+- [Network architecture for AKS on Azure Stack HCI](aks-network.yml)
