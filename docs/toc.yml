@@ -5367,7 +5367,7 @@ items:
                 href: solution-ideas/articles/backup-archive-on-premises-applications.yml
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: Data Sovereignty & Data Gravity
+              - name: Data sovereignty and data gravity
                 href: solution-ideas/articles/data-sovereignty-and-gravity.yml
               - name: Enterprise-scale disaster recovery
                 href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
@@ -5389,7 +5389,6 @@ items:
         items:
           - name: Get started
             href: guide/media/start-here.md
-            maintainContext: true
           - name: Guides
             items:
               - name: Media Services terminology and concepts
@@ -6003,10 +6002,6 @@ items:
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
-              - name: SAP NetWeaver on Windows on Azure
-                href: guide/sap/sap-netweaver.yml
-              - name: SAP S/4HANA in Linux on Azure
-                href: guide/sap/sap-s4hana.yml
               - name: Inbound and outbound internet connections for SAP on Azure
                 href: guide/sap/sap-internet-inbound-outbound.yml
               - name: SAP workload configurations with AZs
@@ -6039,6 +6034,10 @@ items:
                 maintainContext: true
               - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
+              - name: SAP NetWeaver in Windows on Azure
+                href: guide/sap/sap-netweaver.yml
+              - name: SAP S/4HANA in Linux on Azure
+                href: guide/sap/sap-s4hana.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server
@@ -6127,12 +6126,12 @@ items:
             items:
               - name: Automate Sentinel integration with DevOps
                 href: example-scenario/devops/automate-sentinel-integration.yml
-              - name: Azure AD in Security Operations
+              - name: Azure AD in security operations
                 href: example-scenario/aadsec/azure-ad-security.yml
+              - name: Confidential computing for healthcare
+                href: example-scenario/confidential/healthcare-inference.yml
               - name: Cyber threat intelligence
                 href: example-scenario/data/sentinel-threat-intelligence.yml
-              - name: Healthcare platform confidential computing
-                href: example-scenario/confidential/healthcare-inference.yml
               - name: Homomorphic encryption with SEAL
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid security monitoring
@@ -6141,8 +6140,6 @@ items:
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
-              - name: Multilayered protection for Azure VMs
-                href: solution-ideas/articles/multilayered-protection-azure-vm.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
               - name: Restrict interservice communications
@@ -6163,6 +6160,14 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
           - name: Solution ideas
             items:
+              - name: Centralize app configuration and security
+                href: solution-ideas/articles/appconfig-key-vault.yml
+              - name: DevSecOps in Azure
+                href: solution-ideas/articles/devsecops-in-azure.yml
+              - name: Multilayered protection for Azure VMs
+                href: solution-ideas/articles/multilayered-protection-azure-vm.yml
+              - name: Protect backend APIs
+                href: solution-ideas/articles/protect-backend-apis-azure-management.yml
               - name: Threat assessments
                 items: 
                   - name: Map threats to your IT environment
@@ -6361,19 +6366,42 @@ items:
             href: guide/virtual-desktop/start-here.md
           - name: Guides
             items:
+              - name: Azure Virtual Desktop environment
+                href: /azure/virtual-desktop/environment-setup
+                maintainContext: true
+              - name: Azure Virtual Desktop Agent
+                href: /azure/virtual-desktop/agent-overview
+                maintainContext: true
               - name: Authentication in Azure Virtual Desktop
                 href: /azure/virtual-desktop/authentication
                 maintainContext: true
-              - name: Azure Virtual Desktop network connectivity
-                href: /azure/virtual-desktop/network-connectivity
-                maintainContext: true
+              - name: Network connectivity
+                items:
+                  - name: Overview
+                    href: /azure/virtual-desktop/network-connectivity
+                    maintainContext: true
+                  - name: RDP Shortpath
+                    href: /azure/virtual-desktop/shortpath
+                    maintainContext: true
+                  - name: Implement Quality of Service
+                    href: /azure/virtual-desktop/rdp-quality-of-service-qos
+                    maintainContext: true
+                  - name: RDP bandwidth
+                    href: /azure/virtual-desktop/rdp-bandwidth
+                    maintainContext: true
+                  - name: Proxy server guidelines
+                    href: /azure/virtual-desktop/proxy-server-support
+                    maintainContext: true
+                  - name: Connection quality
+                    href: /azure/virtual-desktop/connection-latency
+                    maintainContext: true
               - name: Azure AD join for Azure Virtual Desktop
                 href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
-              - name: Connect RDP Shortpath
-                href: /azure/virtual-desktop/shortpath
-                maintainContext: true
-              - name: Multiregion BCDR for Azure Virtual Desktop
+              - name: Multiregion BCDR for AVD
                 href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
+              - name: AVD for Azure Stack HCI
+                href: /azure/virtual-desktop/azure-stack-hci-overview
+                maintainContext: true
               - name: FSLogix guidance
                 items:
                   - name: FSLogix for the enterprise
