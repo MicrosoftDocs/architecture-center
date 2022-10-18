@@ -1,9 +1,9 @@
-This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and provides a checklist and guidelines to identify and eliminate single points of HA failure.
+This guide discusses high availability (HA) for multitier application deployment in Azure Kubernetes Service (AKS) clusters. The article describes Kubernetes HA mechanisms and constructs, and it provides a checklist and guidelines to identify and eliminate single points of HA failure.
 
 
 There are two fundamental tasks for implementing HA for AKS applications.
 
-- Identify any single points of failure in the application.
+- Identify all single points of failure in the application.
 - Eliminate the single points of failure.
 
 Eliminating single points of failure requires an HA solution.
@@ -23,26 +23,26 @@ Consider a multitiered AKS application, where traffic arrives to the business lo
 
 ### Identify single points of failure
 
-To identify single points of failure, start by determining the critical path between client requests and the components serving those requests. Any component on this path that isn't managed according to the four HA pillars, or three pillars if it's a stateless component without checkpointing, is a single point of failure. Even a replicated component is considered a single point of failure if it isn't monitored, because its failure goes silently undetected.
+To identify single points of failure, start by determining the critical path between client requests and the components that serve those requests. Any component on this path that isn't managed according to the four HA pillars, or three pillars if it's a stateless component without checkpointing, is a single point of failure. Even a replicated component is considered a single point of failure if it isn't monitored, because its failure goes silently undetected.
 
 ### Eliminate single points of failure
 
-To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all of these actions.
+To eliminate single points of failure, deploy your application to replicate critical path components, and employ load balancers, monitoring, and recovery mechanisms. Kubernetes can handle all these activities.
 
 ![An illustration of replicated components in an AKS multitiered application.](media/replicas.png)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/aac-high-availability-for-enterprise-applications-on-aks.pptx) with the diagrams in this article.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/aac-high-availability-for-enterprise-applications-on-aks.pptx) of the diagrams in this article.*
 
 In a replicated application:
 
-- You replicate the business tier components with a different number of replicas per component, depending on their performance and workload.
+- You replicate the business tier components with various numbers of replicas per component, depending on their performance and workload.
 - You also replicate the data tier behind a load balancer.
 
 Kubernetes offers several constructs and mechanisms, such as load balancing and liveness probes, that help implement the HA pillars. The following checklist and discussion divide these constructs and mechanisms into categories that map to the four HA pillars.
 
 ## The Kubernetes HA checklist
 
-Other than state management, Kubernetes does an exceptional job of maintaining application HA. The HA checklist lists common configurations you can use to optimize Kubernetes HA management. To use the checklist, evaluate your Kubernetes deployment against the following mechanisms and constructs, and implement any that are missing.
+Other than state management, Kubernetes does an exceptional job of maintaining application HA. The HA checklist lists common configurations that you can use to optimize Kubernetes HA management. To use the checklist, evaluate your Kubernetes deployment against the following mechanisms and constructs, and implement any that are missing.
 
 |HA pillar|Solution|
 |---------|--------|
@@ -57,9 +57,9 @@ Redundancy mitigates having a single point of failure. You need redundancy acros
 
 - **Controller type**, configuration `kind: Deployment`. Kubernetes offers several controllers that can manage the lifecycle of your application's pod. The most popular controller is the `Deployment`. Other controllers include the `Statefulset`, which comes in handy when it's important to maintain pod identity after a recovery. Other controllers such as `Replicasets` don't offer the same useful functionality, such as rollbacks, that the deployment offers.
 
-- **Number of replicas**, configuration `spec.replicas`. Setting the number of replicas to only one is a deliberate decision to use a cold standby model. Cold standby means that when a failure happens, a new instance starts from scratch, which affects availability. This model might work for components with low-volume workloads, but for stateless components with high volumes, reconsider using a single replica.
+- **Number of replicas**, configuration `spec.replicas`. Setting the number of replicas to only one is a deliberate decision to use a cold standby model. Cold standby means that when a failure happens, a new instance starts from scratch, which affects availability. This model might work for components with low-volume workloads, but consider replicating stateless, high-volume components.
 
-  By specifying the resource request limits, `spec.containers[].resources`, you can add [horizontal pod autoscaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale), which allows Kubernetes to automatically scale up or down the number of replicas based on resource utilization thresholds you define. HPA helps avoid cases where a surge in load prevents your application from serving requests due to overload.
+  By specifying the resource request limits, `spec.containers[].resources`, you can add [horizontal pod autoscaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale), which causes Kubernetes to automatically scale up or down the number of replicas based on resource utilization thresholds that you define. HPA helps avoid cases where a surge in load prevents your application from serving requests due to overload.
 
 - **Scheduling anti-affinity**, configuration `spec.affinity.podAntiAffinity`. A typical production-level Kubernetes cluster has nodes spread across multiple [availability zones](/azure/aks/availability-zones), expressed using a `topologyKey`. Pods of the same deployment should have preferred or soft anti-affinity with each other. This configuration ensures that the pods schedule on nodes in different availability zones.
 
@@ -67,11 +67,11 @@ Redundancy mitigates having a single point of failure. You need redundancy acros
 
 ### Monitoring
 
-Without monitoring, redundancy can become ineffective. You need a constant monitoring mechanism to ensure the workload reaches a healthy replica.
+Without monitoring, redundancy can become ineffective. You need a constant monitoring mechanism to ensure that the workload reaches a healthy replica.
 
 - **Liveness probes**, configuration `spec.containers.livenessProbe`, monitor the health of your pods. If a container crashes or exits, Kubernetes can detect it. When liveness fails, Kubernetes restarts the container.
 
-- **Readiness probes**, configuration `spec.containers.readinessProbe`, determine whether to send traffic to the pod. If any pods of a deployment aren't ready, they won't be part of the endpoints of the Kubernetes service abstracting the deployment, and therefore won't be useful. It's important to carefully set the readiness probes, because they don't trigger a restart, but are used more to isolate the pods from receiving traffic until they're ready.
+- **Readiness probes**, configuration `spec.containers.readinessProbe`, determine whether to send traffic to the pod. If any pods of a deployment aren't ready, they won't be part of the endpoints of the Kubernetes service abstracting the deployment, and therefore won't be useful. It's important to carefully set the readiness probes, because they don't trigger a restart, but are used to isolate the pods from receiving traffic until they're ready.
 
 - **Startup probes**, configuration `spec.containers.startupProbe`, mainly prevent false positives for readiness and liveness in slow-starting applications. Once the startup probe has succeeded, the liveness probe kicks in.
 
@@ -91,13 +91,13 @@ The main purpose of monitoring is to trigger recovery when it detects a failure.
 
   How external traffic reaches your AKS cluster is outside the scope of Kubernetes. You can handle external traffic with services such as [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/#overview).
 
-- **Leader election**. Some components are best deployed as singletons. The scheduler is such a component, because two active schedulers can conflict. Having a single replica exposes the application to the cold standby issue previously discussed. To enable warm standby of a pod, you can use leader election, where only one pod, the leader, handles requests.
+- **Leader election**. Some components are best deployed as singletons. The scheduler is such a component, because two active schedulers can conflict. Having a singleton exposes the application to cold standby issues. To enable warm standby of a pod, you can use leader election, where only one pod, the leader, handles requests.
 
-- **Restart policy**, configuration `spec.restartPolicy`. The restart policy applies to all containers in the pod. There should be valid justification for setting this attribute to `Never`. Some containers contact a license server each time they start, and you might want to avoid added costs caused by excessive restarts.
+- **Restart policy**, configuration `spec.restartPolicy`. The restart policy applies to all containers in the pod. There should be valid justification for setting this attribute to `Never`. Some containers contact a license server each time they start, and you might want to avoid the added costs of excessive restarts.
 
 - **Pre-stop hooks**, configuration `spec.containers.lifecycle.preStop`. Pre-stop hooks run before a `SIGTERM` signal is sent to the container. A pre-stop script can be as simple as a 30-second sleep command.
 
-  For example, when an application managed by an HPA is scaling down, in-progress requests might be abruptly terminated, unless the application has a `SIGTERM` handler that completes serving requests before exiting. A pre-stop hook removes the pod endpoint and therefore the DNS entry from the service endpoint. While the pre-stop hook is running, no new requests can be sent to the pod. The pre-stop hook allows the pod to finish processing its in-progress requests without receiving new ones. Pre-stop hooks are a simple way to minimize dropped requests without modifying application code.
+  For example, when an application managed by an HPA is scaling down, in-progress requests might be abruptly terminated unless the application has a `SIGTERM` handler that completes serving requests before exiting. A pre-stop hook removes the pod endpoint, and therefore the DNS entry, from the service endpoint. While the pre-stop hook is running, no new requests can be sent to the pod. The pre-stop hook allows the pod to finish processing its in-progress requests without receiving new ones. Pre-stop hooks are a simple way to minimize dropped requests without modifying application code.
 
 ### Checkpointing
 
@@ -105,7 +105,7 @@ Modern applications have many stateless components, but entirely stateless appli
 
 You can persist application state in three levels:
 
-- The **data records level** stores the data in a database. Each database record can replicate across multiple database instances. Database records are the dominant form of state persistence, especially using managed cloud databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/#overview).
+- The **data records level** stores the data in a database. Each database record can replicate across multiple database instances. Database records are the dominant form of state persistence, especially in managed cloud databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/#overview).
 
 - The **file system level** typically replicates data files, such as write-ahead logging (WAL) files. Most cloud providers offer plugins for their solutions, such as [Azure Files](https://azure.microsoft.com/products/storage/files).
 
@@ -117,7 +117,7 @@ Kubernetes [volumes, persistent volumes, and persistent volume claims](https://k
 
 In both HA and disaster recovery (DR), the choices of network topology and [load balancing solutions](../technology-choices/load-balancing-overview.yml) are important.
 
-However, DR requires [multiregion service deployment](/azure/availability-zones/az-overview#regions) involving the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
+However, DR requires [multiregion service deployment](/azure/availability-zones/az-overview#regions) at the entire service level, with load balancing solutions between Azure regions. The application is either spread across multiple regions, or an entire application instance is deployed in each region. The choice depends on application type, application architecture, and latency tolerance between components.
 
 Instead of using multiple regions, HA benefits from [multizone deployments](/azure/availability-zones/az-overview#availability-zones) within Azure regions. The following diagram illustrates the difference between availability zones and regions for HA and DR.
 
@@ -129,7 +129,7 @@ This guide focused on HA at the application level within one AKS cluster. For mo
 
 - To maintain application HA, make sure your Kubernetes control plane, including the API server and controller manager, is highly available. Consider using an [AKS Uptime SLA](/azure/aks/uptime-sla) to ensure HA.
 
-- The HA redundancy pillar directly contravenes a resource consolidation strategy. Therefore, you should carefully analyze the cost of redundancy. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can help.
+- A resource consolidation strategy directly contravenes the HA redundancy pillar. Therefore, you should carefully analyze the cost of redundancy. The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) can help.
 
 - The highly available Microsoft service [Project Bonsai: AI for engineers](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) is an example of project design that exemplifies HA principles. This project motivated the Kubernetes HA constructs checklist and this guide.
 
