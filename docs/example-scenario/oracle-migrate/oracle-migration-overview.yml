@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Oracle database migration process
+  title: Oracle database migration decision process
   titleSuffix: Azure Architecture Center
   description: Learn about Oracle database migration paths and the methods you use to migrate your schema to SQL or PostgreSQL.
   author: amberz
@@ -15,7 +15,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: Oracle database migration process
+name: Oracle database migration decision process
 azureCategories:
   - databases
   - migration
