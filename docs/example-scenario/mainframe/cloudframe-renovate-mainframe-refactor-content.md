@@ -108,17 +108,24 @@ Security in Azure is achieved through a layered approach of policy, process, aut
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and Kubernetes pods for increasing deployment density. Additionally, reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency through a ‘Single Pane of Glass’ lens of costs versus budgets. Use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another method to help you save money by committing to one-year or three-year plans for multiple products
+Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't being used, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by providing a single, unified view of costs versus budgets. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products.
 
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors.
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: Jim Dugan
+Principal author: 
 
-Other contributors: Bhaskar Bandam
+- Jim Dugan | Principal TPM
+
+Other contributors: 
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior TPM 
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
