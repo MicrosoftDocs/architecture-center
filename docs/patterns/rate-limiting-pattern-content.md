@@ -6,17 +6,17 @@ A rate limiting pattern is appropriate in many scenarios, but it is particularly
 
 Performing large numbers of operations using a throttled service can result in increased traffic and throughput, as you'll need to both track rejected requests and then retry those operations. As the number of operations increases, a throttling limit may require multiple passes of resending data, resulting in a larger performance impact.
 
-As an example, consider the following naive retry on error process for ingesting data into Cosmos DB:
+As an example, consider the following naive retry on error process for ingesting data into Azure Cosmos DB:
 
-1. Your application needs to ingest 10,000 records into Cosmos DB. Each record costs 10 Request Units (RUs) to ingest, requiring a total of 100,000 RUs to complete the job.
-1. Your Cosmos DB instance has 20,000 RUs provisioned capacity.
-1. You send all 10,000 records to Cosmos DB. 2,000 records are written successfully and 8,000 records are rejected.
-1. You send the remaining 8,000 records to Cosmos DB. 2,000 records are written successfully and 6,000 records are rejected.
-1. You send the remaining 6,000 records to Cosmos DB. 2,000 records are written successfully and 4,000 records are rejected.
-1. You send the remaining 4,000 records to Cosmos DB. 2,000 records are written successfully and 2,000 records are rejected.
-1. You send the remaining 2,000 records to Cosmos DB. All are written successfully.
+1. Your application needs to ingest 10,000 records into Azure Cosmos DB. Each record costs 10 Request Units (RUs) to ingest, requiring a total of 100,000 RUs to complete the job.
+1. Your Azure Cosmos DB instance has 20,000 RUs provisioned capacity.
+1. You send all 10,000 records to Azure Cosmos DB. 2,000 records are written successfully and 8,000 records are rejected.
+1. You send the remaining 8,000 records to Azure Cosmos DB. 2,000 records are written successfully and 6,000 records are rejected.
+1. You send the remaining 6,000 records to Azure Cosmos DB. 2,000 records are written successfully and 4,000 records are rejected.
+1. You send the remaining 4,000 records to Azure Cosmos DB. 2,000 records are written successfully and 2,000 records are rejected.
+1. You send the remaining 2,000 records to Azure Cosmos DB. All are written successfully.
 
-The ingestion job completed successfully, but only after sending 30,000 records to Cosmos DB even though the entire data set only consisted of 10,000 records.
+The ingestion job completed successfully, but only after sending 30,000 records to Azure Cosmos DB even though the entire data set only consisted of 10,000 records.
 
 There are additional factors to consider in the above example:
 

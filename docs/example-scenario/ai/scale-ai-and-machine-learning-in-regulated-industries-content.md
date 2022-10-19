@@ -48,7 +48,7 @@ The architecture consists of the workflow described below. Each component of the
    - Azure storage (for storing datasets)
    - An Azure Container Registry for storing model images during development
 
-   Cognitive Services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning Compute Instance and Compute Clusters are used for development and model building / testing purposes. Azure Data Factory is used to orchestrate batch scoring of models (if needed). App Service and Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
+   Cognitive Services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning Compute Instance and Compute Clusters are used for development and model building / testing purposes. Azure Data Factory is used to orchestrate batch scoring of models (if needed). App Service and Azure Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
 
    Regulated industries usually have strict data access restrictions, and usually allow production data to be hosted only within the production environment. Because of this reason, the development lifecycle of data products is occurring only in the production data landing zone, and a separate environment (resource group) is provisioned for development, testing, and deployment purposes.
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.

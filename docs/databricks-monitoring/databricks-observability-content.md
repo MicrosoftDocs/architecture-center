@@ -1,3 +1,6 @@
+> [!NOTE]
+> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The library supports Azure Databricks 10.x (Spark 3.2.x) and earlier. Azure Databricks 11.0 includes [breaking changes](/azure/databricks/release-notes/runtime/11.0#log4j-is-upgraded-from-log4j-1-to-log4j-2) to the logging systems that the **spark-monitoring** library integrates with. The work required to update the **spark-monitoring** library to support Azure Databricks 11.0 (Spark 3.3.0) and newer is not currently planned.
+
 This solution demonstrates observability patterns and metrics to improve the processing performance of a big data system that uses Azure Databricks.
 
 ## Architecture
@@ -312,6 +315,14 @@ To diagnose these issues, you used the following metrics:
 - Streaming throughput
 - Task duration (max, mean, min) per stage
 - Error trace (count, message, task ID)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
 
 ## Next steps
 

@@ -51,4 +51,4 @@ Microsoft Learn modules:
 - [Finance management apps using Azure Database for MySQL](finance-management-apps-using-azure-database-for-mysql.yml)
 - [Intelligent apps using Azure Database for MySQL](intelligent-apps-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure PostgreSQL](retail-and-ecommerce-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Cosmos DB](retail-and-e-commerce-using-cosmos-db.yml)
+- [Retail and e-commerce using Azure Cosmos DB](retail-and-e-commerce-using-cosmos-db.yml)
