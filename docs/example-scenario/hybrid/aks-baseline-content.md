@@ -1,6 +1,6 @@
 This scenario illustrates how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
 
-This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
+This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements. It's part of an architectural baseline guidance set of two articles. See the [recommendations for network design here](aks-network.yml).
 
 ## Workflow
 
@@ -111,30 +111,6 @@ To minimize the TCO, integrate AKS on Azure Stack HCI deployments with Azure Arc
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Cost optimization
-
-- Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices.
-- Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Stack HCI billing unit is a virtual core.
-
-### Operational excellence
-
-- **Create Cluster Wizard**. Experience a simplified provisioning and management experience with Windows Admin Center. The [Create Cluster Wizard in Windows Admin Center][] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. The Create Cluster Wizard is a tradeoff for ease vs creating deploy scripts that you can source control for auditing and repeatability across multiple deployments. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][].
-- [Azure ARC][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
-- **GitOps.** Instead of manually configuring Kubernetes components, use automated tooling to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. In this architecture, we recommend using the Microsoft-provided GitOps extension, which is based on Flux.
-- **Azure Arc–enabled [Open Service Mesh (OSM)][].** A lightweight, extensible, cloud-native service mesh that allows users to uniformly manage, help secure, and get out-of-the-box observability features for highly dynamic microservice environments.
-
-### Performance efficiency
-
-- Use Azure Stack HCI-certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
-- Understand the AKS on Azure Stack HCI limits. Microsoft supports AKS on Azure Stack deployments with a maximum of eight physical servers per cluster, eight Kubernetes Clusters, and 200 VMs.
-- Scaling AKS on Azure Stack HCI depends on the number of worker nodes and target clusters. To properly dimension the hardware for the worker nodes, you need to anticipate the number of pods, containers, and worker nodes in a target cluster. You should ensure that at least 15% of Azure Stack HCI capacity is reserved for both planned and unplanned failure. For performance efficiency use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve. The general rule is that if one node goes offline during maintenance, or during unplanned failure, the remaining nodes can have enough capacity to manage the increased load.
-- Consider increasing the size of the load balancer VM if you're running many Kubernetes services in each target cluster.
-- AKS on Azure Stack HCI distributes the worker nodes for each node pool in a target cluster using Azure Stack HCI placement logic.
-- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and Application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure stack HCI.
-- Consider implementing an ingress controller that works at Layer 7 and uses more intelligent rules to distribute application traffic.
-- Implement network performance optimization for traffic bandwidth allocation.
-- Use graphics processing unit (GPU) acceleration for extensive workloads.
-
 ### Reliability
 
 - Implement a highly available VM for the Management Cluster, and multiple hosts in Kubernetes Cluster to meet the minimum level of availability for workloads.
@@ -176,6 +152,30 @@ Focus on the entire stack by securing the host and containers.
 - Secure the images in an Azure Container Registry that supports vulnerability scanning and RBAC.
 - [Use isolation of containers][], and avoid running containers in privileged mode to prevent attackers to escalate the privileges if the container is compromised.
 
+### Cost optimization
+
+- Use the [Azure pricing calculator][] to estimate costs for the services used in the architecture. The [cost optimization][] section in [Microsoft Azure Well-Architected Framework][cost optimization] describes other best practices.
+- Consider implementing hyper-threading on your physical computer, to optimize the cost, because the AKS on Azure Stack HCI billing unit is a virtual core.
+
+### Operational excellence
+
+- **Create Cluster Wizard**. Experience a simplified provisioning and management experience with Windows Admin Center. The [Create Cluster Wizard in Windows Admin Center][] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. The Create Cluster Wizard is a tradeoff for ease vs creating deploy scripts that you can source control for auditing and repeatability across multiple deployments. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][].
+- [Azure ARC][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
+- **GitOps.** Instead of manually configuring Kubernetes components, use automated tooling to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. In this architecture, we recommend using the Microsoft-provided GitOps extension, which is based on Flux.
+- **Azure Arc–enabled [Open Service Mesh (OSM)][].** A lightweight, extensible, cloud-native service mesh that allows users to uniformly manage, help secure, and get out-of-the-box observability features for highly dynamic microservice environments.
+
+### Performance efficiency
+
+- Use Azure Stack HCI-certified hardware for improved application uptime and performance, simplified management and operations, and lower total cost of ownership.
+- Understand the AKS on Azure Stack HCI limits. Microsoft supports AKS on Azure Stack deployments with a maximum of eight physical servers per cluster, eight Kubernetes Clusters, and 200 VMs.
+- Scaling AKS on Azure Stack HCI depends on the number of worker nodes and target clusters. To properly dimension the hardware for the worker nodes, you need to anticipate the number of pods, containers, and worker nodes in a target cluster. You should ensure that at least 15% of Azure Stack HCI capacity is reserved for both planned and unplanned failure. For performance efficiency use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve. The general rule is that if one node goes offline during maintenance, or during unplanned failure, the remaining nodes can have enough capacity to manage the increased load.
+- Consider increasing the size of the load balancer VM if you're running many Kubernetes services in each target cluster.
+- AKS on Azure Stack HCI distributes the worker nodes for each node pool in a target cluster using Azure Stack HCI placement logic.
+- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and Application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure stack HCI.
+- Consider implementing an ingress controller that works at Layer 7 and uses more intelligent rules to distribute application traffic.
+- Implement network performance optimization for traffic bandwidth allocation.
+- Use graphics processing unit (GPU) acceleration for extensive workloads.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -200,7 +200,7 @@ Focus on the entire stack by securing the host and containers.
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Stack HCI / Windows Server]: /azure-stack/aks-hci/
   [Azure Kubernetes Service on Azure Stack HCI]: /azure-stack/aks-hci/
-  [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
+  [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
   [Azure role-based access control (Azure RBAC)]: /azure/role-based-access-control/
