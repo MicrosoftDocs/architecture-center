@@ -175,6 +175,7 @@ The pricing for many of the Azure components can be found in the [Azure Pricing 
 - Volume of data, in terms of the number of patients/devices and the number of activity and physiological data types being ingested.
 - Capacity and throughput requirements for Event Hubs.
 - Compute resources that are needed to perform machine learning training and deployments, Synapse Spark Pools and Databricks clusters.
+- The visualization and reporting solution, such as Power BI.
 
 When implementing this solution, consider the data retention and archival policy for the underlying Azure Data Lake. Take advantage of [Azure Storage lifecycle management](/azure/storage/blobs/lifecycle-management-overview) to provide an automated way to:
 - transition file blobs down to the cool access tier
