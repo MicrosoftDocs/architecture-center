@@ -1,4 +1,10 @@
-<Intro should cover a basic overview of the workload.>
+This article briefly describes the steps for running [WRF](https://www.mmm.ucar.edu/models/wrf) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running WRF on Azure.
+
+Weather Research & Forecasting (WRF) is a mesoscale numerical weather-prediction system that's designed for atmospheric research and operational forecasting applications. 
+
+WRF serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers. It provides a flexible and computationally efficient platform while reflecting recent advances in physics, numerics, and data assimilation. The software can produce simulations based on actual atmospheric conditions or from idealized conditions.
+
+WRF is used by academic atmospheric scientists (dynamics, physics, weather, and climate research), forecast teams at operational centers, and applications scientists (air quality, hydrology, and utilities).
 
 ## Why deploy WRF on Azure?
 
