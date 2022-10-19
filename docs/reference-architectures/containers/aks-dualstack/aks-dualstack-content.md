@@ -2,6 +2,10 @@ Due to IPv4 address exhaustion problem, IPv6 was introduced in 1995 and made as 
 
 This architecture builds on the [AKS Baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the dual-stack content.
 
+Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` without the need of extra NAT64 proxy.
+
+Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
+
 # Architecture
 
 ![Dual-stack network topology](images/dual-stack.svg)
@@ -41,7 +45,7 @@ The architecture consists of the following components:
 
 Another approach is for each functional service, there should be 1 IPv6 AKS Service listening to IPv6 Ingress, and 1 IPv4 AKS Service listening o IPv4 Ingress. This helps avoid a NAT64 hop for IPv6 traffic and vice versa.
 
-# Consideration
+# Considerations
 
 ## Reliability
 
@@ -55,11 +59,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/cost/overview).
 
-# Next Step
+# Potential Use Cases
 
-Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` without the need of extra NAT64 proxy.
-
-Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
+IPv6 enables direct node-to-node address which improves connectivity, eases connection management, and reduces routing overhead. These are extremely useful to enable Internet of Things in healthcare, manufacturing, energy, automotive, or telecommunication industries.
 
 # Related Resources
 Microsoft learning:
