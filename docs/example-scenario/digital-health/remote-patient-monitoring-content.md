@@ -99,7 +99,7 @@ Devices and patients need to be defined, linked, and synchronized between the Az
 
 **Microsoft Cloud for HealthCare**
 
-This example workload addresses one way of implementing a remote patient monitoring solution. The [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare) also provides a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution. For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
+This example workload addresses one way of implementing a remote patient monitoring solution. The [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare) also provides a [remote patient monitoring solution](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare). For more information on that solution, see the [remote patient monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
 
 ## Scenario details
 
@@ -123,7 +123,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
    - take more informed actions based on the physiological indicators/notifications
    - provide pathways for remote physiologic monitoring reimbursement 
 
-- **Patient Reported Outcome (PRO) questionnaires and PRO-driven care** - By using events and PRO questionnaires individualized care plans and care variance workflows can be created. The patient is allowed to have more autonomy and control over the individualized care plan, which helps adoption and sustained use. PRO-driven care be helpful in solving the gap in education and patient outcomes. By linking education questionnaires and PROs, RPM can be used to support medication, treatment, and/or follow up care, by answering questions such as:
+- **Patient Reported Outcome (PRO) questionnaires and PRO-driven care** - By using events and PRO questionnaires, individualized care plans and care variance workflows can be created. The patient is allowed to have more autonomy and control over the individualized care plan, which helps adoption and sustained use. PRO-driven care can also be helpful in solving the gap in education and patient outcomes. By linking education questionnaires and PROs, RPM can be used to support medication, treatment, and/or follow up care, by answering questions such as:
    - Are patients taking their BP correctly? 
    - Is the scale being used at the right time and frequency? 
    - Are we looping in PROs for patient adoption and individualized care planning? 
@@ -229,5 +229,5 @@ Technologies and resources that are relevant to implementing this architecture:
 
 ## Related resources
 
-- Review the [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
+- Review the [remote patient monitoring solution](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) in the Microsoft Cloud Solution Center. For more information, see the [remote patient monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
 - [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch) shows a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers.
