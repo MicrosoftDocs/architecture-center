@@ -5,7 +5,7 @@ Visiopharm is an AI-based image analysis and tissue mining tool that supports dr
 Visionpharm:
 
 - Enables researchers to align and subsequently analyze digitized serial sections. 
-- Enables tissue-based researchers to analyze both simple and complex datasets to generate reliable quantitative results.
+- Enables tissue researchers to analyze both simple and complex datasets to generate reliable quantitative results.
 - Uses pre-trained nuclei segmentation APPs, suitable for bright-field and fluorescence applications.
 
 Visiopharm is used in academic institutions, the biopharmaceutical industry, and diagnostic centers.
