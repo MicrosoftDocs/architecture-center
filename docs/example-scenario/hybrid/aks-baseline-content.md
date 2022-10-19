@@ -62,6 +62,9 @@ AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerSh
 
 Kubernetes provides an abstraction layer to virtual networking by connecting the Kubernetes nodes to the virtual network. It also provides inbound and outbound connectivity for pods through the *kube-proxy* component. Azure Stack HCI platform provides additional simplification of the deployment by configuring the *HAProxy* load balancer VM.
 
+> [!NOTE]
+> For information about how to design and implement network concepts for deploying AKS nodes on Azure Stack HCI and Windows Server clusters, see the second article in this series, [Network architecture](aks-network.yml).
+
 The architecture uses a virtual network that allocates IP addresses by using one of the following networking options:
 
 - **Static IP networking.** Uses a static, defined address pool for all the objects in the deployment. It adds extra benefit and guarantees that the workload and application are always reachable. This is the recommended method.

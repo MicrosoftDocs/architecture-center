@@ -2,7 +2,7 @@ This scenario illustrates how to design and implement network concepts for deplo
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
 
-## Workflow
+## Architecture
 
 The following image shows the network architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter clusters:
 
@@ -111,22 +111,22 @@ Use an ingress controller to expose services through externally reachable URLs. 
 apiVersion: networking.k8s.io/v1  
 kind: Ingress  
 metadata: 
-      name: hello-world
-      annotations:
-          nginx.ingress.kubernetes.io/rewrite-target: /
+  name: hello-world
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 kubernetes.io/ingress.class: "nginx"
   spec:  
-      rules:
-       - host: test.example.com
-          http:
-             paths: 
-             - path: /hello-world
+    rules:
+     - host: test.example.com
+       http:
+         paths: 
+         - path: /hello-world
 pathType: Prefix
 backend:
     service: 
-         name: hello-world 
-                    port:  
-                     number: 8080
+      name: hello-world 
+            port:  
+            number: 8080
 ```
 
 Use an ingress controller to balance the traffic between different backends of the application. The traffic is split and sent to different service endpoints and deployments, based on the path information.
@@ -257,7 +257,7 @@ your Kubernetes cluster, it's services and applications.
     - Storage traffic including live migration between nodes in the same cluster.
     - Ethernet switch or direct connection.
 
-## Storage traffic models
+### Storage traffic models
 
 - Use multiple subnets and VLANs to separate storage traffic in Azure Stack HCI.
 - Consider implementing traffic bandwidth allocation of various traffic types.
@@ -266,6 +266,25 @@ your Kubernetes cluster, it's services and applications.
 
 The [Microsoft Azure Well-Architected Framework][] is a set of guiding tenets that are followed in this scenario. The following
 considerations are framed in the context of these tenets.
+
+### Reliability
+
+- Built-in resiliency, inherent to Microsoft software-defined compute (failover cluster of Hyper-V nodes), storage (Storage Spaces Direct nested resiliency), and networking (Software Defined Networking).
+- Consider selecting the network switch that supports industry standards and ensures reliable communications between nodes. The following standards include:
+  - Standard: IEEE 802.1Q
+  - Standard IEEE 802.1Qbb
+  - Standard IEEE 802.1 Qas
+  - Standard IEEE 802.1 AB
+- Consider implementing multiple hosts in the management cluster and in the Kubernetes cluster to meet the minimum level of availability for workloads.
+- AKS on Azure Stack HCI uses failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
+- You should ensure that services referenced in the [Workflow](#workflow) section are supported in the region to which Azure Arc is deployed.
+
+### Security
+
+- Secure traffic between pods using network policies in AKS on Azure Stack HCI.
+- The API server in AKS on Azure Stack HCI contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
+- Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
+- You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
 ### Cost optimization
 
@@ -291,25 +310,6 @@ considerations are framed in the context of these tenets.
 - Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure stack HCI.
 - Consider implementing an ingress controller that works at layer 7 and uses more intelligent rules to distribute application traffic.
 - Use graphics processing unit (GPU) acceleration for extensive workloads.
-
-### Reliability
-
-- Built-in resiliency, inherent to Microsoft software-defined compute (failover cluster of Hyper-V nodes), storage (Storage Spaces Direct nested resiliency), and networking (Software Defined Networking).
-- Consider selecting the network switch that supports industry standards and ensures reliable communications between nodes. The following standards include:
-  - Standard: IEEE 802.1Q
-  - Standard IEEE 802.1Qbb
-  - Standard IEEE 802.1 Qas
-  - Standard IEEE 802.1 AB
-- Consider implementing multiple hosts in the management cluster and in the Kubernetes cluster to meet the minimum level of availability for workloads.
-- AKS on Azure Stack HCI uses failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
-- You should ensure that services referenced in the [Workflow](#workflow) section are supported in the region to which Azure Arc is deployed.
-
-### Security
-
-- Secure traffic between pods using network policies in AKS on Azure Stack HCI.
-- The API server in AKS on Azure Stack HCI contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
-- Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
-- You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
 ## Contributors
 
@@ -343,7 +343,7 @@ considerations are framed in the context of these tenets.
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
   [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-  [Windows Admin Center ]: /windows-server/manage/windows-admin-center/overview
+  [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [2]: https://azure.microsoft.com/services/azure-arc/
   [Azure role-based access control (RBAC)]: /azure/role-based-access-control/
