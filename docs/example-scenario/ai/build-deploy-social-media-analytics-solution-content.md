@@ -82,7 +82,7 @@ By extracting information about your customers from social media, you can enhanc
 - Measuring brand health:
   - Capturing customer reactions and feedback for new products or services on social media
   - Analyzing sentiment on social media interactions for a new product or service
-  - Capturing the sentiment about a brand, and determining whether the overall perception is positive or negative
+  - Capturing the sentiment about a brand and determining whether the overall perception is positive or negative
 
 - Building and maintaining customer relationships:
   - Quickly identifying customer concerns
