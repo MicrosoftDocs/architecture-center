@@ -18,10 +18,10 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. **Azure Health Data Services workspace sends notification messages to events subscribers** when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
 
-1. **FHIR Analytics Pipelines incrementally export non-anonymized FHIR data to Azure Data Lake**, making it available for analytics with various Azure data services. The exported data can also be anonymized by leveraging Microsoft open-source Tools for Health Data Anonymization. The default anonymization is based on the [HIPAA Safe Harbor](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html) method, which can be extended and modified as needed.
+1. **FHIR Analytics Pipelines incrementally export non-anonymized FHIR data to Azure Data Lake**, making it available for analytics with various Azure data services. The exported data can also be anonymized by leveraging tools such as the Microsoft open-source [Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization). The default anonymization is based on the [HIPAA Safe Harbor](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html) method, which can be extended and modified as needed.
 
    > [!IMPORTANT]  
-   > The exported FHIR data is raw, which includes PHI information. The process of de-identification can be used to  remove personal identifiers from the data for research or sharing purposes. If you desire de-identified data sets you **must** take measures to anonymize the data before exporting it, such as the one mentioned above.
+   > The exported FHIR data in this dataflow is raw, which includes PHI information. The process of de-identification can be used to  remove personal identifiers from the data for research or sharing purposes. If you desire de-identified data sets you **must** take measures to anonymize the data before exporting it, using a tool such as the one mentioned above.
 
 1. **Further analysis of the FHIR data in the Parquet and JSON formats is done** using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
 
@@ -47,9 +47,9 @@ The [Life365.health platform](https://www.life365.health/solutions-remote-patien
 
 **Other**
 
-While the above options help make it easier, this architecture supports any similar data sources that can securely be ingested into Event Hubs, directly or indirectly through an intermediary API.
+While the above options help make it easier, this architecture supports any similar data sources that can be securely ingested into Event Hubs, directly or indirectly through an intermediary API.
 
-#### Azure services and tools - data collection and storage
+#### Azure services (data collection and storage)
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges. In this architecture it's used for collecting and aggregating the device data, for transfer to Azure Health Data Services.
 
@@ -64,23 +64,29 @@ While the above options help make it easier, this architecture supports any simi
 
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates events whenever a FHIR resource is created, updated or deleted (CUD). These events can be broadcast by Azure Event Grid to downstream consumers to act on event-based data.
 
-#### Azure services and tools - data analytics
+#### Azure services and tools (data analytics)
 
 - [FHIR Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture, the data is converted to JavaScript Object Notation (JSON) and [Parquet](/azure/databricks/data/data-sources/read-parquet) format, making it available for analytics with various Azure data services. 
 
 - [Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) - an OSS project backed by the Microsoft Healthcare team helps anonymize healthcare data, on-premises or in the cloud, for secondary usage such as research, public health, and more. The anonymization core engine uses a configuration file to specify different parameters, as well as anonymization methods for different data-elements and data types. 
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) - a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated options—at scale. Azure Synapse brings these worlds together with a unified experience to ingest, explore, prepare, transform, manage, and serve data for immediate BI and machine learning needs.
+
 - [Apache Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) - Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a serverless Apache Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Spark pools to process your data stored in Azure.
+
 - [Azure Databricks](https://azure.microsoft.com/products/databricks/) - a data analytics platform optimized for the Microsoft Azure cloud services platform. Databricks provides a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers. Three environments are offered for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
+
 - [Azure ML](https://azure.microsoft.com/services/machine-learning/) - an Azure cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps. You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models.
+
 - [Power BI](https://powerbi.microsoft.com/) - provides self-service analytics at enterprise scale, allowing you to:
    - Create a data-driven culture with business intelligence for all.
    - Keep your data secure with industry-leading data security capabilities including sensitivity labeling, end-to-end encryption, and real-time access monitoring.is used for further analysis of FHIR data.
+
 - [Power Query connectors](/power-query/connectors/) used with Power BI include: 
    - [Parquet file data source connector](/power-bi/connect-data/desktop-data-sources#file-data-sources) - used to access Azure Data Lake Parquet file data.
    - [Power Query connector for FHIR](/power-query/connectors/fhir/fhir) - used to import and shape data from a FHIR server.
    - [Azure Synapse Analytics SQL data source connector](/power-bi/connect-data/desktop-data-sources#azure-data-sources) - used for creating SQL queries against Azure Synapse Analytics.
+
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) - a desktop app used to create native SQL queries against SQL data stores, such as Azure Synapse Analytics SQL pools.
 
 ### Alternatives
@@ -97,7 +103,7 @@ This example workload addresses one way of implementing a remote patient monitor
 
 ## Scenario details
 
-There's a plenitude of medical and wearable/consumer devices out there today. To access the devices' measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
+There's a plenitude of medical and wearable/consumer devices out there today. To access device measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
 
 ### Problem statement
 
@@ -117,7 +123,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
    - take more informed actions based on the physiological indicators/notifications
    - provide pathways for remote physiologic monitoring reimbursement 
 
-- **Patient Reported Outcome (PRO) questionnaires and PRO-driven care** - By using events and PRO questionnaires individualized care plans and care variance workflows can be created. The patient is allowed to have more autonomy and control over the individualized care plan, which helps adoption and sustained use. PRO-driven care be helpful in solving the gap in education and patient outcomes. By linking education questionnaires and PROs, an RPM solution can be used to support medication, treatment, and/or follow up care, answering questions such as:
+- **Patient Reported Outcome (PRO) questionnaires and PRO-driven care** - By using events and PRO questionnaires individualized care plans and care variance workflows can be created. The patient is allowed to have more autonomy and control over the individualized care plan, which helps adoption and sustained use. PRO-driven care be helpful in solving the gap in education and patient outcomes. By linking education questionnaires and PROs, RPM can be used to support medication, treatment, and/or follow up care, by answering questions such as:
    - Are patients taking their BP correctly? 
    - Is the scale being used at the right time and frequency? 
    - Are we looping in PROs for patient adoption and individualized care planning? 
@@ -127,10 +133,6 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 - **Allow for multiple types and more precise health devices** - Use medical and home medical devices to generate health data in near-real-time for data ingestion and analysis. 
 
 ## Considerations
-
-> [!NOTE]
-> **SECTION TODOS**
-> - Cost optimization FYI - per Mustafa, this solution does not lend itself to an [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) shared "saved estimate". This is mainly due to the fact that the sizing would be wildly different across the factorial of patients/devices. Also, this is more of an elastic "pay per request" vs a "pay per hour" solution (as others would be that are more geared toward operating during business hours).
 
 These considerations address the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
@@ -192,12 +194,6 @@ This solution provides a scalable near-realtime architecture for remote patient 
 
 - Azure Machine Learning offers deployment for [inference with GPU](/azure/machine-learning/v1/how-to-deploy-inferencing-gpus) processors and [Azure FPGAs](/azure/machine-learning/v1/how-to-deploy-fpga-web-service) that make it possible to achieve low latency for real-time inference.
 
-## Deploy this scenario
-
-> [!NOTE]
-> **SECTION TODOS**
-> - do we have a repo with a completed solution, that can be deployed?
- 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
