@@ -2,7 +2,7 @@ This scenario illustrates how to design and implement a baseline architecture fo
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
 
-## Workflow
+## Architecture
 
 The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover cluster:
 
