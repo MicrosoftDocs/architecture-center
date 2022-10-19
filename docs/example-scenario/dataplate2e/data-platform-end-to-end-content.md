@@ -111,8 +111,6 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Serve
 
-#### Serve
-
 1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your SQL pool tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
 
 1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
@@ -133,7 +131,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Store
 
-1. Within the raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
+1. Within the Raw data lake layer, [organize your data lake](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services) following the best practices around which zones to create, what folder structures to use in each zone and what files format to use for each analytics scenario.
 
 1. From the Azure Synapse pipeline, use a [Copy data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. Save data to preserve the original format, as acquired from the data sources.
 
@@ -179,8 +177,6 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 #### Serve
 
 1. You can serve your final dataset directly from the data lake Curated zone or you can use Copy Data activity to ingest the final dataset into your data warehouse tables using the [COPY command](/sql/t-sql/statements/copy-into-transact-sql) for fast ingestion.
-
-#### Serve
 
 1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships.
 
