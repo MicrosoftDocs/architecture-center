@@ -2,7 +2,9 @@
 
 Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
 
-:::image type="content" source="./images/azure-ad.png" alt-text="Diagram of hybrid cloud identity architecture using Azure Active Directory" lightbox="./images/azure-ad.png" border="false" :::
+## Architecture
+
+:::image type="content" source="./images/azure-ad.png" alt-text="Diagram of a hybrid cloud identity architecture that uses Azure Active Directory." lightbox="./images/azure-ad.png" border="false" :::
 
 *Download a [Visio file][visio-download] of this architecture (see Visio tab "Azure AD").*
 
@@ -10,19 +12,9 @@ Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and id
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
 >
 
-Typical uses for this reference architecture include:
-
-- Web applications deployed in Azure that provide access to remote users who belong to your organization.
-- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. This requires Azure AD Premium edition.
-- Architectures in which the on-premises network and the application's Azure VNet aren't connected using a VPN tunnel or ExpressRoute circuit.
-
-> [!NOTE]
-> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
->
-
 For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
 
-## Architecture
+### Components
 
 The architecture has the following components.
 
@@ -36,6 +28,20 @@ The architecture has the following components.
   >
 
 - **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this reference architecture include:
+
+- Web applications deployed in Azure that provide access to remote users who belong to your organization.
+- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. This requires Azure AD Premium edition.
+- Architectures in which the on-premises network and the application's Azure VNet aren't connected using a VPN tunnel or ExpressRoute circuit.
+
+> [!NOTE]
+> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
+>
 
 ## Recommendations
 
