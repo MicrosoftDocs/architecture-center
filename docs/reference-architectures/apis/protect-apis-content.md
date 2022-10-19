@@ -302,7 +302,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
       ```powershell
       # Step 7 - upload certificate for SSL-enabled backend pool resources
       $authcert = New-AzApplicationGatewayAuthenticationCertificate `
-          -Name "whitelistcert" `
+          -Name "allowlistcert" `
           -CertificateFile $gatewayCertCerPath
       ```
 
