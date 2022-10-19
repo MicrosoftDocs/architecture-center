@@ -169,7 +169,7 @@ Healthcare data often includes sensitive protected health information (PHI) and 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The pricing for all Azure components can be found in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator). Pricing for this solution is based on:
+The pricing for many of the Azure components can be found in the [Azure Pricing Calculator](https://azure.com/e/cebe07ec6f22486bbd417bd211245a60). Ultimately, pricing for this solution is based on factors such as:
 
 - The Azure services that are used.
 - Volume of data, in terms of the number of patients/devices and the number of activity and physiological data types being ingested.
