@@ -2,8 +2,8 @@
 metadata:
   title: Dual-stack network traffic on AKS
   description: Learn about the infrastructure considerations of Azure Kubernetes Service (AKS) cluster on dual-stack network (using both IPv4 and IPv6 addresses).
-  author: EdPrice-MSFT
-  ms.author: architectures 
+  author: andy-anhnguyen
+  ms.author: anhnguye 
   ms.date: 10/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
