@@ -8,7 +8,7 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
 
-That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
+That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE (site reliability engineer) cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
 
 > [!IMPORTANT]
 >

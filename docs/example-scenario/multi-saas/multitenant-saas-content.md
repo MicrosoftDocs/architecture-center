@@ -86,7 +86,7 @@ The primary components are the suggested components for the architecture in this
 
 ## Scenario details
 
-When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle. 
+When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle.
 
 Azure offers a range of services for managing a software solution that:
 
@@ -150,7 +150,7 @@ By design, the Azure SQL Elastic Pool pricing is highly cost-effective in a mult
 
 * Using a virtual core (vCore) pricing model provides greater flexibility in scaling to meet required resources. Also, you can take advantage of the Azure Hybrid Benefit. Existing SQL Server licenses provide a discount to vCore SQL resources in the cloud. So in an instance when on-premises servers are already part of the developer infrastructure, you can manage cost even more by using these discounts. You can estimate your potential savings using the [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-* You can also save cost on SQL Server resources by purchasing [Azure SQL Database reserved capacity](/azure/sql-database/sql-database-reserved-capacity). A purchase of reserved capacity marks a commitment of long-term SQL Database usage. The term is usually between one to three years. In return, you get discounts on the compute costs of the resources in reservation. For instance, you could make a reservation of 32 general purpose vCores for a year, which would reduce the cost of those 32 vCores for that year. Having multiple tenants purchasing licenses for an SaaS is a strong indicator that making use of Reserved capacity fits the solution, and an ideal cost saver in this workload.
+* You can also save cost on SQL Server resources by purchasing [Azure SQL Database reserved capacity](/azure/sql-database/sql-database-reserved-capacity). A purchase of reserved capacity marks a commitment of long-term SQL Database usage. The term is usually between one to three years. In return, you get discounts on the compute costs of the resources in reservation. For instance, you could make a reservation of 32 general purpose vCores for a year, which would reduce the cost of those 32 vCores for that year. Having multiple tenants purchasing licenses for a SaaS is a strong indicator that making use of Reserved capacity fits the solution, and an ideal cost saver in this workload.
 
 You can find the pricing structure for Azure Cache for Redis on the [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/) page. Adjust the cache tier at any time between a Basic, Standard, and Premium tier based on need. You'll see higher pricing on the larger cache limits and additional features such as replication and disaster recovery. Azure Cache for Redis also offers reserved capacity pricing for long-term usage commitments.
 

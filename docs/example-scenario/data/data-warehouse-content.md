@@ -38,7 +38,7 @@ The company has data sources on many different platforms:
 - Oracle on-premises
 - Azure SQL Database
 - Azure table storage
-- Cosmos DB
+- Azure Cosmos DB
 
 Data is loaded from these different data sources using several Azure components:
 

@@ -38,7 +38,7 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 
 * [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+* [Build a .NET web app with Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
 * [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
 * [Azure Event Hubs - A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)

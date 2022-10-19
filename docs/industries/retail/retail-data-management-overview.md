@@ -89,7 +89,7 @@ Examples of structured data include relational database data feeds, sensor data,
 
 Azure Data Lake service also enables batch and interactive queries along with real time analytics using [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview?WT.mc_id=retaildm-docs-dastarr). Also, Data Lake is specifically well-suited for very large data analysis workloads. Finally, data in the Data Lake is persistent and has no time limit.
 
-Other data stores such as relational databases, Blob storage, Azure Files storage, and Cosmos DB document storage may also hold clean data ready for downstream analysis in the data management pipeline. There is no requirement that one uses a Data Lake.
+Other data stores such as relational databases, Blob storage, Azure Files storage, and Azure Cosmos DB document storage may also hold clean data ready for downstream analysis in the data management pipeline. There is no requirement that one uses a Data Lake.
 
 ## Analyze
 

@@ -89,7 +89,7 @@ Follow these steps when designing partitions for scalability:
 
 1. Analyze the application to understand the data access patterns, such as the size of the result set returned by each query, the frequency of access, the inherent latency, and the server-side compute processing requirements. In many cases, a few major entities will demand most of the processing resources.
 2. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then distribute the data across the partitions to meet the scalability target. For horizontal partitioning, choosing the right shard key is important to make sure distribution is even. For more information, see the [sharding pattern](../patterns/sharding.yml).
-3. Make sure each partition has enough resources to handle the scalability requirements, in terms of data size and throughput. Depending on the data store, there might be a limit on the amount of storage space, processing power, or network bandwidth per partition. If the requirements are likely to exceed these limits, you may need to refine your partitioning strategy or split data out further, possibly combining two or more strategies.
+3. Make sure each partition has enough resources to handle the scalability requirements, in terms of data size and throughput. Depending on the data store, there might be a limit on the amount of storage space, processing power, or network bandwidth per partition. If the requirements are likely to exceed these limits, you might need to refine your partitioning strategy or split data out further, possibly combining two or more strategies.
 4. Monitor the system to verify that data is distributed as expected and that the partitions can handle the load. Actual usage does not always match what an analysis predicts. If so, it might be possible to rebalance the partitions, or else redesign some parts of the system to gain the required balance.
 
 Some cloud environments allocate resources in terms of infrastructure boundaries. Ensure that the limits of your selected boundary provide enough room for any anticipated growth in the volume of data, in terms of data storage, processing power, and bandwidth.
@@ -144,7 +144,7 @@ Consider the following factors that affect availability:
 Partitioning adds complexity to the design and development of your system. Consider partitioning as a fundamental part of system design even if the system initially only contains a single partition. If you address partitioning as an afterthought, it will be more challenging because you already have a live system to maintain:
 
 - Data access logic will need to be modified.
-- Large quantities of existing data may need to be migrated, to distribute it across partitions.
+- Large quantities of existing data might need to be migrated, to distribute it across partitions.
 - Users expect to be able to continue using the system during the migration.
 
 In some cases, partitioning is not considered important because the initial dataset is small and can be easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
@@ -187,7 +187,7 @@ Consider the following factors that affect operational management:
 
 As a system matures, you might have to adjust the partitioning scheme. For example, individual partitions might start getting a disproportionate volume of traffic and become hot, leading to excessive contention. Or you might have underestimated the volume of data in some partitions, causing some partitions to approach capacity limits.
 
-Some data stores, such as Cosmos DB, can automatically rebalance partitions. In other cases, rebalancing is an administrative task that consists of two stages:
+Some data stores, such as Azure Cosmos DB, can automatically rebalance partitions. In other cases, rebalancing is an administrative task that consists of two stages:
 
 1. Determine a new partitioning strategy.
 
@@ -214,7 +214,14 @@ Optionally, you can mark a partition as read-only in step 1, so that application
 
 Online migration is more complex to perform but less disruptive. The process is similar to offline migration, except the original partition is not marked offline. Depending on the granularity of the migration process (for example, item by item versus shard by shard), the data access code in the client applications might have to handle reading and writing data that's held in two locations, the original partition and the new partition.
 
-## Related patterns
+## Next steps
+
+- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml).
+- [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets)
+
+## Related resources
+
+- [Choose the right data store](../guide/technology-choices/data-store-overview.md)
 
 The following design patterns might be relevant to your scenario:
 
@@ -223,7 +230,3 @@ The following design patterns might be relevant to your scenario:
 - The [index table pattern](../patterns/index-table.yml) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 
 - The [materialized view pattern](../patterns/materialized-view.yml) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
-
-## Next steps
-
-- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml)
