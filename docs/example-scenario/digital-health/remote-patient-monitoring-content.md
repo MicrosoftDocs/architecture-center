@@ -128,7 +128,7 @@ Given the wide range of wearable and in-home medical devices and connectivity op
    - Is the scale being used at the right time and frequency? 
    - Are we looping in PROs for patient adoption and individualized care planning? 
 
-   For patients using iOS devices, questionnaire apps can be built using the [Apple ResearchKit](https://www.researchandcare.org/researchkit/).
+   For patients using iOS devices, questionnaire apps can be built using the [Apple ResearchKit](https://www.researchandcare.org/researchkit/). Questionnaire data is ingested by Azure Event Hubs and made available via the FHIR service, just like device patient activity and physiological data.
 
 - **Allow for multiple types and more precise health devices** - Use medical and home medical devices to generate health data in near-real-time for data ingestion and analysis. 
 
