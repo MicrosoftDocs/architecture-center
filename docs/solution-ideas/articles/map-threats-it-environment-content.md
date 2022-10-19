@@ -41,7 +41,7 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |
 | **AZURE STORAGE** | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
 | **DB** | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
-| **AZURE AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
+| **Azure AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
 
 
 The diagram represents Microsoft 365 through the components listed in the following table.
@@ -49,7 +49,7 @@ The diagram represents Microsoft 365 through the components listed in the follow
 | Label | Description | Documentation |
 |---|---|---|
 | **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
-| **AZURE AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis) |
+| **Azure AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis) |
 
 ### Workflow
 
@@ -139,4 +139,3 @@ For more details about this reference architecture, see the other articles in th
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integrate Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-

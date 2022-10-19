@@ -49,7 +49,7 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators deployed as a part of source control configuration.
 - **deployment.apps/extension-manager**.	Installs and manages lifecycle of extension helm charts.
-- **deployment.apps/kube-aad-proxy**.	Used for authentication of requests sent to the cluster using Cluster Connect.
+- **deployment.apps/kube-Azure AD-proxy**.	Used for authentication of requests sent to the cluster using Cluster Connect.
 - **deployment.apps/clusterconnect-agent**.	Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
 - **deployment.apps/guard**.	Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
 

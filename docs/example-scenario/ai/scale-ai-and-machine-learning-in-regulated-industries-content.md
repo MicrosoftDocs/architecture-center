@@ -192,7 +192,7 @@ Azure security logs can be ingested into SOC through different patterns:
 
 AI and machine learning environments running on Azure must be integrated with an organization's main account provisioning system, where requests to grant access to critical business applications are submitted, approved, and audited.
 
-Account provisioning systems are expected to connect to an organization's Active Directory and Azure Active Directory (AAD), so that business authorization roles map to corresponding AD/AAD security groups.
+Account provisioning systems are expected to connect to an organization's Active Directory and Azure Active Directory (Azure AD), so that business authorization roles map to corresponding AD/Azure AD security groups.
 
 AI/ML environments follow a Role-Based Access Control (RBAC) model, and access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
 
@@ -200,7 +200,7 @@ AI/ML environments follow a Role-Based Access Control (RBAC) model, and access l
 - Azure Machine Learning (AML) workspaces
 - Computing instances
 
-Role-Based Access Control (RBAC) uses security groups in Azure Active Directory (AAD).
+Role-Based Access Control (RBAC) uses security groups in Azure Active Directory (Azure AD).
 
 ### Multifactor authentication
 

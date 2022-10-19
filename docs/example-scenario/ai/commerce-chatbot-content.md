@@ -15,7 +15,7 @@ The following architecture is for designing a hotel booking bot.
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
-2. Using [Azure Active Directory][aadb2c-docs] (Azure AD) B2C (business-to-consumer), the customer is authenticated.
+2. Using [Azure Active Directory (Azure AD)][aadb2c-docs] B2C (business-to-consumer), the customer is authenticated.
 3. Interacting with the [Bot Service][botservice-docs], the customer requests information about hotel availability.
 4. [Cognitive Services][cognitive-docs] processes the natural language request to understand the customer communication.
 5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a [SQL database][sqldatabase-docs].

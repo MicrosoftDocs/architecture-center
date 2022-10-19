@@ -18,7 +18,7 @@ The companion ARM template deploys a new virtual network with four subnets:
 The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, such as load balancers and managed disks in Azure. The ARM template allows you to deploy an AKS cluster with the following features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
-- [AKS-managed AAD integration](/azure/aks/managed-aad)
+- [AKS-managed Azure AD integration](/azure/aks/managed-aad)
 - [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure Active Directory workload identity](/azure/aks/workload-identity-overview) (preview)
