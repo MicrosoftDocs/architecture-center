@@ -24,7 +24,7 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 1. Application code converts to AMT COBOL or directly to .NET C#. AMT maintains the original code structure to use as a baseline or for future edits. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
 
-1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases to Azure SQL Server. AMT Transform converts DMS and RDMS schemas to SQL, and converts [Job Control Language (JCL)](https://en.wikipedia.org/wiki/Job_Control_Language) and [Rexx](https://en.wikipedia.org/wiki/Rexx) scripts to VBScript or Windows PowerShell. Azure Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
+1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases to Azure SQL. AMT Transform converts DMS and RDMS schemas to SQL, and converts [Job Control Language (JCL)](https://en.wikipedia.org/wiki/Job_Control_Language) and [Rexx](https://en.wikipedia.org/wiki/Rexx) scripts to VBScript or Windows PowerShell. Azure Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
 
    AMT Transform also converts all binary or indexed [Virtual Storage Access Method (VSAM)](https://en.wikipedia.org/wiki/Virtual_Storage_Access_Method), flat files, and virtual tape files to Azure Files storage.
 

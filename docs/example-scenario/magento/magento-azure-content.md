@@ -1,8 +1,10 @@
-Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
+This article is about the open-source version of Magento, an e-commerce platform written in PHP. This article isn't about Adobe Commerce. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS) and describes common best practices for hosting Magento on Azure.
 
 ## Architecture
 
-![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
+:::image type="content" alt-text="Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components." source="media/magento-architecture.svg" lightbox="media/magento-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/magento-architecture-2.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -10,11 +12,11 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
 - [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium](https://azure.microsoft.com/services/storage/files) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- [Azure Files Premium](https://azure.microsoft.com/services/storage/files), [Azure NetApp Files](https://azure.microsoft.com/services/netapp), or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or Azure NetApp Files.
 - A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance reasons.
 - AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. The default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
 
 ### Components
@@ -23,7 +25,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 - AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Files Premium](https://azure.microsoft.com/services/storage/files)
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp)
 - [CDN](https://azure.microsoft.com/services/cdn)
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
@@ -31,7 +33,7 @@ Magento is an open-source e-commerce platform written in PHP. This example scena
 
 ## Scenario details
 
-For more information about Magento, see [Magento - Get the software](https://devdocs.magento.com/guides/v2.4/install-gde/bk-install-guide.html).
+For more information about Magento, see [On-premises installation overview](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/overview.html).
 
 ### Potential use cases
 
@@ -87,7 +89,7 @@ There are several ways to optimize scalability for this scenario:
 
   `'persistent' => '1'`
 
-- If MySQL consumes too much CPU, reduce the utilization by turning off *product count* from layered navigation in [Magento configuration](https://devdocs.magento.com/guides/v2.4/config-guide/prod/config-reference-most.html):
+- If MySQL consumes too much CPU, reduce the utilization by turning off *product count* from layered navigation in [Magento configuration](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/config-reference-general.html):
 
   `magento config:set -vvv catalog/layered_navigation/display_product_count 0`
 
@@ -103,7 +105,7 @@ There are several ways to optimize scalability for this scenario:
 
   `opcache.validate_timestamps=0`
 
-- Load balance the [Varnish cache](https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
+- Load balance the [Varnish cache](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
 
 #### Logging
 
@@ -126,6 +128,7 @@ Consider these ways to optimize availability for this scenario:
 #### Health probes
 
 Kubernetes defines two types of health probe:
+
 - The *readiness probe* tells Kubernetes whether the pod is ready to accept requests.
 - The *liveness probe* tells Kubernetes whether a pod should be removed and a new instance started.
 
@@ -163,7 +166,7 @@ Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
 #### Performance testing
 
-Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
+Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4-develop/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
 ### Cost optimization
 

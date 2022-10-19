@@ -5,7 +5,7 @@ metadata:
   description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
   author: EdPrice-MSFT
   ms.author: ansyeo
-  ms.date: 05/24/2022
+  ms.date: 09/19/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -24,6 +24,6 @@ products:
   - azure-iot-hub
   - azure-sql-edge
 
-thumbnailUrl: /azure/architecture/browse/thumbs/data-storage-edge.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-storage-edge-thumbnail.png
 content: |
    [!include[](data-storage-edge-content.md)]

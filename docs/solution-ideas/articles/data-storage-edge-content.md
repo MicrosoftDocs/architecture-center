@@ -6,6 +6,8 @@ This Internet of Things (IoT) solution demonstrates an on-premises edge network 
 
 ![Diagram of an example IoT implementation that includes an edge network.](../media/data-storage-edge.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/data-storage-edge.vsdx)* of this architecture.
+
 This implementation uses Azure SQL Edge on an edge processor. Communications to and from devices is done using Edge Hub. Communications between IoT devices and cloud applications is done using Azure IoT Hub.
 
 ### Components
@@ -53,7 +55,7 @@ Here are examples of how you can use edge networks in Azure solutions.
 
 Principal author:
 
- * [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader / IoT
+- [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader / IoT
 
 ## Next steps
 
@@ -76,6 +78,6 @@ The related resources provide further information on edge solutions, including i
 
 ### Architectures
 
-- [IoT using Cosmos DB](iot-using-cosmos-db.yml)
+- [IoT using Azure Cosmos DB](iot-using-cosmos-db.yml)
 - [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)

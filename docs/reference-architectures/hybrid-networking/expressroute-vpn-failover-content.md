@@ -6,7 +6,9 @@ Note that if the ExpressRoute circuit is unavailable, the VPN route will only ha
 
 ## Architecture
 
-![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway](./images/expressroute-vpn-failover.png)
+![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway.](./images/expressroute-vpn-failover.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/expressroute-vpn-failover.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -122,7 +124,15 @@ To deploy the solution, perform the following steps.
 
 1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
 
-## Next Steps
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370/) | Senior Cloud Solution Architect
+
+## Next steps
 
 * [ExpressRoute Documentation](/azure/expressroute/)
 * [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)

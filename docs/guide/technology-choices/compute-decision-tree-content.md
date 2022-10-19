@@ -6,7 +6,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services.](images/compute-choices-v-2.png)
+![Decision tree for Azure compute services.](./images/compute-choices.png)
 
 Definitions:
 
@@ -102,7 +102,7 @@ Notes
 
 | Criteria | Virtual Machines | App Service | Azure Spring Apps |  Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps | Azure Red Hat OpenShift |
 |----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|-------------------------|
-| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Apps][sla-azure-spring-apps]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] | Preview (No SLA) | [SLA for Azure Red Hat OpenShift][sla-aro] |
+| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Apps][sla-azure-spring-apps]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] | [SLA for Azure Container Apps][sla-aca] | [SLA for Azure Red Hat OpenShift][sla-aro] |
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported | | Not Supported | Not supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
@@ -165,6 +165,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
 [sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [sla-aro]: https://azure.microsoft.com/support/legal/sla/openshift/
+[sla-aca]: https://azure.microsoft.com/support/legal/sla/container-apps
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 

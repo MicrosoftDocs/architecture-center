@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-DevSecOps prioritizes security throughout the  development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
+DevSecOps prioritizes security in development and operations. The focus is using security best practices at beginning of the development process ("shifting left") when it's easier and cheaper to resolve security issues.
 
 ## Architecture
 
@@ -52,7 +52,9 @@ Some organizations utilize DevSecOps:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
+Principal author: 
+
+- [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
 ## Next steps
 
