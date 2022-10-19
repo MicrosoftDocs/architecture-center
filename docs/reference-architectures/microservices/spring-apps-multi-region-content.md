@@ -72,7 +72,31 @@ Additionaly you can also combine a multi-zone setup with a multi-region setup.
 
 #### Backend database
 
+For the backend database this architecture currently uses a MySQL database. However, other database technologies can be used here, like [Azure SQL Database](https://learn.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql), [Azure Database for PostgreSQL](https://learn.microsoft.com/azure/postgresql/single-server/overview), [Azure Database for MariaDB](https://learn.microsoft.com/azure/mariadb/overview) and [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction).
 
+For each of these database technologies you should double check how to best replicate and synchonise data between regions. In a lot of case you will need to take the replication strategy into account when designing your application across regions, so users don't get to see stale data.
+
+For Azure SQL Database for instance, the [Active geo-replication](https://learn.microsoft.com/azure/azure-sql/database/active-geo-replication-overview?view=azuresql) feature can provide you with a continuously synchronized readable secondary database for a primary database. This can be used in case your secondary region is a cold-standby and not receiving active requests. You can use it to failover to when your primary region is failing. Or you can set up your primary and secondary databases with a private link connection to each of your regions as described in [Multi-region web app with private connectivity to a database](https://learn.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region).
+
+Azure Cosmos DB has a feature to [globally distribute](https://learn.microsoft.com/azure/cosmos-db/distribute-data-globally) your data. Azure Cosmos DB transparently replicates the data to all the regions associated with your Azure Cosmos DB account. Additionaly Azure Cosmos DB can be configured with [multiple write regions](https://learn.microsoft.com/azure/cosmos-db/high-availability#multiple-write-regions). This is also described in the [geode pattern](https://learn.microsoft.com/azure/architecture/patterns/geodes) and the [Globally distributed applications using Azure Cosmos DB](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db) architecture.
+
+#### Backend application service
+
+The principles explained in this architecture don't only apply to Azure Spring Apps, but as a backend any Azure PaaS service can be used. This guidance is also applicable to [App Service](https://learn.microsoft.com/azure/app-service/), [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/), [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/), ...
+
+The most important guidance when switching out Azure Spring Apps for another PaaS service is to properly configure the custom domain in this PaaS service to properly configure the host name preservation.
+
+#### Reverse proxy setup
+
+Currently this setup uses 2 reverse proxies. Azure Front Door is used to deliver the global load balancing between regions. This reverse proxy is mandatory if you deploy a workload to multiple regions. As an alternative to Azure Front Door, [Azure Traffic Manager](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) can be used. This is a DNS-based traffic load balancer, so it load balances only at the domain level.
+
+
+
+#### Routing between regions
+
+#### High availability mode
+
+active/active - active/passive with hot standby - active/passive with cold standby 
 
 
 ## Solution details
@@ -147,7 +171,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 > What are the components that make up the cost?
 > How does scale affect the cost?
 
-> Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
+> Link to the pricing calculator (https://azure.microsoft.com/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
 > If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
 
 ### Operational excellence
