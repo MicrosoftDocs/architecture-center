@@ -64,7 +64,7 @@ Installation steps include setting up your environment and configuring and compi
 
  The New CONUS 2.5 km model was tested:
 
-:::image type="content" source="media/wrf/new-conus25km-model.png" alt-text="Screenshot that shows the New CONUS 2.5 km model." border="false":::
+:::image type="content" source="media/wrf/new-conus-25-km-model.png" alt-text="Screenshot that shows the New CONUS 2.5 km model." border="false":::
 
 The following table provides details about the model. 
 
