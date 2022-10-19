@@ -2,12 +2,92 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-10-10T00:01:18.116Z</updated>
+    <updated>2022-10-17T00:01:18.801Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Distributed hyperparameter tuning for machine learning models]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/training-python-models</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/training-python-models"/>
+        <updated>2022-10-12T23:04:45.000Z</updated>
+        <summary type="html"><![CDATA[Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning machine learning models in Python.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend Project Online reporting capabilities]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/extend-reporting-capabilities</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/extend-reporting-capabilities"/>
+        <updated>2022-10-14T17:08:26.000Z</updated>
+        <summary type="html"><![CDATA[Extend the reporting capabilities of Project Online using Azure Logic Apps to import, combine, and process data from multiple tenants.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compliance risk analysis by using Azure Cognitive Search]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/ai/compliance-risk-analysis</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/ai/compliance-risk-analysis"/>
+        <updated>2022-10-11T20:51:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Highly available zone-redundant web application]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/zone-redundant</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/zone-redundant"/>
+        <updated>2022-10-11T03:22:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run an Azure App Service application in a zone-redundant configuration to achieve high availability.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy OpenFOAM on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/openfoam</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/openfoam"/>
+        <updated>2022-10-10T20:26:32.000Z</updated>
+        <summary type="html"><![CDATA[Find out how OpenFOAM computational fluid dynamics (CFD) software performs on an Azure virtual machine.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii Plasma on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/plasma</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/plasma"/>
+        <updated>2022-10-10T20:18:44.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Samadii Plasma particle-based application performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii DEM on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/samadii-dem</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/samadii-dem"/>
+        <updated>2022-10-10T19:42:25.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii DEM, a discrete element method solver, performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii SCIV on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/samadii-sciv</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/samadii-sciv"/>
+        <updated>2022-10-10T19:11:13.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii SCIV (Statistical Contact in Vacuum) performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Barracuda Virtual Reactor on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor"/>
+        <updated>2022-10-10T19:09:47.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on an Azure virtual machine.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Luxion KeyShot on an Azure virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/luxion-keyshot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/luxion-keyshot"/>
+        <updated>2022-10-10T18:19:33.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Luxion KeyShot real-time 3D rendering software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Enterprise-grade logging on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/logging/enterprise-grade-logging</id>
@@ -95,6 +175,94 @@
         <updated>2022-10-03T19:31:22.000Z</updated>
         <summary type="html"><![CDATA[Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Helm-based deployments for Apache NiFi]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/data/helm-deployments-apache-nifi</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/data/helm-deployments-apache-nifi"/>
+        <updated>2022-10-16T09:43:33.000Z</updated>
+        <summary type="html"><![CDATA[Use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a data transfer technology]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer"/>
+        <updated>2022-10-14T16:17:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FSLogix for the enterprise]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix"/>
+        <updated>2022-10-11T23:59:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SaaS digital business journey on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/saas/saas-digital-business-journey-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/saas/saas-digital-business-journey-azure"/>
+        <updated>2022-10-11T18:56:53.000Z</updated>
+        <summary type="html"><![CDATA[Build your Software as a Service (Saas). There are links that help you: get started with Azure; build, deploy, and publish your app; and build audience.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a highly available SharePoint Server 2016 farm in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint/index</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sharepoint/index"/>
+        <updated>2022-10-10T21:21:49.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Centralized app configuration and security]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/appconfig-key-vault</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/appconfig-key-vault"/>
+        <updated>2022-10-10T21:21:49.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless computing solution for LOB apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture"/>
+        <updated>2022-10-10T21:21:49.000Z</updated>
+        <summary type="html"><![CDATA[Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industrial IoT transparency patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-transparency-patterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-transparency-patterns"/>
+        <updated>2022-10-10T21:09:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a common transparency pattern to build, deploy, and manage Industrial IoT (IIoT) solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industrial IoT prediction patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-prediction-patterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-prediction-patterns"/>
+        <updated>2022-10-10T21:07:20.000Z</updated>
+        <summary type="html"><![CDATA[Learn about several common prediction patterns to build, deploy and manage Industrial IoT (IIoT) solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industrial IoT connectivity patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-connectivity-patterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-connectivity-patterns"/>
+        <updated>2022-10-10T21:01:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn about several common connectivity patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Industrial IoT visibility patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-visibility-patterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-visibility-patterns"/>
+        <updated>2022-10-10T20:53:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Finance management apps with Azure DB for MySQL]]></title>
@@ -929,14 +1097,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tune hyperparameters for ML models in Python]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-python-models</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-python-models"/>
-        <updated>2022-09-16T01:01:17.000Z</updated>
-        <summary type="html"><![CDATA[Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Batch scoring of Python models on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-python</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-python"/>
@@ -1389,7 +1549,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/ecommerce-order-processing"/>
         <updated>2022-09-09T19:23:30.000Z</updated>
-        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.]]></summary>
+        <summary type="html"><![CDATA[This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Azure Cosmos DB and HDInsight.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -2321,7 +2481,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Serverless apps using Cosmos DB]]></title>
+        <title type="html"><![CDATA[Serverless apps using Azure Cosmos DB]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db"/>
         <updated>2022-07-22T16:36:29.000Z</updated>
@@ -2478,14 +2638,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"/>
         <updated>2022-07-03T08:19:05.000Z</updated>
         <summary type="html"><![CDATA[Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tune hyperparameters for ML models in Python]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-python-models</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-python-models"/>
-        <updated>2022-07-03T08:03:13.000Z</updated>
-        <summary type="html"><![CDATA[Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

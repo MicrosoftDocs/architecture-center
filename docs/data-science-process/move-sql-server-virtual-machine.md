@@ -44,7 +44,7 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](/azure/storage/common/storage-account-create) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](/azure/storage/common/storage-account-keys-manage).
-* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview).
+* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure virtual machine for SQL Server as an IPython Notebook server for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
