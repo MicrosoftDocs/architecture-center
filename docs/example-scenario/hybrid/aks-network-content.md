@@ -277,7 +277,7 @@ considerations are framed in the context of these tenets.
   - Standard IEEE 802.1 AB
 - Consider implementing multiple hosts in the management cluster and in the Kubernetes cluster to meet the minimum level of availability for workloads.
 - AKS on Azure Stack HCI uses failover clustering and live migration for high availability and fault tolerance. Live migration is a Hyper-V feature that allows you to transparently move running virtual machines from one Hyper-V host to another without perceived downtime.
-- You should ensure that services referenced in the [Workflow](#workflow) section are supported in the region to which Azure Arc is deployed.
+- You should ensure that services referenced in the [Architecture](#architecture) section are supported in the region to which Azure Arc is deployed.
 
 ### Security
 
