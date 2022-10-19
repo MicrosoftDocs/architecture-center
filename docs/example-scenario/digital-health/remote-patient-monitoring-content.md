@@ -4,11 +4,6 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 ## Architecture
 
-> [!NOTE]
-> **SECTION TODOS**
-> - diagram: after final review, upload to blob storage and create new .png, update image in thumbnailUrl
-> - dataflow: DONE! Mustafa/Janna to clarify whether the data flowing out of the AHDS workspace is anonymized, or contains direct PHI? If not, should we specify this and/or include pointers to more resources (perhaps the [Tools for Health Data Anonymization repo](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) or others?)? We could call this out in the Security considerations as well, just so we're explicit.
-
 :::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/remote-patient-monitoring.vsdx) of this architecture.*
@@ -17,13 +12,16 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 1. **Patient devices generate activity and physiological data.** The data is then extracted from the devices using one of the available Microsoft open-source (OSS) SDKs and ingested by Azure Event Hubs.
 
-1. **Life365.health platform is integrated with more than 300 Bluetooth patient monitoring devices.** Life365 API ingests the activity and physiological data from the patient monitoring devices into Azure Event Hubs.
+1. **Life365.health platform supports 300+ devices that generate activity and physiological data** The Life365 API ingests the activity and physiological data from the patient monitoring devices into Azure Event Hubs.
 
 1. **The Azure MedTech service pulls the device measurements from Event Hubs**, transforming them into FHIR format [Fast Healthcare Interoperability Resources (FHIR®)](https://hl7.org/fhir/), and passes them into the Azure FHIR service. The Azure Health Data Services workspace is a logical container for healthcare service instances, such as the FHIR and MedTech services.  
 
 1. **Azure Health Data Services workspace sends notification messages to events subscribers** when a FHIR resource is created, updated, or deleted in the Azure FHIR service. The notifications can be sent to multiple endpoints to trigger automation, including starting workflows or sending email and text messages. 
 
-1. **FHIR Analytics Pipelines incrementally export FHIR data to Azure Data Lake**, making it available for analytics with a variety of Azure data services. The exported data can also be anonymized leveraging our open-source Tools for Health Data Anonymization. The default anonymization is based on the [HIPAA Safe Harbor](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/anonymization/index.html#safeharborguidance) method, which can be extended and modified as needed.
+1. **FHIR Analytics Pipelines incrementally export non-anonymized FHIR data to Azure Data Lake**, making it available for analytics with various Azure data services. The exported data can also be anonymized by leveraging Microsoft open-source Tools for Health Data Anonymization. The default anonymization is based on the [HIPAA Safe Harbor](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html) method, which can be extended and modified as needed.
+
+   > [!IMPORTANT]  
+   > The exported FHIR data is raw, which includes PHI information. The process of de-identification can be used to  remove personal identifiers from the data for research or sharing purposes. If you desire de-identified data sets you **must** take measures to anonymize the data before exporting it, such as the one mentioned above.
 
 1. **Further analysis of the FHIR data in the Parquet and JSON formats is done** using Spark pools in Azure Synapse, Azure Databricks, and Azure Machine Learning (ML) services. 
 
@@ -45,32 +43,32 @@ Microsoft provides open-source SDKs to facilitate transfer of data from various 
 
 **Life365.health supported medical devices**
 
-[Life365.health platform](https://www.life365.health/solutions-remote-patient-monitoring) is integrated with [over 300 Bluetooth monitoring devices](https://www.life365.health/en/supported-devices) for ingestion by Azure Event Hubs. The devices span multiple categories and OEMs, ranging from spirometers, thermometers, weight scales, pill reminders, activity trackers, blood glucose meters, blood pressure monitors, EKG / ECG, fetal dopplers, heart rate monitors, pulse oximeters, sleep trackers and more. The Life365 app also allows manual recording of readings taken from non-Bluetooth devices. This architecture utilizes the Life365 API to ingest the device measurements from the Life365 devices into Event Hubs.
+The [Life365.health platform](https://www.life365.health/solutions-remote-patient-monitoring) is integrated with [over 300 Bluetooth monitoring devices](https://www.life365.health/en/supported-devices) for ingestion by Azure Event Hubs. The devices span multiple categories and OEMs, ranging from spirometers, thermometers, weight scales, pill reminders, activity trackers, blood glucose meters, blood pressure monitors, EKG / ECG, fetal dopplers, heart rate monitors, pulse oximeters, sleep trackers and more. The Life365 app also allows manual recording of readings taken from non-Bluetooth devices. This architecture utilizes the Life365 API to ingest the device measurements from the Life365 devices into Event Hubs.
 
 **Other**
 
 While the above options help make it easier, this architecture supports any similar data sources that can securely be ingested into Event Hubs, directly or indirectly through an intermediary API.
 
-#### Azure services
+#### Azure services and tools - data collection and storage
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges. In this architecture it's used for collecting and aggregating the device data, for transfer to Azure Health Data Services.
 
 - [Azure Health Data Services](https://azure.microsoft.com/services/health-data-services/) is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. The services used in this architecture include:
    - [Azure Health Data Services workspace](/azure/healthcare-apis/workspace-overview) - provides a container for the other Azure Health Data Services instances, creating a compliance boundary (HIPAA, HITRUST) in which protected health information can travel.
 
-   - [Azure FHIR service](/azure/healthcare-apis/fhir/) - makes it easy to securely store and exchange Protected Health Information (PHI) in the cloud. Device data is transformed into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. 
+   - [Azure FHIR service](/azure/healthcare-apis/fhir/) - makes it easy to securely store and exchange protected health information (PHI) in the cloud. Device data is transformed into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources to support remote patient monitoring. 
 
    - Azure [MedTech service](/azure/healthcare-apis/iot/) - a cornerstone of [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare), used to support remote patient monitoring. MedTech is a Platform as a service (PaaS) that enables you to gather near-real-time data from diverse medical devices and convert it into an FHIR-compliant service format and store in a FHIR service. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.  
 
      MedTech service is important for remote patient monitoring because healthcare data can be difficult to access or analyze when it comes from diverse or incompatible devices, systems, or formats. Medical information that isn't easy to access can be a barrier on gaining clinical insights and a patient's health care plan. The ability to translate health data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care. As a result, this capability can facilitate the discovery of important clinical insights and trend capture, supporting the clinician, care team, patient, and family. It can also help make connections to new device applications and enable advanced research projects. Just as care plans can be individualized per use case, remote patient monitoring scenarios and use cases can vary per individualized need.  
 
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates events when a FHIR resource is Created, Updated or Deleted (CUD). These events can be broadcast by Azure Event Grid to downstream consumers to act on event-based data.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) - the [Azure Health Data Services events service](/azure/healthcare-apis/events/) generates events whenever a FHIR resource is created, updated or deleted (CUD). These events can be broadcast by Azure Event Grid to downstream consumers to act on event-based data.
 
-- [FHIR Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture, the data is converted to JavaScript Object Notation (JSON) and [Parquet](/azure/databricks/data/data-sources/read-parquet) format, making it available for analytics with a variety of Azure data services. 
+#### Azure services and tools - data analytics
 
-- [Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) - an OSS project fully backed by the Microsoft Healthcare team and helps anonymize healthcare data, on-premises or in the cloud, for secondary usage such as research, public health, and more. The anonymization core engine uses a configuration file specifying different parameters as well as anonymization methods for different data-elements and data types. 
+- [FHIR Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) - an OSS project used to build components and pipelines for rectangularizing and moving FHIR data, from Azure FHIR servers to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/). In this architecture, the data is converted to JavaScript Object Notation (JSON) and [Parquet](/azure/databricks/data/data-sources/read-parquet) format, making it available for analytics with various Azure data services. 
 
-#### Analytics
+- [Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) - an OSS project backed by the Microsoft Healthcare team helps anonymize healthcare data, on-premises or in the cloud, for secondary usage such as research, public health, and more. The anonymization core engine uses a configuration file to specify different parameters, as well as anonymization methods for different data-elements and data types. 
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) - a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated options—at scale. Azure Synapse brings these worlds together with a unified experience to ingest, explore, prepare, transform, manage, and serve data for immediate BI and machine learning needs.
 - [Apache Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) - Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a serverless Apache Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Spark pools to process your data stored in Azure.
@@ -95,7 +93,7 @@ Devices and patients need to be defined, linked, and synchronized between the Az
 
 **Microsoft Cloud for HealthCare**
 
-This example workload addresses one way of implementing a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare). For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
+This example workload addresses one way of implementing a remote patient monitoring solution. The [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare) also provides a [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution. For more information on that solution, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
 
 ## Scenario details
 
@@ -109,7 +107,9 @@ Given the wide range of wearable and in-home medical devices and connectivity op
 
 - **Clinical trials and research** – Help clinical research teams integrate and offer a wide range of in-home and wearable medical devices to the study participant. In other words, offer a quasi-Bring-Your-Own-Device (BYOD) option to your study participants.
 
-- **Data science and population health analytics** – The activiy and physiological data will be available in the industry FHIR standard as well as other open-source data formats (JSON and Parquet). In addition to the data format, native connectors are provided to help with the data analysis and transformation. Including connectors such as the Power BI connector for FHIR, Synapse Serverless SQL views and Spark clusters in Synapse. This solution also provides a parameterized method to anonymize the dataset for de-identified research purpose.
+- **Data science and population health analytics** – The activity and physiological data will be available in the industry FHIR standard format, as well as other open-source data formats (JSON and Parquet). In addition to the data format, native connectors are provided to help with the data analysis and transformation. Including connectors such as the Power BI connector for FHIR, Synapse Serverless SQL views and Spark clusters in Synapse. 
+
+   This solution also provides a parameterized method to anonymize the dataset for de-identified research purposes. This "secondary use data" can be analyzed and used to find best practices and support clinical evidence-based workflows. Observations stored in the FHIR server can be used to find variances and workflows that promote the best outcomes and practices.
 
 - **Enable healthcare providers** - Providers will be able to: 
    - gain better insights into patient health status
@@ -117,14 +117,20 @@ Given the wide range of wearable and in-home medical devices and connectivity op
    - take more informed actions based on the physiological indicators/notifications
    - provide pathways for remote physiologic monitoring reimbursement 
 
+- **Patient Reported Outcome (PRO) questionnaires and PRO-driven care** - By using events and PRO questionnaires individualized care plans and care variance workflows can be created. The patient is allowed to have more autonomy and control over the individualized care plan, which helps adoption and sustained use. PRO-driven care be helpful in solving the gap in education and patient outcomes. By linking education questionnaires and PROs, an RPM solution can be used to support medication, treatment, and/or follow up care, answering questions such as:
+   - Are patients taking their BP correctly? 
+   - Is the scale being used at the right time and frequency? 
+   - Are we looping in PROs for patient adoption and individualized care planning? 
+
+   For patients using iOS devices, questionnaire apps can be built using the [Apple ResearchKit](https://www.researchandcare.org/researchkit/).
+
+- **Allow for multiple types and more precise health devices** - Use medical and home medical devices to generate health data in near-real-time for data ingestion and analysis. 
+
 ## Considerations
 
 > [!NOTE]
 > **SECTION TODOS**
-> - Cost optimization - need to change the calculator link to a shared "saved estimate" [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) link for the final architecture.
-> - determine which 2 of the other 4 sections to complete (reliability, security, ops excellence, perf efficiency)
-> - if we go with security, consider calling out the anonymization of data flowing from AHDS workspace
-> - if we go with performance efficiency, make sure we call out the "near-real-time" nature of this architecture, which implies that the data flow from devices is not real-time.
+> - Cost optimization FYI - per Mustafa, this solution does not lend itself to an [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) shared "saved estimate". This is mainly due to the fact that the sizing would be wildly different across the factorial of patients/devices. Also, this is more of an elastic "pay per request" vs a "pay per hour" solution (as others would be that are more geared toward operating during business hours).
 
 These considerations address the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
@@ -132,15 +138,15 @@ These considerations address the pillars of the Azure Well-Architected Framework
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-The availalblity of clinical data and insights is critical for many healthcare organizations. Here are ways to minimize downtime of the Azure services indicated in this solution:
+The availability of clinical data and insights is critical for many healthcare organizations. Here are ways to minimize downtime of the Azure services indicated in this solution:
 
-- Data Lake Storage is always [replicated three times](https://review.learn.microsoft.com/en-us/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally redundant storage (LRS) or zone-redundant storage (ZRS).
+- Data Lake Storage is always [replicated three times](/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally redundant storage (LRS) or zone-redundant storage (ZRS).
 
-- Azure Event Hubs spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span [multiple failure domains within a datacenter](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet#availability). For more information, see Azure Event Hubs - [Geo-disaster recovery](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr?tabs=portal).
+- Azure Event Hubs spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span [multiple failure domains within a datacenter](/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet#availability). For more information, see Azure Event Hubs - [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal).
 
-- Databricks provides [disaster recovery guidance](https://review.learn.microsoft.com/en-us/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
+- Databricks provides [disaster recovery guidance](/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
 
-- The Machine Learning deployment can be [multi-regional](https://review.learn.microsoft.com/en-us/azure/machine-learning/how-to-high-availability-machine-learning).
+- The Machine Learning deployment can be [multi-regional](/azure/machine-learning/how-to-high-availability-machine-learning).
 
 ### Security
 
@@ -148,13 +154,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Healthcare data often includes sensitive protected health information (PHI) and personal information. The following resources are available to secure this data:
 
-- Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](https://review.learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control-model)
+- Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](/azure/storage/blobs/data-lake-storage-access-control-model)
 
-- Azure Health Data Services is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://learn.microsoft.com/en-us/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization) for more details.
+- Azure Health Data Services is a collection of secured managed services using [Azure Active Directory (Azure AD)](/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](/azure/healthcare-apis/authentication-authorization) for more details.
 
-- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#private-endpoints) and [virtual network](https://learn.microsoft.com/en-us/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
+- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](/azure/event-hubs/network-security#private-endpoints) and [virtual network](/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
 
-- [Synapse RBAC](https://learn.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-synapse-rbac) extends the capabilities of [Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
+- [Synapse RBAC](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac) extends the capabilities of [Azure RBAC](/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 
 
 ### Cost optimization
@@ -166,32 +172,25 @@ The pricing for all Azure components can be found in the [Azure Pricing Calculat
 - The Azure services that are used.
 - Volume of data, in terms of the number of patients/devices and the number of activity and physiological data types being ingested.
 - Capacity and throughput requirements for Event Hubs.
-- Compute resources that are needed to perform machine learning training and deployments, Synpase Spark Pools and Databricks clusters.
+- Compute resources that are needed to perform machine learning training and deployments, Synapse Spark Pools and Databricks clusters.
 
 When implementing this solution, consider the data retention and archival policy for the underlying Azure Data Lake. Take advantage of [Azure Storage lifecycle management](/azure/storage/blobs/lifecycle-management-overview) to provide an automated way to:
 - transition file blobs down to the cool access tier
 - archive tiers based on when the file was last modified. 
 
-To learn more about Life365.health plans and pricing, please review the [Life365 API Connect Data offer in the Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/life365inc1629235889975.life365-api-connect?tab=Overview)
-
-### Operational excellence (REMOVE)
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
+To learn more about Life365.health plans and pricing, review the [Life365 API Connect Data offer in the Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/life365inc1629235889975.life365-api-connect?tab=Overview)
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This solution provides a scalable near-realtime architecture for remote patient monitoring. It's important to acknowledge the multi-layerd data flow from the interface between the devices and the Life365 API, to the ingestion from Life365 API and Azure Event Hubs, to the transformation in the MedTech Service in Azure Health Data Service, and lastly to the incremental export and anonymization to the data lake format. Hence, the data flow will be processed in near-realtime and any downstream application and/or integrations should be designed as such. Yet, the performance of this solution can scale to a serve a large number of devices and patients at the enterprise level.
+This solution provides a scalable near-realtime architecture for remote patient monitoring. It's important to acknowledge the multi-layered data flow from the interface between the devices and the Life365 API, to the ingestion from Life365 API and Azure Event Hubs, to the transformation in the MedTech Service in Azure Health Data Service, and lastly to the incremental export and anonymization to the data lake format. Hence, the data flow will be processed in near-realtime and any downstream application and/or integrations should be designed as such. Yet, the performance of this solution can scale to a serve a large number of devices and patients at the enterprise level.
 
-- This solution leverage Azure Event Hubs as the major ingestion point. Scalability of Event Hubs can be managed with [Throughput units](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#throughput-units), [Processing units](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#processing-units) and the [Capacity units](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-dedicated-overview). As such, [partioning](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability#partitions) can help with processing of large volumes of events in Event Hubs.
+- This solution leverages Azure Event Hubs as the major ingestion point. Scalability of Event Hubs can be managed with [Throughput units](/azure/event-hubs/event-hubs-scalability#throughput-units), [Processing units](/azure/event-hubs/event-hubs-scalability#processing-units) and the [Capacity units](/azure/event-hubs/event-hubs-dedicated-overview). As such, [partitioning](/azure/event-hubs/event-hubs-scalability#partitions) can help with processing of large volumes of events in Event Hubs.
 
-- Apache Spark for Azure Synapse Analytics pool's [Autoscale feature automatically scales](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-autoscale) the number of nodes in a cluster instance up and down.
+- Apache Spark for Azure Synapse Analytics pool's [Autoscale feature automatically scales](/azure/synapse-analytics/spark/apache-spark-autoscale) the number of nodes in a cluster instance up and down.
 
-- Azure Machine Learning offers deployment for [inference with GPU](https://learn.microsoft.com/en-us/azure/machine-learning/v1/how-to-deploy-inferencing-gpus) processors and [Azure FPGAs](https://learn.microsoft.com/en-us/azure/machine-learning/v1/how-to-deploy-fpga-web-service) that make it possible to achieve low latency for real-time inference.
+- Azure Machine Learning offers deployment for [inference with GPU](/azure/machine-learning/v1/how-to-deploy-inferencing-gpus) processors and [Azure FPGAs](/azure/machine-learning/v1/how-to-deploy-fpga-web-service) that make it possible to achieve low latency for real-time inference.
 
 ## Deploy this scenario
 
@@ -234,5 +233,5 @@ Technologies and resources that are relevant to implementing this architecture:
 
 ## Related resources
 
-- Review the [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/en-us/guidedtour/healthcare/remote-patient-monitoring).
+- Review the [Remote patient monitoring](https://solutions.microsoft.com/Microsoft%20Cloud%20for%20Healthcare) solution in the Microsoft Cloud Solution Center. For more information, see the [Remote Patient Monitoring guided tour](https://guidedtour.microsoft.com/guidedtour/healthcare/remote-patient-monitoring).
 - [Virtual patient visits using Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/virtual-health-mch) shows a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers.
