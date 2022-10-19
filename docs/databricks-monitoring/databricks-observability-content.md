@@ -316,6 +316,14 @@ To diagnose these issues, you used the following metrics:
 - Task duration (max, mean, min) per stage
 - Error trace (count, message, task ID)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
+
 ## Next steps
 
 - Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).

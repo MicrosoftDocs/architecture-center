@@ -266,7 +266,7 @@ Consider the following points when deciding how to partition data with Azure Cac
 
 Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .NET guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partitioning keys in a reliable collection, see [guidelines and recommendations for reliable collections in Azure Service Fabric].
 
-### More information
+### Next steps
 
 - [Overview of Azure Service Fabric] is an introduction to Azure Service Fabric.
 
@@ -279,6 +279,8 @@ Azure Service Fabric is a microservices platform that provides a runtime for dis
 The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)
 
 Consider long-term scale when you select the partition count. After an event hub is created, you can't change the number of partitions.
+
+### Next steps
 
 For more information about using partitions in Event Hubs, see [What is Event Hubs?].
 

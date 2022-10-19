@@ -140,6 +140,14 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 [repo]: https://github.com/Microsoft/MLOpsPython
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Praneet Singh Solanki](https://www.linkedin.com/in/praneetsolanki/) | Senior Software Engineer
+
 ## Next steps
 
 - Want to learn more? Check out the related learning path, [Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops/).

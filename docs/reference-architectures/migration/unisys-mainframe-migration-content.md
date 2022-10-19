@@ -123,6 +123,14 @@ You can scale out the server sets to provide more throughput. For more informati
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
 ## Next Steps
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
