@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 10/03/2022
+ms.date: 10/17/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -24,8 +24,53 @@ The following new and updated articles have recently been published in the Azure
 
 ## October 2022
 
+### New articles
+
+- [Distributed hyperparameter tuning for machine learning models](./example-scenario/ai/training-python-models.yml)
+- [Extend Project Online reporting capabilities](./example-scenario/data/extend-reporting-capabilities.yml)
+- [Compliance risk analysis by using Azure Cognitive Search](./guide/ai/compliance-risk-analysis.yml)
+- [Highly available zone-redundant web application](./reference-architectures/app-service-web-app/zone-redundant.yml)
+- [Deploy OpenFOAM on an Azure virtual machine](./guide/hpc/openfoam.yml)
+- [Deploy Samadii Plasma on an Azure virtual machine](./guide/hpc/plasma.yml)
+- [Deploy Samadii DEM on an Azure virtual machine](./guide/hpc/samadii-dem.yml)
+- [Deploy Samadii SCIV on an Azure virtual machine](./guide/hpc/samadii-sciv.yml)
+- [Deploy Barracuda Virtual Reactor on an Azure virtual machine](./guide/hpc/barracuda-virtual-reactor.yml)
+- [Deploy Luxion KeyShot on an Azure virtual machine](./guide/hpc/luxion-keyshot.yml)
+- [Enterprise-grade logging on Azure](./reference-architectures/logging/enterprise-grade-logging.yml)
+- [Deploy GROMACS on an Azure virtual machine](./guide/hpc/gromacs.yml)
+- [Deploy Ansys Fluent on an Azure virtual machine](./guide/hpc/ansys-fluent.yml)
+- [Deploy HALO AI on an Azure virtual machine](./guide/hpc/indica-labs-halo-ai.yml)
+- [Cost management for Kubernetes](./aws-professional/eks-to-aks/cost-management.yml)
+- [AKS for Amazon EKS professionals](./aws-professional/eks-to-aks/index.md)
+- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)
+- [Kubernetes node and node pool management](./aws-professional/eks-to-aks/node-pools.yml)
+- [Secure network access to Kubernetes](./aws-professional/eks-to-aks/private-clusters.yml)
+- [Storage options for a Kubernetes cluster](./aws-professional/eks-to-aks/storage.md)
+- [Kubernetes workload identity and access](./aws-professional/eks-to-aks/workload-identity.yml)
+
 ### Updated articles
 
+- [Helm-based deployments for Apache NiFi](./guide/data/helm-deployments-apache-nifi.yml)  ([#1864a96de](https://github.com/MicrosoftDocs/architecture-center/commit/1864a96de))
+- [Choose a data transfer technology](./data-guide/scenarios/data-transfer.md)  ([#4e71b0875](https://github.com/MicrosoftDocs/architecture-center/commit/4e71b0875))
+- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#80ba432de](https://github.com/MicrosoftDocs/architecture-center/commit/80ba432de))
+- [SaaS digital business journey on Azure](./guide/saas/saas-digital-business-journey-azure.md)  ([#24e563f57](https://github.com/MicrosoftDocs/architecture-center/commit/24e563f57))
+- [Run a highly available SharePoint Server 2016 farm in Azure](./reference-architectures/sharepoint/index.yml)  ([#b20a51429](https://github.com/MicrosoftDocs/architecture-center/commit/b20a51429))
+- [Centralized app configuration and security](./solution-ideas/articles/appconfig-key-vault.yml)  ([#b20a51429](https://github.com/MicrosoftDocs/architecture-center/commit/b20a51429))
+- [Serverless computing solution for LOB apps](./solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)  ([#b20a51429](https://github.com/MicrosoftDocs/architecture-center/commit/b20a51429))
+- [Industrial IoT transparency patterns](./guide/iiot-patterns/iiot-transparency-patterns.yml)  ([#cdfd060e7](https://github.com/MicrosoftDocs/architecture-center/commit/cdfd060e7))
+- [Industrial IoT prediction patterns](./guide/iiot-patterns/iiot-prediction-patterns.yml)  ([#a85a72e6d](https://github.com/MicrosoftDocs/architecture-center/commit/a85a72e6d))
+- [Industrial IoT connectivity patterns](./guide/iiot-patterns/iiot-connectivity-patterns.yml)  ([#5d379f978](https://github.com/MicrosoftDocs/architecture-center/commit/5d379f978))
+- [Industrial IoT visibility patterns](./guide/iiot-patterns/iiot-visibility-patterns.yml)  ([#427736233](https://github.com/MicrosoftDocs/architecture-center/commit/427736233))
+- [Finance management apps with Azure DB for MySQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Finance management apps using Azure Database for PostgreSQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Instant broadcasting with serverless code](./solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Ops automation using Event Grid](./solution-ideas/articles/ops-automation-using-event-grid.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
+- [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#b2cfbfb58](https://github.com/MicrosoftDocs/architecture-center/commit/b2cfbfb58))
+- [Automate document processing with Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
+- [CI/CD for Azure Web Apps](./solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)  ([#47c08039d](https://github.com/MicrosoftDocs/architecture-center/commit/47c08039d))
+- [Build and deploy apps on AKS using DevOps and GitOps](./example-scenario/apps/devops-with-aks.yml)  ([#73a070014](https://github.com/MicrosoftDocs/architecture-center/commit/73a070014))
 - [E-commerce front end](./example-scenario/apps/ecommerce-scenario.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
 - [Buy online, pick up in store (retail)](./example-scenario/iot/vertical-buy-online-pickup-in-store.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
 - [Reuse recommender systems and algorithms from R with Azure](./industries/retail/recommendation-engine-optimization.yml)  ([#9133956cf](https://github.com/MicrosoftDocs/architecture-center/commit/9133956cf))
@@ -42,7 +87,7 @@ The following new and updated articles have recently been published in the Azure
 - [Apache HBase migration to Azure](./guide/hadoop/apache-hbase-migration.yml)
 - [Apache HDFS migration to Azure](./guide/hadoop/apache-hdfs-migration.yml)
 - [Apache Kafka migration to Azure](./guide/hadoop/apache-kafka-migration.yml)
-- [Apache SQoop migration to Azure](./guide/hadoop/apache-sqoop-migration.yml)
+- [Apache Sqoop migration to Azure](./guide/hadoop/apache-sqoop-migration.yml)
 - [Apache Storm migration to Azure](./guide/hadoop/apache-storm-migration.yml)
 - [Hadoop migration to Azure](./guide/hadoop/overview.md)
 - [Deploy Siemens NX on an Azure virtual machine](./guide/hpc/siemens-nx.yml)
@@ -128,7 +173,6 @@ The following new and updated articles have recently been published in the Azure
 - [Serverless web application](./reference-architectures/serverless/web-app.yml)  ([#2f741fea7](https://github.com/MicrosoftDocs/architecture-center/commit/2f741fea7))
 - [Extract text from objects using Power Automate and AI Builder](./example-scenario/ai/extract-object-text.yml)  ([#e9d725539](https://github.com/MicrosoftDocs/architecture-center/commit/e9d725539))
 - [Real-time scoring of R ML models](./reference-architectures/ai/realtime-scoring-r.yml)  ([#b2e3ca418](https://github.com/MicrosoftDocs/architecture-center/commit/b2e3ca418))
-- [Tune hyperparameters for ML models in Python](./reference-architectures/ai/training-python-models.yml)  ([#5c9280d76](https://github.com/MicrosoftDocs/architecture-center/commit/5c9280d76))
 - [Batch scoring of Python models on Azure](./reference-architectures/ai/batch-scoring-python.yml)  ([#c2d7894a0](https://github.com/MicrosoftDocs/architecture-center/commit/c2d7894a0))
 - [Deploy machine learning models to multiple lines](./example-scenario/ai/multiline-model-deployment.yml)  ([#84fb529e0](https://github.com/MicrosoftDocs/architecture-center/commit/84fb529e0))
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)  ([#c6f783178](https://github.com/MicrosoftDocs/architecture-center/commit/c6f783178))
@@ -318,7 +362,7 @@ The following new and updated articles have recently been published in the Azure
 - [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Image classification with CNNs](./solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Predict length of stay and patient flow](./solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
-- [Serverless apps using Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Serverless apps using Azure Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#15f9d2f37](https://github.com/MicrosoftDocs/architecture-center/commit/15f9d2f37))
 - [Knowledge mining in auditing, risk, and compliance management](./solution-ideas/articles/auditing-and-risk-compliance.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
 - [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
@@ -338,7 +382,6 @@ The following new and updated articles have recently been published in the Azure
 - [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)  ([#e812e941c](https://github.com/MicrosoftDocs/architecture-center/commit/e812e941c))
 - [Azure AD security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#dc5f7ae42](https://github.com/MicrosoftDocs/architecture-center/commit/dc5f7ae42))
 - [Microservices architecture on AKS](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#14de4d17e](https://github.com/MicrosoftDocs/architecture-center/commit/14de4d17e))
-- [Tune hyperparameters for ML models in Python](./reference-architectures/ai/training-python-models.yml)  ([#d2ab6afa8](https://github.com/MicrosoftDocs/architecture-center/commit/d2ab6afa8))
 - [Real-time scoring of R ML models](./reference-architectures/ai/realtime-scoring-r.yml)  ([#2fa1b13cf](https://github.com/MicrosoftDocs/architecture-center/commit/2fa1b13cf))
 - [Multitenant SaaS on Azure](./example-scenario/multi-saas/multitenant-saas.yml)  ([#b9212871f](https://github.com/MicrosoftDocs/architecture-center/commit/b9212871f))
 - [Replicate and sync mainframe data in Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)  ([#ba5c64f4f](https://github.com/MicrosoftDocs/architecture-center/commit/ba5c64f4f))

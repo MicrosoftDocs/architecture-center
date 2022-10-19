@@ -57,7 +57,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
 **[Azure Service Bus](https://azure.microsoft.com/services/service-bus)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
@@ -177,7 +177,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 Principal author:
 
- * [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
+- [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
 
 ## Next steps
 
