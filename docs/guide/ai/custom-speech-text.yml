@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: 
+  title: Implement custom speech-to-text
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
   author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
   ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
@@ -9,10 +9,13 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
-  - 
+  - ai-machine-learning
 products:
-  -  
-name:  
+  - azure-cognitive-services
+  - azure-speech
+  - azure-speech-text
+  - azure-machine-learning
+name: Implement custom speech-to-text
 summary:  
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
