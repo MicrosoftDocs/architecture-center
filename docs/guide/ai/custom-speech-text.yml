@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: 
+  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
+  ms.date: 
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - 
+products:
+  -  
+name:  
+summary:  
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](custom-speech-text-content.md)]
