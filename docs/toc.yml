@@ -1470,6 +1470,8 @@ items:
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Precision medicine pipeline
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+              - name: Remote patient monitoring
+                href: example-scenario/digital-health/remote-patient-monitoring.yml
               - name: Virtual network for patient records
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual visits with Cloud for Healthcare
@@ -3174,8 +3176,6 @@ items:
                 href: solution-ideas/articles/predictive-maintenance.yml
               - name: Predictive marketing
                 href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
-              - name: Remote patient monitoring
-                href: solution-ideas/articles/remote-patient-monitoring.yml
               - name: Retail assistant with visual capabilities
                 href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
               - name: Retail product recommendations
