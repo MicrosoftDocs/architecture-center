@@ -237,6 +237,16 @@ to build your own solution. Or you can find a Microsoft partner to expedite the
 solution creation. Our partners know how to take advantage of the power of
 Azure.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Set up a cloud workstation by deploying an [NV series
