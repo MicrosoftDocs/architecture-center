@@ -1,13 +1,16 @@
-This guide provides prescriptive guidance on various approaches to implementing speech-aware applications with quality and efficiency. It will focus on extending and customizing the baseline model of the Azure speech-to-text functionality of the [Azure Cognitive Services Speech Service](/azure/cognitive-services/speech-service/custom-speech-overview)
+This two-part guide describes various approaches for efficiently implementing high-quality speech-aware applications. It focuses on extending and customizing the baseline model of speech-to-text functionality provided by the [Azure Cognitive Services Speech service](/azure/cognitive-services/speech-service/custom-speech-overview).
 
-This article describes the problem space and decision-making process to design your solution. The second article includes a use case to apply these instructions and best practices. 
+This article describes the problem space and decision-making process for designing your solution. The [second article] provides a use case for applying these instructions and recommended practices.
 
-## The Pre-Built and Custom AI Spectrum
+## The pre-built and custom AI spectrum
 
-image
+The pre-built and custom AI spectrum represents multiple AI model customization and development effort tiers, ranging from ready-to-use pre-built models to fully customized AI solutions.      
+
+:::image type="complex" source="media/spectrum.png" alt-text="Diagram that shows the spectrum of customization tiers." lightbox="media/spectrum.png":::
+Pre-built and pre-trained models are on the left side, customized pre-built models are in the middle, and customized models tailored to your scenario and data are on the right side.
+:::image-end:::
 
 From the left, [Azure Cognitive Services]() enables quick and low friction implementation of AI capabilities into applications through pre-trained models. Microsoft curates extensive datasets to train and build these baseline models. As a result, leveraging baseline models require no additional training data and are consumed via secured programmatic API calls. Azure Cognitive Services include:
-
 - **Speech**: speech-to-text, text-to-speech, speech translation, and speaker recognition.
 - **Language**: entity recognition, sentiment analysis, question answering, conversational language understanding, and translator.
 - **Vision**: computer vision and Face API.
