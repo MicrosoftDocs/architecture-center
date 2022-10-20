@@ -48,10 +48,10 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/resource-sync-agent**. Syncs the previously mentioned cluster metadata to Azure.
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators deployed as a part of source control configuration.
-- **deployment.apps/extension-manager**.	Installs and manages lifecycle of extension helm charts.
-- **deployment.apps/kube-Azure AD-proxy**.	Used for authentication of requests sent to the cluster using Cluster Connect.
-- **deployment.apps/clusterconnect-agent**.	Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
-- **deployment.apps/guard**.	Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
+- **deployment.apps/extension-manager**. Installs and manages lifecycle of extension helm charts.
+- **deployment.apps/kube-azure-ad-proxy**. Used for authentication of requests sent to the cluster using Cluster Connect.
+- **deployment.apps/clusterconnect-agent**. Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
+- **deployment.apps/guard**. Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
 
 For more information, refer to [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
@@ -133,25 +133,25 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [Learn more about Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]
-* [Learn more about Azure Kubernetes Service][Azure Kubernetes Service]
-* [Learn more about Azure Policy][Azure Policy]
-* [Learn more about Azure Monitor][Azure Monitor]
-* [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
+- [Learn more about Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]
+- [Learn more about Azure Kubernetes Service][Azure Kubernetes Service]
+- [Learn more about Azure Policy][Azure Policy]
+- [Learn more about Azure Monitor][Azure Monitor]
+- [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
 
 [Architecture diagram]: ./images/arc-hybrid-kubernetes.png
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/
-[Azure Container Instances]: /azure/container-instances/container-instances-overview
 [Azure Kubernetes Service]: /azure/aks/
 [Azure Policy]: /azure/governance/policy/
 [Azure Monitor]: /azure/azure-monitor/
