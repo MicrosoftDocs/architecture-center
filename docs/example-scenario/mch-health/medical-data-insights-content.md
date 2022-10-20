@@ -117,6 +117,16 @@ The following are the additional components that are created specifically for th
 1. Machine learning algorithms such as the machine-generated diagnostic findings
 1. Social determinants and satisfaction survey apps
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
