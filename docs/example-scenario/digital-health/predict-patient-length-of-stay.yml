@@ -5,7 +5,7 @@ metadata:
   description: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
   author: BryanLa
   ms.author: architectures
-  ms.date: 09/09/2022
+  ms.date: 10/20/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

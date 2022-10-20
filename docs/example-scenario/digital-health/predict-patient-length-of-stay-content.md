@@ -26,7 +26,7 @@ The following dataflow corresponds to the above diagram:
      
    **3.4 Monitor** - The model predictions are collected and monitored to ensure performance doesn't degrade over time. Alerts can be sent to trigger manual or automated retraining/updates to the model as needed using this monitoring data. Note that additional services like Azure Monitor may be needed, depending on the type of monitoring data extracted.  
 
-4. **Azure ML output flows to Azure Synapse Analytics**. The model output (predicted patient length of stay) is combined with the existing patient data in a scalable, serving layer like dedicated SQL pool for downstream consumption. Additional analytics such as average length of stay per hospital can be done via Synapse Analytics at this point.  
+4. **Azure Machine Learning output flows to Azure Synapse Analytics**. The model output (predicted patient length of stay) is combined with the existing patient data in a scalable, serving layer like dedicated SQL pool for downstream consumption. Additional analytics such as average length of stay per hospital can be done via Synapse Analytics at this point.  
    
 5. **Azure Synapse Analytics provides data to Power BI**. Specifically, Power BI connects to the serving layer in step (4) to extract the data and apply additional semantic modeling needed.  
    
@@ -38,7 +38,7 @@ The following dataflow corresponds to the above diagram:
   
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalable, cost-effective data storage layer.  
 
-- [Azure Machine Learning (ML)](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction ML lifecycle by:
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction machine learning lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning. 
@@ -139,4 +139,4 @@ Technologies and resources that are related to implementing this architecture:
 See additional Azure Architecture Center content that's related to this architecture:
 
 - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-- [Predict hospital readmissions with traditional and ML techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
+- [Predict hospital readmissions with traditional and machine learning techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
