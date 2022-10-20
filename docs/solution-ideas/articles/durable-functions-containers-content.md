@@ -29,7 +29,7 @@ You don't always need full-fledged container orchestrators to provision and mana
 - A *Durable Functions* [activity function](/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions) creates the ACI container group and instance, using the [Azure Fluent API](https://github.com/Azure/azure-libraries-for-net) and [ACI Management libraries](/dotnet/api/overview/azure/containerinstance?view=azure-dotnet).
 - [Azure Container Registry](/azure/container-registry) stores the batch processing app in a container image.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) (ACI) containers run the batch processing jobs.
-- The Durable Functions use [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) with [Managed Service Identity](/azure/active-directory/managed-identities-azure-resources/overview) to manage the container instances.
+- The Durable Functions use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) with [Managed Service Identity](/azure/active-directory/managed-identities-azure-resources/overview) to manage the container instances.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors job progress.
 
 ### Alternatives
