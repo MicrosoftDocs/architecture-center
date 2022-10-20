@@ -1810,8 +1810,6 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Glossary of manufacturing terms
-                href: /dynamics-gp/distribution/glossary-manufacturing
                 maintainContext: true
               - name: AI and ML scenarios
                 items:
