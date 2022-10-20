@@ -46,6 +46,16 @@ This example scenario uses several Azure components:
 - [Azure Databricks](https://azure.microsoft.com/services/databricks): An Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache): A fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes)
