@@ -67,6 +67,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 >- The Raw layer is the landing area for data coming in from source systems.  As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
 >- In the next stage of the lifecycle, data moves to the Enrich layer where data is filtered and enriched.
 >- Data then moves to the Curated layer, which is where consumer-ready data is maintained.
+
 > Please refer to the [Data lake zones and containers](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/best-practices/data-lake-zones) documentation for a full review of Azure Data Lake zones and layers and their uses.
 
 ### Azure data services, cloud native HTAP with Azure Cosmos DB and Dataverse
