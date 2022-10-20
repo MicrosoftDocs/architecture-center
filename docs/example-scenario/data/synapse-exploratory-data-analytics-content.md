@@ -128,4 +128,4 @@ Principal authors:
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
   - [Big data analytics with enterprise-grade security by using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-  - [Enterprise business intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

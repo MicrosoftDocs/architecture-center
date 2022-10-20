@@ -475,6 +475,6 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 * [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 * [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-* [Tune hyperparameters for machine learning models in Python](../../reference-architectures/ai/training-python-models.yml)
+* [Tune hyperparameters for machine learning models in Python](/azure/architecture/example-scenario/ai/training-python-models)
 * [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
 * [Real-time scoring of machine learning models in Python](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)

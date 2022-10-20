@@ -8,7 +8,7 @@ This reference architecture shows how to perform incremental loading in an [extr
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-adf.vsdx) of this architecture.*
 
-This architecture builds on the one shown in [Enterprise BI with Azure Synapse](./enterprise-bi-synapse.yml), but adds some features that are important for enterprise data warehousing scenarios.
+This architecture builds on the one shown in [Enterprise BI with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse), but adds some features that are important for enterprise data warehousing scenarios.
 
 - Automation of the pipeline using Data Factory.
 - Incremental loading.
@@ -274,7 +274,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 - [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.yml)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
-- [Enterprise BI in Azure with Azure Synapse](./enterprise-bi-synapse.yml).
+- [Enterprise BI in Azure with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
 
 <!-- links -->
 

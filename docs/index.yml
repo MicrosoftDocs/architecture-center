@@ -152,7 +152,7 @@ conceptualContent:
         url: ./data-guide/big-data/ai-overview.md
       - text: Training of Python scikit-learn models
         itemType: architecture
-        url: ./reference-architectures/ai/training-python-models.yml
+        url: /azure/architecture/example-scenario/ai/training-python-models
       - text: Distributed training of deep learning models
         itemType: architecture
         url: ./reference-architectures/ai/training-deep-learning.yml
@@ -295,7 +295,7 @@ conceptualContent:
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
-          url: ./reference-architectures/data/enterprise-bi-synapse.yml
+          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: reference-architectures/enterprise-integration/queues-events.yml
