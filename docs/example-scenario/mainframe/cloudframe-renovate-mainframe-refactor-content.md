@@ -1,7 +1,5 @@
 CloudFrame Renovate migrates COBOL code to Java Spring Boot Batch quickly, without compromising quality, precision, functional equivalency, or performance. Renovate is a DIY tool that uses guided actions and automation to help make code migration easy. Just provide the inputs and download Maven or Gradle Java projects. No specialized skills or staff are required. 
 
-Renovate-generated Java code is easy to understand, is rated A by SonarQube, and produces results that are functional equivalent and data equivalent. The resulting code can be maintained by your current developers, using your DevOps processes and toolchains. Developers don't need knowledge about mainframes or COBOL to maintain the refactored application. The resulting code is highly maintainable, and the transformation risk is low. 
-
 ## IBM zSeries mainframe architecture (before migration)
 
 :::image type="content" source="media/cloudframe-refactor.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.png":::
@@ -75,9 +73,11 @@ Using existing mainframe data and processes reduces risk and accelerates time to
 
 Refactoring mainframe applications by using Renovate moves application and infrastructure transformation from proprietary legacy solutions into standardized, benchmarked, open technologies. This transformation also moves teams toward Agile DevOps operating models. 
 
-By using Renovate's incremental modernization approach, you, and not the tool or tool vendor, can determine the granularity and velocity of change. Refactoring with Renovate is a fast, lowest-risk way to move COBOL workloads to cloud-native Java on Azure. 
+Renovate-generated Java code is easy to understand, is rated A by SonarQube, and produces results that are functionally equivalent and data equivalent. The resulting code can be maintained by your current developers, using your DevOps processes and toolchains. Developers don't need knowledge about mainframes or COBOL to maintain the refactored application. The resulting code is highly maintainable, and the transformation risk is low. 
 
-## Potential use cases 
+By using Renovate's incremental modernization approach, you, and not the tool or tool vendor, can determine the granularity and velocity of change. Refactoring with Renovate is a fast, low-risk way to move COBOL workloads to cloud-native Java on Azure. 
+
+### Potential use cases 
 
 Refactoring to Azure by using Renovate is applicable to organizations and teams that want these benefits:
 
@@ -110,7 +110,7 @@ Security in Azure is achieved through a layered approach of policy, process, aut
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't being used, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by providing a single, unified view of costs versus budgets. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products.
+Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by providing a single, unified view of costs versus budgets. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products.
 
 ## Contributors
 
@@ -129,5 +129,18 @@ Other contributors:
 
 ## Next steps
 
-- For more information, please contact legacy2azure@microsoft.com.
-- More information regarding [Cloudframe Renovate](https://cloudframe.ac-page.com/renovate-dl)
+- For more information about this architecture, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- For more information about Renovate, see the [CloudFrame](https://cloudframe.ac-page.com/renovate-dl) website.
+- For more information about the components of this architecture, see these articles:
+   - [Virtual machines in Azure](/azure/virtual-machines/overview)
+   - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+   - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+   - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+   - [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+   
+## Related resources 
+
+- [Azure mainframe and midrange architecture design](../../mainframe/mainframe-midrange-architecture.md)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
