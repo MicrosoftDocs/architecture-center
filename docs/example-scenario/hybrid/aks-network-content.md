@@ -108,25 +108,25 @@ Use an ingress controller to expose services through externally reachable URLs. 
 - A backend that provides a combination of service and port names.
 
 ```yaml
-apiVersion: networking.k8s.io/v1  
-kind: Ingress  
-metadata: 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
   name: hello-world
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-kubernetes.io/ingress.class: "nginx"
-  spec:  
-    rules:
-     - host: test.example.com
-       http:
-         paths: 
-         - path: /hello-world
-pathType: Prefix
-backend:
-    service: 
-      name: hello-world 
-            port:  
-            number: 8080
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: test.example.com
+     http:
+       paths:
+       - path: /hello-world
+          pathType: Prefix
+          backend:
+            service:
+              name: hello-world
+              port:
+                 number: 8080
 ```
 
 Use an ingress controller to balance the traffic between different backends of the application. The traffic is split and sent to different service endpoints and deployments, based on the path information.
