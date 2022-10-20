@@ -65,7 +65,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 > In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle.  Azure Data Lake is organized by different layers and zones as follows:
 >
 >- The Raw layer is the landing area for data coming in from source systems.  As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
->- In the next stage of the lifecycle, data moves to the Enrich layer where data is filtered and enriched.
+>- In the next stage of the lifecycle, data moves to the Enriched layer where data is cleaned, filtered, and possibly transformed.
 >- Data then moves to the Curated layer, which is where consumer-ready data is maintained.
 
 > Please refer to the [Data lake zones and containers](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/best-practices/data-lake-zones) documentation for a full review of Azure Data Lake zones and layers and their uses.
