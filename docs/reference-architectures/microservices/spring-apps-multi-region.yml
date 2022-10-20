@@ -18,7 +18,6 @@ products:
   - azure-application-gateway
   - azure-front-door
   - azure-key-vault
-  - azure-mysql-database
 name: Multi region Azure Spring Apps reference architecture
 summary: Deploy Azure Spring Apps instances in multiple regions for increased availability and resilience.
 thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-multi-region.png
