@@ -26,7 +26,7 @@ H. Data is stored in data and database services like hierarchical, network, and 
 
 I. Operating system partitions (virtual machines) provide the interface between the engine and the software.  
 
-J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct hardware virtualization to partition physical machines into virtual machines.
+J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct hardware virtualization to partition physical machines into virtual machines (VMs).
 
 ## Azure architecture (after migration)
 
@@ -36,7 +36,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ### Workflow, after migration
 
-1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer virtually unchanged to minimize the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the virtual machines (VMs). Doing so improves security by minimizing open ports.
+1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer virtually unchanged to minimize the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
                                                                            
 2. In Azure, Azure load balancers manage access to the application compute clusters to provide high availability. This approach enables scale-out of compute resources to process the input work. Layer 7 (application layer) and Layer 4 (transport layer) load balancers are available. The type used depends on the application architecture and API payloads at the entry point of the compute cluster.
 
@@ -48,9 +48,9 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 6.	Renovate runtime services provide backward compatibility with mainframe data architectures and emulation of mainframe QSAM and VSAM file systems, decoupling data migration to UTF-8 from refactoring to Java and rehosting in Azure. Additional runtime services include compatibility with SORT, IDCAMS, IE utilities, GDG retention management, and more.
 
-7.	Data services use a combination of high-performance storage (Ultra SSD / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either local redundant or geo-redundant, depending on the use.  
+7.	Data services use a combination of high-performance storage (Ultra SSD / Premium SSD), file storage (Azure NetApp Files / Azure Files) and standard storage (blob, archive, backup) that can be either locally redundant or geo-redundant, depending on the use.  
 
-8.	Azure PaaS data services provide scalable, highly available geo-redundant data storage shared across compute resources in a cluster.  
+8.	Azure platform as a service (PaaS) data services provide scalable, highly available geo-redundant data storage that's shared across compute resources in a cluster.  
 
 9.	Azure Data Factory enables data ingestion and synchronization with multiple data sources both within Azure and from external sources. Azure Blob Storage is a common landing zone for external data sources.
 
@@ -75,11 +75,11 @@ Refactoring mainframe applications by using Renovate moves application and infra
 
 Renovate-generated Java code is easy to understand, is rated A by SonarQube, and produces results that are functionally equivalent and data equivalent. The resulting code can be maintained by your current developers, using your DevOps processes and toolchains. Developers don't need knowledge about mainframes or COBOL to maintain the refactored application. The resulting code is highly maintainable, and the transformation risk is low. 
 
-By using Renovate's incremental modernization approach, you, and not the tool or tool vendor, can determine the granularity and velocity of change. Refactoring with Renovate is a fast, low-risk way to move COBOL workloads to cloud-native Java on Azure. 
+By using Renovate's incremental modernization approach, you, and not the tool or tool vendor, can determine the granularity and speed of change. Refactoring with Renovate is a fast, low-risk way to move COBOL workloads to cloud-native Java on Azure. 
 
 ### Potential use cases 
 
-Refactoring to Azure by using Renovate is applicable to organizations and teams that want these benefits:
+Refactoring to Azure by using Renovate can help organizations and teams that want these benefits:
 
 - More control of the modernization processes through the use of DIY tools.
 - An incremental approach to modernization.
@@ -110,7 +110,7 @@ Security in Azure is achieved through a layered approach of policy, process, aut
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by providing a single, unified view of costs versus budgets. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products.
+Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by giving you a single, unified view of costs versus budgets. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
 
 ## Contributors
 
