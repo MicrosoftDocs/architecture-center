@@ -62,7 +62,7 @@ For detailed information and additional deployment options, see the [deployment 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
 > [!NOTE]
-> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle.  Azure Data Lake is organized by different layers and layers as follows:
+> In the following sections, Azure Data Lake is used as the home for data throughout the various stages of the data lifecycle.  Azure Data Lake is organized by different layers and containers as follows:
 >
 >- The Raw layer is the landing area for data coming in from source systems.  As the name implies, data in this layer is in raw, unfiltered, and unpurified form.
 >- In the next stage of the lifecycle, data moves to the Enriched layer where data is cleaned, filtered, and possibly transformed.
