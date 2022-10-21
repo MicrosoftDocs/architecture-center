@@ -1,33 +1,76 @@
-## What is this article about
+In this article, you’ll learn how to improve the reliability of workloads on Azure Spot virtual machines (VMs). The architecture creates infrastructure consistency (reliability) for workloads processes that can stop without operational impact (interruptible workload).
 
-Show you how best practices for building workloads on Azure spot virtual machines. These workloads must be interruptible.
-They must be
+Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. Spot VMs are subject to sudden eviction. Hosting the wrong workloads on spot VMs can affect operations. A failure to orchestrate interruptible workloads can outweigh the cost benefit of spot VMs.  
 
-## Why use spot vms
+## Workload candidacy
 
-
-## When should you use spot vms
-
-Avoid using Azure Spot if:
-
-- Service level agreements (SLAs)
-- Sticky sessions
-- Stateful workload
-
-Aren't time critical, lower priority, short processing times
-
-Examples:
+Spot VMs are for interruptible workloads. Interruptible workloads have a few shared characteristics. They have minimal time constraints, priority, and processing times. Here are examples of interruptible workloads:
 
 - Batch processing applications
 - Background processing
 - Data analytics
 - CI/CD agent for a dev/test
 
-## How to use spot VMs
+Spot VMs shouldn’t be the single source of compute capacity for non-interruptible workloads. These feature of non-interruptible workloads:
 
-- **Priority Swap** strategy consist of running Spot VMs and swapping to regular VMs. Examples:
-    - running automated tests (CI).
-- **Priority Balanced** mix regular and Spot VMs. might never get an Azure Spot VM at all.
+- Service level agreements (SLAs)
+- Sticky sessions requirements
+- Stateful workloads
+
+## Solution Architecture  
+
+Telemetry and orchestration are the keys to creating reliability with spot VMs. For telemetry, you need to consistently query spot VM metadata. Azure Metadata Service provides information about upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.
+
+1. **VM application definition** - The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
+1. **Application version** - The application version is a numbered version of the VM application definition. The application version links to the source application package. The source application package in the architecture is `orchestrate.sh`. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
+1. **Source application package** - The source application package (orchestrate.sh) is downloaded to the VM after deployment and installs the .NET worker application.
+1. **.Net worker application** - The orchestrate.sh script installs a .NET worker application that runs two background services. The background services.
+1. **Storage account** - The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment.
+1. **Spot VM** - The spot VM must be in the same region as the application version. The spot VM downloads the orchestrate.sh package and installs the .NET worker application.
+1. **Application Insights** - The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application)
+1. **Storage Queue** - Spot VM has permissions to read from the storage queue.
+1. **Azure AD** - Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
+
+## Telemetry
+
+Telemetry provides the information needed to make reliability work on spot VMs. Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
+
+For more information, see Application Insights telemetry: Azure Application Insights Telemetry Data Model - Azure Monitor | Microsoft Learn
+
+## Between Preempt and orchestration
+
+WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?
+
+## Orchestration
+
+Orchestration refers to the process of recovering compute capacity after an eviction. Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
+
+## Testing
+
+We recommend simulating eviction events to test orchestration in dev/test environments.
+
+For more information, see [simulate eviction](/azure/virtual-machines/linux/spot-cli#simulate-an-eviction).
+
+## Cost
+
+The Spot VMs discount depends on VM size, region of deployment, and operating system. Here are two examples of the cost difference between spot and pay-as-you-go VMs:
+
+| VM size | Region | Spot price | Pay-as-you-go price |
+| --- | --- | --- | --- |
+|**D1 v2** | East US<br><br>West US | $55.15/month<br><br>$18.93/month | $91.98/month<br><br>$91.98/month
+|**E2a v4**|  East US<br><br>West US | $23.87/month<br><br>$25.40/month | $159.14/month<br><br>169.36/month|
+
+## Deploy this scenario
+
+![GitHub logo](../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
+
+ Next step
+
+ See the Azure Well-Architected Framework's [cost optimization guidance for Virtual Machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-reviewcost-optimization).
+ Explore [VM Applications](/azure/virtual-machines/vm-applications) as part of your workload orchestration.
+
+
+## Extra content
 
 ### Spot VM states
 
@@ -121,12 +164,3 @@ Another important orchestration related aspect to understand is how to scale you
     Alternatively, if the workload resources specs are limited by design and it can't grow to consume VM resources, ensure your VM is the right size to orchestrate multiple whole instances of your workload. Doing so will ensure there's no wasted over-provisioning of compute resources in your Spot VM.  This will impact your workload orchestration strategy.
 
     ![A diagram depicting the Azure Spot VM infrastructure orchestration scale out strategy.](./media/spot-orchestration-scale-out-diagram.png)
-
-## Deploy this scenario
-
-![GitHub logo](../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
-
-## Next step
-
-* See the Azure Well-Architected Framework's [cost optimization guidance for Virtual Machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review#cost-optimization).
-* Explore [VM Applications](/azure/virtual-machines/vm-applications) as part of your workload orchestration.
