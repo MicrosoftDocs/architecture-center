@@ -1466,8 +1466,8 @@ items:
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
-              - name: Predict the length of stay in hospitals
-                href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
+              - name: Predict patient length of stay and flow
+                href: example-scenario/digital-health/predict-patient-length-of-stay.yml
               - name: Precision medicine pipeline
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
               - name: Remote patient monitoring
@@ -3102,6 +3102,8 @@ items:
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech transcription pipeline
                 href: example-scenario/ai/speech-to-text-transcription-analytics.yml
+              - name: Social media analytics solution
+                href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
           - name: Solution ideas
             items:
               - name: AI at the edge
@@ -3150,8 +3152,6 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: FAQ chatbot
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
-              - name: Hospital patient predictions
-                href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNNs
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
               - name: Interactive voice response bot
@@ -3356,8 +3356,6 @@ items:
                 href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Predict the length of stay in hospitals
-                href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
               - name: Real-time analytics on big data
