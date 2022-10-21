@@ -12,7 +12,7 @@ Turbostream is used by NASA and in the design of aircraft engines, turbomachiner
 - Modern and diverse compute options to meet your the needs of your workloads 
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- With an eight-GPU configuration, performance increase of 4.51 times that of a single GPU
+- With an eight-GPU configuration, a performance increase of 4.51 times that of a single GPU
 
 ## Architecture
 
