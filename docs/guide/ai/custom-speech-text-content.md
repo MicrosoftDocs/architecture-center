@@ -130,8 +130,8 @@ Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 - [Rania Bayoumy](https://www.linkedin.com/in/raniabayoumy) | Senior Technical Program Manager
-- 
--  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
  
 ## Next steps
 
