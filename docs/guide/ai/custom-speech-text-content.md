@@ -10,7 +10,9 @@ The pre-built and custom AI spectrum represents multiple AI model customization 
 Pre-built and pre-trained models are on the left side, customized pre-built models are in the middle, and customized models tailored to your scenario and data are on the right side.
 :::image-end:::
 
-On the left side of the spectrum, [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) enables a quick and low-friction implementation of AI capabilities into applications via pre-trained models. Microsoft curates extensive datasets to train and build these baseline models. As a result, you can use baseline models with no additional training data. They're consumed via enhanced-security programmatic API calls. Cognitive Services includes:
+On the left side of the spectrum, [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) enables a quick and low-friction implementation of AI capabilities into applications via pre-trained models. Microsoft curates extensive datasets to train and build these baseline models. As a result, you can use baseline models with no additional training data. They're consumed via enhanced-security programmatic API calls. 
+
+Cognitive Services includes:
 
 - **Speech.** Speech-to-text, text-to-speech, speech translation, and speaker recognition
 - **Language.** Entity recognition, sentiment analysis, question answering, conversational language understanding, and translator
@@ -18,9 +20,9 @@ On the left side of the spectrum, [Azure Cognitive Services](https://azure.micro
 - **Decision.** Anomaly detector, content moderator, and Personalizer
 - **OpenAI Service.** Advanced language models
 
-When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding new training data that's relative to the problem domain. This customization requires the extra effort of gathering adequate data to train and evaluate an acceptable model. Cognitive Services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Cognitive Services models is in the center of the spectrum. Most of this article is focused on that central area.
+When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding training data that's relative to the problem domain. This customization requires the extra effort of gathering adequate data to train and evaluate an acceptable model. Cognitive Services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Cognitive Services models is in the center of the spectrum. Most of this article is focused on that central area.
 
-Alternatively, when models and training data focus on a specific scenario and require a proprietary training dataset, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides custom solution resources, tools, compute, and workflow guidance to support building entirely custom models. This scenario appears on the right side of the spectrum: tailored custom models. These models are built from scratch. Developing a model by using Azure Machine Learning typically ranges from using visual tools like [AutoML](/azure/machine-learning/concept-automated-ml) to programmatically developing the model by using [notebooks](/azure/machine-learning/samples-notebooks). 
+Alternatively, when models and training data focus on a specific scenario and require a proprietary training dataset, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides custom solution resources, tools, compute, and workflow guidance to support building entirely custom models. This scenario appears on the right side of the spectrum. These models are built from scratch. Developing a model by using Azure Machine Learning typically ranges from using visual tools like [AutoML](/azure/machine-learning/concept-automated-ml) to programmatically developing the model by using [notebooks](/azure/machine-learning/samples-notebooks). 
 
 ## Azure Speech service
 
@@ -32,7 +34,7 @@ Note, however, that the baseline model might not be sufficient if the audio cont
 
 Depending on the size of the custom domain, it might also make sense to train multiple models and compartmentalize a model for an individual application. For example, Olympics commentators report on various sports, each with its own jargon. Because each sport has a vocabulary that differs significantly from the others, building a custom model specific to a sport increases accuracy by limiting the utterance data relative to that particular sport. As a result, the model can learn from a precise and targeted set of data.
 
-There are three approaches to implementing Azure speech-to-text:
+So there are three approaches to implementing Azure speech-to-text:
 
 - The **baseline model** is appropriate when the audio is clear of ambient noise and the transcribed speech consists of commonly spoken language.
 - A **custom model** augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
@@ -75,7 +77,7 @@ You also need to consider which languages and locales to support. It might make 
 
 Azure Speech provides three options for training a custom model:
 
-**Language model adaptation** is the most commonly used customization. A language model helps to training how certain words are used together in a particular context or a specific domain. Building a language model is also relatively easy and fast. First, train the model by supplying a variety of utterances and phrases for the particular domain. For example, if the goal is to generate transcription for alpine skiing, collect human-generated transcripts of multiple skiing events. Clean and combine them to create one training data file with about 50 thousand phrases and sentences. For more details about the data requirements for custom language model training, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-and-human-labeled-transcript-data).
+**Language model adaptation** is the most commonly used customization. A language model helps to train how certain words are used together in a particular context or a specific domain. Building a language model is also relatively easy and fast. First, train the model by supplying a variety of utterances and phrases for the particular domain. For example, if the goal is to generate transcription for alpine skiing, collect human-generated transcripts of multiple skiing events. Clean and combine them to create one training data file with about 50 thousand phrases and sentences. For more details about the data requirements for custom language model training, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-and-human-labeled-transcript-data).
 
 **Pronunciation model customization** is also one of the most commonly used customizations. A pronunciation model helps the custom model recognize uncommon words that don't have a standard pronunciation. For example, some of the terminology in alpine skiing borrows from other languages, like the terms *schuss* and *mogul*. These words are excellent candidates for training with a pronunciation dataset. For more details about improving recognition by using a pronunciation file, see [Pronunciation data for training](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#pronunciation-data-for-training). For details about building a custom model by using Speech Studio, see [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview). 
 
@@ -87,7 +89,7 @@ The final custom model can include datasets that use a combination of all three 
 
 There are two approaches to training a custom model:
 
-- Train with numerous examples of phrases and utterances from the domain. For example, include transcripts of cleaned and normalized alpine skiing event audio and human-generated transcripts of previous events. Ensure the transcripts include the terms used in alpine skiing and multiple examples of how commentators pronounce them. If you follow this process, the resulting custom model will be able to recognize domain-specific words and phrases.
+- Train with numerous examples of phrases and utterances from the domain. For example, include transcripts of cleaned and normalized alpine skiing event audio and human-generated transcripts of previous events. Be sure that the transcripts include the terms used in alpine skiing and multiple examples of how commentators pronounce them. If you follow this process, the resulting custom model should be able to recognize domain-specific words and phrases.
 
 - Train with specific data that focuses on problem areas. This approach works well when there isn't much training data, for example, if new slang terms are used during alpine skiing events and need to be included in the model. This type of training uses the following approach:
     - Use Speech Studio to generate a transcription and compare it with human-generated transcriptions.
@@ -96,21 +98,21 @@ There are two approaches to training a custom model:
        - Different inflections and pronunciations of the word or utterance.
        - Any unique commentator-specific applications of the word or utterance.
        
-Training a custom model with specific data can be time-consuming. Steps include carefully analyzing the transcription gaps, manually adding training phrases, and repeating this process multiple times. However, in the end, this approach provides focused training for the problem areas that were previously incorrectly transcribed. And it's possible to iteratively build this model by selectively training on critical areas and then proceeding down the list in order of importance. Another benefit is that the dataset size will include a few hundred utterances rather than few thousand, even after many iterations of building the training data. 
+Training a custom model with specific data can be time-consuming. Steps include carefully analyzing the transcription gaps, manually adding training phrases, and repeating this process multiple times. However, in the end, this approach provides focused training for the problem areas that were previously incorrectly transcribed. And it's possible to iteratively build this model by selectively training on critical areas and then proceeding down the list in order of importance. Another benefit is that the dataset size will include a few hundred utterances rather than a few thousand, even after many iterations of building the training data. 
 
 ### After you build your model
 
 After you build your model, keep the following recommendations in mind:
 
--	**Be aware of the difference between lexical text and display text.** Speech Studio produces WER based on lexical text. However, what the user sees is the  display text with punctuation, capitalization, and numerical words represented as numbers. Here's an example of lexical text versus display text:
+-	**Be aware of the difference between lexical text and display text.** Speech Studio produces WER based on lexical text. However, what the user sees is the  display text with punctuation, capitalization, and numerical words represented as numbers. Following is an example of lexical text versus display text.
 
     **Lexical text:** the speed is great and the time is even better fifty seven oh six seconds for the german
 
     **Display text:** The speed is great. And that time is even better. 57063 seconds for the German. 
 
-    And what is expected (implied) is: The speed is great. And that time is even better. **57.063** seconds for the German
+    What's expected (implied) is: The speed is great. And that time is even better. **57.063** seconds for the German
 
-    The custom model has a low WER rate, but that doesn't mean that user-perceived error (errors in display text) is low. This problem occurs mainly in alphanumeric input because different applications can have alternative ways of representing this input. You shouldn't rely only on the WER. You also need to review the final recognition result. 
+    The custom model has a low WER rate, but that doesn't mean that user-perceived error rate (errors in display text) is low. This problem occurs mainly in alphanumeric input because different applications can have alternative ways of representing the input. You shouldn't rely only on the WER. You also need to review the final recognition result. 
  
     When display text seems wrong, review the detailed recognition result from the SDK, which includes lexical text, in which everything is spelled out. If the lexical text is correct, the recognition is accurate. You can then resolve inaccuracies in the display text (the final recognized result) by adding post-processing rules.
 
