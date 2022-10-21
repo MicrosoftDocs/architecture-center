@@ -61,7 +61,7 @@ This section describes some design considerations for building a speech-based ap
 
 ### Baseline model vs. custom model
 
-Azure Speech includes baseline models supporting various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article] in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
+Azure Speech includes baseline models supporting various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article](custom-speech-text-deploy.md) in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
 
 ### One vs. many custom models
 
@@ -79,7 +79,7 @@ Azure Speech provides three options for training a custom model:
 
 **Pronunciation model customization** is also one of the most commonly used customizations. A pronunciation model helps the custom model recognize uncommon words that don't have a standard pronunciation. For example, some of the terminology in alpine skiing borrows from other languages, like the terms *schuss* and *mogul*. These words are excellent candidates for training with a pronunciation dataset. For more details about improving recognition by using a pronunciation file, see [Pronunciation data for training](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#pronunciation-data-for-training). For details about building a custom model by using Speech Studio, see [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview). 
 
-**Acoustic model adaptation** provides phonetic training on the pronunciation of certain words so that Azure Speech can properly recognize them. To build an acoustic model, you need audio samples and accompanying human-generated transcripts. If the recognition language matches common locales, like en-US, using the current baseline model should be sufficient. Baseline models have diverse training that uses the voices of native and non-native English speakers to cover a vast amount of English vocabulary. Therefore, building an acoustic model adaptation on the en-US base model might not provide much improvement. Training a custom acoustic model also takes a bit more time. For more information about the data requirements for custom acoustic training, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-and-human-labeled-transcript-data)
+**Acoustic model adaptation** provides phonetic training on the pronunciation of certain words so that Azure Speech can properly recognize them. To build an acoustic model, you need audio samples and accompanying human-generated transcripts. If the recognition language matches common locales, like en-US, using the current baseline model should be sufficient. Baseline models have diverse training that uses the voices of native and non-native English speakers to cover a vast amount of English vocabulary. Therefore, building an acoustic model adaptation on the en-US base model might not provide much improvement. Training a custom acoustic model also takes a bit more time. For more information about the data requirements for custom acoustic training, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-and-human-labeled-transcript-data).
 
 The final custom model can include datasets that use a combination of all three of the customizations described in this section. 
 
@@ -114,7 +114,7 @@ After you build your model, keep the following recommendations in mind:
  
     When display text seems wrong, review the detailed recognition result from the SDK, which includes lexical text, in which everything is spelled out. If the lexical text is correct, the recognition is accurate. You can then resolve inaccuracies in the display text (the final recognized result) by adding post-processing rules.
 
--	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see the [deploy article].
+-	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md).
 
 ## Contributors
 
@@ -135,12 +135,11 @@ Other contributors:
 - [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
-- Link to Deployment / Implementation guide
+- [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md)
 
 ## Related resources
 
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
 - [Speech services](../../solution-ideas/articles/speech-services.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
-- Link to Deployment / Implementation guide
-
+- [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md)
