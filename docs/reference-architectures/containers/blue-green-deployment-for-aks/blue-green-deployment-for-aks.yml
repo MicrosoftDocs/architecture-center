@@ -5,7 +5,7 @@ metadata:
   description: Learn how to implement a blue-green deployment system on AKS that uses Azure managed services and native Kubernetes features. 
   author: vimorra
   ms.author: vimorra
-  ms.date: 10/24/2022
+  ms.date: 10/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
 azureCategories:
