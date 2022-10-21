@@ -1,4 +1,4 @@
-## Deploy a custom speech-to-text solution
+# Deploy a custom speech-to-text solution
 
 This article is an implementation guide and case study that provides a sample deployment for the associated article, Implement custom speech-to-text.[link to other article]
 
