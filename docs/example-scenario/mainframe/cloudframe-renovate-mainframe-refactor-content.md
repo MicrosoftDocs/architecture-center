@@ -1,12 +1,12 @@
 CloudFrame Renovate migrates COBOL code to Java Spring Boot Batch quickly, without compromising quality, precision, functional equivalency, or performance. Renovate is a DIY tool that uses guided actions and automation to help make code migration easy. Just provide the inputs and download Maven or Gradle Java projects. No specialized skills or staff are required. 
 
-## IBM zSeries mainframe architecture (before migration)
+## Legacy IBM zSeries architecture 
 
 :::image type="content" source="media/cloudframe-refactor.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
-### Workflow, before migration
+### Workflow
 
 A. Data is input over TCP/IP, including TN3270 and HTTP(S).
 
@@ -28,13 +28,13 @@ I. Operating system partitions (virtual machines) provide the interface between 
 
 J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct hardware virtualization to partition physical machines into virtual machines (VMs).
 
-## Azure architecture (after migration)
+## Migrated Azure architecture 
 
 :::image type="content" source="media/cloudframe-refactor-after.png" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.png"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
-### Workflow, after migration
+### Workflow
 
 1. Data is typically input either via Azure ExpressRoute from remote clients or from other applications currently running Azure. In either case, TCP/IP is the primary means of connection to the system. TLS port 443 provides user access to web-based applications. You can use the web application presentation layer virtually unchanged to minimize the need for training. Or you can update the web application presentation layer with modern UX frameworks as needed. You can use Azure VM bastion hosts to provide admin access to the VMs. Doing so improves security by minimizing open ports.
                                                                            
@@ -42,7 +42,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 3. You can deploy to a VM in a compute cluster or in a pod that can be deployed in a Kubernetes cluster. Java Business Services and applications created via Renovate run equally well on Azure VMs and Azure Kubernetes containers. For a more detailed analysis  of compute options, see [this Azure compute service decision tree](../../guide/technology-choices/compute-decision-tree.yml).
 
-4.	Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or RDMA (Remote Direct Memory Access).
+4.	Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
 
 5.	Business services and applications in the application clusters allow for multiple connections to persistent data sources. These data sources can include PaaS services like Azure SQL Database and Azure Cosmos DB, databases on VMs, such as Oracle or Db2, and big data repositories like Azure Databricks and Azure Data Lake. Application data services can also connect to streaming data services like Kafka and Azure Stream Analytics.
 
@@ -59,7 +59,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure provides. An Azure VM gives you the flexibility of virtualization, and you don't have to buy and maintain the physical hardware that runs it. 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) provides a fast way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) can help you start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Ultra Disk, Premium SSD, Standard SSD, and Standard HDD. For this architecture, we recommend either Premium SSDs or Ultra Disk SSDs.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure VMs, to communicate with each other, the internet, and on-premises networks, all with enhanced security. Virtual Network is like a traditional network that you'd operate in your own datacenter, but it provides additional benefits like scale, availability, and isolation.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most database management functions, like upgrading, patching, backups, and monitoring, without your involvement. SQL Database always runs on the latest stable version of the SQL Server database engine and a patched OS. 
