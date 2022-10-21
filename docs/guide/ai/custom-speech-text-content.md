@@ -1,6 +1,6 @@
 This two-part guide describes various approaches for efficiently implementing high-quality speech-aware applications. It focuses on extending and customizing the baseline model of speech-to-text functionality provided by the [Azure Cognitive Services Speech service](/azure/cognitive-services/speech-service/custom-speech-overview).
 
-This article describes the problem space and decision-making process for designing your solution. The [second article] provides a use case for applying these instructions and recommended practices.
+This article describes the problem space and decision-making process for designing your solution. The second article, [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md), provides a use case for applying these instructions and recommended practices.
 
 ## The pre-built and custom AI spectrum
 
