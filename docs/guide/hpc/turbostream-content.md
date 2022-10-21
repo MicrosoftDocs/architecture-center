@@ -3,13 +3,13 @@ This article briefly describes the steps for running [Turbostream](https://www.t
 
 Turbostream is advanced simulation software that's based on a computational fluid dynamics (CFD) solver. It can run on high-speed GPUs and on conventional CPUs. 
 
-The software enables high-fidelity methods like unsteady full-annulus simulations to be used as part of the routine design process.
+The software enables high-fidelity methods, like unsteady full-annulus simulations, to be used as part of the routine design process.
 
 Turbostream is used by NASA and in the design of aircraft engines, turbomachinery, and gas turbines.
 
 ## Why deploy Turbostream on Azure?
 
-- Modern and diverse compute options to meet your workload's needs
+- Modern and diverse compute options to meet your the needs of your workloads 
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
 - With an eight-GPU configuration, performance increase of 4.51 times that of a single GPU
