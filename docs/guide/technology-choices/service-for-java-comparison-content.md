@@ -52,10 +52,11 @@ Use the following grid to identify potential destinations for your application t
 ## Supportability
 
 Besides the platform choices, modern Java applications may have other supportability needs that include but are not limited to:
+
 - [Batch / scheduled jobs](#batch--scheduled-jobs)
-- [VNet Integration](#batch--scheduled-jobs)
-- [Serverless](#batch--scheduled-jobs)
-- [Containerization](#batch--scheduled-jobs)
+- [Virtual network integration](#virtual-network-integration)
+- [Serverless](#serverless)
+- [Containerization](#containerization)
 
 ### Batch / scheduled jobs
 
