@@ -2,26 +2,6 @@
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
-There are several general approaches to achieve high availability across regions:
-
-- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-
-- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
-
-- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
-
-This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
-
-### Potential use cases
-
-These use cases can benefit from a multi-region deployment:
-
-- Design a business continuity and disaster recovery plan for LoB applications
-
-- Deploy mission-critical applications running on Windows or Linux
-
-- Improve user experience by keeping applications available
-
 ## Architecture
 
 ![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
@@ -53,6 +33,28 @@ Key technologies used to implement this architecture:
 - [Azure SQL Database][Azure-SQL-Database]
 - [Azure Cosmos DB][Azure-Cosmos-DB]
 - [Azure Search][Azure-Search]
+
+## Scenario details
+
+There are several general approaches to achieve high availability across regions:
+
+- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
+
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+
+- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
+
+### Potential use cases
+
+These use cases can benefit from a multi-region deployment:
+
+- Design a business continuity and disaster recovery plan for LoB applications.
+
+- Deploy mission-critical applications that run on Windows or Linux.
+
+- Improve the user experience by keeping applications available.
 
 ## Recommendations
 
