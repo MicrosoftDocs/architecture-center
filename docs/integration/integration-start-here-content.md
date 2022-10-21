@@ -204,7 +204,7 @@ The following resources provide practical recommendations and information for sp
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
-[Enterprise business intelligence]: ../reference-architectures/data/enterprise-bi-synapse.yml
+[Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Enterprise integration using message broker and events]: ../reference-architectures/enterprise-integration/queues-events.yml
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
@@ -235,7 +235,7 @@ The following resources provide practical recommendations and information for sp
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
 [Refactor mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
-[Remote patient monitoring solutions]: ../solution-ideas/articles/remote-patient-monitoring.yml
+[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml
