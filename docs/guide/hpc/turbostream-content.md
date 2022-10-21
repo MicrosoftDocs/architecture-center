@@ -3,7 +3,7 @@ This article briefly describes the steps for running [Turbostream](https://www.t
 
 Turbostream is advanced simulation software that's based on a computational fluid dynamics (CFD) solver. It can run on high-speed GPUs and on conventional CPUs. 
 
-The software enables high-fidelity methods like unsteady full-annulus simulations to be used as part of the routine design process for the first time.
+The software enables high-fidelity methods like unsteady full-annulus simulations to be used as part of the routine design process.
 
 Turbostream is used by NASA and in the design of aircraft engines, turbomachinery, and gas turbines.
 
@@ -93,7 +93,7 @@ The following table provides details about the operating system and the NVIDIA d
 
 ## Azure cost
 
-the following table...elapsed time to do what? You can use this time and the Azure VM hourly cost for the NDA100v4 VM to calculate costs. For the current hourly cost, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following table presents the elapsed time. You can use this time and the Azure VM hourly cost for the NDA100v4 VM to calculate costs. For the current hourly cost, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 Only simulation runtime is included in the reported time. Application installation time isn't included.
 
