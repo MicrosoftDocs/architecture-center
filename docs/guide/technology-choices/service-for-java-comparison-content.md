@@ -81,22 +81,20 @@ Containerization is the packaging together of software code with all it's necess
 
 ### CI/CD
 
-CI/CD is a method to frequently deliver apps to customers by introducing automation into the stages of app development. The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment. All of the azure choices supports their own CI/CD tooling. You may check [Azure Pipelines][6] or [Jenkins][7] on azure for more details.
+CI/CD is a method to frequently deliver apps to customers by introducing automation into the stages of app development. The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment. All of the Azure choices supports most CI/CD tooling. For example, you may use Microsoft solutions such as [Azure Pipelines][6] or other solutions such as [Jenkins][7].
 
 ### Open-source search engine
 
-Searches are integral parts of any application. Performing searches on terabytes and petabytes of data can be challenging when speed, performance, and high availability are core requirements. The most commonly used search engines are Solr and Elasticsearch
+Searches are integral parts of any application. Performing searches on terabytes and petabytes of data can be challenging when speed, performance, and high availability are core requirements. When hosting Java applications on Azure, either plan to host your related Solr and Elasticsearch instances or consider migrating to Azure Cognitive Search.
 
 ### Big data tooling
 
-Big data tools enable the automation of data flowage among the software systems. They support scalable, robust & streamlined data routing graphs along with system mediation logic. On the other hand, they are utilized to build 'live' data flow pipelines & stream apps. You may check [Nifi][8] or [Kafka][9] on azure for more details.
+Big data tools enable the automation of data flowage among the software systems. They support scalable, robust & streamlined data routing graphs along with system mediation logic. On the other hand, they are utilized to build 'live' data flow pipelines & stream apps. Learn how [Nifi][8] and [Kafka][9] on Azure maybe be suitable for your needs.
 
 ### *Supportability options grid*
 
-Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
+Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities.
 
-> [!NOTE] 
-> This Grid has precluded Azure Pipelines, Jenkins, Solr, Elasticsearch, Nifi and Kafka as they are all supported by all the azure choices. Azure has and will continue on "Bring your own stuffs" to eliminate the vendor lock-in.
 
 | Destination&nbsp;→<br><br>Supportability↓                         | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS          | Virtual<br>Machines |
 |-------------------------------------------------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|----------------------|--------------|---------------------|
@@ -153,7 +151,7 @@ Use the following graph to find more details.
 [3]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
 [4]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [5]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
-[6]: https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops
-[7]: https://learn.microsoft.com/en-us/azure/developer/jenkins/
-[8]: https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/azure-nifi
-[9]: https://learn.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction
+[6]: /azure/devops/pipelines/?view=azure-devops
+[7]: /azure/developer/jenkins/
+[8]: /azure/architecture/example-scenario/data/azure-nifi
+[9]: /azure/hdinsight/kafka/apache-kafka-introduction
