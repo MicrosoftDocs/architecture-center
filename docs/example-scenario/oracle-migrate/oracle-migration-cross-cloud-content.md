@@ -20,6 +20,16 @@ To support a [multi-cloud experience](/azure/virtual-machines/workloads/oracle/o
 
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) creates a faster private connection to Azure.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 See [Set up a direct interconnection between Azure and Oracle Cloud Infrastructure](/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) for step-by-step configuration instructions. Refer to the **Important** alert at the beginning of the article. It shows a list of Oracle applications that Oracle has certified to run in Azure when using the Azure/Oracle Cloud interconnect solution.
