@@ -1,3 +1,21 @@
+---
+title: Deploy a custom speech-to-text solution
+description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+author: mishrapratyush
+ms.author: pmishra
+ms.date: 10/26/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-cognitive-services
+  - azure-speech
+  - azure-speech-text
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
+---
+
 # Deploy a custom speech-to-text solution
 
 This article is an implementation guide and case study that provides a sample deployment for the associated article, Implement custom speech-to-text.[link to other article]
