@@ -274,14 +274,11 @@ The following sections present a breakdown of Contoso activity required across D
             - The primary and secondary Azure Purview accounts cannot be configured to the same Azure Data Factory, Azure Data Share and Synapse Analytics accounts, if applicable. As a result, the lineage from Azure Data Factory and Azure Data Share cannot be seen in the secondary Azure Purview accounts
             - The integration runtimes are specific to an Azure Purview account. Hence, if scans must run in primary and secondary Azure Purview accounts in parallel, multiple self-hosted integration runtimes must be maintained
 
-
-- The Azure Data Center Failure scenario covers the situation where the impacted region does not have [Availability Zones](/en-us/azure/availability-zones/az-overview) offered
-- If new/updated configuration or releases occurred at the point of the disaster event, that should be checked and redeployed (if required) as part of the work to bring the platform up to the current date
-- In the case of a regional outage, Storage accounts which are geo-redundant would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these in the secondary region to be geo-redundant
-
 >[!NOTE]
 > This section is intended as general guidance. The vendor’s documentation on disaster recovery, redundancy and backup should be consulted for the correct approach for a new component/service under consideration
+>
 > “Azure Data Center Failure” covers the situation where the impacted region does not have [Availability Zones](/azure/availability-zones/az-overview) offered
+>
 > If new/updated configuration or releases occurred at the point of the disaster event, that should be checked and redeployed (if required) as part of the work to bring the platform up to the current date
 
 ## Next steps
