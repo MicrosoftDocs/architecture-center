@@ -1,14 +1,13 @@
 There are many options for teams to build and deploy java applications on Azure. This article is designed to cover mainstream Java on Azure scenarios, and to provide high-level planning suggestions and considerations.
 
 ## Java Hosting Option comparisons
-
-Before you select a cloud destination for your Java application, you'll need to identify its application type. Most Java applications are one of the following types:
+## Platform
+Before you select a cloud destination for your Java application, you'll need to identify its platform type. Most Java applications are one of the following platform types:
 
 - [Spring Boot / JAR applications](#spring-boot--jar-applications)
 - [Spring Cloud applications](#spring-cloud-applications)
 - [Web applications](#web-applications)
 - [Java EE applications](#java-ee-applications)
-- [Batch / scheduled jobs](#batch--scheduled-jobs)
 
 ### Spring Boot / JAR applications
 
@@ -35,6 +34,24 @@ Java EE applications must be deployed onto Java EE-compliant application servers
 
 Applications that rely only on features provided by the Java EE specification (that is, app-server-independent applications) can be migrated from one compliant application server onto another. If your application is dependent on a specific application server (app-server-dependent), you may need to select an Azure service destination that permits you to host that application server.
 
+### *Platform options grid*
+Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
+
+| Destination&nbsp;→<br><br>Platform↓                         | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS          | Virtual<br>Machines |
+|-------------------------------------------------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|----------------------|--------------|---------------------|
+| Spring Boot / JAR applications                                    | &#x2714;                | &#x2714;                  |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| Spring Cloud applications                                         | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
+| Web applications                                                  | &#x2714;                |                           | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
+| Java EE applications                                              |                         |                           |                          | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
+| Azure region availability                                         | [Details][1]            | [Details][2]              | [Details][2]             | [Details][2]                | [Details][3]         | [Details][4] | [Details][5]        |
+
+## Supportability
+Besides the platform choices, modern Java applications may have other supportability needs that include but are not limited to:
+- [Batch / scheduled jobs](#batch--scheduled-jobs)
+- [VNet Integration](#batch--scheduled-jobs)
+- [Serverless](#batch--scheduled-jobs)
+- [Containerization](#batch--scheduled-jobs)
+
 ### Batch / scheduled jobs
 Some applications are intended to run briefly, execute a particular workload, and then exit rather than wait for requests or user input. Sometimes such jobs need to run once or at regular, scheduled intervals. On premises, such jobs are often invoked from a server's crontab.
 
@@ -43,25 +60,41 @@ These applications are packaged into archives with the .jar extension (JAR files
 > [!NOTE]
 > If your application uses a scheduler (such as Spring Batch or Quartz) to run scheduled tasks, we strongly recommend that you factor such tasks to run outside of the application. If your application scales to multiple instances in the cloud, the same job will run more than once. Furthermore, if your scheduling mechanism uses the host's local time zone, you may experience undesirable behavior when scaling your application across regions.
 
-## Hosting options grid
+### VNet Integration
+When a java application is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, your project must have access to certain ports and fully qualified domain names. With Azure virtual networks, you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a virtual network. Virtual network integration doesn't enable your apps to be accessed privately.
+
+### Serverless
+Serverless is a cloud-native development model that allows developers to build and run applications without having to manage servers. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code. There are still servers in serverless, but they are abstracted away from app development.
+
+### Containerization
+Containerization is the packaging together of software code with all it's necessary components like libraries, frameworks, and other dependencies so that they are isolated in their own "container."
+
+### CI/CD
+CI/CD is a method to frequently deliver apps to customers by introducing automation into the stages of app development. The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment. All of the azure choices supports their own CI/CD tooling. You may check [Azure Pipelines][6] or [Jenkins][7] on azure for more details.
+
+### Open-source search engine
+Searches are integral parts of any application. Performing searches on terabytes and petabytes of data can be challenging when speed, performance, and high availability are core requirements. The most commonly used search engines are Solr and Elasticsearch
+
+### Big data tooling
+Big data tools enable the automation of data flowage among the software systems. They support scalable, robust & streamlined data routing graphs along with system mediation logic. On the other hand, they are utilized to build 'live' data flow pipelines & stream apps. You may check [Nifi][8] or [Kafka][9] on azure for more details.
+
+### *Supportability options grid*
 Use the following grid to identify potential destinations for your application type. Notice that AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
+
+> [!NOTE] 
+> This Grid has precluded Azure Pipelines, Jenkins, Solr, Elasticsearch, Nifi and Kafka as they are all supported by all the azure choices. Azure has and will continue on "Bring your own stuffs" to eliminate the vendor lock-in.
 
 | Destination&nbsp;→<br><br>Supportability↓                         | Azure<br>Spring<br>Apps | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS          | Virtual<br>Machines |
 |-------------------------------------------------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|----------------------|--------------|---------------------|
-| Spring Boot / JAR applications                                    | &#x2714;                | &#x2714;                  |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
-| Spring Cloud applications                                         | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
-| Web applications                                                  | &#x2714;                |                           | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
-| Java EE applications                                              |                         |                           |                          | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
-| Commercial application servers<br>(such as WebLogic or WebSphere) |                         |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
-| Long-term persistence on local filesystem                         |                         | &#x2714;                  | &#x2714;                 | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
-| Application server-level clustering                               |                         |                           |                          | &#x2714;                    |                      | &#x2714;     | &#x2714;            |
 | Batch / scheduled jobs                                            | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
-| VNet Integration/Hybrid Connectivity                              | &#x2714;                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
-| Serverless                                                        | Coming Soon             | ?                         | ?                        |?                            | ?                    | ?            | ?                   |
+| VNet Integration                             | &#x2714;                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
+| Serverless                                                        | &#x2714;             | ?                         | ?                        |?                            | ?                    | ?            | ?                   |
 | Containerization                                                  | &#x2714;                | ?                         | ?                        |?                            | &#x2714;             | ?            | ?                   |
 | Azure region availability                                         | [Details][1]            | [Details][2]              | [Details][2]             | [Details][2]                | [Details][3]         | [Details][4] | [Details][5]        |
 
+
 You may also refer to the decision tree below for additional hints.
+
 ![Decision tree for Java on Azure](images/java-application-tree.png)
 
 ## Build or Migrate Java Apps
@@ -76,7 +109,8 @@ It is a set of specifications, extending Java SE with specifications for enterpr
 
 ### MicroProfile
 MicroProfile is a project that provides a collection of specifications designed to help developers build Enterprise Java cloud-native microservices. Quarkus and Open Liberty are the most popular implementation of MicroProfile.
-                                                                                                                                                                       You can use the following table to find build or migration guidance by application type and targeted Azure service destination.
+
+You can use the following table to find build or migration guidance by application type and targeted Azure service destination.
 
 | Platform&nbsp;→<br>Destination&nbsp;↓                | Java SE    |  MicroProfile | JarkartaSE     |
 |------------------------------------------------------|------------|---------------|----------------|
@@ -90,6 +124,7 @@ MicroProfile is a project that provides a collection of specifications designed 
 |Java SE                                               | &#x2714;   | &#x2714;      |                |
 |Azure Spring Apps                                     | &#x2714;   |               |                |
 
+
 Use the following graph to find more details.
 
 ![Build or migrate java apps](images/Build-or-migrate-java-apps.png)
@@ -100,3 +135,7 @@ Use the following graph to find more details.
 [3]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
 [4]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [5]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+[6]: https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops
+[7]: https://learn.microsoft.com/en-us/azure/developer/jenkins/
+[8]: https://learn.microsoft.com/en-us/azure/architecture/example-scenario/data/azure-nifi
+[9]: https://learn.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction
