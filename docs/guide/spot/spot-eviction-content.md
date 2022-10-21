@@ -1,10 +1,20 @@
-In this article, you’ll learn how to improve the reliability of workloads on Azure Spot virtual machines (VMs). The architecture creates infrastructure consistency (reliability) for workloads processes that can stop without operational impact (interruptible workload).
+Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs).
 
-Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. Spot VMs are subject to sudden eviction. Hosting the wrong workloads on spot VMs can affect operations. A failure to orchestrate interruptible workloads can outweigh the cost benefit of spot VMs.  
+## What are Spot VMs
 
-## Workload candidacy
+ Spot VMs are the same as regular VMs. The hardware, capabilities, and VMs are the same. The difference is access priority. Spot VMs grant lower access priority than pay-as-you-go VMs. The lower priority means Spot VMs can be taken from your workload at any time. We calls the loss of VMs eviction. Spot VMs are cheaper because the eviction potential. Pay-as-you-go customers cannot be evicted.
 
-Spot VMs are for interruptible workloads. Interruptible workloads have a few shared characteristics. They have minimal time constraints, priority, and processing times. Here are examples of interruptible workloads:
+ Spot VMs are . Hosting the wrong workloads on spot VMs can affect operations. Poor orchestration can negate the benefits of spot VMs.  
+
+1. Find the right workload
+1. Understand eviction
+1. Understand spot pricing
+1. Best practices
+1. Example Scenario
+
+## Use the right workload
+
+Spot VMs are great for interruptible workloads. Interruptible workloads have minimal time constraints, priority, and processing times. Some examples are:
 
 - Batch processing applications
 - Background processing
@@ -17,9 +27,69 @@ Spot VMs shouldn’t be the single source of compute capacity for non-interrupti
 - Sticky sessions requirements
 - Stateful workloads
 
-## Solution Architecture  
+## Understand eviction
 
-Telemetry and orchestration are the keys to creating reliability with spot VMs. For telemetry, you need to consistently query spot VM metadata. Azure Metadata Service provides information about upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.
+**(1) Eviction policy** - The eviction policy chose for a spot VM affects how its orchestration. There are two types of eviction policies: *Stop/Deallocate* and *Delete*.
+
+- ***Stop/Deallocate*** - Use the "Stop / Deallocate" eviction policy if the workload can wait for Azure to release capacity within the same location and VM type.
+- ***Delete*** - Use the "Delete" policy if the workload can change location and VM type.
+
+**(2) Eviction process** (**When the VM is deallocating resources, do you just lose that VM or do they restart it when processing allows?**)
+
+
+
+## Understand spot price
+
+The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The price of a spot   of the cost difference between spot and pay-as-you-go VMs:
+
+| VM size | OS | Region | Spot price | Pay-as-you-go price |
+| --- | --- | --- | --- | --- |
+|**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
+|**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
+
+## Best practices
+
+### Deployment
+
+### Telemetry and orchestration
+
+Telemetry and orchestration are the keys to creating reliability with spot VMs. For telemetry, you need a constant stream of metadata about the spot VM state. Azure Metadata Service provides an queryable endpoint that provides this information. The metadata will  upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.
+
+#### Telemetry
+
+Telemetry provides the information needed to make reliability work on spot VMs. Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
+
+For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model)
+
+#### ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
+
+- WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?!!!
+
+- What should you do to start the orchestration process?
+
+- Can we automate any of it?
+
+#### Orchestration
+
+Orchestration refers to the process of recovering compute capacity after an eviction. Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
+
+#### Testing
+
+We recommend simulating eviction events to test orchestration in dev/test environments.
+
+For more information, see [simulate eviction](/azure/virtual-machines/linux/spot-cli#simulate-an-eviction).
+
+#### Always-on spot VMs (What happens if I leave it turned on all the time? What workloads would benefit from this?)
+
+#### Prevent deallocation (Best practices for how to prevent my VM from deallocating?)
+
+## Example scenario
+
+The example scenario is for **XXX**.
+
+The template deploys VMs with the following technical specifications:
+- memory
+- cores
 
 1. **VM application definition** - The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
 1. **Application version** - The application version is a numbered version of the VM application definition. The application version links to the source application package. The source application package in the architecture is `orchestrate.sh`. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
@@ -31,42 +101,11 @@ Telemetry and orchestration are the keys to creating reliability with spot VMs. 
 1. **Storage Queue** - Spot VM has permissions to read from the storage queue.
 1. **Azure AD** - Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
 
-## Telemetry
-
-Telemetry provides the information needed to make reliability work on spot VMs. Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
-
-For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model)
-
-## Between Preempt and orchestration
-
-!!!WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?!!!
-
-## Orchestration
-
-Orchestration refers to the process of recovering compute capacity after an eviction. Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
-
-## Testing
-
-We recommend simulating eviction events to test orchestration in dev/test environments.
-
-For more information, see [simulate eviction](/azure/virtual-machines/linux/spot-cli#simulate-an-eviction).
-
-## Cost
-
-The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The price of a spot   of the cost difference between spot and pay-as-you-go VMs:
-
-| VM size | OS | Region | Spot price | Pay-as-you-go price |
-| --- | --- | --- | --- | --- |
-|**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
-|**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
-
-The 
-
 ## Deploy this scenario
 
-![GitHub logo](../../_images/github.png) An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
+An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
 
- Next step
+## Next step
 
  See the Azure Well-Architected Framework's [cost optimization guidance for Virtual Machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-reviewcost-optimization).
  Explore [VM Applications](/azure/virtual-machines/vm-applications) as part of your workload orchestration.
