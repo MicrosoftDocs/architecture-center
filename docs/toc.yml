@@ -2818,6 +2818,12 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
+              - name: Custom speech-to-text
+                Items:
+                  - name: About custom speech-to-text
+                    href: guide/ai/custom-speech-text.yml
+                  - name: Deploy custom speech-to-text
+                    href: guide/ai/custom-speech-text-deploy.md  
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure

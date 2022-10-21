@@ -10,23 +10,23 @@ The pre-built and custom AI spectrum represents multiple AI model customization 
 Pre-built and pre-trained models are on the left side, customized pre-built models are in the middle, and customized models tailored to your scenario and data are on the right side.
 :::image-end:::
 
-On the left side of the spectrum, [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) enables a quick and low-friction implementation of AI capabilities into applications via pre-trained models. Microsoft curates extensive datasets to train and build these baseline models. As a result, you can use baseline models with no additional training data. They're consumed via enhanced-security programmatic API calls. Cognitive Services include:
+On the left side of the spectrum, [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) enables a quick and low-friction implementation of AI capabilities into applications via pre-trained models. Microsoft curates extensive datasets to train and build these baseline models. As a result, you can use baseline models with no additional training data. They're consumed via enhanced-security programmatic API calls. Cognitive Services includes:
 
 - **Speech.** Speech-to-text, text-to-speech, speech translation, and speaker recognition
 - **Language.** Entity recognition, sentiment analysis, question answering, conversational language understanding, and translator
 - **Vision.** Computer vision and Face API
-- **Decision.** Anomaly detector, content moderator, and personalizer
+- **Decision.** Anomaly detector, content moderator, and Personalizer
 - **OpenAI Service.** Advanced language models
 
-When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding new training data that's relative to the problem domain. This customization requires the additional effort of gathering adequate data to train and evaluate an acceptable model. Cognitive Services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Cognitive Services models is in the center of the spectrum. Most of this article is focused on that central area.
+When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding new training data that's relative to the problem domain. This customization requires the extra effort of gathering adequate data to train and evaluate an acceptable model. Cognitive Services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Cognitive Services models is in the center of the spectrum. Most of this article is focused on that central area.
 
-Alternatively, when models and training data focus on a specific scenario and require a proprietary training dataset, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides custom solution resources, tools, compute, and workflow guidance to support building entirely custom models. This scenario appears on the right side of the spectrum: tailored custom models. These models are built from scratch. Developing a model by using Azure Machine Learning typically ranges from using visual tools like [AutoML](/azure/machine-learning/concept-automated-ml) to programmatically developing the model by using [notebooks](https://learn.microsoft.com/en-us/azure/machine-learning/samples-notebooks). 
+Alternatively, when models and training data focus on a specific scenario and require a proprietary training dataset, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) provides custom solution resources, tools, compute, and workflow guidance to support building entirely custom models. This scenario appears on the right side of the spectrum: tailored custom models. These models are built from scratch. Developing a model by using Azure Machine Learning typically ranges from using visual tools like [AutoML](/azure/machine-learning/concept-automated-ml) to programmatically developing the model by using [notebooks](/azure/machine-learning/samples-notebooks). 
 
 ## Azure Speech service
 
 [Azure Speech service](/azure/cognitive-services/speech-service/overview) unifies speech-to-text, text-to-speech, speech translation, voice assistant, and speaker recognition functionality into a single subscription that's based on Cognitive Services. You can enable an application for speech by integrating with Speech service via easy-to-use SDKs and APIs.
 
-The Azure speech-to-text service analyzes audio in real time or asynchronously to transcribe the spoken word into text. Out of the box, Azure speech-to-text uses a Universal Language Model as a baseline that reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics that represent a variety of common domains. As a result, consuming the baseline model requires no additional configuration and works well in most scenarios.
+The Azure speech-to-text service analyzes audio in real time or asynchronously to transcribe the spoken word into text. Out of the box, Azure speech-to-text uses a Universal Language Model as a baseline that reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics that represent a variety of common domains. As a result, consuming the baseline model requires no extra configuration and works well in most scenarios.
 
 Note, however, that the baseline model might not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense. You do that by training with additional data that's associated with the specific domain.
 
@@ -89,14 +89,14 @@ There are two approaches to training a custom model:
 
 - Train with numerous examples of phrases and utterances from the domain. For example, include transcripts of cleaned and normalized alpine skiing event audio and human-generated transcripts of previous events. Ensure the transcripts include the terms used in alpine skiing and multiple examples of how commentators pronounce them. If you follow this process, the resulting custom model will be able to recognize domain-specific words and phrases.
 
-- Train with specific data that focuses on problem areas. This approach works well when there isn't a lot of training data, for example, if new slang terms are used during alpine skiing events and need to be included in the model. This type of training uses the following approach:
+- Train with specific data that focuses on problem areas. This approach works well when there isn't much training data, for example, if new slang terms are used during alpine skiing events and need to be included in the model. This type of training uses the following approach:
     - Use Speech Studio to generate a transcription and compare it with human-generated transcriptions.
     - Identify problem areas from patterns in what the commentators say. Identify:
        - The contexts within which the problem word or utterance is applied.
        - Different inflections and pronunciations of the word or utterance.
        - Any unique commentator-specific applications of the word or utterance.
        
-Training a custom model with specific data can be time-consuming. Steps include carefully analyzing the transcription gaps, manually adding training phrases, and repeating this process multiple times. However, in the end, this approach provides focused training for the problem areas that were previously incorrectly transcribed. And it's possible to iteratively build this model by selectively training on critical areas and then proceeding down the list in order of importance. An additional benefit is that the dataset size will include a few hundred utterances rather then few thousand, even after many iterations of building the training data. 
+Training a custom model with specific data can be time-consuming. Steps include carefully analyzing the transcription gaps, manually adding training phrases, and repeating this process multiple times. However, in the end, this approach provides focused training for the problem areas that were previously incorrectly transcribed. And it's possible to iteratively build this model by selectively training on critical areas and then proceeding down the list in order of importance. Another benefit is that the dataset size will include a few hundred utterances rather than few thousand, even after many iterations of building the training data. 
 
 ### After you build your model
 
@@ -128,10 +128,11 @@ Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 - [Rania Bayoumy](https://www.linkedin.com/in/raniabayoumy) | Senior Technical Program Manager
+- 
+-  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
  
 ## Next steps
 
-- [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
 - [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
@@ -139,6 +140,7 @@ Other contributors:
 
 ## Related resources
 
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
 - [Speech services](../../solution-ideas/articles/speech-services.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
