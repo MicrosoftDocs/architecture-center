@@ -60,18 +60,18 @@ Both assignment models must plan IP addresses for:
 A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azure Stack HCI deployment. Plan the number of IP addresses in the virtual IP pool based on the number of workload clusters and Kubernetes services. The virtual IP pool provides IP addresses for the following types of resources:
 
 - Cloud agent requires a floating IP address from the virtual IP pool.
-- The API server component that runs inside the Kubernetes Virtual Appliance (KVA) virtual machine (Management Cluster) uses an IP address from the virtual IP pool. The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane. The KVA is a virtual machine running Mariner Linux and hosts a Kubernetes cluster. The IP address is floating and is also used for any additional KVA VM that you deploy in AKS on Azure Stack HCI. The KVA virtual machine also hosts a Kubernetes virtual IP load-balancer service.
+- The API server component that runs inside the Kubernetes Virtual Appliance (KVA) virtual machine (Management Cluster) uses an IP address from the virtual IP pool. The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane. The KVA is a virtual machine running Mariner Linux and hosts a Kubernetes cluster. The IP address is floating and is also used for any other KVA VM that you deploy in AKS on Azure Stack HCI. The KVA virtual machine also hosts a Kubernetes virtual IP load-balancer service.
 
-- Plan IP addressing for the number of control plane VMs that are deployed on the target servers as they also consume additional IP addresses from the virtual IP pool. Considerations are described in the next section.
+- Plan IP addressing for the number of control plane VMs that are deployed on the target servers, as they also consume more IP addresses from the virtual IP pool. Considerations are described in the next section.
 - The target cluster contains a load balancer VM, which is HAProxy and owns the virtual IP Pool for the target cluster. This VM exposes all Kubernetes services through the virtual IP Pool.
 - Applications that run in Kubernetes pods use IP addresses from the virtual IP pool.
 - HAProxy load balancer is deployed as a specialized virtual machine and can be used to load balance incoming requests across multiple endpoints. They consume IP addresses from the virtual IP pool, and you need to plan IP addressing for every workload cluster.
 
 ### Kubernetes node VM IP pool
 
-Kubernetes nodes are deployed as virtual machines in an AKS on Azure Stack HCI deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three additional IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
+Kubernetes nodes are deployed as virtual machines in an AKS on Azure Stack HCI deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
 
-- The KVA VM also uses additional IP address for Kubernetes from the Kubernetes node VM IP pool. Plan for additional IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
+- The KVA VM also uses more IP address for Kubernetes from the Kubernetes node VM IP pool. Plan to add IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
 - Control Plane VMs consumes one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.
 - Nodes in a Node pool (Linux or Windows) will consume IP addresses from the IP pool allocated for the Kubernetes node VM.
 
@@ -229,7 +229,7 @@ The major concern in the networking design for the AKS on Azure Stack HCI is sel
 your Kubernetes cluster, it's services and applications.
 
 - Consider implementing static IP addresses to allow AKS on Azure Stack HCI to control the IP address assignment.
-- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require additional IP addresses. You can plan the following:
+- Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following:
   - Addressing/hostnames for Proxy settings
   - IP addresses for the target cluster control plane
   - IP addresses for the Azure ARC
@@ -291,7 +291,7 @@ considerations are framed in the context of these tenets.
 ### Operational excellence
 
 - Simplified management using Windows Admin Center. Windows Admin Center is the user interface for creating and managing AKS on Azure Stack HCI. It can be installed on Windows 10/11 or Windows Server VM that need to be registered in Azure and are in the same domain as the Azure Stack HCI or Windows Server Datacenter cluster.
-- Integration with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (Azure Monitor, Azure Backup).
+- Integration with Azure Arc or a range of Azure services that provide more management, maintenance, and resiliency capabilities (Azure Monitor, Azure Backup).
 - If your Kubernetes cluster is [attached to Azure Arc][Azure Arc–enabled Kubernetes service], you can [manage your Kubernetes cluster using GitOps][]. To review best practices for connecting a hybrid Kubernetes cluster to Azure Arc, see the [Azure Arc hybrid management and deployment for Kubernetes clusters][] scenario.
 - The Azure Stack HCI platform also helps to simplify virtual networking for AKS on Azure Stack HCI clusters by providing the "underlying" network in a highly available manner.
 
