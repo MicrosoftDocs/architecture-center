@@ -41,12 +41,7 @@ The scenario consists of the following components and capabilities:
 
 ## Scenario details
 
-### Potential use cases
-
-Implement highly available, container-based workloads in an on-premises Kubernetes implementation of AKS.
-
-- Automate running containerized applications at scale.
-- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
+The use cases for this scenario are described in the first article of the series, [Baseline architecture](aks-baseline.yml).
 
 ### Kubernetes node networking
 
