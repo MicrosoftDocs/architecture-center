@@ -303,31 +303,31 @@ The following instructions describe how to read, write, and apply transformation
 
   Because of how data is stored in the cloud and the fact that the file handlers `/vsiaz/` and `/vsiadls/` support only sequential writes, we use the file mount feature available in the [mssparkutils package](/azure/synapse-analytics/spark/synapse-file-mount-api). After the output is written to a mount location, copy it to Azure Data Lake Storage as shown in this sample transformation:
 
-    ```python
-    import shutil
-    import sys
-    from osgeo import gdal
-    from notebookutils import mssparkutils
+  ```python
+  import shutil
+  import sys
+  from osgeo import gdal
+  from notebookutils import mssparkutils
 
-    mssparkutils.fs.mount(
-        "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net",
-        "/<mount_path>",
-        {"linkedService":"<linked_service_name>"}
-    )
+  mssparkutils.fs.mount(
+      "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net",
+      "/<mount_path>",
+      {"linkedService":"<linked_service_name>"}
+  )
 
-    access_key = TokenLibrary.getSecret('<key-vault-name>','<secret-name>')
-    gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
-    gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', access_key)
+  access_key = TokenLibrary.getSecret('<key-vault-name>','<secret-name>')
+  gdal.SetConfigOption('AZURE_STORAGE_ACCOUNT', '<storage_account_name>')
+  gdal.SetConfigOption('AZURE_STORAGE_ACCESS_KEY', access_key)
 
-    options = gdal.WarpOptions(options=['tr'], xRes=1000, yRes=1000)
-    gdal.Warp('dst_img.tiff', '/vsiadls/<container_name>/path/to/src_img.tiff', options=options)
+  options = gdal.WarpOptions(options=['tr'], xRes=1000, yRes=1000)
+  gdal.Warp('dst_img.tiff', '/vsiadls/<container_name>/path/to/src_img.tiff', options=options)
 
-    jobId = mssparkutils.env.getJobId()
+  jobId = mssparkutils.env.getJobId()
 
-    shutil.copy("dst_img.tiff", f"/synfs/{jobId}/<mount_path>/path/to/dst_img.tiff")
-    ```
+  shutil.copy("dst_img.tiff", f"/synfs/{jobId}/<mount_path>/path/to/dst_img.tiff")
+  ```
 
-    In Azure Synapse, you can add Azure Data Lake Storage as one of the linked services. For instructions, see [Linked services](/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#linked-service-with-ui).
+  In Azure Synapse, you can add Azure Data Lake Storage as one of the linked services. For instructions, see [Linked services](/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#linked-service-with-ui).
 
 ### Sample solution
 
