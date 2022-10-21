@@ -35,11 +35,11 @@ Telemetry and orchestration are the keys to creating reliability with spot VMs. 
 
 Telemetry provides the information needed to make reliability work on spot VMs. Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
 
-For more information, see Application Insights telemetry: Azure Application Insights Telemetry Data Model - Azure Monitor | Microsoft Learn
+For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model)
 
 ## Between Preempt and orchestration
 
-WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?
+!!!WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?!!!
 
 ## Orchestration
 
@@ -53,12 +53,14 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 
 ## Cost
 
-The Spot VMs discount depends on VM size, region of deployment, and operating system. Here are two examples of the cost difference between spot and pay-as-you-go VMs:
+The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The price of a spot   of the cost difference between spot and pay-as-you-go VMs:
 
-| VM size | Region | Spot price | Pay-as-you-go price |
-| --- | --- | --- | --- |
-|**D1 v2** | East US<br><br>West US | $55.15/month<br><br>$18.93/month | $91.98/month<br><br>$91.98/month
-|**E2a v4**|  East US<br><br>West US | $23.87/month<br><br>$25.40/month | $159.14/month<br><br>169.36/month|
+| VM size | OS | Region | Spot price | Pay-as-you-go price |
+| --- | --- | --- | --- | --- |
+|**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
+|**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
+
+The 
 
 ## Deploy this scenario
 
