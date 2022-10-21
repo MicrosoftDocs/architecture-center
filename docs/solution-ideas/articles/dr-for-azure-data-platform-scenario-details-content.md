@@ -207,7 +207,7 @@ The following sections present a breakdown of Contoso activity required across D
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
         - Azure Regional Failure: Contoso would need to redeploy Azure Synapse – Data Explorer Pools and pipelines into the secondary region
-- **Azure Synapse – Spark PoolS**
+- **Azure Synapse – Spark Pools**
     - Contoso SKU selection: Compute Optimised Gen2
     - DR Impact
         - Azure Data Center Failure: N/A
