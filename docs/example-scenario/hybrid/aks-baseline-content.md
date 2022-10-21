@@ -143,7 +143,7 @@ Focus on the entire stack by securing the host and containers.
 #### Application security
 
 - Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Stack HCI to further protect your secrets that are used by different applications, by storing them in Azure Key Vault service.
-- Use [Open Service Mesh AKS add-on][] to secure service-to-service communication by enabling mutual TLS (mTLS). You can also use the this add-on for defining and executing fine-grained access control policies for services.
+- Use [Open Service Mesh AKS add-on][] to secure service-to-service communication by enabling mutual TLS (mTLS). You can also use this add-on for defining and executing fine-grained access control policies for services.
 - Use [Azure Policy for Kubernetes][] to enforce cluster security policies, such as no privileged pods.
 - Use an Azure Container Registry that contains vulnerability scanning in its container repo.
 - Use group-managed security accounts for Windows workloads with a non-domain joined host. (Only applicable for Windows Server.)
