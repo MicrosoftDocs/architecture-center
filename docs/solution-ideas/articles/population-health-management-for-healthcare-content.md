@@ -92,4 +92,4 @@ Product documentation:
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Business process management](./business-process-management.yml)
 * [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
-* [Remote patient monitoring solutions](./remote-patient-monitoring.yml)
+* [Remote patient monitoring solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
