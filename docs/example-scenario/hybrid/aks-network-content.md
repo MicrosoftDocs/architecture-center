@@ -16,12 +16,12 @@ The scenario consists of the following components and capabilities:
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
 - [Azure Kubernetes Service on Azure Stack HCI][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
 - [Active Directory Domain Services][] is a hierarchical structure that stores information about objects on the network. It provides identity and access solution for identities associated with users, computers, applications, or other resources that are included in a security boundary.
-- [Management cluster][] also known as AKS host is responsible for deploying and managing multiple workload clusters. The management cluster consume 1 IP address from the node pool, but you should reserve another 2 IPs for update operations. The management cluster also consume one IP from the VIP pool.
+- [Management cluster][] also known as AKS host is responsible for deploying and managing multiple workload clusters. The management cluster consumes 1 IP address from the node pool, but you should reserve another 2 IPs for update operations. The management cluster also consumes one IP from the VIP pool.
 - [Workload Cluster][] is a highly available deployment of Kubernetes using Linux VMs for running Kubernetes control plane components and Linux and/or Windows worker nodes.
   - **Control plane.** Runs on a Linux distribution and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster. It consumes one IP from the node pool and one IP from the VIP pool.
   - **Load balancer.** Runs on a Linux VM and provides load-balanced services for the workload cluster. It consumes one IP from the node pool and one IP from the VIP pool.
   - **Worker nodes.** Run on a Windows or Linux operating system that hosts containerized applications. It consumes IP addresses from the Node pool, but you should plan at least 3 more IP addresses for update operations.
-  - **Kubernetes resources.** Pods represent a single instance of your application, that usually have 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources. They consume 1 IP per pod from the VIP pool.
+  - **Kubernetes resources.** Pods represent a single instance of your application, that usually have a 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources. They consume 1 IP per pod from the VIP pool.
 - [Azure Arc][] is a cloud-based service that extends the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy][] is a cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
 - [Azure Monitor][] is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -60,7 +60,7 @@ Both assignment models must plan IP addresses for:
 A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azure Stack HCI deployment. Plan the number of IP addresses in the virtual IP pool based on the number of workload clusters and Kubernetes services. The virtual IP pool provides IP addresses for the following types of resources:
 
 - Cloud agent requires a floating IP address from the virtual IP pool.
-- The API server component that runs inside the Kubernetes Virtual Appliance (KVA) virtual machine (Management Cluster) uses an IP address from the virtual IP pool. The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane. The KVA is a virtual machine running Mariner Linux and hosts a Kubernetes cluster. The IP address is floating and is also used for any other KVA VM that you deploy in AKS on Azure Stack HCI. The KVA virtual machine also hosts a Kubernetes virtual IP load-balancer service.
+- The API server component that runs inside the Kubernetes Virtual Appliance (KVA) virtual machine (management cluster) uses an IP address from the virtual IP pool. The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane. The KVA is a virtual machine running Mariner Linux and hosts a Kubernetes cluster. The IP address is floating and is also used for any other KVA VM that you deploy in AKS on Azure Stack HCI. The KVA virtual machine also hosts a Kubernetes virtual IP load-balancer service.
 
 - Plan IP addressing for the number of control plane VMs that are deployed on the target servers, as they also consume more IP addresses from the virtual IP pool. Considerations are described in the next section.
 - The target cluster contains a load balancer VM, which is HAProxy and owns the virtual IP Pool for the target cluster. This VM exposes all Kubernetes services through the virtual IP Pool.
@@ -72,7 +72,7 @@ A virtual IP pool is a set of IP addresses that are mandatory for any AKS on Azu
 Kubernetes nodes are deployed as virtual machines in an AKS on Azure Stack HCI deployment. Ensure that you plan the number of IP addresses according to the total number of Kubernetes nodes and include at least three more IP addresses that are used during the upgrade process. For static IP address configuration, you need to specify the Kubernetes node VM IP pool range, this isn't necessary for DHCP allocation. Plan additional IP addresses for:
 
 - The KVA VM also uses more IP address for Kubernetes from the Kubernetes node VM IP pool. Plan to add IP addresses during the update process, because the KVA VM uses the same virtual IP for the API service but requires a separate IP from the Kubernetes node VM IP pool.
-- Control Plane VMs consumes one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.
+- Control Plane VMs consume one IP from the Kubernetes node VM IP pool for the API server service. These virtual machines also host the Azure ARC agent that's connecting to the Azure portal for management purposes.
 - Nodes in a Node pool (Linux or Windows) will consume IP addresses from the IP pool allocated for the Kubernetes node VM.
 
 ### Microsoft on-premises cloud service
@@ -94,7 +94,7 @@ AKS on Azure Stack HCI also supports the use of MetalLB or other OSS Kubernetes 
 
 ### Deploy an ingress controller
 
-Consider implementing an [ingress controller][] for TLS termination, reversable proxy or configurable traffic routing. Ingress controllers work at Layer 7 and can use intelligent rules to distribute application traffic. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. When you define an ingress controller, you consolidate the traffic-routing rules into a single resource that runs as part of your cluster.
+Consider implementing an [ingress controller][] for TLS termination, reversible proxy or configurable traffic routing. Ingress controllers work at Layer 7 and can use intelligent rules to distribute application traffic. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. When you define an ingress controller, you consolidate the traffic-routing rules into a single resource that runs as part of your cluster.
 
 Use an ingress controller to expose services through externally reachable URLs. Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the ingress resource. The ingress HTTP rules contain the following information:
 
@@ -144,7 +144,7 @@ network connectivity. The following Kubernetes services are available:
 
 In AKS on Azure Stack HCI, the cluster can be deployed using one of the following network models:
 
-- [Project Calico networking][]. This is a default networking model for AKS on Azure Stack HCI and is based on an open-source networking that provides network security for containers, virtual machines, and native host-based workloads. Calico network policy can be applied on any kind of endpoint such as pods, containers, VMs, or host interfaces. Each policy consists of rules that control ingress and egress traffic by using actions that can, either allow, deny, log, or pass the traffic between source and destination endpoints. Calico can use either Linux extended Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline for traffic delivery. Calico is also supported on Windows using Host Networking Service (HNS) for creating network namespaces per container endpoint. In the Kubernetes network model, every pod gets its own IP address that's shared between containers within that pod. Pods communicate on the network using pod IP addresses and the isolation is defined using network policies. Calico is using CNI ( Container Network Interface) plugins for adding or deleting pods to and from the Kubernetes pod network and CNI IPAM (IP Address Management) plugins for allocating and releasing IP addresses.
+- [Project Calico networking][]. This is a default networking model for AKS on Azure Stack HCI and is based on an open-source networking that provides network security for containers, virtual machines, and native host-based workloads. Calico network policy can be applied on any kind of endpoint such as pods, containers, VMs, or host interfaces. Each policy consists of rules that control ingress and egress traffic by using actions that can, either allow, deny, log, or pass the traffic between source and destination endpoints. Calico can use either Linux extended Berkeley Packet Filter (eBPF) or Linux kernel networking pipeline for traffic delivery. Calico is also supported on Windows using Host Networking Service (HNS) for creating network namespaces per container endpoint. In the Kubernetes network model, every pod gets its own IP address that's shared between containers within that pod. Pods communicate on the network using pod IP addresses and the isolation is defined using network policies. Calico is using CNI (Container Network Interface) plugins for adding or deleting pods to and from the Kubernetes pod network and CNI IPAM (IP Address Management) plugins for allocating and releasing IP addresses.
 - [Flannel overlay networking.][] Flannel creates a virtual network layer that overlays the host network. Overlay networking uses encapsulation of the network packets over the existing physical network. Flannel simplifies IP Address Management (IPAM), supports IP re-use between different applications and namespaces, and provides logical separation of container networks from the underlay network used by the Kubernetes nodes. Network isolation is achieved using Virtual eXtensible Local Area Network (VXLAN), an encapsulation protocol that provides data center connectivity using tunneling to stretch Layer 2 connections over an underlying Layer 3 network. Flannel is supported both by Linux containers using *DaemonSet* and Windows containers using Flannel CNI plugin.
 
 ### Azure Stack HCI networking design
@@ -211,7 +211,7 @@ following characteristics:
 - Traffic flows out of a ToR switch to the spine or in from the spine to a ToR switch.
 - Traffic leaves the physical rack or crosses a Layer-3 boundary (IP).
 - Traffic includes management (PowerShell, Windows Admin Center), compute (VM), and inter-site stretched cluster traffic.
-- Uses an an Ethernet switch for connectivity to the physical network.
+- Uses an Ethernet switch for connectivity to the physical network.
 
 AKS on Azure Stack HCI can use several cluster network deployment options:
 
@@ -226,7 +226,7 @@ The following recommendations apply for most scenarios. Follow the recommendatio
 ### Network recommendations
 
 The major concern in the networking design for the AKS on Azure Stack HCI is selecting a network model that provides enough IP addresses for
-your Kubernetes cluster, it's services and applications.
+your Kubernetes cluster, and its services and applications.
 
 - Consider implementing static IP addresses to allow AKS on Azure Stack HCI to control the IP address assignment.
 - Dimension properly the IP address ranges so you have enough free IP addresses for a Kubernetes node pool and for a virtual IP pool. Ensure that your virtual IP pool is large enough so that whenever you're upgrading you can use rolling upgrades, which require more IP addresses. You can plan the following:
@@ -234,11 +234,11 @@ your Kubernetes cluster, it's services and applications.
   - IP addresses for the target cluster control plane
   - IP addresses for the Azure ARC
   - IP addresses for horizontal scaling of worker and control plane nodes in target clusters
-- Your virtual IP pool should be big enough to support the deployment of the application services that require connectivity to the external router.
+- Your virtual IP pool should be large enough to support the deployment of the application services that require connectivity to the external router.
 - Implement Calico CNI to provide enhanced network policy for controlling the pod and application communication.
 - Ensure that the physical cluster nodes (HCI or Windows Server) are located in the same rack and connected to the same ToR switches.
 - Disable IPv6 on all network adapters.
-- Ensure that the existing virtual switch and its name is the same across all cluster nodes.
+- Ensure that the existing virtual switch and its name are the same across all cluster nodes.
 - Verify that all subnets you define for your cluster are routable among each other and to the Internet.
 - Make sure there is network connectivity between Azure Stack HCI hosts and the tenant VMs.
 - Enable dynamic DNS updates in your DNS environment to allow AKS on Azure Stack HCI to register the cloud agent generic cluster name in the DNS system for discovery.

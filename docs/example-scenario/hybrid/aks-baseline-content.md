@@ -56,7 +56,7 @@ AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerSh
   - **Control plane.** Runs on a Linux distribution and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
   - **Load balancer.** Runs on a Linux VM and provides load-balanced services for the workload cluster.
   - **Worker nodes.** Run on a Windows or Linux operating system that hosts containerized applications.
-  - **Kubernetes resources.** Pods represent a single instance of your application, that usually have 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources.
+  - **Kubernetes resources.** Pods represent a single instance of your application, that usually have a 1:1 mapping with a container, but certain pods can contain multiple containers. Deployments represent one or more identical pods. Pods and deployments are logically grouped into a namespace that controls access to management of the resources.
 
 ### Network requirements
 
@@ -143,8 +143,8 @@ Focus on the entire stack by securing the host and containers.
 #### Application security
 
 - Use [Azure Key Vault Secrets provider extension][] on your AKS on Azure Stack HCI to further protect your secrets that are used by different applications, by storing them in Azure Key Vault service.
-- Use [Open Service Mesh AKS add-on][] to secure service to service communication by enabling mutual TLS (mTLS). You can also used for defining and executing fine grained access control policies for services.
-- Use [Azure Policy for Kubernetes][] to enforce cluster security policies such as no privileged pods,
+- Use [Open Service Mesh AKS add-on][] to secure service-to-service communication by enabling mutual TLS (mTLS). You can also use the this add-on for defining and executing fine-grained access control policies for services.
+- Use [Azure Policy for Kubernetes][] to enforce cluster security policies, such as no privileged pods.
 - Use an Azure Container Registry that contains vulnerability scanning in its container repo.
 - Use group-managed security accounts for Windows workloads with a non-domain joined host. (Only applicable for Windows Server.)
 
