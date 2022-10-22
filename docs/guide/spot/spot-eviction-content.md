@@ -1,12 +1,12 @@
 Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs).
 
-## Spot VM definition
+## Spot VM
 
-A VM is a package that contains an operating system, bins/libs, and applications. VMs run on a physical server with a hypervisor that creates and manages the VMs. The sever and hypervisor provide the compute capacity to run VMs. Spot VMs are regular VMs. They contain the same components. The difference is their access to physical compute capacity.
+A VM is a package that contains an operating system, bins/libs, and applications. VMs run on a physical server with a hypervisor that creates and manages the VMs. The sever and hypervisor provide the compute capacity to run VMs. Spot VMs are the same as any other VM. The difference is their access priority to compute capacity.
 
-Spot VMs have lower access to physical compute capacity than pay-as-you-go VMs. Pay-as-you-go VMs have high-priority access to compute capacity. They are guaranteed access whenever needed. Spot VMs have low-priority access to compute capacity. They use the spare compute capacity in a given datacenter. This compute capacity can be taken at any time by a pay-as-you-go VM. The loss of compute capacity is called an eviction. Spot VMs are cheaper because they have low-priority access and can be evicted.
+Spot VMs have low-priority access to physical compute capacity. Pay-as-you-go VMs have high-priority access to compute capacity. High-priority means they get compute capacity whenever requested. Spot VMs use the spare compute capacity that high-priority VMs aren't using. High-priority VMs can take compute capacity from active Spot VM any time there's mutual needs for the same compute capacity. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because they're subject to eviction.
 
-
+The dynamic between low and high-priority VMs creates cost-saving possibilities that can withstand changes in throughput.
 
 1. Find the right workload
 1. Understand eviction
@@ -69,17 +69,19 @@ Telemetry provides the information needed to make reliability work on spot VMs. 
 
 For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model)
 
-#### ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
+#### Graceful shutdown
 
-- WHAT SHOULD CUSTOMERS DO AFTER RECEIVING THE `PREEMPT` SIGNAL?!!!
-
-- What should you do to start the orchestration process?
-
-- Can we automate any of it?
+An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown process should release resources, drain connections, and flush event logs. It's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
 
 #### Orchestration
 
-Orchestration refers to the process of recovering compute capacity after an eviction. Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
+Orchestration refers to the process of recovering compute capacity after an eviction. The workload is *started* or *created* depending on your **Eviction Policy**.
+
+***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
+
+The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state. One important thing to consider is if there was a forced shutdown previously, then there might be some incomplete processing and we recommend that you implement idempotency as applicable.
+
+Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
 
 #### Testing
 
@@ -89,7 +91,7 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 
 ## Example scenario
 
-The example scenario is for a queue processing applications. The reference implementation guide contains a simple, asynchronous queue-processing worker (C#, .NET) implemented in combination with Azure Queue Storage. 
+The example scenario is for a queue processing application. It uses a producer-consumer dataflow. 
 
 The template deploys VMs with the following technical specifications:
 - memory
@@ -102,7 +104,7 @@ The template deploys VMs with the following technical specifications:
 1. **Storage account** - The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment.
 1. **Spot VM** - The spot VM must be in the same region as the application version. The spot VM downloads the orchestrate.sh package and installs the .NET worker application.
 1. **Application Insights** - The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application)
-1. **Storage Queue** - Spot VM has permissions to read from the storage queue.
+1. **Storage Queue** - Spot VM has permissions to read from the storage queue. The deployable scripts contain a simple, asynchronous queue-processing worker (C#, .NET) that uses combination with Azure Queue Storage.
 1. **Azure AD** - Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
 
 ## Deploy this scenario
@@ -113,7 +115,6 @@ An implementation of this guidance is available on [GitHub: Interruptible worklo
 
  See the Azure Well-Architected Framework's [cost optimization guidance for Virtual Machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-reviewcost-optimization).
  Explore [VM Applications](/azure/virtual-machines/vm-applications) as part of your workload orchestration.
-
 
 ## Extra content
 
