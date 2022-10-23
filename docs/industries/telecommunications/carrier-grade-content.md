@@ -1,12 +1,16 @@
-This architecture provides guidance for designing a carrier-grade solution for a telecommunication use case. The design choices focus on high reliability by minimizing points of failure and ultimately the overall downtime using native Azure capabilities. It applies [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) design principles to a carrier-grade workload. 
+This architecture provides guidance for designing a carrier-grade solution for a telecommunication use case. The design choices focus on high reliability by minimizing points of failure and ultimately the overall downtime using native Azure capabilities. 
 
-## Architecture
+> [!TIP] This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) documentation to undersand the design choices made in this architecture. 
 
-![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.svg)
+## Use case and business requirements
 
 This reference architecture is for a voicemail solution, where multiple clients connect to the workload in a shared model. They can connect using different protocols potentially for different operations. Certain operations might need to persist state in a database. Other operations can query for that data. These operations are simple request/response and don't need long-lived sessions. In case of a failure, the client will just retry the operation. 
 
 In this use case, the business requirements necessitate that the requests be served at the edge to reduce latency. As such, the application isn't required to maintain active session state for in-flight messages if failure occurs. Application logic can accept an eventual consistency data replication model with distributed processing pools, instead of the application requiring global synchronization of its data with a single point of control. Also, there aren't any regulatory requirements.
+
+## Architecture
+
+![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.svg)
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -14,17 +18,17 @@ The workload is hosted in Azure infrastructure and several Azure services partic
 
 These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
 
-#### Azure Traffic Manager
+**Azure Traffic Manager**
 
 The global load balancer that uses DNS-based routing to send traffic to the application SI that have public endpoints. Health endpoint monitoring is enabled to make sure that traffic is sent to healthy backend instances. 
 
 An alternate technology choice is Azure Front Door. This option only applies to HTTP(S) traffic and can add to the cost. 
 
-#### Azure DNS 
+**Azure DNS** 
 
 Handles traffic that flows through the intermediate gateway. The gateway is responsible for monitoring the health of the backend endpoints.
 
-#### Azure Cosmos DB
+**Azure Cosmos DB**
 
 Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-master write is enabled so that data is replicated to each region. Also, zone redundancy is enabled through availability zone redundancy support (AZRS). 
 
@@ -35,19 +39,19 @@ Stores application payload metadata and end-user provisioning data. Also used by
 
 This set of services that are deployed to a given region and their lifetime is tied to the region. They are independent in that unavailability of a resource in one region shouldn't impact resources in another region. There might be simultaneous outages in multiple regions but the impact must be restricted to the individual region.
 
-#### Workload compute
+**Workload compute**
 
 Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orcherstrator because it's widely adopted and supports advanced scalability and deployment topologies. 
 
-#### Azure Container Registry
+**Azure Container Registry**
 
-Store all  Open Container Initiative (OCI) artifacts. Zone redundancy is enabled. 
+Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled. 
 
-#### Azure Key Vault
+**Azure Key Vault**
 
 Stores global secrets such as connection strings to the global database and regional secrets.
 
-#### Azure Blob Storage (ABS) 
+**Azure Blob Storage**
 
 Premium SKU is used for large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Storage is configured for  zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
 
@@ -66,13 +70,15 @@ The services are implemented as microservices, containerized in a regional AKS c
 
 To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane. SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
 
+> TODO: Why?! Although the diagram shows multiple AZs, the pattern does not rely on AZs. It would be perfectly acceptable to deploy multiple application SIs into a single zone. Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload.
+
 The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special case code to handle partial failure conditions. 
 
-This implementation has a health model in place to makes sure user requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SIs stops responding to the polling request and traffic isn't routed to that instance.  
+### Monitoring
 
-> TODO: Why?! Although the diagram shows multiple AZs, the pattern does not rely on AZs.  It would be perfectly acceptable to deploy multiple application SIs into a single zone.  Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload. 
+This implementation has a health model in place to makes sure client requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SI stops responding to the polling request and traffic isn't routed to that instance.  
 
-### Scalability considerations
+ ### Scalability considerations
 
 The capacity of the individual SIs is adjusted as needed to handle predictable load variations (such as busy hours and weekdays/weekends).  This provides efficiencies in the platform resource costs. 
 
@@ -84,19 +90,19 @@ The capacity of the individual SIs is adjusted as needed to handle predictable l
 
 The application is fronted by a traffic management layer which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
 
-- Protocol A accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
+- **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
 
-- Protocol B routes internet traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
+- **Protocol B** routes internet traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
 
 The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
 
 ### Health monitoring
 
-This implementation has a health model in place to makes sure user requests aren't sent to unhealthy instances. The traffic management layer polls the management SIs before routing traffic. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SIs stop responding to the polling request and traffic isn't routed to that instance. 
+The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management SIs before routing traffic. 
 
 For Protocol A, the gateway is responsibile for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
 
-In the case of Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
+For Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
 
 ### Reliability considerations 
 
