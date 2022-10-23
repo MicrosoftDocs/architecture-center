@@ -2,22 +2,17 @@ This architecture provides guidance for designing a carrier-grade solution for a
 
 ## Architecture
 
+![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.svg)
+
 This reference architecture is for a voicemail solution, where multiple clients connect to the workload in a shared model. They can connect using different protocols potentially for different operations. Certain operations might need to persist state in a database. Other operations can query for that data. These operations are simple request/response and don't need long-lived sessions. In case of a failure, the client will just retry the operation. 
 
 In this use case, the business requirements necessitate that the requests be served at the edge to reduce latency. As such, the application isn't required to maintain active session state for in-flight messages if failure occurs. Application logic can accept an eventual consistency data replication model with distributed processing pools, instead of the application requiring global synchronization of its data with a single point of control. Also, there aren't any regulatory requirements.
 
-![Diagram showing the physical architecture of a carrier-grade solution](./images/physical-architecture-carrier-grade.png)
-
-The workload has two main layers; each layer is composed of immutable service instances (SIs). They differ in their functions and lifetimes.
-
-- Application SIs deliver the actual application function and are intended to be short-lived. 
-- Management SIs only deliver the management and monitoring aspects for the application. 
-
-The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations related to the workload. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
+The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
 
-These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. F foundational services that other services depend on, such as the identity platform. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
+These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
 
 #### Azure Traffic Manager
 
@@ -44,8 +39,6 @@ This set of services that are deployed to a given region and their lifetime is t
 
 Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orcherstrator because it's widely adopted and supports advanced scalability and deployment topologies. 
 
-The cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use AKS Uptime SLA that guarantees 99.95% SLA availability of the AKS control plane.
-
 #### Azure Container Registry
 
 Store all  Open Container Initiative (OCI) artifacts. Zone redundancy is enabled. 
@@ -58,45 +51,71 @@ Stores global secrets such as connection strings to the global database and regi
 
 Premium SKU is used for large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Storage is configured for  zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
 
-All SIs are interchangeable in that any SI can service any request. Any application SI can serve a client request. More than one managment SI can service a single appliction SI. SIs are deployed in active-active mode in multiple Availability Zones and multiple regions.  
+## Workload design
 
-## Request flow
+The workload has two main layers; each layer is composed of immutable service instances (SIs). They differ in their functions and lifetimes.
 
-![Diagram showing the logical architecture of a carrier-grade solution](./images/logical-architecture-carrier-grade.png)
+- Application service delivers the actual application function and are intended to be short-lived. 
+- Management service only deliver the management and monitoring aspects for the application. 
+
+All SIs are interchangeable in that any SI can service any request. Any application SI can serve a client request. More than one managment SI can service a single appliction SI.  
+
+### Resiliency considerations
+
+The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The SIs are stateless and long-living state is stored in an external database. 
+
+To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane. SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
+
+The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special case code to handle partial failure conditions. 
+
+This implementation has a health model in place to makes sure user requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SIs stops responding to the polling request and traffic isn't routed to that instance.  
+
+> TODO: Why?! Although the diagram shows multiple AZs, the pattern does not rely on AZs.  It would be perfectly acceptable to deploy multiple application SIs into a single zone.  Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload. 
+
+### Scalability considerations
+
+The capacity of the individual SIs is adjusted as needed to handle predictable load variations (such as busy hours and weekdays/weekends).  This provides efficiencies in the platform resource costs. 
+
+> TODO: Does this mean autoscaling is enabled on the pod and the cluster? 
+
+## Traffic management
+
+![Diagram showing the logical architecture of a carrier-grade solution](./images/carrier-grade-traffic.svg)
+
+The application is fronted by a traffic management layer which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
+
+- Protocol A accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
+
+- Protocol B routes internet traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
+
+The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
+
+### Health monitoring
+
+This implementation has a health model in place to makes sure user requests aren't sent to unhealthy instances. The traffic management layer polls the management SIs before routing traffic. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SIs stop responding to the polling request and traffic isn't routed to that instance. 
+
+For Protocol A, the gateway is responsibile for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
+
+In the case of Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
+
+### Reliability considerations 
+
+> TODO Is the gateway single point of failure then? What fault tolerance capabilities are in place to avoid this situation.
+
+In the Protocol A routing pattern, the gateway can be a single point of failure. Azure Global DNS is chosen to reduce complexity and higher Service Level Agreement (SLA). 
+
+Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
+
+> TODO In choosing TM, we don't get WAF. So security can bring down the reliability.
 
 
-Although any SI can service any incoming request, the application is fronted by a traffic management layer which provides load balancing.   
-
-Incoming traffic uses two types of network protocols/clients: 
-
-The first accesses the application via a gateway element outside the cloud.  This gateway element receives the prioritized list of SI access points from a DNS server, and uses active polling to determine SI liveness.  This is an example of the gateway routing pattern. 
-
-The second relies solely on DNS steering using a traffic manager element.  The traffic manager has its own active polling and maintains health lists to minimise the chance of including an unresponsive SI in a DNS response. 
-
-
-## Networking considerations
-
-Unhealthy endpoints are excluded in the DNS response to clients. This helps boost reliability because a client’s first attempt to reach a server will most likely be successful. 
-
-Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If this service is unavailable, the system will appear as offline to the clients. So, there's a reliability dependency on this service to achieve the overall reliability targets. 
-
-
-within the architecture where the additional features of ATM are not required, since it is simpler and (currently) has a higher SLO.  Within the reference architecture, this means Global DNS is primarily used to handle the protocol traffic which flows through the intermediate gateway.  This is marked Protocol A traffic in the earlier diagram.  Here, the intermediate gateway takes on the responsibility for endpoint monitoring. 
-
-
-Azure Networking 
-
-Depending on the specific application, and the details of the deployment, the exact networking requirements can vary significantly, and so they are not dwelt on here.  Any given instance of the architecture is likely to use some or all of vNets, vNet peering, ExpressRoute, Private Endpoints and Private DNS Zones.  From an availability perspective, what is important is that the failure mode analysis is extended to include all network segments between elements of the application, and between the application and the clients, since outages here will still impact availability of the application as perceived by the users. 
-
-## Data consistency considerations
+## Data consistency
 
 The documented guidance10 for Cosmos DB is to use the single-write region option with service-managed failover for high availability in case of region outage.  However, the reference architecture instead uses the multi-write region model (with availability zone redundancy support – AZRS).  This is because the Cosmos DB process for handling failure of the write region is to bring up a new write instance in another region.  Even with service-managed instances, this will take at least minutes, and can be much longer.  Since writing to the database is a critical process for the reference application, such a global outage duration cannot be tolerated, and so the multi-write region option is the only acceptable choice.  This in turn requires the use of conflict-free replicated data types (CRDTs) within the application, as discussed in the Considered Data Model section of the Appendix. 
 
 An application which had less demanding outage requirements on the ability to write data might be able to use the single-write region option. 
 
 Cosmos DB is selected over other replicated database options since it is the only NoSQL database which is an Azure 1st Party managed service. 
-
-
 
 ABS: This combination provides the best compromise for a cost-effective GR storage solution for the volumes of data needed for the reference application.  ZRS plus OR is chosen over GZRS because it allows control of the secondary region and storage tier (premium primary copy and hot/cool secondary copy). 
 
@@ -107,6 +126,10 @@ ABS: This combination provides the best compromise for a cost-effective GR stora
 Scale is achieved through the combination of individual SI capacity and the total number of SIs.   
 
 The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. 
+
+## Testing and validation
+
+From an availability perspective, what is important is that the failure mode analysis is extended to include all network segments between elements of the application, and between the application and the clients, since outages here will still impact availability of the application as perceived by the users. 
 
 
 ## Related resources
