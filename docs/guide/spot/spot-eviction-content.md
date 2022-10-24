@@ -52,9 +52,9 @@ The Spot VMs discount depends on VM size, region of deployment, and operating sy
 | VM size | OS | Region | Spot price | Pay-as-you-go price |
 | --- | --- | --- | --- | --- |
 |**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
-|**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
+|**E2a v4**| Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $23.87<br>$25.40<br><br>$<br>$<br> | $159.14<br>169.36<br><br>|
 
-## Spot VM lifecycle / orchestration
+## Recommendations
 
 ### Initial Deployment
 
@@ -70,16 +70,27 @@ For more information, see [Application Insights telemetry](/azure/azure-monitor/
 
 An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown process should release resources, drain connections, and flush event logs. It's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
 
+#### Build indempotent consumers
+
+We recommend designing idempotent consumers. Evictions can lead to forced shutdowns. Forced shutdowns often terminate processes before completion. Idempotent consumers can receive the same message more than once and the outcome remains the same.
+
+For more information, see [idempotency](/azure/architecture/serverless/event-hubs-functions/resilient-design#idempotency).
+
+**Any special considerations for Spot VMs or do the general rules of idempotency apply?**
+
 #### Orchestrate eviction recovery
 
 Recovery is the process of replacing a Spot VM after an eviction. The eviction policy of the evicted Spot VM affects the replacement process.
 
 **(1) Deallocated / Stopped VM** - The workload is *started*.
-**(2) Deleted VMS** - The workload is *created*.
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
 
-The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state. One important thing to consider is if there was a forced shutdown previously, then there might be some incomplete processing and we recommend that you implement idempotency as applicable.
+
+**(2) Deleted VMS** - The workload is *created*.
+
+
+The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state. 
 
 Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
 
