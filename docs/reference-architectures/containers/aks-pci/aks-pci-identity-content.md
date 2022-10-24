@@ -53,7 +53,29 @@ Because of AKS and Azure AD integration, you can take advantage of ID management
 |[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
 |[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
-[**Requirement 9**](#requirement-9)&mdash;Restrict physical access to cardholder data
+### **Requirement 9**&mdash;Restrict physical access to cardholder data
+
+### AKS feature support
+
+There aren't any applicable AKS features for this requirement.
+
+#### Your responsibilities
+
+This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard.
+
+Here are some suggestions for applying technical controls:
+
+- Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
+- Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
+
+  - [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+  - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
+
+- For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.
+
+- Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
+
+- Minimize backups to on-premises. If this is required, be aware that the on-premises destination will be in scope for audit.
 
 ### Requirement 7.1
 
@@ -237,8 +259,6 @@ Ensure that security policies and operational procedures for restricting access 
 
 It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-***
-
 ### Requirement 8.1
 
 Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:
@@ -396,28 +416,6 @@ Ensure that security policies and operational procedures for identification and 
 #### Your responsibilities
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your identity onboarding training, provide guidance for password reset procedures and organizational best practices about protecting assets. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
-
-## Requirement 9
-
-Restrict physical access to cardholder data
-
-### Your responsibilities
-
-This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard.
-
-Here are some suggestions for applying technical controls:
-
-- Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
-- Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
-
-  - [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-  - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
-
-- For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.
-
-- Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
-
-- Minimize backups to on-premises. If this is required, be aware that the on-premises destination will be in scope for audit.
 
 ## Next steps
 

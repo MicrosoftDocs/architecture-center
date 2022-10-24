@@ -348,7 +348,7 @@ Ensure that security policies and operational procedures for managing firewalls 
 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
-## Requirement 2
+### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 #### Your responsibilities
 
@@ -360,8 +360,6 @@ It's critical that you maintain thorough documentation about the process and pol
 |[Requirement 2.4](#requirement-24)|Maintain an inventory of system components that are in scope for PCI DSS.|
 |[Requirement 2.5](#requirement-25)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
 |[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity's hosted environment and cardholder data.|
-
-### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
 Do not use vendor-supplied defaults for system passwords and other security parameters
 
