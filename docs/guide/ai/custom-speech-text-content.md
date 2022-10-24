@@ -119,7 +119,7 @@ After you build your model, keep the following recommendations in mind:
 -	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md).
 
 > [!div class="nextstepaction"]
-> [Go to part two of this guide: deployment](code-in-docs.md)
+> [Go to part two of this guide: deployment](custom-speech-text-deploy.md)
 
 ## Contributors
 
