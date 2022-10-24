@@ -80,39 +80,46 @@ Note the **Insertion** and **Deletion** rates, which indicate that the audio fil
 
 **3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain.**
 
-Based on the preceding screenshot, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following screenshot shows of one section of the comparison. The left-most column is ground truth, the middle column is Model 1, and the right-most column is Model 2:
+Based on the preceding screenshot, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following screenshot shows of one section of the comparison. The left column is the human-generated transcript, the middle column is Model 1, and the right column is Model 2:
 
 :::image type="content" source="./media/example-comparison.png" alt-text="Screenshot that shows the comparison." lightbox="./media/example-comparison.png":::
 
-The base models cannot recognize domain-specific words like the names of athletes “Katia Seizinger” and “Goggia.” This scenario shines a light on areas where a custom model may help with the recognition of domain-specific words and phrases
+Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." This scenario reveals areas in which a custom model might help with the recognition of domain-specific words and phrases.
 
 **4.	Review various options for creating custom models. Decide whether one or many custom models will work better.**
 
-While experimenting with various ways to build custom model [link here to “Acoustic and language model adaptation” section from other document], Contoso’s found that better accuracy could be achieved from language and pronunciation model customization. In addition, minor improvements were observed by including custom acoustic data in building the custom model; however, the benefits weren’t significant enough to continue maintaining and training for a custom acoustic model. 
+By experimenting with various ways to build custom models, Contoso found that they could achieve better accuracy by using language and pronunciation model customization. (See [the first article in this guide.](custom-speech-text.yml#acoustic-and-language-model-adaptation)) Contoso also noted minor improvements when they included custom acoustic data when they built the custom model. However, the benefits weren't significant enough to make it worth maintaining and training for a custom acoustic model. 
  
-Contoso found that creating separate custom language models by event type (one model for alpine skiing, one model for luge, one model for snowboarding, etc.) gave better recognition results during the training and evaluation of a custom model. In addition, Contoso observed that creating separate acoustic models by event type to augment the language models was not necessary.
+Contoso found that creating separate custom language models for each sport (one model for alpine skiing, one model for luge, one model for snowboarding, and so on) provided better recognition results. They also noted that creating separate acoustic models based on the type of sport to augment the language models wasn't necessary.
 
 **5.	Collect training and testing data.**
 
-[Azure documentation article] share details about collecting the data needed for custom training a model. In Contoso’s case, they collect transcripts for various Olympic events by diverse commentators to build one pronunciation file that all the custom models (1 for each event type) share. The training data is kept separate from the actual test data. This way, once a custom model has been built, it can be tested by leveraging event audio whose transcripts were not included in the training dataset. The training and testing data can come from the same commentator but not the same event instance.
+The [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train) article provides details about collecting the data needed for training a custom model. Contoso collected transcripts for various Olympics sports by diverse commentators to build one pronunciation file that all the custom models (one for each sport) share. The training data is kept separate from the actual test data. Because the data is kept separate, after a custom model is built, they can test it by using event audio whose transcripts weren't included in the training dataset. The training and testing data can come from the same commentator but not from the same sport.
 
 **6.	Ensure the data is in an acceptable format.**
 
-As described in [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train), datasets used to create a custom model or to test the model need to be in a specific format. If the training data is in WebVTT file, then some simple tooling can be built to produce text files that contain normalized text for language model adaptation.
+As described in [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train), datasets that are used to create a custom model or to test the model need to be in a specific format. Contoso's data is in WebVTT files. They created some simple tools to produce text files that contain normalized text for language model adaptation.
 
 **7.	Train, test and evaluate, and deploy the model.**
 
-New event recordings are used to further test and evaluate the trained model. The process of testing/evaluating a model can take a couple of iterations to fine-tune the models. Finally, when the model generates transcripts with an acceptable error rate, it is deployed (published) to be consumed from the SDK.
+New event recordings are used to further test and evaluate the trained model. It can take a couple of iterations of testing and evaluation to fine-tune a model. Finally, when the model generates transcripts that have acceptable error rate, it's deployed (published) to be consumed from the SDK.
 
 **8.	Use the model endpoint in your transcription calls.**
 
-Only a few lines of code are needed to point to the deployed custom model. Here is the code in c#. Note here that the endpoint is the Endpoint ID of the custom model that was deployed in step #7 above and subscriptionKey and region are the azure cognitive services subscription key and region. Subscription key and region can be fetched by going to [https://portal.azure.com] and then to the resource group where the cognitive services resource was created and looking at its keys.
+You need only a few lines of code to point to the deployed custom model: 
 
-String endpoint = "Endpoint ID from speech studio";
+```csharp
+String endpoint = "Endpoint ID from Speech Studio";
 string locale = "en-US";
 SpeechConfig config = SpeechConfig.FromSubscription(subscriptionKey: speechKey, region: region);
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.FromLanguage(locale, endPoint);
 recognizer = new SpeechRecognizer(config, sourceLanguageConfig, audioInput);
+```
+
+Notes about the code:
+ 
+- `endpoint` is the endpoint ID of the custom model that's deployed in step 7.
+- `subscriptionKey` and `region` are the Azure Cognitive Services subscription key and region. You can get these values in the [Azure portal](https://portal.azure.com) by going to the resource group where the Cognitive Services resource was created and looking at its keys.
 
 **9.	Operationalize your model building, evaluation, and deployment process.**
 
