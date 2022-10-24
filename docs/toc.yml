@@ -4570,7 +4570,7 @@ items:
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
               - name: CI/CD for quantum computing jobs
-                href: solution-ideas/articles/cicd-for-quantum-computing-jobs.yml
+                href: /azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps
               - name: CI/CD for Windows desktop apps
                 href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
               - name: CI/CD using Jenkins and AKS

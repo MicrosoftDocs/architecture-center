@@ -352,7 +352,7 @@ The following new and updated articles have recently been published in the Azure
 - [CI/CD for Microsoft Power Platform](./solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)  ([#34cb0a66d](https://github.com/MicrosoftDocs/architecture-center/commit/34cb0a66d))
 - [Loan chargeoff prediction with SQL Server](./solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)  ([#c6455d3f8](https://github.com/MicrosoftDocs/architecture-center/commit/c6455d3f8))
 - [Integrate data with Logic App and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#dfaa5d674](https://github.com/MicrosoftDocs/architecture-center/commit/dfaa5d674))
-- [Remote patient monitoring](./solution-ideas/articles/remote-patient-monitoring.yml)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
+- [Remote patient monitoring](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Retail assistant with visual capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Visual assistant](./solution-ideas/articles/visual-assistant.yml)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Manage and deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#23778f47f](https://github.com/MicrosoftDocs/architecture-center/commit/23778f47f))
@@ -396,4 +396,3 @@ The following new and updated articles have recently been published in the Azure
 - [Real-time IoT updates](./example-scenario/iot/real-time-iot-updates-cloud-apps.yml)  ([#b49906fc3](https://github.com/MicrosoftDocs/architecture-center/commit/b49906fc3))
 - [Hybrid file share with disaster recovery for remote and local branch workers](./example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)  ([#b40f7e308](https://github.com/MicrosoftDocs/architecture-center/commit/b40f7e308))
 - [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)  ([#141d52781](https://github.com/MicrosoftDocs/architecture-center/commit/141d52781))
-
