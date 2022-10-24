@@ -51,26 +51,36 @@ For more information, see [eviction policy](/azure/virtual-machines/spot-vms#evi
 
 ## Understand spot price
 
-The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The price of a spot of the cost difference between spot and pay-as-you-go VMs:
+The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The table below gives examples of the cost difference between spot VMs and pay-as-you-go VMs:
 
 | VM size | OS | Region | Spot price (USD) | Pay-as-you-go price (USD) |
 | --- | --- | --- | --- | --- |
 |**D1 v2** | Windows<br><br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
 |**E2a v4**| Windows<br><br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $23.87<br>$25.40<br><br>$53.00<br>$54.02 | $159.14<br>169.36<br><br>$135.78<br>$146.00|
 
-For more information, see [Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/).
+For more information, see:
+
+- [Spot VM pricing](/azure/virtual-machines/spot-vms#pricing)
+- [Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 
 ## Recommendations
 
 ### Initial Deployment
 
-**Any recommendations on deployment?**
+***Any recommendations on deployment?***
 
 ### Set up telemetry
 
-Telemetry provides the information needed to make reliability work on spot VMs. It require a constant stream of metadata about the spot VM state. Azure Metadata Service provides an queryable endpoint that provides this information. The metadata will  upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
+Telemetry is the key to workload reliability on Spot VMs. Spot VMs are unreliable. They can be evicted at any time. The only way to have reliability with Spot VMs is knowing when they're going to be evicted.
 
-For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model).
+Each VM in Azure has an endpoint that lets you know when a VM is going to be evicted. The Azure Metadata Service provides a queryable endpoint that indicates an upcoming eviction. The endpoint sends out the `Preempt` signal about 30 seconds before an eviction.
+
+Any interruptible workload running on Spot VMs needs to query these metadata endpoints every 10 seconds or less to provide sufficient time for a graceful interruption. The endpoints are an API queryable from a static, non-routable IP address.
+
+For more information, see:
+
+- [Scheduled events](/azure/virtual-machines/windows/scheduled-events)
+- [Application Insights telemetry](/azure/azure-monitor/app/data-model)
 
 ### Ensure a graceful shutdown
 
@@ -118,7 +128,7 @@ The template deploys VMs with the following technical specifications:
 1. **VM application definition** - The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
 1. **Application version** - The application version is a numbered version of the VM application definition. The application version links to the source application package. The source application package in the architecture is `orchestrate.sh`. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
 1. **Source application package** - The source application package (orchestrate.sh) is downloaded to the VM after deployment and installs the .NET worker application.
-1. **.Net worker application** - The orchestrate.sh script installs a .NET worker application that runs two background services. The background services.
+1. **.Net worker application** - The orchestrate.sh script installs a .NET worker application that runs two background services. The background services. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. 
 1. **Storage account** - The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment.
 1. **Spot VM** - The spot VM must be in the same region as the application version. The spot VM downloads the orchestrate.sh package and installs the .NET worker application.
 1. **Application Insights** - The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application)
