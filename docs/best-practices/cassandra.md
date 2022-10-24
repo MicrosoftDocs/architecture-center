@@ -153,6 +153,10 @@ Principal authors:
 
  - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
  
+ Other contributors:
+
+ - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+ 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
