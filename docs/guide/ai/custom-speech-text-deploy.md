@@ -1,6 +1,6 @@
 ---
-title: Deploy a custom speech-to-text solution
-description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+title: Deploy a custom speech-to-text solution that uses AI
+description: Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.
 author: mishrapratyush
 ms.author: pmishra
 ms.date: 10/26/2022
@@ -245,21 +245,30 @@ spx csr evaluation status --evaluation "@my.eval1.txt" --wait
 
 ## Contributors
 
-Principal author: Pratyush Mishra- Principal Engineering Manager https://www.linkedin.com/in/mishrapratyush/
-Other Contributors: Rania Bayoumy- Senior Technical Program Manager https://www.linkedin.com/in/raniabayoumy/ 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author: 
+
+- [Pratyush Mishra](https://www.linkedin.com/in/mishrapratyush) | Principal Engineering Manager 
+
+Other contributors: 
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Rania Bayoumy](https://www.linkedin.com/in/raniabayoumy) | Senior Technical Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- Artificial intelligence (AI) architecture design
-- What is Custom Speech?
-- What is text-to-speech?
-- Train a Custom Speech model
-- Link to Deployment / Implementation guide
+- [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
+- [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
+- [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
+- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
 
 ## Related resources
 
-- Use a speech-to-text transcription pipeline to analyze recorded conversations
-- Speech services
-- Control IoT devices with a voice assistant app
-- Link to Deployment / Implementation guide
-
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+- [Speech services](../../solution-ideas/articles/speech-services.yml)
+- [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
+- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
