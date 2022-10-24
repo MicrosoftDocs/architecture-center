@@ -54,25 +54,28 @@ The Spot VMs discount depends on VM size, region of deployment, and operating sy
 |**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
 |**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
 
-## Use Best practices
+## Spot VM lifecycle / orchestration
 
-### Telemetry and orchestration
+### Initial Deployment
 
-Telemetry and orchestration are the keys to creating reliability with spot VMs. For telemetry, you need a constant stream of metadata about the spot VM state. Azure Metadata Service provides an queryable endpoint that provides this information. The metadata will  upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.
+**Any recommendations on deployment?**
 
-#### Telemetry
+### Set up telemetry
 
-Telemetry provides the information needed to make reliability work on spot VMs. Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
+Telemetry provides the information needed to make reliability work on spot VMs. It require a constant stream of metadata about the spot VM state. Azure Metadata Service provides an queryable endpoint that provides this information. The metadata will  upcoming evictions about 30 seconds in advance. Thirty seconds isn’t much time, but well-designed orchestration can minimize the impact of evictions. Orchestration allows the application infrastructure to recover from eviction.Spot eviction is unpredictable. Creating reliability on unpredictable infrastructure requires a steady stream of telemetry data. The solution above generates reliability through VM metadata. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. The query looks for the `Preempt` signal. The `Preempt` signal indicates an eviction in 30 seconds or less. The queries need to be more frequent than 30 seconds to provide sufficient time for a graceful interruption. When the application receives a `Preempt` signal, it sends customer telemetry to app insights that indicates an upcoming eviction.
 
-For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model)
+For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model).
 
-#### Graceful shutdown
+#### Ensure a graceful shutdown
 
 An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown process should release resources, drain connections, and flush event logs. It's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
 
-#### Orchestration
+#### Orchestrate eviction recovery
 
-Orchestration refers to the process of recovering compute capacity after an eviction. The workload is *started* or *created* depending on your **Eviction Policy**.
+Recovery is the process of replacing a Spot VM after an eviction. The eviction policy of the evicted Spot VM affects the replacement process.
+
+**(1) Deallocated / Stopped VM** - The workload is *started*.
+**(2) Deleted VMS** - The workload is *created*.
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
 
