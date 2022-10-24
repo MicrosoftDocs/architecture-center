@@ -130,11 +130,47 @@ This architecture also uses Azure Blob Storage to store supplementary data, such
 
 > TODO why isn't metrics data stored in log analytics workspace
 
-## Scaling
+## Scalability
 
 Scale is achieved through the combination of individual SI capacity and the total number of SIs.   
 
 The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. 
+
+## Overall observability
+
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the Stats SI in each Availability Zone and not replicated outside because there's insufficient business benefit to justify the additional cost.  Application-wide monitoring is achieved through use of federated queries across the Stats SIs in each AZ. 
+
+Alerts are set up by the application SIs or by metric threshold events in the Stats SIs are replicated across all AZs and regions so they are always available. 
+
+In the event of issues with the Application SIs, the Stats SIs data stores are retained for several days before aging out, so that issue diagnosis can be performed after the fact, allowing fault resolution. 
+
+> TODO understand what the Stats SIs are doing here. 
+
+## Deployment considerations
+
+n this section, the operational aspects of the architecture are discussed, so that it can be understood “in action.”  Whilst no operations team can compensate for an unreliable application, the operational aspect of the architecture is key to achieving high availability. 
+
+As discussed in Management and Monitoring in the Appendix, the reference application relies on the same management and monitoring tooling for normal operation and in failure cases.   
+
+
+Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times.  However, it also critical that control is not fully closed-loop, so there are explicit manual gates and firebreaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events. 
+
+The architecture as presented here makes minimal use of ARM, and instead stores configuration in ADO (git) and uses scripting tools to handle changes.  A more Azure-native option might make more extensive use of ARM and RPs.  The reliability of this approach is not considered, but could be acceptable. 
+
+Instantiation 
+
+Create new SI config files in ADO (git) 
+
+GitOps convergence agent reacts to new files and triggers scripting tool to create Azure resources for the SI, including VMs, the AKS cluster, convergence pods and updates DNS for service discovery of the new SI. 
+
+Decommission 
+
+Update deployment config files to zero the amount of traffic to be sent to the SI.  GitOps agent reacts to the change to trigger updates of DNS to stop new traffic reaching the SI. 
+
+Wait for DNS TTL to expire and in-progress calls to end (or make policy decision to forcibly proceed and terminate long-running calls/connections that still exist). 
+
+Remove SI definition files in ADO.  GitOps triggers scripting to gracefully delete AKS, destroy VMs and destroy Azure resources. 
+
 
 ## Testing and validation
 
