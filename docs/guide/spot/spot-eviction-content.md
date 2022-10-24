@@ -49,10 +49,12 @@ For more information, see [eviction policy](/azure/virtual-machines/spot-vms#evi
 
 The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The price of a spot of the cost difference between spot and pay-as-you-go VMs:
 
-| VM size | OS | Region | Spot price | Pay-as-you-go price |
+| VM size | OS | Region | Spot price (USD) | Pay-as-you-go price (USD) |
 | --- | --- | --- | --- | --- |
 |**D1 v2** | Windows<br><br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
 |**E2a v4**| Windows<br><br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $23.87<br>$25.40<br><br>$53.00<br>$54.02 | $159.14<br>169.36<br><br>$135.78<br>$146.00|
+
+For more information, see [Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/).
 
 ## Recommendations
 
@@ -94,7 +96,7 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 
 Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
 
-#### Testing
+#### Conduct testing
 
 We recommend simulating eviction events to test orchestration in dev/test environments.
 
