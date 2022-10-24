@@ -12,6 +12,8 @@ products:
 - azure-bastion
 - azure-virtual-network
 - azure-web-application-firewall
+categories:
+- azure
 azure.category:
 - networking
 - web
@@ -29,6 +31,9 @@ The implementation further illustrates how Administrators can securely access ne
 
 TODO: EMBED VIDEO HERE
 
+> [!IMPORTANT]
+> The [Network Secure Ingress Sample](https://aka.ms/networksecureingresssample) provides a sample that allows you to deploy the solution described in this article.
+
 ## Use Cases
 
 Three typical use cases that this pattern implementation addresses are global routing, low latency failover, and mitigating attacks at the edge.
@@ -38,21 +43,21 @@ Three typical use cases that this pattern implementation addresses are global ro
 The network secure ingress pattern encapsulates the global routing pattern. As such, the implementation is able to route requests to workloads in different regions.
 
 :::image type="content" source="_images/secure-ingress-use-case-one.png" alt-text="Diagram showing an HTTPS request being routed to two workloads in different regions":::
-*Figure 1: Global routing*
+<br/>*Figure 1: Global routing*
 
 ### Low latency failover
 
 The second use case that the pattern implementation addresses is low latency failover for unhealthy workloads. The implementation must be able to identify healthy and unhealthy workloads and adjust the routing accordingly in a time sensitive manner. The latency should be able to support adjusting the routing in a manner of minutes.
 
 :::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram showing an HTTPS request not being routed to an unhealthy workload":::
-*Figure 2: Low latency failover*
+<br/>*Figure 2: Low latency failover*
 
 ### Mitigating attacks at the edge
 
 The third use case that the pattern implementation addresses is mitigating the attacks at the edge. This use case necessitates the "network secure" part of the pattern. The workloads or PaaS services shouldn't be accessible via the internet. Internet traffic should only be able to route through the gateway. The gateway should have the ability to mitigate exploits.
 
 :::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram showing an HTTPS request with a SQL statement in the querystring of a request not being stopped at the edge":::
-*Figure 3: Mitigating attacks at the edge*
+<br/>*Figure 3: Mitigating attacks at the edge*
 
 ## Patterns
 
