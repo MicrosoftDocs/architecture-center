@@ -257,6 +257,9 @@ To start implementing this solution, see this information:
 - [Health data consortium on Azure][Health data consortium on Azure]
 - [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
+- [Geospatial reference architecture - Azure Orbital][Geospatial reference architecture - Azure Orbital]
+- [Geospatial analysis for telecom][Geospatial analysis for telecom]
+- [Spaceborne data analysis with Azure Synapse Analytics][Spaceborne data analysis with Azure Synapse Analytics]
 
 ### Related guides
 
