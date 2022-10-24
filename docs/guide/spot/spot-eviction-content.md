@@ -9,9 +9,11 @@ Spot VMs provide access to compute resources at significant discounts and are an
 
 ## Understand Spot VMs
 
-The only different between an pay-as-you-go VM and a Spot VM is its access priority to compute resources. A VM is a package with an operating system, bins/libs, and application(s). It runs on servers with a hypervisor that creates and manages VMs. The term *compute resources* refers to the capability of the sever and hypervisor to support VMs.
+**(1) Regular VMs** - The only different between an pay-as-you-go VM and a Spot VM is its access priority to compute resources. A VM is a package with an operating system, bins/libs, and application(s). It runs on servers in an Azure datacenter. These servers have a hypervisor that creates and manages VMs. The term *compute resources* refers to the capability of the sever and hypervisor to support VMs.
 
-Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access. High-priority VMs get compute resources whenever they request it. Low-priority VMs get to use whatever compute capacity is left. But low-priority VMs only get to use compute resources when high-priority VMs don't want it. High-priority VMs can take compute resources from active Spot VMs. If there's a mutual need for the same compute resource, high-priority VMs will access priority. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because of the eviction possibility.
+**(2) Low-priority access** - Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access and VMs get priority access to compute resources. Spot VMs can only use spare compute capacity. Spot VMs use whatever high-priority VMs don't. The measurement of compute capacity is at the datacenter/zone level, not region. Zone 1 could have no compute capacity while Zones 2 and 3 in the same region have plenty. Spot VMs will only deploy and persist where there's spare compute capacity.
+
+ High-priority VMs can take compute resources from active Spot VMs. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because of the eviction possibility.
 
 ## Understand interruptible workloads
 
@@ -31,7 +33,9 @@ Spot VMs shouldn’t be the single source of compute capacity for non-interrupti
 
 ## Understand eviction
 
- An eviction is when a spot VM loses access to its current underlying compute capacity. There are two important factors in eviction. The *eviction type* and the *eviction policy*. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does. Let's address each in more detail
+ An eviction is when access to compute resources is revoked. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does. 
+
+Let's address each in more detail.
 
 **(1) Eviction type** - There are two causes of eviction: capacity changes and price change. The way these affect spot VMs depends on the eviction type chosen when you create the spot VM. Eviction type defines the general conditions of eviction. There are two eviction types: *capacity only* and *price or capacity*.
 
