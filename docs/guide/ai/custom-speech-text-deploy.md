@@ -18,79 +18,89 @@ categories:
 
 # Deploy a custom speech-to-text solution
 
-This article is an implementation guide and case study that provides a sample deployment for the associated article, Implement custom speech-to-text.[link to other article]
+This article is an implementation guide and case study that provides a sample deployment of the solution described in **Implement custom speech-to-text**:
 
-Contoso is a broadcast media company responsible for airing broadcasts and commentary on Olympic events. In addition, Contoso provides reliable event transcription both for accessibility and data mining purposes as part of the broadcast agreement. 
+> [!div class="nextstepaction"]
+> [Go to part one of this guide](custom-speech-text.yml)
 
-Contoso seeks to provide live subtitling and audio transcription for Olympic events using the Azure Speech service. However, it is important to note that Contoso employs diverse commentators worldwide, representing different genders and accents. In addition, each event has specific terminology that can make transcription difficult. This section describes the application development process of this scenario – providing subtitles for an application focused on delivering accurate event transcription to its users.
+## Case study
 
-**Assumptions:**
+This article is based on the following fictional case study: 
 
-Human-generated transcripts for various previous Olympic events from diverse commentators are available. And you have created an Azure Cognitive Service resource by going to portal.azure.com
+Contoso, Ltd., is a broadcast media company that airs broadcasts and commentary on Olympics events. As part of the broadcast agreement, Contoso provides event transcription for accessibility and data mining. 
 
-## Custom Speech-based Application Development Process 
+Contoso wants to use the Azure Speech service to provide live subtitling and audio transcription for Olympics events. Contoso employs female and male commentators from around the world who speak with diverse accents. In addition, each individual sport has specific terminology that can make transcription difficult. This article describes the application development process for this scenario: providing subtitles for an application that needs to deliver accurate event transcription.
 
-A speech-based application uses the Azure Speech SDK to connect to the Azure speech service to generate text-based audio transcription. There is support for [various languages](/azure/cognitive-services/speech-service/language-support) and two fluency modes, conversational and dictation. The development of a custom speech-based application generally takes the following steps:
+Contoso already has these required prerequisite components in place:
+ 
+- Human-generated transcripts for previous Olympics events. The transcripts represent different sports and diverse commentators.
+- An Azure Cognitive Service resource. You can create one on the [Azure portal](https://ms.portal.azure.com). 
 
-1.	Use Azure Speech SDK/CLI/APIs to generate transcripts for spoken sentences and utterances
-2.	Compare the quality of the generated transcript with the ground truth (human-generated transcript).
-3.	If certain domain-specific words transcribe incorrectly, then look into building a custom speech model for that specific domain
-4.	Review various custom model building options and decide if 1 or many custom models would be a better fit. 
-5.	Collect training and testing data
-6.	Massage the data in an acceptable format
-7.	Train, test/evaluate, and deploy the model
+## Develop a custom speech-based application
+
+A speech-based application uses the Azure Speech SDK to connect to the Azure Speech service to generate text-based audio transcription. Speech service supports [various languages](/azure/cognitive-services/speech-service/language-support) and two fluency modes: conversational and dictation. To develop a custom speech-based application, you  generally need to complete these steps:
+
+1.	Use the Azure Speech SDK, Speech CLI, or REST APIs to generate transcripts for spoken sentences and utterances.
+2.	Compare the generated transcript with the human-generated transcript.
+3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain.
+4.	Review various options for creating custom models. Decide whether one or many custom models will work better. 
+5.	Collect training and testing data.
+6.	Ensure the data is in an acceptable format.
+7.	Train, test and evaluate, and deploy the model.
 8.	Use the model endpoint in transcription calls.
-9.	Operationalize your model building, evaluating, and deployment process.
+9.	Operationalize your model building, evaluation, and deployment process.
 
-Let’s look into these steps in more detail:
+Let's look more closely at these steps:
 
-**1.	Use Azure Speech SDK/CLI/APIs to generate transcripts for spoken sentences and utterances**
+**1.	Use the Azure Speech SDK, Speech CLI, or REST APIs to generate transcripts for spoken sentences and utterances.**
 
-image
+```
+ffmpeg.exe -i INPUT_FILE.avi -acodec pcm_s16le -ac 1 -ar 8000 OUTPUT_FILE.wav
+```
 
-Azure speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk?tabs=windows%2Cubuntu%2Cios-xcode%2Cmac-xcode%2Candroid-studio), [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and [REST APIs](/azure/cognitive-services/speech-service/rest-speech-to-text) that are to be used to generate transcripts for a given audio file or directly from microphone input. If using audio file, then it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this example, Contoso has previous event recordings (audio and video) in *.avi files. They can leverage tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, such as *.wav.
+Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and [REST APIs](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts for audio files or directly from microphone input. If you use a audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
 
-Here we are using the standard PCM audio codec - pcm_16le to extract audio in a single channel (mono) that has sampling rate of 8khz. 
+In the preceding code, we use the standard PCM audio codec, `pcm_s16le`, to extract audio in a single channel (mono) that has sampling rate of 8 KHz.
 
-**2.	Compare the quality of the generated transcript with the ground truth (human-generated) transcript.**
+**2.	Compare the generated transcript with the human-generated transcript.**
 
-To perform the comparison, Contoso samples commentary audio from multiple events and leverages [Speech Studio](https://speech.microsoft.com) to help with comparing the ground truth with the transcribed results from the Azure Speech service. In Contoso’s case, the ground truth is in a WebVTT format. To be able to use these existing transcripts (WebVTT files), Contoso cleans them up and generates a simple txt file that has normalized text without the timestamp information. 
+To perform the comparison, Contoso samples commentary audio from multiple sports and uses [Speech Studio](https://speech.microsoft.com) to compare the human-generated transcript with the results transcribed by Azure Speech service. The Contoso human-generated transcripts are in a WebVTT format. To use these transcripts, Contoso cleans them up and generates a simple .txt file that has normalized text without the timestamp information.
 
-Refer to this [Azure documentation article] about using Speech Studio for creating and evaluating a dataset. 
+For information about using Speech Studio to create and evaluate a dataset, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train).
 
-Once a sample test completes in the Speech Studio, it produces detailed results, including Word Error Rate (WER) on different models. Speech Studio provides a side-by-side comparison of the ground truth and the transcripts produced from the models selected for comparison. The screenshot below shows WER for our sample file:
+ Speech Studio provides a side-by-side comparison of the human-generated transcript and the transcripts produced from the models selected for comparison. Test results include a word error rate (WER) for the models:
 
-image
+![Screenshot that shows the WER in Speech Studio.](./media/word-error-rate.png)
 
-Refer to [this link](/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data?pivots=speech-studio#evaluate-word-error-rate) which explains WER in more detail.
+For more information about WER, see [Evaluate word error rate](/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data?pivots=speech-studio#evaluate-word-error-rate).
 
-From the screenshot above, the custom model (Olympic_Skiing_v6) is doing better than the base model (20211030) for the dataset.
+Based on these results, the custom model (**Olympic_Skiing_v6**) is better than the base model (**20211030**) for the dataset.
 
-Observe the Insertion and Deletion rates (low error rates) that indicate that the audio file is relatively clean and has low background noise.
+Note the **Insertion** and **Deletion** rates, which indicate that the audio file is relatively clean and has low background noise.
 
-**3.	If certain domain-specific words transcribe incorrectly, then look into building a custom speech model for that specific domain**
+**3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain.**
 
-From the above screenshot, for the base model – Model 1: 20211030, around 10% of words are getting substituted. In the speech studio, use the detailed comparison feature to identify domain-specific words that are getting missed. The screenshot below is an example of one section of the comparison. The left-most column is ground truth, the middle column is Model 1, and the right-most column is Model 2:
+Based on the preceding screenshot, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following screenshot shows of one section of the comparison. The left-most column is ground truth, the middle column is Model 1, and the right-most column is Model 2:
 
-image 
+![Screenshot that shows the comparison.](./media/example-comparison.png)
 
 The base models cannot recognize domain-specific words like the names of athletes “Katia Seizinger” and “Goggia.” This scenario shines a light on areas where a custom model may help with the recognition of domain-specific words and phrases
 
-**4.	Review various custom model building options and decide if 1 or many custom models would be a better fit**
+**4.	Review various options for creating custom models. Decide whether one or many custom models will work better.**
 
 While experimenting with various ways to build custom model [link here to “Acoustic and language model adaptation” section from other document], Contoso’s found that better accuracy could be achieved from language and pronunciation model customization. In addition, minor improvements were observed by including custom acoustic data in building the custom model; however, the benefits weren’t significant enough to continue maintaining and training for a custom acoustic model. 
  
 Contoso found that creating separate custom language models by event type (one model for alpine skiing, one model for luge, one model for snowboarding, etc.) gave better recognition results during the training and evaluation of a custom model. In addition, Contoso observed that creating separate acoustic models by event type to augment the language models was not necessary.
 
-**5.	Collect training and testing data**
+**5.	Collect training and testing data.**
 
 [Azure documentation article] share details about collecting the data needed for custom training a model. In Contoso’s case, they collect transcripts for various Olympic events by diverse commentators to build one pronunciation file that all the custom models (1 for each event type) share. The training data is kept separate from the actual test data. This way, once a custom model has been built, it can be tested by leveraging event audio whose transcripts were not included in the training dataset. The training and testing data can come from the same commentator but not the same event instance.
 
-**6.	Massage the data in an acceptable format**
+**6.	Ensure the data is in an acceptable format.**
 
-As mentioned in [Azure documentation articles], datasets used to create a custom model or to test the model need to be in a specific format. If the training data is in WebVTT file, then some simple tooling can be built to produce text files that contain normalized text for language model adaptation.
+As described in [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train), datasets used to create a custom model or to test the model need to be in a specific format. If the training data is in WebVTT file, then some simple tooling can be built to produce text files that contain normalized text for language model adaptation.
 
-**7.	Train, test / evaluate, and deploy the model**
+**7.	Train, test and evaluate, and deploy the model.**
 
 New event recordings are used to further test and evaluate the trained model. The process of testing/evaluating a model can take a couple of iterations to fine-tune the models. Finally, when the model generates transcripts with an acceptable error rate, it is deployed (published) to be consumed from the SDK.
 
@@ -104,7 +114,7 @@ SpeechConfig config = SpeechConfig.FromSubscription(subscriptionKey: speechKey, 
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.FromLanguage(locale, endPoint);
 recognizer = new SpeechRecognizer(config, sourceLanguageConfig, audioInput);
 
-**9.	Operationalize your model building, evaluating, and deployment process.**
+**9.	Operationalize your model building, evaluation, and deployment process.**
 
 A process to keep deployed models up-to-date is essential to success, primarily since new base models are published regularly. The [Sample Commands section] of the document has some details on how scripting can be used to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed.
 
@@ -123,9 +133,8 @@ spx csr project create --name testcli2 --language "en-us" --description "new pro
 
 **3.	Upload dataset**
 
-```
 Use spx csr dataset upload command to upload pronunciation (kind = pronunciation), plain text (kind=language) and evaluation data (kind=acoustic)
-```
+
 
 **3.1	Pronunciation file**
 
@@ -218,16 +227,17 @@ Principal author: Pratyush Mishra- Principal Engineering Manager https://www.lin
 Other Contributors: Rania Bayoumy- Senior Technical Program Manager https://www.linkedin.com/in/raniabayoumy/ 
 
 ## Next steps
-Artificial intelligence (AI) architecture design
-What is Custom Speech?
-What is text-to-speech?
-Train a Custom Speech model
-Link to Deployment / Implementation guide
+
+- Artificial intelligence (AI) architecture design
+- What is Custom Speech?
+- What is text-to-speech?
+- Train a Custom Speech model
+- Link to Deployment / Implementation guide
 
 ## Related resources
-Related links from AAC
-Use a speech-to-text transcription pipeline to analyze recorded conversations
-Speech services
-Control IoT devices with a voice assistant app
-Link to Deployment / Implementation guide
+
+- Use a speech-to-text transcription pipeline to analyze recorded conversations
+- Speech services
+- Control IoT devices with a voice assistant app
+- Link to Deployment / Implementation guide
 
