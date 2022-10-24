@@ -1,24 +1,23 @@
-Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs).
+Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities. The goal of this article is to help you harness those possibilities and drive excellence through them. To do that, it's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for interruptible workloads. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and best practices.
 
-## Spot VM
-
-A VM is a package that contains an operating system, bins/libs, and applications. VMs run on a physical server with a hypervisor that creates and manages the VMs. The sever and hypervisor provide the compute capacity to run VMs. Spot VMs are the same as any other VM. The difference is their access priority to compute capacity.
-
-Spot VMs have low-priority access to physical compute capacity. Pay-as-you-go VMs have high-priority access to compute capacity. High-priority means they get compute capacity whenever requested. Spot VMs use the spare compute capacity that high-priority VMs aren't using. High-priority VMs can take compute capacity from active Spot VM any time there's mutual needs for the same compute capacity. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because they're subject to eviction.
-
-The dynamic between low and high-priority VMs creates cost-saving possibilities that can withstand changes in throughput.
-
-1. Find the right workload
+1. Understand Spot VMs
+1. Understand interruptible workloads
 1. Understand eviction
-1. Understand spot pricing
-1. Best practices
-1. Example Scenario
+1. Understand Spot VM pricing
+1. Use best practices
+1. Deploy example Scenario
 
-## Interruptible workloads characteristics and examples
+## Understand Spot VMs
+
+The only different between an pay-as-you-go VM and a Spot VM is its access priority to compute resources. A VM is a package with an operating system, bins/libs, and application(s). It runs on servers with a hypervisor that creates and manages VMs. The term *compute resources* refers to the capability of the sever and hypervisor to support VMs.
+
+Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access. High-priority VMs get compute resources whenever they request it. Low-priority VMs get to use whatever compute capacity is left. But low-priority VMs only get to use compute resources when high-priority VMs don't want it. High-priority VMs can take compute resources from active Spot VMs. If there's a mutual need for the same compute resource, high-priority VMs will access priority. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because of the eviction possibility.
+
+## Understand interruptible workloads
 
 Spot VMs great for interruptible workloads. Interruptible workloads run processes that can be interrupted and resumed without harming essential capabilities. have minimal time constraints, priority, and processing times. Some examples are:
 
-- Message queue 
+- Message queue
 - Batch processing applications
 - Background processing
 - Data analytics
@@ -55,9 +54,7 @@ The Spot VMs discount depends on VM size, region of deployment, and operating sy
 |**D1 v2** | Windows<br><br>RHEL | East US<br>West US<br><br>East US<br>West US | $55.15<br>$18.93<br><br>$65.11<br>$50.81 | $91.98<br>$91.98<br><br>$97.09<br>$94.90
 |**E2a v4**| Windows<br><br>RHEL | East US<br>West US | $23.87<br>$25.40 | $159.14<br>169.36|
 
-## Best practices
-
-### Deployment
+## Use Best practices
 
 ### Telemetry and orchestration
 
@@ -91,9 +88,10 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 
 ## Example scenario
 
-The example scenario is for a queue processing application. It uses a producer-consumer dataflow. 
+The example scenario is for a queue processing application. It uses a producer-consumer dataflow.
 
 The template deploys VMs with the following technical specifications:
+
 - memory
 - cores
 
