@@ -9,8 +9,6 @@ items:
     href: changelog.md
   - name: Landing zones
     items:
-      - name: Deployment options
-        href: landing-zones/landing-zone-deploy.md
       - name: Design guides
         items:
           - name: Bicep landing zone implementation
