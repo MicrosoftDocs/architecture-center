@@ -163,3 +163,71 @@ spx csr dataset status --dataset '@my.dataset.test1.txt' –wait
 
 Get-Content .\my.dataset.lm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
 Get-Content .\my.dataset.pm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
+
+**4.2	Create the custom model**
+
+```
+spx csr model create --project "@my.project.txt" --name "cli_model" --datasets "@my.datasets.test.txt" --output url "@my.model.txt"
+
+# # get status
+spx csr model status --model "my.model.txt" –wait
+```
+Note: when creating custom model, there is also an option to select the base model to use to do the adaptations on. If no base model is provided, then the last base model that lets do Language, Pronunciation and Acoustic model adaptation will be used. Scripts below provides a way to get a list of all the available base models and then search for the base model to use for adaptation.
+
+**5.	Select a base model to use**
+
+**5.1	Get a list of base models and output that in a json file**
+```
+spx csr model list --base models --output json baseModels.json
+```
+Note: The output json file needs to be fixed so it is well formed. Currently the output is a merge of paged results. To make it wellformed just add a parent node (say “baseModels”) .
+
+**5.2	Read the required base model details**
+```
+function get-baseModel-Json{
+	param($baseModelName, $baseModelLocale, $filePath)
+	$baseModelJson = Get-Content $filePath -Raw | ConvertFrom-Json
+	foreach ($values in $baseModelJson.baseModels)
+	{
+		foreach($modelJson in $values.values){
+			if($modelJson.locale -eq $baseModelLocale -and $modelJson.displayName -eq $baseModelName) {
+				return $modelJson
+			}
+		}
+	}
+}
+
+$locale = "en-US"
+$filePath = ".\baseModelsFixed.json"
+$baseModelName = "20211030"
+
+$bmJson = get-baseModel-Json -baseModelName $baseModelName -baseModelLocale $locale -filePath $filePath
+
+Write-Host $bmJson
+```
+**6.	Evaluate the model**
+```
+spx csr evaluation create --project "@my.project.txt" --name evaluation1 --model1 "@my.model.txt" --model2 $bmJson.self --dataset '@my.dataset.test1.txt' --output url "@my.eval1.txt"
+## wait for it to finish
+spx csr evaluation status --evaluation "@my.eval1.txt" --wait
+```
+
+## Contributors
+
+Principal author: Pratyush Mishra- Principal Engineering Manager https://www.linkedin.com/in/mishrapratyush/
+Other Contributors: Rania Bayoumy- Senior Technical Program Manager https://www.linkedin.com/in/raniabayoumy/ 
+
+## Next steps
+Artificial intelligence (AI) architecture design
+What is Custom Speech?
+What is text-to-speech?
+Train a Custom Speech model
+Link to Deployment / Implementation guide
+
+## Related resources
+Related links from AAC
+Use a speech-to-text transcription pipeline to analyze recorded conversations
+Speech services
+Control IoT devices with a voice assistant app
+Link to Deployment / Implementation guide
+
