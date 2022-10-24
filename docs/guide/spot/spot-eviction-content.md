@@ -33,7 +33,7 @@ Spot VMs shouldn’t be the single source of compute capacity for non-interrupti
 
 ## Understand eviction
 
- An eviction is when access to compute resources is revoked. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does. 
+ An eviction is when access to compute resources is revoked. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does.
 
 Let's address each in more detail.
 
@@ -72,11 +72,11 @@ Telemetry provides the information needed to make reliability work on spot VMs. 
 
 For more information, see [Application Insights telemetry](/azure/azure-monitor/app/data-model).
 
-#### Ensure a graceful shutdown
+### Ensure a graceful shutdown
 
 An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown process should release resources, drain connections, and flush event logs. It's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
 
-#### Build indempotent consumers
+### Build indempotent consumers
 
 We recommend designing idempotent consumers. Evictions can lead to forced shutdowns. Forced shutdowns often terminate processes before completion. Idempotent consumers can receive the same message more than once and the outcome remains the same.
 
@@ -84,9 +84,9 @@ For more information, see [idempotency](/azure/architecture/serverless/event-hub
 
 **Any special considerations for Spot VMs or do the general rules of idempotency apply?**
 
-#### Orchestrate eviction recovery
+### Orchestrate eviction recovery
 
-Recovery is the process of replacing a Spot VM after an eviction. The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state. 
+Recovery is the process of replacing a Spot VM after an eviction. The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
 
 The eviction policy of the evicted Spot VM affects the replacement process.
 
@@ -95,12 +95,12 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
 
 
-**(2) Deleted VMS** - The workload is *created*.
+**(2) Deleted VM** - The workload is *created*.
 
 
 Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
 
-#### Conduct testing
+### Conduct testing
 
 We recommend simulating eviction events to test orchestration in dev/test environments.
 
