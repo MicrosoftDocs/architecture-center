@@ -779,6 +779,10 @@ items:
         href: patterns/throttling.yml
       - name: Valet Key
         href: patterns/valet-key.yml
+  - name: Pattern implementations
+    items:
+      - name: Network secure global ingress
+        href: pattern-implementations/network-secure-ingress.md
   - name: Microsoft Azure Well-Architected Framework
     href: /azure/architecture/framework
   - name: Industry solutions with Azure
