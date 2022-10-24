@@ -1,6 +1,7 @@
 This architecture provides guidance for designing a carrier-grade solution for a telecommunication use case. The design choices focus on high reliability by minimizing points of failure and ultimately the overall downtime using native Azure capabilities. 
 
-> [!TIP] This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) documentation to undersand the design choices made in this architecture. 
+> [!TIP] 
+> This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) documentation to undersand the design choices made in this architecture. 
 
 ## Use case and business requirements
 
@@ -112,20 +113,22 @@ In the Protocol A routing pattern, the gateway can be a single point of failure.
 
 Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
 
-> TODO In choosing TM, we don't get WAF. So security can bring down the reliability.
-
+> TODO In choosing TM, we don't get WAF. So security can bring down the reliability. Should we address that?
 
 ## Data consistency
 
-The documented guidance10 for Cosmos DB is to use the single-write region option with service-managed failover for high availability in case of region outage.  However, the reference architecture instead uses the multi-write region model (with availability zone redundancy support – AZRS).  This is because the Cosmos DB process for handling failure of the write region is to bring up a new write instance in another region.  Even with service-managed instances, this will take at least minutes, and can be much longer.  Since writing to the database is a critical process for the reference application, such a global outage duration cannot be tolerated, and so the multi-write region option is the only acceptable choice.  This in turn requires the use of conflict-free replicated data types (CRDTs) within the application, as discussed in the Considered Data Model section of the Appendix. 
+For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. In case of a failure, time taken to bring up an instance in a another region should be minimized.
 
-An application which had less demanding outage requirements on the ability to write data might be able to use the single-write region option. 
+- Data should be regionally replicated in an active-active configuration such as that it's instantly synchronized across regions. Also, all instances should be able to handle read and write requests. 
+- In case of a failure, write requests to the database should still be functional.
 
-Cosmos DB is selected over other replicated database options since it is the only NoSQL database which is an Azure 1st Party managed service. 
+Azure Cosmos DB was chosen as the global database because it meets those requirements. The architecture uses the multi-write region model. If there's a global outage, consistent data is available in multiple regions almost instantly. Also, zonal redundancy is guaranteed through availability zone redundancy support (AZRS).
 
-ABS: This combination provides the best compromise for a cost-effective GR storage solution for the volumes of data needed for the reference application.  ZRS plus OR is chosen over GZRS because it allows control of the secondary region and storage tier (premium primary copy and hot/cool secondary copy). 
+> Refer to [Well-Architected carrier-grade workloads](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-data-model).
 
+This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data,  application core dumps and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS), in conjunction with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot/cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
 
+> TODO why isn't metrics data stored in log analytics workspace
 
 ## Scaling
 
