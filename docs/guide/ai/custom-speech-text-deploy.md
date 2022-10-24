@@ -152,57 +152,64 @@ Use the `spx csr dataset upload` command to upload pronunciation (`kind` = `Pron
 ```azurepowershell
 spx csr dataset upload –project '@my.project.txt' –name "cli_pronunciationModel" –kind Pronunciation –data ..\data\train\pronunciation.txt –output url '@my.dataset.pm.txt'
 
-## get status
+## Get status
 
 spx csr dataset status –dataset '@my.dataset.pm.txt' –wait
 ```
 
-**3.2	Uploaed plain text (for language model adaptation)**
+**3.2	Upload plain text (for language model adaptation)**
 
-```
+```azurepowershell
 spx csr dataset upload –project '@my.project.txt' –name "cli_languageModel" –kind Language –data ..\data\train\languageModel.txt –output url '@my.dataset.lm.txt'
  
-## get status
+## Get status
 
 spx csr dataset status --dataset '@my.dataset.lm.txt' –wait
 ```
 
 **3.3	Upload test data**
 
-```
+```azurepowershell
 spx csr dataset upload --project '@my.project.txt' --name "evalDataset1" --kind Acoustic --data ..\data\test\EvalDataset1.zip --output url '@my.dataset.test1.txt'
 
-## get status
+## Get status
 
 spx csr dataset status --dataset '@my.dataset.test1.txt' –wait
 ```
 
 **4.	Create a custom model**
 
-**4.1	Combine the dataset ouputs into one file to use that as input**
+**4.1	Combine the dataset ouputs into one file to use as input**
 
+```azurepowershell
 Get-Content .\my.dataset.lm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
 Get-Content .\my.dataset.pm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
-
-**4.2	Create the custom model**
-
 ```
+
+**4.2	Create the model**
+
+```azurepowershell
 spx csr model create --project "@my.project.txt" --name "cli_model" --datasets "@my.datasets.test.txt" --output url "@my.model.txt"
 
-# # get status
+## Get status
 spx csr model status --model "my.model.txt" –wait
 ```
-Note: when creating custom model, there is also an option to select the base model to use to do the adaptations on. If no base model is provided, then the last base model that lets do Language, Pronunciation and Acoustic model adaptation will be used. Scripts below provides a way to get a list of all the available base models and then search for the base model to use for adaptation.
+> [!NOTE]
+> When you create a custom model, you can also select the base model to use for the adaptations. If you don't provide a base model, the last base model that lets you do Language, Pronunciation, and Acoustic model adaptation is used. The following scripts show how to get a list of all available base models and then search for the base model to use for adaptation.
 
 **5.	Select a base model to use**
 
 **5.1	Get a list of base models and output that in a json file**
-```
+
+```azurepowershell
 spx csr model list --base models --output json baseModels.json
 ```
-Note: The output json file needs to be fixed so it is well formed. Currently the output is a merge of paged results. To make it wellformed just add a parent node (say “baseModels”) .
+
+> [!NOTE]
+> The output JSON file needs to be well formed. Currently, the output is a merge of paged results. To make it well formed, just add a parent node (like `baseModels`) .
 
 **5.2	Read the required base model details**
+
 ```
 function get-baseModel-Json{
 	param($baseModelName, $baseModelLocale, $filePath)
@@ -225,10 +232,14 @@ $bmJson = get-baseModel-Json -baseModelName $baseModelName -baseModelLocale $loc
 
 Write-Host $bmJson
 ```
+
 **6.	Evaluate the model**
-```
+
+```azurepowershell
 spx csr evaluation create --project "@my.project.txt" --name evaluation1 --model1 "@my.model.txt" --model2 $bmJson.self --dataset '@my.dataset.test1.txt' --output url "@my.eval1.txt"
-## wait for it to finish
+
+## Wait for it to finish
+
 spx csr evaluation status --evaluation "@my.eval1.txt" --wait
 ```
 
