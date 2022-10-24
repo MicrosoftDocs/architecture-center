@@ -82,7 +82,7 @@ Note the **Insertion** and **Deletion** rates, which indicate that the audio fil
 
 Based on the preceding screenshot, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following screenshot shows of one section of the comparison. The left-most column is ground truth, the middle column is Model 1, and the right-most column is Model 2:
 
-:::image type="content" source="./media/word-error-rate.png" alt-text="Screenshot that shows the comparison." lightbox="./media/example-comparison.png":::
+:::image type="content" source="./media/example-comparison.png" alt-text="Screenshot that shows the comparison." lightbox="./media/example-comparison.png":::
 
 The base models cannot recognize domain-specific words like the names of athletes “Katia Seizinger” and “Goggia.” This scenario shines a light on areas where a custom model may help with the recognition of domain-specific words and phrases
 
