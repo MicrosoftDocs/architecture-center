@@ -65,6 +65,8 @@ For more information, see:
 
 ## Recommendations
 
+**We have to build the article around recommendations**
+
 ### Initial Deployment
 
 ***Any recommendations on deployment?***
@@ -88,7 +90,7 @@ An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown
 
 ### Build indempotent consumers
 
-We recommend designing idempotent consumers. Evictions can lead to forced shutdowns. Forced shutdowns often terminate processes before completion. Idempotent consumers can receive the same message more than once and the outcome remains the same.
+We recommend designing idempotent consumers. Evictions can lead to forced shutdowns despite efforts to ensure graceful shutdowns. Forced shutdowns can terminate processes before completion. Idempotent consumers can receive the same message more than once and the outcome remains the same.
 
 For more information, see [idempotency](/azure/architecture/serverless/event-hubs-functions/resilient-design#idempotency).
 
@@ -96,19 +98,20 @@ For more information, see [idempotency](/azure/architecture/serverless/event-hub
 
 ### Orchestrate eviction recovery
 
-Recovery is the process of replacing a Spot VM after an eviction. The application architecture and logic should be able to recover from a previous backup or checkpoint if necessary. It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
+Recovery is the process of replacing a Spot VM after an eviction. Application architecture and logic should be able to recover from a previous backup or checkpoint if necessary.
 
 The eviction policy of the evicted Spot VM affects the replacement process.
 
-**(1) Deallocated / Stopped VM** - The workload is *started*.
+**(1) Replace VMs** - You'll need a plan to replace evicted VMs. The plan has to account for the eviction policy of the VM. A Spot VM with a *Stop/Deallocate policy* will need to be reallocated. A Spot VM with a *Delete policy* will need to be recreated. The different between reallocation and recreation affect when and where Spot VM replacements
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
+- ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The Spot VM package (OS, bins/libs, app) has been removed from a physical compute resources, but the VM package remains in Azure. A stopped / deallocated VM must remain in the region and zone indicated at creation. You cannot move VMs between datacenters/zones. You can replicate, deploy, and delete to simulate movement.
 
+If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online.
 
-**(2) Deleted VM** - The workload is *created*.
+- ***(2) Deleted VM*** - The workload is *created*.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
 
-
-Our architecture uses a service called VM Applications for orchestration. VM Applications installs the source application package when the VM deploys.  
+**(2) Conduct health check** - It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
 
 ### Conduct testing
 
@@ -213,7 +216,7 @@ In general, we recommend that you always take edge cases and common pitfalls ass
 
 #### Orchestration
 
-Orchestration in this context is about workload recovery after eviction.  Your choice of **delete** or **deallocate** will influence how you architect your solution to "resume operations" after your instance(s) have been evicted.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.  If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online.
+Orchestration in this context is about workload recovery after eviction.  Your choice of **delete** or **deallocate** will influence how you architect your solution to "resume operations" after your instance(s) have been evicted.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.  
 
 Either way, the end goal is the same.  The interruptible workload begins executing on an Azure Spot VM at startup time.
 
