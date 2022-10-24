@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Implement custom speech-to-text
-  description: Learn about approaches for implementing high-quality speech-aware applications. This article describes the problem space and decision-making process. 
+  title: Implement custom speech-to-text solutions that use AI
+  description: Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process. 
   author: mishrapratyush
   ms.author: pmishra
   ms.date: 10/26/2022 
