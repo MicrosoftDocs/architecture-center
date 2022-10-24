@@ -102,7 +102,7 @@ The cost of your implementation is affected by:
 
 Principal authors:
 
- - [Dixit Arora] | Senior Customer Engineer
+ - Dixit Arora | Senior Customer Engineer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
