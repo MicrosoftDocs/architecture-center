@@ -8,7 +8,7 @@ This architecture and the implementation aren't designed to provide controls on 
 
 > [!IMPORTANT]
 >
-> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
+> The guidance and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
 > ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
 
@@ -38,7 +38,7 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 
 #### AKS feature support
 
-Because of AKS and Azure AD integration, you can leverage ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+Because of AKS and Azure AD integration, you can take advantage of ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
 
 #### Your responsibilities
 
@@ -199,7 +199,7 @@ Assignment of privileges to individuals based on job classification and function
 
 Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to define the extent and process of access.
 
-For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they may be the same. Here are some points to consider:
+For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they might be the same. Here are some points to consider:
 
 - How should they access the cluster?
 - Which sources are allowed for access?
@@ -262,7 +262,7 @@ Here are overall considerations for this requirement:
 
 Don't share or reuse identities for functionally different parts of the CDE. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
+Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD workload identity](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
