@@ -105,6 +105,7 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 **(1) Replace VMs** - You'll need a plan to replace evicted VMs. The plan has to account for the eviction policy of the VM. A Spot VM with a *Stop/Deallocate policy* will need to be reallocated. A Spot VM with a *Delete policy* will need to be recreated. The different between reallocation and recreation affect when and where Spot VM replacements
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
+
 - ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The Spot VM package (OS, bins/libs, app) has been removed from a physical compute resources, but the VM package remains in Azure. A stopped / deallocated VM must remain in the region and zone indicated at creation. You cannot move VMs between datacenters/zones. You can replicate, deploy, and delete to simulate movement.
 
 If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online.
@@ -124,11 +125,6 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 The example scenario is for a queue processing application. It uses a producer-consumer dataflow.
 
 ![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
-
-The template deploys VMs with the following technical specifications:
-
-- memory?
-- cores?
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
 1. **Application version:** The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM
