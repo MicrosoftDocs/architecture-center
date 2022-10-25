@@ -77,7 +77,7 @@ for high-performance computing. They feature specialized processors paired with
 DDR4 memory, and they allow compute-intensive solutions to run effectively, both
 on Linux and Windows installations. And they're available in several sizes. See
 [High-performance compute VM
-sizes](/azure/virtual-machines/windows/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%3fWT.mc_id%3dcomputeinmanufacturing-docs-ercenk).
+sizes](/azure/virtual-machines/windows/sizes-hpc?WT.mc_id=computeinmanufacturing-docs-ercenk).
 To see how Azure supports HPC in other ways, see Big compute: [HPC &
 Batch](https://azure.microsoft.com/solutions/big-compute/?WT.mc_id=computeinmanufacturing-docs-ercenk).
 
@@ -100,12 +100,7 @@ demonstrates the scalability of the solution on Azure, showing similar results.
 
 ![https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/77129585-f25c-4c29-b22b-80c627d03daa.png](./images/compute-manufacturing-overview/fluent.png)
 
-Instead of investing in a local compute cluster, a software package that
-requires parallel execution can be deployed on Azure virtual machines, or
-[virtual machine scale sets
-(VMSS)](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk)
-by using the [HPC and GPU
-VM](/azure/virtual-machines/windows/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%3fWT.mc_id%3dcomputeinmanufacturing-docs-ercenk)
+Instead of investing in a local compute cluster, a software package that requires parallel execution can be deployed on Azure virtual machines, or [virtual machine scale sets (VMSS)](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk) by using the [HPC and GPU VM](/azure/virtual-machines/windows/sizes-hpc?WT.mc_id=computeinmanufacturing-docs-ercenk)
 families for an all-cloud solution.
 
 ### Burst to Azure

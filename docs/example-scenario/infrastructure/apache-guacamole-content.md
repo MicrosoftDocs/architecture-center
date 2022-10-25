@@ -144,8 +144,8 @@ Principal author:
 * [Azure Bastion documentation](/azure/bastion/bastion-overview)
 * [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 * [Azure Database for MySQL](/azure/mysql)
-* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion)
-* [Learn module: Introduction to Azure Load Balancer](/learn/modules/intro-to-azure-load-balancer)
+* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion)
+* [Learn module: Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
  
 ## Related resources
 

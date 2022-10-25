@@ -79,7 +79,7 @@ Use these guidelines to decide how many partitions to use:
 - To avoid starving consumers, use at least as many partitions as consumers. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that subscribe will have to wait. Alternatively, you can keep one or two consumers ready to receive events when an existing consumer fails.
 - Use more keys than partitions. Otherwise, some partitions won't receive any events, leading to unbalanced partition loads.
 - In both Kafka and Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, avoid making that change if you use keys to preserve event ordering. The reason involves the following facts:
-  - Customers rely on certain partitions and the order of the events they contain.
+  - Consumers rely on certain partitions and the order of the events they contain.
   - When the number of partitions changes, the mapping of events to partitions can change. For instance, when the partition count changes, this formula can produce a different assignment:
     `partition assignment = hash  key % number of partitions`
   - Kafka and Event Hubs don't attempt to redistribute events that arrived at partitions before the shuffle. As a result, the guarantee no longer holds that events arrive at a certain partition in publication order.
@@ -313,6 +313,14 @@ This code produces the following results:
 :::image type="content" source="./images/event-processing-results-specify-key.png" alt-text="Screenshot showing producer and consumer logs. Events had keys that determined the partition they went to. Within partitions, events arrived in order." border="false":::
 
 As these results show, the producer only used two unique keys. The messages then went to only two partitions instead of all four. The pipeline guarantees that messages with the same key go to the same partition.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728/) | Senior Software Engineer
 
 ## Next steps
 

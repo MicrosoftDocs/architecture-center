@@ -6,7 +6,7 @@ This reference architecture illustrates how developers can create, manage, and m
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 - **[Microsoft Azure Container Registry (ACR)][azure-container-registry]**. ACR is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 - **[Azure Kubernetes Service (AKS)][azure-kubernetes-service]**. AKS is a managed service that offers a managed Kubernetes cluster with elastic scale-out functionality.
@@ -20,6 +20,8 @@ This reference architecture illustrates how developers can create, manage, and m
 - **[On-premises Kubernetes cluster][kubernetes]**. In this architecture, a local Kubernetes cluster is used to run multiple containers on-premises.
 
 ## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 
@@ -48,6 +50,8 @@ Azure Container Instances is a low-friction, serverless compute environment for 
 In this reference, Azure Container Instances container groups are utilized as *virtual nodes* for an [Azure Kubernetes Service][azure-kubernetes-service] cluster. AKS uses [virtual nodes][azure-kubernetes-service-virtual-nodes] to register a virtual pod with unlimited capacity and the ability to dispatch pods by using Azure Container Instances container groups. This is ideal for scenarios where you want very fast provisioning of individual pods and only want to pay for the execution time per second.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scalability
 
@@ -79,6 +83,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Use [Azure Private Link][azure-private-link] to communicate to and across services in your virtual network. This will route traffic through specific subnets to reach the individual Azure services directly and protect your data from inadvertent exposure to the public internet.
 
 ### Cost optimization
@@ -90,12 +96,31 @@ In this reference, Azure Container Instances container groups are utilized as *v
 - If you require a specific uptime service-level agreement (SLA), you can enable the [uptime SLA optional feature][azure-kubernetes-service-uptime-sla] of AKS.
 - Azure Container Instances resources are billed per second, based on an allocation of virtual CPU and memory resources, to the container group. Allocating unnecessary compute resources can exponentially increase the costs required to run this architecture solution. Cost monitoring and optimization is a continuous process that should be conducted at regular intervals throughout the lifetime of your deployment. For further guidance on minimizing Azure Container Instances operational costs, refer to the [cost optimization section][azure-well-architected-framework-performance] of the [Azure Well-Architected Framework][azure-well-architected-framework].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learn more about Azure Container Registry][azure-container-registry]
 - [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
 - [Learn more about Azure Policy][azure-policy]
 - [Learn more about Azure Monitor][azure-monitor]
+
+## Related resources
+
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](/azure/architecture/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
 
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx
@@ -129,7 +154,7 @@ In this reference, Azure Container Instances container groups are utilized as *v
 [azure-key-vault-arm-templates]: /azure/key-vault/secrets/quick-create-template
 [azure-kubernetes-service]: /azure/aks/
 [azure-kubernetes-service-arm-templates]: /azure/aks/kubernetes-walkthrough-rm-template
-[azure-kubernetes-service-baseline]: ../reference-architectures/containers/aks/secure-baseline-aks.yml
+[azure-kubernetes-service-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [azure-kubernetes-service-gitops]: /azure/aks/kubernetes-action
 [azure-kubernetes-service-uptime-sla]: /azure/aks/uptime-sla
 [azure-kubernetes-service-virtual-nodes]: /azure/aks/virtual-nodes-portal

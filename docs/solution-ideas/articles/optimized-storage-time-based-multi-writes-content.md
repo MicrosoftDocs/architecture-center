@@ -69,21 +69,21 @@ The architecture may be appropriate for any application that uses massive amount
 
 Principal author:
 
- * [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+- [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
 
 ## Next steps
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
-- [Design a geographically distributed application](/learn/modules/design-a-geographically-distributed-application)
-- [Distribute your data globally with Azure Cosmos DB](/learn/modules/distribute-data-globally-with-cosmos-db)
-- [Choose the appropriate API for Azure Cosmos DB](/learn/modules/choose-api-for-cosmos-db)
-- [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/learn/modules/store-access-data-cosmos-table-api)
-- [Work with NoSQL data in Azure Cosmos DB](/learn/paths/work-with-nosql-data-in-azure-cosmos-db)
+- [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
+- [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
+- [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
+- [Store and access NoSQL data with Azure Cosmos DB for Table](/training/modules/store-access-data-cosmos-table-api)
+- [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
 - [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
 - [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)
 - [Migrate hundreds of terabytes of data into Azure Cosmos DB](/azure/cosmos-db/migrate-cosmosdb-data)
-- [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory)
-- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/learn/modules/orchestrate-data-movement-transformation-azure-data-factory)
+- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
+- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
 - [Guidelines for table design](/azure/storage/tables/table-storage-design-guidelines)
 
 ## Related resources

@@ -53,7 +53,7 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
-- [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
+- [Training of Python scikit-learn and deep learning models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
 
 - [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
@@ -147,7 +147,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
-- [Introduction to machine learning with Python and Azure Notebooks](/learn/paths/intro-to-ml-with-python/)
+- [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
 
 - [scikit-learn.](https://scikit-learn.org/stable/) An open-source ML library for Python
 
@@ -243,7 +243,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 #### Machine learning reference architectures for Azure
 
-- [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
+- [Training of Python scikit-learn and deep learning models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
 
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 

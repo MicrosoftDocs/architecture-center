@@ -8,7 +8,7 @@ The need for the blockchain technology started with organizations trying to unde
 - How was a product built?
 - What were the processes followed to build a product?
 
-Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
+Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
 
 ## Potential use cases
 
@@ -59,7 +59,7 @@ Input that is destined to be persisted in the underlying ledger for the solution
 
 - **Output/Analytics**
 
-As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
+As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
 
 #### Dataflow in action
 
@@ -91,7 +91,7 @@ The ledger system of the QBS helps organizations get the history of low-level co
   - Publish a managed application to the Azure market place to be available for all the customers.
   - Publish a managed application to an internal catalog to be available to only your company's users.
 
-- Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server.
+- Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. In this scenario Azure Cosmos DB is a data store used to house the output of events raised on the blockchain such as state changes that are used by an analytics solution or simple reporting.
 
@@ -121,7 +121,7 @@ Other contributor:
 - [Use Geth to attach to Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Geth/)
 - [Using Truffle - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Truffle/)
 - [Migrate - Quorum Blockchain Service](https://consensys.net/docs/qbs/latest/Get-Started/)
-- [Introduction to blockchain on Azure](/learn/modules/intro-to-blockchain/)
+- [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
 

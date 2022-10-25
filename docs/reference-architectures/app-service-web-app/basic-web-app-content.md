@@ -1,4 +1,4 @@
-This reference architecture shows best practices for creating a web application for a single environment. The architecture provides a framework for any basic web application that you can customize to your needs.
+This architecture shows the fundamental components of a basic web application. You can use the architecture to build a web application and then customize the application to your needs.
 
 ## Architecture
 
@@ -34,9 +34,9 @@ The App Service plan has different pricing tiers. Each pricing tier supports sev
 
 The ARM template below deploys to the Standard pricing tier.
 
-### SQL database
+### SQL Database
 
-- Use Azure SQL Server to reduced management overhead. Azure SQL server creates logical construct that acts as a central administrative point for a collection of databases. This logical construct reduces management overhead. Each database within the group is deployed with a specific [service tier](/azure/sql-database/sql-database-service-tiers). Within each group, the databases can't share resources. There are no compute costs for the server, but you need to specify the tier for each database. Therefore, the performance might be better because of the dedicated resources, but the cost can be higher.
+- Use Azure SQL Database to reduced management overhead. Azure SQL Database creates a logical construct that acts as a central administrative point for a collection of databases. This logical construct reduces management overhead. Each database within the group is deployed with a specific [service tier](/azure/sql-database/sql-database-service-tiers). Within each group, the databases can't share resources. There are no compute costs for the server, but you need to specify the tier for each database. Therefore, the performance might be better because of the dedicated resources, but the cost can be higher.
 - Perform capacity planning and choose a tier and performance level that meets your requirements. SQL Database supports Basic, Standard, and Premium [service tiers](/azure/sql-database/sql-database-service-tiers), with multiple performance levels within each tier measured in [Database Transaction Units (DTUs)](/azure/sql-database/sql-database-service-tiers).
 
 ### Region
@@ -248,15 +248,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage Azure Monitor](/learn/modules/azure-monitor)
-- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
-- [Configure Azure Monitor](/learn/modules/configure-azure-monitor)
-- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
-- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service)
-- [Host a web application with Azure App Service](/learn/modules/host-a-web-app-with-azure-app-service)
-- [Host your domain on Azure DNS](/learn/modules/host-domain-azure-dns)
-- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
-- [Manage users and groups in Azure Active Directory](/learn/modules/manage-users-and-groups-in-aad)
+- [Configure and manage Azure Monitor](/training/modules/azure-monitor)
+- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Azure Monitor](/training/modules/configure-azure-monitor)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/training/modules/azure-sql-deploy-configure)
+- [Explore Azure App Service](/training/modules/introduction-to-azure-app-service)
+- [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service)
+- [Host your domain on Azure DNS](/training/modules/host-domain-azure-dns)
+- [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
+- [Manage users and groups in Azure Active Directory](/training/modules/manage-users-and-groups-in-aad)
 
 ## Related resources
 

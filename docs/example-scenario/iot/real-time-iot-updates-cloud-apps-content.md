@@ -2,9 +2,11 @@ This guide outlines a way for clients like web pages or mobile apps to receive u
 
 ## Architecture
 
-:::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
-   The diagram contains several boxes. A box in the lower right corner indicates that gray arrows represent data flow, and blue arrows, control flow. On the left, two boxes have the label Devices. A gray arrow points from the upper Device box to a box for Azure I O T Hub. Another gray arrow points from the other Device box to a box for Azure I O T Edge. A label above the Azure I O T Edge box reads Field gateway. A third gray arrow points from Azure I O T Edge to the Azure I O T Hub box. A fourth gray arrow points from Azure I O T Hub to a box for Azure Functions. A fifth gray arrow points from the Functions box to an Azure SignalR Service box. On the right is a large box that contains icons and labels for web and mobile apps. Above the large box is a label that reads Presentation and interaction. A gray arrow points from Azure SignalR Service to the large box. A bidirectional blue arrow connects the large box with the Azure SignalR Service box. Another bidirectional blue arrow connects the large box with the Functions box. Numbers in the diagram correspond with numbered steps in the document.
+:::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" lightbox="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time IoT data." border="false":::
+   The diagram contains several boxes. A box in the lower right corner indicates that gray arrows represent data flow, and blue arrows, control flow. On the left, two boxes have the label Devices. A gray arrow points from the upper Device box to a box for Azure IoT Hub. Another gray arrow points from the other Device box to a box for Azure IoT Edge. A label above the Azure IoT Edge box reads Field gateway. A third gray arrow points from Azure IoT Edge to the Azure IoT Hub box. A fourth gray arrow points from Azure IoT Hub to a box for Azure Functions. A fifth gray arrow points from the Functions box to an Azure SignalR Service box. On the right is a large box that contains icons and labels for web and mobile apps. Above the large box is a label that reads Presentation and interaction. A gray arrow points from Azure SignalR Service to the large box. A bidirectional blue arrow connects the large box with the Azure SignalR Service box. Another bidirectional blue arrow connects the large box with the Functions box. Numbers in the diagram correspond with numbered steps in the document.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-iot-updates-cloud-apps.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -57,7 +59,7 @@ Consider these points when you use this pattern:
 
 - Azure SignalR Service defines seven tiers that accommodate a range of performance capacities. Determine your scenario's inbound and outbound capacity by understanding the factors that affect these values. Then select the tier that best meets your requirements. For more information, see [Performance guide for Azure SignalR Service](/azure/azure-signalr/signalr-concept-performance).
 
-- Don't use this solution when you need to guarantee message delivery. Due to the variable nature of clients, Azure SignalR Service doesn't always provide business-critical reliability.
+- Azure SignalR builds upon the SignalR protocol and follows the publish-subscribe pattern, when broadcasting messages to the clients. Consider having your own message acknowledgement (ACK) mechanism, when you need to guarantee message delivery when publishing messages to multiple clients.
 
 - When you're displaying real-time data in Power BI visuals, consider [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming) as an alternative to this solution.
 

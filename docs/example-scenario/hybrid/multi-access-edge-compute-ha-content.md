@@ -2,10 +2,6 @@ Azure public multi-access edge compute (MEC) is a great platform for hosting app
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-## Potential use cases
-
-Use this architecture when you want to deploy workloads in active/standby mode to achieve high availability and disaster recovery. This scenario is ideal for the telecommunications industry.
-
 ## Architecture
 
 ![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-dr-architecture.png)
@@ -47,7 +43,15 @@ This approach costs less than the one described previously because there are no 
  > [!NOTE]
  > Azure backup and disaster recovery for Azure public MEC currently supports only virtual machines.
 
+## Scenario details
+
+### Potential use cases
+
+Use this architecture when you want to deploy workloads in active/standby mode to achieve high availability and disaster recovery. This scenario is ideal for the telecommunications industry.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Performance
 
@@ -73,6 +77,8 @@ For a globally distributed application that has workloads distributed across mul
 After the workloads in Azure public MEC are back up, Traffic Manager probes detect that it can take requests and automatically reroute traffic back to Azure public MEC.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Azure public MEC is primarily used for low latency and real-time computation scenarios. Data is processed by the compute instances that run in Azure public MEC. This architecture uses active/standby with a hot standby. That is, workloads in the secondary region aren't used unless there's a failover.
 

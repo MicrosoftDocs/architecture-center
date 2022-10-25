@@ -1,9 +1,9 @@
 ---
 title: SaaS digital business journey on Azure
 description: "Build your Software as a Service (Saas). There are links that help you: get started with Azure; build, deploy, and publish your app; and build audience."
-author: mekenthompson
-ms.author: kethomps
-ms.date: 01/17/2022
+author: nickward13 
+ms.author: nickward
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,8 +24,9 @@ Follow this guidance to get the basics right when you build your software as a s
 ## Evaluate Azure
 
 Get informed and make the right platform and partnership decisions for your SaaS business.
-
-- Evaluate these [Azure service architecture options](../../browse/index.yml) to find the right real-world Azure architecture for your service.
+- If you are a startup, join [Microsoft Founders Hub](https://www.microsoft.com/startups) to get free access to the Microsoft cloud, to build your product (via Azure, GitHub, or Visual Studio), and to run your business (via Microsoft 365 or Dynamics 365).
+- Consider the [core startup stack architecture](/azure/architecture/example-scenario/startups/core-startup-stack) as a basis for your product.
+  - If the core startup stack architecture is not relevant, evaluate these [Azure service architecture options](../../browse/index.yml) to find the right real-world Azure architecture for your service.
 - Evaluate complementary [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) services to enhance your app.
 - Evaluate the [enablement options](https://aka.ms/partnerskillshub) that are available for Microsoft partners.
 - Find which [migration options](https://azure.microsoft.com/free/azure-migrate) meet your needs.
@@ -74,12 +75,26 @@ Accelerate your marketing strategy and innovate your product to drive competitiv
 - Schedule an annual [cost optimization and well architected framework review](/assessments/?mode=pre-assessment&session=local).
 - Stay up to date with the latest expert guidance from the [Microsoft SaaS Academy](https://www.microsoft.com/en-us/saas-academy/main).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Ken Thompson](https://www.linkedin.com/in/mekenthompson) | Senior Manager of SaaS Architecture
+
+Other contributor:
+
+- [Nick Ward](https://www.linkedin.com/in/nickward13) | Chief Architect of SaaS
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources)
 - [Multi-tenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns)
 - [Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database](/azure/azure-sql/database/saas-dbpertenant-wingtip-app-overview)
-- [Microsoft Learn for Azure](/learn/azure)
+- [Microsoft Learn for Azure](/training/azure)
 
 ## Related resources
 

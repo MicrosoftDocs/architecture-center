@@ -90,7 +90,7 @@ The following Azure services can be used to implement the gateway routing patter
 - An [Application Gateway instance](/azure/application-gateway/tutorial-multiple-sites-cli), which provides regional layer-7 routing.
 - An [Azure Front Door instance](/azure/frontdoor), which provides global layer-7 routing.
 
-## Related guidance
+## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)

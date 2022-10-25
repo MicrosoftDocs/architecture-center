@@ -1,22 +1,4 @@
-
-Murex is a leading global software provider of trading, risk management, processing operations, and post-trade solutions for capital markets. Many banks deploy Murex's third generation platform MX.3 to manage risk, accelerate transformation, and simplify compliance, all while driving revenue growth. The Murex platform enables customers to gain greater control of their operations, improve efficiency, and reduce operational cost.
-
-MX.3 is a client/server application based on a three-tier architecture structure. Banks use MX.3 for their business requirements, like sales and trading, enterprise risk management, and collateral and investment.
-
-Microsoft Azure provides Murex customers a fast and easy way to create and scale an MX.3 infrastructure. Azure enables a secure, reliable, and efficient environment for production, development, and test systems. It significantly reduces the infrastructure cost that's needed to operate the MX.3 environment.
-
 The objective of this article is to provide technical details to implement Murex workloads in Azure.
-
-For detailed information about the various tiers and layers of the Murex MX.3 application, compute, and storage requirements, contact the Murex technical team.
-
-*Linux is a trademark of its respective company. No endorsement is implied by the use of this mark.*
-
-## Potential use cases
-
-This solution is ideal for use in the finance industry. The following are some potential use cases.
-
-- Gain better control of operations, improve efficiency, and reduce infrastructure cost.
-- Create a secure, reliable, and efficient environment for production and development.
 
 ## Architecture
 
@@ -50,6 +32,25 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. Th
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy): Use Azure Policy to create, assign, and manage policy definitions in your Azure environment.
 - [Azure Backup](https://azure.microsoft.com/services/backup): Azure Backup is a cost-effective, secure, one-click backup solution that’s scalable based on your backup storage needs.
+
+## Scenario details
+
+Murex is a leading global software provider of trading, risk management, processing operations, and post-trade solutions for capital markets. Many banks deploy Murex's third generation platform MX.3 to manage risk, accelerate transformation, and simplify compliance, all while driving revenue growth. The Murex platform enables customers to gain greater control of their operations, improve efficiency, and reduce operational cost.
+
+MX.3 is a client/server application based on a three-tier architecture structure. Banks use MX.3 for their business requirements, like sales and trading, enterprise risk management, and collateral and investment.
+
+Microsoft Azure provides Murex customers a fast and easy way to create and scale an MX.3 infrastructure. Azure enables a secure, reliable, and efficient environment for production, development, and test systems. It significantly reduces the infrastructure cost that's needed to operate the MX.3 environment.
+
+For detailed information about the various tiers and layers of the Murex MX.3 application, compute, and storage requirements, contact the Murex technical team.
+
+*Linux is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+
+### Potential use cases
+
+This solution is ideal for use in the finance industry. The following are some potential use cases.
+
+- Gain better control of operations, improve efficiency, and reduce infrastructure cost.
+- Create a secure, reliable, and efficient environment for production and development.
 
 ## Considerations
 
@@ -167,7 +168,7 @@ Each component in the landing zone is discussed below.
 Principal authors:
 
 - [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist
-- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Senior Cloud Solutions Architect
+- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Principal Cloud Solution Architect
 
 Other contributors:
 
@@ -176,8 +177,8 @@ Other contributors:
 
 ## Next steps
 
-- [Centralize your core services by using hub and spoke Azure virtual network architecture](/learn/modules/hub-and-spoke-network-architecture)
-- [Get started with Finance and Operations apps](/learn/paths/get-started-finance-operations)
+- [Centralize your core services by using hub and spoke Azure virtual network architecture](/training/modules/hub-and-spoke-network-architecture)
+- [Get started with Finance and Operations apps](/training/paths/get-started-finance-operations)
 - [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
 - [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture)
 - [Recommended Practices for Success with Oracle on Azure IaaS](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)

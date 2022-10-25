@@ -15,7 +15,9 @@ This architecture is useful for organizations who require:
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a PaaS application.](../media/dev-test-paas.png)
+:::image type="content" border="false" source="../media/dev-test-paas.png" alt-text="Diagram showing the configuration of DevTest and DevOps for a PaaS application." lightbox="../media/dev-test-paas.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-paas.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -94,10 +96,13 @@ Tools like [Entity Framework](/ef) can provide source control for database schem
 
 ## Next steps
 
-- [DevSecOps in Azure](./devsecops-in-azure.yml)
-- [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
-- [DevTest and DevOps for microservices](dev-test-microservice.yml)
 - [Set up Azure DevOps](/azure/devops/get-started)
 - [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
 - [Create an SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
+
+## Related resources
+
+- [DevSecOps in Azure](./devsecops-in-azure.yml)
+- [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
+- [DevTest and DevOps for microservices](dev-test-microservice.yml)

@@ -42,7 +42,7 @@ This solution idea demonstrates a hybrid end-to-end monitoring solution integrat
 
 Principal author:
 
- *[Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+ * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
 
 ## Next steps
 

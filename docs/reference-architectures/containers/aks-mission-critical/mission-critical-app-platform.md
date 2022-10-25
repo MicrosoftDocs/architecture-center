@@ -140,7 +140,7 @@ You can deploy a new stamp to scale. Inside a stamp, individual resources can al
 
 Here are some scaling and availability considerations when choosing Azure services in a unit:
 
-- **Evaluate capacity relations** between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and Cosmos DB RUs given those ranges.
+- **Evaluate capacity relations** between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Azure Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and Azure Cosmos DB RUs given those ranges.
 
 - **Load test the services** to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
 

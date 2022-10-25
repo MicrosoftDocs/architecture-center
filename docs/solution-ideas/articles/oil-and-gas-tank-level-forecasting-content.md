@@ -2,21 +2,6 @@
 
 Today, most facilities operate reactively to problems in tank levels. This reactivity often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs, and fines. Tank level forecasting helps manage and abate these and other problems.
 
-The tank level forecasting process starts at the well input. Oil is measured as it comes into the facility via meters and is sent to tanks. Levels are monitored and recorded in tanks during the refining process. Oil, gas, and water output are recorded via sensors, meters, and records. Forecasts are then made using data from the facility; for example, forecasts can be made every 15 minutes.
-
-Azure Cognitive Services is adaptable and can be customized to meet different requirements that facilities and corporations have.
-
-## Potential use cases
-
-Forecasts are created by harnessing the power of real-time and historical data readily available from sensors, meters, and records, which help with the following scenarios:
-
-* Prevent tank spillage and emergency shutdowns
-* Discover hardware malfunction or failure
-* Schedule maintenance, shutdowns, and logistics
-* Optimize operations and facility efficiency
-* Detect pipeline leaks and slugging
-* Reduce costs, fines, and downtime
-
 ## Architecture
 
 ![Architecture diagram shows data into Azure Event Hubs / Azure Synapse. Azure Stream Analytics analyzes data while Power B I monitors oil tank level.](../media/oil-and-gas-tank-level-forecasting.png)
@@ -39,6 +24,23 @@ Forecasts are created by harnessing the power of real-time and historical data r
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 * [Power BI](https://powerbi.microsoft.com)
+
+## Scenario details
+
+The tank level forecasting process starts at the well input. Oil is measured as it comes into the facility via meters and is sent to tanks. Levels are monitored and recorded in tanks during the refining process. Oil, gas, and water output are recorded via sensors, meters, and records. Forecasts are then made using data from the facility; for example, forecasts can be made every 15 minutes.
+
+Azure Cognitive Services is adaptable and can be customized to meet different requirements that facilities and corporations have.
+
+### Potential use cases
+
+Forecasts are created by harnessing the power of real-time and historical data readily available from sensors, meters, and records, which help with the following scenarios:
+
+* Prevent tank spillage and emergency shutdowns
+* Discover hardware malfunction or failure
+* Schedule maintenance, shutdowns, and logistics
+* Optimize operations and facility efficiency
+* Detect pipeline leaks and slugging
+* Reduce costs, fines, and downtime
 
 ## Deploy this scenario
 
@@ -64,8 +66,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Train a machine learning model with Azure Machine Learning](/learn/modules/train-local-model-with-azure-mls)
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
+- [Train a machine learning model with Azure Machine Learning](/training/modules/train-local-model-with-azure-mls)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
 
 ## Related resources
 

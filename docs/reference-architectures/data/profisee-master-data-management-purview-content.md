@@ -268,4 +268,4 @@ Running costs consist of a software license and Azure consumption. For more info
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
 - [Automated enterprise BI](enterprise-bi-adf.yml)
 - [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
-- [Enterprise business intelligence](enterprise-bi-synapse.yml)
+- [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

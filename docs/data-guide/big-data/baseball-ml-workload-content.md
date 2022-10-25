@@ -66,6 +66,8 @@ This solution is ideal for the sports and finance industries. Consider this scen
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 This solution uses the prediction engine functionality in ML.NET to scale the model response times. Object pooling allows the ML.NET models to be accessed by multiple requests in a thread-safe manner. Learn more about ML.NET object pooling in [Deploy a model in an ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net).

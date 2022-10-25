@@ -22,7 +22,7 @@ This article describes a warehouse management scenario that monitors environment
 
 1. Temporal and spatial data required by ML models is obtained from the external data sources.
 
-1. Key data is stored in Azure data solutions. Blob storage is used for ML training data. Cosmos DB is used for scored data and key performance indexes.
+1. Key data is stored in Azure data solutions. Blob storage is used for ML training data. Azure Cosmos DB is used for scored data and key performance indexes.
 
 1. Telemetry data is ingested from IoT Central via Event Hub to ensure decoupling of the data ingestion and consumption. Azure Functions is used to combine external data sources and telemetry data, and then analyze this data set for any anomalies. The data is surfaced through Digital Twins.
 
@@ -40,7 +40,7 @@ This article describes a warehouse management scenario that monitors environment
 
 - [Azure storage](https://azure.microsoft.com/services/storage) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is used to store application key performance indicators (KPIs) and model outputs. Azure Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It's used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
@@ -91,6 +91,8 @@ The table below provides a summary of common use cases and corresponding IoT sol
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Connectivity
 
 The solution's on-site devices and sensors need to send data to applications in the cloud, but reliable internet access may not be available for some locations, such as in rural areas.
@@ -107,7 +109,7 @@ In a remote setting, it's critical that devices are easy to deploy without requi
 
 Principal author:
 
- * [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader
+- [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader
 
 ## Next steps
 
@@ -127,4 +129,4 @@ Principal author:
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml) is an example scenario for building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.
 - [IoT monitor and manage loops](../../example-scenario/iot/monitor-manage-loop.yml) is a design pattern describing a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
 - [IoT analyze and optimize loops](../../example-scenario/iot/analyze-optimize-loop.yml) is a design pattern enabling the generation and application of business optimization insights to physical systems controlled by software by sourcing telemetry, refining it, and combining it with enterprise data sources to generate insights.
-- [IoT using Cosmos DB](./iot-using-cosmos-db.yml) describes an example architecture for using Cosmos DB to ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.
+- [IoT using Azure Cosmos DB](./iot-using-cosmos-db.yml) describes an example architecture for using Azure Cosmos DB to ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.

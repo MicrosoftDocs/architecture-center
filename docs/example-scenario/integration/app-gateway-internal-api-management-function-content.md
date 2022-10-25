@@ -116,8 +116,8 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 
 * This same architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
 * [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
-* [Intro to API Management](/learn/modules/introduction-to-azure-api-management/)
-* [Manage APIs with APIM](/learn/modules/publish-manage-apis-with-azure-api-management/)
+* [Intro to API Management](/training/modules/introduction-to-azure-api-management/)
+* [Manage APIs with APIM](/training/modules/publish-manage-apis-with-azure-api-management/)
 * [API Management Resources for getting started](https://azure.microsoft.com/services/api-management#documentation)
 
 See these key resources:

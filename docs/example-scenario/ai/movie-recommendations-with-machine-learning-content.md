@@ -55,14 +55,20 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 - Resources for apps that are based on machine learning are typically split into resources for training and resources for serving. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 - For training, DSVMs are available in [multiple regions][regions] around the globe. They meet the [service level agreement][sla] (SLA) for virtual machines. For serving, AKS provides a [highly available][ha] infrastructure. Agent nodes also follow the [SLA][sla-aks] for virtual machines.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - This scenario can use Azure Active Directory (Azure AD) to authenticate users for [access to the DSVM][dsvm-id], which contains your code, models, and (in-memory) data. Data is stored in Azure Storage prior to being loaded on a DSVM, where it is automatically encrypted using [Storage Service Encryption][storage-security]. Permissions can be managed via Azure AD authentication or role-based access control.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - If you have a large data set, you can scale your DSVM to shorten training time. You can scale a VM up or down by changing the [VM size][vm-size]. Choose a memory size large enough to fit your dataset in-memory and increase the vCPU count in order to decrease the amount of time that training takes.
 
@@ -100,7 +106,7 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 
 - [Build a real-time recommendation API on Azure][ref-arch] - An in-depth guide to building and scaling a recommender service.
 - [Product recommendations for retail using Azure][ref-sol-idea] - An example of developing predictive insights on customer behavior.
-- [Build a content-based recommendation system](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)
+- [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)
@@ -130,7 +136,7 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [map]: https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval)
 [mls]: /azure/machine-learning/service
 [mls-service]: https://azure.microsoft.com/services/machine-learning
-[ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine
+[ms-learn]: /training/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml

@@ -55,17 +55,17 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
-* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions)
-* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
+* [How to build a basic chatbot](/training/modules/how-build-basic-chatbot)
+* [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
+* [Create conversational AI solutions](/training/paths/create-conversational-ai-solutions)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/training/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 
 Azure Architecture Center overview articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+* [Choosing an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
 
 Azure Architecture Center articles describing chatbot architectures:
 

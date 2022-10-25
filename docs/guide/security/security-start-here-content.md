@@ -23,13 +23,13 @@ For a more comprehensive description of Azure security tools and capabilities, s
 
 ## Introduction to security on Azure
 
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 
-- [Microsoft Azure Fundamentals: Describe general security and network security features](/learn/paths/az-900-describe-general-security-network-security-features)
+- [Microsoft Azure Fundamentals: Describe general security and network security features](/training/paths/az-900-describe-general-security-network-security-features)
 
-- [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft security solutions](/learn/paths/describe-capabilities-of-microsoft-security-solutions)
+- [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft security solutions](/training/paths/describe-capabilities-of-microsoft-security-solutions)
 
 ## Path to production
 

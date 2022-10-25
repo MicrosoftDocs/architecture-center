@@ -23,31 +23,33 @@ The following high-level diagram covers Azure VMware Solution and a landing zone
 
 Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guidance on setting up Azure platform components (such as identity, network connectivity, management, and so on), along with application and workload components, such as Azure VMware Solution. A well-defined corelation between Azure platform components and Azure VMware Solution makes it easy to manage and scale Azure VMware Solution workloads. Key constituents of ESLZ for Azure VMware Solution deployment are discussed below.
 
-### Enterprise enrollment (A)
+### Workflow
+
+#### Enterprise enrollment (A)
 
 [Enterprise Enrollment](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants) facilitates Azure VMware Solution subscriptions to be part of a hierarchical structure. This organization allows them to be reflective of an organization hierarchy (such as geographic, divisional, functional, and so on). Customers and partners can set up a cost budget and associated alerts at the account level, which holds the Azure VMware Solution subscriptions. Account owners can also set Azure VMware Solution subscription owners.
 
-### Identity and access management (B)
+#### Identity and access management (B)
 
-Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (AAD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
+Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (Azure AD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
 
-### Management group and subscription management (C)
+#### Management group and subscription management (C)
 
 Azure VMware Solution resources can be deployed in an Azure subscription. This subscription can be part of [Management group and subscription Management](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization). In ESLZ, [Azure Policy](https://github.com/Azure/azure-policy) is used to define and apply operational governance requirements over management groups. By putting Azure VMware Solution subscriptions under a management group, they can be subjected to any operational governance requirements, via Azure Policy. An example of such policy requirement enforcement could be to prevent deploying VPN connectivity during Azure VMware Solution migration. Customers and partners can also circumvent limits that are associated with Azure VMware Solution subscriptions by spanning Azure VMware Solution workloads across multiple subscriptions.
 
-### Management subscription (D)
+#### Management subscription (D)
 
 [Management subscription](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring) is part of the platform management group. Management and monitoring subscriptions can enable consolidating shared management and monitoring services. Azure VMware Solution workloads can use shared services, such as Log Analytics Workspace, to send their diagnostic data, which can be correlated with logs from other Azure services, such as Azure Application Gateway. By centralizing and consolidating diagnostics data across multiple Azure services, debugging and logs corelation becomes easy. Azure VMware Solution workloads can also use shared Azure Automation Update Management for variety of purposes such as Patch Management, Change Tracking, Configuration Management, and so on.
 
-### Connectivity subscription (E)
+#### Connectivity subscription (E)
 
 Platform Management Group also includes a [connectivity subscription](/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity), which centralizes all the networking requirements across Azure workloads, including Azure VMware Solution. Workloads running on Azure VMware Solution can use shared services, such as ExpressRoute, Azure Virtual WAN, Application Gateway, and so on. By reusing these services (as opposed to creating new services just for Azure VMware Solution), customers can achieve cost efficiency. Any network resources under a connectivity subscription are exposed to limited roles, such as NetOps (Network Operations) for holistic network management. By controlling access to network resources, debugging and troubleshooting networking issues becomes manageable and accountable.
 
-### Azure VMware Solution subscription (F)
+#### Azure VMware Solution subscription (F)
 
 Azure VMware Solution subscriptions are part of Landing Zone Management Group, which makes it possible to reap benefits that are associated with Azure Policies applied at that Management Group. These benefits can include restricting Azure VMware Solution deployment to specific Azure regions only, ensuring budgets are enabled before deployment, and so on. Multiple Azure VMware Solution subscriptions act as a measure for managing and scaling Azure VMware Solution workloads, without being affected by [Azure subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-### Azure VMware Solution sandbox pilot subscription (G)
+#### Azure VMware Solution sandbox pilot subscription (G)
 
 Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation-guidelines#sandbox-governance-guidance), which provides a playground for experimenting with Azure services. At the same time, a sandbox subscription provides protection against impacting production workloads. An Azure VMware Solution sandbox subscription would have less restrictive policies, which allows you to have greater control over the service. By creating a separate Azure VMware Solution sandbox subscription, it is functionally marked to prevent the possibility of the subscription being used for production deployment.
 

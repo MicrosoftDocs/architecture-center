@@ -105,7 +105,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more. The Gremlin API is used to store graphical data in Azure Cosmos DB.|Web|
+|[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more. Azure Cosmos DB for Apache Gremlin is used to store graphical data in Azure Cosmos DB.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use technologies like Kafka, Kubernetes, Gremlin, PostgreSQL, and Redis components.|Analytics|
 
 ## Infinite i
@@ -131,7 +131,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, highly secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations. In this architecture, Azure Cosmos DB stores data by using the open-source Azure Cosmos DB API for MongoDB. |Containers|
+|[Advanced AKS microservices architecture](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)|Learn about a scalable, highly secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations. In this architecture, Azure Cosmos DB stores data by using the open-source Azure Cosmos DB for MongoDB. |Containers|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run MongoDB database workloads.|Containers|
 |[Core startup stack architecture](../example-scenario/startups/core-startup-stack.yml)|Review the components of a simple core startup stack architecture. MongoDB is recommended for uses cases that require a NoSQL database.|Startup|
 |[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and IoT Edge, Stream Analytics, and Azure Machine Learning. MongoDB is used to store cloud data for Power BI analytics and visualizations.|IoT|
@@ -158,7 +158,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high-availability, small-scale production environment of SAP BW/4HANA on Azure. Azure NetApp Files is used by a high-availability cluster for shared file storage. |SAP|
 |[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability scale-up environment that supports disaster recovery.|SAP|
-|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. Includes recommendations for using Azure NetApp Files.|Compute|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 
@@ -177,7 +177,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Overview of Oracle Database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle Database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Oracle|
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the automated COBOL refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs. Use Oracle databases on VMs for persistent data.|Mainframe|
 |[Run Oracle databases on Azure](../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)|Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition on Azure.|Oracle|
-|[Run SAP NetWeaver in Windows on Azure](../reference-architectures/sap/sap-netweaver.yml)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
+|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps. A common replication scenario for IaaS architectures uses Oracle Active Data Guard. |Security|
 |[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
@@ -223,12 +223,12 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability small-scale production environment of SAP BW/4HANA on Azure.|SAP|
 |[Run SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability scale-up environment that supports disaster recovery.|SAP|
 |[Run SAP HANA Large Instances](../reference-architectures/sap/hana-large-instances.yml)|Learn proven practices for running SAP HANA in a high availability environment on Azure Large Instances.|SAP|
-|[Run SAP NetWeaver in Windows on Azure](../reference-architectures/sap/sap-netweaver.yml)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
+|[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml)|Review a set of guiding tenets to help ensure the quality of SAP workloads that run on Azure.|SAP|
 |[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml)|Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
 |[SAP S/4HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
-|[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
+|[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
 
 ## SAS

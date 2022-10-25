@@ -218,7 +218,7 @@ For high availability of Central Services on Azure Linux VMs, use the appropriat
 
 NFS over Azure Files now supports the highly available file shares for both [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) and [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files). This solution works well for highly available file shares like those of `/sapmnt`, `/saptrans` in SAP installations.  
 
-Azure NetApp Files supports high availability of [ASCS on SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files). For detailed information about ASCS on RHEL high availability, see [SIOS Protection Suite for Linux](https://us.sios.com/products/sios-protection-suite-linux).
+Azure NetApp Files supports high availability of [ASCS on SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files). For detailed information about ASCS on RHEL high availability, see [SIOS Protection Suite for Linux](https://us.sios.com/blog/how-to-install-a-sios-protection-suite-for-linux-license-key/).
 
 The improved Azure Fence Agent is available for both
 [SUSE](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Red Hat](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) and provides significantly faster service failover than the previous version of the agent.
@@ -254,7 +254,7 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 - Availability of the same Azure services (VM types) in the chosen zones
 
 > [!NOTE]
-> Availability zones support high availability but are not an effective DR strategy. The distance between zones is too close. Typically, a DR site should be at least 100 miles away from the primary site.
+> We don't recommend availability zones for disaster recovery. A disaster recovery site should be at least 100 miles from the primary site, in case of a natural disaster. There is no certainty of the distance between the datacenters.
 
 **Active/passive deployment example**
 

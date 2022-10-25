@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Cache for Redis perfectly complements Azure database services such as Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
+Azure Cache for Redis perfectly complements Azure database services such as Azure Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
 
 ## Potential use cases
 
@@ -36,7 +36,7 @@ Key technologies used to implement this architecture:
 
 Principal author:
 
- * [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
+* [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
 
 ## Next steps
 
@@ -49,7 +49,6 @@ Principal author:
 
 * [Cache-Aside Pattern](../../patterns/cache-aside.yml)
 * [Caching Best Practice](../../best-practices/caching.yml)
-* [Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)
 * [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
 * [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)
 * [Messaging](/azure/architecture/solution-ideas/articles/messaging)

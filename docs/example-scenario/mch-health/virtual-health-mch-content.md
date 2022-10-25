@@ -1,14 +1,4 @@
-In the current COVID-19 (coronavirus) pandemic, a large number of patients might prefer to visit their medical providers virtually rather than in person, whenever possible. Improving clinical and operational insights in healthcare becomes important in such a virtual world. This includes connecting data from across systems, creating insights to predict risk and help improve patient care, quality assurance, and operational efficiencies.
-
-This article discusses a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers. The foundation for this solution is the [Microsoft Cloud for Healthcare](/industry/healthcare/overview). Microsoft Cloud for Healthcare brings together trusted capabilities from Microsoft 365, Azure, Dynamics 365, Power Platform, and Microsoft's extensive partner ecosystem to help healthcare organizations create fast, efficient, and secure healthcare solutions.
-
-## Potential use cases
-
-This solution is targeted to provide virtual patient care in the current pandemic. However, health care providers can easily apply it to the following scenarios:
-
-- Scheduling virtual follow-ups to in person visits.
-
-- Providing non-emergency medical guidance to patients while traveling.
+This article discusses a potential solution for scheduling and following up on virtual visits between patients, providers, and care managers.
 
 ## Architecture
 
@@ -22,7 +12,7 @@ The data flows into the system through various external medical systems, such as
 
 An established patient can log in securely to the Patient Portal, a website hosted in the Power Apps Portals. In this portal, the patient can talk to an *Intelligent Assistant*. This is an instance of the [Azure Health Bot service](/azure/health-bot/), which gathers their symptoms, provides suggestions, and recommends calling to the practitioner, if needed. If the patient chooses to connect to their medical provider, the health bot instance gets the data on providers available for virtual visits and their schedules, from the Dataverse. Once the patient selects a provider and a time, the bot presents their contact information, obtained from the *EMR/EHR* data stored in Dataverse. The patient can validate or change this information, and save the data using the bot.
 
-To schedule an appointment, the health bot instance connects to the Bookings App using the [Microsoft Graph API](/graph/overview) and books an appointment on the provider's calendar. An email with the appointment information, is sent to both the parties using Microsoft Outlook. The patient is given instructions to log in to the Patient Portal for the intake process. This process involves confirming or changing their contact, payment, and insurance information, and then signing a consent form for the virtual visit. Once they sign the consent, they are provided the Microsoft Teams link for the appointment.
+To schedule an appointment, the health bot instance connects to the Bookings App using the [Microsoft Graph API](/graph/overview) and books an appointment on the provider's calendar. An email with the appointment information is sent to both the parties using Microsoft Outlook. The patient is given instructions to log in to the Patient Portal for the intake process. This process involves confirming or changing their contact, payment, and insurance information, and then signing a consent form for the virtual visit. Once they sign the consent, they are provided the Microsoft Teams link for the appointment.
 
 The provider logs into Teams to check their appointment schedule and summary information for each. Teams presents this information using the *Appointment Queue* application. The provider is then able to start the virtual visit on Teams for the scheduled appointment. During the call, the provider can take notes and add them to the patient's records.
 
@@ -38,7 +28,7 @@ The architecture consists of the following components:
 
 - **Azure API for FHIR**. Azure is the first step in the process of bringing data into the Microsoft ecosystem and the Microsoft Cloud for Healthcare. This layer provides a secure interface between external data and internal components of this architecture. The Azure API for FHIR ingests the data coming from disparate sources such as EMR, PAS, devices, whether structured or unstructured, converts it into FHIR and persists in Azure. This data can then be used across the Microsoft Cloud for Healthcare for different services. The Azure API for FHIR is built with security and compliance in mind and designed for PHI (Protected Health Information) data. For more information on this layer, see [Azure for healthcare](https://azure.microsoft.com/industries/healthcare/) and the [Azure API for FHIR](https://azure.microsoft.com/services/health-data-services/)
 
-- **Common Data Model**. With [Common Data Model](/common-data-model/), Microsoft provides a standardized metadata definition system, that is extensible and customizable for specific business needs. CDM entities are available for subject areas such as, CRM, Healthcare, Talent, and so on. For details, read the [Common Data Model usage information](/common-data-model/use). In addition to these entities, customers can pull in proprietary data by defining that entity table and the underlying fields in the Common Data Model, which can then seamlessly be used with other entities throughout their solution.
+- **Common Data Model**. With [Common Data Model](/common-data-model/), Microsoft provides a standardized metadata definition system that is extensible and customizable for specific business needs. CDM entities are available for subject areas such as, CRM, Healthcare, Talent, and so on. For details, read the [Common Data Model usage information](/common-data-model/use). In addition to these entities, customers can pull in proprietary data by defining that entity table and the underlying fields in the Common Data Model, which can then seamlessly be used with other entities throughout their solution.
 
 - **Microsoft Dataverse**. [Dataverse](https://powerplatform.microsoft.com/dataverse), a relational database that powers Microsoft Dynamics 365, is the repository for the data represented in the Common Data Model. It holds databases for patient information, containing details about their names, family information, medical conditions, medication history, and so on. It also holds the information obtained from any wearable devices used and registered by the patients, as well as, scheduling and management data from the healthcare organization. This data is defined using the Common Data Model.
 
@@ -52,7 +42,7 @@ The architecture consists of the following components:
 
 - **Microsoft Teams**. [Microsoft Teams](https://www.microsoft.com/microsoft-teams) is a component of Microsoft Cloud for Healthcare, and provides the front end for interactions between the patients, providers, and care managers. Users can use a locally installed version or the web version. For more information on Teams, read the [Microsoft Teams documentation](/microsoftteams/).
 
-- **Appointment Queue**. This tool generates an HTML page with data pulled out of the Dataverse, using the [Dynamics 365 Web API](/dynamics365/customer-engagement/web-api/about?view=dynamics-ce-odata-9). It presents the provider with information about the appointments scheduled for the day and summary about each. It also provides a link to access the patient information through the Care Management application. The Appointment Queue was developed to support this scenario, and is not a part of Microsoft Cloud for Healthcare. The data sources for this tool, are mainly the PAS systems and EMR/EHR records. If these systems have tools integrated to present this data, those tools may be a replacement for this component in an actual deployment.
+- **Appointment Queue**. This tool generates an HTML page with data pulled out of the Dataverse, using the [Dynamics 365 Web API](/dynamics365/customer-engagement/web-api/about?view=dynamics-ce-odata-9). It presents the provider with information about the appointments scheduled for the day and summary about each. It also provides a link to access the patient information through the Care Management application. The Appointment Queue was developed to support this scenario, and is not a part of Microsoft Cloud for Healthcare. The data sources for this tool are mainly the PAS systems and EMR/EHR records. If these systems have tools integrated to present this data, those tools may be a replacement for this component in an actual deployment.
 
 - **Care Management**. The Care Management tool is a component of Microsoft Cloud for Healthcare. It is a Power Apps application deployed through Dynamics 365. It pulls in the EMR/EHR patient data stored in the Dataverse in CDM format, and presents an aggregated view in Teams. A care center's solution might choose to use their own system for their functionality, depending on how they want to present this information.
 
@@ -74,7 +64,27 @@ Azure for healthcare services such as Azure API for FHIR and Azure Health Bot, C
 
 - It's worth noting that an actual deployment will need replacement tools for some components in this solution, such as the Appointment Queue, automated notifications, and Power BI analytics tools. These components will need to be created and customized for the healthcare provider's business needs.
 
-## Security considerations
+## Scenario details
+
+In the current COVID-19 (coronavirus) pandemic, a large number of patients might prefer to visit their medical providers virtually rather than in person, whenever possible. Improving clinical and operational insights in healthcare becomes important in such a virtual world. This includes connecting data from across systems, creating insights to predict risk and help improve patient care, quality assurance, and operational efficiencies.
+
+The foundation for this solution is the [Microsoft Cloud for Healthcare](/industry/healthcare/overview). Microsoft Cloud for Healthcare brings together trusted capabilities from Microsoft 365, Azure, Dynamics 365, Power Platform, and Microsoft's extensive partner ecosystem to help healthcare organizations create fast, efficient, and secure healthcare solutions.
+
+### Potential use cases
+
+This solution is targeted to provide virtual patient care in the current pandemic. However, health care providers can easily apply it to the following scenarios:
+
+- Scheduling virtual follow-ups to in person visits.
+
+- Providing non-emergency medical guidance to patients while traveling.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Since the system is built around patient data, basic security considerations for private information should be applied when developing this solution:
 
@@ -88,7 +98,7 @@ Because of the nature of private data involved, [security](/industry/healthcare/
 
 This example also relies on the security rules set by Dynamics 365 and Teams:
 
-- [Dynamics 365 security](/learn/modules/recognize-dynamics-365-security/)
+- [Dynamics 365 security](/training/modules/recognize-dynamics-365-security/)
 - [Microsoft Teams security](/microsoftteams/security-compliance-overview)
 
 Individual services included in Microsoft Cloud for Healthcare provide their own layer of security and compliance:
@@ -100,7 +110,9 @@ For custom security controls, consider using [Azure Active Directory](/azure/act
 
 Finally, when implementing this solution, keep in mind the [best practices and guidance for developing secure Azure solutions](/azure/security/fundamentals/overview).
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 For detailed pricing information on Microsoft Cloud for Healthcare, see [How to buy Microsoft Cloud for Healthcare](/industry/healthcare/buy). The components that form the Microsoft Cloud for Healthcare, have their own licensing requirement, such as:
 
@@ -110,7 +122,7 @@ For detailed pricing information on Microsoft Cloud for Healthcare, see [How to 
 
 To recreate components in this architecture that were custom-made, consider the pricing information for the underlying services that you choose to use.
 
-## Deploy the solution
+## Deploy this scenario
 
 The solution should be deployed in stages:
 
@@ -156,7 +168,7 @@ Principal authors:
 - [What is Microsoft Dataverse?](/powerapps/maker/data-platform/data-platform-intro)
 - [What is the Azure Health Bot Service?](/azure/health-bot/overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- Learn how you can use [Microsoft Dynamics 365](/learn/dynamics365/)
+- Learn how you can use [Microsoft Dynamics 365](/training/dynamics365/)
 
 ## Related resources
 

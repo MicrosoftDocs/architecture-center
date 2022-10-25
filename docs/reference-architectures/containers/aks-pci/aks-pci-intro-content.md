@@ -27,7 +27,7 @@ It's _not_ our goal to replace your demonstration of your compliance with this s
 ### Recommended articles
 This series assumes:
 - You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
-- You've read the [AKS baseline reference architecture](../aks/secure-baseline-aks.yml).
+- You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 - You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
 - You're well versed with the official [PCI DSS 3.2.1 specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 - You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).

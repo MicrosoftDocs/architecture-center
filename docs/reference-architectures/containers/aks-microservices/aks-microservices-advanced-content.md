@@ -1,6 +1,6 @@
 This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS Baseline architecture](../aks/secure-baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
@@ -43,7 +43,7 @@ The AKS infrastructure features used in this architecture include:
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Azure AD pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
+  - [Azure AD workload identity](/azure/aks/workload-identity-overview) (preview)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
@@ -64,7 +64,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
 **[Azure Service Bus](https://azure.microsoft.com/services/service-bus/)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
@@ -274,6 +274,8 @@ For more information on options for instrumenting common languages for applicati
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 Consider the following points when planning for scalability.
@@ -301,21 +303,25 @@ Consider the following points when planning for manageability.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Consider the following points when planning for security.
 
-- An AKS pod authenticates itself by using either a *managed identity* stored in Azure AD or an Azure AD service principal along with a client secret. Using a pod identity is preferable because it doesn't require a client secret.
+- An AKS pod authenticates itself by using a *workload identity* stored in Azure AD. Using a workload identity is preferable because it doesn't require a client secret.
 
-- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) pod identity](https://github.com/Azure/aad-pod-identity).
+- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) workload identity](/azure/aks/workload-identity-overview) (preview).
 
-- Each service in the microservice application should be assigned a unique pod identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
+- Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 
-- In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a services account with appropriately scoped API access. For more information on configuring and managing Kubernetes services account, see [Managing Kubernetes Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
+- In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information on configuring and managing Kubernetes service account, see [Managing Kubernetes Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
 
-- Not all Azure services support data plane authentication using Azure AD. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
+- Not all Azure services support data plane authentication using Azure AD. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see the [secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure) project on GitHub.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 
@@ -337,7 +343,7 @@ Consider the following points when planning for security.
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.yml)
 - [Microservices architecture on AKS](./aks-microservices.yml)
 - [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.yml)

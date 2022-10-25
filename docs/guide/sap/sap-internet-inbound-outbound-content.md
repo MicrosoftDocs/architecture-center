@@ -105,9 +105,11 @@ By using dedicated subnets for SAP databases and applications, you can set NSGs 
 
 ### SAProuter
 
-You can use SAProuter to enable third parties like SAP support or your partners to access your SAP system. SAProuter runs on one VM in Azure. Route permissions for using SAProuter are stored in a flat file called *saprouttab*. The *saprouttab* entries allow connection from any TCP/IP port to a network destination behind SAProuter, typically your SAP system VMs. Remote access by SAP support relies on SAProuter. The download of SAP notes into your SAP NetWeaver system also uses SAProuter to connect to SAP. The main architecture uses the design that's described earlier, with a SAProuter VM running within the designated SAP perimeter virtual network. Through virtual network peering, SAProuter then communicates with your SAP servers that run in their own spoke virtual network and subnets.
+You can use SAProuter to enable third parties like SAP support or your partners to access your SAP system. SAProuter runs on one VM in Azure. Route permissions for using SAProuter are stored in a flat file called *saprouttab*. The *saprouttab* entries allow connection from any TCP/IP port to a network destination behind SAProuter, typically your SAP system VMs. Remote access by SAP support relies on SAProuter. The main architecture uses the design that's described earlier, with a SAProuter VM running within the designated SAP perimeter virtual network. Through virtual network peering, SAProuter then communicates with your SAP servers that run in their own spoke virtual network and subnets.
 
-SAProuter is a tunnel to SAP or to your partners. The following features help protect the communication path to the internet:
+SAProuter is a tunnel to SAP or to your partners. This architecture describes the use of SAProuter with SNC use to establish an encrypted application tunnel (network layer 7) to SAP/partners. The use of IPSEC based tunnel is not covered in this architecture presently.  
+
+The following features help protect the communication path over the internet:
 
 - Azure Firewall or a third-party NVA provides the public IP entry point into your Azure networks. Firewall rules limit communication to only authorized IP addresses. For your connection to  SAP support, [SAP note 48243 - Integrating the SAProuter software into a firewall environment](https://launchpad.support.sap.com/#/notes/48243) documents the IP addresses of SAP routers.
 - Like firewall rules, network security rules allow communication on SAProuter's port, typically 3299 with the designated destination.
@@ -246,6 +248,6 @@ Consider using these communities to get answers to questions and for help with s
 
 ## Related resources
 
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml) 

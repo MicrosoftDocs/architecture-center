@@ -1,4 +1,4 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
+Blockchain and distributed ledger technology (DLT) networks are multiparty systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
 
 The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
@@ -12,11 +12,11 @@ This approach supports:
 
 - Heterogeneous DLT deployments where separate organizations own and manage each node.
 
-- Centralized DevOps, monitoring, and compliance management across multi-party networks.
+- Centralized DevOps, monitoring, and compliance management across multiparty networks.
 
 ## Architecture
 
-This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
+This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 
@@ -73,7 +73,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ## Considerations
 
-For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml). You can find similar guidance for other cloud providers.
+For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks). You can find similar guidance for other cloud providers.
 
 ### Availability and scalability
 
@@ -113,7 +113,7 @@ Principal authors:
 
 ## Related resources
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Containers and container orchestrators for AWS professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
