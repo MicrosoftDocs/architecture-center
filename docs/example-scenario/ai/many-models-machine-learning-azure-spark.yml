@@ -21,6 +21,6 @@ products:
   - azure-synapse-analytics
 name: Many models machine learning (ML) at scale in Azure with Spark
 summary: Many machine learning (ML) problems are too complex for a single ML model to solve. Learn about many models machine learning at scale in Azure with Spark.
-thumbnailUrl: /azure/architecture/browse/thumbs/many-models-machine-learning-azure-spark_thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/many-models-machine-learning-azure-spark-thumbnail.png
 content: |
   [!include[](many-models-machine-learning-azure-spark-content.md)]
