@@ -20,7 +20,7 @@ Contoso has implemented the following foundational Azure structure, which is a s
 1. **Dev Ops Platform** - The DevOps Platform which supports the Azure foundation & Data Platform. This contains the code base source control repository and CI/CD pipelines enabling automated deployments of IaC.
 
 >[!NOTE]
->Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is Azure Site recovery. Site Recovery will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
+>Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
 Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs:
 ![data platform diagram](../media/AzureAnalyticsEndToEnd.png)
@@ -29,6 +29,7 @@ Within this foundational structure, Contoso has implemented the following elemen
 Contoso’s Data Platform - Workflow  
 
 The workflow is read left to right, following the flow of data:
+
 - **Data Sources** - The sources or types of data which the data platform can consume from  
 - **Ingest** - The Platform’s capability to ingest data from various sources of varying structure and speed. This design reflects a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
 - **Store** - The capability to securely store data at scale that has been ingested onto the platform
@@ -40,7 +41,7 @@ The workflow is read left to right, following the flow of data:
 - **Platform** - The foundation upon which the platform is built, i.e. Contoso’s Azure Foundations as described above.
 
 >[!NOTE]
->For many customers, the conceptual level of the Data Platform Reference architecture used will align, but the physical implementation may vary, i.e. ELT (extract, load, transform) capabilities may be provided by Azure Data Factory, data modelling by Azure SQL server, etc. To address this concern, the [Stateless vs Stateful](link to this section) section will provide guidance
+>For many customers, the conceptual level of the Data Platform Reference architecture used will align, but the physical implementation may vary, i.e. ELT (extract, load, transform) capabilities may be provided by Azure Data Factory, data modelling by Azure SQL server, etc. To address this concern, the Stateless vs Stateful section below will provide guidance.
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a “Redeploy on Disaster” DR strategy based upon an operating cost-minimization approach.  
 
@@ -60,19 +61,22 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Premium P1
     - DR Uplift options: ADD’s resiliency is part of its SaaS offering
     - Notes
-        - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+        - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/
+
 - **Azure Key Vault**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Recovery Services Vault**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: Default (GRS)
     - DR Uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/availability-zones/cross-region-replication-azure)
     - Notes
-        - While LRS is available, it requires configuration activities from the default setting 
+        - While LRS is available, it requires configuration activities from the default setting
+
 - **Azure DevOps**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -90,21 +94,25 @@ The following tables presents a breakdown of each Azure service and component us
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Management Groups**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Azure Monitor**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Cost Management**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Microsoft Defender for Cloud**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
@@ -112,26 +120,31 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: N/A, Covered as part of the Azure Service
     - Notes
         - Azure Security Center is now Microsoft Defender for Cloud
+
 - **Azure DNS**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: Single Zone - Public
     - DR Uplift options: N/A, DNS is highly available by design
+
 - **Network Watcher**
     - Component Recovery Responsibility: Micrososft
     - Workload/Configuration Recovery Responsibility: Micrososft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
+
 - **Virtual Networks, including Subnets, UDR & NSGs**
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: N/A
     - DR Uplift options: [VNETs can be replicated](/azure/virtual-network/virtual-network-disaster-recovery-guidance#business-continuity) into the secondary, paired region
+
 - **Azure Firewall**
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Standard
     - DR Uplift options: Azure Firewall is [highly available by design](/azure/firewall/features#built-in-high-availability) and can be created with [Availability Zones](azure/firewall/deploy-availability-zone-powershell) for increased availability
+
 - **Azure DDoS**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -149,11 +162,13 @@ The following tables presents a breakdown of each Azure service and component us
     - Notes
         - The ExpressRoute has [inbuilt redundancy](/azure/expressroute/expressroute-introduction#redundancy), which each circuit consisting of two connections to two Microsoft Enterprise edge routers (MSEEs) at an ExpressRoute Location from the connectivity provider/clients network edge
         - [ExpressRoute premium](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium) circuit will enable access to all Azure regions globally
+
 - **VPN Gateway**
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
     - DR Uplift options: A VPN Gateway can be deployed into an [Availability Zone](/en-us/azure/availability-zones/az-overview) with the VpnGw#AZ SKU’s to provide a [zone redundant service](azure/expressroute/expressroute-faqs#what-is-expressroute-premium)
+
 - **Azure Load Balancer**
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -162,7 +177,7 @@ The following tables presents a breakdown of each Azure service and component us
         - A Load Balancer can be configured for [Zone redundancy within a region with availability zones](/azure/load-balancer/load-balancer-standard-availability-zones). If this is the case, the data path will survive as long as one zone within the region remains healthy
         - Depending on the primary region, a [cross-region load balancer](/azure/load-balancer/cross-region-overview#build-cross-region-solution-on-existing-azure-load-balancer) can be deployed for a highly available, cross regional deployment
     - Notes
-        - [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer. This service supports the distribution of traffic for public-facing applications across the global Azure regions. This will provide protection from a regional outage within a high availability design 
+        - [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based traffic load balancer. This service supports the distribution of traffic for public-facing applications across the global Azure regions. This will provide protection from a regional outage within a high availability design
 
 ### Stateful Data platform-specific services
 
@@ -173,6 +188,7 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy
     - Notes
         - GRS is recommended to uplift redundancy, providing a copy of the data in the paired region
+
 - **Azure Event Hubs**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -180,6 +196,7 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: An Event Hub namespace can be created with [availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones) enabled. This resiliency can be extended to cover a full region outage with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal)
     - Notes
         - By design, Event Hubs geo-disaster recovery does not replicate data, therefore there are several [considerations to keep in mind](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#considerations) for failover and fallback
+
 - **Azure IoT Hubs**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -190,11 +207,13 @@ The following tables presents a breakdown of each Azure service and component us
     - Notes
         - IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the paired region for each IoT hub
         - IoT Hub provides [Intra-Region HA](/azure/iot-hub/iot-hub-ha-dr#intra-region-ha) and will automatically use an availability zone if created in a [predefined set of Azure regions](/azure/iot-hub/iot-hub-ha-dr#availability-zones)
+
 - **Azure Stream Analytics**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Standard
     - DR Uplift options: While Azure Stream Analytics is a fully managed PaaS offering, it does not provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure region
+
 - **Azure Machine Learning**
     - Component Recovery Responsibility: Contoso and Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -204,6 +223,7 @@ The following tables presents a breakdown of each Azure service and component us
         - Resiliency can be uplifted via a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment)
     - Notes:
         - Azure Machine Learning itself does not [provide automatic failover or disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning)
+
 - **Azure Synapse: Data Explorer Pools**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -213,6 +233,7 @@ The following tables presents a breakdown of each Azure service and component us
         - This can be further uplifted by a [deployment in a secondary region](/azure/data-explorer/business-continuity-overview#summary-of-disaster-recovery-configuration-options), under a DR configuration
     - Notes
         - Azure Data Explorer doesn't provide automatic protection against the [outage of an entire Azure region](/azure/data-explorer/business-continuity-overview#outage-of-an-azure-region)
+
 - **Power BI**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -222,7 +243,8 @@ The following tables presents a breakdown of each Azure service and component us
         - Power BI resides in the Office365 tenancy, not that of Azure
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from data center failures
         - In the case of regional failure, Power BI will [fail over to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1)
-- **Azure Cosmos DB**        
+
+- **Azure Cosmos DB**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: Single Region Write with Periodic backup
@@ -233,11 +255,13 @@ The following tables presents a breakdown of each Azure service and component us
         - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - Periodic and Continuous
         - [Regional failovers](/azure/cosmos-db/high-availability#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application
         - The following guidance described the [impact of a region outage based upon the cosmos configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
+
 - **Azure Data Share**
  - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: Azure Data Share’s resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share)
+
 - **Microsoft Purview**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -255,6 +279,7 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
         - If Self-Hosted Data Pipelines are used, they will remain the customer’s responsibility for recovery from a disaster
+
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -262,6 +287,7 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
         - As at Dec 2021 - Azure Synapse Analytics only supports disaster recovery for dedicated SQL pools and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
+
 - **Azure Synapse: Serverless and Dedicated SQL Pools**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
@@ -271,6 +297,7 @@ The following tables presents a breakdown of each Azure service and component us
         - Azure Synapse Analytics [automatically takes snapshots](azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired data center. The RPO for a geo-restore is 24 hours
         - If Self-Hosted Data Pipelines are used, they will remain the customers responsibility recovery from a disaster
+
 - **Azure Cognitive Services**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -278,6 +305,7 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: N/A, the APIs for Cognitive Services are hosted by [Microsoft-managed data centers](/azure/cognitive-services/what-are-cognitive-services#regional-availability)
     - Notes
         -  If Cognitive Services has been deployed via customer deployed [docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer
+
 - **Azure Cognitive Search**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -287,7 +315,24 @@ The following tables presents a breakdown of each Azure service and component us
         -  [Multiple services in separate regions](/azure/search/search-performance-optimization#multiple-services-in-separate-geographic-regions) can extend this further
     - Notes
         - In Cognitive Search business continuity (and disaster recovery) is achieved through multiple search services.
-        - There is [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required in the event of a catastrophic failure, the recommendation is to have a second service in a different region and implementing a geo-replication strategy to ensure indexes are fully redundant across all services 
+        - There is [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required in the event of a catastrophic failure, the recommendation is to have a second service in a different region and implementing a geo-replication strategy to ensure indexes are fully redundant across all services
+
+## Stateful vs Stateless Components
+The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we have used for this worked example will quickly evolve. In an effort to future-proof this and enable the extension of this guidance to components not explicitly covered in this document. This section provides some instruction based upon the coarse-grain classification of state.  
+
+A component/service can be described as stateful if it is designed to remember preceding events or user interactions. Stateless means there is no record of previous interactions, and each interaction request has to be handled based entirely on information that comes with it.
+
+For a DR scenario that calls for redeployment:
+
+- Components/services which are “stateless”, i.e. Azure functions, Azure Data factory pipelines, etc. - can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system
+- Components/services which are “stateful”, i.e. Azure SQL database, storage accounts etc. – require more attention
+    - When procuring the component, a key decision will be the selection of the data redundancy feature. This is typically a trade-off between availability and durability with operating costs
+    - Datastore components will also need a data backup strategy. In some cases, this will be covered by the data redundancy features i.e. Storage Accounts, while others will need a separate backup process i.e. SQL Databases
+    - If required, the component can be redeployed from source control with a smoke-test to validate that it is available with the correct configuration
+    - Either using the data redundancy feature or a backup dataset, the component can be rehydrated. Once completed, the dataset should be checked to ensure it’s complete, accurate and validate the current date/timestamp
+        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in earlier backup being used in place of the latest available
+    - Any delta between component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
+    - Once the component dataset is up to date, the component can be introduced into the broader system
 
 ## Other key services
 This section contains HA/DR guidance for other key Azure Data components and services.
@@ -297,7 +342,9 @@ This section contains HA/DR guidance for other key Azure Data components and ser
 - Azure Database for MySQL 
     - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity)
     - Single Server HA guidance can be found in the [product documentation](/azure/mysql/single-server/concepts-business-continuity)
-- Azure SQL
+- SQL
+    - SQL on Azure VMs guidance can be found in the [product documentation](/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview?view=azuresql-vm)
+    - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql)
 
 ## Next Steps
 Now that you have learned about the scenario's architecture, you can learn about the [scenario details](../articles/dr-for-azure-data-platform-scenario-details)
