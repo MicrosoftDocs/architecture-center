@@ -103,7 +103,7 @@ More information:
 
 Principal authors:
 
- * [Daniel Larsen](http://linkedin.com/in/daniellarsennz) | Prncipal Customer Engineer, FastTrack for Azure
+ * [Daniel Larsen](http://linkedin.com/in/daniellarsennz) | Principal Customer Engineer, FastTrack for Azure
  * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
  
 Other contributor:
