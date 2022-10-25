@@ -639,7 +639,7 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
    - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
 5. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
 6. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
-   - Consider applying [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
+   - Consider applying [retry techniques](/azure/architecture/patterns/retry) to resolve possibly transient failures.
 8. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
 9. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
    - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit-project.com/usage/sagas).

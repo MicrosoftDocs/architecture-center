@@ -61,7 +61,7 @@ For the surrounding Azure services, the usual availability considerations apply:
 
 ### Security
 
-Unlike the architecture for the [loosely coupled alternative](loosely-coupled-quantum-computing-job.yml), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
+Unlike the architecture for the [loosely coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
 
 * Because the client is known, you can implement authentication via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), associated to the application.
 * You can implement throttling of requests and caching of results in the client itself.
@@ -121,7 +121,7 @@ Application performance depends on the availability and performance of the under
 
 ### Security
 
-Unlike the architecture for the [tightly coupled alternative](tightly-coupled-quantum-computing-job.yml), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
+Unlike the architecture for the [tightly coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
 
 * Clients must authenticate to the API. You can implement this authentication by using [authentication policies](/azure/api-management/api-management-authentication-policies).
 * You can implement authentication of the Azure functions via [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
@@ -188,7 +188,7 @@ As an alternative, you can use GitHub repositories and GitHub actions to impleme
 
 The solution uses the following other components:
 
-* A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) approach.
+* A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) or a [loosely coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) approach.
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider that you choose.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
@@ -216,4 +216,4 @@ For the Azure Quantum service, consider these points:
 
 * [Operational excellence principles](/azure/architecture/framework/devops/principles)
 * [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml)
-* [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml)
+* [Loosely coupled quantum computing](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)
