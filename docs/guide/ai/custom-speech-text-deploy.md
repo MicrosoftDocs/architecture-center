@@ -102,7 +102,7 @@ Note the **Insertion** and **Deletion** rates, which indicate that the audio fil
 
 **3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain**
 
-Based on the results in the preceding table, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following table shows of one section of the comparison.
+Based on the results in the preceding table, for the base model, **Model 1: 20211030**, about 10 percent of the words are substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following table shows one section of the comparison.
 
 
 |Human-generated transcript  |Model 1  |Model 2  |
@@ -129,7 +129,7 @@ As described in [Training and testing datasets](/azure/cognitive-services/speech
 
 **7.	Train, test and evaluate, and deploy the model**
 
-New event recordings are used to further test and evaluate the trained model. It can take a couple of iterations of testing and evaluation to fine-tune a model. Finally, when the model generates transcripts that have acceptable error rate, it's deployed (published) to be consumed from the SDK.
+New event recordings are used to further test and evaluate the trained model. It can take a couple of iterations of testing and evaluation to fine-tune a model. Finally, when the model generates transcripts that have acceptable error rates, it's deployed (published) to be consumed from the SDK.
 
 **8.	Use the model endpoint in your transcription calls**
 
@@ -150,7 +150,7 @@ Notes about the code:
 
 **9.	Operationalize your model building, evaluation, and deployment process**
 
-You need a process to keep deployed models up-to-date, mainly because new base models are published regularly. The next section of this article provides details on how to use scripting to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed.
+You need a process to keep deployed models up-to-date, mainly because new base models are published regularly. See [GitHub article] for information about how to use scripting to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed.
 
 ## Contributors
 
@@ -173,6 +173,7 @@ Other contributors:
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
 - [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
+- [github article]
 
 ## Related resources
 
