@@ -292,10 +292,9 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy.
 - Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets.
 - Use an HTTP proxy, in addition to Azure Firewall, to limit outbound (egress) traffic from the AKS cluster to the internet.
-- Use [Azure Monitor Private Link Service](azure/azure-monitor/logs/private-link-security) (AMPLS) to have logs from Container insights sent over a secure, private connection to Azure Monitor. Understand the impact of [enabling AMPLS](azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
+- Use [Azure Monitor Private Link Service](/azure/azure-monitor/logs/private-link-security) (AMPLS) to have logs from Container insights sent over a secure, private connection to Azure Monitor. Understand the impact of [enabling AMPLS](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
 
 > [!NOTE]
->
 > You can use Kubernetes `NetworkPolicies` to restrict ingress and egress traffic to and from the pods.
 
 For details, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
