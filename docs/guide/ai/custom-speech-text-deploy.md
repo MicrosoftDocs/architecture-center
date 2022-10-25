@@ -37,7 +37,7 @@ This article is an implementation guide and example scenario that provides a sam
 1. After you create the training and test data, you can upload it to Speech Studio. Alternatively, you can use the data's publicly accessible URLs with Azure Speech API and the Speech CLI to create a dataset.
 1. In Speech Studio or via the API or CLI, use the new dataset to train a custom speech model. 
 1. Evaluate the newly trained model against the test dataset that you created.
-1. If the new model performs appropriately, publish it for use for speech transcription. Otherwise, use Speech Studio to review the word error rate (WER) details and determine whether you need more data for training.
+1. If the new model performs appropriately, publish it for use in speech transcription. Otherwise, use Speech Studio to review the word error rate (WER) details and determine whether you need more data for training.
 1. Include the scripts in CI/CD processes to take advantage of the ability of the API and CLI to help operationalize the model development evaluation and deployment process. 
 
 ## Scenario
@@ -71,13 +71,15 @@ Let's look more closely at these steps:
 
 **1.	Use the Azure Speech SDK, Speech CLI, or REST API to generate transcripts for spoken sentences and utterances**
 
+
+
+Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and a [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts from audio files or directly from microphone input. If you use an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
+
+In the following code, we use the standard PCM audio codec, `pcm_s16le`, to extract audio in a single channel (mono) that has sampling rate of 8 KHz.
+
 ```
 ffmpeg.exe -i INPUT_FILE.avi -acodec pcm_s16le -ac 1 -ar 8000 OUTPUT_FILE.wav
 ```
-
-Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts for audio files or directly from microphone input. If you use an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
-
-In the preceding code, we use the standard PCM audio codec, `pcm_s16le`, to extract audio in a single channel (mono) that has sampling rate of 8 KHz.
 
 **2.	Compare the generated transcript with the human-generated transcript**
 
