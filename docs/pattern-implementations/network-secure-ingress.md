@@ -1,6 +1,6 @@
 ---
 title: Network secure ingress pattern implementation with Azure Front Door Premium tier
-description: The network secure ingress pattern implementation illustrates global routing, low latency failover for unhealthy workloads, and mitigating attacks at the edge. The implementation also illustrates how Azure Bastion can be used for break glass scenarios.
+description: The network secure ingress pattern implementation illustrates global routing, low latency failover for unhealthy workloads, and mitigating attacks at the edge.
 author: robbagby
 ms.author: robbag
 ms.date: 10/18/2022
@@ -21,22 +21,20 @@ azure.category:
 
 # Network secure ingress implementation
 
-The network secure ingress metapattern encapsulates several design patterns, including the global routing and global offloading patterns. This pattern implementation illustrates how Azure Front Door Premium tier supports:
+Network secure ingress encapsulates several design patterns, including the global routing and global offloading patterns. This pattern implementation illustrates how Azure Front Door Premium tier supports:
 
 - Global routing
 - Low latency failover for unhealthy workloads
 - Mitigating attacks at the edge
-
-The implementation further illustrates how Administrators can securely access network secured resources in "break glass" scenarios.
 
 TODO: EMBED VIDEO HERE
 
 > [!IMPORTANT]
 > The [Network Secure Ingress Sample](https://aka.ms/networksecureingresssample) provides a sample that allows you to deploy the solution described in this article.
 
-## Use Cases
+## Pattern requirements
 
-Three typical use cases that this pattern implementation addresses are global routing, low latency failover, and mitigating attacks at the edge.
+This pattern implementation focuses on three requirements: global routing, low latency failover, and mitigating attacks at the edge.
 
 ### Global routing
 
@@ -47,14 +45,14 @@ The network secure ingress pattern encapsulates the global routing pattern. As s
 
 ### Low latency failover
 
-The second use case that the pattern implementation addresses is low latency failover for unhealthy workloads. The implementation must be able to identify healthy and unhealthy workloads and adjust the routing accordingly in a time sensitive manner. The latency should be able to support adjusting the routing in a manner of minutes.
+The second requirement that the pattern implementation addresses is low latency failover for unhealthy workloads. The implementation must be able to identify healthy and unhealthy workloads and adjust the routing accordingly in a time sensitive manner. The latency should be able to support adjusting the routing in a manner of minutes.
 
 :::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram showing an HTTPS request not being routed to an unhealthy workload":::
 <br/>*Figure 2: Low latency failover*
 
 ### Mitigating attacks at the edge
 
-The third use case that the pattern implementation addresses is mitigating the attacks at the edge. This use case necessitates the "network secure" part of the pattern. The workloads or PaaS services shouldn't be accessible via the internet. Internet traffic should only be able to route through the gateway. The gateway should have the ability to mitigate exploits.
+The requirement that the pattern implementation addresses is mitigating the attacks at the edge. This requirement necessitates the "network secure" part of the pattern. The workloads or PaaS services shouldn't be accessible via the internet. Internet traffic should only be able to route through the gateway. The gateway should have the ability to mitigate exploits.
 
 :::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram showing an HTTPS request with a SQL statement in the querystring of a request not being stopped at the edge":::
 <br/>*Figure 3: Mitigating attacks at the edge*
@@ -63,8 +61,9 @@ The third use case that the pattern implementation addresses is mitigating the a
 
 This solution implements the following design patterns.
 
-- [Global routing pattern](/azure/architecture/patterns/gateway-routing) - route requests to multiple services or service instances that can reside in different regions.
-- [Global offloading pattern](/azure/architecture/patterns/gateway-offloading) - offload functionality, such as mitigating against attacks, to a gateway proxy.
+- [Gateway routing pattern](/azure/architecture/patterns/gateway-routing) - route requests to multiple services or service instances that can reside in different regions.
+- [Gateway offloading pattern](/azure/architecture/patterns/gateway-offloading) - offloads functionality, such as mitigating against attacks, to a gateway proxy.
+- [Health endpoint monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) - workloads expose endpoints that validate the health of the workload.
 
 ## Design
 
@@ -73,11 +72,19 @@ The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, w
 :::image-end:::
 *Figure 4: Azure Front Door Premium design*
 
-:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram showing the flow an administrator would use to connect to a protected resource.":::
-   The diagram has six parts. The first part is a request that is flowing from a user on the internet to Azure Front Door. The second part is a Static Web site. There's an arrow that shows that request flowing through private link to the static web site. The third part is a box that represents a Virtual Network (VNet). The VNet has the following subnets and their contents: 1) a private endpoint subnet that contains a private link endpoint with an IP of 10.0.2.5, 2) A jumpbox subnet with a jumpbox virtual machine, and 3) An Azure Bastion Subnet with Azure Bastion in it. is an administrator SSHing to Azure Bastion that shows an HTTPS request flowing to an Azure Front Door Premium box, which has Web Application Firewall (WAF) in it. The fourth part is a Private DNS Zone with the host name of privatelink.blob.core.windows.net. The fifth is an administrative user that is SSHing into the Azure Bastion in the VNet. There's then an arrow pointing from Bastion to the Jumpbox VM. There is then an arrow from the VM to the Private DNS Zone. The last arrow is from the VM to the Private link endpoint and then to the Storage Account.
-:::image-end:::
-*Figure 5: The design of the administrator flow*
+This following are details about this implementation:
 
+- Azure Blob Storage Accounts are used to simulate static web workloads running in 2 regions. This implementation does not implement any workloads running behind an internal load balancer. That is shown in the diagram to illustrate they could be implemented.
+- Azure Front Door Premium tier is used as the global gateway.
+- The Front Door instance has a global Web Application Firewall (WAF) policy configured with Managed Rules.
+- The Storage Accounts are not exposed over the internet.
+- Azure Front Door Premium tier accesses the Storage Accounts via Azure Private Link.
+- The Front Door instance has the following high-level configuration:
+  - An endpoint with a single route pointing to a single origin group. An origin group is a collection of origins or back ends.
+  - The origin group has an origin configured that points to each Storage Account.
+  - Each origin is requesting Private Link access to the Storage Account.
+  - The origin group has health probes configured to access an HTML page in the Storage Accounts. The HTML page is acting as the health endpoint for the static workloads. If the probes are able to successfully access the origin three out of the last four attempts, the origin is deemed healthy.
+  
 ## Components
 
 ### Web request
@@ -92,6 +99,8 @@ The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, w
 
 ### Administrator
 
+Securing resources from a network perspective protects against exploits, but also isolates the resources from Administrators who might need to access them for troubleshooting purposes. Connecting through Azure Bastion to a jumpbox VM in the virtual network provides Administrators a secure means of accessing the resources.
+
 - [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) - The virtual network in this implementation is used to contain the components required for an administrator to securely communicate with the Storage Account over the private Microsoft Backbone network.
 - [Azure Virtual Machine (VM)](/azure/virtual-machines/overview) - This VM is used as a jumpbox for administrators to connect to. The VM is deployed in the private VNet.
 - [Azure Bastion](/azure/bastion/bastion-overview) - Azure Bastion allows the administrator to securely connect to the jumpbox VM over SSH without requiring the VM to have a public IP address.
@@ -103,7 +112,7 @@ The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, w
 :::image type="complex" source="_images/network-diagram-ingress-user-flow.png" alt-text="Diagram showing the flow for a web request.":::
    Test
 :::image-end:::
-*Figure 6: The design of the request routing flow*
+*Figure 5: The design of the request routing flow*
 
 1. The user issues an HTTP(S) request to an Azure Front Door endpoint.
 2. The WAF rules are evaluated. Rules that match are always logged. If the Front Door WAF policy mode is set to prevention and the matching rule has an action set to 'block on anomaly', the request is blocked. Otherwise the request continues, is redirected, or the subsequent rules are evaluated.
@@ -117,7 +126,10 @@ For more information about the WAF routing architecture, see [Routing architectu
 
 ## Administrator flow
 
-*Reference Figure 5 for this flow.*
+:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram showing the flow an administrator would use to connect to a protected resource.":::
+   The diagram has six parts. The first part is a request that is flowing from a user on the internet to Azure Front Door. The second part is a Static Web site. There's an arrow that shows that request flowing through private link to the static web site. The third part is a box that represents a Virtual Network (VNet). The VNet has the following subnets and their contents: 1) a private endpoint subnet that contains a private link endpoint with an IP of 10.0.2.5, 2) A jumpbox subnet with a jumpbox virtual machine, and 3) An Azure Bastion Subnet with Azure Bastion in it. is an administrator SSHing to Azure Bastion that shows an HTTPS request flowing to an Azure Front Door Premium box, which has Web Application Firewall (WAF) in it. The fourth part is a Private DNS Zone with the host name of privatelink.blob.core.windows.net. The fifth is an administrative user that is SSHing into the Azure Bastion in the VNet. There's then an arrow pointing from Bastion to the Jumpbox VM. There is then an arrow from the VM to the Private DNS Zone. The last arrow is from the VM to the Private link endpoint and then to the Storage Account.
+:::image-end:::
+*Figure 6: The design of the administrator flow*
 
 1. An administrator connects to Azure Bastion that is deployed in the Virtual Network.
 2. Azure Bastion provides SSH connectivity to the jumpbox virtual machine.
