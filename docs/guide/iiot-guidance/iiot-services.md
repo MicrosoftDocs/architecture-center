@@ -1,4 +1,3 @@
-
 ---
 title: Services in an Azure industrial IoT (IIoT) analytics solution
 titleSuffix: Azure Application Architecture Guide
