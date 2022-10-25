@@ -3,23 +3,24 @@ This architecture provides guidance for designing a carrier-grade solution for a
 > [!TIP] 
 > This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) documentation to undersand the design choices made in this architecture. 
 
-## Use case and business requirements
+## Use case
 
-This reference architecture is for a voicemail solution, where multiple clients connect to the workload in a shared model. They can connect using different protocols potentially for different operations. Certain operations might need to persist state in a database. Other operations can query for that data. These operations are simple request/response and don't need long-lived sessions. In case of a failure, the client will just retry the operation. 
+This reference architecture is for a voicemail solution, where multiple clients connect to the workload in a shared model. They can connect using non-web protocols, such as  Session Initiation Protocol, Real-time Transport Protocol. They can also connect over the internet. Certain operations  persist state, which can be client configuration, messages, and related metadata. 
 
-In this use case, the business requirements necessitate that the requests be served at the edge to reduce latency. As such, the application isn't required to maintain active session state for in-flight messages if failure occurs. Application logic can accept an eventual consistency data replication model with distributed processing pools, instead of the application requiring global synchronization of its data with a single point of control. Also, there aren't any regulatory requirements.
+## Business requirements
+- The workload is expected to be highly available and tolerant to regional failures.
+- Traffic must be load-balanced through a global router using application-specific protocols combined with DNS.
+- Read and write operations on client data must be instantaneous across regions and cost optimized, as much as possible. Application logic can accept an eventual consistency data replication model with distributed processing pools, instead of the application requiring global synchronization of its data with a single point of control.
+- Other operations can query for that data. Those operations are simple request/response and don't need long-lived sessions. In case of a failure, the client will just retry the operation. 
+- The application isn't required to maintain active session state for in-flight messages if failure occurs.  
+- There aren't any regulatory requirements.
+- _**Client requests be served at the edge to reduce latency**._
 
 ## Architecture
 
 ![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.svg)
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
-
-## Key design strategies
-
-- 12 service instances are deployed across 4 regions in an active-active model. 
-- Traffic is load-balanced using application-specific protocols combined with DNS and Azure Traffic Manager.
-- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just 2 regions for cost efficiency.  
 
 > TODO: Finalize the list with the SMEs. Add stamp resources.
 
@@ -64,6 +65,12 @@ Stores global secrets such as connection strings to the global database and regi
 
 Premium SKU is used for large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Storage is configured for  zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
 
+### Key design strategies
+
+- 12 service instances are deployed across 4 regions in an active-active model. 
+- Traffic is load-balanced using application-specific protocols combined with DNS and Azure Traffic Manager.
+- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just 2 regions for cost efficiency.  
+
 ## Workload design
 
 The workload has two main layers; each layer is composed of immutable service instances (SIs). They differ in their functions and lifetimes.
@@ -77,7 +84,7 @@ All SIs are interchangeable in that any SI can service any request. Any applicat
 
 The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The SIs are stateless and long-living state is stored in an external database. 
 
-To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane. SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
+_**To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane.**_ SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
 
 > TODO: Why?--> Although the diagram shows multiple AZs, the pattern does not rely on AZs. It would be perfectly acceptable to deploy multiple application SIs into a single zone. Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload.
 
@@ -109,9 +116,9 @@ For Protocol B, Azure Traffic Manager has its own active polling that minimizes 
 
 ### Reliability considerations 
 
-> TODO Is the gateway single point of failure then? What fault tolerance capabilities are in place to avoid this situation.
-
 In the Protocol A routing pattern, the gateway can be a single point of failure. Azure Global DNS is chosen to reduce complexity and higher Service Level Agreement (SLA). 
+
+> TODO Is the gateway single point of failure then? What fault tolerance capabilities are in place to avoid this situation.
 
 Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
 
