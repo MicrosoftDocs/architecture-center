@@ -1,4 +1,3 @@
-
 Observational Health Data Sciences and Informatics (OHDSI) created and maintains the [Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data. These tools facilitate the design and execution of analyses on standardized, patient-level, observational data.
 
 OHDSI on Azure allows organizations that want to use the OMOP CDM and the associated analytical tools to easily deploy and operate the solution on the Azure platform.
