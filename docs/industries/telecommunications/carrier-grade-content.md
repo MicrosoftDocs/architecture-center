@@ -30,7 +30,7 @@ These resources provide functionality that's shared by resources deployed in reg
 
 **Azure Traffic Manager**
 
-The global load balancer that uses DNS-based routing to send traffic to the application SI that have public endpoints. Health endpoint monitoring is enabled to make sure that traffic is sent to healthy backend instances. 
+The global load balancer that uses DNS-based routing to send traffic to the application SI that has public endpoints. Health endpoint monitoring is enabled to make sure that traffic is sent to healthy backend instances. 
 
 An alternate technology choice is Azure Front Door. This option only applies to HTTP(S) traffic and can add to the cost. 
 
@@ -51,7 +51,7 @@ This set of services that are deployed to a given region and their lifetime is t
 
 **Workload compute**
 
-Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orcherstrator because it's widely adopted and supports advanced scalability and deployment topologies. 
+Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orchestrator because it's widely adopted and supports advanced scalability and deployment topologies. 
 
 **Azure Container Registry**
 
@@ -67,18 +67,25 @@ Premium SKU is used for large payload data, long-term metrics data, virtual mach
 
 ### Key design strategies
 
-- 12 service instances are deployed across 4 regions in an active-active model. 
+- 12 service instances are deployed across four regions in an active-active model. 
 - Traffic is load-balanced using application-specific protocols combined with DNS and Azure Traffic Manager.
-- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just 2 regions for cost efficiency.  
+- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just two regions for cost efficiency.  
 
 ## Workload design
 
 The workload has two main layers; each layer is composed of immutable service instances (SIs). They differ in their functions and lifetimes.
 
-- Application service delivers the actual application function and are intended to be short-lived. 
-- Management service only deliver the management and monitoring aspects for the application. 
+- Application service delivers the actual application function and is intended to be short-lived. 
+- Management service only delivers the management and monitoring aspects for the application. 
 
-All SIs are interchangeable in that any SI can service any request. Any application SI can serve a client request. More than one managment SI can service a single appliction SI.  
+All SIs are interchangeable in that any SI can service any request. Any application SI can serve a client request. More than one management SI can service a single application SI.
+
+> TODO: Incorporate these RI features
+
+- making use of subscriptions as a scale unit, and more generally re-evaluating the current selection of scale units;
+- more use of event-driven processing, though in many cases synchronous processing is forced by the external protocols MVM must support;
+- explicit tabulation of concerns such as disaster recovery strategy, SLA, etc across the different MVM components and features (currently known but not tabulated).
+
 
 ### Resiliency considerations
 
@@ -92,7 +99,13 @@ The components within each SI use a fate-sharing model, which simplifies logic f
 
 ### Monitoring
 
-This implementation has a health model in place to makes sure client requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SI stops responding to the polling request and traffic isn't routed to that instance.  
+This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SI stops responding to the polling request and traffic isn't routed to that instance.  
+
+> TODO incoporate these RI features
+- building an explicit health model that can be used to monitor the application and drive automated remediation;
+- enhancing synthetic health probes to exercise more of the system, and adding health data from live traffic;
+- correlating and combining health data across MVM and Azure services (currently these are siloed in separate systems).
+
 
 ## Traffic management
 
@@ -110,7 +123,7 @@ The internal load balancer distributes incoming requests to the SI pods. The ser
 
 The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management SIs before routing traffic. 
 
-For Protocol A, the gateway is responsibile for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
+For Protocol A, the gateway is responsible for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
 
 For Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
 
@@ -126,9 +139,18 @@ Traffic Manager is on the critical path for clients making their initial connect
 
 > TODO In choosing TM, we don't get WAF. So security can bring down the reliability. Should we address that?
 
+> TODO: Incorporate these RI features
+
+- further threat modelling, regular penetration testing and other security reviews, regular automated security monitoring;
+- use of PIM for just-in-time access to systems;
+- use of Azure Policy to drive governance;
+- use of DDoS Protection;
+- and a review of other security items and considerations.
+
+
 ## Data consistency
 
-For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. In case of a failure, time taken to bring up an instance in a another region should be minimized.
+For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. In case of a failure, time taken to bring up an instance in  another region should be minimized.
 
 - Data should be regionally replicated in an active-active configuration such as that it's instantly synchronized across regions. Also, all instances should be able to handle read and write requests. 
 - In case of a failure, write requests to the database should still be functional.
@@ -163,9 +185,9 @@ The operational aspect of the architecture is key to achieving high availability
 
 ### Deployment
 
-Application source code and configuration is stored in a GitHub repository. GitOps is used for version control, continuous integration/continuous deployment (CI/CD), and other DevOps practices. 
+Application source code and configuration are stored in a GitHub repository. GitOps is used for version control, continuous integration/continuous deployment (CI/CD), and other DevOps practices. 
 
-Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. This include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
+Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
 Conversely, Flux also decommissions resources that are not required. For example, if it's determined that a particular instance shouldn't receive traffic, Flux reacts to the configuration change by triggering DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
@@ -175,26 +197,36 @@ Conversely, Flux also decommissions resources that are not required. For example
 
 ### Upgrade, patching, and configuration updates
 
-When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and and updates the DNS records. In case of errors, traffic is reverted to the old instance. Otherwise, the old instance is decommissioned. 
+When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. In case of errors, traffic is reverted to the old instance. Otherwise, the old instance is decommissioned. 
 
 ### Automation
 
-Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it also critical that control is not fully closed-loop, so there are explicit manual gates and firebreaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events.
+Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it's also critical that control is not fully closed-loop, so there are explicit manual gates and fire breaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events.
+
+### TODO incorporate these RI features
+- making use of AIOps;
+- regular automated chaos and failure testing as part of CI rather than ad-hoc;
+- better usage of AAD and Managed Identities for authentication;
+- improved handling of secrets, such as automated key rotation and automated re-retrieval of failing secrets;
+- automation of capacity change processes;
+- further operational improvem
+
 
 ## Testing and validation
 
 From an availability perspective, what is important is that the failure mode analysis is extended to include all network segments between elements of the application, and between the application and the clients, since outages here will still impact availability of the application as perceived by the users. 
 
 
+
+
+
 ## Related resources
 For product documentation on the Azure services used in this architecture, see these articles.
 
-Azure Front Door
+Azure Traffic Manager
 Azure Cosmos DB
 Azure Container Registry
-Azure Log Analytics
 Azure Key Vault
-Azure Service Bus
 Azure Kubernetes Service
 Azure Application Insights
 Azure Event Hubs
