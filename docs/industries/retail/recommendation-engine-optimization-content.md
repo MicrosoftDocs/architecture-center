@@ -3,7 +3,7 @@ This document describes the process of successfully reusing and improving an exi
 ## Recommendation systems and R
 
 For a retailer, understanding consumer preferences and purchasing history is a competitive advantage. Retailers have used this data for years, in combination with machine learning, to identify products that are relevant to the consumer and to deliver a personalized shopping experience. The approach is called **product recommendation** and it generates a significant revenue stream for retailers. Recommendation systems help answer questions like: *What movie will this person watch next? What additional services is this customer likely to be interested in? Where will this customer want to vacation?*
-A recent customer wanted to know: *Will consumers (subscribers) renew their contracts?* The customer had an existing recommendation model that would forecast the probability of a subscriber renewing a contract. Once the forecast was generated, additional processing was applied to classify a response into a yes, no, or maybe. The model response was then integrated into a callcenter business process. That process enabled a service agent to deliver a personalized recommendation to the consumer.  
+A recent customer wanted to know: *Will consumers (subscribers) renew their contracts?* The customer had an existing recommendation model that would forecast the probability of a subscriber renewing a contract. Once the forecast was generated, additional processing was applied to classify a response into a yes, no, or maybe. The model response was then integrated into a call center business process. That process enabled a service agent to deliver a personalized recommendation to the consumer.  
 Many of this customer’s early analytic products were built in the [programming language R](/machine-learning-server/rebranding-microsoft-r-server), including the machine learning model at the core of their recommendation system. As their subscriber base has grown, so have the data and compute requirements. So much so, the recommendation workload is now painfully slow and cumbersome to process. Now Python is increasingly a part of their analytic product strategy. But for the near term, they need to preserve their R investment and find a more efficient development and deployment process. The challenge was to optimize the existing approach using capabilities in Azure. We embarked on a task to provide—and validate—a proof-of-concept technology stack for the recommendation workload. Here we summarize a general approach that can be used for similar projects.  
 
 ## Design goals
@@ -36,7 +36,19 @@ The pipeline for this project required multiple technologies and tools and cente
 
 The technology components in the pipeline diagram are discussed in more detail in the following section.
 
-![Optimization architecture](./images/recommendation-engine-optimization/recommendation-architecture.png)
+## Architecture
+
+![Diagram that demonstrates a recommendation engine optimization architecture.](./images/recommendation-engine-optimization/recommendation-architecture.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/recommendation-architecture.vsdx) of this architecture.*
+
+### Workflow
+
+ 1. The remote user logs into RStudio and develops a model in R.
+ 2. The model is trained with data in Azure SQL Database.
+ 3. The model is published to the Machine Learning studio (MLS) server (ops).
+ 4. The web app calls a REST API to invoke prediction.
+ 5. The web app calls a REST service to invoke model retraining.
 
 ### Microsoft Machine Learning Server
 
@@ -76,7 +88,7 @@ The web application is responsible for three functions:
 
 - **Authentication**: Web users authenticate against *Azure Active Directory* through the *React* front end.
 - **Model scoring**: Accepts input data from the user for a specific subscriber, submits the subscriber data to the web service using the REST API, which returns a prediction response.  
-- **Model retraining**: Accepts a subscriber identifier as input and invokes an R script on the development server to re-train the model for that subscriber.
+- **Model retraining**: Accepts a subscriber identifier as input and invokes an R script on the development server to retrain the model for that subscriber.
 
 Implementing single sign-on (SSO) with *Azure Active Directory* turned out to be more of a challenge than expected. This was due to the single page application (SPA) framework. One specific Azure Active Directory library was key for success: [react-adal](https://github.com/salvoravida/react-adal). The following references provided helpful guidance for implementing authentication:
 
@@ -182,18 +194,43 @@ In our scenario, once the models were created on the development VM, they were p
 }
  ````
 
-When deployed, models are serialized and stored on the operations server and can be consumed via web services in either *standard* or *real-time* mode. Every time a web service is called with standard mode, R and any required libraries are loaded and unloaded with each call. In contrast, with *real-time* mode, R and the libraries are loaded only once and reused for subsequent web service calls. Since most of the overhead with a web service call is the loading of R and the libraries, real-time mode offers much lower latency for model scoring, and response times can be under 10ms. See documentation and reference examples [here](/machine-learning-server/operationalize/concept-what-are-web-services) for both standard and real-time options. Real time lends itself well to single predictions, but you can also pass in an input data frame for scoring. That is described in this reference: [Asynchronous web service consumption via batch processing with mrsdeploy](/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch).
+When deployed, models are serialized and stored on the operations server and can be consumed via web services in either *standard* or *real-time* mode. Every time a web service is called with standard mode, R and any required libraries are loaded and unloaded with each call. In contrast, with *real-time* mode, R and the libraries are loaded only once and reused for subsequent web service calls. Since most of the overhead with a web service call is the loading of R and the libraries, real-time mode offers much lower latency for model scoring, and response times can be under 10 ms. See documentation and reference examples [here](/machine-learning-server/operationalize/concept-what-are-web-services) for both standard and real-time options. Real time lends itself well to single predictions, but you can also pass in an input data frame for scoring. That is described in this reference: [Asynchronous web service consumption via batch processing with mrsdeploy](/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch).
 
 ## Conclusion
 
 Leveraging the parallelism of the MicrosoftML and RevoScaleR libraries built into Microsoft Machine Learning Server accelerated development, deployment, and scoring of individual classification models for hundreds of subscribers. Model accuracy improved, and training and retraining times were compressed—all with minimal changes to the existing R code base.
 Implementing the infrastructure to support a model pipeline and getting the technology components configured correctly end-to-end can be complex. Here are some references to get your started with your own approach:
 
-- [Machine Learning Server Documentation](/machine-learning-server/)
+- [Machine Learning Server Documentation](/machine-learning-server)
 - [R Tutorials for Machine Learning Server](/sql/machine-learning/tutorials/r-tutorials)
 - [R Samples for Machine Learning Server](/machine-learning-server/r/r-samples)
 - [R Function Library Reference](/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Kate Baroni](https://www.linkedin.com/in/katebaroni) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai/).
+If you are interested in building other predictive solutions for your retail business, visit the [retail section](https://gallery.azure.ai/industries/retail) of the Azure [AI Gallery](https://gallery.azure.ai).
+
+## Related resources
+
+See the following retail architectures:
+
+- [Buy online, pick up in store (retail)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Retail and e-commerce using Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
+- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
+- [Retail and e-commerce using Azure Database for PostgreSQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
+- [Retail and e-commerce using Azure Database for MySQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
+- [Visual search in retail with Azure Cosmos DB](./visual-search-use-case-overview.yml)
+- [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-r-models.yml)
+- [SKU optimization for consumer brands](./sku-optimization-solution-guide.yml)

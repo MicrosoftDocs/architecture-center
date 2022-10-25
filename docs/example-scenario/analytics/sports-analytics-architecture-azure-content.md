@@ -1,19 +1,6 @@
-*Sports analytics* is a field that applies data analytics techniques to team or individual performance data. Then you can use the data to create a competitive advantage over an opponent. In addition to analyzing traditional box score statistics, there has been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team. Examples of such data include player data collected from sensors and spatial data that captures player movement during a game. Traditional systems struggle to process and maintain these data sources because of the large volumes of data generated. These data sources also format data in several different ways and allow users to process data at different speeds, providing more challenges for traditional data processing solutions.
-
 The focus of this article is to show a practical architecture that uses Azure services to process and maintain data used by sports analytics solutions. It provides a framework for sports organizations to build highly scalable solutions with, while giving them the flexibility to add more services that meet the nuanced requirements of their use cases.
 
 *Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is ideal for the sports industry, and applies to the following scenarios:
-
-- Manage large volumes of data from several source systems in a centralized ecosystem.
-- Analyze player tracking and temporal data to gain insights into individual and team performance.
-- With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
-- Process and evaluate player performance data to optimize athlete training routines.
-- Analyze historical data to make well-informed personnel decisions during the draft or free agency.
-- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and balls.
 
 ## Architecture
 
@@ -73,6 +60,21 @@ Throughout the process:
 - You can use Machine Learning instead of Azure Databricks to train your machine learning models.
 - You can use GitHub instead of Azure DevOps to manage your code repositories and continuous integration and continuous delivery (CI/CD) pipelines.
 
+## Scenario details
+
+*Sports analytics* is a field that applies data analytics techniques to team or individual performance data. Then you can use the data to create a competitive advantage over an opponent. In addition to analyzing traditional box score statistics, there has been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team. Examples of such data include player data collected from sensors and spatial data that captures player movement during a game. Traditional systems struggle to process and maintain these data sources because of the large volumes of data generated. These data sources also format data in several different ways and allow users to process data at different speeds, providing more challenges for traditional data processing solutions.
+
+### Potential use cases
+
+This solution is ideal for the sports industry, and applies to the following scenarios:
+
+- Manage large volumes of data from several source systems in a centralized ecosystem.
+- Analyze player tracking and temporal data to gain insights into individual and team performance.
+- With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
+- Process and evaluate player performance data to optimize athlete training routines.
+- Analyze historical data to make well-informed personnel decisions during the draft or free agency.
+- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and volleyballs.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -107,6 +109,10 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
+## Deploy this scenario
+
+To deploy this scenario, follow the steps described in this Azure quickstart, [Deploy the Sports Analytics on Azure Architecture](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/sports-analytics-architecture/). Be sure to read the **Prerequisites** section in the quickstart before deploying the solution. 
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -115,6 +121,7 @@ Principal authors:
 
 - [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jake Switzer](https://www.linkedin.com/in/jake-switzer-1629a983) | Sports Analytics Solution Architect
+- [Tash Tahir](https://www.linkedin.com/in/tashtahir/) | Principal Cloud Solution Architect
 
 Other contributor:
 
@@ -126,8 +133,8 @@ Other contributor:
 - [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Azure security baseline for Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline)
 - [Consume an Azure Machine Learning model deployed as a web service](/azure/machine-learning/how-to-consume-web-service)
-- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/learn/paths/data-integration-scale-azure-data-factory)
-- [Data engineering with Azure Databricks](/learn/paths/data-engineer-azure-databricks)
+- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/training/paths/data-integration-scale-azure-data-factory)
+- [Data engineering with Azure Databricks](/training/paths/data-engineer-azure-databricks)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)

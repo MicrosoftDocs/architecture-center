@@ -18,10 +18,10 @@ The companion ARM template deploys a new virtual network with four subnets:
 The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, such as load balancers and managed disks in Azure. The ARM template allows you to deploy an AKS cluster with the following features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
-- [AKS-managed AAD integration](/azure/aks/managed-aad)
+- [AKS-managed Azure AD integration](/azure/aks/managed-aad)
 - [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
-- [Azure Active Directory pod-managed identities](/azure/aks/use-azure-ad-pod-identity)
+- [Azure Active Directory workload identity](/azure/aks/workload-identity-overview) (preview)
 - [Azure Network Policies](/azure/aks/use-network-policies)
 - [Azure Monitor container insights add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
 - [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
@@ -175,8 +175,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Deploy AKS clusters with Azure AD integration. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad). Using Azure AD centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed.
 - Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least number of permissions required. [Integrate Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac) so any change in user status or group membership is automatically updated and access to cluster resources is current.
 - Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac) and [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
-
-- Consider using [AAD Pod Identity](/azure/aks/use-azure-ad-pod-identity) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB), without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
+- Consider using [Azure AD workload identity](/azure/aks/workload-identity-overview) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB). All without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
 - Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections strings from Key Vault, rather than from Kubernetes secrets.
 - Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
 
@@ -279,7 +278,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
 ### DevOps considerations
 
-- Deploy your workloads to Azure Kubernetes Service (AKS), with a [Helm](https://helm.sh) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- Deploy your workloads to Azure Kubernetes Service (AKS), with a [Helm](https://helm.sh) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 - Introduce A/B testing and canary deployments in your application lifecycle management, to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see:</p>
 
@@ -388,13 +387,13 @@ Principal authors:
 ### Architectural guidance
 
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
-- [AKS cluster best practices](/Azure/aks/best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [AKS cluster best practices](/Azure/aks/best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [Choosing a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
 
 ### Reference architectures
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)

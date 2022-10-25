@@ -334,9 +334,9 @@ For help with getting started, see the following resources:
 To learn more about the featured technologies, see the following resources:
 
 - [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
-- [Introduction to Azure DNS](/learn/modules/intro-to-azure-dns)
-- [Introduction to Azure NetApp Files](/learn/modules/introduction-to-azure-netapp-files)
-- [Introduction to Red Hat on Azure](/learn/modules/introduction-to-red-hat-azure)
+- [Introduction to Azure DNS](/training/modules/intro-to-azure-dns)
+- [Introduction to Azure NetApp Files](/training/modules/introduction-to-azure-netapp-files)
+- [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
 - [Red Hat Customer Portal](https://access.redhat.com)
 
 ## Related resources

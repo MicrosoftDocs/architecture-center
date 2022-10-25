@@ -150,7 +150,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 - [What is DevOps?][what-is-devops]
 - [Azure DevOps documentation](/azure/devops)
-- [Get started with Azure DevOps](/learn/paths/evolve-your-devops-practices)
+- [Get started with Azure DevOps](/training/paths/evolve-your-devops-practices)
 - [The DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 
 ## Related resources

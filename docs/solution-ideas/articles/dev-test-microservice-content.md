@@ -68,7 +68,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Azure AD can manage identity for all environments across subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.
 
-- [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
+- [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Azure Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
 
 - [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
 
@@ -83,9 +83,12 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 ## Next steps
 
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
+- [Set up Azure DevOps](/azure/devops/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+
+## Related resources
+
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
-- [Set up Azure DevOps](/azure/devops/get-started)
-- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)

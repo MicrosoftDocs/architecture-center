@@ -1,21 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once they've been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
-
-This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
-
-The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform).
-
-## Potential use cases
-
-With this solution, you can ingest historical transaction data, predict future demand, and regularly optimize pricing, which saves you the time and effort you'd spend on pricing tasks.
+This solution predicts future customer demand and optimizes pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 
 ## Architecture
 
 ![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
 *Download an [SVG](../media/demand-forecasting-price-optimization-marketing.svg) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform) provides advanced analytics tools such as data ingestion, storage, processing, and advanced analytics components. These tools are the essential elements for building a demand forecasting and price optimization solution.
 
@@ -29,6 +21,18 @@ With this solution, you can ingest historical transaction data, predict future d
 * Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
 * [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the model retraining.
 * [Power BI](https://powerbi.microsoft.com) enables visualization of results; monitor the results of the sales and predicted future demand and recommended optimal prices.
+
+## Scenario details
+
+Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once they've been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
+
+This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
+
+The process described above can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform).
+
+### Potential use cases
+
+With this solution, you can ingest historical transaction data, predict future demand, and regularly optimize pricing, which saves you the time and effort you'd spend on pricing tasks.
 
 ## Next steps
 

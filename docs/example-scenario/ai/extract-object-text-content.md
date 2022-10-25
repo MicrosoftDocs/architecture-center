@@ -45,6 +45,8 @@ Use cases include:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Consider these points when you analyze and process documents:
 
 - AI Builder can only capture square coordinates when using a trained model. Objects with text outside their boundaries, like triangles and circles, could potentially add unwanted and unnecessary information.
@@ -63,6 +65,8 @@ Azure Functions has a limit of 200 instances. If you need to scale beyond this l
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use standard security practices for the components that you use, and for the SharePoint document library that you store the metadata in.
 
 Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security).
@@ -70,6 +74,8 @@ Form Recognizer is designed with compliance, privacy, and security in mind.  It 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call Form Recognizer and Azure Functions.
 - Purchase AI Builder credits based on the expected model usage.

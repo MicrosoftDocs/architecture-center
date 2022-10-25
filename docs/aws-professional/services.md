@@ -140,7 +140,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
 | [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
-| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table Storage](https://azure.microsoft.com/services/storage/tables), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
+| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
 
 ### Analytics and visualization
 
@@ -184,7 +184,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [az aks](/cli/azure/aks) | Manage Azure Kubernetes Service using these Azure CLI commands. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
-| [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
+| [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
 ### DevOps architectures
 
@@ -381,4 +381,4 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 ## Next steps
 
-If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module.
+If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/training/modules/welcome-to-azure) module.

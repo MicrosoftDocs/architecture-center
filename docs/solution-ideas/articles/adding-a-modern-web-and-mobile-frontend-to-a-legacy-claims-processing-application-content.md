@@ -34,5 +34,5 @@ Organizations that want to connect disparate legacy systems and give users acces
 
 ## Next steps
 
-* [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Running SAP on Azure](/azure/virtual-machines/workloads/sap/get-started)
 * [Running SQL server in Azure](/azure/sql-database/sql-database-get-started-portal)

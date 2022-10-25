@@ -2,26 +2,6 @@
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability.
 
-There are several general approaches to achieve high availability across regions:
-
-- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-
-- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
-
-- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
-
-This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
-
-### Potential use cases
-
-These use cases can benefit from a multi-region deployment:
-
-- Design a business continuity and disaster recovery plan for LoB applications
-
-- Deploy mission-critical applications running on Windows or Linux
-
-- Improve user experience by keeping applications available
-
 ## Architecture
 
 ![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
@@ -34,7 +14,7 @@ This architecture builds on the one shown in [Scalable web application][guidance
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
 - **Front Door**. [Front Door](/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
-- **Geo-replication** of SQL Database and/or Cosmos DB.
+- **Geo-replication** of SQL Database and/or Azure Cosmos DB.
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
@@ -53,6 +33,28 @@ Key technologies used to implement this architecture:
 - [Azure SQL Database][Azure-SQL-Database]
 - [Azure Cosmos DB][Azure-Cosmos-DB]
 - [Azure Search][Azure-Search]
+
+## Scenario details
+
+There are several general approaches to achieve high availability across regions:
+
+- Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
+
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+
+- Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
+
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
+
+### Potential use cases
+
+These use cases can benefit from a multi-region deployment:
+
+- Design a business continuity and disaster recovery plan for LoB applications.
+
+- Deploy mission-critical applications that run on Windows or Linux.
+
+- Improve the user experience by keeping applications available.
 
 ## Recommendations
 
@@ -84,9 +86,9 @@ As a best practice, create a health probe path in your application backend that 
 
 Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
-### Cosmos DB
+### Azure Cosmos DB
 
-Cosmos DB supports geo-replication across regions in active-active pattern with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Azure Cosmos DB supports geo-replication across regions in active-active pattern with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -123,9 +125,9 @@ Azure Front Door Standard and Premium tier combines capabilities of Azure Front 
 
 The recovery point objective (RPO) and estimated recovery time objective (RTO) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
 
-#### Cosmos DB
+#### Azure Cosmos DB
 
-RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
+RPO and recovery time objective (RTO) for Azure Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Azure Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Azure Cosmos DB consistency levels, see [Consistency levels and data durability in Azure Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
 #### Storage
 
@@ -173,7 +175,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
 
-    There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
+    There are two types of throughput that can be provisioned in Azure Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Azure Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
 - Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 

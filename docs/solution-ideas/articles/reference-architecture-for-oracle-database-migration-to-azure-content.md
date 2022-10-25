@@ -1,8 +1,4 @@
-Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It's assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
-
-## Potential use cases
-
-This solution applies when migrating Oracle DB to Azure.
+This solution migrates an Oracle database and its applications to Azure. We use Oracle Active Data Guard for the database, and we use Azure Load Balancer for the application tier.
 
 ## Architecture
 
@@ -33,7 +29,21 @@ This solution applies when migrating Oracle DB to Azure.
 
 If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
 
+#### SQL Server Migration Assistant for Oracle
+
+[Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
+
+## Scenario details
+
+Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It's assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
+
+### Potential use cases
+
+This solution applies when migrating Oracle DB to Azure.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Migration
 
@@ -107,3 +117,12 @@ Learn more about the various architectural components:
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)
 * [Licensing Oracle Software in the cloud](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
+
+## Related resources
+
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
+- [Add IP address spaces to peered virtual networks](/azure/architecture/networking/prefixes/add-ip-space-peered-vnet)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

@@ -40,15 +40,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure app service plans](/learn/modules/configure-app-service-plans)
-- [Create an Azure Cognitive Search solution](/learn/modules/create-azure-cognitive-search-solution)
-- [Deploy MariaDB, MySQL, and PostgreSQL on Azure](/learn/modules/deploy-mariadb-mysql-postgresql-azure)
-- [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage)
-- [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight)
+- [Configure app service plans](/training/modules/configure-app-service-plans)
+- [Create an Azure Cognitive Search solution](/training/modules/create-azure-cognitive-search-solution)
+- [Deploy MariaDB, MySQL, and PostgreSQL on Azure](/training/modules/deploy-mariadb-mysql-postgresql-azure)
+- [Explore Azure Blob storage](/training/modules/explore-azure-blob-storage)
+- [Introduction to Azure HDInsight](/training/modules/intro-to-azure-hdinsight)
 
 ## Related resources
 
 - [Finance management apps using Azure Database for MySQL](finance-management-apps-using-azure-database-for-mysql.yml)
 - [Intelligent apps using Azure Database for MySQL](intelligent-apps-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure PostgreSQL](retail-and-ecommerce-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Cosmos DB](retail-and-e-commerce-using-cosmos-db.yml)
+- [Retail and e-commerce using Azure Cosmos DB](retail-and-e-commerce-using-cosmos-db.yml)

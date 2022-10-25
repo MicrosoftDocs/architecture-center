@@ -1,6 +1,6 @@
 The success of your cloud solution depends on its reliability. Reliability can be broadly defined as the probability that the system functions as expected, under the specified environmental conditions, within a specified time. Site reliability engineering (SRE) is a set of principles and practices for creating scalable and highly reliable software systems. Increasingly, SRE is used during the design of digital services to ensure greater reliability.
 
-For more information on SRE strategies, see [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/learn/paths/az-400-develop-sre-strategy).
+For more information on SRE strategies, see [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy).
 
 ## Potential use cases
 
@@ -246,11 +246,11 @@ Principal author:
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 - [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler)
-- [Create Azure Cosmos containers and databases with autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale)
+- [Create Azure Cosmos DB containers and databases with autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale)
 - [Microsoft Dynamics 365 documentation](/dynamics365)
 - [Microsoft 365 documentation](/microsoft-365/?view=o365-worldwide)
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)
-- [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/learn/paths/az-400-develop-sre-strategy)
+- [AZ-400: Develop a Site Reliability Engineering (SRE) strategy](/training/paths/az-400-develop-sre-strategy)
 
 ## Related resources
 

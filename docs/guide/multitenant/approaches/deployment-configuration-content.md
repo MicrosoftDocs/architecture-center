@@ -169,6 +169,21 @@ After the database is deployed, the workflow adds the tenant to the tenant list 
 
 Ongoing database schema updates are initiated by their application tier.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Review the [considerations for updating a multitenant solution](../considerations/updates.md).

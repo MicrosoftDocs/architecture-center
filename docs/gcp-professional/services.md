@@ -37,19 +37,19 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
-##  Data platform
+## Data platform
 
-###  Database
+### Database
 
 | Type | Google Cloud service | Azure service | Azure service description |
 | --- | --- | --- | --- |
-| Relational database | [Cloud SQL](https://cloud.google.com/sql#documentation) - SQL Server | [Azure SQL Server Family](/azure/azure-sql)</br></br> Azure SQL Database</br>Azure SQL Managed Instance</br>SQL Server on Azure VM</br> [Azure SQL Edge](/azure/azure-sql-edge) | Azure SQL family of SQL Server database engine products in the cloud</br></br>Azure SQL Database is a fully managed platform as a service (PaaS) database engine</br></br> Azure SQL Managed Instance is the intelligent, scalable cloud database service</br> that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service</br></br> SQL Server IaaS deployed on Azure Windows or Linux VM </br></br>Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments
+| Relational database | [Cloud SQL](https://cloud.google.com/sql#documentation) - SQL Server | [Azure SQL family](/azure/azure-sql)</br></br> Azure SQL Database</br>Azure SQL Managed Instance</br>SQL Server on Azure VM</br> [Azure SQL Edge](/azure/azure-sql-edge) | Azure SQL family of SQL Server database engine products in the cloud</br></br>Azure SQL Database is a fully managed platform as a service (PaaS) database engine</br></br> Azure SQL Managed Instance is the intelligent, scalable cloud database service</br> that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service</br></br> SQL Server IaaS deployed on Azure Windows or Linux VM </br></br>Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments
 || [Cloud SQL](https://cloud.google.com/sql#documentation) MySQL & PostgreSQL| [Azure Database for MySQL (Single & Flexible Server)](/azure/mysql/)<br/><br/> [Azure Database for PostgreSQL (Single & Flexible Server)](/azure/postgresql)<br/><br/> | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform |
-|Horizontally scalable relational database|[Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB - SQL API](https://azure.microsoft.com/services/cosmos-db)<br/><br/> | A globally-distributed database system that limitlessly scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table storage. Compute and storage can be scaled independently
+|Horizontally scalable relational database|[Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB for NoSQL](https://azure.microsoft.com/services/cosmos-db)<br/><br/> | A globally-distributed database system that limitlessly scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table storage. Compute and storage can be scaled independently
 |||[Azure PostgreSQL Hyperscale (Citus)](/azure/postgresql/hyperscale) | Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance
 |NoSQL| [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> | [Azure Table storage](/azure/storage/tables)|A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that's highly available. Supporting flexible data schema and OData-based queries |
 || [Cloud Firestore](https://cloud.google.com/firestore/docs) |[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar
-||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB - Change Feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing
+||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing
 | In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 ||||
 
@@ -57,7 +57,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 <ul class="grid">
 
-[!INCLUDE [Gaming using Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
+[!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
 [!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
 [!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 
@@ -133,7 +133,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 #### Time series architectures
 
@@ -484,4 +484,4 @@ Web app assessment and migration |  | [Web app migration assistant](https://appm
 
 ## Next steps
 
-If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
+If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/training/modules/welcome-to-azure) module on [Microsoft Learn training](/training).

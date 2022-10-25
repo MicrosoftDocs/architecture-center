@@ -144,7 +144,6 @@ Principal author:
 Other contributors:
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- - Mick Bengtson | Content Developer
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -153,8 +152,8 @@ Other contributors:
 - [What is Communication Services?](/azure/communication-services/overview)
 - [Create a Communication Services resource](/azure/communication-services/quickstarts/create-communication-resource)
 - [Communication Services reference documentation](/azure/communication-services/concepts/reference)
-- [Learn module: Introduction to Azure Communication Services](/learn/modules/intro-azure-communication-services)
-- [Learn module: Create a voice calling web app with Azure Communication Services](/learn/modules/communication-services-voice-calling-web-app)
+- [Learn module: Introduction to Azure Communication Services](/training/modules/intro-azure-communication-services)
+- [Learn module: Create a voice calling web app with Azure Communication Services](/training/modules/communication-services-voice-calling-web-app)
 
 ## Related resources
 

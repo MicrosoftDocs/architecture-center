@@ -110,19 +110,18 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Build a scalable application with virtual machine scale sets](/learn/modules/build-app-with-scale-sets)
-- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
-- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
-- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
-- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/learn/modules/create-cdn-static-resources-blob-storage)
-- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Build a scalable application with virtual machine scale sets](/training/modules/build-app-with-scale-sets)
+- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
+- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/training/modules/create-cdn-static-resources-blob-storage)
+- [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 - [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](../../solution-ideas/articles/scalable-web-apps.yml)
 
 <!-- links -->
 

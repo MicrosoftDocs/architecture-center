@@ -16,9 +16,9 @@ This solution describes how retailers like grocery stores can monitor storefront
 
 1. The packet core authenticates the devices, applies Quality of Service (QoS) policies, and routes the video traffic to the target application.
 
-1. Azure Video Analyzer also runs on the edge server, which provides the low latency necessary for transporting and processing the video feeds.
+1. The custom IoT Edge module also runs on the edge server, which provides the low latency necessary for transporting and processing the video feeds.
 
-1. Video Analyzer simplifies setting up a video streaming pipeline and pre-processing the video for spatial analysis.
+1. The custom module simplifies setting up a video streaming pipeline and pre-processing the video for spatial analysis.
 
 1. The [Spatial Analysis](/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview) module on the edge server anonymously counts cars, goods on a shelf, or people in line. The module sends these event notifications to the Azure IoT Hub module in the cloud.
 
@@ -31,9 +31,8 @@ This solution describes how retailers like grocery stores can monitor storefront
 This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) helps build intelligent video-based applications using your choice of AI.
 - [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web) creates and deploys mission-critical web applications that scale with your business.
-- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services) uses Azure Storage to store large media files.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
 
@@ -57,13 +56,15 @@ This solution is ideal for the retail, automotive, and facilities/real-estate in
 
 Principal author:
 
- * [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Product Management Leader
+- [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Product Management Leader
 
 ## Next steps
 
 - [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network)
 - [Live Video Analytics on IoT Edge](https://techcommunity.microsoft.com/t5/azure-video-analyzer/new-product-features-for-live-video-analytics-on-iot-edge/ba-p/2118497)
 - [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
+- [Introduction to Azure IoT Hub](/training/modules/introduction-to-iot-hub)
+- [Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
 
 ## Related resources
 

@@ -20,8 +20,9 @@ categories:
 
 # Management and governance architecture design
 
-Management and governance includes critical tasks like: 
-- The monitoring, auditing, and reporting of security and business requirements. 
+Management and governance includes critical tasks like:
+
+- The monitoring, auditing, and reporting of security and business requirements.
 - Implementing backup, disaster recovery, and high availability.
 - Ensuring compliance with internal requirements and external regulations.
 - The protection of sensitive data.
@@ -40,13 +41,13 @@ Azure provides a wide range of services to help you with management and governan
 
 ## Introduction to management and governance on Azure
 
-If you're new to management and governance on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to management and governance on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are some resources to get you started:
 
-- Learning path: [Manage information protection and governance](/learn/paths/m365-compliance-information) 
-- Module: [Design an enterprise governance strategy](/learn/modules/enterprise-governance)
-- Module: [Design a solution for backup and disaster recovery](/learn/modules/design-solution-for-backup-disaster-recovery)
+- Learning path: [Manage information protection and governance](/training/paths/m365-compliance-information)
+- Module: [Design an enterprise governance strategy](/training/modules/enterprise-governance)
+- Module: [Design a solution for backup and disaster recovery](/training/modules/design-solution-for-backup-disaster-recovery)
 
 ## Path to production
 
@@ -54,18 +55,18 @@ The following sections provide links to reference architectures in some key mana
 
 ### Backup
 
-- [Azure Backup architecture and components](/azure/backup/backup-architecture?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Support matrix for Azure Backup](/azure/backup/backup-support-matrix?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Backup cloud and on-premises workloads to cloud](/azure/backup/guidance-best-practices?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Azure Backup architecture and components](/azure/backup/backup-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Support matrix for Azure Backup](/azure/backup/backup-support-matrix?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Backup cloud and on-premises workloads to cloud](/azure/backup/guidance-best-practices?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ### Disaster recovery
 
-- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Integrate Azure ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Recover from a region-wide service disruption](../../resiliency/recovery-loss-azure-region.md)
-- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
@@ -115,9 +116,8 @@ The Azure Well-Architected Framework is a set of guiding tenets that you can use
 
 For additional guidance, see:
 
-- [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Governance best practices](/security/compass/governance)
-
 
 ## Stay current with management and governance
 
@@ -125,14 +125,13 @@ Get the latest updates on [Azure management](https://azure.microsoft.com/updates
 
 ## Additional resources
 
-Following are a few more management and governance architectures to consider: 
+Following are a few more management and governance architectures to consider:
 
 - [Archive on-premises data to the cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
 - [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
 - [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml)
 - [Deploy a line-of-business application using Azure App Service Environment v3](../../example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
 - [Centralized app configuration and security](../../solution-ideas/articles/appconfig-key-vault.yml)
-
 
 ### AWS or Google Cloud professionals
 

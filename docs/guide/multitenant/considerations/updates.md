@@ -113,6 +113,22 @@ You can embed feature flag support into your application by writing code yoursel
 
 If your service exposes an external API, consider that any updates you apply might affect the way that customers or partners integrate with your platform. In particular, you need to be conscious of breaking changes to your APIs. Consider using [an API versioning strategy](../../../best-practices/api-design.md#versioning-a-restful-web-api) to mitigate the risk of updates to your API.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).

@@ -4,6 +4,8 @@ This reference architecture shows how to apply neural-style transfer to a video,
 
 ![Architecture diagram for deep learning models using Azure Machine Learning.](./_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-machine-learning-deep-learning-scoring-pipeline.vsdx) of this architecture.*
+
 ### Workflow
 
 This architecture consists of the following components.
@@ -132,6 +134,14 @@ Azure Machine Learning will automatically log all stdout/stderr to the associate
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
 
 You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
 
 ## Next steps
 

@@ -49,13 +49,13 @@ For detailed information and additional deployment options, see the [deployment 
 
 The analytics use cases covered by the architecture are illustrated by the different data sources on the left-hand side of the diagram. Data flows through the solution from the bottom up as follows:
 
-### Azure data services, cloud native HTAP with Cosmos DB and Dataverse
+### Azure data services, cloud native HTAP with Azure Cosmos DB and Dataverse
 
 #### Process
 
 1. [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) and [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) enable you to run near real-time analytics over operational and business application data, by using the analytics engines that are available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
-1. When using Azure Synapse Link for Cosmos DB, use either a [SQL Serverless query](/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark). You can access the [Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
+1. When using Azure Synapse Link for Azure Cosmos DB, use either a [SQL Serverless query](/azure/synapse-analytics/sql/query-cosmos-db-analytical-store?tabs=openrowset-key) or a [Spark Pool notebook](/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark). You can access the [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction) and then combine datasets from your near real-time operational data with data from your data lake or from your data warehouse.
 
 1. When using Azure Synapse Link for Dataverse, use either a [SQL Serverless query](/powerapps/maker/data-platform/azure-synapse-link-serverless) or a [Spark Pool notebook](/powerapps/maker/data-platform/azure-synapse-link-spark). You can access the selected Dataverse tables and then combine datasets from your near real-time business applications data with data from your data lake or from your data warehouse.
 
@@ -65,7 +65,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Serve
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization and exploration. [Power BI models](/learn/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization and exploration. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
 1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
 
@@ -85,7 +85,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Process and enrich
 
-1. Use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake), or [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move the datasets into your Curated zone in your data lake.
+1. Use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/training/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake), or [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move the datasets into your Curated zone in your data lake.
 
     1. As part of your data transformations, you can invoke machine-learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
@@ -93,7 +93,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Serve
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/learn/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
 1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
 
@@ -106,7 +106,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
 
     - Ingest data from file-based sources containing CSV or JSON files.
-    - Connect to No-SQL databases such as Cosmos DB or Mongo DB.
+    - Connect to No-SQL databases such as Azure Cosmos DB or MongoDB.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 #### Store
@@ -117,7 +117,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Process and enrich
 
-1. For batch/micro-batch pipelines, use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake) or [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](/azure/synapse-analytics/sql/query-parquet-files), or [JSON](/azure/synapse-analytics/sql/query-json-files) files as external tables, so that they can be queried using T-SQL.
+1. For batch/micro-batch pipelines, use either [data flows](/azure/data-factory/concepts-data-flow-overview), [SQL serverless queries](/training/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake) or [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, and move your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](/azure/synapse-analytics/sql/query-parquet-files), or [JSON](/azure/synapse-analytics/sql/query-json-files) files as external tables, so that they can be queried using T-SQL.
 
     1. As part of your data transformations, you can invoke machine-learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
@@ -127,7 +127,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Serve
 
-1. Load relevant data from the Azure Synapse [SQL pools](/azure/synapse-analytics/get-started-visualize-power-bi), [Data Explorer pools](/azure/data-explorer/visualize-power-bi), or a [data lake](/power-query/connectors/datalakestorage) into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/learn/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
+1. Load relevant data from the Azure Synapse [SQL pools](/azure/synapse-analytics/get-started-visualize-power-bi), [Data Explorer pools](/azure/data-explorer/visualize-power-bi), or a [data lake](/power-query/connectors/datalakestorage) into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
 1. Data can also be securely shared to other business units or external trusted partners using [Azure Data Share](/azure/data-share/share-your-data). Data consumers have the freedom to choose what data format they want to use and also what compute engine is best to process the shared datasets.
 
@@ -150,7 +150,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Process and enrich
 
-1. Use [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, enrich, and move your datasets into your Curated zone in your data lake.
+1. Use [Spark notebooks](/training/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics) to validate, transform, enrich, and move your datasets into your Curated zone in your data lake.
 
     1. As part of your data transformations, you can invoke machine-learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine-learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
@@ -158,7 +158,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 #### Serve
 
-1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/learn/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships.
+1. Load relevant data from the Azure Synapse SQL pool or data lake into [Power BI datasets](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/integrate-power-bi-with-azure-synapse-analytics/ba-p/2003057) for data visualization. [Power BI models](/training/modules/design-model-power-bi) implement a semantic model to simplify the analysis of business data and relationships.
 
 1. Business analysts use [Power BI](/power-bi/admin/service-premium-what-is) reports and dashboards to analyze data and derive business insights.
 
@@ -328,7 +328,7 @@ Principal author:
 
 - Review the guidelines defined in the [Azure data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management) for scalable analytics environment in Azure.
 
-- Explore the [Data Engineer Learning Paths at Microsoft learn](/learn/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
+- Explore the [Data Engineer Learning Paths at Microsoft learn](/training/roles/data-engineer) for further training content and labs on the services involved in this reference architecture.
 
 - Review the documentation and deploy the reference architecture using the [deployment accelerator available from GitHub](https://github.com/Azure/azure-synapse-analytics-end2end).
 

@@ -6,7 +6,7 @@ This reference architecture demonstrates how Azure Arc extends Kubernetes cluste
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following components:
 
@@ -48,10 +48,10 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/resource-sync-agent**. Syncs the previously mentioned cluster metadata to Azure.
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators deployed as a part of source control configuration.
-- **deployment.apps/extension-manager**.	Installs and manages lifecycle of extension helm charts.
-- **deployment.apps/kube-aad-proxy**.	Used for authentication of requests sent to the cluster using Cluster Connect.
-- **deployment.apps/clusterconnect-agent**.	Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
-- **deployment.apps/guard**.	Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
+- **deployment.apps/extension-manager**. Installs and manages lifecycle of extension helm charts.
+- **deployment.apps/kube-azure-ad-proxy**. Used for authentication of requests sent to the cluster using Cluster Connect.
+- **deployment.apps/clusterconnect-agent**. Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
+- **deployment.apps/guard**. Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
 
 For more information, refer to [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
@@ -104,6 +104,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your on-premises resources. The rest of the data will be stored within the Azure geography containing the region you specify. This might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the connected machine, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographically-redundant service, it's best to connect the machines in each location to a different Azure region. For available regions, consult [Supported regions][Supported regions] for Azure Arc-enabled Kubernetes.
@@ -119,6 +121,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - You can use Azure RBAC to manage access to Azure Arc-enabled Kubernetes across Azure and on-premises environments using Azure Active Directory (Azure AD) identities. For more information, refer to [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
 - We recommend using a service principal with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in CI/CD pipelines such as Azure Pipelines and GitHub Actions. For more information, refer to [Create an Azure Arc-enabled onboarding Service Principal][Create an Azure Arc-enabled onboarding Service Principal].
 - To simplify service principal management, you can use managed identities in AKS. However, clusters must be created using the managed identity and existing clusters (including Azure and on-premises clusters) can't be migrated to managed identities. For more information, refer to [Use managed identities in Azure Kubernetes Service][Use managed identities in Azure Kubernetes Service].
@@ -127,18 +131,27 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 - General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-* [Learn more about Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]
-* [Learn more about Azure Kubernetes Service][Azure Kubernetes Service]
-* [Learn more about Azure Policy][Azure Policy]
-* [Learn more about Azure Monitor][Azure Monitor]
-* [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
+- [Learn more about Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]
+- [Learn more about Azure Kubernetes Service][Azure Kubernetes Service]
+- [Learn more about Azure Policy][Azure Policy]
+- [Learn more about Azure Monitor][Azure Monitor]
+- [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster]
 
 [Architecture diagram]: ./images/arc-hybrid-kubernetes.png
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/
-[Azure Container Instances]: /azure/container-instances/container-instances-overview
 [Azure Kubernetes Service]: /azure/aks/
 [Azure Policy]: /azure/governance/policy/
 [Azure Monitor]: /azure/azure-monitor/

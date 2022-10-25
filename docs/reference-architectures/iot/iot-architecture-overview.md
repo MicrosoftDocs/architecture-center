@@ -31,7 +31,7 @@ For example, an industrial motor collects and sends temperature data to the clou
 You can learn about Azure IoT concepts in detail with a Learning Path that uses an Azure sandbox subscription. The five-hour learning path has eight training modules.
 
 > [!div class="nextstepaction"]
-> [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
+> [Introduction to Azure IoT](/training/paths/introduction-to-azure-iot)
 
 ### Understand IoT solution architecture
 
@@ -110,4 +110,3 @@ Azure IoT documentation:
 - [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
 - [Azure IoT Edge](/azure/iot-edge)
 - [Azure Industrial IoT](/azure/industrial-iot)
-

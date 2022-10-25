@@ -72,7 +72,7 @@ proxy_set_header X-Real-IP $remote_addr;
 
 On Azure, this can be achieved by [setting up SSL termination on Application Gateway](/azure/application-gateway/tutorial-ssl-cli).
 
-## Related guidance
+## Related resources
 
 - [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)

@@ -100,8 +100,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Create a long-running serverless workflow with Durable Functions](/training/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
 
 ## Related resources
 

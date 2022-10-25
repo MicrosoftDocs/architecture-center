@@ -66,13 +66,13 @@ Principal authors:
 
 - Consider the preferred [IaC tools](https://azure.microsoft.com/solutions/devsecops/#overview) to use for DevSecOps and ensure that they come with extensions to perform IaC security scanning.
 - Consider the preferred IaC language or templates, [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) or [Terraform on Azure](/azure/developer/terraform).
-- [The GitHub Guide to Organizations](https://resources.github.com/downloads/github-guide-to-organizations.pdf)
+- [The GitHub Guide to Organizations](https://www.scribd.com/document/513270621/github-guide-to-organizations)
 - [Use GitHub Actions to connect to Azure](/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows)
 - [GitHub Actions](https://docs.github.com/en/actions)
 - [Innovation Security](/azure/cloud-adoption-framework/secure/innovation-security)
 - [AzOps for ARM templates](https://github.com/Azure/AzOps)
 - [Terraform Landing Zones Module and Solutions](https://github.com/aztfmod)
-- [Introduction to infrastructure as code using Bicep](/learn/modules/introduction-to-infrastructure-as-code-using-bicep)
+- [Introduction to infrastructure as code using Bicep](/training/modules/introduction-to-infrastructure-as-code-using-bicep)
 
 ## Related resources
 

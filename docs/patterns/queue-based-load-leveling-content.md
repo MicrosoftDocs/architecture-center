@@ -56,9 +56,9 @@ The following guidance might also be relevant when implementing this pattern:
 
 - [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
 
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
+## Related resources
 
-## Related guidance
+- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
 
 The following patterns might also be relevant when implementing this pattern:
 

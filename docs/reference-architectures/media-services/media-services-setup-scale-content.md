@@ -42,7 +42,7 @@ for id in ${mediaServicesAccountResourceId}
 The *ams_sp.sh* script creates an explicit service principal to use with the Media Services v3 SDK, by using the `az ams account sp create` command:
 
 ```azurecli
-# Ref: https://docs.microsoft.com/azure/media-services/latest/access-api-cli-how-to
+# Ref: https://learn.microsoft.com/azure/media-services/latest/access-api-cli-how-to
 
 echo 'Creating service principal for Azure Media Services'
 AZOUT=$(az ams account sp create --account-name ${mediaServicesName} --resource-group ${mediaServicesResourceGroupName} | jq '{AadClientId: .AadClientId, AadSecret:.AadSecret}')
@@ -155,8 +155,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
 
 ## Related resources
 

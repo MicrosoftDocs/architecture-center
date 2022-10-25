@@ -211,7 +211,7 @@ For architectures that involve distributed training or deep learning, see the fo
 [what-is-azure-machine-learning]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [introduction-to-container-registries-in-azure]: /azure/container-registry/container-registry-intro
 [introduction-to-azure-blob-storage]: /azure/storage/blobs/storage-blobs-introduction
-[train-compute-intensive-models-with-azure-machine-learning]: /learn/paths/train-compute-intensive-models-azure-machine-learning
-[train-and-evaluate-deep-learning-models]: /learn/modules/train-evaluate-deep-learn-models
-[build-a-content-based-recommendation-system]: ../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+[train-compute-intensive-models-with-azure-machine-learning]: /training/paths/train-compute-intensive-models-azure-machine-learning
+[train-and-evaluate-deep-learning-models]: /training/modules/train-evaluate-deep-learn-models
+[build-a-content-based-recommendation-system]: /azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender
 [suggest-content-tags-with-nlp-using-deep-learning]: ../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml

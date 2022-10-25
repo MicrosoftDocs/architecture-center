@@ -163,9 +163,9 @@ The scalability pillar of the SAP on Azure Architecture Guide describes performa
 
 [SAP Note \#1928533](https://launchpad.support.sap.com/#/notes/1928533) details the [SAPS](https://www.sap.com/about/benchmark/measuring.html) value for the virtual machines that are supported to run SAP applications. (To access this SAP note, an SAP Service Marketplace account is required.) For more information about the network and storage throughput per Azure virtual machine type, see these resources:
 
-- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-n...)
+- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes)
 
-- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-net...)
+- [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/linux/sizes)
 
 The agility of Azure allows you to scale your SAP system with ease. For example, you can increase the compute capacity of the database server or scale horizontally by adding application servers when demand arises. You can also temporarily bulk up your infrastructure to accelerate your SAP migration throughput and reduce the downtime.
 
@@ -204,7 +204,7 @@ Your SAP data is likely the treasure of your organization's technical footprint.
 
 SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model. This means security protections are built into the service by Microsoft at the level of the physical datacenter, physical network, physical host, and hypervisor. For the areas above the hypervisor—such as the guest operating system for SAP—you need to carefully evaluate the services and technologies you select to ensure you are providing the proper security controls for your architecture.
 
-For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured.
+For authentication, you can take advantage of [Azure Active Directory (Azure AD)](/azure/active-directory/) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured.
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
 [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.

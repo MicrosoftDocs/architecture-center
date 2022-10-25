@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale. To learn how enterprise-scale data platforms are designed as part of an enterprise landing zone, refer to the [Cloud Adoption Framework Data landing zone](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) documentation.
 
 ## Potential use cases
 
@@ -25,7 +25,7 @@ Organizations have the ability to access more data than ever before. Advanced an
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, Scala, or .NET, with notebook experiences in Apache Spark pool.
 1. Apply  Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
 1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
-1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through web and mobile apps.
+1. Take the insights from Apache Spark pools to Azure Cosmos DB to make them accessible through web and mobile apps.
 
 ### Workflow
 
@@ -40,13 +40,18 @@ Organizations have the ability to access more data than ever before. Advanced an
 
 ### Alternatives
 
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
 ## Pricing
 
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)
 
 ## Next steps
+
+* Learn about [enterprise-scale data platform](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) design
+* Learn how to design and deploy an [end-to-end data analytics](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) platform
+
+## Related resources
 
 * [Synapse Analytics Documentation](/azure/sql-data-warehouse)
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities)
