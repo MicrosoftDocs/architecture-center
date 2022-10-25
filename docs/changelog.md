@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 10/17/2022
+ms.date: 10/24/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,7 +26,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Predict patient length of stay and flow](./example-scenario/digital-health/predict-patient-length-of-stay.yml)
+- [Remote patient monitoring](./example-scenario/digital-health/remote-patient-monitoring.yml)
 - [Distributed hyperparameter tuning for machine learning models](./example-scenario/ai/training-python-models.yml)
+- [Build and deploy a social media analytics solution](./example-scenario/ai/build-deploy-social-media-analytics-solution.yml)
+- [High availability for multitier AKS applications](./guide/aks/aks-high-availability.yml)
 - [Extend Project Online reporting capabilities](./example-scenario/data/extend-reporting-capabilities.yml)
 - [Compliance risk analysis by using Azure Cognitive Search](./guide/ai/compliance-risk-analysis.yml)
 - [Highly available zone-redundant web application](./reference-architectures/app-service-web-app/zone-redundant.yml)
@@ -50,6 +54,27 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#35fd61da9](https://github.com/MicrosoftDocs/architecture-center/commit/35fd61da9))
+- [SAP workload development and test settings](./example-scenario/apps/sap-dev-test.yml)  ([#965569d84](https://github.com/MicrosoftDocs/architecture-center/commit/965569d84))
+- [Deploy a hybrid app with on-premises data that scales cross-cloud](./hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)  ([#638fce6da](https://github.com/MicrosoftDocs/architecture-center/commit/638fce6da))
+- [Deploy AI-based footfall detection solution in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md)  ([#157602872](https://github.com/MicrosoftDocs/architecture-center/commit/157602872))
+- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#c61044723](https://github.com/MicrosoftDocs/architecture-center/commit/c61044723))
+- [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#0e1e717a8](https://github.com/MicrosoftDocs/architecture-center/commit/0e1e717a8))
+- [Multi-region N-tier application](./reference-architectures/n-tier/multi-region-sql-server.yml)  ([#1090febb5](https://github.com/MicrosoftDocs/architecture-center/commit/1090febb5))
+- [Unisys mainframe migration with Asysco](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#93bd81f1e](https://github.com/MicrosoftDocs/architecture-center/commit/93bd81f1e))
+- [Unisys ClearPath Forward MCP mainframe rehost to Azure](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)  ([#a76c47b4c](https://github.com/MicrosoftDocs/architecture-center/commit/a76c47b4c))
+- [IBM z/OS online transaction processing on Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)  ([#79e509650](https://github.com/MicrosoftDocs/architecture-center/commit/79e509650))
+- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#9660c578f](https://github.com/MicrosoftDocs/architecture-center/commit/9660c578f))
+- [On-premises network using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#bddadaff2](https://github.com/MicrosoftDocs/architecture-center/commit/bddadaff2))
+- [Azure Service Fabric microservices architecture](./reference-architectures/microservices/service-fabric.yml)  ([#f22ad485e](https://github.com/MicrosoftDocs/architecture-center/commit/f22ad485e))
+- [IBM System i (AS/400) to Azure using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)  ([#ac8b10513](https://github.com/MicrosoftDocs/architecture-center/commit/ac8b10513))
+- [Batch scoring for deep learning models](./reference-architectures/ai/batch-scoring-deep-learning.yml)  ([#3df58ee7c](https://github.com/MicrosoftDocs/architecture-center/commit/3df58ee7c))
+- [Partitioning in Event Hubs and Kafka](./reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)  ([#3a5cfdc3d](https://github.com/MicrosoftDocs/architecture-center/commit/3a5cfdc3d))
+- [MLOps for Python with Azure Machine Learning](./reference-architectures/ai/mlops-python.yml)  ([#f0f14b50d](https://github.com/MicrosoftDocs/architecture-center/commit/f0f14b50d))
+- [Observability patterns and metrics](./databricks-monitoring/databricks-observability.yml)  ([#d2253b259](https://github.com/MicrosoftDocs/architecture-center/commit/d2253b259))
+- [Unified logging for microservices apps](./example-scenario/logging/unified-logging.yml)  ([#5327be0b0](https://github.com/MicrosoftDocs/architecture-center/commit/5327be0b0))
+- [Background jobs guidance](./best-practices/background-jobs.md)  ([#15ba68821](https://github.com/MicrosoftDocs/architecture-center/commit/15ba68821))
+- [Cost savings through HTAP with Azure SQL](./example-scenario/data/azure-sql-htap.yml)  ([#aa13775b9](https://github.com/MicrosoftDocs/architecture-center/commit/aa13775b9))
 - [Helm-based deployments for Apache NiFi](./guide/data/helm-deployments-apache-nifi.yml)  ([#1864a96de](https://github.com/MicrosoftDocs/architecture-center/commit/1864a96de))
 - [Choose a data transfer technology](./data-guide/scenarios/data-transfer.md)  ([#4e71b0875](https://github.com/MicrosoftDocs/architecture-center/commit/4e71b0875))
 - [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#80ba432de](https://github.com/MicrosoftDocs/architecture-center/commit/80ba432de))
@@ -304,7 +329,6 @@ The following new and updated articles have recently been published in the Azure
 - [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#39fa80883](https://github.com/MicrosoftDocs/architecture-center/commit/39fa80883))
 - [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#bec86648c](https://github.com/MicrosoftDocs/architecture-center/commit/bec86648c))
 - [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)  ([#3314a883d](https://github.com/MicrosoftDocs/architecture-center/commit/3314a883d))
-- [Predict the length of stay in hospitals](./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)  ([#f389ec912](https://github.com/MicrosoftDocs/architecture-center/commit/f389ec912))
 - [Eventual consistency between multiple Power Apps instances](./reference-architectures/power-platform/eventual-consistency.yml)  ([#364740577](https://github.com/MicrosoftDocs/architecture-center/commit/364740577))
 - [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
@@ -352,7 +376,6 @@ The following new and updated articles have recently been published in the Azure
 - [CI/CD for Microsoft Power Platform](./solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)  ([#34cb0a66d](https://github.com/MicrosoftDocs/architecture-center/commit/34cb0a66d))
 - [Loan chargeoff prediction with SQL Server](./solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)  ([#c6455d3f8](https://github.com/MicrosoftDocs/architecture-center/commit/c6455d3f8))
 - [Integrate data with Logic App and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#dfaa5d674](https://github.com/MicrosoftDocs/architecture-center/commit/dfaa5d674))
-- [Remote patient monitoring](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Retail assistant with visual capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Visual assistant](./solution-ideas/articles/visual-assistant.yml)  ([#177723ae0](https://github.com/MicrosoftDocs/architecture-center/commit/177723ae0))
 - [Manage and deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#23778f47f](https://github.com/MicrosoftDocs/architecture-center/commit/23778f47f))
@@ -361,7 +384,6 @@ The following new and updated articles have recently been published in the Azure
 - [Personalized offers](./solution-ideas/articles/personalized-offers.yml)  ([#b75887ad9](https://github.com/MicrosoftDocs/architecture-center/commit/b75887ad9))
 - [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Image classification with CNNs](./solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
-- [Predict length of stay and patient flow](./solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Serverless apps using Azure Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
 - [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#15f9d2f37](https://github.com/MicrosoftDocs/architecture-center/commit/15f9d2f37))
 - [Knowledge mining in auditing, risk, and compliance management](./solution-ideas/articles/auditing-and-risk-compliance.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
@@ -396,3 +418,4 @@ The following new and updated articles have recently been published in the Azure
 - [Real-time IoT updates](./example-scenario/iot/real-time-iot-updates-cloud-apps.yml)  ([#b49906fc3](https://github.com/MicrosoftDocs/architecture-center/commit/b49906fc3))
 - [Hybrid file share with disaster recovery for remote and local branch workers](./example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)  ([#b40f7e308](https://github.com/MicrosoftDocs/architecture-center/commit/b40f7e308))
 - [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)  ([#141d52781](https://github.com/MicrosoftDocs/architecture-center/commit/141d52781))
+
