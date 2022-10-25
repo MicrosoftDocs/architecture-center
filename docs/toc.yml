@@ -2777,6 +2777,8 @@ items:
                     href: solution-ideas/articles/low-latency-network.yml
           - name: Sports
             items:
+              - name: Overview
+                href: industries/sportd.md           
               - name: Guides
                 items:
                   - name: Fan Engagement solution
