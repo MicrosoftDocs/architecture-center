@@ -8,16 +8,25 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - 
+  - azure-machine-learning
+  - azure-digital-twins
+  - azure-iot-edge
+  - azure-media-player
 categories:
-  - 
+  - ai-machine-learning
+  - iot
+  - analytics
+  - web
+  - media
 ---
 
 # Solutions for the sports industry
 
 intro 
 
-embedded video
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/gAa3k3UFFsw]
 
 linked video 
 
@@ -27,15 +36,15 @@ The following articles provide detailed analysis of architectures created and re
 
 |Guide  |Summary  |Technology focus  |
 |---------|---------|---------|
-| [Baseball decision analysis with ML.NET and Blazor](/azure/architecture/data-guide/big-data/baseball-ml-workload)     |         |    AI     |
-|   [Build a sports analytics architecture on Azure](/azure/architecture/example-scenario/analytics/sports-analytics-architecture-azure)   |         |  Analytics       |
-|  [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)   |         |     IoT    |
-|   [Intelligent e-commerce product search engine](/azure/architecture/example-scenario/apps/ecommerce-search)  |         |     Web    |
+| [Baseball decision analysis with ML.NET and Blazor](../data-guide/big-data/baseball-ml-workload.yml)     |         |    AI     |
+|   [Build a sports analytics architecture on Azure](../example-scenario/analytics/sports-analytics-architecture-azure.yml)   |         |  Analytics       |
+|  [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)   |         |     IoT    |
+|   [Intelligent e-commerce product search engine](../example-scenario/apps/ecommerce-search.yml)  |         |     Web    |
 
 ## Solution ideas for sports
 
 Following are other ideas that you can use as a starting point for your aerospace solution.
 
-- [IoT Connected Platform for COVID-19 detection and prevention](/azure/architecture/solution-ideas/articles/iot-connected-platform)
-- [Live streaming digital media](/azure/architecture/solution-ideas/articles/digital-media-live-stream)
-- [Video-on-demand digital media](/azure/architecture/solution-ideas/articles/digital-media-video)
+- [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml)
+- [Live streaming digital media](../solution-ideas/articles/digital-media-live-stream.yml)
+- [Video-on-demand digital media](../solution-ideas/articles/digital-media-video.yml)
