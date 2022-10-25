@@ -3706,6 +3706,8 @@ items:
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Blue-green deployment of AKS clusters
+                href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
               - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
