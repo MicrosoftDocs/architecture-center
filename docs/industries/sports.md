@@ -26,8 +26,6 @@ From tracking and analyzing action on the court, to providing real-time streamin
 
 Watch this video to find out about how the NBA uses SAP together with Azure to facilitate its cloud evolution:
 
-<br>
-
 > [!VIDEO https://www.youtube.com/embed/gAa3k3UFFsw]
 
 [This short video features Utah Jazz guard Donovan Mitchell](https://www.youtube.com/watch?v=xq-gwAoVcZg), who relies on [NBA CourtOptix](https://nbacourtoptix.nba.com), powered by Azure, to generate metrics about his playing.  
