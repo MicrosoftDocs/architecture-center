@@ -2778,7 +2778,7 @@ items:
           - name: Sports
             items:
               - name: Overview
-                href: industries/sportd.md           
+                href: industries/sports.md           
               - name: Guides
                 items:
                   - name: Fan Engagement solution
