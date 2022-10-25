@@ -32,6 +32,8 @@ This article discusses important areas to consider when using the [Azure landing
 
 Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking. 
 
+> [!VIDEO https://www.youtube.com/embed/PqfIeth62Yg]
+
 > [!IMPORTANT]
 > The module is available on the [Terraform Registry: Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). You can use it as a starting point and configure it as per your needs.
 
@@ -128,6 +130,8 @@ This section provides a high-level overview of the resources deployed by this mo
 
 ## Using the Terraform module
 
+> [!VIDEO https://www.youtube.com/embed/vFO_cyolUW0]
+
 ### Deploying core resources
 
 By default, the module will deploy the following hierarchy, which is the core set of landing zone management groups:
@@ -173,6 +177,8 @@ subscription_id_identity = <identity subscription id>
 ```
 
 ## Customizing the Terraform implementation
+
+> [!VIDEO https://www.youtube.com/embed/ct2KHaA7ekI]
 
 The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
 
