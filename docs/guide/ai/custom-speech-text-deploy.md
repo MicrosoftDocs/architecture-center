@@ -18,14 +18,31 @@ categories:
 
 # Deploy a custom speech-to-text solution
 
-This article is an implementation guide and case study that provides a sample deployment of the solution described in **Implement custom speech-to-text**:
+This article is an implementation guide and example scenario that provides a sample deployment of the solution described in **Implement custom speech-to-text**:
 
 > [!div class="nextstepaction"]
 > [Go to part one of this guide](custom-speech-text.yml)
 
-## Case study
+## Architecture
 
-This article is based on the following fictional case study: 
+:::image type="content" source="media/custom-speech-text.png" alt-text="Image alt text.":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/custom-speech-text.vsdx) of this architecture.*
+
+### Workflow
+
+1. Collect existing transcripts to use to train a custom speech model.
+1. If the transcripts are in WebVTT or SRT format, clean the files so that they include only the text portions of the transcripts. 
+1. To normalize the text, remove any punctuation, separate repeating words, and spell out any large numerical values. You can then combine these cleaned sentences in one file. 
+1. After you create the training and test data, you can upload it to Speech Studio. Alternatively, you can use the data's publicly accessible URLs with Azure Speech APIs and the Speech CLI to create a dataset.
+1. In Speech Studio or via the APIs or CLI, use the new dataset to train a custom speech model. 
+1. Evaluate the newly trained model against the test dataset that you created.
+1. If the new model performs appropriately, publish it for use for speech transcription. Otherwise, use Speech Studio to review the word error rate (WER) details and determine whether you need more data for training.
+1. Include the scripts in CI/CD processes to take advantage of the ability of the APIs and CLI to help operationalize the model development evaluation and deployment process. 
+
+## Scenario
+
+This article is based on the following fictional scenario: 
 
 Contoso, Ltd., is a broadcast media company that airs broadcasts and commentary on Olympics events. As part of the broadcast agreement, Contoso provides event transcription for accessibility and data mining. 
 
@@ -58,7 +75,7 @@ Let's look more closely at these steps:
 ffmpeg.exe -i INPUT_FILE.avi -acodec pcm_s16le -ac 1 -ar 8000 OUTPUT_FILE.wav
 ```
 
-Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and [REST APIs](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts for audio files or directly from microphone input. If you use a audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
+Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and [REST APIs](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts for audio files or directly from microphone input. If you use an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
 
 In the preceding code, we use the standard PCM audio codec, `pcm_s16le`, to extract audio in a single channel (mono) that has sampling rate of 8 KHz.
 
@@ -68,21 +85,29 @@ To perform the comparison, Contoso samples commentary audio from multiple sports
 
 For information about using Speech Studio to create and evaluate a dataset, see [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train).
 
- Speech Studio provides a side-by-side comparison of the human-generated transcript and the transcripts produced from the models selected for comparison. Test results include a word error rate (WER) for the models:
+ Speech Studio provides a side-by-side comparison of the human-generated transcript and the transcripts produced from the models selected for comparison. Test results include a WER for the models, as shown here:
 
-:::image type="content" source="./media/word-error-rate.png" alt-text="Screenshot that shows the WER in Speech Studio." lightbox="./media/word-error-rate.png":::
+|Model  |Error rate  |Insertion  |Substitution  |Deletion|
+|---------|---------|---------|---------|-|
+|Model 1: 20211030     |    14.69%     |6 (2.84%)         |22 (10.43%)         |3 (1.42%)|
+| Model 2: Olympics_Skiing_v6    |6.16%         |3 (1.42%)         | 8 (3.79%)   | 2 (0.95%)    |
 
 For more information about WER, see [Evaluate word error rate](/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data?pivots=speech-studio#evaluate-word-error-rate).
 
-Based on these results, the custom model (**Olympic_Skiing_v6**) is better than the base model (**20211030**) for the dataset.
+Based on these results, the custom model (**Olympics_Skiing_v6**) is better than the base model (**20211030**) for the dataset.
 
 Note the **Insertion** and **Deletion** rates, which indicate that the audio file is relatively clean and has low background noise.
 
 **3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain**
 
-Based on the preceding screenshot, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following screenshot shows of one section of the comparison. The left column is the human-generated transcript, the middle column is Model 1, and the right column is Model 2:
+Based on the results in the preceding table, for the base model, **Model 1: 20211030**, about 10 percent of the words are being substituted. In Speech Studio, you can use the detailed comparison feature to identify domain-specific words that are missed. The following table shows of one section of the comparison.
 
-:::image type="content" source="./media/example-comparison.png" alt-text="Screenshot that shows the comparison." lightbox="./media/example-comparison.png":::
+
+|Human-generated transcript  |Model 1  |Model 2  |
+|---------|---------|---------|
+|olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight     |   olympic champion to go back to back in the downhill since nineteen ninety eight the great **catch a sizing are** of germany what ninety four and ninety eight      |   olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight      |
+|she has dethroned the olympic champion goggia|she has dethroned the olympic champion **georgia**|she has dethroned the olympic champion goggia|
+
 
 Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." This scenario reveals areas in which a custom model might help with the recognition of domain-specific words and phrases.
 
@@ -124,124 +149,6 @@ Notes about the code:
 **9.	Operationalize your model building, evaluation, and deployment process**
 
 You need a process to keep deployed models up-to-date, mainly because new base models are published regularly. The next section of this article provides details on how to use scripting to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed.
-
-## Sample commands
-
-This section shows how you can use [Speech CLI with PowerShell](/azure/cognitive-services/Speech-Service/spx-basics?tabs=windowsinstall%2Cpowershell) to upload datasets, train custom models, and run evaluations.
-
-**1.	Set up a key and region**
-
-```azurepowershell
-spx --% config @key --set SpeechSubscriptionKey
-spx --% config @region --set SpeechServiceRegion
-```
-
-**2.	Create a Speech Studio project**
-
-```azurepowershell
-spx csr project create --name testcli2 --language "en-us" --description "new project 2" --output url '@my.project.txt'
-``` 
-
-**3.	Upload datasets**
-
-Use the `spx csr dataset upload` command to upload pronunciation (`kind` = `Pronunciation`), plain text (`kind` = `Language`), and evaluation data (`kind` = `Acoustic`).
-
-
-**3.1	Upload pronunciation file**
-
-```azurepowershell
-spx csr dataset upload –project '@my.project.txt' –name "cli_pronunciationModel" –kind Pronunciation –data ..\data\train\pronunciation.txt –output url '@my.dataset.pm.txt'
-
-## Get status
-
-spx csr dataset status –dataset '@my.dataset.pm.txt' –wait
-```
-
-**3.2	Upload plain text (for language model adaptation)**
-
-```azurepowershell
-spx csr dataset upload –project '@my.project.txt' –name "cli_languageModel" –kind Language –data ..\data\train\languageModel.txt –output url '@my.dataset.lm.txt'
- 
-## Get status
-
-spx csr dataset status --dataset '@my.dataset.lm.txt' –wait
-```
-
-**3.3	Upload test data**
-
-```azurepowershell
-spx csr dataset upload --project '@my.project.txt' --name "evalDataset1" --kind Acoustic --data ..\data\test\EvalDataset1.zip --output url '@my.dataset.test1.txt'
-
-## Get status
-
-spx csr dataset status --dataset '@my.dataset.test1.txt' –wait
-```
-
-**4.	Create a custom model**
-
-**4.1	Combine the dataset ouputs into one file to use as input**
-
-```azurepowershell
-Get-Content .\my.dataset.lm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
-Get-Content .\my.dataset.pm.txt -Raw | Add-Content -Path .\my.datasets.test.txt
-```
-
-**4.2	Create the model**
-
-```azurepowershell
-spx csr model create --project "@my.project.txt" --name "cli_model" --datasets "@my.datasets.test.txt" --output url "@my.model.txt"
-
-## Get status
-spx csr model status --model "my.model.txt" –wait
-```
-> [!NOTE]
-> When you create a custom model, you can also select the base model to use for the adaptations. If you don't provide a base model, the last base model that lets you do Language, Pronunciation, and Acoustic model adaptation is used. The following scripts show how to get a list of all available base models and then search for the base model to use for adaptation.
-
-**5.	Select a base model to use**
-
-**5.1	Get a list of base models and output that in a json file**
-
-```azurepowershell
-spx csr model list --base models --output json baseModels.json
-```
-
-> [!NOTE]
-> The output JSON file needs to be well formed. Currently, the output is a merge of paged results. To make it well formed, just add a parent node (like `baseModels`) .
-
-**5.2	Read the required base model details**
-
-```
-function get-baseModel-Json{
-	param($baseModelName, $baseModelLocale, $filePath)
-	$baseModelJson = Get-Content $filePath -Raw | ConvertFrom-Json
-	foreach ($values in $baseModelJson.baseModels)
-	{
-		foreach($modelJson in $values.values){
-			if($modelJson.locale -eq $baseModelLocale -and $modelJson.displayName -eq $baseModelName) {
-				return $modelJson
-			}
-		}
-	}
-}
-
-$locale = "en-US"
-$filePath = ".\baseModelsFixed.json"
-$baseModelName = "20211030"
-
-$bmJson = get-baseModel-Json -baseModelName $baseModelName -baseModelLocale $locale -filePath $filePath
-
-Write-Host $bmJson
-```
-
-**6.	Evaluate the model**
-
-```azurepowershell
-spx csr evaluation create --project "@my.project.txt" --name evaluation1 --model1 "@my.model.txt" --model2 $bmJson.self --dataset '@my.dataset.test1.txt' --output url "@my.eval1.txt"
-
-## Wait for it to finish
-
-spx csr evaluation status --evaluation "@my.eval1.txt" --wait
-```
 
 ## Contributors
 
