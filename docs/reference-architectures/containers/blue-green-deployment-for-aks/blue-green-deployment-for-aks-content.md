@@ -110,7 +110,7 @@ At this stage, **applications**, **operators**, and **Kubernetes resources** are
 
 There are various ways to sync the Kubernetes state between clusters:
 
-- Redeployment via continuous integration and continuous delivery (CI/CD). Usually it's enough to use the same CI/CD pipelines that are used for the normal deployment of the apps. Common tools for doing this are: Github Actions, Azure DevOps, and Jenkins.
+- Redeployment via continuous integration and continuous delivery (CI/CD). Usually it's enough to use the same CI/CD pipelines that are used for the normal deployment of the apps. Common tools for doing this are: GitHub Actions, Azure DevOps, and Jenkins.
 - GitOps, with solutions that are promoted on the Cloud Native Computing Foundation (CNCF) website, like [Flux](https://www.cncf.io/projects/flux) and [ArgoCD](https://www.cncf.io/projects/argo).
 - A customized solution that stores the Kubernetes configurations and resources in a datastore. Usually, these solutions are based on Kubernetes manifest generators that start from metadata definitions and then store the generated Kubernetes manifests into a datastore like [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db). These are usually custom solutions that are based on the application description framework that's in use.
 
@@ -247,7 +247,7 @@ The key principles and foundational aspects of blue-green deployment are discuss
 From the perspective of automation and CI/CD, the solution can be implemented in multiple ways. We suggest:
 
 - [Bicep](/azure/azure-resource-manager/bicep/overview) or [Terraform](/azure/developer/terraform/overview) for IaC.
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) or [Github Actions](https://docs.github.com/actions) for CI/CD.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) for CI/CD.
 
 ## Potential use cases
 
@@ -277,7 +277,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- Blue-green deployment has a direct and positive effect on the availability of the AKS platform and workloads. In particular, it increases availability during the deployment of AKS platform changes. There is little downtime if user sessions are managed well.
+- Blue-green deployment has a direct and positive effect on the availability of the AKS platform and workloads. In particular, it increases availability during the deployment of AKS platform changes. There's little downtime if user sessions are managed well.
 - Blue-green deployment provides coverage for reliability during the deployment because, by default, there's the option to roll back to the previous version of the AKS cluster if something goes wrong in the new cluster version.
 
 ### Cost optimization
