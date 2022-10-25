@@ -1,4 +1,4 @@
-This two-part guide describes various approaches for efficiently implementing high-quality speech-aware applications. It focuses on extending and customizing the baseline model of speech-to-text functionality provided by the [Azure Cognitive Services Speech service](/azure/cognitive-services/speech-service/custom-speech-overview).
+This two-part guide describes various approaches for efficiently implementing high-quality speech-aware applications. It focuses on extending and customizing the baseline model of speech-to-text functionality that's provided by the [Azure Cognitive Services Speech service](/azure/cognitive-services/speech-service/custom-speech-overview).
 
 This article describes the problem space and decision-making process for designing your solution. The second article, [Deploy a custom speech-to-text solution](custom-speech-text-deploy.md), provides a use case for applying these instructions and recommended practices.
 
@@ -37,7 +37,7 @@ Depending on the size of the custom domain, it might also make sense to train mu
 So there are three approaches to implementing Azure speech-to-text:
 
 - The **baseline model** is appropriate when the audio is clear of ambient noise and the transcribed speech consists of commonly spoken language.
-- A **custom model** augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
+- A **custom model** augments the baseline model to include domain-specific vocabulary that's shared across all areas of the custom domain.
 - **Multiple custom models** make sense when the custom domain has numerous areas, each with a specific vocabulary.
 
 :::image type="content" source="media/three-approaches.png" alt-text="Diagram that summarizes the three approaches to implementing Azure speech-to-text." lightbox="media/three-approaches.png":::
@@ -63,13 +63,13 @@ This section describes some design considerations for building a speech-based ap
 
 ### Baseline model vs. custom model
 
-Azure Speech includes baseline models supporting various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article](custom-speech-text-deploy.md) in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
+Azure Speech includes baseline models that support various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription that's produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article](custom-speech-text-deploy.md) in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
 
 ### One vs. many custom models
 
 If your scenario will benefit from a custom model, you next need to determine how many models to build. One model is typically sufficient if the utterances are closely related to one area or domain. However, multiple models are best if the vocabulary is significantly different across the domain areas. In this scenario, you also need a variety of training data.
 
-Let's return to Olympics example. Say you need to include the transcription of audio commentary for multiple sports, including ice hockey, luge, snowboarding, alpine skiing, and more. Building a custom speech model for each sport will improve accuracy because each sport has unique terminology. However, each model must have diverse training data. It's too restrictive and inextensible to create a model for each commentator for each sport. A more practical approach is to build a single model for each sport but include audio from a group of that includes commentators with different accents, of both genders, and of various ages. All domain-specific phrases related to the sport as captured by the diverse commentators reside in the same model. 
+Let's return to Olympics example. Say you need to include the transcription of audio commentary for multiple sports, including ice hockey, luge, snowboarding, alpine skiing, and more. Building a custom speech model for each sport improves accuracy because each sport has unique terminology. However, each model must have diverse training data. It's too restrictive and inextensible to create a model for each commentator for each sport. A more practical approach is to build a single model for each sport but include audio from a group of that includes commentators with different accents, of both genders, and of various ages. All domain-specific phrases related to the sport as captured by the diverse commentators reside in the same model. 
 
 You also need to consider which languages and locales to support. It might make sense to create these models by locale.
 
