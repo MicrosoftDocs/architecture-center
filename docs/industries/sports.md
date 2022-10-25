@@ -24,7 +24,7 @@ categories:
 
 From tracking and analyzing action on the court, to providing real-time streaming of events, to making tickets automatically appear on fans' phones as they approach the stadium gate, the sports industry has long been a leading user of high-tech solutions like Azure.  
 
-Watch this video to find out about how the NBA uses SAP together with Azure to facilitate its cloud evolution:  
+Watch this video to find out about how the NBA uses SAP together with Azure to facilitate its cloud evolution:\  
 
 
 > [!VIDEO https://www.youtube.com/embed/gAa3k3UFFsw]
