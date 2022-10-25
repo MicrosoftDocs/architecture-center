@@ -123,20 +123,23 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 
 The example scenario is for a queue processing application. It uses a producer-consumer dataflow.
 
+![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
+
 The template deploys VMs with the following technical specifications:
 
-- memory
-- cores
+- memory?
+- cores?
 
-1. **VM application definition** - The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
-1. **Application version** - The application version is a numbered version of the VM application definition. The application version links to the source application package. The source application package in the architecture is `orchestrate.sh`. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
-1. **Source application package** - The source application package (orchestrate.sh) is downloaded to the VM after deployment and installs the .NET worker application.
-1. **.Net worker application** - The orchestrate.sh script installs a .NET worker application that runs two background services. The background services. The .Net worker application queries the Azure Instance Metadata Service endpoint of the spot VM for information. 
-1. **Storage account** - The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment.
-1. **Spot VM** - The spot VM must be in the same region as the application version. The spot VM downloads the orchestrate.sh package and installs the .NET worker application.
-1. **Application Insights** - The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application)
-1. **Storage Queue** - Spot VM has permissions to read from the storage queue. The deployable scripts contain a simple, asynchronous queue-processing worker (C#, .NET) that uses combination with Azure Queue Storage.
-1. **Azure AD** - Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
+1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
+1. **Application version:** The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM
+1. **Storage account:** The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment. The application version links to the source application package in the storage account. The source application package is called `orchestrate.sh`.
+1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version.
+1. **Source application package:** The Spot VM downloads source application package (orchestrate.sh) is downloaded to the VM after deployment and installs the .NET worker application.
+1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services.
+1. **Query metadata endpoint:** One background service queries the metadata endpoint.
+1. **Application Insights:** The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
+1. **Storage Queue:** The other service running in the .NET worker contains message queue logic.
+1. **Azure AD:** Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
 
 ## Deploy this scenario
 
