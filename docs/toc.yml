@@ -462,6 +462,8 @@ items:
                 items:
                   - name: App Service and Functions
                     href: guide/multitenant/service/app-service.yml
+                  - name: Azure Container Apps
+                    href: guide/multitenant/service/container-apps.md
                   - name: Azure Kubernetes Service (AKS)
                     href: guide/multitenant/service/aks.yml
               - name: Networking
