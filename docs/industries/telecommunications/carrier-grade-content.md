@@ -15,6 +15,14 @@ In this use case, the business requirements necessitate that the requests be ser
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
+## Key design strategies
+
+- 12 service instances are deployed across 4 regions in an active-active model. 
+- Traffic is load-balanced using application-specific protocols combined with DNS and Azure Traffic Manager.
+- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just 2 regions for cost efficiency.  
+
+> TODO: Finalize the list with the SMEs. Add stamp resources.
+
 ### Global resources
 
 These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
@@ -71,19 +79,13 @@ The services are implemented as microservices, containerized in a regional AKS c
 
 To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane. SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
 
-> TODO: Why?! Although the diagram shows multiple AZs, the pattern does not rely on AZs. It would be perfectly acceptable to deploy multiple application SIs into a single zone. Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload.
+> TODO: Why?--> Although the diagram shows multiple AZs, the pattern does not rely on AZs. It would be perfectly acceptable to deploy multiple application SIs into a single zone. Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload.
 
 The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special case code to handle partial failure conditions. 
 
 ### Monitoring
 
 This implementation has a health model in place to makes sure client requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SI stops responding to the polling request and traffic isn't routed to that instance.  
-
- ### Scalability considerations
-
-The capacity of the individual SIs is adjusted as needed to handle predictable load variations (such as busy hours and weekdays/weekends).  This provides efficiencies in the platform resource costs. 
-
-> TODO: Does this mean autoscaling is enabled on the pod and the cluster? 
 
 ## Traffic management
 
@@ -113,6 +115,8 @@ In the Protocol A routing pattern, the gateway can be a single point of failure.
 
 Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
 
+### Security considerations
+
 > TODO In choosing TM, we don't get WAF. So security can bring down the reliability. Should we address that?
 
 ## Data consistency
@@ -130,15 +134,15 @@ This architecture also uses Azure Blob Storage to store supplementary data, such
 
 > TODO why isn't metrics data stored in log analytics workspace
 
-## Scalability
+## Scalability considerations
 
-Scale is achieved through the combination of individual SI capacity and the total number of SIs.   
+The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. Scale is achieved through the combination of individual service instance capacity and the total number of instances.  
 
-The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. 
+The capacity of the individual service instance is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation. This is discussed in 
 
 ## Overall observability
 
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the Stats SI in each Availability Zone and not replicated outside because there's insufficient business benefit to justify the additional cost.  Application-wide monitoring is achieved through use of federated queries across the Stats SIs in each AZ. 
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management SIs in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management SIs in each AZ. 
 
 Alerts are set up by the application SIs or by metric threshold events in the Stats SIs are replicated across all AZs and regions so they are always available. 
 
@@ -146,31 +150,29 @@ In the event of issues with the Application SIs, the Stats SIs data stores are r
 
 > TODO understand what the Stats SIs are doing here. 
 
-## Deployment considerations
+## Operational considerations
 
-n this section, the operational aspects of the architecture are discussed, so that it can be understood “in action.”  Whilst no operations team can compensate for an unreliable application, the operational aspect of the architecture is key to achieving high availability. 
+The operational aspect of the architecture is key to achieving high availability. This covers automation, deployment, secret management decisions of the architecture.
 
-As discussed in Management and Monitoring in the Appendix, the reference application relies on the same management and monitoring tooling for normal operation and in failure cases.   
+### Deployment
 
+Application source code and configuration is stored in a GitHub repository. GitOps is used for version control, continuous integration/continuous deployment (CI/CD), and other DevOps practices. 
 
-Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times.  However, it also critical that control is not fully closed-loop, so there are explicit manual gates and firebreaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events. 
+Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. This include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
-The architecture as presented here makes minimal use of ARM, and instead stores configuration in ADO (git) and uses scripting tools to handle changes.  A more Azure-native option might make more extensive use of ARM and RPs.  The reliability of this approach is not considered, but could be acceptable. 
+Conversely, Flux also decommissions resources that are not required. For example, if it's determined that a particular instance shouldn't receive traffic, Flux reacts to the configuration change by triggering DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
-Instantiation 
+> TODO: Understand this: Wait for DNS TTL to expire and in-progress calls to end (or make policy decision to forcibly proceed and terminate long-running calls/connections that still exist). 
 
-Create new SI config files in ADO (git) 
+> TODO: Talk about the reliability guarantees.
 
-GitOps convergence agent reacts to new files and triggers scripting tool to create Azure resources for the SI, including VMs, the AKS cluster, convergence pods and updates DNS for service discovery of the new SI. 
+### Upgrade, patching, and configuration updates
 
-Decommission 
+When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and and updates the DNS records. In case of errors, traffic is reverted to the old instance. Otherwise, the old instance is decommissioned. 
 
-Update deployment config files to zero the amount of traffic to be sent to the SI.  GitOps agent reacts to the change to trigger updates of DNS to stop new traffic reaching the SI. 
+### Automation
 
-Wait for DNS TTL to expire and in-progress calls to end (or make policy decision to forcibly proceed and terminate long-running calls/connections that still exist). 
-
-Remove SI definition files in ADO.  GitOps triggers scripting to gracefully delete AKS, destroy VMs and destroy Azure resources. 
-
+Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it also critical that control is not fully closed-loop, so there are explicit manual gates and firebreaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events.
 
 ## Testing and validation
 
