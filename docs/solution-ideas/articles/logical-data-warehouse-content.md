@@ -59,7 +59,8 @@ The flexibility of a LDW with Synapse Serverless SQL pools allows you to join to
 
 - [Azure Synapse Serverless SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) - Used to query a data lake via T-SQL and SQL Server endpoint.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) - Scalable cost-effective cloud storage.
-- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) - A fully managed NoSQL database for modern app development.
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) (optional) - A fully managed NoSQL database for modern app development.
+- [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) (optional) - Cloud-scale data integration service and data flow orchestration.
 
 ### Alternatives
 
