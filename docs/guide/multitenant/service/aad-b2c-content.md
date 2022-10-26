@@ -29,22 +29,28 @@ If you are brand new to this topic, please review the following recommended reso
 
 Using a single, shared B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared B2C tenant should be considered if the following apply to your scenario:
 
-- You do not have complex data residency requirements
+- You do not have complex data residency or data separation requirements
 - You only have local accounts or only have a small number of federated identity providers or social logins you'd like to support (ie you do not need to allow each of your customers to bring a custom identity provider)
 - You are okay with your customers using a common login page
 - You do not need complex authorization, or are okay with building a custom roles/permissions system **(add link)**
-- Your end users need access to more than one application tenant 
+- Your end users need access to more than one application tenant under the same account
 
 Discuss here the pros/cons of a shared B2C tenant. Easier to manage, but have a theoretical limit of the number of identity providers you can enable (because of limit of custom policies). 
 
 ### B2C tenant per customer
 
-Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more. Additionally, Azure subscriptions have a default [limit] of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern]() to allow you to "load balance" your customers onto more than one subscription. 
+Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more. Additionally, Azure subscriptions have a default [limit]() of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern]() to allow you to "load balance" your customers onto more than one subscription. Provisioning a B2C tenant per customer should be considered if the following apply to your scenario:
+
+- You have complex data residency or data separation requirements
+- You need to allow your customers to bring their own identity provider(s) 
+- Your application is or can be "tenant aware" and knows which B2C tenant your users will need to sign into
+- Your end users do not need access to more than one application tenant under the same account
 
 Discuss here the pros/cons of a B2C tenant per customer. More easily customizable per customer, but much more overhead to think about. Also have a theoretical limit of 200 (need to confirm number) B2C tenants per subscription. Not a great solution if customers must exist in multiple tenants. Another con is that your application must know which tenant to sign the user into. 
 
 ### Vertically partitioned B2C tenants
 
+Provisioning vertically partitioned B2C tenants is a "middle ground" between the other tenancy models. It offers greater flexibility in customization between tenants, while offering a decreased level of overhead from provisioning a tenant per customer. To vertically partition your B2C tenants, you will need to figure out how to organize your customers into logical groupings. This grouping can be many different things: region, size, custom requirements, etc. 
 Discuss here the pros/cons of vertically partitioning B2C tenants based on regions, size of customers, or other factors. Application must be aware of which tenant to sign the user into.  
 
 
