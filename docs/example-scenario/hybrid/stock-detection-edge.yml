@@ -8,15 +8,15 @@ metadata:
   ms.date: 10/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: solution-idea
+  ms.subservice: example-scenario
 azureCategories:
   - ai-machine-learning
 products:
-  - azure-machine-learning
   - azure-stack-edge
   - azure-iot-edge
   - azure-iot-hub
   - azure-time-series-insights
+  - power-bi
 name: Implement out-of-stock detection at the edge
 summary: Use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have out-of-stock items.
 thumbnailUrl: /azure/architecture/browse/thumbs/stock-detection-thumb.png

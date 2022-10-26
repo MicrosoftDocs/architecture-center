@@ -1,12 +1,6 @@
 This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have out-of-stock items.
 
-## Context and problem
-
-Physical retail stores lose sales when customers look for an items that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
-
 ## Architecture
-
-The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Azure Time Series Insights environment to present insights in Power BI.
 
 diagram 
 
@@ -23,7 +17,6 @@ Here's how the solution works:
 
 ## Components
 
-
 - **On-premises hardware:**
    - A network camera with an HTTP or RTSP feed provides images for inference. 
 - **Azure:**  
@@ -33,6 +26,14 @@ Here's how the solution works:
 - **Azure Stack Edge or IoT Edge device:**
    - [IoT Edge](https://azure.microsoft.com/products/iot-edge) orchestrates the runtime for the on-premises containers and handles device management and updates.
    - On an [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) device, [Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave) uses field-programmable gate arrays (FPGAs) to accelerate machine learning inferencing.
+
+## Scenario details 
+
+The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Azure Time Series Insights environment to present insights in Power BI.
+
+### Potential use cases
+
+Physical retail stores lose sales when customers look for an items that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
 
 ## Considerations
 
@@ -58,13 +59,37 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This architecture handles potentially sensitive data. Make sure that keys are rotated regularly and that the permissions on the Azure storage account and local shares are set correctly.
 
+## Contributors
+
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [IoT Edge](/azure/iot-edge)
 - [IoT Hub](/azure/iot-hub) 
+- [Training module: Introduction to Azure IoT Edge](/training/modules/introduction-iot-edge)
+- [Training module: Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
 - [Time Series Insights](/azure/time-series-insights)
 - [Project Brainwave blog post](https://blogs.microsoft.com/ai/build-2018-project-brainwave)
 - [Azure Accelerated Machine Learning with Project Brainwave video](https://www.youtube.com/watch?v=DJfMobMjCX0)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 - [Azure Stack family of products and solutions](/azure-stack)
-- [Edge ML inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection).
+- [Edge ML inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection)
+
+## Related resources
+
+- [AI-based footfall detection](../../solution-ideas/articles/hybrid-footfall-detection.yml)
+- [Buy online, pick up in store](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Optimize inventory and forecast demand with Power Platform and Azure](../../example-scenario/analytics/optimize-inventory-forecast-demand.yml)
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
