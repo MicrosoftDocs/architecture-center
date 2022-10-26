@@ -204,7 +204,7 @@ If your organization is new to ML or doesn't have data scientists, you can use [
 
 ## Asset hierarchy
 
-Asset hierarchies define asset classifications and relationships between assets. Many organizations maintain asset hierarchies within their industrial systems or within an EAM system. An example of an asset hierarchy is *Country > Location > Facility > Room*. Periodically refresh your hierarchy as you update your EAM system.
+Asset hierarchies define asset classifications and relationships between assets. Many organizations maintain asset hierarchies within their industrial systems or within an EAM system. An example of an asset hierarchy is *Country/Region > Location > Facility > Room*. Periodically refresh your hierarchy as you update your EAM system.
 
 Asset model [digital twins](/azure/digital-twins/concepts-twins-graph) combine dynamic asset data via real-time telemetry with static data, such as 3D models, and EAM metadata. Graph-based relationships let the digital twin change in real-time along with physical assets.
 

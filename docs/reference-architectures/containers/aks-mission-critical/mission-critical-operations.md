@@ -114,7 +114,7 @@ Services that don't have enough resources can exhibit different side effects, in
 
 Take advantage of autoscaling features of the services, where possible, to ensure you have enough resources to meet demand. The following are automatic scaling features you can take advantage of:
 
-- [Horizontal Pod Autoscaling](/docs/tasks/run-application/horizontal-pod-autoscale/) allows you to increase or decrease the number of pods running workloads, depending upon demand.
+- [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) allows you to increase or decrease the number of pods running workloads, depending upon demand.
 - The [AKS cluster autoscaler](/azure/aks/cluster-autoscaler) allows you to increase or decrease the number of nodes in the cluster, depending upon demand.
 - You can [automatically scale up Azure Event Hubs throughput units (standard tier)](/azure/event-hubs/event-hubs-auto-inflate)
 - You can [Automatically update messaging units of an Azure Service Bus namespace](/azure/service-bus-messaging/automate-update-messaging-units)

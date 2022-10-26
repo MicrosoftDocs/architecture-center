@@ -54,7 +54,7 @@ Older applications might require extensive changes to get to the cloud.
 | There are technology blockers for migration. | ✔ | |
 | There are business blockers for migration. | ✔ | |
 | This application has compliance requirements. | | ✔ |
-| The application is subject to country-specific data requirements.| | ✔ |
+| The application is subject to data requirements that are specific to the country/region.| | ✔ |
 | The application is publicly accessible.| ✔ | ✔ |
 
 ### Technology

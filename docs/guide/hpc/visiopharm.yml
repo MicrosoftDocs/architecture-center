@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Visiopharm on an Azure virtual machine
+  description: Find out how Visiopharm AI-driven pathology software performs on an Azure VM and get a brief description of the steps for running the software on Azure.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/20/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - ai-machine-learning
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Visiopharm on a virtual machine
+summary: Find out how Visiopharm performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/visiopharm-thumb.png
+content: |
+  [!include[](visiopharm-content.md)]

@@ -15,7 +15,7 @@ The following architecture is for designing a hotel booking bot.
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
-2. Using [Azure Active Directory][aadb2c-docs] (Azure AD) B2C (business-to-consumer), the customer is authenticated.
+2. Using [Azure Active Directory (Azure AD) B2C](/azure/active-directory-b2c/active-directory-b2c-overview), the customer is authenticated.
 3. Interacting with the [Bot Service][botservice-docs], the customer requests information about hotel availability.
 4. [Cognitive Services][cognitive-docs] processes the natural language request to understand the customer communication.
 5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a [SQL database][sqldatabase-docs].
@@ -64,7 +64,7 @@ For other scalability articles, see the [performance efficiency checklist][scala
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This scenario uses Azure AD B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
+This scenario uses Azure AD B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview](/azure/active-directory-b2c/active-directory-b2c-overview).
 
 Information stored in Azure SQL Database is encrypted at rest with transparent data encryption (TDE). SQL Database also offers Always Encrypted which encrypts data during querying and processing. For more information on SQL Database security, see [Azure SQL Database security and compliance][sqlsecurity-docs].
 
@@ -116,7 +116,7 @@ This scenario is divided into three components for easier exploration:
 Product documentation:
 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
-- [What is Azure Active Directory B2C?][aadb2c-docs]
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/active-directory-b2c-overview)
 - [Azure App Service](/azure/app-service)
 - [Azure Bot Framework Composer tutorials][botservice-docs]
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
@@ -136,10 +136,7 @@ Microsoft Learn modules:
 
 <!-- links -->
 
-[aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
-[aad-docs]: /azure/active-directory
 [appinsights-docs]: /azure/application-insights/app-insights-overview
-[appservice-docs]: /azure/app-service
 [architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
 [botservice-docs]: /composer/tutorial/tutorial-introduction
@@ -152,7 +149,5 @@ Microsoft Learn modules:
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: /azure/sql-database
 [sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
-[qna-maker]: /azure/cognitive-services/QnAMaker/Overview/overview
 [speech-api]: /azure/cognitive-services/speech-service/overview
-[translator]: /azure/cognitive-services/translator/translator-info-overview
 [visio-download]: https://arch-center.azureedge.net/architecture-commerce-chatbot.vsdx

@@ -50,7 +50,7 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure Front Door](https://azure.microsoft.com/services/frontdoor/): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if region failure happens and it can secure the internet-facing entry point via [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview).
 
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
+* [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
 
 * [Azure DNS](https://azure.microsoft.com/services/dns/): A hosting service in Azure for domain name resolution. In a multitenant solution, multiple clients will be accessing the solution via their own individual domains. Use Azure DNS to configure and resolve client requests to their correct application stack.
 

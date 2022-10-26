@@ -596,7 +596,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 8. Under Geo-mapping, select a region/continent where the resource is located. For example, **Europe.**
 
-9. Under the Country/Region drop-down that appears, select the country that applies to this endpoint. For example, **Germany**.
+9. Under the Country/Region drop-down that appears, select the country/region that applies to this endpoint. For example, **Germany**.
 
 10. Keep **Add as disabled** unchecked.
 

@@ -1,7 +1,7 @@
 ---
 title: Architecting multitenant solutions on Azure
 titleSuffix: Azure Architecture Center
-description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
+description: Learn how to build multitenant solutions on Azure through the guidance we provide in this series.
 author: johndowns
 ms.author: jodowns
 ms.date: 04/11/2022

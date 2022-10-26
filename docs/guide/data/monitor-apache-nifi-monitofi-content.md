@@ -117,6 +117,16 @@ When you deploy this solution, keep in mind the following prerequisites and limi
   - Place the Docker container in the same network as the MonitoFi container.
   - Make the Docker container publicly available.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Muazma Zahid](https://www.linkedin.com/in/muazmazahid/) | Principal PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [MonitoFi: Health & Performance Monitor for Apache NiFi on GitHub][MonitoFi : Health & Performance Monitor for Apache NiFi on GitHub]
