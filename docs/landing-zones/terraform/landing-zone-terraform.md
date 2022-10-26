@@ -33,7 +33,6 @@ This article discusses important areas to consider when using the [Azure landing
 Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking. 
 
 > <br/>
-
 > [!VIDEO https://www.youtube.com/embed/PqfIeth62Yg]
 
 > [!IMPORTANT]
