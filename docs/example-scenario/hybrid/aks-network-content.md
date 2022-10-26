@@ -88,7 +88,7 @@ For a small deployment, you can use the built-in load balancer, deployed as a Li
 
 You can also use a custom load balancer for managing traffic to your services. The custom load balancer provides added flexibility to the deployment and ensures that AKS on Azure Stack HCI works alongside existing deployments such as Software Defined Network (SDN) deployments that use load balancers. For custom load balancers, kube-virtual IP provides Kubernetes clusters with a virtual IP and load balancer for both the control plane and Kubernetes Services of type *LoadBalancer*. The kube-virtual IP service is automatically deployed on every worker node.
 
-AKS on Azure Stack HCI also supports the use of MetalLB or other OSS Kubernetes based load balancers to balance traffic destined for services in a workload cluster. MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols, such as Border Gateway protocol BGP. It can work with both network add-ons, Calico and Flannel, but you need to ensure that the virtual IP address range provided during the installation of AKS on Azure stack HCI isn't overlapping with the IP address range planned for the custom load balancer.
+AKS on Azure Stack HCI also supports the use of MetalLB or other OSS Kubernetes based load balancers to balance traffic destined for services in a workload cluster. MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols, such as Border Gateway protocol BGP. It can work with both network add-ons, Calico and Flannel, but you need to ensure that the virtual IP address range provided during the installation of AKS on Azure Stack HCI isn't overlapping with the IP address range planned for the custom load balancer.
 
 ## Deploy this scenario
 
@@ -302,7 +302,7 @@ considerations are framed in the context of these tenets.
   - Volume configuration (nested two-way mirror versus nested mirror-accelerated parity)
   - Disk configuration (caching, tiers)
 - Ensure that the cluster nodes are physically located in the same rack and connected to the same ToR switches.
-- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure stack HCI.
+- Plan IP address reservations to configure AKS hosts, workload clusters, Cluster API servers, Kubernetes Services, and application services. Microsoft recommends reserving a minimum of 256 IP addresses for AKS deployment on Azure Stack HCI.
 - Consider implementing an ingress controller that works at layer 7 and uses more intelligent rules to distribute application traffic.
 - Use graphics processing unit (GPU) acceleration for extensive workloads.
 
