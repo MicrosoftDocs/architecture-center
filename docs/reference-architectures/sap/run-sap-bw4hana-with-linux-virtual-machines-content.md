@@ -241,6 +241,16 @@ SAP has its own User Management Engine (UME) to control role-based access and au
 
 The [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4hana#security-considerations) provides other infrastructure security considerations that apply to SAP BW/4HANA.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more about the component technologies:

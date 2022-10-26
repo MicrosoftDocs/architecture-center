@@ -557,6 +557,16 @@ Keep in mind that you shouldn't consider the sample code provided here productio
 
 You can find the source code, deployment files, and instructions to test this scenario on GitHub: <https://github.com/mspnp/transactional-outbox-pattern>.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+ - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Review these articles to learn more:
