@@ -16,8 +16,31 @@ This approach is leveraging NAT64 proxy of Ingress Controller to translate exter
 
 ## Option 1 - AKS Services running IPv4
 
-- **IPv4 traffic** is directed to the corresponding services in the backend.
-- **IPv6 traffic** reached IPv6 Ingress is translated to IPv4 through NAT64, then redirected to IPv4 ingress by Ingress Controller (e.g., Nginx). Once reaching IPv4 ingress, it works as normal IPv4 traffic carrying additional metadata like IPv6 source address if needed.
+- **IPv4 traffic** (blue line) is directed to the corresponding services in the backend as following:
+
+  1\. Traffic from public internet or external network reaches IPv4 on Azure Standard Load Balancer.
+
+  2\. Load Balancer forwards traffic to AKS ingress dedicated for IPv4 traffic.
+
+  3\. AKS Ingress acts as a reverse proxy to direct traffic to Kubernetes Service.
+
+  4\. Each Kubernetes Service distributes traffic to its applications running on HPA pods.
+
+  5\. Applications can store and retrieve data from Azure storage services securely inside Azure infrastructure.
+
+  6\. All passwords, secrets, and certificates of the system can be safely stored in and retrieved from Azure Key Vaults.
+  
+  7\. Applications' images can be pulled fast and securely from Azure Container Registry.
+
+- **IPv6 traffic** (orange line) is routed as following:
+
+  1a. IPv6 reached IPv6 on Azure Standard Load Balancer.
+
+  1b. Load Balancer forwards traffic to IPv6 Ingress where it is translated to IPv4 through NAT64. This can be done with ingress like Nginx.
+      
+  1c. IPv6 ingress directs traffic to the IPv4 address. It is, now, IPv4 traffic with additional metadata like IPv6 source address if needed. 
+  
+  2-7. The dataflow from 2 to 7 is the same in IPv4 flow.
 
 ## Option 2 - AKS Services running IPv6  
 
