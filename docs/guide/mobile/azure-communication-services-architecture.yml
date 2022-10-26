@@ -2,8 +2,8 @@
 metadata:
   title: Azure Communication Services architecture design
   description: Learn how to add communications features to your applications by using Azure Communication Services.
-  author: MatchaMatch
-  ms.author: mikben
+  author: tophpalmer
+  ms.author: chpalm
   ms.date: 07/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
