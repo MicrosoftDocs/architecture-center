@@ -4,7 +4,7 @@ This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device 
 
 diagram 
 
-Here's how the solution works:
+### Workflow
 
 1. Images are captured from a network camera via HTTP or Real Time Streaming Protocol (RTSP).
 2. Images are resized and sent to the inference driver, which communicates with the machine learning model to determine whether there are any images that represent areas that need to be restocked.
@@ -15,7 +15,7 @@ Here's how the solution works:
 7. Messages from IoT Hub are aggregated in Time Series Insights.
 8. Power BI displays an interactive report of out-of-stock items with the data from Time Series Insights.
 
-## Components
+### Components
 
 - **On-premises hardware:**
    - A network camera with an HTTP or RTSP feed provides images for inference. 
@@ -29,11 +29,11 @@ Here's how the solution works:
 
 ## Scenario details 
 
-The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Azure Time Series Insights environment to present insights in Power BI.
+The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to an Azure Time Series Insights environment to present insights in Power BI.
 
 ### Potential use cases
 
-Physical retail stores lose sales when customers look for an items that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
+Physical retail stores lose sales when customers look for an item that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
 
 ## Considerations
 
