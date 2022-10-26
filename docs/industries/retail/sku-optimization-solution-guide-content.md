@@ -1,6 +1,6 @@
 Retailers and consumer brands are focused on ensuring they have the right products and services that consumers seek to purchase within the marketplace. When looking at maximizing sales, products (or combinations of products) are the major part of the shopping experience. The availability of offerings—inventory—is a constant concern for consumer brands.
 
-Product inventory, also known as SKU assortment, is a complex topic that spans the supply and logistics value chain. For this article, we focus specifically on the problem of optimizing SKU assortment to maximize revenue from a consumer goods point of view
+Product inventory, also known as SKU assortment, is a complex issue that spans the supply and logistics value chain. For this article, we focus specifically on the problem of optimizing SKU assortment to maximize revenue from a consumer goods point of view
 
 The puzzle of SKU assortment optimization can be solved by developing algorithms to answer the following questions:
 
@@ -171,13 +171,13 @@ In the capture phase, we can use the copy activity of Data Factory to transfer d
 - [Copy data to or from Azure SQL DW](/azure/data-factory/connector-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
 - [Load Data into Azure SQL DW](/azure/data-factory/load-azure-sql-data-warehouse?WT.mc_id=invopt-article-gmarchet)
 
-The following figure shows the definition of a pipeline. It consists of three equally-sized blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third is labeled **Pipeline** and  points to the first two to indicate encapsulation.
+The following figure shows the definition of a pipeline. It consists of three equally sized blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third is labeled **Pipeline** and  points to the first two to indicate encapsulation.
 
- [![Azure Data Factory concepts: datasets consumed by pipeline of activities.](images/sku-optimization-solution-guide/azure-data-factory.png)](images/sku-optimization-solution-guide/azure-data-factory.png#lightbox)
+ [![Diagram that shows a pipeline that consists of datasets and activities that consume and produce the datasets.](images/sku-optimization-solution-guide/azure-data-factory.png)](images/sku-optimization-solution-guide/azure-data-factory.png#lightbox)
 
 Figure 3: Basic concepts of Azure Data Factory
 
-An example of the data format that's used by the Neal Analytics solution can be found on the Microsoft Appsource page. The solution includes the following datasets:
+An example of the data format that's used by the Neal Analytics solution can be found on the Microsoft commercial marketplace page. The solution includes the following datasets:
 
 - Sales history data for each combination of store and SKU
 - Store and consumer records
@@ -196,7 +196,7 @@ Note that Data Factory does not limit you to SQL Data Warehouse and SQL stored p
 
 There are several tools that can help you implement parametric and non-parametric models. Your choice depends on your scalability and performance requirements.
 
-[Azure ML Studio](https://studio.azureml.net/?WT.mc_id=invopt-article-gmarchet) is a great tool for prototyping. It provides an easy way for you to build and run a training workflow with your code modules (in R or Python), or with pre-defined ML components (such as multi-class classifiers and boosted decision tree regression) in a graphical environment. It also makes it possible for you to publish, with a few clicks, a trained model as a web service for further consumption, generating a REST interface for you.
+[Azure ML Studio](https://studio.azureml.net/?WT.mc_id=invopt-article-gmarchet) is a great tool for prototyping. It provides an easy way for you to build and run a training workflow with your code modules (in R or Python), or with pre-defined ML components (such as multi-class classifiers and boosted decision tree regression) in a graphical environment. It also makes it easy for you to publish a trained model as a web service for further consumption, generating a REST interface for you.
 
 However, the data size it can handle is currently limited to 10 GB and the number of cores available to each component is limited to two.
 
@@ -228,11 +228,11 @@ Although more complex than those suggested so far, this technique allows for max
 
 ## Running the model (operationalize)
 
-After the model is trained, running it typically requires a different infrastructure than the one used for deployment. In order to make it easily consumable, you can opt to deploy it as a web service with a REST interface. Both Azure ML Studio and ML Server automate the process of creating such services. In the case of ML Server, Microsoft provides templates for deployment of a supporting infrastructure. Please see the relevant [documentation](/machine-learning-server/what-is-operationalization?WT.mc_id=invopt-article-gmarchet).
+After the model is trained, running it typically requires a different infrastructure than the one that's used for deployment. In order to make it easily consumable, you can deploy it as a web service with a REST interface. Both Azure ML Studio and ML Server automate the process of creating such services. In the case of ML Server, Microsoft provides templates for deployment of a supporting infrastructure. Please see the relevant [documentation](/machine-learning-server/what-is-operationalization?WT.mc_id=invopt-article-gmarchet).
 
 The following figure shows the architecture of the deployment. It includes representations of servers that run the R language and Python. Both servers communicate to a subsection of web nodes that perform computation. A large data store is connected to the computation block.
 
-[![ML server deployment diagram. Load balancer before multiple nodes for execution.](images/sku-optimization-solution-guide/ml-server-deployment-example.png)](images/sku-optimization-solution-guide/ml-server-deployment-example.png#lightbox)
+[![Diagram that shows a machine learning server. The R language and python servers access web and compute nodes via a load balancer.](images/sku-optimization-solution-guide/ml-server-deployment-example.png)](images/sku-optimization-solution-guide/ml-server-deployment-example.png#lightbox)
 
 Figure 5: Example of an ML server deployment
 
