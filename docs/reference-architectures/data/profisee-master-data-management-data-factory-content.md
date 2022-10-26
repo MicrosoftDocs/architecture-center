@@ -174,7 +174,7 @@ Product data is often spread across multiple enterprise applications, such as ER
 
 #### Reference data 360
 
-In the context of analytics, reference data exists as numerous lists of data that is often used to further describe other sets of master data. For example, lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms include:
+In the context of analytics, reference data exists as numerous lists of data that is often used to further describe other sets of master data. For example, lists of countries/regions, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms include:
 
 * Multiple representations of the same thing. For example, the state Georgia as "GA" and "Georgia", making it difficult to aggregate and drill down into data consistently.
 
