@@ -11,7 +11,7 @@ This document describes the architecture and design considerations of a solution
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription hosting all cloud resources that are part of this solution.
-- An [Azure Active Directory](/azure/active-directory) (Azure AD) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
+- An [Azure Active Directory (Azure AD)](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
 - An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region closest to an on-premises datacenter that will host the Azure Stack Hub deployment.
 
   > [!Note]

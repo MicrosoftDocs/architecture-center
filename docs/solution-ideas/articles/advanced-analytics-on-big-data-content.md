@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale. To learn how enterprise-scale data platforms are designed as part of an enterprise landing zone, refer to the [Cloud Adoption Framework Data landing zone](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) documentation.
 
 ## Potential use cases
 
@@ -47,6 +47,11 @@ Organizations have the ability to access more data than ever before. Advanced an
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)
 
 ## Next steps
+
+* Learn about [enterprise-scale data platform](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) design
+* Learn how to design and deploy an [end-to-end data analytics](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) platform
+
+## Related resources
 
 * [Synapse Analytics Documentation](/azure/sql-data-warehouse)
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities)
