@@ -44,7 +44,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 You might consider deploying a single Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network, shared by all of the apps within the environment. Each environment has its own Dapr and monitoring configuration.
 
-This approach provides the strongest level of data and performance isolation, and it removes the need for your applications to be aware that they are multitenanted.
+This approach provides the strongest level of data and performance isolation, and it removes the need for your applications to be multitenancy-aware.
 
 However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas). Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model. The approach might only work for small numbers of tenants. Furthermore, this approach comes with a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
 
