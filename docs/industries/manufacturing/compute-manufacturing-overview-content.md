@@ -27,11 +27,11 @@ Solving simulation problems requires large-scale computing resources. High perfo
 
 The Azure platform enables solutions to scale up and out. One of the commonly known software packages for simulation is STAR-CCM+, from CD-adapco. [A published study](https://azure.microsoft.com/blog/availability-of-star-ccm-on-microsoft-azure/?WT.mc_id=computeinmanufacturing-docs-ercenk) demonstrating STAR-CCM+ running “Le Mans 100 million cell” computational fluid dynamics (CFD) model provides a glimpse of the scalability of the platform. The following chart demonstrates the observed scalability as more cores are added for running the simulation:
 
-![Line graph that shows that processing speed increases almost linearly with the number of cores.](images/compute-manufacturing-overview/star-ccm.png)
+![Diagram of a Line graph that shows that processing speed increases almost linearly with the number of cores.](images/compute-manufacturing-overview/star-ccm.png)
 
 Another popular engineering analysis software package is ANSYS CFD. It enables engineers to perform multi-physics analysis, including fluid forces, thermal effects, structural integrity, and electromagnetic radiation. [The published study](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/?WT.mc_id=computeinmanufacturing-docs-ercenk) demonstrates the scalability of the solution on Azure and shows similar results.
 
-![Bar graph that shows that wall times decrease as the number of cores increase.](images/compute-manufacturing-overview/fluent.png)
+![Diagram of a Bar graph that shows that wall times decrease as the number of cores increase.](images/compute-manufacturing-overview/fluent.png)
 
 Instead of investing in a local compute cluster, a software package that requires parallel execution can be deployed on Azure virtual machines or on [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview?WT.mc_id=computeinmanufacturing-docs-ercenk) by using the [HPC and GPU VM](/azure/virtual-machines/windows/sizes-hpc?WT.mc_id=computeinmanufacturing-docs-ercenk) families for an all-cloud solution.
 
