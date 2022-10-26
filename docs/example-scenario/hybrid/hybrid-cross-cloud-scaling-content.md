@@ -67,6 +67,16 @@ The operational excellence pillar of the Azure Well-Architected Framework covers
 
 The key benefit of cross-cloud scaling is the ability to deliver on-demand scaling. Scaling must happen between public and local cloud infrastructure and provide a consistent, reliable service that's based on demand. See [Performance efficiency](/azure/architecture/framework/scalability) to learn more about implementing scalability in Azure.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos/) | Senior Content Developer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.

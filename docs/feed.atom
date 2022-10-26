@@ -2,18 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-10-17T00:01:18.801Z</updated>
+    <updated>2022-10-24T00:01:17.188Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
+        <title type="html"><![CDATA[Predict patient length of stay and flow]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay"/>
+        <updated>2022-10-20T20:20:38.000Z</updated>
+        <summary type="html"><![CDATA[Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Remote patient monitoring]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/remote-patient-monitoring</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/digital-health/remote-patient-monitoring"/>
+        <updated>2022-10-20T15:50:24.000Z</updated>
+        <summary type="html"><![CDATA[Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Distributed hyperparameter tuning for machine learning models]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/training-python-models</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/training-python-models"/>
         <updated>2022-10-12T23:04:45.000Z</updated>
         <summary type="html"><![CDATA[Use distributed hyperparameter tuning with Azure Machine Learning compute to train scikit-learn and deep learning machine learning models in Python.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy a social media analytics solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/build-deploy-social-media-analytics-solution</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/build-deploy-social-media-analytics-solution"/>
+        <updated>2022-10-20T18:16:16.000Z</updated>
+        <summary type="html"><![CDATA[Build and deploy a social medial analytics solution that uses Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services with external data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High availability for multitier AKS applications]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/aks/aks-high-availability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/aks/aks-high-availability"/>
+        <updated>2022-10-19T23:14:00.000Z</updated>
+        <summary type="html"><![CDATA[Read about high availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -175,6 +207,174 @@
         <updated>2022-10-03T19:31:22.000Z</updated>
         <summary type="html"><![CDATA[Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics end-to-end with Azure Synapse]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end"/>
+        <updated>2022-10-21T15:28:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP workload development and test settings]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test"/>
+        <updated>2022-10-21T07:04:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy a hybrid app with on-premises data that scales cross-cloud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data"/>
+        <updated>2022-10-20T19:37:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AI-based footfall detection solution in Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection"/>
+        <updated>2022-10-20T19:36:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2022-10-19T00:50:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Firewall, App Gateway for virtual networks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
+        <updated>2022-10-19T00:22:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-region N-tier application]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server"/>
+        <updated>2022-10-18T09:37:33.000Z</updated>
+        <summary type="html"><![CDATA[Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys mainframe migration with Asysco]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
+        <updated>2022-10-18T08:37:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys ClearPath Forward MCP mainframe rehost to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
+        <updated>2022-10-18T08:37:38.000Z</updated>
+        <summary type="html"><![CDATA[Use virtualization from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra mainframe, which allows an accelerated move into Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IBM z/OS online transaction processing on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-zos-online-transaction-processing-azure"/>
+        <updated>2022-10-18T08:37:33.000Z</updated>
+        <summary type="html"><![CDATA[Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost-effective, responsive, scalable, and adaptable.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend on-premises AD FS to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <updated>2022-10-18T08:37:26.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[On-premises network using ExpressRoute]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover"/>
+        <updated>2022-10-18T08:37:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute with a virtual private network (VPN) gateway failover.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Service Fabric microservices architecture]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
+        <updated>2022-10-17T21:27:16.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IBM System i (AS/400) to Azure using Infinite i]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i"/>
+        <updated>2022-10-17T21:15:27.000Z</updated>
+        <summary type="html"><![CDATA[Use Infinite i to easily migrate your IBM System i (AS/400) workloads to Azure. You can lower costs, improve performance, improve availability, and modernize.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Batch scoring for deep learning models]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning"/>
+        <updated>2022-10-17T21:15:07.000Z</updated>
+        <summary type="html"><![CDATA[Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Partitioning in Event Hubs and Kafka]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka"/>
+        <updated>2022-10-17T21:14:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MLOps for Python with Azure Machine Learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/mlops-python</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/mlops-python"/>
+        <updated>2022-10-17T21:14:48.000Z</updated>
+        <summary type="html"><![CDATA[Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Observability patterns and metrics]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/databricks-monitoring/databricks-observability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/databricks-monitoring/databricks-observability"/>
+        <updated>2022-10-17T21:14:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unified logging for microservices apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/logging/unified-logging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/logging/unified-logging"/>
+        <updated>2022-10-17T21:14:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2022-10-17T18:36:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cost savings through HTAP with Azure SQL]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-sql-htap</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/azure-sql-htap"/>
+        <updated>2022-10-17T08:04:10.000Z</updated>
+        <summary type="html"><![CDATA[Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Helm-based deployments for Apache NiFi]]></title>
@@ -2081,14 +2281,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Predict the length of stay in hospitals]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals"/>
-        <updated>2022-08-14T14:51:43.000Z</updated>
-        <summary type="html"><![CDATA[Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Eventual consistency between multiple Power Apps instances]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/power-platform/eventual-consistency</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/power-platform/eventual-consistency"/>
@@ -2401,14 +2593,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Remote patient monitoring]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/remote-patient-monitoring</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/remote-patient-monitoring"/>
-        <updated>2022-07-28T03:13:08.000Z</updated>
-        <summary type="html"><![CDATA[Provide a high level of preventative medical care with remote patient monitoring from Azure. Analyze large amounts of medical data in a secure environment.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Retail assistant with visual capabilities]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities</id>
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities"/>
@@ -2470,14 +2654,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/image-classification-with-convolutional-neural-networks"/>
         <updated>2022-07-22T16:36:29.000Z</updated>
         <summary type="html"><![CDATA[Use convolutional neural networks (CNNs) to classify large volumes of images efficiently. Take advantage of CNN layers to identify elements in images.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Predict length of stay and patient flow]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics"/>
-        <updated>2022-07-22T16:36:29.000Z</updated>
-        <summary type="html"><![CDATA[Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

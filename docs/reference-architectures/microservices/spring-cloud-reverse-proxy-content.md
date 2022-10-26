@@ -213,6 +213,16 @@ predicates:
 - Header="X-Azure-FDID", "e483e3cc-e7f3-4e0a-9eca-5f2a62bde229"
 ```
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)

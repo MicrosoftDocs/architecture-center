@@ -8,13 +8,13 @@ This architecture and the implementation aren't designed to provide controls on 
 
 > [!IMPORTANT]
 >
-> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
+> This guidance and the accompanying implementation build on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture is based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
 > ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
 
 ## Implement strong access control measures
 
-### **Requirement 7**&mdash;Restrict access to cardholder data by business need to know
+### Requirement 7 &mdash; Restrict access to cardholder data by business need to know
 
 #### AKS feature support
 
@@ -33,27 +33,6 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 |[Requirement 7.1](#requirement-71)|Limit access to system components and cardholder data to only those individuals whose job requires such access.|
 |[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user's need to know, and is set to "deny all" unless specifically allowed.|
 |[Requirement 7.3](#requirement-73)|Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.|
-
-### **Requirement 8**&mdash;Identify and authenticate access to system components
-
-#### AKS feature support
-
-Because of AKS and Azure AD integration, you can leverage ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
-
-#### Your responsibilities
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 8.1](#requirement-81)|Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:|
-|[Requirement 8.2](#requirement-82)| In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:|
-|[Requirement 8.3](#requirement-83)|Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.|
-|[Requirement 8.4](#requirement-84)|Document and communicate authentication procedures and policies and procedures to all users including:|
-|[Requirement 8.5](#requirement-85)| Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:|
-|[Requirement 8.6](#requirement-86)| Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:|
-|[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
-|[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
-
-[**Requirement 9**](#requirement-9)&mdash;Restrict physical access to cardholder data
 
 ### Requirement 7.1
 
@@ -199,7 +178,7 @@ Assignment of privileges to individuals based on job classification and function
 
 Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to define the extent and process of access.
 
-For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they may be the same. Here are some points to consider:
+For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they might be the same. Here are some points to consider:
 
 - How should they access the cluster?
 - Which sources are allowed for access?
@@ -237,7 +216,24 @@ Ensure that security policies and operational procedures for restricting access 
 
 It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-***
+### Requirement 8 &mdash; Identify and authenticate access to system components
+
+#### AKS feature support
+
+Because of AKS and Azure AD integration, you can take advantage of ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+
+#### Your responsibilities
+
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 8.1](#requirement-81)|Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:|
+|[Requirement 8.2](#requirement-82)| In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:|
+|[Requirement 8.3](#requirement-83)|Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.|
+|[Requirement 8.4](#requirement-84)|Document and communicate authentication procedures and policies and procedures to all users including:|
+|[Requirement 8.5](#requirement-85)| Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:|
+|[Requirement 8.6](#requirement-86)| Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:|
+|[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
+|[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
 ### Requirement 8.1
 
@@ -262,7 +258,7 @@ Here are overall considerations for this requirement:
 
 Don't share or reuse identities for functionally different parts of the CDE. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
+Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD workload identity](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
@@ -397,11 +393,13 @@ Ensure that security policies and operational procedures for identification and 
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your identity onboarding training, provide guidance for password reset procedures and organizational best practices about protecting assets. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-## Requirement 9
+### Requirement 9 &mdash; Restrict physical access to cardholder data
 
-Restrict physical access to cardholder data
+### AKS feature support
 
-### Your responsibilities
+There aren't any applicable AKS features for this requirement.
+
+#### Your responsibilities
 
 This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard.
 

@@ -8,7 +8,9 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - engagement-fy23
 azureCategories:
   - web
   - compute

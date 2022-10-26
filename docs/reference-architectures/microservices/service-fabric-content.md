@@ -443,6 +443,16 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.md
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)

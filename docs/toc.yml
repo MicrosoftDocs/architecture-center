@@ -1812,9 +1812,6 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Glossary of manufacturing terms
-                href: /dynamics-gp/distribution/glossary-manufacturing
-                maintainContext: true
               - name: AI and ML scenarios
                 items:
                   - name: Continuous manufacturing with Bonsai
@@ -2777,6 +2774,8 @@ items:
                     href: solution-ideas/articles/low-latency-network.yml
           - name: Sports
             items:
+              - name: Overview
+                href: industries/sports.md           
               - name: Guides
                 items:
                   - name: Fan Engagement solution
@@ -3447,7 +3446,11 @@ items:
                       - name: Ansys CFX
                         href: guide/hpc/ansys-cfx.yml
                       - name: Ansys Fluent
-                        href: guide/hpc/ansys-fluent.yml  
+                        href: guide/hpc/ansys-fluent.yml 
+                      - name: Ansys LS-DYNA
+                        href: guide/hpc/ls-dyna.yml
+                      - name: Ansys Rocky
+                        href: guide/hpc/ansys-rocky.yml 
                   - name: Autodesk deployments
                     items:
                       - name: Autodesk Civil 3D
@@ -3466,10 +3469,14 @@ items:
                     href: guide/hpc/luxion-keyshot.yml
                   - name: OpenFOAM
                     href: guide/hpc/openfoam.yml
+                  - name: Remcom XFdtd
+                    href: guide/hpc/remcom-xfdtd.yml
                   - name: Samadii deployments
                     items:
                       - name: Samadii DEM
                         href: guide/hpc/samadii-dem.yml
+                      - name: Samadii EM
+                        href: guide/hpc/samadii-em.yml 
                       - name: Samadii Plasma
                         href: guide/hpc/plasma.yml
                       - name: Samadii SCIV
@@ -3480,6 +3487,8 @@ items:
                         href: guide/hpc/siemens-nx.yml
                       - name: Siemens Tecnomatix
                         href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Visiopharm
+                    href: guide/hpc/visiopharm.yml    
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3696,6 +3705,8 @@ items:
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Blue-green deployment of AKS clusters
+                href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
               - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
