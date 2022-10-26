@@ -3449,9 +3449,11 @@ items:
                       - name: Ansys CFX
                         href: guide/hpc/ansys-cfx.yml
                       - name: Ansys Fluent
-                        href: guide/hpc/ansys-fluent.yml  
+                        href: guide/hpc/ansys-fluent.yml 
                       - name: Ansys LS-DYNA
                         href: guide/hpc/ls-dyna.yml
+                      - name: Ansys Rocky
+                        href: guide/hpc/ansys-rocky.yml 
                   - name: Autodesk deployments
                     items:
                       - name: Autodesk Civil 3D
