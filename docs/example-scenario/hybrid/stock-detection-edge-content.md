@@ -12,7 +12,7 @@ diagram
 4. The inferencing driver uploads the raw images to a blob (if specified), and sends the results from the model to Azure IoT Hub and a bounding box processor on the device.
 5. The bounding box processor adds bounding boxes to the image and caches the image path in an in-memory database.
 6. A web app queries for images and shows them in the order received.
-7. Messages from IoT Hub are aggregated in Time Series Insights.
+7. Messages from IoT Hub are aggregated in Azure Time Series Insights.
 8. Power BI displays an interactive report of out-of-stock items with the data from Time Series Insights.
 
 ### Components
@@ -29,11 +29,11 @@ diagram
 
 ## Scenario details 
 
-The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to an Azure Time Series Insights environment to present insights in Power BI.
+The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth and storage space and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where restocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Time Series Insights environment to present insights in Power BI.
 
 ### Potential use cases
 
-Physical retail stores lose sales when customers look for an item that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
+Physical retail stores lose sales when customers look for items that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. This solution makes the restocking process more efficient by notifying staff automatically when items need to be stocked.
 
 ## Considerations
 
@@ -82,10 +82,10 @@ Other contributor:
 - [Training module: Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
 - [Time Series Insights](/azure/time-series-insights)
 - [Project Brainwave blog post](https://blogs.microsoft.com/ai/build-2018-project-brainwave)
-- [Azure Accelerated Machine Learning with Project Brainwave video](https://www.youtube.com/watch?v=DJfMobMjCX0)
+- [Video: Azure Accelerated Machine Learning with Project Brainwave](https://www.youtube.com/watch?v=DJfMobMjCX0)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 - [Azure Stack family of products and solutions](/azure-stack)
-- [Edge ML inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection)
+- [Edge machine learning inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection)
 
 ## Related resources
 
