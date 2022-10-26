@@ -149,11 +149,11 @@ For more information, see [Observations on hinted handoff in cross-region replic
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: 
+Principal author: 
 
  - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
  
- Other contributors:
+ Other contributor:
 
  - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
  
