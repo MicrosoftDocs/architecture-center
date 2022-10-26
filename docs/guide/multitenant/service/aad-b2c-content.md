@@ -27,11 +27,19 @@ If you are brand new to this topic, please review the following recommended reso
 
 ### Shared B2C tenant
 
+Using a single, shared B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared B2C tenant should be considered if the following apply to your scenario:
+
+- You do not have complex data residency requirements
+- You only have local accounts or only have a small number of federated identity providers or social logins you'd like to support (ie you do not need to allow each of your customers to bring a custom identity provider)
+- You are okay with your customers using a common login page
+- You do not need complex authorization, or are okay with building a custom roles/permissions system **(add link)**
+- Your end users need access to more than one application tenant 
+
 Discuss here the pros/cons of a shared B2C tenant. Easier to manage, but have a theoretical limit of the number of identity providers you can enable (because of limit of custom policies). 
 
-Also a bit more difficult to do permissions/roles and introduces the need to build a custom roles/permissions system (covered more below). 
-
 ### B2C tenant per customer
+
+Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more. Additionally, Azure subscriptions have a default [limit] of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern]() to allow you to "load balance" your customers onto more than one subscription. 
 
 Discuss here the pros/cons of a B2C tenant per customer. More easily customizable per customer, but much more overhead to think about. Also have a theoretical limit of 200 (need to confirm number) B2C tenants per subscription. Not a great solution if customers must exist in multiple tenants. Another con is that your application must know which tenant to sign the user into. 
 
@@ -40,11 +48,13 @@ Discuss here the pros/cons of a B2C tenant per customer. More easily customizabl
 Discuss here the pros/cons of vertically partitioning B2C tenants based on regions, size of customers, or other factors. Application must be aware of which tenant to sign the user into.  
 
 
-Will probably want to call out federation scenarios here too. 
+Will probably want to call out federation scenarios here too. Call out home realm discovery and maybe b2c white paper here.  
 
-## Securing applications
+## Data Residency
 
-Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). Need to also document the workaround.  
+Upon provisioning your B2C instance, you will be asked to select a region for your instance to be deployed to. This selection is important as this is the region that your customer data will reside in. If you have any specific data residency requirements for a subset of your customers, you should consider separating them into a dedicated tenant for their region. 
+
+## User Journey Configuration
 
 ## Roles & permissions
 
@@ -53,6 +63,15 @@ Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build
 Link to identity approaches article here. [https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
 
 Could link to Azure SaaS Dev Kit here maybe, as it has one of these built. Could also link to SaaS Starter Web App doc [https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app).  
+
+## Maintenance Overhead
+
+Consider talking here about the maintenance overhead of b2c tenants. 
+
+## Securing applications
+
+Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). Need to also document the workaround.  
+
 
 ## DevOps
 
