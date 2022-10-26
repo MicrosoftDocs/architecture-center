@@ -193,6 +193,16 @@ Please see the [Azure Well-Architected Framework pillars of software quality](/a
 
 Predictive maintenance has been a topic of discussion for a long time. Recent developments in cloud platforms like Microsoft Azure enable implementers of predictive maintenance to overcome many challenges that were obstacles in the past when dealing with data. With the elastic scale on the compute and storage capacity, cloud platforms present new opportunities for implementing predictive maintenance, along with new revenue opportunities. Microsoft’s Azure platform provides many services of different capabilities for achieving business goals of a predictive maintenance solution. This article provided a vision for how to collect data and train data models, along with utilizing the trained model to take action on the outcomes predicted in the previous sections.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Future-focused: Stop thinking in the past and get ahead of the unexpected with IoT](https://blogs.microsoft.com/iot/2017/02/28/future-focused-stop-thinking-in-the-past-and-get-ahead-of-the-unexpected-with-iot-2/?WT.mc_id=pdmsolution-docs-ercenk)
