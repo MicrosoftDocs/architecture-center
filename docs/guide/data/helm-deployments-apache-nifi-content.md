@@ -152,6 +152,16 @@ Kubernetes containers are the basic units that run NiFi binaries. To configure a
 - Use the standard NiFi image to run the NiFi chart. The Apache NiFi community supplies that image. But you need to add a `kubectl` binary to the containers to configure secured clusters.
 - Use a custom image. If you take this approach, consider your file system requirements. Ensure that the location of your NiFi binaries is correct. For more information on the configured file system, see [Dockerfile in the Apache NiFi source code][Apache NiFi Dockerfile on GitHub].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Muazma Zahid](https://www.linkedin.com/in/muazmazahid/) | Principal PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Helm][Helm]
