@@ -21,7 +21,7 @@ azure.category:
 
 # Network secure ingress implementation
 
-Network secure ingress encapsulates several design patterns, including the global routing, global offloading, and health endpoint monitoring patterns.
+Network secure ingress encapsulates several design patterns, including the global routing, global offloading, and health endpoint monitoring patterns. This pattern implementation can be used a gateway for any HTTP(S) workload that requires high availability or reliability by providing secure global routing to workloads in differing regions with low latency failover.
 
 TODO: EMBED VIDEO HERE
 
