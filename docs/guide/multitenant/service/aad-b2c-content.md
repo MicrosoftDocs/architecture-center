@@ -1,9 +1,13 @@
 
-- Quick synopsis of AAD B2C.
-- Quick overview of why multitenancy considerations are important for identity
-- Link to other resources that would be helpful to build foundational knowledge
-  - [Identity Approaches](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
-  - [Identity Considerations](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/identity)
+[Azure Active Directory B2C]() is a managed Identity Provider capable of performing... (need more info here for a synopsis)
+
+An identity solution for a multitenant application is typically one of the biggest considerations when designing your application. Your identity solution will serve as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them.
+
+If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document: 
+
+  - [Identity Approaches](../approaches/identity#authorization)
+  - [Identity Considerations](../considerations/identity)
+  - [Tenancy Models]()
 
 ## Isolation Models
 
@@ -11,7 +15,7 @@
 - You need to consider things like:
   - Is the user going to need to access more than one tenant?
   - Do you need complex permissioning and Role Based Access Control (RBAC?)
-  - Do you need to federate logins to your customer's Identity Provider(s)? (AAD, Social Logins, etc)
+  - Do you need to federate logins to your customer's Identity Provider(s)? (SAML, AAD, Social Logins, etc)
   - Do you have data residency requirements?
   - What are your user personas? (ie who is logging into your software?)
 
@@ -40,13 +44,15 @@ Will probably want to call out federation scenarios here too.
 
 ## Securing applications
 
-Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). 
+Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). Need to also document the workaround.  
 
 ## Roles & permissions
 
 Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build-your-own. App roles being more basic and having a limit of (?) app roles per app. Building your own is much more complex.  
 
 Link to identity approaches article here. [https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
+
+Could link to Azure SaaS Dev Kit here maybe, as it has one of these built. Could also link to SaaS Starter Web App doc [https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app).  
 
 ## DevOps
 
