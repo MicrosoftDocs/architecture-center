@@ -88,6 +88,10 @@ To enable this solution to scale across multiple cameras and locations, you'll n
 
 Use the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
 
+## Deploy this scenario
+
+Deploy an AI-based footfall-detection solution that generates insights from real-world actions by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit. This solution analyzes visitor traffic in retail stores. See [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection).
+
 ## Contributors
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._

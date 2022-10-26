@@ -322,6 +322,8 @@ Principal authors:
 
  - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728/) | Senior Software Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Use Azure Event Hubs from Apache Kafka applications][Use Azure Event Hubs from Apache Kafka applications]

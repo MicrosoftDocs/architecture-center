@@ -77,6 +77,17 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 
 To learn more about pricing for LzLabs Software Defined Mainframe products and their related services, visit the [LzLabs website](https://www.lzlabs.com/).
 
+## Contributors
+
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, contact legacy2azure@microsoft.com

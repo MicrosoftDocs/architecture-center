@@ -1,21 +1,8 @@
-This example shows how to establish a development and test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB. (AnyDB is the SAP term for any supported DBMS that isn't SAP HANA.) Because this architecture is designed for non-production environments, it's deployed with only one virtual machine (VM). The VM size can be changed to accommodate your organization's needs.
-
-For production use cases review the SAP reference architectures available below:
-
-- [SAP NetWeaver for AnyDB][sap-netweaver]
-- [SAP S/4HANA][sap-hana]
-- [SAP on Azure large instances][sap-large]
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Noncritical SAP nonproduction workloads (such sandbox, development, test, and quality assurance).
-- Noncritical SAP business workloads.
+This example shows how to establish a development and test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB. (AnyDB is the SAP term for any supported DBMS that isn't SAP HANA.)
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for S A P workloads](./media/architecture-sap-dev-test-architecture.png)
+![Architecture diagram for dev/test environments for S A P workloads.](./media/architecture-sap-dev-test-architecture.png)
 
 ### Dataflow
 
@@ -35,7 +22,26 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 - [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 - [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) are recommended solutions to provide the storage for the SAP executables and HANA data and logs.
 
+## Scenario details
+
+Because this architecture is designed for non-production environments, it's deployed with only one virtual machine (VM). The VM size can be changed to accommodate your organization's needs.
+
+For production use cases, review the SAP reference architectures available below:
+
+- [SAP NetWeaver for AnyDB][sap-netweaver]
+- [SAP S/4HANA][sap-hana]
+- [SAP on Azure large instances][sap-large]
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Noncritical SAP nonproduction workloads (such sandbox, development, test, and quality assurance).
+- Noncritical SAP business workloads.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep the following points in mind when establishing a development and test environment for SAP NetWeaver.
 
@@ -49,6 +55,8 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 #### Data protection and cloning
@@ -60,6 +68,8 @@ For general guidance on protecting your application data, see [Azure Application
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To help you explore the cost of running this scenario, all services are preconfigured in the cost calculator examples below. Change the appropriate variables to match the expected traffic for your use case.
 
@@ -88,6 +98,16 @@ Select the link below to deploy the solution.
 
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Andrew Dibbins](https://www.linkedin.com/in/andrew-dibbins-5551771) | Senior Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

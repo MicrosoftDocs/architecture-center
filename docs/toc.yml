@@ -1466,8 +1466,8 @@ items:
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
-              - name: Predict the length of stay in hospitals
-                href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
+              - name: Predict patient length of stay and flow
+                href: example-scenario/digital-health/predict-patient-length-of-stay.yml
               - name: Precision medicine pipeline
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
               - name: Remote patient monitoring
@@ -1812,9 +1812,6 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Glossary of manufacturing terms
-                href: /dynamics-gp/distribution/glossary-manufacturing
-                maintainContext: true
               - name: AI and ML scenarios
                 items:
                   - name: Continuous manufacturing with Bonsai
@@ -2777,6 +2774,8 @@ items:
                     href: solution-ideas/articles/low-latency-network.yml
           - name: Sports
             items:
+              - name: Overview
+                href: industries/sports.md           
               - name: Guides
                 items:
                   - name: Fan Engagement solution
@@ -3102,6 +3101,8 @@ items:
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech transcription pipeline
                 href: example-scenario/ai/speech-to-text-transcription-analytics.yml
+              - name: Social media analytics solution
+                href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
           - name: Solution ideas
             items:
               - name: AI at the edge
@@ -3150,8 +3151,6 @@ items:
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: FAQ chatbot
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
-              - name: Hospital patient predictions
-                href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNNs
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
               - name: Interactive voice response bot
@@ -3356,8 +3355,6 @@ items:
                 href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Predict the length of stay in hospitals
-                href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
               - name: Real-time analytics on big data
@@ -3449,7 +3446,11 @@ items:
                       - name: Ansys CFX
                         href: guide/hpc/ansys-cfx.yml
                       - name: Ansys Fluent
-                        href: guide/hpc/ansys-fluent.yml  
+                        href: guide/hpc/ansys-fluent.yml 
+                      - name: Ansys LS-DYNA
+                        href: guide/hpc/ls-dyna.yml
+                      - name: Ansys Rocky
+                        href: guide/hpc/ansys-rocky.yml 
                   - name: Autodesk deployments
                     items:
                       - name: Autodesk Civil 3D
@@ -3468,10 +3469,14 @@ items:
                     href: guide/hpc/luxion-keyshot.yml
                   - name: OpenFOAM
                     href: guide/hpc/openfoam.yml
+                  - name: Remcom XFdtd
+                    href: guide/hpc/remcom-xfdtd.yml
                   - name: Samadii deployments
                     items:
                       - name: Samadii DEM
                         href: guide/hpc/samadii-dem.yml
+                      - name: Samadii EM
+                        href: guide/hpc/samadii-em.yml 
                       - name: Samadii Plasma
                         href: guide/hpc/plasma.yml
                       - name: Samadii SCIV
@@ -3482,6 +3487,8 @@ items:
                         href: guide/hpc/siemens-nx.yml
                       - name: Siemens Tecnomatix
                         href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Visiopharm
+                    href: guide/hpc/visiopharm.yml    
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3698,6 +3705,8 @@ items:
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Blue-green deployment of AKS clusters
+                href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
               - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
@@ -4572,7 +4581,7 @@ items:
               - name: CI/CD for Microsoft Power Platform
                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
               - name: CI/CD for quantum computing jobs
-                href: solution-ideas/articles/cicd-for-quantum-computing-jobs.yml
+                href: /azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps
               - name: CI/CD for Windows desktop apps
                 href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
               - name: CI/CD using Jenkins and AKS

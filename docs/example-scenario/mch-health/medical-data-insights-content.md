@@ -152,4 +152,4 @@ Principal authors:
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
 - [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)
-- [Remote patient monitoring](../../solution-ideas/articles/remote-patient-monitoring.yml)
+- [Remote patient monitoring](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

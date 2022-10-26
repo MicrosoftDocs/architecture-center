@@ -11,8 +11,6 @@ This reference architecture shows a microservices architecture deployed to Azure
 > [!NOTE]
 > This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
 
-### Workflow
-
 The architecture consists of the following components. For other terms, see [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
 
 **Service Fabric cluster**. A network-connected set of virtual machines (VMs) into which your microservices are deployed and managed.
@@ -452,6 +450,8 @@ To deploy the reference implementation for this architecture, follow the steps i
 Principal authors:
 
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
