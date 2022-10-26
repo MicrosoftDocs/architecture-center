@@ -67,7 +67,7 @@ The LDW with Synapse Serverless SQL pools can be considered an implementation of
 
 ## Next Steps
 
-- [Query storage files with serverless SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/query-data-storage)
+- [Query storage files with serverless SQL pool in Azure Synapse Analytics](https://learn.microsoft.com/azure/synapse-analytics/sql/query-data-storage)
 - [Tutorial: Create Logical Data Warehouse with serverless SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/)
 - [What is Azure Synapse Link for Azure Cosmos DB?](https://learn.microsoft.com/azure/cosmos-db/synapse-link)
 
