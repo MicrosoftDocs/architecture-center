@@ -2,22 +2,23 @@
 metadata:
   title: Implement out-of-stock detection at the edge
   titleSuffix: Azure Architecture Center
-  description: Use Azure and Azure Stack Edge to implement out-of-stock detection.
+  description: Use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have out-of-stock items.
   author: BryanLa
   ms.author: bryanla
-  ms.date: <Publish or major update date - mm/dd/yyyy>
+  ms.date: 10/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
-  - <Choose at least one category from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
-  - <There can be more than one category>
+  - ai-machine-learning
 products:
-  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
-  - <Don't use "azure" unless there is nothing else>
-  - <1-5 products--no more than 5!>
+  - azure-machine-learning
+  - azure-stack-edge
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-time-series-insights
 name: Implement out-of-stock detection at the edge
-summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+summary: Use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have out-of-stock items.
+thumbnailUrl: /azure/architecture/browse/thumbs/stock-detection-thumb.png
 content: |
-  [!include[](<solution-idea>-content.md)]
+  [!include[](stock-detection-edge-content.md)]

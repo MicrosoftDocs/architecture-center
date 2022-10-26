@@ -1,10 +1,10 @@
-This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have items that are out of stock.
+This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device together with network cameras to determine if retail shelves have out-of-stock items.
 
 ## Context and problem
 
 Physical retail stores lose sales when customers look for an items that aren't available on the shelves. The items could be in the back of the store, waiting to be restocked. You can make the restocking process more efficient by notifying staff automatically when items need to be stocked.
 
-## Solution
+## Architecture
 
 The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth, storage space, and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where stocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Azure Time Series Insights environment to present insights in Power BI.
 
@@ -34,32 +34,37 @@ Here's how the solution works:
    - [IoT Edge](https://azure.microsoft.com/products/iot-edge) orchestrates the runtime for the on-premises containers and handles device management and updates.
    - On an [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) device, [Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave) uses field-programmable gate arrays (FPGAs) to accelerate machine learning inferencing.
 
-## Issues and considerations
+## Considerations
 
-Consider the following points when deciding how to implement this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Scalability
 
-Most machine learning models can only run at a certain number of frames per second, depending on the provided hardware. Determine the optimal sample rate from your camera(s) to ensure that the ML pipeline doesn't back up. Different types of hardware will handle different numbers of cameras and frame rates.
+Most machine learning models can only run at a certain number of frames per second, depending on the provided hardware. Determine the optimal sample rate from your cameras to ensure that the machine learning pipeline doesn't back up. Different types of hardware can handle differing numbers of cameras and frame rates.
 
 ### Availability
 
-It's important to consider what might happen if the edge device loses connectivity. Consider what data might be lost from the Time Series Insights and Power BI dashboard. The example solution as provided isn't designed to be highly available.
+You should consider what will happen if the edge device loses connectivity. Consider what data might be lost from the Time Series Insights and Power BI dashboard. The example solution as provided isn't designed to be highly available.
 
 ### Manageability
 
-This solution can span many devices and locations, which could get unwieldy. Azure's IoT services can automatically bring new locations and devices online and keep them up to date. Proper data governance procedures must be followed as well.
+This solution can span many devices and locations, although it might get unwieldy if you have too many. Azure IoT services can automatically bring new locations and devices online and keep them up to date. 
+
+You also need to follow appropriate data governance procedures.
 
 ### Security
 
-This pattern handles potentially sensitive data. Make sure keys are regularly rotated and the permissions on the Azure Storage Account and local shares are correctly set.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+This architecture handles potentially sensitive data. Make sure that keys are rotated regularly and that the permissions on the Azure storage account and local shares are set correctly.
 
 ## Next steps
 
-To learn more about topics introduced in this article:
-- Multiple IoT related services are used in this pattern, including [Azure IoT Edge](/azure/iot-edge/), [Azure IoT Hub](/azure/iot-hub/), and [Azure Time Series Insights](/azure/time-series-insights/).
-- To learn more about Microsoft Project Brainwave, see [the blog announcement](https://blogs.microsoft.com/ai/build-2018-project-brainwave/) and checkout out the [Azure Accelerated Machine Learning with Project Brainwave video](https://www.youtube.com/watch?v=DJfMobMjCX0).
-- See [Hybrid app design considerations](overview-app-design-considerations.md) to learn more about best practices and to get answers to any additional questions.
-- See the [Azure Stack family of products and solutions](/azure-stack) to learn more about the entire portfolio of products and solutions.
-
-When you're ready to test the solution example, continue with the [Edge ML inferencing solution deployment guide](https://aka.ms/edgeinferencingdeploy). The deployment guide provides step-by-step instructions for deploying and testing its components.
+- [IoT Edge](/azure/iot-edge)
+- [IoT Hub](/azure/iot-hub) 
+- [Time Series Insights](/azure/time-series-insights)
+- [Project Brainwave blog post](https://blogs.microsoft.com/ai/build-2018-project-brainwave)
+- [Azure Accelerated Machine Learning with Project Brainwave video](https://www.youtube.com/watch?v=DJfMobMjCX0)
+- [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
+- [Azure Stack family of products and solutions](/azure-stack)
+- [Edge ML inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection).
