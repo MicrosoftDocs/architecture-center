@@ -14,7 +14,7 @@ This architecture and the implementation aren't designed to provide controls on 
 
 ## Implement strong access control measures
 
-### **Requirement 7**&mdash;Restrict access to cardholder data by business need to know
+### Requirement 7 &mdash; Restrict access to cardholder data by business need to know
 
 #### AKS feature support
 
@@ -216,7 +216,7 @@ Ensure that security policies and operational procedures for restricting access 
 
 It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-### **Requirement 8**&mdash;Identify and authenticate access to system components
+### Requirement 8 &mdash; Identify and authenticate access to system components
 
 #### AKS feature support
 
