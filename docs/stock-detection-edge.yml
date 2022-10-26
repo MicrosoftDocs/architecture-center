@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: <Article title, which becomes the title metadata>
+  title: Implement out-of-stock detection at the edge
   titleSuffix: Azure Architecture Center
   description: Use Azure and Azure Stack Edge to implement out-of-stock detection.
   author: BryanLa
