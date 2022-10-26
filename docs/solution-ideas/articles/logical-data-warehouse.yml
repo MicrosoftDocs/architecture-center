@@ -21,7 +21,7 @@ products:
   - "azure-databricks"
   - "azure-synapse-analytics"
   - "power-bi"
-  - "azure-analysis-services"
+  - "azure-data-factory"
 name: Logical Data Warehouse with Synapse Serverless SQL Pools
 summary: Learn about the Logical Data Warehouse pattern and how to use Synapse SQL On-Demand to build it on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/logical-data-warehouse.png
