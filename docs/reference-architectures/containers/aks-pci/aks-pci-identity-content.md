@@ -393,7 +393,7 @@ Ensure that security policies and operational procedures for identification and 
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your identity onboarding training, provide guidance for password reset procedures and organizational best practices about protecting assets. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-### **Requirement 9**&mdash;Restrict physical access to cardholder data
+### Requirement 9 &mdash; Restrict physical access to cardholder data
 
 ### AKS feature support
 
