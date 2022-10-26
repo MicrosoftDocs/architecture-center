@@ -100,8 +100,8 @@ Use the following grid to identify potential destinations for your application t
 |-------------------------------------------------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|----------------------|--------------|---------------------|
 | Batch / scheduled jobs                                            | &#x2714;                |                           |                          |                             | &#x2714;             | &#x2714;     | &#x2714;            |
 | VNet Integration                             | &#x2714;                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;     | &#x2714;            |
-| Serverless                                                        | &#x2714;             | ?                         | ?                        |?                            | &#x2714;                    | &#x2714;            | &#x2714;                   |
-| Containerization                                                  | &#x2714;                | ?                         | ?                        |?                            | &#x2714;             | &#x2714;            | &#x2714;                   |
+| Serverless                                                        | &#x2714;             |                          |                         |                            | &#x2714;                    | &#x2714;            | &#x2714;                   |
+| Containerization                                                  | &#x2714;                | &#x2714;                         | &#x2714;                       |&#x2714;                            | &#x2714;             | &#x2714;            | &#x2714;                   |
 | Azure region availability                                         | [Details][1]            | [Details][2]              | [Details][2]             | [Details][2]                | [Details][3]         | [Details][4] | [Details][5]        |
 
 
