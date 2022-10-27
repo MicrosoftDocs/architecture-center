@@ -1,10 +1,36 @@
 <!-- cSpell:ignore xlink -->
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer.
 
-The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
+## Architecture
 
-The solution provides a dashboard where you can see the following:
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
+
+### Dataflow
+
+1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
+1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores model and any intermediate data that's generated.
+1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database) stores transaction history data and any generated model predictions.
+1. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is used to schedule periodic (for example, weekly) model refreshes.
+1. [Power BI](https://powerbi.microsoft.com/what-is-power-bi) enables a visualization of the results.
+1. [Excel](https://www.microsoft.com/microsoft-365/excel) spreadsheets consume predictive web services.
+
+### Components
+
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning)
+- [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Dashboard](https://powerbi.microsoft.com/diad) in [Power BI](https://powerbi.microsoft.com)
+
+## Solution details
+
+The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
+
+The solution provides a dashboard where you can see:
 
 - Optimal pricing recommendations.
 - Item elasticities at an item-site-channel-segment level.
@@ -20,33 +46,11 @@ Using direct interaction with the pricing model in Excel, you can:
 
 The rich functionality isn't confined to Excel. It's driven by web services that you or your implementation partner can call directly from your business applications, integrating price analysis into your business applications.
 
-## Potential use cases
+### Potential use cases
 
 This architecture is ideal for the retail industry, providing pricing recommendations, estimations, and forecasts.
 
-## Architecture
-
-![Architecture Diagram](../media/interactive-price-analytics.png)
-
-*Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
-
-1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
-1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores model and any intermediate data that's generated.
-1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database/) stores transaction history data and any generated model predictions.
-1. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is used to schedule periodic (for example, weekly) model refreshes.
-1. [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) enables a visualization of the results.
-1. [Excel](https://www.microsoft.com/microsoft-365/excel) spreadsheets consume predictive web services.
-
-### Components
-
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning/)
-- [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/)
-- [Dashboard](https://powerbi.microsoft.com/diad/) in [Power BI](https://powerbi.microsoft.com/)
-
-## Solution description
+### Solution description
 
 At the core of a rigorous price analysis workflow is price elasticity modeling and optimal pricing recommendations. The state-of-the-art modeling approach mitigates the two worst pitfalls of modeling price sensitivity from historical data: confounding and data sparsity.
 
@@ -67,6 +71,23 @@ The solution provides the following advantages:
 * Discovers related products (replacements and complements).
 * Lets you simulate promotional scenarios in Excel.
 
+## Considerations
+
+Considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
+
+* S1 standard ML service plan
+* S2 SQL Database
+* App hosting plan
+* Miscellaneous ADF data activities and storage costs
+
+If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
+
 ## Deploy this scenario
 
 The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers).
@@ -75,13 +96,13 @@ Technical resources deploy the solution and connect it to a business data wareho
 
 ### Getting started
 
-Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Please leave them open.
+Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Leave them open.
 
 The solution deploys with the same example data set of orange juice prices that you find behind the Try-It-Now button on the right.
 
-While the solution is deploying, you can get a head start and do the following:
+While the solution is deploying, you can get a head start by testing and reviewing:
 
-* See what is available in the Try-It-Now dashboard.
+* The Try-It-Now dashboard.
 * Read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required).
 * Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required).
 * Download the interactive Excel worksheet.
@@ -100,17 +121,6 @@ The solution uses an Azure SQL Database instance to store your transactional dat
 
 Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, including the topic of connecting your own data and customization (GitHub login required).
 
-## Pricing
-
-To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The estimated solution should include the following service costs:
-
-* S1 standard ML service plan
-* S2 SQL Database
-* App hosting plan
-* Miscellaneous ADF data activities and storage costs
-
-If you're just exploring the solution, you can delete it in a few days or hours. The costs are will stop being charged when you delete the Azure components.
-
 ## Next steps
 
 Learn more about the component technologies:
@@ -120,7 +130,7 @@ Learn more about the component technologies:
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi/)
+- [Create dashboards in Power BI](/training/modules/create-dashboards-power-bi)
 
 Learn more about pricing solutions:
 
@@ -129,7 +139,7 @@ Learn more about pricing solutions:
   - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization.
   - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.
 - Blog post: [A Pricing Engine for Everyone built with AzureML and Python](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
-- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service)
+- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/training/paths/build-ai-solutions-with-azure-ml-service)
 
 ## Related resources
 

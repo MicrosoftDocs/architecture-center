@@ -1,23 +1,29 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Web and mobile applications are a key part of a successful digital transformation strategy. Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
+Web and mobile applications are a key part of a successful digital transformation strategy.
+
+## Potential use cases
+
+Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
 
 ## Architecture
 
-![Architecture Diagram](../media/cloud-native-apps.png)
+![Diagram  showing cloud native application data flow with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.](../media/cloud-native-apps.png)
 
-### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/cloud-native-apps.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Deploy and manage containerized applications easily with a continuous integration and delivery experience (CI/CD), and enterprise grade security and governance.
-2. Focus on your app, not the database, with a fully managed database as a service for PostgreSQL. With built-in high availability and the rich feature set of Postgres, you can build design modern experiences free from legacy constraints.
-3. Offload database demands by managing sessions state and asset caching with Azure Cache for Redis
-4. Alert based on key events such as location or user activity using the serverless compute platform of Azure Functions.
-5. Push timely notifications directly to your users on their preferred service or medium.
-6. Derive deep insights by analyzing your data with Azure Synapse Analytics, with natively integrated Apache Spark for big data processing and machine learning.
-7. Monitor your application's performance for degradation or anomalies, and auto-scale your application to changing performance requirements.
-8. Track user interactions with you application at scale using Azure Cosmos DB. Easily scale to meet changing demand requirements with a fully managed NoSQL database.
-9. Provide near real-time analytics and insight into user interaction by leveraging Azure Synapse Link for Azure Cosmos DB HTAP capabilities.
-10. Finally, surface powerful visualizations of predictive, real-time, and historical transaction data using Power BI.
+1. Focus on your app, not the database, with a fully managed database as a service for PostgreSQL. With built-in high availability and the rich feature set of Postgres, you can build design modern experiences free from legacy constraints.
+1. Offload database demands by managing sessions state and asset caching with Azure Cache for Redis
+1. Alert based on key events such as location or user activity using the serverless compute platform of Azure Functions.
+1. Push timely notifications directly to your users on their preferred service or medium.
+1. Derive deep insights by analyzing your data with Azure Synapse Analytics, with natively integrated Apache Spark for big data processing and machine learning.
+1. Monitor your application's performance for degradation or anomalies, and auto-scale your application to changing performance requirements.
+1. Track user interactions with your application at scale using Azure Cosmos DB. Easily scale to meet changing demand requirements with a fully managed NoSQL database.
+1. Provide near real-time analytics and insight into user interaction by leveraging Azure Synapse Link for Azure Cosmos DB HTAP capabilities.
+1. Finally, surface powerful visualizations of predictive, real-time, and historical transaction data using Power BI.
 
 ### Components
 
@@ -34,7 +40,10 @@ Web and mobile applications are a key part of a successful digital transformatio
 
 ## Next steps
 
-- Learn more about [building a microservices architecture](../../microservices/index.md) on Azure
-- Learn more about [building serverless applications](../../serverless/code.md) on Azure
 - Read about customers that are building cloud-native applications on Azure: [Mars Veterinary Health](https://customers.microsoft.com/story/815549-pet-care-leader-turns-monolith-app-into-a-global-distributed-solution-on-azure) and [Chipotle Mexican Grill](https://customers.microsoft.com/story/787157-chipotle-retailers-azure)
 - Learn more about how [Azure Synapse Link](/azure/cosmos-db/synapse-link) can enable you to run near real-time analytics over operational data in Azure Cosmos DB, and [explore common use cases](/azure/cosmos-db/synapse-link-use-cases) like real-time personalization, predictive maintenance and anomaly detection in IoT scenarios, and supply chain analytics, forecasting, and reporting.
+
+## Related resources
+
+- Learn more about [building a microservices architecture](../../microservices/index.yml) on Azure
+- Learn more about [building serverless applications](../../serverless/code.yml) on Azure

@@ -4,8 +4,9 @@ description: A detailed walkthrough of the tasks for an individual contributor o
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
@@ -20,7 +21,7 @@ categories:
 
 # Tasks for an individual contributor in the Team Data Science Process
 
-This topic outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.md) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This topic outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.yml) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment. For instructions on how to execute a data science project under the TDSP, see [Execution of data science projects](./agile-development.md).
 

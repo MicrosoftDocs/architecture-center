@@ -1,3 +1,59 @@
+This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
+
+## Architecture
+
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
+
+Leisure and travel booking scenarios can generate large amounts of raw documents
+at a high frequency. However, you may not need to index the entire contents of
+these documents. For example, users may need to search by a known transaction
+ID, or by a customer name on a certain date, to retrieve a set of documents that
+is interesting to them.
+
+### Dataflow
+
+The concept behind this architecture consists in decoupling the metadata useful
+for searching from bare data: 
+- Only metadata gets indexed within a
+queryable service (such as Spark), while the actual data is stored in a data
+lake. 
+- Raw documents in a data lake are linked to indexed metadata by their path.
+- When querying for documents, the service searches the documents' metadata, and
+in turn the actual documents will be retrieved from the data lake by their path.
+
+This solution dramatically lowers costs and increases performance, as metadata
+comprises a fraction of the entire data estate (for instance, petabytes of raw
+documents can be described by tens of gigabytes of concise metadata).
+
+In addition, managing the blending of historical depth and real-time
+requirements into a uniform, easy-to-maintain, high-performance system is a
+typical challenge of this type of scenario. The [Delta Lake](https://delta.io)
+architecture answers this challenge.
+
+### Components
+
+[Azure App Service](https://azure.microsoft.com/services/app-service) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
+
+[Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing SQL Server Integration Services (SSIS) packages to Azure and run them with full compatibility in Azure Data Factory.
+
+[Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob Storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service that's simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
+
+[Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark–based data analytics platform optimized for Microsoft Azure Cloud Services. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
+
+### Alternatives
+
+As an alternative to only indexing metadata, you could index all raw data in a service that offers query capabilities, such as Azure Databricks, Azure Synapse Analytics, Azure Cognitive Search, or Azure Data Explorer. This approach is more immediate, but pay attention to the combined effect of data size, performance requirements, and update frequency, especially from a cost perspective.
+
+Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture) keeps real-time data in a different repository than historical data, and your client runs the logic to make heterogeneous queries transparent to the user. The advantage of this solution is the larger set of services that you can use (such as Azure Stream Analytics and Azure SQL Database), but the architecture becomes more complex and the code base more expensive to maintain.
+
+Spark is distributed with [Azure Databricks](https://azure.microsoft.com/services/databricks), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight). Hence, this architecture could be implemented with any of these Azure data services, preferably with a recent Spark version supporting Delta Lake 0.8 or 1.0.
+
+## Scenario details
+
 The visibility of raw data in leisure and travel booking scenarios is important
 to multiple actors. Technical support teams oversee real-time diagnostics to
 continuously monitor transaction processing and rapidly react to undesired
@@ -10,11 +66,11 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users.":::
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
 
-## Potential use cases
+### Potential use cases
 
-This architecture is applicable to several scenarios, including:
+This architecture is ideal for the travel and hospitality industries. It's applicable to the following scenarios:
 
 * Quickly retrieving either real-time (for example, for diagnostics) or historical (for compliance) raw documents in their original format.
 * Managing petabytes of data.
@@ -36,56 +92,15 @@ This architecture might not be suitable when:
 
 Raw documents are not necessarily required.
 
-## Architecture
-
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
-
-Leisure and travel booking scenarios can generate large amounts of raw documents
-at a high frequency. However, you may not need to index the entire contents of
-these documents. For example, users may need to search by a known transaction
-ID, or by a customer name on a certain date, to retrieve a set of documents that
-is interesting to them.
-
-The concept behind this architecture consists in decoupling the metadata useful
-for searching from bare data. Specifically, only metadata gets indexed within a
-queryable service (such as Spark), while the actual data is stored in a data
-lake. Raw documents in a data lake are linked to indexed metadata by their path.
-When querying for documents, the service searches the documents' metadata, and
-in turn the actual documents will be retrieved from the data lake by their path.
-This solution dramatically lowers costs and increases performance, as metadata
-comprises a fraction of the entire data estate (for instance, petabytes of raw
-documents can be described by tens of gigabytes of concise metadata).
-
-In addition, managing the blending of historical depth and real-time
-requirements into a uniform, easy-to-maintain, high-performance system is a
-typical challenge of this type of scenario. The [Delta Lake](https://delta.io)
-architecture answers this challenge.
-
-### Components
-
-[Azure App Service](https://azure.microsoft.com/en-us/services/app-service/#overview) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
-
-[Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing SQL Server Integration Services (SSIS) packages to Azure and run them with full compatibility in Azure Data Factory.
-
-[Azure Data Lake Storage Gen2](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/) is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. Data Lake Storage Gen2 converges the capabilities of Azure Data Lake Storage Gen1 with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob Storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
-
-[Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#overview) is a fully managed, real-time data ingestion service that’s simple, trusted, and scalable. Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
-
-[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is an Apache Spark–based data analytics platform optimized for Microsoft Azure Cloud Services. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
-
-### Alternatives
-
-As an alternative to only indexing metadata, you could index all raw data in a service that offers query capabilities, such as Azure Databricks, Azure Synapse Analytics, Azure Cognitive Search, or Azure Data Explorer. This approach is more immediate, but pay attention to the combined effect of data size, performance requirements, and update frequency, especially from a cost perspective.
-
-Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture) keeps real-time data in a different repository than historical data, and your client runs the logic to make heterogeneous queries transparent to the user. The advantage of this solution is the larger set of services that you can use (such as Azure Stream Analytics and Azure SQL Database), but the architecture becomes more complex and the code base more expensive to maintain.
-
-Spark is distributed with [Azure Databricks](https://azure.microsoft.com/services/databricks/), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/#overview). Hence, this architecture could be implemented with any of these Azure data services, preferably with a recent Spark version supporting Delta Lake 0.8 or 1.0.
-
 ## Considerations
 
-### Performance
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Users will perform a double hop to access data. They’ll query metadata first, and then retrieve the desired set of documents. It might be difficult to reuse existing or packaged client assets.
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+Users will perform a double hop to access data. They'll query metadata first, and then retrieve the desired set of documents. It might be difficult to reuse existing or packaged client assets.
 
 Azure Data Lake Storage Gen2 provides three [access tiers](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations): hot, cool, and archive. In scenarios where documents are occasionally retrieved, the cool performance tier should guarantee similar performance to the hot performance tier but with the advantage of lower costs. In scenarios where the probability of retrieval is higher with newer data, consider blending the cool and hot tiers. Using archive tier storage could also provide an alternative to hard deletion, as well as reduce the size of data by keeping only meaningful information or more aggregated data.
 
@@ -100,6 +115,12 @@ Azure Event Hubs is highly versatile when it comes to decoupling a transactional
 ### DevOps
 
 For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks). Consider using a solution such as Azure DevOps or GitHub Actions, as described in the [Azure DevOps Starter](/azure/devops-project/overview) documentation.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
 
 ## Deploy this scenario
 
@@ -187,7 +208,7 @@ parsed_body_df.jsonBody.documentType)
 ```
 
 The second processing step is to generate a path to Azure Data Lake Storage
-Gen2, where you’ll store raw documents:
+Gen2, where you'll store raw documents:
 
 ```
 # Code tested in Databricks with Delta Lake 1.0
@@ -322,20 +343,16 @@ the documents in a certain transaction:
 select * from metadata where transactionId = '123456'
 ```
 
-## Pricing
-
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) to learn about other considerations.
-
 ## Next steps
 
 -   [Delta Lake](https://delta.io)
 -   [Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Delta Lake in Azure Databricks](/azure/databricks/delta/delta-streaming)
 -   [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
--   [Azure Synapse Analytics](/azure/synapse-analytics/)
+-   [Azure Synapse Analytics](/azure/synapse-analytics)
 -   [What is Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Azure Databricks Delta Lake and Delta Engine guide](/azure/databricks/delta)
--   [Describe Azure Databricks Delta Lake architecture](/learn/modules/describe-azure-databricks-delta-lake-architecture)
+-   [Describe Azure Databricks Delta Lake architecture](/training/modules/describe-azure-databricks-delta-lake-architecture)
 
 ## Related resources
 

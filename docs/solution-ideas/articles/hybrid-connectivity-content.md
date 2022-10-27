@@ -2,16 +2,20 @@
 
 Azure Stack Hub enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.
 
-Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack Hub. This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack Hub solutions.
+Hybrid cloud applications are a single system that has components running in both Azure and Azure Stack Hub. 
 
 Note: This doesn't apply to Azure Stack Hub deployments that are disconnected from the public internet.
+
+## Potential use cases
+
+This solution blueprint is relevant to establishing connectivity for any application that involves communications between the Azure public cloud and on-premises Azure Stack Hub components. Hybrid connectivity is a foundational blueprint that will be applicable to most Azure Stack Hub solutions.
 
 ## Architecture
 
 ![Architecture diagram](../media/hybrid-connectivity.png)
 *Download an [SVG](../media/hybrid-connectivity.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Deploy a virtual network in Azure and Azure Stack Hub.
 1. Deploy a virtual network gateway in Azure and Azure Stack Hub.

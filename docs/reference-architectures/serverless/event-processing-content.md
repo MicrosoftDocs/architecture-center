@@ -1,19 +1,19 @@
 <!-- cSpell:ignore upsert deadletterqueue KEDA -->
 
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
-
-Additional variations and solution ideas related to this reference architecture are linked to in the [Next steps section](#next-steps) of this article.
+This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
 
 ## Architecture
 
-![Reference architecture for serverless event processing using Azure Functions](./_images/serverless-event-processing.png)
+![Diagram showing a reference architecture for serverless event processing using Azure Functions.](./_images/serverless-event-processing.png)
+
+### Workflow
 
 - Events arrive at Azure Event Hubs.
 - A Function App is triggered to handle the event.
 - The event is stored in a Cosmos DB database.
 - If the Function App fails to store the event successfully, the event is saved to a Storage queue to be processed later.
 
-## Components
+### Components
 
 **Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
 
@@ -33,6 +33,8 @@ Function Apps are suitable for processing individual records from Event Hubs. Fo
 **Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -135,7 +137,7 @@ This architecture includes steps to configure the Drone Status Function App usin
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
-For more information, see the [DevOps section in Microsoft Azure Well-Architected Framework][AWAF-devops-checklist].
+For more information, see the [DevOps checklist][AWAF-devops-checklist].
 
 ### Disaster recovery
 
@@ -149,15 +151,13 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead-letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
-## Deploy the solution
+### Cost optimization
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is [available on GitHub][github].
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-## Pricing
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations for Azure Functions and Azure Cosmos DB.
 
-Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. See also the **Cost** section in [Microsoft Azure Well-Architected Framework][aaf-cost]. Here are some other considerations.
-
-### Azure Functions
+#### Azure Functions
 
 Azure Functions supports two hosting models:
 
@@ -166,7 +166,7 @@ Azure Functions supports two hosting models:
 
 In this architecture, each event that arrives on Event Hubs triggers a function that processes that event. From a cost perspective, the recommendation is to use the **consumption plan** because you pay only for the compute resources you use.
 
-### Azure Cosmos DB
+#### Azure Cosmos DB
 
 With Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
 
@@ -179,9 +179,13 @@ In this reference architecture, the function stores exactly one document per dev
 
 Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-## Next steps
+## Deploy this scenario
 
-- [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md)
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is [available on GitHub][github].
+
+## Related resources
+
+- [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml)
 - [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md)
 - [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)
 - [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml)
@@ -189,9 +193,9 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
-[AWAF-overview]: ../../framework/
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
+[AWAF-overview]: /azure/architecture/framework/
 [AWAF-devops-checklist]: ../../checklist/dev-ops.md
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

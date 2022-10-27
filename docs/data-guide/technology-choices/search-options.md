@@ -2,16 +2,19 @@
 title: Choose a search data store
 description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 11/30/2020
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products: 
+  - azure-cognitive-search
 ---
 
 # Choose a search data store in Azure
 
-This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.md).
+This article compares technology choices for search data stores in Azure. A search data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.yml).
 
 ## What are your options when choosing a search data store?
 
@@ -76,6 +79,14 @@ The following tables summarize the key differences in capabilities.
 | Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
-## See also
+## Contributors
 
-[Processing free-form text for search](../scenarios/search.md)
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
+
+- [Processing free-form text for search](../scenarios/search.yml)

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Two-region web application with Table Storage failover
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Architecture for a high-availability solution with failover that handles massive amounts of data. It uses Azure Table Storage and has two regions.
   author: nabilshams
   ms.author: nasiddi
-  ms.date: 09/14/2021
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

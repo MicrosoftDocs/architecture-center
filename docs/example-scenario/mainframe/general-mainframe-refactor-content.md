@@ -1,28 +1,12 @@
-Refactoring workloads to Azure can transform mainframe applications that run on Windows Server or Linux. You can run these applications more cost effectively with cloud-based Azure infrastructure as a service (IaaS) and platform as a service (PaaS).
-
-The general refactoring approach for mainframe applications also drives infrastructure transformation from legacy-proprietary into standardized, benchmarked, open technologies. This transformation promotes agile DevOps principles that are today's high-productivity, open-systems standard. Refactoring transitions away from islands of unique legacy infrastructures, processes, and applications to a unified land of better business and IT alignment.
-
 The following architecture illustrates a general refactoring approach that can use Azure Kubernetes Service (AKS) or Azure virtual machines (VMs). The choice depends on existing applications' portability and your preference. Refactoring can speed up the move into Azure by automatically converting code to Java or .NET, and converting pre-relational to relational databases.
-
-Refactoring supports different methodologies for moving client workloads to Azure. One method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk. All application conversion, data migration, and testing processes must align for a smooth transition from the mainframe to Azure.
-
-A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with later conversions. Modernizing each application on its own schedule can be more relaxed than converting everything at once.
-
-## Potential use cases
-
-Refactoring on Azure can help organizations to:
-
-- Modernize infrastructure, and escape mainframes' high costs, limitations, and rigidity.
-- Move mainframe workloads to the cloud without the side effects of a complete redevelopment.
-- Migrate business-critical applications, while maintaining continuity with other on-premises applications.
-- Benefit from Azure's horizontal and vertical scalability.
-- Gain disaster recovery (DR) capabilities.
 
 ## Mainframe architecture
 
 ![Architectural diagram showing components of a typical mainframe system.](media/general-mainframe.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-general-azure-refactor.vsdx) of this architecture.*
+
+### Workflow
 
 - On-premises users access the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS (**A**).
 - Receiving applications can be either batch or online systems (**B**).
@@ -39,6 +23,8 @@ Refactoring on Azure can help organizations to:
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-general-azure-refactor.vsdx) of this architecture.*
 
+### Workflow
+
 1. Input comes from remote clients via ExpressRoute, or from other Azure users. TCP/IP is the primary way to connect to the system.
 
    - On-premises users can access web-based applications over Transport Layer Security (TLS) port 443. Web applications' presentation layers can remain unchanged, to minimize end user retraining. Or, you can update the presentation layers with modern UX frameworks.
@@ -47,33 +33,33 @@ Refactoring on Azure can help organizations to:
 
    - Azure users connect to the system via virtual network peering.
 
-2. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
+1. In Azure, Azure Load Balancer manages access to the application compute clusters. Load Balancer supports scale-out compute resources to handle input. You can use a level-7 application level or level-4 network level load balancer, depending on how the application input reaches the compute cluster entry point.
 
-3. Application compute clusters can run on Azure VMs, or run in containers in AKS clusters. Usually, mainframe system emulation for PL/I or COBOL applications uses VMs, and applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use premium or ultra solid-state drive (SSD) managed disks with Accelerated Networking and Remote Direct Memory Access (RDMA).
+1. Application compute clusters can run on Azure VMs, or run in containers in AKS clusters. Usually, mainframe system emulation for PL/I or COBOL applications uses VMs, and applications refactored to Java or .NET use containers. Some mainframe system emulation software also supports deployment in containers. Compute resources use premium or ultra solid-state drive (SSD) managed disks with Accelerated Networking and Remote Direct Memory Access (RDMA).
 
-4. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input, and share application state and data by using Azure Cache for Redis or RDMA.
+1. Application servers in the compute clusters host the applications based on language capability, such as Java classes or COBOL programs. The servers receive application input, and share application state and data by using Azure Cache for Redis or RDMA.
 
-5. Data services in the application clusters support multiple connections to persistent data sources. Azure Private Link provides private connectivity from within the virtual network to Azure services. Data sources can include:
+1. Data services in the application clusters support multiple connections to persistent data sources. Azure Private Link provides private connectivity from within the virtual network to Azure services. Data sources can include:
 
    - PaaS data services like Azure SQL Database, Azure Cosmos DB, and Azure Database for PostgreSQL - Hyperscale.
    - Databases on VMs, such as Oracle or Db2.
    - Big data repositories like [Azure Databricks](https://azure.microsoft.com/services/databricks) and Azure Data Lake.
    - Streaming data services like Apache Kafka and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics).
 
-6. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
+1. Data storage can be either local-redundant or geo-redundant, depending on usage. Data storage can use a combination of:
 
    - High-performance storage with ultra or premium SSD disks.
    - File storage with Azure NetApp Files or Azure Files.
    - Standard storage, including blob, archive, and backup storage.
 
-7. Azure PaaS data services provide scalable and highly available data storage that you can share among compute cluster resources. This storage can also be geo-redundant.
+1. Azure PaaS data services provide scalable and highly available data storage that you can share among compute cluster resources. This storage can also be geo-redundant.
 
    - Azure Blob Storage is a common landing zone for external data sources.
    - Azure Data Factory supports data ingestion and synchronization of multiple Azure and external data sources.
 
-8. Azure Site Recovery provides DR for VM and container cluster components.
+1. Azure Site Recovery provides DR for VM and container cluster components.
 
-9. Services like [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
+1. Services like [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
 
 ### Components
 
@@ -115,9 +101,31 @@ This example features the following Azure components. Several of these component
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
+## Scenario details
+
+Refactoring workloads to Azure can transform mainframe applications that run on Windows Server or Linux. You can run these applications more cost effectively with cloud-based Azure infrastructure as a service (IaaS) and platform as a service (PaaS).
+
+The general refactoring approach for mainframe applications also drives infrastructure transformation from legacy-proprietary into standardized, benchmarked, open technologies. This transformation promotes agile DevOps principles that are today's high-productivity, open-systems standard. Refactoring transitions away from islands of unique legacy infrastructures, processes, and applications to a unified land of better business and IT alignment.
+
+This general refactoring approach can use Azure Kubernetes Service (AKS) or Azure virtual machines (VMs). The choice depends on existing applications' portability and your preference. Refactoring can speed up the move into Azure by automatically converting code to Java or .NET, and converting pre-relational to relational databases.
+
+Refactoring supports different methodologies for moving client workloads to Azure. One method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk. All application conversion, data migration, and testing processes must align for a smooth transition from the mainframe to Azure.
+
+A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with later conversions. Modernizing each application on its own schedule can be more relaxed than converting everything at once.
+
+### Potential use cases
+
+Refactoring on Azure can help organizations to:
+
+- Modernize infrastructure, and escape mainframes' high costs, limitations, and rigidity.
+- Move mainframe workloads to the cloud without the side effects of a complete redevelopment.
+- Migrate business-critical applications, while maintaining continuity with other on-premises applications.
+- Benefit from Azure's horizontal and vertical scalability.
+- Gain disaster recovery (DR) capabilities.
+
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
+The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
 
 ### Availability
 
@@ -139,11 +147,11 @@ Private Link provides private, direct connections isolated to the Azure networki
 
 Azure Bastion maximizes administrative access security by minimizing open ports. Bastion provides secure and seamless RDP and SSH connectivity to virtual network VMs from the Azure portal over TLS.
 
-## Pricing
+### Cost optimization
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 
 - The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 

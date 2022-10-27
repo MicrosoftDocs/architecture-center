@@ -7,6 +7,10 @@ ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+categories:
+- management-and-governance
+products:
+- azure-monitor
 ms.custom:
   - seojan19
   - guide
@@ -44,4 +48,4 @@ Robust logging and tracing are particularly important in cloud applications. Inv
 
 <!-- links -->
 
-[monitoring]: ../../best-practices/monitoring.md
+[monitoring]: ../../best-practices/monitoring.yml

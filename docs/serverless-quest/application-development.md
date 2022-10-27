@@ -7,12 +7,15 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories: management-and-governance
+categories: management-and-governance
 products:
   - azure-functions
 ms.custom:
   - fcp
   - guide
 ---
+
 # Application development and deployment
 
 To develop and deploy serverless applications with Azure Functions, examine patterns and practices, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
@@ -31,8 +34,8 @@ To plan app development and deployment:
 
 ### Understand event-driven architecture
 A different event triggers every function in a serverless Functions project. For more information about event-driven architectures, see:
-- [Event-driven architecture style](../guide/architecture-styles/event-driven.md).
-- [Event-driven design patterns to enhance existing applications using Azure Functions](https://channel9.msdn.com/Events/Build/2020/BOD124)
+- [Event-driven architecture style](../guide/architecture-styles/event-driven.yml).
+- [Event-driven design patterns to enhance existing applications using Azure Functions](/events/build-2020/bod124)
 
 ### Prepare development environment
 Set up your development workflow and environment with the tools to create Functions. For details about development tools and Functions code project structure, see:
@@ -49,13 +52,13 @@ Decide on the development language to use. Azure Functions supports C#, F#, Powe
 ### Define triggers and bindings
 A trigger invokes a Function, and every Function must have exactly one trigger. Binding to a Function declaratively connects another resource to the Function. For more information about Functions triggers and bindings, see:
 - [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings)
-- [Execute an Azure Function with triggers](/learn/modules/execute-azure-function-with-triggers/)
-- [Chain Azure Functions together using input and output bindings](/learn/modules/chain-azure-functions-data-using-bindings/)
+- [Execute an Azure Function with triggers](/training/modules/execute-azure-function-with-triggers/)
+- [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
 
 ### Create the Functions application
 Functions follow the single responsibility principle: do only one thing. For more information about Functions development, see:
 - [Azure Functions developers guide](/azure/azure-functions/functions-reference)
-- [Create serverless applications](/learn/paths/create-serverless-applications/)
+- [Create serverless applications](/training/paths/create-serverless-applications/)
 - [Strategies for testing your code in Azure Functions](/azure/azure-functions/functions-test-a-function)
 - [Functions best practices](/azure/azure-functions/functions-best-practices#general-best-practices)
 
@@ -118,13 +121,13 @@ For information about factors that impact Functions app scalability, see:
 
 ### Implement SRE practices
 Site Reliability Engineering (SRE) is a proven approach to maintaining crucial system and application reliability, while iterating at the speed the marketplace demands. For more information, see:
-- [Introduction to Site Reliability Engineering (SRE)](/learn/modules/intro-to-site-reliability-engineering)
+- [Introduction to Site Reliability Engineering (SRE)](/training/modules/intro-to-site-reliability-engineering)
 - [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)
 
 ## Next steps
 
 For hands-on serverless Functions app development and deployment walkthroughs, see:
-- [Serverless Functions code walkthrough](../serverless/code.md)
-- [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.md)
+- [Serverless Functions code walkthrough](../serverless/code.yml)
+- [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.yml)
 
 For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook).

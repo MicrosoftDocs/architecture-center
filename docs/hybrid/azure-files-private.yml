@@ -3,8 +3,8 @@ metadata:
   title: Azure enterprise cloud file share
   description: Learn about an enterprise-level cloud file sharing solution that uses Azure Files, Azure File Sync, Azure Private DNS, and Azure Private Endpoint.
   author: huangyingting
-  ms.author: pnp
-  ms.date: 11/15/2020
+  ms.author: ythuang
+  ms.date: 09/22/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

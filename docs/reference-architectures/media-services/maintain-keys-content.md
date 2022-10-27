@@ -49,7 +49,7 @@ On success, the Logic App sends the following response back through Event Grid:
 }
 ```
 
-While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#rollkey) for details about this message and response.
+While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#requester-asks-gridwich-to-rotate-to-a-new-storage-key) for details about this message and response.
 
 ## Secret Changed Handler Logic App for third-party keys
 
@@ -115,3 +115,29 @@ To add or change a key:
 1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.\<environment>**, in Secured mode.
 
    ![Screenshot of the environment Library.](media/environment-library.png)
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+
+Microsoft Learn modules:
+
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Create a long-running serverless workflow with Durable Functions](/training/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Event Grid](/training/modules/azure-event-grid)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/training/modules/intro-to-logic-apps)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Test Media Services v3 encoding](test-encoding.yml)

@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Governance of Teams guest users
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.
+  author: EdPrice-MSFT 
+  ms.author: martin.boam 
+  ms.date: 08/05/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - management-and-governance
+  - identity
+products:
+  - azure-active-directory
+  - m365
+  - office-teams
+name: Governance of Microsoft Teams guest users
+summary: Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.
+thumbnailUrl: /azure/architecture/browse/thumbs/governance-teams-guest-users.png
+content: |
+  [!include[](governance-teams-guest-users-content.md)]

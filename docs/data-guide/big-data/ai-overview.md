@@ -2,8 +2,8 @@
 title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 04/14/2020
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,7 +17,7 @@ categories:
 
 <!-- cSpell:ignore maggsl scikit -->
 
-# Artificial intelligence architecture
+# Artificial intelligence (AI) architecture design
 
 *Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
@@ -115,7 +115,7 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Choosing a Microsoft Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.md)
+- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.yml)
 
 #### Prebuilt AI models in AI Builder
 
@@ -147,7 +147,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
-- [Introduction to machine learning with Python and Azure Notebooks](/learn/paths/intro-to-ml-with-python/)
+- [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
 
 - [scikit-learn.](https://scikit-learn.org/stable/) An open-source ML library for Python
 
@@ -301,7 +301,7 @@ This is an AI-powered cloud search service for mobile and web app development. T
 
 - [Azure Cognitive Search documentation overview](/azure/search/)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.md)
+- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.yml)
 
 - [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
 

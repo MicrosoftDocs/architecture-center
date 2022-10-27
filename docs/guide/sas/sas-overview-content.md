@@ -1,6 +1,6 @@
 This article provides guidelines for running SAS analytics workloads on Azure. It covers various deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
 
-Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](../../framework/index.md) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
+Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
 
 [As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
 
@@ -9,15 +9,14 @@ Along with discussing different implementations, this guide also aligns with [Mi
 SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support its solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms, which Microsoft has validated:
 
 - SAS Grid 9.4
-- SAS Viya 3.5
-- SAS Viya 4.0
+- SAS Viya
 
 The following architectures have been tested:
 
 - SAS Grid 9.4 on Linux
 - SAS 9 Foundation
 - SAS Viya 3.5 with symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures on Linux
-- SAS Viya 4.0 with an MPP architecture on AKS
+- SAS Viya 2020 and up with an MPP architecture on AKS
 
 This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. For more information on the Azure hosting and management services that SAS provides, see [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html).
 
@@ -114,13 +113,24 @@ Run these commands to adjust that setting:
 
 SAS deployments often use the following VM SKUs:
 
-#### Edsv4-series
+#### Edsv5-series
 
-VMs in the Edsv4-series are the default SAS machines. They offer these features:
+VMs in the Edsv5-series are the default SAS machines for Viya and Grid. They offer these features:
 
 - Constrained cores. With many machines in this series, you can constrain the VM vCPU count.
 - A good CPU-to-memory ratio.
 - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache, `CAS_CACHE`, that SAS uses for temporary files.
+
+If the Edsv5-series VMs are unavailable, it's recommended to use the prior generation. The [Edsv4-series VMs](/azure/virtual-machines/edv4-edsv4-series) have been tested and perform well on SAS workloads.
+
+#### Ebsv5-series
+
+In some cases, the locally attached disk doesn't have sufficient storage space for `SASWORK` or `CAS_CACHE`. To get a larger working directory, use the [Ebsv5-series of VMs](/azure/virtual-machines/ebdsv5-ebsv5-series) with premium attached disks. These VMs offer these features:
+
+- Same specifications as the Edsv5 and Esv5 VMs
+- High throughput against remote attached disk, up to 4 GB/s, giving you as large a `SASWORK` or `CAS_CACHE` as needed at the I/O needs of SAS.
+
+If the Edsv5-series VMs offer enough storage, it's better to use them as they're more cost efficient. 
 
 #### M-series
 
@@ -135,20 +145,20 @@ M-series VMs offer these features:
 - Up to 3.8 TiB of memory, suited for workloads that use a large amount of memory
 - High throughput to remote disks, which works well for the `SASWORK` folder when the locally available disk is insufficient
 
-#### Lsv2
+#### Ls-series
 
-Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`.
+Certain I/O heavy environments should use [Lsv2-series](/azure/virtual-machines/lsv2-series) or [Lsv3-series](/azure/virtual-machines/lsv3-series) VMs. In particular, implementations that require fast, low latency I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or `CAS_CACHE`. 
 
 > [!NOTE]
 > SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
 >
-> - With math-heavy workloads, avoid VMs that don't use Intel processors.
-> - When selecting a CPU, validate how the MKL performs on it.
+> - With math-heavy workloads, avoid VMs that don't use Intel processors: the Lsv2 and Lasv3.
+> - When selecting an AMD CPU, validate how the MKL performs on it.
 
 > [!WARNING]
-> When possible, avoid using Lsv2 VMs. The CPU generation in this type of VM can vary from one node to another within a cluster.
+> When possible, avoid using Lsv2 VMs. Please use the Lsv3 VMs with Intel chipsets instead.
 
-With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
+With Azure, you can scale SAS Viya systems on demand to meet deadlines:
 
 - By increasing the compute capacity of the node pool.
 - By using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler) to add nodes and scale horizontally.
@@ -157,7 +167,7 @@ With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
 > [!NOTE]
 > When scaling computing components, also consider scaling up storage to avoid storage I/O bottlenecks.
 
-With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling.
+With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling at the moment. Viya 2022 supports horizontal scaling.
 
 ### Network and VM placement considerations
 
@@ -228,7 +238,7 @@ SAS and Microsoft have tested a series of data platforms that you can use to hos
 - [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 
-SAS offers performance-testing scripts for the Viya and GRID architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
+SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
 #### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
 
@@ -255,7 +265,7 @@ SAS tests have [validated NetApp performance for SAS Grid](https://communities.s
 
 Consider the following points when using this service:
 
-- Azure NetApp Files works well with Viya 3.5 and Viya 4.0 deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
+- Azure NetApp Files works well with Viya deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
 - On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This goes up to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) applied.
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
@@ -315,12 +325,27 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 - Secure Shell Protocol (SSH) ports
 - Remote Desktop Protocol (RDP) ports
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
+
+Other contributors:
+- [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For help getting started, see the following resources:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal)
-- [Edsv4 series VMs](/azure/virtual-machines/edv4-edsv4-series)
+- [Edsv5 series VMs](/azure/virtual-machines/edv5-edsv5-series)
+- [Ebsv5 series VMs](/azure/virtual-machines/ebdsv5-ebsv5-series)
+- [Lsv3 series VMs](/azure/virtual-machines/lsv3-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/availability-zones/az-overview)
 

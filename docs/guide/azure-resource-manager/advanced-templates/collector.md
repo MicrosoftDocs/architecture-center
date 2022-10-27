@@ -1,8 +1,9 @@
 ---
 title: Transformer and collector ARM template
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
-author: PeterTaylor9999
-ms.date: 09/07/2021
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -335,7 +336,7 @@ Finally, our `Microsoft.Network/networkSecurityGroups` resource directly assigns
 
 An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
 
-```bash
+```azurecli
 git clone https://github.com/mspnp/template-examples.git
 cd template-examples/example4-collector
 az group create --location <location> --name <resource-group-name>

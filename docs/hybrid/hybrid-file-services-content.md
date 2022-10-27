@@ -1,17 +1,12 @@
-
-
 This reference architecture illustrates how to use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.
+
+## Architecture
 
 ![An Azure hybrid file services topology diagram.][Architecture diagram]
 
 *Download a [Visio file][Visio diagram] of this architecture.*
 
-Typical uses for this architecture include:
-
-- Hosting file shares that need to be accessible from cloud and on-premises environments.
-- Synchronizing data between multiple on-premises data stores with a single cloud-based source.
-
-## Architecture
+### Workflow
 
 The architecture consists of the following components:
 
@@ -21,6 +16,13 @@ The architecture consists of the following components:
 - **Azure File Sync agent**. This is installed on Windows Server machines to enable and configure sync with cloud endpoints.
 - **Windows Servers**. On-premises or cloud-based Windows Server machines that host a file share that syncs with an Azure file share.
 - **[Azure Active Directory][Azure Active Directory]**. The Azure Active Directory (Azure AD) tenant used for identity synchronization across Azure and on-premises environments.
+
+## Scenario details
+
+Typical uses for this architecture include:
+
+- Hosting file shares that need to be accessible from cloud and on-premises environments.
+- Synchronizing data between multiple on-premises data stores with a single cloud-based source.
 
 ## Recommendations
 
@@ -97,7 +99,9 @@ Many organizations use a proxy server as an intermediary between resources insid
 
 For more information on how to configure Azure File Sync with a proxy server, refer to [Azure File Sync proxy and firewall settings][Azure File Sync proxy and firewall settings].
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 - You should consider the type and performance of the storage account being used to host Azure file shares. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To find out more about determining the current limits for a storage account, refer to [Azure Files scalability and performance targets][Azure Files scalability and performance targets].
 - There are two main types of storage accounts you will use for Azure Files deployments:
@@ -105,20 +109,20 @@ For more information on how to configure Azure File Sync with a proxy server, re
   - FileStorage storage accounts: FileStorage storage accounts allow you to deploy Azure file shares on premium/solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares; you cannot deploy any other storage resources (such as blob containers, queues, and tables) in a FileStorage account.
 - By default, standard file shares can span only up to 5 terabytes (TiB), although the share limit can be increased to 100 TiB. To do this, the large file share feature must be enabled at the storage-account level. Premium storage accounts (FileStorage storage accounts) don't have the large file share feature flag, because all premium file shares are already enabled for provisioning up to the full 100 TiB capacity. You can only enable large file shares on locally redundant or zone-redundant standard storage accounts. After you have enabled the large file share feature flag, you can't change the redundancy level to geo-redundant storage or geo-zone-redundant storage. To enable large file shares on an existing storage account, enable the **Large file share** option in the **Configuration** view of the associated storage account.
 
-## Availability considerations
+### Availability
 
 - You should ensure that Azure File Sync is supported in the regions to which you want to deploy your solution. For more information about this, refer to [Azure file sync region availability][Azure file sync region availability].
 - You should ensure that services referenced in the **Architecture** section are supported in the region to which you hybrid file services architecture is deployed.
 - To protect the data in your Azure file shares against data loss or corruption, all Azure file shares store multiple copies of each file as they are written. Depending on the requirements of your workload, you can select additional degrees of redundancy.
 - *Previous Versions* is a Windows feature that enables you to utilize server-side Volume Shadow Copy Service (VSS) snapshots of a volume to present restorable versions of a file to an SMB client. VSS snapshots and Previous Versions work independently of Azure File Sync. However, cloud tiering must be set to a compatible mode. Many Azure File Sync server endpoints can exist on the same volume. You have to make the following PowerShell call per volume that has even one server endpoint, where you plan to or are using cloud tiering. For more information about Previous Versions and VSS, refer to [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)][Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)].
 
-## Manageability considerations
+### Manageability
 
 - The Azure File Sync agent is updated on a regular basis to add new functionality and address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as soon as they're available. For more information, refer to [Azure File Sync agent update policy][Azure File Sync agent update policy].
 - Azure Storage offers soft delete for file shares (preview) so that you can more easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, refer to [Enable soft delete on Azure file shares][Enable soft delete on Azure file shares].
 - Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer to the file in Azure Files. A tiered file has both the **offline** attribute and the **FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS** attribute set in NTFS so that third-party applications can securely identify tiered files. For more information, refer to [Cloud Tiering Overview][Cloud Tiering Overview].
 
-## Security considerations
+### Security
 
 - Azure File Sync works with your standard Active Directory Domain Services (AD DS)–based identity without any special setup beyond setting up Azure File Sync. When you use Azure File Sync, file access will typically go through the Azure File Sync caching servers rather than through the Azure file share. Because the server endpoints are located on Windows Server machines, the only requirement for identity integration is using domain-joined Windows file servers to register with the Storage Sync Service. Azure File Sync will store access control lists (ACLs) for the files in the Azure file share, and will replicate them to all server endpoints.
 - Even though changes made directly to the Azure file share will take longer to sync to the server endpoints in the sync group, you might also want to ensure that you can enforce your AD DS permissions on your file share directly in the cloud as well. To do this, you must domain join your storage account to your on-premises AD DS domain, just as how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned AD DS instance, refer to [Overview of Azure Files identity-based authentication options for SMB access][Overview of Azure Files identity-based authentication options for SMB access].
@@ -127,12 +131,25 @@ For more information on how to configure Azure File Sync with a proxy server, re
   - Encryption in transit between the Azure File Sync agent and Azure. Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP.
   - Encryption at rest for data stored in the Azure file share. All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share.
 
-## Cost considerations
+### Cost optimization
 
 - Consult the [Principles of cost optimization][Principles of cost optimization] page in the Azure Well-Architected Framework for cost optimization recommendations.
 - The [Azure Storage Pricing][Azure Storage Overview pricing] page provides detailed pricing information based on account type, storage capacity, replication, and transactions.
 - The [Data Transfers Pricing Details][Bandwidth Pricing Details] provides detailed pricing information for data egress.
 - You can use the [Azure Storage Pricing Calculator][Pricing calculator] to help estimate your costs.
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [What is Azure File Sync?](/azure/storage/file-sync/file-sync-introduction)
+- [How is Azure File Sync billed?](/azure/storage/files/understanding-billing?toc=/azure/storage/file-sync/toc.json#azure-file-sync)
+- [How to plan for Azure File Sync Deployment?](/azure/storage/file-sync/file-sync-planning)
+- [How to deploy Azure File Sync?](/azure/storage/file-sync/file-sync-deployment-guide)
+- [Azure File Sync network consideration.](/azure/storage/file-sync/file-sync-networking-overview)
+- [What is Cloud Tiering?](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
+- [What disaster recovery option are available in Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
+- [How to backup Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
 
 [Architecture diagram]: ./images/hybrid-file-services.png
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
@@ -152,20 +169,7 @@ For more information on how to configure Azure File Sync with a proxy server, re
 [Azure File Sync agent update policy]: /azure/storage/files/storage-sync-files-planning#azure-file-sync-agent-update-policy
 [Cloud Tiering Overview]: /azure/storage/files/storage-sync-cloud-tiering
 [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)]: /azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service
-[Principles of cost optimization]: ../framework/cost/overview.md
+[Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/data-transfers/
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/?scenario=data-management
-
-## Next steps
-
-Learn more about the component technologies:
-
-- [What is Azure File Sync?](/azure/storage/file-sync/file-sync-introduction)
-- [How is Azure File Sync billed?](/azure/storage/files/understanding-billing?toc=/azure/storage/file-sync/toc.json#azure-file-sync)
-- [How to plan for Azure File Sync Deployment?](/azure/storage/file-sync/file-sync-planning)
-- [How to deploy Azure File Sync?](/azure/storage/file-sync/file-sync-deployment-guide)
-- [Azure File Sync network consideration.](/azure/storage/file-sync/file-sync-networking-overview)
-- [What is Cloud Tiering?](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
-- [What disaster recovery option are available in Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
-- [How to backup Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)

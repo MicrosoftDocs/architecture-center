@@ -1,17 +1,12 @@
-
-
 This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
+
+## Architecture
 
 ![The diagram illustrates a developer team that deploys its container images to a Microsoft Azure Container Registry. Subsequently, the container images are pulled and deployed to either an on-premises or cloud-based Kubernetes cluster. The containers are monitored using Azure Monitor and the container images are scanned and monitored using Azure Container Registry.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Typical uses for this architecture include:
-
-- Web applications with internal and external components that deploy both to the public cloud and on-premises by using shared container images.
-- Modern deployment testing cycles with quality analysis, testing, development, or staging that's hosted on-premises and in the public cloud.
-
-## Architecture
+### Components
 
 - **[Microsoft Azure Container Registry (ACR)][azure-container-registry]**. ACR is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 - **[Azure Kubernetes Service (AKS)][azure-kubernetes-service]**. AKS is a managed service that offers a managed Kubernetes cluster with elastic scale-out functionality.
@@ -23,6 +18,15 @@ Typical uses for this architecture include:
 - **[Azure Monitor][azure-monitor]**. Azure Monitor is an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises.
 - **[Microsoft Defender for Cloud][azure-security-center]**. Microsoft Defender for Cloud is a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 - **[On-premises Kubernetes cluster][kubernetes]**. In this architecture, a local Kubernetes cluster is used to run multiple containers on-premises.
+
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this architecture include:
+
+- Web applications with internal and external components that deploy both to the public cloud and on-premises by using shared container images.
+- Modern deployment testing cycles with quality analysis, testing, development, or staging that's hosted on-premises and in the public cloud.
 
 ## Recommendations
 
@@ -45,7 +49,11 @@ Azure Container Instances is a low-friction, serverless compute environment for 
 
 In this reference, Azure Container Instances container groups are utilized as *virtual nodes* for an [Azure Kubernetes Service][azure-kubernetes-service] cluster. AKS uses [virtual nodes][azure-kubernetes-service-virtual-nodes] to register a virtual pod with unlimited capacity and the ability to dispatch pods by using Azure Container Instances container groups. This is ideal for scenarios where you want very fast provisioning of individual pods and only want to pay for the execution time per second.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 - Customer-facing containerized web applications benefit from variable scales. You can use services such as Azure Container Instances and AKS to dynamically scale out to meet anticipated or measured demand. Additionally, you can use services such as [Azure Functions][azure-functions] and [Azure App Service][azure-app-service] to run container images at scale.
 - Internal application usage is more predictable and can run on an existing Kubernetes cluster. If you're interested in deploying Azure-managed services on-premises, consider:
@@ -53,31 +61,33 @@ In this reference, Azure Container Instances container groups are utilized as *v
   - [Deploying Functions or App Service in Azure Stack Hub][azure-stack-hub-azure-app-service].
 - [Azure Cosmos DB][azure-cosmos-db] automatically scales service resources to meet the storage needs of your application in an elastic manner. For throughput, you can choose to [pre-provision throughput][azure-cosmos-db-provisioned-throughput] or [operate Azure Cosmos DB as a serverless service][azure-cosmos-db-serverless]. If your workload has variable or unpredictable demands, you can also choose to provision your throughput [using autoscale][azure-cosmos-db-autoscale].
 
-## Availability considerations
+### Availability
 
 - Modern applications typically include a website, one or more HTTP APIs, and some connection to a data store. Applications within a container image should be designed to be stateless for maximum horizontal scale and availability. Any data should be stored in a separate service that has similar availability. For guidance on designing an application that can scale to thousands of nodes, refer to the [performance efficiency section][azure-well-architected-framework-performance] of the [Azure Well-Architected Framework][azure-well-architected-framework].
 - AKS has a [reference architecture baseline][azure-kubernetes-service-baseline] that defines each of the Well-Architected Framework categories and recommends an implementation in line with the category.
 - To reduce the impact of large pulls of container images, deploy ACR in a region that's closest to the development team and the production compute services. Consider a geo-replicated ACR deployment for distributed teams and distributed production containers.
 - [Azure Cosmos DB][azure-cosmos-db] is a database service that supports [turnkey global distribution][azure-cosmos-db-global-distribution] and supports [automatic failover][azure-cosmos-db-automatic-failover] across multiple regions. Azure Cosmos DB also has the ability to enable [multiple region writes][azure-cosmos-db-multi-write] and dynamically [add or remove regions][azure-cosmos-db-add-regions].
 
-## Manageability considerations
+### Manageability
 
 - Consider using [Azure Resource Manager templates][azure-container-instances-arm-templates] to deploy Azure Container Instance container groups in a repeatable fashion for multiple region deployments and large-scale orchestration. You can similarly use Azure Resource Manager templates to deploy [Azure Kubernetes Service][azure-kubernetes-service-arm-templates], [Azure Key Vault][azure-key-vault-arm-templates], and [Azure Cosmos DB][azure-cosmos-db-arm-templates].
 - Consider utilizing [Azure role-based access control (Azure RBAC)][azure-role-based-access-control] to prevent users from accidentally creating or deleting container instances without permission.
 - Use Azure Monitor to [monitor metrics and logs for both on-premises and remote containers][azure-monitor-containers], [analyze the data using queries][azure-monitor-containers-analyze], and [create alerts for abnormal situations][azure-monitor-containers-alert].
 - Use Azure Policy to [implement enforcement of a set of rules][azure-policy-kubernetes] for clusters and pods deployed to Kubernetes Service or an Azure Arc-enabled Kubernetes cluster.
 
-## DevOps considerations
+### DevOps
 
 - [Use ACR Tasks][azure-container-registry-tasks-tutorial] to automate the build of container images on a schedule or when changes are made to the source code. Additionally, consider using ACR Tasks to automatically [update container images as base images are patched and updated][azure-container-registry-tasks-base-update].
 - The AKS team has developed [GitHub actions][azure-kubernetes-service-gitops] that can assist with implementing GitOps and facilitate deployments from ACR to AKS clusters.
 - If your Kubernetes cluster is [attached to Azure Arc][azure-arc-kubernetes], you can [manage your Kubernetes cluster using GitOps][azure-arc-kubernetes-gitops]. To review best practices for connecting a hybrid Kubernetes cluster to Azure Arc, refer to the [Azure Arc hybrid management and deployment for Kubernetes clusters][reference-architecture-azure-arc-kubernetes-enabled] reference architecture.
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Use [Azure Private Link][azure-private-link] to communicate to and across services in your virtual network. This will route traffic through specific subnets to reach the individual Azure services directly and protect your data from inadvertent exposure to the public internet.
 
-## Cost considerations
+### Cost optimization
 
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - If your development team and production instances are in a single region, consider placing the Container Registry resource in the same region. This will allow you to minimize container push and pull latency and avoid the additional costs associated with the [Premium Azure Container Registry service tier][azure-container-registry-skus].
@@ -86,12 +96,31 @@ In this reference, Azure Container Instances container groups are utilized as *v
 - If you require a specific uptime service-level agreement (SLA), you can enable the [uptime SLA optional feature][azure-kubernetes-service-uptime-sla] of AKS.
 - Azure Container Instances resources are billed per second, based on an allocation of virtual CPU and memory resources, to the container group. Allocating unnecessary compute resources can exponentially increase the costs required to run this architecture solution. Cost monitoring and optimization is a continuous process that should be conducted at regular intervals throughout the lifetime of your deployment. For further guidance on minimizing Azure Container Instances operational costs, refer to the [cost optimization section][azure-well-architected-framework-performance] of the [Azure Well-Architected Framework][azure-well-architected-framework].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learn more about Azure Container Registry][azure-container-registry]
 - [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
 - [Learn more about Azure Policy][azure-policy]
 - [Learn more about Azure Monitor][azure-monitor]
+
+## Related resources
+
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](/azure/architecture/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
 
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx
@@ -125,7 +154,7 @@ In this reference, Azure Container Instances container groups are utilized as *v
 [azure-key-vault-arm-templates]: /azure/key-vault/secrets/quick-create-template
 [azure-kubernetes-service]: /azure/aks/
 [azure-kubernetes-service-arm-templates]: /azure/aks/kubernetes-walkthrough-rm-template
-[azure-kubernetes-service-baseline]: ../reference-architectures/containers/aks/secure-baseline-aks.yml
+[azure-kubernetes-service-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [azure-kubernetes-service-gitops]: /azure/aks/kubernetes-action
 [azure-kubernetes-service-uptime-sla]: /azure/aks/uptime-sla
 [azure-kubernetes-service-virtual-nodes]: /azure/aks/virtual-nodes-portal
@@ -142,8 +171,8 @@ In this reference, Azure Container Instances container groups are utilized as *v
 [azure-stack-hub-azure-app-service]: /azure-stack/operator/azure-stack-app-service-deploy
 [azure-virtual-machines-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 [azure-virtual-network]: /azure/virtual-network/
-[azure-well-architected-framework]: ../framework/index.md
-[azure-well-architected-framework-performance]: ../framework/index.md#performance-efficiency
-[azure-well-architected-framework-cost]: ../framework/cost/overview.md
+[azure-well-architected-framework]: /azure/architecture/framework
+[azure-well-architected-framework-performance]: /azure/architecture/framework/#performance-efficiency
+[azure-well-architected-framework-cost]: /azure/architecture/framework/cost/overview
 [kubernetes]: https://kubernetes.io
 [reference-architecture-azure-arc-kubernetes-enabled]: arc-hybrid-kubernetes.yml

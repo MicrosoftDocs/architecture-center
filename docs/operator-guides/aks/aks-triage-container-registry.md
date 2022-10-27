@@ -3,11 +3,13 @@ title: AKS triage container registry connectivity
 titleSuffix: Azure Architecture Center
 description: Learn about verifying the connection to the container registry, as part of a triage step for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
-ms.author: pnp
-ms.date: 10/12/2020
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories: compute
+categories: compute
 products:
   - azure-kubernetes-service
 ms.custom:
@@ -26,11 +28,13 @@ If you are using Azure Container Registry (ACR), the cluster service principal o
 
 One way is to run this command using the managed identity of the AKS cluster node pool. This command gets a list of its permissions.
 
-```bash
+```azurecli
 # Get Kubelet Identity (Nodepool MSI)
 ASSIGNEE=$(az aks show -g $RESOURCE_GROUP -n $NAME --query identityProfile.kubeletidentity.clientId -o tsv)
 az role assignment list --assignee $ASSIGNEE --all -o table
+```
 
+```output
 # Expected Output
 ...
 e5615a90-1767-4a4f-83b6-cecfa0675970  AcrPull  /subscriptions/.../providers/Microsoft.ContainerRegistry/registries/akskhacr

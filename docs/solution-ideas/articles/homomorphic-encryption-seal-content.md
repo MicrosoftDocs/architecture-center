@@ -10,7 +10,9 @@ This article discusses how and when to use homomorphic encryption. It also cover
 
 ## Architecture
 
-![Traditional and SEAL encryption](../media/seal.png)
+![Diagram showing traditional and SEAL encryption.](../media/seal.png)
+
+### Workflow
 
 Traditional encryption schemes consist of three functionalities: key generation, encryption, and decryption. *Symmetric-key* encryption schemes use the same secret key for both encryption and decryption. It enables efficient encryption of large amounts of data for secure, outsourced cloud storage. *Public-key* encryption schemes use a public key for encryption and a separate, secret key for decryption. Anyone who knows the public key can encrypt data, but only someone who knows the secret key can decrypt and read the data. Public-key encryption enables secure online communication, but is typically less efficient than symmetric-key encryption.
 
@@ -21,7 +23,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 ### Components
 
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet/2.2)
-- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/)
+- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal)
 
 ## Considerations
 
@@ -33,7 +35,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 - Data encrypted with homomorphic encryption is many times larger than unencrypted data, so it may not make sense to encrypt entire large databases, for example, with this technology. Instead, scenarios where strict privacy requirements prohibit unencrypted cloud computation, but the computations themselves are fairly lightweight, are meaningful use cases.
 
-- Typically, homomorphic encryption schemes have a single secret key, which is held by the data owner. That's why homomorphic encryption isn't reasonable for scenarios where multiple different private data owners want to engage in collaborative computation.
+- Typically, homomorphic encryption schemes have a single secret key, which is held by the data owner. Homomorphic encryption isn't reasonable for scenarios where multiple different private data owners want to engage in collaborative computation.
 
 - It isn't always easy or straightforward to translate an unencrypted computation into a computation on encrypted data. Even if new users can program and run a computation using Microsoft SEAL, there can be a great difference between efficient and inefficient implementation. It can be hard to know how to improve performance.
 
@@ -41,8 +43,16 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 ## Deploy this scenario
 
-The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads/) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 ## Next steps
 
-To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) from Microsoft Research, and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.
+To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal) from Microsoft Research, and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.

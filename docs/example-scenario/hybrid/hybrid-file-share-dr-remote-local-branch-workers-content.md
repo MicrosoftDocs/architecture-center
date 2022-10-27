@@ -1,28 +1,12 @@
-This architecture is from an environmental engineering company that has over 2,500 employees in 80 branches worldwide. During the COVID-19 pandemic, many users of the company's systems had to work away from their offices. Meanwhile, the systems hit the limits of their on-premises file servers at various branches, and the company faced the complexities and costs of updating and maintaining the on-premises solutions. Also, there were other unpredictable outages at branches that stopped work for users at the affected branches, whether or not the users were remote.
-
-The company turned to Azure Files, Azure File Sync, and Azure Virtual Desktop to address these issues and to reduce costs. Azure scalability solves the limits issues, and near-instant disaster recovery keeps users working during outages. The Azure solution is also less costly and easier to manage.
-
-The key aspects of the solution are:
-
-- Users who are on-premises at a branch use branch desktops for their work. Remote users can be almost anywhere and still have a desktop provided by Virtual Desktop.
-- Azure file shares provide centralized file storage in the cloud for workload files and FSLogix profiles.
-- At each branch, an on-premises Azure File Sync server endpoint provides a cache of the branch's cloud-based file share. On-premises users that connect to this endpoint get quick access to their data.
-- For each branch, a cloud endpoint provides a cache of the branch's cloud-based file share that's local to the cloud-based desktops that are provided by Virtual Desktop. Cloud desktop users that connect to this endpoint get quick access to their data.
-- The on-premises cache and the cloud cache back up one another and provide fast recovery from outages.
-
-## Potential use cases
-
-Typical situations for this architecture include:
-
-- A global organization requires centralized files for business-critical work.
-- Workloads require local caches because of heavy file access.
-- A remote workforce needs access both inside and outside of branch offices.
+This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop to reduce costs, achieve scalability, resolve limits issues, and achieve near-instant disaster recovery, to keep users working during outages. This architecture is also less costly and easier to manage than on-premises solutions.
 
 ## Architecture
 
 :::image type="content" source="media/hybrid-file-share-dr-remote-local-branch-workers.png" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." lightbox="media/hybrid-file-share-dr-remote-local-branch-workers.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874694-hybrid-file-share-dr-remote-local-branch-workers.vsdx) of this architecture.*
+
+### Workflow
 
 1. Each branch has its own file share for its own data. The data for a branch doesn't replicate elsewhere, but users do have access to the data of branches other than their own. To maximize performance, each branch has its own storage account for its file share, and the shares may reside in different regions.
 1. A file share for a branch isn't accessed directly. Instead, Azure File Sync synchronizes the file share to caches at two server endpoints: one in Azure and one on-premises at the branch.
@@ -46,9 +30,31 @@ Typical situations for this architecture include:
 - For more details on Active Directory and network integration with Virtual Desktop, see [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml).
 - To see an example of direct access to file shares in a hybrid environment see [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services).
 
+## Scenario details
+
+This architecture is from an environmental engineering company that has over 2,500 employees in 80 branches worldwide. During the COVID-19 pandemic, many users of the company's systems had to work away from their offices. Meanwhile, the systems hit the limits of their on-premises file servers at various branches, and the company faced the complexities and costs of updating and maintaining the on-premises solutions. Also, there were other unpredictable outages at branches that stopped work for users at the affected branches, whether or not the users were remote.
+
+The company turned to Azure Files, Azure File Sync, and Azure Virtual Desktop to address these issues and to reduce costs. Azure scalability solves the limits issues, and near-instant disaster recovery keeps users working during outages. The Azure solution is also less costly and easier to manage.
+
+The key aspects of the solution are:
+
+- Users who are on-premises at a branch use branch desktops for their work. Remote users can be almost anywhere and still have a desktop provided by Virtual Desktop.
+- Azure file shares provide centralized file storage in the cloud for workload files and FSLogix profiles.
+- At each branch, an on-premises Azure File Sync server endpoint provides a cache of the branch's cloud-based file share. On-premises users that connect to this endpoint get quick access to their data.
+- For each branch, a cloud endpoint provides a cache of the branch's cloud-based file share that's local to the cloud-based desktops that are provided by Virtual Desktop. Cloud desktop users that connect to this endpoint get quick access to their data.
+- The on-premises cache and the cloud cache back up one another and provide fast recovery from outages.
+
+### Potential use cases
+
+Typical situations for this architecture include:
+
+- A global organization requires centralized files for business-critical work.
+- Workloads require local caches because of heavy file access.
+- A remote workforce needs access both inside and outside of branch offices.
+
 ## Considerations
 
-Consider the pillars of the  [Microsoft Azure Well-Architected Framework](../../framework/index.md) when you design your system:
+Consider the pillars of the  [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) when you design your system:
 
 ### Availability
 
@@ -76,9 +82,9 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 ### DevOps
 
-Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and Powershell, and therefore can be managed through Azure Devops and Azure Pipelines.
+Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
 
-## Pricing
+### Cost optimization
 
 - This solution reduces on-premises maintenance and server costs. Servers provide caches, and redundancy is no longer required.
 - Review a [pricing sample](https://azure.microsoft.com/pricing/calculator/?shared-estimate=2dcc42209bcd46e9aa66fa972de6441e) for an Azure File Sync workload by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Adjust the values to see how your requirements affect your costs.

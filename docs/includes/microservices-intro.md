@@ -2,8 +2,8 @@
 title: Introduction to microservices
 description: Introduction to microservices.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 10/30/2019
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: include
 ms.service: architecture-center
 ms.subservice: guide
@@ -11,7 +11,7 @@ ms.subservice: guide
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability within a bounded context. A bounded context is a natural division within a business and provides an explicit boundary within which a domain model exists.
 
-![Logical diagram of microservices architecture style](./images/microservices-logical.png)
+![Logical diagram of microservices architecture style.](./images/microservices-logical.png)
 
 ## What are microservices?
 
@@ -69,7 +69,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 - **Lack of governance**. The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the application becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
-- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../patterns/queue-based-load-leveling.md).
+- **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns like [queue-based load leveling](../patterns/queue-based-load-leveling.yml).
 
 - **Data integrity**. With each microservice responsible for its own data persistence. As a result, data consistency can be a challenge. Embrace eventual consistency where possible.
 

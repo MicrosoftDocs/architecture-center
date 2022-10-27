@@ -2,12 +2,18 @@
 
 Modern software is increasingly connected and distributed. The consistency of Azure Stack with Azure infrastructure and platform services enable you to scale resources cross cloud to meet increased load as needed, and decrease resources as demand drops. Optimize cost and maximize resource efficiency while remaining compliant with cross cloud architecture.
 
+## Potential use cases
+
+* Implement continuous integration and continuous delivery (CI/CD) practices across an Azure Stack Hub implementation and the public cloud.
+* Consolidate the CI/CD pipeline across cloud and on-premises environments.
+* Develop apps by using both cloud and on-premises services.
+
 ## Architecture
 
 ![Architecture diagram](../media/cross-cloud-scaling.png)
 *Download an [SVG](../media/cross-cloud-scaling.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. A large number of users attempt to access a web app.
 1. Traffic manager returns the Azure Stack DNS name.

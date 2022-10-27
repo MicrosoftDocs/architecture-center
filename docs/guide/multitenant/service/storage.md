@@ -4,15 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 10/18/2021
+ms.date: 09/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-storage
 categories:
-  - management-and-governance
-  - security
+  - storage
 ms.category:
   - fcp
 ms.custom:
@@ -34,7 +34,7 @@ When you work with Azure Storage from a client application, it's important to co
 
 Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. For more information, see [Isolation models](#isolation-models) to explore the approaches you can use to isolate your tenants' data in a storage account.
 
-The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system. You can then provide a SAS to the client that allows them to upload a video file to a specified blob, into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the extra bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container to another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
+The [Valet Key pattern](../../../patterns/valet-key.yml) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system. You can then provide a SAS to the client that allows them to upload a video file to a specified blob, into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the extra bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container to another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy that can be used when issuing multiple shared access signatures.
 
@@ -56,7 +56,7 @@ Immutable storage can be useful when you work with tenants that have legal or co
 
 ### Server-side copy
 
-In a multitenant system, there is sometimes a need to move data from one storage account to another. For example, if you move a tenant between deployment stamps or rebalance a [sharded](../../../patterns/sharding.md) set of storage accounts, you need to copy or move a specific tenant's data. When working with large volumes of data, it's advisable to use [server-side copy APIs](https://azure.microsoft.com/updates/new-copy-apis-for-efficient-data-copy) to decrease the time it takes to migrate the data.
+In a multitenant system, there is sometimes a need to move data from one storage account to another. For example, if you move a tenant between deployment stamps or rebalance a [sharded](../../../patterns/sharding.yml) set of storage accounts, you need to copy or move a specific tenant's data. When working with large volumes of data, it's advisable to use [server-side copy APIs](https://azure.microsoft.com/updates/new-copy-apis-for-efficient-data-copy) to decrease the time it takes to migrate the data.
 
 The [AzCopy tool](/azure/storage/common/storage-use-azcopy-v10) is an application that you can run from your own computer, or from a virtual machine, to manage the copy process. AzCopy is compatible with the server-side copy feature, and it provides a scriptable command-line interface that you can run from your own solutions. AzCopy is also helpful for uploading and downloading large volumes of data.
 
@@ -64,7 +64,7 @@ If you need to use the server-side copy APIs directly from your code, consider u
 
 ### Object replication
 
-The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.md).
+The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.yml).
 
 ### Encryption
 
@@ -95,6 +95,16 @@ Additionally, each component of Azure Storage provides further options for tenan
 
 ### Blob storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage blobs:
+
+| Consideration | Shared blob containers | Blob containers per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low-medium. Use paths to identify each tenant's data, or hierarchical namespaces | Medium. Use container-scoped SAS URLs to support security isolation | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Storing a small number of blobs per tenant | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
+
 #### Shared blob containers
 
 When working with blob storage, you might choose to use a shared blob container, and you might then use blob paths to separate data for each tenant:
@@ -120,6 +130,16 @@ By creating containers for each tenant, you can use Azure Storage access control
 
 ### File storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage files:
+
+| Consideration | Shared file shares | File shares per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Medium-high. Apply authorization rules for tenant-specific files and directories | Medium-high | High |
+| **Performance isolation** | Low | Low-medium. Most quotas and limits apply to the entire storage account, but set size quotas on a per-share level | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Application controls all access to files | Tenants access their own files | Separate deployment stamps for each tenant |
+
 #### Shared file shares
 
 When working with file shares, you might choose to use a shared file share, and then you might use file paths to separate data for each tenant:
@@ -143,11 +163,21 @@ By creating file shares for each tenant, you can use Azure Storage access contro
 
 ### Table storage isolation models
 
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage tables:
+
+| Consideration | Shared tables with partition keys per tenant | Tables per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low. Application enforces isolation | Low-medium | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Large multitenant solution with shared application tier | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
+
 #### Shared tables with partition keys per tenant
 
 When using table storage with a single shared table, you can consider using the [built-in support for partitioning](/rest/api/storageservices/understanding-the-table-service-data-model#partitionkey-property). Each entity must include a partition key. A tenant identifier is often a good choice for a partition key.
 
-Shared access signatures and policies enable you to specify a partition key range, and Azure Storage ensures that requests containing the signature can only access the specified partition key ranges. This enables you to implement the [Valet Key pattern](../../../patterns/valet-key.md), which allows untrusted clients to access a single tenant's partition, without affecting other tenants.
+Shared access signatures and policies enable you to specify a partition key range, and Azure Storage ensures that requests containing the signature can only access the specified partition key ranges. This enables you to implement the [Valet Key pattern](../../../patterns/valet-key.yml), which allows untrusted clients to access a single tenant's partition, without affecting other tenants.
 
 For high-scale applications, consider the maximum throughput of each table partition and the storage account.
 
@@ -158,6 +188,16 @@ You can create individual tables for each tenant within a single storage account
 By creating tables for each tenant, you can use Azure Storage access control, including SAS, to manage access for each tenant's data.
 
 ### Queue storage isolation models
+
+The following table summarizes the differences between the main tenancy isolation models for Azure Storage queues:
+
+| Consideration | Shared queues | Queues per tenant | Storage accounts per tenant |
+|---|---|---|---|
+| **Data isolation** | Low | Low-medium | High |
+| **Performance isolation** | Low | Low. Most quotas and limits apply to entire storage account | High |
+| **Deployment complexity** | Low | Medium | High |
+| **Operational complexity** | Low | Medium | High |
+| **Example scenario** | Large multitenant solution with shared application tier | Issue tenant-scoped SAS URLs | Separate deployment stamps for each tenant |
 
 #### Shared queues
 
@@ -173,6 +213,23 @@ By creating queues for each tenant, you can use Azure Storage access control, in
 
 When you dynamically create queues for each tenant, consider how your application tier will consume the messages from each tenant's queue. For more advanced scenarios, consider using [Azure Service Bus](https://azure.microsoft.com/services/service-bus), which supports features such as [topics and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions), [sessions](/azure/service-bus-messaging/message-sessions), and [message auto-forwarding](/azure/service-bus-messaging/service-bus-auto-forwarding), which can be useful in a multitenant solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * [Dr. Christian Geuer-Pollmann](https://www.linkedin.com/in/chgeuer) | Principal Customer Engineer, FastTrack for Azure
+ * [Patrick Horn](https://www.linkedin.com/in/patrick-horn-4383531) | Senior Customer Engineering Manager, FastTrack for Azure
+ * [Ben Hummerstone](https://www.linkedin.com/in/bhummerstone) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.yml).

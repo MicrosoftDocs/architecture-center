@@ -1,19 +1,4 @@
-As healthcare and life science organizations strive to provide a more personalized experience for patients and caregivers, they're challenged to use data from legacy systems to provide predictive insights that are relevant, accurate, and timely. Data collection has moved beyond traditional operational systems and electronic health records (EHRs), and increasingly into unstructured forms from consumer health apps, fitness wearables, and smart medical devices. Organizations need the ability to quickly centralize this data and harness the power of data science and machine learning to stay relevant to their customers.
-
-To achieve these objectives, healthcare and life science organizations should aim to:
-
-- Create a data source from which predictive analytics can provide real-time value to healthcare providers, hospital administrators, drug manufacturers, and others.
-- Accommodate their industry subject matter experts (SMEs) that don't have data science and machine learning skills.
-- Provide to data science and machine learning (ML) SMEs the flexible tools that they need to create and deploy predictive models efficiently, accurately, and at scale.
-
 This architecture provides a predictive health analytics framework in the cloud to accelerate the path of model development, deployment, and consumption.
-
-## Potential use cases
-
-- Predict hospital readmissions
-- Accelerate patient diagnosis through ML-powered imaging
-- Perform text analytics on physician notes
-- Predict adverse events by analyzing remote patient monitoring data from the Internet of Medical Things (IoMT)
 
 ## Architecture
 
@@ -21,9 +6,13 @@ This architecture represents a sample end-to-end workflow for predicting hospita
 
 This framework makes use of native Azure analytics services for data ingestion, storage, data processing, analysis, and model deployment.
 
-:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Diagram demonstrates the architecture of a multi-tier app.":::
 
-The architecture is described in terms of the roles of the participants.
+*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-hospital-readmission-07-23-21.pptx) of this architecture.*
+
+### Workflow
+
+The workflow of this architecture is described in terms of the roles of the participants.
 
 1. **Data Engineer:** Responsible for ingesting the data from the source systems and orchestrating data pipelines to move data from the source to the target. May also be responsible for performing data transformations on the raw data.
    - In this scenario, historical hospital readmissions data is stored in an on-premises SQL Server database.
@@ -50,7 +39,7 @@ The architecture is described in terms of the roles of the participants.
 
    The expected output is relational queries, BI reports, and dashboards.
 
-1. **MLOps Engineer:** Responsible for productionizing models that the Data Scientist or Citizen Data Scientist provides.
+1. **MLOps Engineer:** Responsible for putting models into production that the Data Scientist or Citizen Data Scientist provides.
 
    The expected output is models that are ready for production and reproducible.
 
@@ -78,15 +67,32 @@ Although this list provides a comprehensive view of all the potential roles that
 
 - **Machine Learning:** H2O.ai, DataRobot, Dataiku, and other vendors offer automated machine learning capabilities that are similar to Machine Learning AutoML. You can use such platforms to supplement Azure data engineering and machine learning activities.
 
+## Scenario details
+
+As healthcare and life science organizations strive to provide a more personalized experience for patients and caregivers, they're challenged to use data from legacy systems to provide predictive insights that are relevant, accurate, and timely. Data collection has moved beyond traditional operational systems and electronic health records (EHRs), and increasingly into unstructured forms from consumer health apps, fitness wearables, and smart medical devices. Organizations need the ability to quickly centralize this data and harness the power of data science and machine learning to stay relevant to their customers.
+
+To achieve these objectives, healthcare and life science organizations should aim to:
+
+- Create a data source from which predictive analytics can provide real-time value to healthcare providers, hospital administrators, drug manufacturers, and others.
+- Accommodate their industry subject matter experts (SMEs) that don't have data science and machine learning skills.
+- Provide to data science and machine learning (ML) SMEs the flexible tools that they need to create and deploy predictive models efficiently, accurately, and at scale.
+
+### Potential use cases
+
+- Predict hospital readmissions
+- Accelerate patient diagnosis through ML-powered imaging
+- Perform text analytics on physician notes
+- Predict adverse events by analyzing remote patient monitoring data from the Internet of Medical Things (IoMT)
+
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for a highly available and secure system:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
 Providing real-time clinical data and insights is critical for many healthcare organizations. Here are ways to minimize downtime and keep data safe:
 
-- Data Lake Storage is always [replicated three times](/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally-redundant storage (LRS) or zone-redundant storage (ZRS).
+- Data Lake Storage is always [replicated three times](/azure/storage/common/storage-redundancy) in the primary region, with the option to choose locally redundant storage (LRS) or zone-redundant storage (ZRS).
 - Synapse Analytics provides [database restore points and disaster recovery](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
 - Data Factory data is stored and replicated in an [Azure paired region](/azure/data-factory/concepts-data-redundancy) to ensure business continuity and disaster recovery.
 - Databricks provides [disaster recovery guidance](/azure/databricks/administration-guide/disaster-recovery) for its data analytics platform.
@@ -98,13 +104,17 @@ Providing real-time clinical data and insights is critical for many healthcare o
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Healthcare data often includes sensitive protected health information (PHI) and personal information. The following resources are available to secure this data:
 
 - Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](/azure/storage/blobs/data-lake-storage-access-control-model).
-- Synapse Analytics provides a number of [access and security controls](/azure/azure-sql/database/logins-create-manage?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) at the database, column, and row levels. Data can also be protected at the cell level and through [data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&tabs=azure-portal&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
+- Synapse Analytics provides a number of [access and security controls](/azure/azure-sql/database/logins-create-manage?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) at the database, column, and row levels. Data can also be protected at the cell level and through [data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json).
 - Data Factory provides a [basic security infrastructure](/azure/data-factory/data-movement-security-considerations) for data movement in both hybrid and cloud scenarios.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Pricing for this solution is based on:
 
@@ -115,6 +125,15 @@ Pricing for this solution is based on:
 - Compute resources that are needed to perform machine learning tasks.
 
 You can estimate costs by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+- [Sandy Su](https://www.linkedin.com/in/sandylsu/) | Cloud Solution Architect
 
 ## Next steps
 
@@ -140,7 +159,7 @@ You can estimate costs by using the [Azure pricing calculator](https://azure.mic
 - [Azure for healthcare](https://azure.microsoft.com/industries/healthcare)
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/?WT.mc_id=iot-c9-niner)
 - [IoMT FHIR Connector for Azure](https://azure.microsoft.com/blog/accelerate-iomt-on-fhir-with-new-microsoft-oss-connector)
-- [Remote Patient Monitoring with Internet of Medical Things (IoMT)](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Remote-Patient-Monitoring-with-Internet-of-Medical-Things-IoMT)
+- [Remote Patient Monitoring with Internet of Medical Things (IoMT)](/shows/Internet-of-Things-Show/Remote-Patient-Monitoring-with-Internet-of-Medical-Things-IoMT)
 
 ## Related resources
 

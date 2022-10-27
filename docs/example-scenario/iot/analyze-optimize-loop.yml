@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about analyze and optimize loops, an IoT pattern for generating and applying optimization insights based on the entire business context.
   author: hanuk
-  ms.date: 08/10/2020
+  ms.author: hanuk
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Analytics end-to-end with Azure Synapse
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
   ms.author: fabraga
-  ms.date: 04/23/2021
+  ms.date: 08/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -17,6 +17,10 @@ metadata:
     - data-analytics
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-analytics-end-to-end.png
+  adobe-target: true
+  adobe-target-activity: DocsExp-450939-A/B-Docs/Architecture-ArchDiagrams-FY22Q4
+  adobe-target-experience: Experience B
+  adobe-target-content: ./data-platform-end-to-end-experiment
 name: Analytics end-to-end with Azure Synapse
 azureCategories:
   - databases

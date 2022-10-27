@@ -4,12 +4,21 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
+*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/os) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
+## Potential use cases
+
+* Modernize application development practices to a microservice, container-based approach.
+* Speeding up application development and deployment lifecycles.
+* Automating deployments to test or acceptance environments for validation.
+
 ## Architecture
 
-![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
-*Download an [SVG](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg) of this architecture.*
+![Diagram showing container C I/C D using Jenkins and Kubernetes on Azure Kubernetes Service.](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
 
-### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/container-cicd-jenkins-aks.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Change application source code.
 1. Commit code to GitHub.
@@ -39,4 +48,4 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
 * [Connect existing Node.js to Cosmos DB using the MongoDB connector](/azure/cosmos-db/create-mongodb-nodejs)
 * [Monitor your Azure services using Grafana](/azure/monitoring-and-diagnostics/monitor-send-to-grafana)
-* [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+* [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

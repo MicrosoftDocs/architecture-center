@@ -14,7 +14,7 @@ PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. A
 
 ## Security
 
-Follow the fundamental guidance provided in the [Security design principles](../../../framework/security/security-principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Security design principles](/azure/architecture/framework/security/security-principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Governance
 
@@ -127,7 +127,7 @@ Make sure access to the key store has a balance of network and access controls. 
 
 ## Operational Excellence
 
-Follow the fundamental guidance provided in the [Operational Excellence principles](../../../framework/devops/principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Operational Excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Separation of roles
 
@@ -157,7 +157,7 @@ From the **Security alerts** view in Microsoft Defender for Cloud, you have acce
 
 ## Performance Efficiency
 
-Follow the fundamental guidance provided in the [Performance Efficiency principles](../../../framework/scalability/principles.md). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Performance Efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Scaling
 
@@ -177,7 +177,7 @@ Complexity of workloads is hard to document and to audit. Strive for simplicity 
 
 ## Reliability
 
-The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](../../../framework/resiliency/principles.md). Best practices for a regulated environment are summarized in these sections.
+The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](/azure/architecture/framework/resiliency/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Recovery targets and disaster recovery
 
@@ -197,7 +197,7 @@ Reliability extends to all operational processes in and adjacent to the CDE. Wel
 
 ## Cost Optimization
 
-Follow the fundamental guidance provided in the [Cost Optimization principles](../../../framework/cost/overview.md).
+Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview).
 
 Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 

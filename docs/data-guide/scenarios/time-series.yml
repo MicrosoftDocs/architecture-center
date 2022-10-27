@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Time series data
+  description: Learn about time series measurements and data, and how to use them for real-time alerts, historical or trend analysis, and predictive modeling.
+  author: EdPrice-MSFT
+  ms.author: architectures
+  ms.date: 07/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-data-explorer
+  - azure-hdinsight
+  - azure-iot-hub
+  - power-bi
+name: Time series data
+summary: Learn about time series measurements and data, and how to use them for real-time alerts, historical or trend analysis, and predictive modeling.
+thumbnailUrl: /azure/architecture/browse/thumbs/time-series-insights.png
+content: |
+  [!include[](time-series-content.md)]

@@ -1,73 +1,18 @@
-Automotive manufacturing relies on automated guided vehicles (AGVs) to deliver
-parts to assembly lines. AGVs are a mission-critical part of just-in-time
-manufacturing and automated shop-floor logistics. Shop floors using AGVs
-commonly face three challenges:
-
--   Availability. Any service interruption disrupts production.
--   Connectivity. Shop floors frequently lack a reliable connection to the
-    public cloud.
--   Vendor lock-in. Traditional AGV solutions rely on proprietary communication
-    protocols.
-
 This example architecture shows an end-to-end approach for an automotive
 original equipment manufacturer (OEM) and includes a reference architecture and
 several published supporting open-source libraries that can be reused. Microsoft
 rearchitected the fleet control software to be highly available, geo-redundant,
 and vendor neutral and to run in a hybrid cloud context.
 
-This example architecture is divided into three operational areas:
-
--   An Azure-based fleet control reference architecture with geo-redundancy,
-    zero-downtime failover, 99.9% availability, and efficient disaster recovery.
--   A datacenter-agnostic and on-premises deployment built on Kubernetes and
-    RabbitMQ.
--   Vendor-neutral AGV communication built on top of the common VDA 5050
-    specification.
-
-## Potential use cases
-
-This solution applies to many areas where:
-
--   The customer is currently using AGVs in its manufacturing process.
--   The customer experiences low availability with the AGVs, which impacts their
-    return on investment (ROI).
--   The shop floor has an inconsistent connection with the public cloud.
--   The customer is a member of the Open Manufacturing Platform (OMP).
--   The customer is a member of the OMP Autonomous Transport System (OMP ATS)
-    working group.
-
 ## Architecture
-
-Low-cost production of goods relies on automation of the manufacturing process
-and just-in-time delivery of parts to assembly lines. By automatically
-transporting parts to assembly lines, automated guided vehicles contribute both
-to just-in-time manufacturing and to the automation of shop-floor logistics. In
-a typical mass production plant of passenger cars, for example, one passenger
-car is rolled out every minute. Therefore, every minute of interruption of an
-assembly line in a production plant causes a financial loss—in the order of tens
-of thousands of US dollars. Automotive OEMs require a high level of reliability
-and availability for their automated systems, and they face a number of
-challenges:
-
--   Availability problem. Existing AGV fleet control software does not fulfill
-    the 99.9% availability requirement.
--   Connectivity problem. Some production plants do not have a sufficiently
-    stable internet connection with the required bandwidth to enable the
-    communication between the AGV fleet control software hosted in Azure public
-    cloud and the AGVs on the shop floor. Therefore, hosting the AGV fleet
-    control software in a datacenter that is outside the intranet of such a
-    production plant was not an option.
--   AGV vendor lock-in problem. It was not possible to swap the existing AGVs
-    with new ones from a different vendor, because the AGV fleet control
-    software depended on the proprietary communication protocol of the existing
-    AGVs.
-
-An architecture supporting geo-redundancy with zero-downtime failover for 99.9%
-availability and disaster recovery can solve these issues.
 
 ### Geo-redundancy with zero-downtime failover for 99.9% availability and disaster recovery
 
 :::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-01-georedundancy.vsdx) of this architecture.*
+
+#### Workflow
 
 -   An instance of the back end, consisting of the following components, is
     deployed to two Azure regions: [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview),
@@ -88,6 +33,8 @@ availability and disaster recovery can solve these issues.
 
 [ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-02-onpremises.vsdx) of this architecture.*
+
 In scenarios where the internet connection between a production plant and Azure
 is a limiting factor, our AGV control software can also be deployed to
 on-premises compute nodes. By using Kubernetes and RabbitMQ as platform-agnostic
@@ -98,7 +45,11 @@ deployed on an Azure IoT Edge device.
 
 [ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-03.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-03-vda5050spec.vsdx) of this architecture.*
+
 Thanks to compliance with the [VDA 5050 vehicle connector specification](https://en.vda.de/en/services/Publications/vda-5050-v-1.1.-agv-communication-interface.html), our AGV control software can communicate with all types of AGVs from different vendors that also comply with VDA 5050.
+
+#### Workflow
 
 In this architecture, you can see an overview of the different services and
 components used to run the back-end AGV fleet control solution in Azure:
@@ -223,7 +174,72 @@ or
 [Bicep](/azure/azure-resource-manager/bicep/overview)
 for creating scripts.
 
+## Scenario details
+
+Automotive manufacturing relies on automated guided vehicles (AGVs) to deliver
+parts to assembly lines. AGVs are a mission-critical part of just-in-time
+manufacturing and automated shop-floor logistics. Shop floors using AGVs
+commonly face three challenges:
+
+-   Availability. Any service interruption disrupts production.
+-   Connectivity. Shop floors frequently lack a reliable connection to the
+    public cloud.
+-   Vendor lock-in. Traditional AGV solutions rely on proprietary communication
+    protocols.
+    
+This example architecture is divided into three operational areas:
+
+-   An Azure-based fleet control reference architecture with geo-redundancy,
+    zero-downtime failover, 99.9% availability, and efficient disaster recovery.
+-   A datacenter-agnostic and on-premises deployment built on Kubernetes and
+    RabbitMQ.
+-   Vendor-neutral AGV communication built on top of the common VDA 5050
+    specification.
+
+### Potential use cases
+
+This solution is ideal for the manufacturing, automotive, and transportation industries. It applies to the following scenarios:
+
+-   The customer is currently using AGVs in its manufacturing process.
+-   The customer experiences low availability with the AGVs, which impacts their
+    return on investment (ROI).
+-   The shop floor has an inconsistent connection with the public cloud.
+-   The customer is a member of the Open Manufacturing Platform (OMP).
+-   The customer is a member of the OMP Autonomous Transport System (OMP ATS)
+    working group.
+
+### Key problems
+
+Low-cost production of goods relies on automation of the manufacturing process
+and just-in-time delivery of parts to assembly lines. By automatically
+transporting parts to assembly lines, automated guided vehicles contribute both
+to just-in-time manufacturing and to the automation of shop-floor logistics. In
+a typical mass production plant of passenger cars, for example, one passenger
+car is rolled out every minute. Therefore, every minute of interruption of an
+assembly line in a production plant causes a financial loss—in the order of tens
+of thousands of US dollars. Automotive OEMs require a high level of reliability
+and availability for their automated systems, and they face a number of
+challenges:
+
+-   Availability problem. Existing AGV fleet control software does not fulfill
+    the 99.9% availability requirement.
+-   Connectivity problem. Some production plants do not have a sufficiently
+    stable internet connection with the required bandwidth to enable the
+    communication between the AGV fleet control software hosted in Azure public
+    cloud and the AGVs on the shop floor. Therefore, hosting the AGV fleet
+    control software in a datacenter that is outside the intranet of such a
+    production plant was not an option.
+-   AGV vendor lock-in problem. It was not possible to swap the existing AGVs
+    with new ones from a different vendor, because the AGV fleet control
+    software depended on the proprietary communication protocol of the existing
+    AGVs.
+
+An architecture supporting geo-redundancy with zero-downtime failover for 99.9%
+availability and disaster recovery can solve these issues.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability and scalability
 
@@ -237,6 +253,8 @@ by implementing redundancies in almost all layers of the service.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Use Azure Active Directory for identity and access control and use Azure Key
 Vault to manage keys and secrets.
 
@@ -248,49 +266,61 @@ Consider using a solution such as Azure DevOps or GitHub Actions, as described
 in the [Azure DevOps Starter](/azure/devops-project/overview)
 documentation.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs,
 and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service)
 to estimate the costs for running AKS in Azure. To learn about other
 considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Gürcan Güleşir](https://de.linkedin.com/in/g%C3%BCrcan-g%C3%BCle%C5%9Fir-08792a7) | Senior Program Manager
+
 ## Next steps
-
-Azure Architecture Center overview articles:
-
--   [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
--   [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
--   [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
--   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
--   [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 
 Product documentation:
 
--   [Application Insights](/azure/azure-monitor/app/app-insights-overview)
--   [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
--   [Azure App Service](/azure/app-service/overview)
--   [Azure Container Instances](/azure/container-instances/container-instances-overview)
--   [Azure Container Registry](/azure/container-registry/container-registry-intro)
--   [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
--   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
--   [Azure Key Vault](/azure/key-vault/general/basic-concepts)
--   [Azure Monitor](/azure/azure-monitor/overview)
--   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
--   [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
--   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
--   [GitHub](https://docs.github.com/en/get-started)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure App Service](/azure/app-service/overview)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview)
+- [Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [GitHub](https://docs.github.com/en/get-started)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
--   [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
--   [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
--   [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
--   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+- [Introduction to Azure IoT](/training/paths/introduction-to-azure-iot/)
+- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
+- [Administer containers in Azure](/training/paths/administer-containers-in-azure/)
+- [Create microservices with .NET and ASP.NET Core](/training/paths/create-microservices-with-dotnet/)
+- [Manage identities and governance for Azure administrators](/training/paths/azure-administrator-manage-identities-governance/)
 
 ## Related resources
 
--   [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
--   [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
--   [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+Azure Architecture Center overview articles:
+
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+- [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+
+Related architectures:
+
+- [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
+- [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)

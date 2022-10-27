@@ -7,11 +7,13 @@ To learn more about the basic concepts, considerations, and approaches for serve
 
 ## Potential use case
 
-A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub&#8211;triggered functions.
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
 ## Architecture
 
 ![Diagram showing the data flow described in this article](../media/serverless-event-processing-aks-diagram.png)
+
+### Dataflow
 
 1. Azure Kubernetes Service (AKS) with the KEDA scaler is used to autoscale Azure Functions containers based on the number of events needing to be processed.
 1. Events arrive at the Input Event Hub.
@@ -22,14 +24,22 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ### Components
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
-- [KEDA](https://keda.sh/) is an event-driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](/azure/cosmos-db/introduction).
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
+- [KEDA](https://keda.sh) is an event-driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](/azure/cosmos-db/introduction).
 
 > [!NOTE]
-> For Internet of Thing (IoT) scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
+> For Internet of Thing (IoT) scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728) | Senior Software Development Engineer
 
 ## Next steps
 

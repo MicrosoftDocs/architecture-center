@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Create a CI/CD pipeline with Azure Pipelines
+  description: Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes.
+  author: marktab
+  ms.author: matabl
+  ms.date: 01/10/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure
+  - azure-pipelines
+  - azure-machine-learning
+  - azure-kubernetes-service
+name: Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
+summary: Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes.
+thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-flask-architecture.png
+content: |
+  [!include[](ci-cd-flask-content.md)]

@@ -2,10 +2,10 @@
 metadata:
   title: Clinical insights with Microsoft Cloud for Healthcare
   titleSuffix: Azure Example Scenarios
-  description: This article describes an architecture to gather insights from the clinical and medical data using Microsoft Cloud for Healthcare.
+  description: This article describes an architecture that uses Microsoft Cloud for Healthcare to gather insights from clinical and medical data.
   author: dsk-2015
   ms.author: dkshir
-  ms.date: 04/09/2021
+  ms.date: 09/30/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -13,9 +13,13 @@ azureCategories:
   - web
   - mobile
 products:
-  - azure
+  - mscloud-healthcare
+  - azure-synapse-analytics
+  - azure-machine-learning
+  - power-automate
+  - dynamics-365
 name: Clinical insights with Microsoft Cloud for Healthcare 
-summary: This article describes an architecture to gather insights from the clinical and medical data using Microsoft Cloud for Healthcare.
-thumbnailUrl: /azure/architecture/browse/thumbs/clinical-insights-solution.png
+summary: This article describes an architecture that uses Microsoft Cloud for Healthcare to gather insights from clinical and medical data.
+thumbnailUrl: /azure/architecture/browse/thumbs/clinical-insights-solution-thumbnail.png
 content: |
   [!include[](medical-data-insights-content.md)]

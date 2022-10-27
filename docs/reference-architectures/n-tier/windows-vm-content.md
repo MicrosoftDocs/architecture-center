@@ -2,7 +2,9 @@
 
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.
 
-![Windows VM in Azure](./images/single-vm-diagram.png)
+![Diagram that shows Windows virtual machine in Azure.](./images/single-vm-diagram.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
 ## Resource group
 
@@ -112,6 +114,9 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 ## Next steps
 
+- To create a Windows VM, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- To install NVIDIA drivers on a Windows VM, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
+- To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
 
@@ -119,7 +124,7 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[Microsoft Azure Well-Architected Framework]: ../../framework/cost/overview.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/cost/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: /azure/storage/common/storage-introduction
@@ -156,5 +161,5 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-cost]: ../../framework/cost/overview.md
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview

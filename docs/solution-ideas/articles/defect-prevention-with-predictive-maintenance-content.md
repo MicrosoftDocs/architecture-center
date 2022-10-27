@@ -4,6 +4,13 @@ Learn how to use Azure Machine Learning to predict failures before they happen w
 
 This solution is built on Azure-managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+Industries that benefit from this solution include:
+
+- Manufacturing processes
+- Airline maintenance scheduling
+
 ## Architecture
 
 ![Architecture diagram: defect prevention with predictive maintenance.](../media/defect-prevention-with-predictive-maintenance.png)

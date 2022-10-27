@@ -1,12 +1,14 @@
 This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence.
 
+## Architecture
+
 ![Reference architecture for a highly available SharePoint Server 2016 farm in Azure](./images/sharepoint-ha.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
-
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Microsoft 365, or as the basis for a disaster recovery scenario.
+
+### Components
 
 The architecture consists of the following components:
 
@@ -112,7 +114,11 @@ For recommended VM sizes and other performance recommendations for SQL Server ru
 
 We recommend that the majority node server reside on a separate computer from the replication partners. The server enables the secondary replication partner server in a high-safety mode session to recognize whether to initiate an automatic failover. Unlike the two partners, the majority node server doesn't serve the database but rather supports automatic failover.
 
-## Scalability considerations
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 To scale up the existing servers, simply change the VM size.
 
@@ -120,19 +126,21 @@ With the [MinRoles][minroles] capability in SharePoint Server 2016, you can scal
 
 Note that SharePoint Server 2016 doesn't support using virtual machine scale sets for autoscaling.
 
-## Availability considerations
+### Availability
 
 This reference architecture supports high availability within an Azure region because each role has at least two VMs deployed in an availability set.
 
 To protect against a regional failure, create a separate disaster recovery farm in a different Azure region. Your recovery time objectives (RTOs) and recovery point objectives (RPOs) will determine the setup requirements. For details, see [Choose a disaster recovery strategy for SharePoint 2016][sharepoint-dr]. The secondary region should be a *paired region* with the primary region. In the event of a broad outage, recovery of one region is prioritized out of every pair. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][paired-regions].
 
-## Manageability considerations
+### Manageability
 
 To operate and maintain servers, server farms, and sites, follow the recommended practices for SharePoint operations. For more information, see [Operations for SharePoint Server 2016][sharepoint-ops].
 
 The tasks to consider when managing SQL Server in a SharePoint environment may differ from the ones typically considered for a database application. A best practice is to fully back up all SQL databases weekly with incremental nightly backups. Back up transaction logs every 15 minutes. Another practice is to implement SQL Server maintenance tasks on the databases while disabling the built-in SharePoint ones. For more information, see [Storage and SQL Server capacity planning and configuration][sql-server-capacity-planning].
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers or Azure Active Directory Domain Services for domain-join and authentication processes. However, to extend the Windows Server AD identity infrastructure already in place in the intranet, this particular architecture uses two VMs as Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest.
 
@@ -144,29 +152,31 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 - As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 - Install anti-malware agents for the VMs.
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some factors for optimizing the cost for this architecture.
 
-### Active Directory Domain Services
+#### Active Directory Domain Services
 
 Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. See [Active Directory Domain Services pricing][ADDS-pricing] for more information.
 
-### VPN Gateway
+#### VPN Gateway
 
 The billing model is based on the amount of time the gateway is provisioned and available. See [VPN Gateway Pricing][azure-gateway-pricing].
 
 All inbound traffic is free. All outbound traffic is billed. Internet bandwidth costs are applied to VPN outbound traffic.
 
-### Virtual Network
+#### Virtual Network
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier].
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-## DevOps considerations
+### DevOps
 
 Consider using separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights. In general, put resources that have the same lifecycle in the same resource group. Use the Developer tier for development and test environments. To minimize costs during preproduction, deploy a replica of your production environment, run your tests, and then shut down.
 
@@ -189,36 +199,36 @@ For more information about the individual pieces of the solution architecture, s
 - [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
 - [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
-- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 
 ## Related resources
 
-- [windows-n-tier](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 - [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [arm-template]: /azure/azure-resource-manager/management/overview
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/
 [availability-set]: /azure/virtual-machines/windows/manage-availability
-[az-devops]: /azure/devops/index?view=azure-devops
+[az-devops]: /azure/devops/index
 [az-monitor]: https://azure.microsoft.com/services/monitor/
 [azure-gateway-pricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [hybrid-ra]: ../hybrid-networking/index.yml
-[hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
+[hybrid-vpn-ra]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
-[pipelines]: /azure/devops/pipelines/?view=azure-devops&preserve-view=true
+[pipelines]: /azure/devops/pipelines/
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [sharepoint-accounts]: /SharePoint/install/initial-deployment-administrative-and-service-accounts-in-sharepoint-server
 [sharepoint-crawling]: /SharePoint/search/best-practices-for-crawling
@@ -229,7 +239,7 @@ For more information about the individual pieces of the solution architecture, s
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
 [sharepoint-search]: /SharePoint/search/plan-enterprise-search-architecture
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
 [sql-server-capacity-planning]: /SharePoint/administration/storage-and-sql-server-capacity-planning-and-configuration
 [sql-quorum]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm

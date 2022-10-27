@@ -193,14 +193,14 @@ For information about the editions offered by Azure Active Directory, see [Azure
 ## Next Steps
 
 * [Azure Activity Directory Documentation](/azure/active-directory)
-* [Manage Identity in multitenant applications](../../multitenant-identity/index.md)
+* [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)
 * [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
 * [Azure Firewall](/azure/firewall/overview)
 
 <!-- links -->
 
 [extending-ad-to-azure]: ./adds-extend-domain.yml
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
 [where-to-place-an-fs-proxy]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807048(v=ws.11)
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds

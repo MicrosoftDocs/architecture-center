@@ -1,14 +1,16 @@
 <!-- cSpell:ignore RRAS -->
 
-This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
 Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet.
 
-![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway](./images/expressroute-vpn-failover.png)
-
-*Download a [Visio file][visio-download] of this architecture.*
-
 ## Architecture
+
+![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway.](./images/expressroute-vpn-failover.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/expressroute-vpn-failover.vsdx) of this architecture.*
+
+### Workflow
 
 The architecture consists of the following components.
 
@@ -28,15 +30,13 @@ The architecture consists of the following components.
 
 - **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-- **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
-
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### VNet and GatewaySubnet
 
-Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They will both share the same subnet named *GatewaySubnet*.
+Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They'll both share the same subnet named *GatewaySubnet*.
 
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
@@ -45,7 +45,7 @@ $vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-res
 Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 ```
 
-If the VNet does not contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
+If the VNet doesn't contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
 
 ```powershell
 $vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-resource-group>
@@ -63,71 +63,73 @@ If you already have a VPN virtual network gateway in your Azure VNet, use the fo
 Remove-AzVirtualNetworkGateway -Name <your-gateway-name> -ResourceGroupName <your-resource-group>
 ```
 
-Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
+Follow the instructions in [Configure a hybrid network architecture with Azure ExpressRoute][configure-expressroute] to establish your ExpressRoute connection.
 
-Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN virtual network gateway connection.
+Follow the instructions in [Configure a hybrid network architecture with Azure and On-premises VPN][configure-vpn] to establish your VPN virtual network gateway connection.
 
-After you have established the virtual network gateway connections, test the environment as follows:
+After you've established the virtual network gateway connections, test the environment as follows:
 
 1. Make sure you can connect from your on-premises network to your Azure VNet.
 2. Contact your provider to stop ExpressRoute connectivity for testing.
 3. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 4. Contact your provider to reestablish ExpressRoute connectivity.
 
-## DevOps considerations
+## Considerations
 
-For ExpressRoute DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+### DevOps
 
-For site-to-site VPN DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+For ExpressRoute DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
-## Security considerations
+For site-to-site VPN DevOps considerations, see the [Configure a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+
+### Security
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
-## Cost considerations
+### Cost optimization
 
 For ExpressRoute cost considerations, see these articles:
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#cost-considerations).
+- [Cost considerations in configuring a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#considerations).
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](../../reference-architectures/hybrid-networking/vpn.yml#cost-considerations).
-
-## Deploy the solution
+## Deploy this scenario
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
 
 To deploy the solution, perform the following steps.
 
-1. Click the link below.
+1. Select the link below.
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy.json)
+    [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
 
-1. Wait for the link to open in the Azure portal, then follow these steps:
-   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
+1. Wait for the link to open in the Azure portal, then select the **Resource group** you would like to deploy these resources into or create a new resource group. The **Region** and **Location** will automatically change to match the resource group.
+
+1. Update the remaining fields if you would like to change the resource names, providers, SKU, or network IP addresses for your environment.
+
+1. Select **Review + create** and then **Create** to deploy these resources.
 
 1. Wait for the deployment to complete.
 
-1. Click the link below.
+    > [!NOTE]
+    > This template deployment only deploys the following resources:
+    >
+    > - Resource Group (if you create new)
+    > - ExpressRoute circuit
+    > - Virtual Network
+    > - ExpressRoute Virtual Network Gateway
+    >
+    > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration](/azure/expressroute/expressroute-howto-routing-portal-resource-manager). Once you have configured private peering successfully you can link the ExpressRoute Virtual Network Gateway to the circuit, see [Link virtual network to an ExpressRoute circuit](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy-expressRouteCircuit.json)
+1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
-1. Wait for the link to open in the Azure portal, then enter then follow these steps:
-   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
+1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
 
-## Next Steps
+## Next steps
 
 * [ExpressRoute Documentation](/azure/expressroute/)
 * [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
 * [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking/)
+* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking)
 
 <!-- links -->
 
@@ -136,9 +138,8 @@ To deploy the solution, perform the following steps.
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
-[implementing-expressroute]: ./expressroute.yml
-[implementing-vpn]: ./vpn.yml
+[configure-expressroute]: ./expressroute.yml
+[configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [guidance-expressroute]: ./expressroute.yml
-[guidance-vpn]: ./vpn.yml
+[guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
 [best-practices-security]: /azure/best-practices-network-security
-[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx

@@ -3,7 +3,7 @@ title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: cjnova
 ms.author: petuton
-ms.date: 08/10/2021
+ms.date: 12/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -16,6 +16,10 @@ keywords:
   - difference between Azure and Google Cloud
   - Azure and GCP
   - Azure and Google Cloud
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Azure for Google Cloud Professionals
@@ -142,7 +146,7 @@ Like Google Cloud, Azure regions can have Availability zones. An [Availability Z
 
 Zone redundant VM deployment on Azure
 
-For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.md).
+For more information, see [Build solutions for high availability using Availability Zones](../high-availability/building-solutions-for-high-availability.yml).
 
 ### Paired regions
 
@@ -161,7 +165,7 @@ Region Pairs in Azure
 - [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 - [High availability for Azure applications](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
+- [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
 ## Services

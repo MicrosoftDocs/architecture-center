@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.
   author: jiata
-  ms.author: pnp
-  ms.date: 02/06/2019
+  ms.author: jiata
+  ms.date: 09/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -17,16 +17,16 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
-name: Batch scoring for deep learning models using Azure Machine Learning pipelines
 azureCategories:
   - ai-machine-learning
   - media
-summary: Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.
 products:
   - azure-logic-apps
   - azure-machine-learning
   - azure-rbac
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-deep-learning-scoring-pipeline.png
+name: Batch scoring for deep learning models using Azure Machine Learning pipelines
+summary: Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-deep-learning-scoring-pipeline-thumbnail.png
 content: |
   [!include[](batch-scoring-deep-learning-content.md)]

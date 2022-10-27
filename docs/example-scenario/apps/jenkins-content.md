@@ -2,11 +2,16 @@ This scenario explains the architecture and considerations to take into account 
 
 ![Jenkins server running on Azure][0]
 
-*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
 
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
+
+## Potential use cases
+
+- Automate CI/CD pipelines
+- Ensure high availability (HA) for mission-critical services
 
 ## Architecture
 
@@ -28,7 +33,7 @@ The architecture consists of the following components:
 
 - **Managed disks.** A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
 
-- **Azure Blob storage.** The [Windows Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
+- **Azure Blob storage.** The [Microsoft Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
 
 - **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
 
@@ -135,7 +140,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
 [matrix]: https://plugins.jenkins.io/matrix-auth
 [monitor]: /azure/monitoring-and-diagnostics
-[monitoring-diag]: ../../best-practices/monitoring.md
+[monitoring-diag]: ../../best-practices/monitoring.yml
 [multi-primary]: https://jenkins.io/doc/book/architecting-for-scale
 [nginx]: https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 [nsg]: /azure/virtual-network/virtual-networks-nsg
@@ -150,7 +155,7 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [service-principal]: /azure/active-directory/develop/active-directory-application-objects
 [secure-jenkins]: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure
 [security-center]: /azure/security-center/security-center-intro
-[sizes-linux]: /azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[sizes-linux]: /azure/virtual-machines/linux/sizes
 [solution]: https://azure.microsoft.com/blog/announcing-the-solution-template-for-jenkins-on-azure
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet

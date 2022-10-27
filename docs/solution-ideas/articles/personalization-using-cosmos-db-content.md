@@ -2,24 +2,29 @@
 
 Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights.
 
+## Potential use cases
+
+Organizations use customers' shopping history to provide relevant product recommendations. This solution is ideal for the retail industry.
+
 ## Architecture
 
-![Architecture Diagram](../media/personalization-using-cosmos-db.png)
+![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Cosmos D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
-### Data flow
+### Dataflow
+
 1. Shopper/User signs in to e-commerce app using their own credentials.
-2. Shopper/User places the order and order goes to Azure API Apps.
-3. Data gets stored in Cosmos DB (Customer Order).
-4. The change feed is enabled on the Cosmos DB and processes all the changes for available events.
-5. Using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
-6. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
+1. Shopper/User places the order and order goes to Azure API Apps.
+1. Data gets stored in Cosmos DB (Customer Order).
+1. The change feed is enabled on the Cosmos DB and processes all the changes for available events.
+1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
+1. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 ### Components
 
 This architecture includes the following components:
 
-* [**Azure Web App**](/azure/app-service/overview) is part of Azure App Service. It is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
+* [**Azure Web App**](/azure/app-service/overview) is part of Azure App Service. It's an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
 * [**Azure Cosmos DB**](/azure/cosmos-db/introduction) is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
 
@@ -29,11 +34,11 @@ This architecture includes the following components:
 
 * [**Azure Kubernetes Service**](/azure/aks) automates deployment, scaling, and management of containerized applications, such as the Recommendation model.
 
-* [**Azure Databricks**](/azure/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
+* [**Azure Databricks**](/azure/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
 
 ## Considerations
 
-API management, in front of the container service provides a number of benefits such as rate throttling, API versioning, policies.  For further information, please refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
+API management, in front of the container service provides many benefits such as rate throttling, API versioning, policies.  For further information, see [Azure API Management](/azure/api-management/api-management-key-concepts).
 
 ### Scalability
 

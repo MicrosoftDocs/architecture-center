@@ -4,45 +4,53 @@ Microservice architectures design applications as collections of loosely coupled
 
 Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.
 
-*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
+*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io) is an open-source container orchestration system for automating application deployments.
 
 This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) microservice application.
+
+## Potential use cases
+
+- Legacy application modernization
+- Solutions requiring real-time processing (banking/finance or data streaming/media)
+- RAM or CPU-intensive parts of an application (native language processing)
 
 ## Architecture
 
 ![Diagram showing the configuration of DevTest and DevOps for a microservice application.](../media/dev-test-microservice.png)
 
+### Dataflow
+
 1. Developers use [Local Process with Kubernetes](/visualstudio/containers/overview-local-process-kubernetes) to run their local microservice versions within the context of the development Kubernetes cluster. Connecting to the cluster while debugging the service allows quick testing and development in the full application context.
 
-2. Each microservice codebase uses a separate [GitHub](https://azure.microsoft.com/en-us/products/github) code repository for source control.
+1. Each microservice codebase uses a separate [GitHub](https://azure.microsoft.com/en-us/products/github) code repository for source control.
 
-3. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) builds the microservice container images and pushes them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also updates the *latest* tag of repositories for continuous integration (CI), or tags repositories for release.
+1. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) builds the microservice container images and pushes them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also update the *latest* tag of repositories for continuous integration (CI), or tags repositories for release.
 
-4. GitHub Actions automated testing generates work items for [Azure Boards](https://github.com/marketplace/azure-boards), making all work items manageable in one place.
+1. GitHub Actions automated testing generates work items for [Azure Boards](https://github.com/marketplace/azure-boards), making all work items manageable in one place.
 
-5. [Visual Studio Code](https://code.visualstudio.com/) extensions support Azure Boards and GitHub integration. Associating Azure Boards work items with GitHub repos ties requirements to code, driving the development loop forward.
+1. [Visual Studio Code](https://code.visualstudio.com) extensions support Azure Boards and GitHub integration. Associating Azure Boards work items with GitHub repos ties requirements to code, driving the development loop forward.
 
-6. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com/) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are usually tagged with *latest*, representing the most recent successful microservice builds.
+1. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are tagged with *latest*, representing the most recent successful microservice builds.
 
-7. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the continuous deployment (CD) process.
+1. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the continuous deployment (CD) process.
 
    Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
 
-8. When a version of the application is ready for quality assurance (QA) testing, Azure Pipelines triggers a QA release. The pipeline tags all appropriate images with the next incremental version, updates the Kubernetes manifest to reflect the image tags, and runs the `apply` command. In this example, while a developer may be iterating on a service in isolation, only builds integrated via CI/CD are moved over to deployment.
+1. When a version of the application is ready for quality assurance (QA) testing, Azure Pipelines triggers a QA release. The pipeline tags all appropriate images with the next incremental version, updates the Kubernetes manifest to reflect the image tags, and runs the `apply` command. In this example, while a developer may be iterating on a service in isolation, only builds integrated via CI/CD are moved over to deployment.
 
-9. After testing has approved a version of the service for deployment, GitHub Actions promotes a release from the DevTest Container Registry to a Production Container Registry. GitHub Actions tags the images with the appropriate version and pushes them into the Production Container Registry, following [container registry best practices](/azure/container-registry/container-registry-best-practices).
+1. After testing has approved a version of the service for deployment, GitHub Actions promotes a release from the DevTest Container Registry to a Production Container Registry. GitHub Actions tag the images with the appropriate version and pushes them into the Production Container Registry, following [container registry best practices](/azure/container-registry/container-registry-best-practices).
 
-10. Azure Pipelines creates a release to Production. The pipeline imposes approval gates and pre-stage and post-stage conditions to protect the Production environment from inadvertent or incorrect deployment.
+1. Azure Pipelines creates a release to Production. The pipeline imposes approval gates and pre-stage and post-stage conditions to protect the Production environment from inadvertent or incorrect deployment.
 
-The application uses [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) for its globally distributed database tier.
+The application uses [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) for its globally distributed database tier.
 
 All services and environments report metrics to [Azure Monitor](/azure/devtest-labs/security-baseline).
 
-In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
+In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
 
 ### Components
 
-- [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
+- [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
 
 - [GitHub](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) is a code hosting platform for version control and collaboration. A GitHub source-control [repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.
 
@@ -75,9 +83,12 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 ## Next steps
 
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
+- [Set up Azure DevOps](/azure/devops/get-started)
+- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
+
+## Related resources
+
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
-- [Set up Azure DevOps](/azure/devops/get-started/)
-- [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)

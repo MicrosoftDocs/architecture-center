@@ -1,5 +1,3 @@
-
-
 In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
@@ -12,7 +10,7 @@ Moving from a monolithic architecture to a microservice architecture provides th
 
 A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can also run on Linux. It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
 
-## Relevant use cases
+## Potential use cases
 
 This scenario is relevant to organizations with large monolithic Web applications that are experiencing:
 
@@ -29,7 +27,7 @@ Using Service Fabric as the hosting platform, we can convert a large IIS web sit
 In the picture above, we decomposed all the parts of a large IIS application into:
 
 - A routing or gateway service that accepts incoming browser requests, parses them to determine what service should handle them, and forwards the request to that service.
-- Four ASP.NET Core applications that were formally virtual directories under the single IIS site running as ASP.NET applications. The applications were separated into their own independent microservices. The effect is that they can be changed, versioned, and upgraded separately. In this example, we rewrote each application using .Net Core and ASP.NET Core. These were written as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) so they can natively access the full Service Fabric platform capabilities and benefits (communication services, health reports, notifications, etc.).
+- Four ASP.NET Core applications that were formally virtual directories under the single IIS site running as ASP.NET applications. The applications were separated into their own independent microservices. The effect is that they can be changed, versioned, and upgraded separately. In this example, we rewrote each application using .NET Core and ASP.NET Core. These were written as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) so they can natively access the full Service Fabric platform capabilities and benefits (communication services, health reports, notifications, etc.).
 - A Windows service called *Indexing Service*, placed in a Windows container so that it no longer makes direct changes to registry of the underlying server, but can run self-contained and be deployed with all its dependencies as a single unit.
 - An Archive service, which is just an executable that runs according to a schedule and performs some tasks for the sites. It is hosted directly as a stand-alone executable because we determined it does what it needs to do without modification and it is not worth the investment to change.
 
@@ -71,6 +69,14 @@ Other less costly components of cost are the storage charges for each node's vir
 
 To get an idea of cost, we have created an example using some default values for cluster size, networking, and storage: Take a look at the [pricing calculator](https://azure.com/e/52dea096e5844d5495a7b22a9b2ccdde). Feel free to update the values in this default calculator to those relevant to your situation.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Tim Omta](https://www.linkedin.com/in/tim-omta-b317056) | Senior Cloud Solution Architect
+
 ## Next steps
 
 Take some time to familiarize yourself with the platform by going through the [documentation](/azure/service-fabric/service-fabric-overview) and reviewing the many different [application scenarios](/azure/service-fabric/service-fabric-application-scenarios) for Service Fabric. The documentation will tell you what a cluster consists of, what it can run on, software architecture, and maintenance for it.
@@ -81,7 +87,7 @@ From the standpoint of your current application, begin to think about its differ
 
 ## Related resources
 
-- [Building Microservices on Azure](../../microservices/index.md)
+- [Building Microservices on Azure](../../microservices/index.yml)
 - [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)
 - [Service Fabric Programming Model](/azure/service-fabric/service-fabric-choose-framework)
 - [Service Fabric Availability](/azure/service-fabric/service-fabric-availability-services)

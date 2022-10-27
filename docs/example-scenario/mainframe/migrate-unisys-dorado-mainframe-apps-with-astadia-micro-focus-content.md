@@ -1,31 +1,62 @@
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
-
-This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
-
-- Rewriting application code.
-- Redesigning data architecture or switching from a network-based to a relational-based model.
-- Changing application screens.
-
-## Potential use cases
-
-Many cases can benefit from the Astadia and Micro Focus pattern:
-
-- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
-- Organizations looking for approaches to modernizing workloads that offer these capabilities:
-
-  - A way to migrate application layer source code.
-  - Modern platform as a service (PaaS) services, including:
-
-    - Azure SQL Database with its built-in high availability.
-    - Azure Data Factory with its automated and serverless file routing and transformation.
+This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and Micro Focus products, without rewriting code, switching data models, or updating screens.
 
 ## Architecture
+
+### Legacy architecture
+
+This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
+
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
+:::image-end:::
+
+*Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
+
+#### Workflow
+
+- On-premises users interact with the mainframe (**A**):
+
+  - Admin users interact through a Universal Terminal System (UTS) terminal emulator.
+  - Web interface users interact via a web browser over TLS 1.3 port 443.
+
+  Mainframes use communication standards such as:
+
+  - Internet Protocol version 4 (IPv4)
+  - Internet Protocol version 6 (IPv6)
+  - Secure Sockets Layer (SSL)/TLS
+  - Telnet
+  - File Transfer Protocol (FTP)
+  - Sockets
+
+  In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
+
+- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
+
+- Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use TIPs or High Volume TIPs (HVTIPs). In the new architecture:
+
+  - Server topologies handle batch and transaction workloads.
+  - An Azure load balancer routes traffic to the server sets.
+  - Site Recovery provides high availability (HA) and disaster recovery (DR) capabilities.
+
+- A dedicated server handles workload automation, scheduling, reporting, and system monitoring (**D**). These functions use the same platforms in Azure.
+
+- A printer subsystem manages on-premises printers.
+
+- Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to SQL Database, which provides DR and HA capabilities.
+
+- Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
+
+### Azure architecture
+
+This architecture demonstrates the solution, after it was migrated to Azure:
 
 :::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
+#### Workflow
 
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
@@ -66,49 +97,7 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
 
 1. Azure Site Recovery provides disaster recovery capabilities. This service mirrors the VMs to a secondary Azure region. In the rare case of an Azure datacenter failure, the system then provides quick failover.
 
-### Legacy architecture
-
-This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
-
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
-   The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
-:::image-end:::
-
-*Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
-
-- On-premises users interact with the mainframe (**A**):
-
-  - Admin users interact through a Universal Terminal System (UTS) terminal emulator.
-  - Web interface users interact via a web browser over TLS 1.3 port 443.
-
-  Mainframes use communication standards such as:
-
-  - Internet Protocol version 4 (IPv4)
-  - Internet Protocol version 6 (IPv6)
-  - Secure Sockets Layer (SSL)/TLS
-  - Telnet
-  - File Transfer Protocol (FTP)
-  - Sockets
-
-  In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
-
-- Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
-
-- Mainframe batch and transaction loads run on application servers (**C**). For transactions, these servers use TIPs or High Volume TIPs (HVTIPs). In the new architecture:
-
-  - Server topologies handle batch and transaction workloads.
-  - An Azure load balancer routes traffic to the server sets.
-  - Site Recovery provides high availability (HA) and disaster recovery (DR) capabilities.
-
-- A dedicated server handles workload automation, scheduling, reporting, and system monitoring (**D**). These functions use the same platforms in Azure.
-
-- A printer subsystem manages on-premises printers.
-
-- Database management systems (**E**) follow the eXtended Architecture (XA) specification. Mainframes use relational database systems like RDMS and network-based database systems like DMS II and DMS. The new architecture migrates legacy database structures to SQL Database, which provides DR and HA capabilities.
-
-- Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
-
-### Components
+#### Components
 
 This architecture uses the following components:
 
@@ -151,11 +140,34 @@ This architecture uses the following components:
 
 - An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases] manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
 
+## Scenario details
+
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+
+This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
+
+- Rewriting application code.
+- Redesigning data architecture or switching from a network-based to a relational-based model.
+- Changing application screens.
+
+### Potential use cases
+
+Many cases can benefit from the Astadia and Micro Focus pattern:
+
+- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
+- Organizations looking for approaches to modernizing workloads that offer these capabilities:
+
+  - A way to migrate application layer source code.
+  - Modern platform as a service (PaaS) services, including:
+
+    - Azure SQL Database with its built-in high availability.
+    - Azure Data Factory with its automated and serverless file routing and transformation.
+
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution.
 
-### Availability considerations
+### Availability
 
 - Availability sets for VMs ensure enough VMs are available to meet mission-critical batch process needs.
 - Load Balancer improves reliability by rerouting traffic to a spare VM set if the active set fails.
@@ -166,7 +178,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage redundancy
   - Azure Files redundancy
 
-### Operational considerations
+### Operational
 
 - Besides scalability and availability, these Azure PaaS components also provide updates to services:
 
@@ -184,7 +196,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
   - Network component management through [Azure Network Watcher][What is Azure Network Watcher?].
 
-### Performance considerations
+### Performance efficiency
 
 - SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
 
@@ -194,7 +206,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
 
-### Scalability considerations
+### Scalability
 
 Various Azure PaaS components provide scalability:
 
@@ -203,11 +215,15 @@ Various Azure PaaS components provide scalability:
 - Azure Storage
 - Azure Files
 
-### Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 All the components in this architecture work with Azure security components as needed. Examples include network security groups, virtual networks, and TLS encryption.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
@@ -238,10 +254,37 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - [Contact Astadia][Contact Astadia] for pricing information on OpenTS, OpenMCS, and OpenDMS.
 - [Contact Micro Focus][Contact Micro Focus] for pricing on Micro Focus COBOL.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
+
+For more information about the services featured in this solution, see the following articles:
+- [Azure solid-state drive (SSD) managed disks][Introduction to Azure managed disks]
+- [Virtual Network][What is Azure Virtual Network?] 
+- [Virtual network interface cards][Create, change, or delete a network interface] 
+- [Azure Files][What is Azure Files?]
+- [Azure Storage][Introduction to the core Azure Storage services]
+- [Blob Storage][Introduction to Azure Blob storage]
+- [SQL Database][What is Azure SQL Database?]
+- [Data Factory][What is Azure Data Factory?]
+- [Load Balancer][What is Azure Load Balancer?]
+- [ExpressRoute][What is Azure ExpressRoute?]
+- [Azure Bastion][What is Azure Bastion?]
+- [Private Link][What is Azure Private Link?]
+- [Azure network security groups][Network security groups]
+- [Site Recovery][About Site Recovery]
+- An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
 
 ## Related resources
 
@@ -261,7 +304,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Azure Hybrid Benefit]: https://azure.microsoft.com/pricing/hybrid-benefit/
 [Azure Hybrid Benefit FAQ]: https://azure.microsoft.com/pricing/hybrid-benefit/faq/
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Azure is the new mainframe]: https://channel9.msdn.com/Shows/Azure-Friday/Azure-is-the-new-mainframe/
+[Azure is the new mainframe]: /shows/Azure-Friday/Azure-is-the-new-mainframe
 [Azure Private Link pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [Azure Site Recovery pricing]: https://azure.microsoft.com/pricing/details/site-recovery/
 [Azure SQL Database pricing]: https://azure.microsoft.com/pricing/details/sql-database/single/
@@ -281,14 +324,14 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
-[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
 [Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
-[Overview of the performance efficiency pillar]: ../../framework/scalability/overview.md
+[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
-[Optimize VM costs]: ../../framework/cost/optimize-vm.md
+[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx

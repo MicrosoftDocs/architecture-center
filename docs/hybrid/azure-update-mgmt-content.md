@@ -1,17 +1,14 @@
 This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
 
+## Architecture
+
 ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Typical uses for this architecture include:
+### Workflow
 
-- Managing updates across on-premises and in Azure using the Update Management component of Automation Account.
-- Using scheduled deployments to orchestrate the installation of updates within a defined maintenance window.
-
-## Architecture
-
-The architecture consists of the following components:
+The architecture consists of the following services:
 
 - **Log Analytics workspace:** A [Log Analytics workspace][1] is a data repository for log data that's collected from resources that run in Azure, on-premises, or in another cloud provider.
 - **Automation Hybrid Worker solution:** Create [Hybrid Runbook Workers][2] to run [Azure Automation][3] runbooks on your Azure and non-Azure computers.
@@ -21,6 +18,20 @@ The architecture consists of the following components:
 - **Runbook:** This is a collection of one or more linked activities that together automate a process or operation.
 - **On-premises computers and VMs:** These are on-premises computers and VMs with Windows or Linux operating systems that reside on-premises.
 - **Azure VMs:** Azure VMs include Windows or Linux VMs that are hosted in Azure.
+
+### Components
+
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc)
+
+## Scenario details
+
+Typical uses for this architecture include:
+
+- Managing updates across on-premises and in Azure using the Update Management component of Automation Account.
+- Using scheduled deployments to orchestrate the installation of updates within a defined maintenance window.
 
 ## Recommendations
 
@@ -156,9 +167,13 @@ After installing the Log Analytics agent on an on-premises computer, enable Upda
 
 Each Windows computer managed by Update Management is listed in the **Hybrid Worker groups** pane as a System Hybrid Worker group for the Automation account. Use these groups only for deploying updates, not for targeting the groups with runbooks for automated tasks.
 
-## Manageability considerations
+## Considerations
 
-### Manage updates for Azure VMs and non-Azure machines
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Manageability
+
+#### Manage updates for Azure VMs and non-Azure machines
 
 Update assessment for all missing updates that both Azure VMs and non-Azure computers require is visible in the **Update Management** section of your Automation account.
 
@@ -184,7 +199,7 @@ Use the following procedure to schedule a new update deployment:
 
 Results of a completed update deployment are visible in the **Update Management** pane on the **History** tab.
 
-### Configure Windows Update settings
+#### Configure Windows Update settings
 
 Azure Update Management depends on Windows Update Client to download and install updates either from Windows Update (default setting) or from Windows Server Update Server. Configure Windows Update Client settings to connect to Windows Server Update Services (WSUS) by using:
 
@@ -195,7 +210,7 @@ Azure Update Management depends on Windows Update Client to download and install
 
 For more information, refer to how to [configure Windows Update settings][25].
 
-### Integrate Update Management with Microsoft Endpoint Configuration Manager
+#### Integrate Update Management with Microsoft Endpoint Configuration Manager
 
 The Software Update Management cycle can integrate with Microsoft Endpoint Configuration Manager for customers that are already using this product to manage PCs, servers, and mobile devices.
 
@@ -224,7 +239,7 @@ Partner updates on Windows machines can be deployed from a custom repository tha
 
 For more information, refer to [Integrate Update Management with Windows Endpoint Configuration Manager][28].
 
-### Deploy the Log Analytics agent by using a PowerShell script
+#### Deploy the Log Analytics agent by using a PowerShell script
 
 To accelerate deployment of the Log Analytics agent with the Hybrid Worker role running on a Windows computer, use the **New-OnPremiseHybridWorker.ps1** PowerShell script. The script:
 
@@ -239,7 +254,7 @@ To accelerate deployment of the Log Analytics agent with the Hybrid Worker role 
 
 Deploying many agents in an on-premises infrastructure can be orchestrated by using command-line scripts and by using Group Policy or Endpoint Configuration Manager.
 
-### Use dynamic groups for Azure and non-Azure machines
+#### Use dynamic groups for Azure and non-Azure machines
 
 Dynamic groups for Azure VMs filter VMs based on a combination of:
 
@@ -257,16 +272,18 @@ Dynamic groups for non-Azure computers use saved searches to filter the computer
 
 For more information on how to create computer groups for filtering machines for update deployment, refer to [Computer groups in Azure Monitor log queries][29].
 
-## Scalability considerations
+### Scalability
 
 Azure Automation can process up to 1,000 computers per update deployment. If you expect to update more than 1,000 computers, you can split up the updates among multiple update schedules. Refer to [Azure subscription and service limits, quotas, and constraints][30].
 
-## Availability considerations
+### Availability
 
 - Currently, mappings between Log Analytics Workspace and Automation Account are supported in several regions. For further information, refer to [Supported regions for linked Log Analytics workspace][8].
 - Supported client types: Update assessment and patching is supported on Windows and Linux computers that run in Azure or in your on-premises environment. Currently, the Windows client isn't officially supported. For a list of the supported clients, refer to [Supported client types][31].
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Update Management permissions: The Update Management component of Automation and the Log Analytics workspace component of Monitor can use Azure role-based access control (Azure RBAC) with built-in roles from Azure Resource Manager. For segregation of the duties, these roles can be assigned to different users, groups, and security principals. For a list of the roles in Automation accounts, refer to [Manage role permissions and security][32].
 - Encryption of sensitive assets in Automation: An Automation account can contain sensitive assets such as credentials, certificates, and encrypted variables that runbooks might use. Each secure asset is encrypted by default using a data encryption key that's generated for each Automation account. These keys are encrypted and stored in Automation with an account encryption key that can be stored in the Azure Key Vault for customers who want to manage encryption with their own keys. By default, an account encryption key is encrypted by using Microsoft-managed keys. Use the following guidelines to [apply encryption of secure assets in Azure Automation][33].
@@ -274,31 +291,48 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 - Network planning: Hybrid Runbook Worker requires outbound internet access over TCP port 443 to communicate with Automation. For computers with restricted internet access, you can use the [Log Analytics gateway][34] to configure communication with Automation and an Azure Log Analytics workspace.
 - Azure Security baseline for Automation: [Azure security baseline for Automation][35] contains recommendations about how to increase overall security to protect your assets following best practice guidance.
 
-## DevOps considerations
+### DevOps
 
 - You can schedule update deployment programmatically through the REST API. For more information, refer to [Software Update Configurations - Create][36].
 - Azure Automation allows integration with popular source control systems like Azure DevOps and GitHub. With source control, you can integrate an existing development environment that contains your scripts and custom code that has been previously tested in an isolated environment.
 - For more information about how to integrate Automation with your source control environment, refer to [Use source control integration][37].
 
-## Cost considerations
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator][38] to estimate costs. For more information about Automation pricing models, refer to [Automation pricing][39].
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.
 - An Azure Log Analytics workspace might generate more costs related to the amount of log data that's stored in Azure Log Analytics. The pricing is based on consumption, and the costs are associated with data ingestion and data retention. For ingesting data into Azure Log Analytics, use the capacity reservation or pay-as-you-go model that includes 5 gigabytes (GB) free a month for each billing account. Data retention for the first 31 days is free of charge.
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 More about Azure Automation:
 
 - [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
-- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
 - [Azure Automation Update Management](./azure-update-mgmt.yml)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
 - [Azure Arc Overview](/azure/azure-arc/overview)
 - [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
+
+## Related resources
+
+- [Azure Automation in a hybrid environment](./azure-automation-hybrid.yml)
+- [Event-based cloud automation](../reference-architectures/serverless/cloud-automation.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
 [architectural-diagram]: ./images/azure-update-mgmt.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx

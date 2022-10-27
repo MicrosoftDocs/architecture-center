@@ -1,8 +1,12 @@
 Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](../../guide/startups/startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and *optionality*. Optionality refers to how fast you can change directions within a given architecture.
 
-A business in the [expand](../../guide/startups/startup-architecture.md#expand) or [extract](../../guide/startups/startup-architecture.md#extract) phases of product development  might use a service-oriented or microservices architecture. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
+A business in the [expand](../../guide/startups/startup-architecture.md#expand) or [extract](../../guide/startups/startup-architecture.md#extract) phases of product development might use a service-oriented or microservices architecture. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
 
-For a core startup stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while providing ample ability to scale as the startup wins more customers. This article presents an example of a simple core startup stack, and discusses its components.
+For a core startup stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while providing ample ability to scale as the startup wins more customers.
+
+## Potential use cases
+
+This article presents an example of a simple core startup stack, and discusses its components.
 
 ## Architecture
 
@@ -13,6 +17,8 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Startup%20Stack%20Architecture.vsdx) of this architecture.*
+
+### Dataflow
 
 In this core startup stack architecture:
 
@@ -58,17 +64,25 @@ If something goes wrong with your app, you want to spend as little time as possi
 
 The lack of repeatable and rapid deployments is one of the worst impediments to speed when you're iterating on a product. A well-configured CI/CD pipeline streamlines the code deployment process on your app server. Quick and easy deployments mean that you see the results of your labor quickly. Frequent integration avoids divergent code bases that lead to merge conflicts.
 
-## Deploy this architecture
+## Deploy this scenario
 
 You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Andrew Harvey](https://www.linkedin.com/in/andrewharvey) | CTO and Startup Advocate
+
 ## Next steps
 
-- [Automate your workflow with GitHub Actions](/learn/paths/automate-workflow-github-actions)
+- [Automate your workflow with GitHub Actions](/training/paths/automate-workflow-github-actions)
 
 ## Related resources
 
 - [Architecture for startups](../../guide/startups/startup-architecture.md)
 - [Best practices in cloud applications](../../best-practices/index-best-practices.md)
-- [Best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
+- [Best practices for using content delivery networks (CDNs)](../../best-practices/cdn.yml)
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)

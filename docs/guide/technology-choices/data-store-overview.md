@@ -3,11 +3,14 @@ title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: dsk-2015
-ms.author: pnp
-ms.date: 08/08/2020
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+azureCategories: developer-tools
+categories: developer-tools
+products: azure
 ms.custom:
   - guide
 ---
@@ -35,7 +38,7 @@ This model is very useful when strong consistency guarantees are important &mdas
 
 ### Azure services
 
-- [Azure SQL Database][sql-db] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
+- [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 - [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
 - [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
 - [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
@@ -78,7 +81,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table], [etcd API (preview)][cosmos-etcd], and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB Table API][cosmos-table] and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 - [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
 - [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
@@ -148,7 +151,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 ### Azure services
 
 - [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
-- [SQL Server][sqlserver] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
+- [SQL Server][sqlserver] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 
 ### Workload
 
@@ -374,7 +377,7 @@ Aided with this understanding of different data storage models, the next step is
 [databricks]: https://azure.microsoft.com/free/databricks/
 [analysissvc]: /azure/analysis-services/analysis-services-overview
 [datalakegen2]: /azure/storage/blobs/data-lake-storage-introduction
-[prq]: https://parquet.apache.org/documentation/latest/
+[prq]: https://parquet.apache.org/docs/
 [orc]: https://orc.apache.org/docs/
 [synapseexternal]: /azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool
 [cassandra]: /azure/cosmos-db/cassandra-introduction

@@ -2,14 +2,13 @@ Digital forensics is a science that addresses the recovery and investigation of 
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
-## Use cases
-
-- A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence
-- Investigators can attach disk copies obtained with this technique on a computer dedicated to forensic analysis, without re-creating, powering on, or accessing the original source VM
-
 ## Architecture
 
-![Chain Of Custody](media/chain-of-custody.png)
+:::image type="content" alt-text="Diagram showing the chain of custody architecture." source="media/chain-of-custody.png" lightbox="media/chain-of-custody.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
+
+### Workflow
 
 This standard Azure *hub-spoke* architecture deploys VMs on the **Production** spoke, and encrypts them with [Azure Disk Encryption (ADE)](/azure/security/fundamentals/azure-disk-encryption-vms-vmss). The [Azure Key Vault](/azure/key-vault/general/overview) in the Production subscription stores the VMs' *BitLocker encryption keys* (BEKs), and *key encryption keys* (KEKs) if applicable.
 
@@ -25,6 +24,20 @@ The Copy-VmDigitalEvidence runbook:
 1. Calculates SHA-256 hash values for the snapshots on the file share
 1. Copies the SHA-256 hash values, as well as the VM's BEK, KEK if applicable, and disk identification tags, to the SOC key vault
 1. Deletes all copies of the snapshots except the one in immutable Blob storage
+
+### Components
+
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)(Azure AD)
+
+### Alternatives
+
+If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
+
+You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
 
 ### Azure Storage account
 
@@ -61,9 +74,17 @@ If the VM is behind a Firewall (Network Virtual Appliance (NVA), Azure Firewall,
 
 An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) in Azure Monitor stores activity logs to audit all the events on the SOC subscription.
 
+## Scenario details
+
+### Potential use cases
+
+- A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence
+- Investigators can attach disk copies obtained with this technique on a computer dedicated to forensic analysis, without re-creating, powering on, or accessing the original source VM
+
+
 ## Regulatory Compliance
 
-One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/).
+One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 Azure has a wide range of compliance certifications, including certifications specific for global regions and countries and for key industries like healthcare, government, finance and education.
 
@@ -78,6 +99,8 @@ As an example, the report [Cohasset Assessment - Microsoft Azure WORM Storage](h
 It is Cohasset's opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Consider the following requirements when proving the validity of a CoC:
 
@@ -119,13 +142,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 For compliance, some standards or regulations require evidence and all support infrastructure to be maintained in the same Azure region.
 
-## Alternatives
-
-If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
-
-You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
-
-## Implementation
+## Deploy this scenario
 
 The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
@@ -241,6 +258,14 @@ To unlock an Azure data disk and mount it under the directory `datadisk`:
 
 After the script execution, you will be prompted for the encryption passphrase. Copy it from the script output to unlock and access the content of the Azure data disk.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
+
 ## Next steps
 
 For more information about Azure data-protection features, see:
@@ -257,5 +282,11 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings)
+
+## Related resources
+
+- [Security architecture design](../../guide/security/security-start-here.yml)
+- [Azure Active Directory IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

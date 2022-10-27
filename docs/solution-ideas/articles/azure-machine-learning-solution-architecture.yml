@@ -1,0 +1,38 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Machine Learning architecture
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
+  author: EdPrice-MSFT
+  ms.author: cgronlun
+  ms.date: 05/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+    - analytics
+    - databases
+  ms.custom:
+    - acom-architecture
+    - machine learning architecture
+    - interactive-diagram
+    - pricing-calculator
+    - "https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
+    - internal-intro
+  social_image_url: /azure/architecture/solution-ideas/articles/media/azure-machine-learning-solution-architecture.png  
+name: Azure Machine Learning architecture
+azureCategories:
+  - ai-machine-learning 
+  - analytics
+  - databases
+summary: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
+products:
+  - azure-machine-learning
+  - azure-synapse-analytics
+  - azure-container-registry
+  - azure-monitor
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-solution-architecture.png
+content: |
+   [!include[](azure-machine-learning-solution-architecture-content.md)]

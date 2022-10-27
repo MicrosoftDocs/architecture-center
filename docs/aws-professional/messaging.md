@@ -2,11 +2,19 @@
 title: Comparing AWS and Azure messaging services
 description: Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queueing Service, and messaging components.
 author: bgener
+categories: azure
 ms.author: bogenera
 ms.date: 08/10/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories:
+  - databases
+  - web
+products:
+  - azure
+  - azure-queue-storage
+  - azure-service-bus
 ---
 
 # Messaging services on Azure and AWS

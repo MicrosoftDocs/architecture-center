@@ -7,7 +7,7 @@ This solution allows studios to leverage on-premises capacity to its fullest wit
 ![Architecture Diagram](../media/azure-batch-rendering.png)
 *Download an [SVG](../media/azure-batch-rendering.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Optimize access to NAS files and support remote artists with the Azure FXT Edge Filer connecting artists to low-latency storage.
 1. Connecting on-premises storage resources to Azure via Azure Express Route providing a secure, private link to additional render cores.
@@ -21,6 +21,18 @@ This solution allows studios to leverage on-premises capacity to its fullest wit
 * Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud).
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
 * [Azure Batch](https://azure.microsoft.com/services/batch): Cloud-scale job scheduling and compute management
+
+## Scenario details
+
+### Potential use cases
+
+Graphics designers, artists, and animation designers need high performance systems to make sure they deliver the best quality work and can accommodate change requests without waiting hours for the processing to finish. Areas that studios can see the benefits from high performance computing include:
+
+* Animation and modeling.
+
+* 3D Rendering.
+
+* Compositing and color grading.
 
 ## Next steps
 

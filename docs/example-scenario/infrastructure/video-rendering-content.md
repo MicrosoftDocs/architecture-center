@@ -1,24 +1,16 @@
-
 <!-- cSpell:ignore infiniband haswell cuda -->
 
 3D video rendering is a time consuming process that requires a significant amount of CPU time to complete. On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing. Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to. However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
 
-Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
-
-## Relevant use cases
-
-Other relevant use cases include:
-
-- 3D modeling
-- Visual FX (VFX) rendering
-- Video transcoding
-- Image processing, color correction, and resizing
-
 ## Architecture
 
-![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch][architecture]
+![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch.][architecture]
 
-This scenario shows a workflow that uses Azure Batch. The data flows as follows:
+*Download a [Visio file][visio-download] of this architecture.*
+
+### Dataflow
+
+This scenario shows a workflow that uses [Azure Batch](/azure/batch). The data flows as follows:
 
 1. Upload input files and the applications to process those files to your Azure Storage account.
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
@@ -31,13 +23,34 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 ### Components
 
-Azure Batch builds on the following Azure technologies:
+[Azure Batch](https://azure.microsoft.com/services/batch) builds on the following Azure technologies:
 
-- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
-- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-- [Virtual machine scale sets][vmss] are used by CycleCloud for compute resources.
+- [Azure Virtual Networks](https://azure.microsoft.com/free/virtual-network) are used for both the head node and the compute resources.
+- [Azure Storage accounts](https://azure.microsoft.com/free/storage) are used for synchronization and data retention.
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) are used by CycleCloud for compute resources.
+
+### Alternatives
+
+If you require more control over your rendering environment in Azure or need a hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more, see [What is Azure CycleCloud?](/azure/cyclecloud/overview).
+
+For a complete overview of all the HPC solutions that are available to you in Azure, see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions].
+
+## Scenario details
+
+Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
+
+### Potential use cases
+
+This solution is ideal for the media and entertainment industries. Other relevant use cases include:
+
+- 3D modeling
+- Visual FX (VFX) rendering
+- Video transcoding
+- Image processing, color correction, and resizing
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Machine Sizes available for Azure Batch
 
@@ -56,12 +69,6 @@ Azure has a wide range of VM sizes that can address each and every one of the ab
 - [Memory optimized VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
 - [General purposes VM sizes][compute-general] General-purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
 
-### Alternatives
-
-If you require more control over your rendering environment in Azure or need a hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more and learn about the design principles use the following link:
-
-For a complete overview of all the HPC solutions that are available to you in Azure, see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions]
-
 ### Availability
 
 Monitoring of the Azure Batch components is available through a range of services, tools, and APIs. Monitoring is discussed further in the [Monitor Batch solutions][batch-monitor] article.
@@ -72,6 +79,8 @@ Pools within an Azure Batch account can either scale through manual intervention
 [Create an automatic scaling formula for scaling nodes in a Batch pool][batch-scaling].
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -84,7 +93,34 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 - Ensure Applications are created and updated to the alternate Storage Account
 - Upload input files and submit jobs to the alternate Azure Batch account
 
-## Deploy the scenario
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+The cost of using Azure Batch will depend on the VM sizes that are used for the pools and how long these VMs are allocated and running, there is no cost associated with an Azure Batch account creation. Storage and data egress should be taken into account as these will apply additional costs.
+
+The following are examples of costs that could be incurred for a job that completes in 8 hours using a different number of servers:
+
+- 100 High-Performance CPU VMs: [Cost Estimate][hpc-est-high]
+
+  100 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
+
+- 50 High-Performance CPU VMs: [Cost Estimate][hpc-est-med]
+
+  50 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
+
+- 10 High-Performance CPU VMs: [Cost Estimate][hpc-est-low]
+
+  10 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
+
+#### Pricing for low-priority VMs
+
+Azure Batch also supports the use of low-priority VMs in the node pools, which can potentially provide a substantial cost saving. For more information, including a price comparison between standard VMs and low-priority VMs, see [Azure Batch Pricing][batch-pricing].
+
+> [!NOTE]
+> Low-priority VMs are only suitable for certain applications and workloads.
+
+## Deploy this scenario
 
 ### Create an Azure Batch account and pools manually
 
@@ -104,42 +140,30 @@ The template will deploy:
 
 Click the link below to deploy the solution.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json)
 
 [Learn more about Resource Manager templates][azure-arm-templates]
 
-## Pricing
+## Next steps
 
-The cost of using Azure Batch will depend on the VM sizes that are used for the pools and how long these VMs are allocated and running, there is no cost associated with an Azure Batch account creation. Storage and data egress should be taken into account as these will apply additional costs.
+Product documentation:
 
-The following are examples of costs that could be incurred for a job that completes in 8 hours using a different number of servers:
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
+- [Using containers on Azure Batch][batch-containers]
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Azure Storage accounts](/azure/storage/common/storage-account-overview)
+- [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
 
-- 100 High-Performance CPU VMs: [Cost Estimate][hpc-est-high]
+Learn modules:
 
-  100 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
-
-- 50 High-Performance CPU VMs: [Cost Estimate][hpc-est-med]
-
-  50 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
-
-- 10 High-Performance CPU VMs: [Cost Estimate][hpc-est-low]
-
-  10 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
-
-### Pricing for low-priority VMs
-
-Azure Batch also supports the use of low-priority VMs in the node pools, which can potentially provide a substantial cost saving. For more information, including a price comparison between standard VMs and low-priority VMs, see [Azure Batch Pricing][batch-pricing].
-
-> [!NOTE]
-> Low-priority VMs are only suitable for certain applications and workloads.
+- [Introduction to Azure Remote Rendering](/training/modules/intro-to-azure-remote-rendering)
+- [Render a model with Azure Remote Rendering](/training/modules/render-model-azure-remote-rendering-unity)
 
 ## Related resources
 
-[Azure Batch Overview][batch-overview]
-
-[Azure Batch Documentation][batch-doc]
-
-[Using containers on Azure Batch][batch-containers]
+- [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [Run CFD simulations](../../example-scenario/infrastructure/hpc-cfd.yml)
 
 <!-- links -->
 
@@ -164,3 +188,4 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
+[visio-download]: https://arch-center.azureedge.net/architecture-video-rendering.vsdx

@@ -1,7 +1,11 @@
-
 <!-- cSpell:ignore lbrader HANA MSEE Xeon CIDR STONITH VLAN -->
 
-This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions.
+This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions. This solution depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
+
+> [!NOTE]
+> Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
+
+## Architecture
 
 :::image type="complex" source="./images/sap-hana-large-instances.png" alt-text="SAP HANA architecture using Azure Large Instances":::
 The diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.
@@ -9,18 +13,13 @@ The diagram shows two Azure regions. The primary region contains an application 
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-> [!NOTE]
-> Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
-
-## Architecture
-
-This reference architecture depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
+### Workflow
 
 This architecture consists of the following infrastructure components.
 
 - **Virtual network**. The [Azure Virtual Network][vnet] (VNet) service securely connects Azure resources to each other and is subdivided into separate [subnets][subnet] for each layer. SAP application layers are deployed on Azure Virtual Machines (VMs) to connect to the HANA database layer residing on large instances.
 
-- **HLI Revision 4 network**. As of July 2019, two revisions of HANA Large Instances are available. This implementation assumes [Revision 4][rev4] (Rev 4), the design that is deployed in Azure datacenters in close physical proximity to the Azure VMs where the SAP application servers run. When used in conjunction with an [ExpressRoute FastPath][fastpath] configuration, Rev 4 elevates application performance. These networking features also support the Rev 3 deployment.
+- **HLI Revision 4.5 network**. As of July 2021, the updated revision of the HLI Rev 4 is available. This updated implementation [rev4.5] includes many improvements in the infrastructure, such as  100Gb/s networking for the NFS storage and better network redundancy of the DB server. In this design, the HLI servers are deployed in Azure datacenters in close physical proximity to the Azure VMs where the SAP application servers are running. When used in conjunction with an [ExpressRoute FastPath][fastpath] configuration, Rev 4.5 elevates application performance. These networking features also support the Rev 3 and Rev 4 deployments.
 
 - **Virtual machines (VMs)**. VMs are used in the SAP application layer and shared services layer. The latter includes a jump box used by administrators to set up HANA Large Instances and to provide access to other VMs. To colocate the SAP application servers in the same datacenter with the HANA Large Instance units, use [proximity placement groups][ppg].
 
@@ -76,7 +75,9 @@ The ExpressRoute circuit for HANA Large Instances is included by default during 
 
 To lower network latency and improve performance, consider enabling FastPath (also referred to as MSEE v2). This network configuration allows traffic from on-premises to the Azure VNet, and from the VNet to HANA Large Instances, to bypass the Azure gateway.
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 To scale up or down, you can choose from many sizes of servers that are available for HANA Large Instances. They are categorized as [Type I and Type II][classes] and tailored for different workloads. Choose a size that can grow with your workload for the next three years. One-year commitments are also available.
 
@@ -94,7 +95,7 @@ If you already have SAP deployments, SAP provides reports you can use to check t
 - SAP Note [1736976][sap-1736976] - Sizing Report for BW on HANA
 - SAP Note [2296290][sap-2296290] - New Sizing Report for BW on HANA
 
-## Availability considerations
+### Availability
 
 Resource redundancy is the general theme in highly available infrastructure solutions. Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service level agreement][sla] (SLA) for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
 
@@ -108,7 +109,7 @@ The failover to the DR node is a manual process without Linux clustering. For au
 
 When you set up HANA Large Instances HSR with automatic failover, you can request the Microsoft Service Management team to set up a [STONITH device][stonith] for your HANA Large Instances servers.
 
-## Disaster recovery considerations
+### Disaster recovery
 
 This architecture supports [disaster recovery][hli-dr] between HANA Large Instances in different Azure regions. There are two ways to support DR with HANA Large Instances:
 
@@ -116,7 +117,7 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 - Multi-tier or multi-target HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a secondary system. HANA system replication traffic destined for the DR site can be routed through proxies such as nginx or IP tables. Alternatively, Global Reach can be used to link the ExpressRoute circuits together, enabling permitted users to connect to HANA Large Instances unit directly.
 
-## Cost considerations
+### Cost optimization
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
@@ -124,7 +125,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 SKUs can affect the billing model. Here are some cost considerations.
 
-### Virtual machines
+#### Virtual machines
 
 In this reference architecture, virtual machines are used for hosting SAP applications, SAP services, and shared services such as management jump boxes. There are certain certified SKUs of HANA Large Instances. The configurations depend on the workload, CPU resources, desired memory, and budget.
 
@@ -134,7 +135,7 @@ Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and d
 
 For more information, see the "SAP HANA on Azure Large Instances" section in [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing].
 
-### Azure ExpressRoute
+#### Azure ExpressRoute
 
 For this architecture, Azure ExpressRoute is used as the networking service for creating private connections between an on-premises network and Azure VNETs. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
 
@@ -143,7 +144,7 @@ All inbound data transfer is free. All outbound data transfer is charged based o
 > [!NOTE]
 > You can optimize this reference architecture for cost by running irunning one or multiple HANA containers in one HANA Large Instances blade. This setup is suitable for nonproduction HANA workloads.
 
-## Backup considerations
+### Backup
 
 Based on your business requirements, choose from several options available.
 
@@ -157,13 +158,13 @@ Based on your business requirements, choose from several options available.
 
 For details about a do-it-yourself approach to backup and more options provided with HANA Large Instances, see the [Backup and restore][backup-restore] article.
 
-## Manageability considerations
+### Manageability
 
 [Monitor HANA Large Instances resources][monitor]&mdash;such as CPU, memory, network bandwidth, and storage space&mdash;using SAP HANA Studio, SAP HANA Cockpit, SAP Solution Manager, and other native Linux tools. HANA Large Instances [Type I SKUs][typei-sku] don't come with built-in monitoring tools. Type II SKUs offers prebuilt diagnostic tools for system activity logging and troubleshooting.
 
 Microsoft offers basic tools and resources to help you [monitor HANA Large Instances][monitor] on Azure. The Microsoft support team can also assist you in troubleshooting technical issues.
 
-## Security considerations
+### Security
 
 - Since the end of 2018, [HANA Large Instances storage][storage] is encrypted by default.
 
@@ -195,7 +196,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
@@ -206,14 +207,14 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
-[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [HLI-SKUs]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
 [HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [ip]: /archive/blogs/saponsqlserver/setting-up-hana-system-replication-on-azure-hana-large-instances
 [monitor]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
-[netweaver]: ./sap-netweaver.yml
+[netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
 [os-hardening]: /azure/security/azure-security-iaas
@@ -234,10 +235,10 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [sap-1736976]: https://launchpad.support.sap.com/#/notes/1736976
 [sap-2296290]: https://launchpad.support.sap.com/#/notes/2296290
 [sap-community]: https://www.sap.com/community.html
-[sap-security]: https://archive.sap.com/documents/docs/DOC-62943
+[sap-security]: https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm
 [scenarios]: /azure/virtual-machines/workloads/sap/hana-supported-scenario
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[s4hana]: ./sap-s4hana.yml
+[s4hana]: /azure/architecture/guide/sap/sap-s4hana
 [sku]: /azure/expressroute/expressroute-about-virtual-network-gateways
 [skus]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines

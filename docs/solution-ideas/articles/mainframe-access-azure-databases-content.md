@@ -54,6 +54,14 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwas-839a851a3) | Senior Engineering Architect
+
 ## Next steps
 
 - For general information on mainframe modernization and database migration:
@@ -76,13 +84,13 @@ This solution uses the following components. See the [Azure pricing calculator][
 - [Modernize mainframe and midrange data][Modernize mainframe and midrange data]
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
 
-[Azure Database Migration Guides]: /data-migration/
+[Azure Database Migration Guides]: /data-migration
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Configuring DB2 for z-OS]: /host-integration-server/core/configuring-db2-for-z-os
 [Configuring SQL Server Connections]: /host-integration-server/core/configuring-sql-server-connections
 [DRDA]: https://en.wikipedia.org/wiki/DRDA
 [Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
-[Five reasons a data-first strategy works]: https://resources.syniti.com/data-quality/5-reasons-a-data-first-strategy-works
+[Five reasons a data-first strategy works]: http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html
 [Install and configure HIS 2020]: /host-integration-server/install-and-config-guides/installing-his-2020
 [Mainframe file replication and sync on Azure]: ./mainframe-azure-file-replication.yml
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
@@ -91,7 +99,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 [Modernize mainframe and midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
-[SQL Server technical documentation]: /sql/sql-server/
+[SQL Server technical documentation]: /sql/sql-server
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1826653-PR-2782-mainframe-access-azure-databases-architecture.vsdx
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview

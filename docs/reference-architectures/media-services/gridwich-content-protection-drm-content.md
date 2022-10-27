@@ -1,6 +1,4 @@
-
-
-Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
+Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
 
@@ -163,7 +161,7 @@ Gridwich processes and ingests the FairPlay package from Apple as settings. Hand
 
 #### FairPlay certificate
 
-1. Follow the [Azure Media Services documentation](/azure/media-services/latest/fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files that Apple delivers.
+1. Follow the [Azure Media Services documentation](/azure/media-services/latest/drm-fairplay-license-overview#requirements) to create a PFX certificate with a private key from the files that Apple delivers.
    1. Install OpenSSL.
    1. Convert the *FairPlay.cer* file to a *.pem* file.
    1. Convert the *.pem* file to a *.pfx* file with a password-protected private key.
@@ -185,6 +183,25 @@ Select **Permit** to approve the pipeline by using the FairPlay Secure File you 
 
 ![Screenshot showing the Permit button to grant approval.](media/select-permit.png)
 
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
+For more information about Media Services content protection, see [Protect your content with Media Services dynamic encryption](/azure/media-services/latest/drm-content-protection-concept).
+
+Microsoft Learn modules:
+
+- [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Introduction to Azure DevOps](/training/modules/get-started-with-devops)
+
 ## Related resources
-- For more information about Media Services content protection, see [Content protection overview](/azure/media-services/latest/content-protection-overview).
-- For more details about the Azure Pipelines variable group settings, see [Variable group to Terraform flow](variable-group-terraform-flow.yml).
+
+- [Gridwich request-response messages](gridwich-message-formats.yml)
+- [Gridwich variable flow](variable-group-terraform-flow.yml)

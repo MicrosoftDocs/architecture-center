@@ -170,8 +170,8 @@ Drawbacks:
 
 <!-- links -->
 
-[tailspin]: ./tailspin.md
+[tailspin]: ./tailspin.yml
 [authorization]: ./authorize.md
-[Securing a backend web API]: ./web-api.md
+[Securing a backend web API]: ./web-api.yml
 [application manifest]: /azure/active-directory/active-directory-application-manifest
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

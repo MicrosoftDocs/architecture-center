@@ -1,16 +1,4 @@
-On Azure, you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
-
-The architecture uses AKS to implement compute clusters of the applications that process the transactions. The applications receive the transactions in messages from Service Bus topics or queues. The topics and queues can be at Azure datacenters in different geographic regions, and multiple AKS clusters can read input from them.
-
-Typically, a message remains queued until its transaction completes, allowing for recovery if there's a failure. Also, you can replicate topics and queues to other regions, to share workloads and to continue processing even if a region fails.
-
-## Potential use cases
-
-This architecture is for high-volume processing of batches of transactions, especially independent transactions that can be processed in parallel. It's therefore a likely candidate for use in migrating mainframe batch processing. Possible applications are:
-
-- Processing of financial transactions, such as payroll, orders, and payments.
-- Processing of experimental data gathered by scientific instruments.
-- Other mainframe batch processing.
+The architecture uses AKS to implement compute clusters of the applications that process high-volume batches of transactions. The applications receive the transactions in messages from Service Bus topics or queues. The topics and queues can be at Azure datacenters in different geographic regions, and multiple AKS clusters can read input from them.
 
 > [!Note]
 > This architecture suits a type of batch transaction processing that, on IBM mainframes, is often implemented by using the IBM MQ family of message-oriented middleware.
@@ -21,7 +9,7 @@ This architecture is for high-volume processing of batches of transactions, espe
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1813862-PR-2603-process-batch-transactions.vsdx) of this architecture.*
 
-### Architectural annotations
+### Workflow
 
 The numbered circles in the diagram correspond to the numbered steps in the following list.
 
@@ -62,34 +50,48 @@ The architecture uses these components:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is massively scalable and secure REST-based object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) provides simple, secure, and serverless enterprise-grade file shares in the cloud. You use the industry-standard Server Message Block (SMB) and Network File System (NFS) protocols to access the shares.
 
+## Scenario details
+
+On Azure, you can implement batch transaction processing—such as posting payments to accounts—by using an architecture based on Microsoft Azure Kubernetes Service (AKS) and Azure Service Bus. This type of architecture provides the transaction processing speed, scaling, and reliability required for high-volume batch processing.
+
+Typically, a message remains queued until its transaction completes, allowing for recovery if there's a failure. Also, you can replicate topics and queues to other regions, to share workloads and to continue processing even if a region fails.
+
+### Potential use cases
+
+The solution is ideal for the finance, education, and science industries. This architecture is for high-volume processing of batches of transactions, especially independent transactions that can be processed in parallel. It's therefore a likely candidate for use in migrating mainframe batch processing. Possible applications are:
+
+- Processing of financial transactions, such as payroll, orders, and payments.
+- Processing of experimental data gathered by scientific instruments.
+- Other mainframe batch processing.
+
 ## Considerations
 
 The following considerations, based on the [Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected), apply to this solution:
 
-### Availability considerations
+### Availability
 
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) disaster recovery service protects against major outages. It's dependable, cost-effective, and easy to deploy.
 - Availability sets for VMs ensure that enough VMs are available to meet mission-critical batch process needs.
 - Service Bus, AKS, and Azure SQL Managed Instance provide high availability and recoverability across geographic regions.
 
-### Operational considerations
+### Operational
 
 - [Azure Resource Manager templates (ARM templates)](https://azure.microsoft.com/services/arm-templates/) provide a configuration language to describe your resources in templates that you can use for scripted deployment. The templates also provide monitoring and alerting capabilities.
 
-### Performance considerations
+### Performance efficiency
 
 - The architecture is designed to accommodate parallel processing of independent transactions.
 - Service Bus, AKS, and other Azure PaaS features provide high performance for transaction processing, computing, and data storage.
 
-### Scalability considerations
+### Scalability
 
 - Service Bus, AKS, and other Azure PaaS features dynamically scale as needed.
 
-### Security considerations
+### Security
 
 - All the components within the Service Bus batch architecture work with Azure security components, such as Azure Active Directory, Virtual Network, and encryption.
 
-## Pricing
+### Cost optimization
 
 To estimate costs for your implementation of this solution, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -115,7 +117,7 @@ Here are pricing considerations for specific components:
 ## Next steps
 
 - To learn more about AKS, read: [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
-- To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+- To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## Related resources
 

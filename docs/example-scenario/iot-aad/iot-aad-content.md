@@ -1,9 +1,8 @@
-
 <!--cSpell:ignore knicholasa ISV's Woodgrove ecommerce SAML Gmail -->
 
 IoT device manufacturers are creating custom apps and services to better serve their customers' device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud.
 
-In this article we explain how a developer can take advantage of [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) to create a secure [SaaS app](https://azure.microsoft.com/overview/what-is-saas/). We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.
+In this article, we explain how a developer can take advantage of [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) to create a secure [SaaS app](https://azure.microsoft.com/overview/what-is-saas/). We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.
 
 By integrating with the Microsoft identity platform and configuring the app to be [multi-tenant](/azure/active-directory/develop/single-and-multi-tenant-apps), developers can:
 
@@ -13,9 +12,6 @@ By integrating with the Microsoft identity platform and configuring the app to b
 - Allow users to sign in with existing work and social accounts, which in turn allows a [single sign-on](/azure/active-directory/manage-apps/what-is-single-sign-on) experience so that users sign in once and are able to access other corporate resources and apps without signing in again.
 
 To learn more about the topics covered in this article, check out the [Microsoft identity platform homepage](/azure/active-directory/develop). The quickstart guides there will help you get set up quickly to integrate your app with our platform.
-
-> [!NOTE]
-> Please leave feedback on the document whether you found it helpful or not! Your input matters in helping us to create useful content.
 
 ## Example scenario
 
@@ -182,14 +178,9 @@ In addition, the Woodgrove security group owner can set group-level access polic
 
 This has been an overview of how to use Azure AD to secure your application, focusing on common IoT app scenarios. The links below provide more information on the topics discussed in this document.
 
-> [!NOTE]
-> Please leave feedback on the document whether you found it helpful or not! Your input matters in helping us to create useful content.
-
-## Other resources
+## Next steps
 
 - [Microsoft identity platform best practices and recommendations](/azure/active-directory/develop/identity-platform-integration-checklist)
-
-- [Manage identity in multi-tenant applications](../../multitenant-identity/index.md)
 
 - [Azure AD developer guidance](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 
@@ -202,3 +193,11 @@ This has been an overview of how to use Azure AD to secure your application, foc
 - [Restrict your app to a set of users](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 - [Microsoft identity platform (v2.0) Authentication flows and app scenarios](/azure/active-directory/develop/authentication-flows-app-scenarios)
+
+- [Secure your Internet of Things (IoT) deployment](/azure/iot-fundamentals/iot-security-deployment)
+
+## Related resources
+
+- [Manage identity in multi-tenant applications](../../multitenant-identity/index.md)
+- [Architectural considerations for identity in a multitenant solution](/azure/architecture/guide/multitenant/considerations/identity)
+- [Architectural approaches for identity in multitenant solutions](/azure/architecture/guide/multitenant/approaches/identity)

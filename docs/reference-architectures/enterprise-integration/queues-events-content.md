@@ -12,12 +12,12 @@ This version of the architecture adds two components that help make the system m
 
 - **[Azure Service Bus][service-bus]**. Service Bus is a secure, reliable message broker.
 
-- **[Azure Event Grid][event-grid]**. Event Grid is an event routing service. It uses a [publish/subscribe](../../patterns/publisher-subscriber.md) (pub/sub) eventing model.
+- **[Azure Event Grid][event-grid]**. Event Grid is an event routing service. It uses a [publish/subscribe](../../patterns/publisher-subscriber.yml) (pub/sub) eventing model.
 
 Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services:
 
-- Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
-- Provides for broadcasting of messages to multiple consumers using [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md).
+- Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.yml).
+- Provides for broadcasting of messages to multiple consumers using [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml).
 - Reliably tracks the progress of long-running workflows that involve multiple steps or multiple applications.
 - Helps to decouple applications.
 - Integrates with existing message-based systems.
@@ -102,7 +102,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 - [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale

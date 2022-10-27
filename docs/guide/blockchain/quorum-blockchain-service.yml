@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Supply chain management - Track and trace with Quorum Blockchain Service
+  titleSuffix: Azure Architecture Center
+  description: Use Quorum Blockchain Service to track and trace physical assets, along with their metadata.
+  author: AdhikariSamrat
+  ms.author: sadhikari
+  ms.date: 06/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - compute
+products:
+  - azure-blockchain-service
+  - azure-virtual-machines
+  - azure-monitor
+  - azure-container-instances
+  - azure-managed-applications
+name: Supply chain management with Quorum Blockchain Service
+summary: Use Quorum Blockchain Service to track and trace physical assets, along with their metadata.
+thumbnailUrl: /azure/architecture/browse/thumbs/quorum-blockchain-service.png
+content: |
+  [!include[](quorum-blockchain-service-content.md)]
+---

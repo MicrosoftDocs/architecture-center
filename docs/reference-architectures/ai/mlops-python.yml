@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: MLOps for Python with Azure Machine Learning
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
   author: praneet22
-  ms.author: pnp
-  ms.date: 02/22/2021
+  ms.author: prsol
+  ms.date: 06/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

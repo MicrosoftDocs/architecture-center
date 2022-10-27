@@ -1,22 +1,22 @@
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier.
 
-
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+## Architecture
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 The architecture has the following components.
 
-### General
+#### General
 
 - **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
 - **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
-### Networking and load balancing
+#### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
@@ -26,11 +26,11 @@ The architecture has the following components.
 
 - **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
-- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard][ddos], which has enhanced DDoS mitigation features. See [Security considerations](#security-considerations).
+- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard][ddos], which has enhanced DDoS mitigation features. See the [Security considerations](#security).
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-### Virtual machines
+#### Virtual machines
 
 - **SQL Server Always On Availability Group**. Provides high availability at the data tier, by enabling replication and failover. It uses Windows Server Failover Cluster (WSFC) technology for failover.
 
@@ -116,9 +116,11 @@ In the past, a VM that's managed by the customer might be used as a jumpbox. In 
 
 For a customer-managed VM, all these rules apply. However, the current recommendation is to use [Azure Bastion](/azure/bastion/bastion-overview), a managed jumpbox solution that allows for HTML5 access to RDP or SSH behind Azure AD protection. This is a much simpler solution that ultimately has a lower total cost of ownership (TCO) for the customer.
 
-## Scalability considerations
+## Considerations
 
-### Scale sets
+### Scalability
+
+#### Scale sets
 
 For the web and business tiers, consider using [virtual machine scale sets][vmss] instead of deploying separate VMs. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
 
@@ -133,15 +135,15 @@ For more information, see [Design considerations for scale sets][vmss-design].
 > [!TIP]
 > When using any autoscale solution, test it with production-level workloads well in advance.
 
-### Subscription limits
+#### Subscription limits
 
 Each Azure subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].
 
-### Application Gateway
+#### Application Gateway
 
 Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling]
 
-## Availability considerations
+### Availability
 
 Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions, using Azure Traffic Manager for failover. For more information, see [Multi-region N-tier application for high availability][multi-dc].
 
@@ -162,7 +164,7 @@ When deploying to availability zones, use the Standard SKU of Azure Load Balance
 
 A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances.
 
-### Health probes
+#### Health probes
 
 Application Gateway and Load Balancer both use health probes to monitor the availability of VM instances.
 
@@ -178,31 +180,31 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
-## Cost considerations
+### Cost optimization
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
-### Virtual machine scale sets
+#### Virtual machine scale sets
 
 Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
 
 For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
-### SQL server
+#### SQL server
 
 If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 
-### Load balancers
+#### Load balancers
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-## Security considerations
+### Security
 
 Virtual networks are a traffic isolation boundary in Azure. By default, VMs in one virtual network can't communicate directly with VMs in a different virtual network. However, you can explicitly connect virtual networks by using [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
@@ -214,13 +216,13 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 **DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard][ddos]. Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
 
-## DevOps considerations
+### Operational excellence
 
-In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+Since all the main resources and their dependencies are in the same virtual network in this architecture, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state..
+In this scenario, your virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state.
 
 Configuration Management Tools, in particular Desired State Configuration (DSC), are used in this architecture to configure Active Directory and a SQL Server Always On Availability Group.
 
@@ -232,53 +234,9 @@ In order to test the Azure environment where the applications are running, it sh
 
 For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
-## Deploy the solution
-
-A deployment for this reference architecture is available on [GitHub][github-folder]. The entire deployment can take up to an hour, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
-
-If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
-
-### Prerequisites
-
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
-
-### Deployment steps
-
-1. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
-
-1. Open the `n-tier-windows.json` file.
-
-1. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-safe-mode-password]` and replace them with a strong password. Save the file.
-
-    > [!NOTE]
-    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
-
-1. Run the following command to deploy the architecture.
-
-    ```azurecli
-    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows.json --deploy
-    ```
-
-1. When the deployment is complete, open the Azure portal and navigate to the resource group. Find the storage account that begins with 'sqlcw'. This is the storage account that will be used for the cluster's cloud witness. Navigate into the storage account, select **Access Keys**, and copy the value of `key1`. Also copy the name of the storage account.
-
-1. Open the `n-tier-windows-sqlao.json` file.
-
-1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` and replace them with a strong password.
-
-    > [!NOTE]
-    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
-
-1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-storageaccountname]` and `[replace-with-storagekey]` and replace them with the values from step 5. Save the file.
-
-1. Run the following command to configure SQL Server Always On.
-
-    ```azurecli
-    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows-sqlao.json --deploy
-    ```
-
 ## Next steps
 
-- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
+- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 
 <!-- links -->
 
@@ -294,11 +252,10 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.yml
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.yml
-[n-tier]: ../../guide/architecture-styles/n-tier.md
+[n-tier]: ../../guide/architecture-styles/n-tier.yml
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
@@ -307,7 +264,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sql-alwayson-force-failover]: /sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-getting-started]: /sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
-[sql-alwayson-ilb]: /azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener
+[sql-alwayson-ilb]: /azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [sql-alwayson-listeners]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-read-only-routing]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary
 [sql-alwayson]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
@@ -318,5 +275,5 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-devops]: ../../framework/devops/overview.md
-[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview

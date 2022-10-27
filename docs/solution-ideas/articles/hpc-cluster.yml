@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: HPC cluster deployed in the cloud
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
-  author: fmigacz
-  ms.author: pnp
-  ms.date: 05/06/2021
+  author: frankmigacz
+  ms.author: fmigacz
+  ms.date: 08/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -15,7 +15,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - hpc
-    - "https://azure.microsoft.com/solutions/architecture/hpc-cluster/"
+    - "https://azure.microsoft.com/solutions/architecture/hpc-cluster"
   social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-cluster.png
 name: HPC cluster deployed in the cloud
 azureCategories:

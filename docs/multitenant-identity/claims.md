@@ -2,8 +2,8 @@
 title: Claim-based identities in multitenant apps
 description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user that can be trusted, because the issuer can be trusted.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 10/06/2021
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -122,7 +122,7 @@ For more information, see [Role-based and resource-based authorization in multit
 [scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect
 [Supported Token and Claim Types]: /azure/active-directory/active-directory-token-and-claims
 [issuer]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
-[Authentication events]: ./authenticate.md#authentication-events
+[Authentication events]: ./authenticate.yml#authentication-events
 [signup]: ./signup.md
 [Claims-Based Authorization]: /aspnet/core/security/authorization/claims
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

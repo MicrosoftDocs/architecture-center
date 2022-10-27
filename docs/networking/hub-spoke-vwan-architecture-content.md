@@ -26,6 +26,8 @@ Typical uses for this architecture include cases in which:
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-001.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-001.vsdx) of this architecture.* 
+
 The architecture consists of:
 
 -   **On-premises network**. A private local area network (LAN) running within an organization.
@@ -47,11 +49,11 @@ The architecture consists of:
 
 ### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/)
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 
 ### Alternatives
 
@@ -61,8 +63,10 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
+
 This diagram illustrates a few of the advantages that this architecture can provide:
-* A full meshed hubs among Azure Virtual Networks
+* A full meshed hub among Azure Virtual Networks
 * Branch to Azure connectivity
 * Branch to Branch connectivity
 * Mixed use of VPN and Express Route
@@ -93,7 +97,9 @@ Standard Virtual WANs are by default connected in a full mesh. Standard Virtual 
 
 ### Virtual WAN Hub
 
-A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. The hub is the core of your network in a region. There can only be one hub per Azure region. When you create a hub using the Azure portal, it creates a virtual hub VNet and a virtual hub VPN gateway. A Virtual WAN Hub requires an address range minimum of /24. This IP address space will be used for reserving a subnet for gateway and other components.
+A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. The hub is the core of your network in a region. There can be multiple hubs per Azure region. For more information, see [Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq#is-it-possible-to-create-multiple-virtual-wan-hubs-in-the-same-region). 
+
+When you create a hub using the Azure portal, it creates a virtual hub VNet and a virtual hub VPN gateway. A Virtual WAN Hub requires an address range minimum of /24. This IP address space will be used for reserving a subnet for gateway and other components.
 
 ### Secured virtual hub
 
@@ -105,7 +111,7 @@ For more information about setting up the gateway, see the following reference a
 
 -   [Hybrid network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
--   [Hybrid network using a VPN Gateway](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
@@ -158,11 +164,11 @@ Connectivity among spokes is already achieved using Azure Virtual WAN. However, 
 
 Virtual network peering is a nontransitive relationship between two virtual networks. While using Azure Virtual WAN, virtual network peering is managed by Microsoft. Each connection added to a hub will also configure virtual network peering. With the help Virtual WAN, all spokes will have a transitive relationship.
 
-## Pricing
+### Cost optimization
 
 A customer-managed hub infrastructure introduces management cost to underlying Azure resources. To achieve a transitive connectivity with a predictable latency, you must have a Network Virtual Appliance (NVA) or Azure Firewall deployed in each hub. Using Azure Firewall with either choice will lower the cost compared to an NVA. Azure Firewall costs are the same for both options. There is an extra cost for Azure Virtual WAN; however, it is much less costly than managing your own hub infrastructure.
 
-For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
+For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan).
 
 ## Next steps
 
@@ -180,18 +186,18 @@ Learn more:
 
 -   [Firewall and Application Gateway for virtual networks](../example-scenario/gateway/firewall-application-gateway.yml)
 
--   [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 -   [Secure and govern workloads with network level segmentation](../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 
 ## Related resources
 
--   [Strengthen your security posture with Azure](https://azure.microsoft.com/overview/security/)
+-   [Strengthen your security posture with Azure](https://azure.microsoft.com/overview/security)
 
--   [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+-   [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
--   [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+-   [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 
--   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+-   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 
--   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
+-   [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Multi-tier app service with service endpoint
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: This architecture shows how to use service endpoints to create secure communications between a front-end app and an API app in a multi-tier environment.
   author: DixitArora-MSFT
   ms.author: dixitaro
-  ms.date: 10/14/2021
+  ms.date: 07/05/2022
   ms.custom:
     - fcp
   ms.topic: conceptual

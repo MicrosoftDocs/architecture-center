@@ -17,7 +17,17 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache) to improve performance and reduce the load on your web front ends.
 
-## Deploy this solution
+## Scenario details
+
+### Potential use cases
+
+Some industries that utilize Umbraco include:
+
+- Banking, finance, and financial services
+- Retail
+- Logistics, distribution, and manufacturing
+
+## Deploy this scenario
 
 Use the following pre-built template to deploy this architecture to Azure:
 
@@ -25,6 +35,7 @@ Use the following pre-built template to deploy this architecture to Azure:
 - [View template source](https://azure.microsoft.com/resources/templates/umbraco-cms-webapp-redis-cache)
 
 ## Next steps
+
 <!-- markdownlint-disable MD024 -->
 * [Create a Web App](https://azure.microsoft.com/get-started/web-app)
 * [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart)

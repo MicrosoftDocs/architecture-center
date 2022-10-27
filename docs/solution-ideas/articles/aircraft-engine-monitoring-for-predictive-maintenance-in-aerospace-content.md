@@ -11,13 +11,24 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ### Components
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from Azure Event Hubs. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
 * [HDInsight](https://azure.microsoft.com/services/hdinsight) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database) stores prediction results received from Machine Learning and publishes data to Power BI.
 * [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration, scheduling, and monitoring of the batch processing pipeline.
 * [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
+
+## Scenario details
+
+### Potential use cases
+
+With the right information, it's possible to determine the condition of equipment in order to predict when maintenance should be performed. Predictive maintenance can be used for the following items:
+
+* Real-time diagnostics.
+* Real-time flight assistance.
+* Prognostics.
+* Cost reduction.
 
 ## Next steps
 

@@ -2,8 +2,8 @@ The most demanding Oracle Database workloads require very high I/O capacity. The
 
 The solution provides shared file access with the network file system (NFS) protocol. The architecture uses Azure NetApp Files, a shared file-storage service. Azure NetApp Files offers benefits:
 
-- Disk I/O limits on access rates that apply at the virtual machine (VM) level don't affect Azure NetApp Files. As a result, you can use smaller VMs than you would with disk storage without degrading performance. This approach significantly reduces costs.
-- Azure NetApp Files offers flexibility. You can enlarge or reduce deployments on demand to make your configuration cost effective.
+* Disk I/O limits on access rates that apply at the virtual machine (VM) level don't affect Azure NetApp Files. As a result, you can use smaller VMs than you would with disk storage without degrading performance. This approach significantly reduces costs.
+* Azure NetApp Files offers flexibility. You can enlarge or reduce deployments on demand to make your configuration cost effective.
 
 ## Potential use cases
 
@@ -76,11 +76,11 @@ This image shows the benefits of using Azure NetApp Files with Oracle Database.
 
 *Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
-#### Simple and reliable service
+### Simple and reliable service
 
 As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade NFS volumes for Oracle Database and other enterprise application workloads.
 
-#### Highly performant systems
+### Highly performant systems
 
 [Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well suited for using the NFS protocol to run Oracle Database workloads over networks.
 
@@ -88,7 +88,7 @@ Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterpris
 
 Azure NetApp Files offers on-demand scalability. You can enlarge or reduce deployments to optimize each workload's configuration.
 
-#### Enterprise-scale data management
+### Enterprise-scale data management
 
 This solution can handle workloads that require advanced data management features. ONTAP provides functionality in this area that's unmatched in the industry:
 
@@ -101,7 +101,7 @@ This solution can handle workloads that require advanced data management feature
   - They don't affect volume performance.
   - They provide scalability. You can create them frequently and store many simultaneously.
 
-#### Hybrid DR
+### Hybrid DR
 
 The combination of ODG and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises datacenters.
 
@@ -109,7 +109,7 @@ The combination of ODG and Azure NetApp Files provides DR for this architecture.
 
 The following considerations apply to this solution:
 
-### Availability considerations
+### Availability
 
 For Azure NetApp Files:
 
@@ -129,26 +129,15 @@ When you use Oracle Database in Azure, implement a solution for HA and DR to avo
 
 *Download an [SVG][Data Guard architecture diagram in .svg format] of this architecture.*
 
-### Scalability considerations
+### Scalability
 
 As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
 
-### Security considerations
+### Security
 
 Azure NetApp Files secures data in many ways. For information about inherent protection, encryption, policy rules, role-based access control features, and activity logs, see [Security FAQs][FAQs About Azure NetApp Files - Security FAQs].
 
-## Deploy the solution
-
-- For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
-
-- For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
-
-- Consider the database size:
-
-  - For small databases, you can deploy all components, such as data files, the redo log, the archive log, and control files, into a single volume. Such simplified configurations are easy to manage.
-  - For large databases, it's more efficient to configure multiple volumes. You can use [automatic or manual Quality of Service (QoS) volumes][Performance considerations for Azure NetApp Files]. These volume types provide more granular control over performance requirements.
-
-## Pricing
+## Cost optimization
 
 Using Azure NetApp Files instead of block storage can reduce costs:
 
@@ -166,6 +155,25 @@ Using Azure NetApp Files instead of block storage can reduce costs:
   - The network-attached storage doesn't have an I/O cost component.
 
 These factors make Azure NetApp Files less costly than disk storage solutions.
+
+## Deploy this scenario
+
+- For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
+
+- For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
+
+- Consider the database size:
+
+  - For small databases, you can deploy all components, such as data files, the redo log, the archive log, and control files, into a single volume. Such simplified configurations are easy to manage.
+  - For large databases, it's more efficient to configure multiple volumes. You can use [automatic or manual Quality of Service (QoS) volumes][Performance considerations for Azure NetApp Files]. These volume types provide more granular control over performance requirements.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
 
 ## Next steps
 
@@ -207,7 +215,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Performance considerations for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations
 [Proximity placement groups]: /azure/virtual-machines/co-location
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
-[Run SAP NetWeaver in Windows on Azure]: ../../reference-architectures/sap/sap-netweaver.yml
+[Run SAP NetWeaver in Windows on Azure]: /azure/architecture/guide/sap/sap-netweaver
 [SLA for Azure NetApp Files]: https://azure.microsoft.com/support/legal/sla/netapp/v1_1
 [SLA for Virtual Machines]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/
 [Solution architectures using Azure NetApp Files - Oracle]: /azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle
