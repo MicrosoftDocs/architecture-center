@@ -12,9 +12,9 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 1. Data Factory and Azure Synapse pipelines achieve resiliency by using Azure regions and Azure availability zones.
 
-   - Each Azure region has a set of datacenters deployed within a latency-defined perimeter.
+   - Each Azure region has a set of datacenters that are deployed within a latency-defined perimeter.
    - Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures.
-   - All Azure regions and availability zones are connected through a dedicated regional low-latency network and by a high-performance network.
+   - All Azure regions and availability zones are connected through a dedicated, regional low-latency network and by a high-performance network.
    - All availability zone-enabled regions have at least three separate availability zones to ensure resiliency.
 
 1. When a datacenter, part of a datacenter, or an availability zone in a region goes down, failover happens with zero downtime for zone-resilient Data Factory and Azure Synapse pipelines.
@@ -44,9 +44,9 @@ Data Factory and Azure Synapse pipelines store artifacts that include the follow
   - Triggers
   - Activity runs
 
-Disasters can strike in different ways, such as software failures resulting from human error or cyberattack, hardware failures, or natural disasters. Depending on the type of failures, their geographical impact can be regional or global. When planning a disaster recovery strategy, consider both the nature of the disaster and its geographic impact.
+Disasters can strike in different ways, such as hardware failures, natural disasters, or software failures that result from human error or cyberattack. Depending on the types of failures, their geographical impact can be regional or global. When planning a disaster recovery strategy, consider both the nature of the disaster and its geographic impact.
 
-BCDR in Azure works on a shared responsibility model. Many Azure services require customers to set up their disaster recovery strategy explicitly, while Azure provides the baseline infrastructure and platform services as needed.
+BCDR in Azure works on a shared responsibility model. Many Azure services require customers to explicitly set up their DR strategy, while Azure provides the baseline infrastructure and platform services as needed.
 
 You can use the following recommended practices to achieve BCDR for Data Factory and Azure Synapse pipelines under various failure scenarios. For implementation, see [Deploy this scenario](#deploy-this-scenario).
 
@@ -54,15 +54,15 @@ You can use the following recommended practices to achieve BCDR for Data Factory
 
 With automated recovery, when there's an outage in an Azure region that has a paired region, Data Factory or Azure Synapse pipelines automatically fail over to the paired region. The exceptions are Southeast Asia and Brazil regions, where data residency requirements require data to stay in those regions.
 
-In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up your production pipeline Azure Resource Manager (ARM) templates in secret storage, and compare.
+In DR failover, Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager (ARM) templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
 
 The Azure Global team conducts regular BCDR drills, and Azure Data Factory and Azure Synapse Analytics participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. For more information about the BCDR drills, see [Testing of services](/azure/availability-zones/business-continuity-management-program#testing-of-services).
 
 ### User-managed redundancy with CI/CD
 
-To achieve BCDR in the event of an entire region failure, you need a data factory or Azure Synapse workspace in the secondary region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover pipelines manually.
+To achieve BCDR in the event of an entire region failure, you need a data factory or an Azure Synapse workspace in the secondary region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover the pipelines manually.
 
-Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but not provisioned.
+Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but they aren't provisioned.
 
 ### Potential use cases
 
@@ -71,7 +71,7 @@ User-managed redundancy is useful in scenarios like:
 - Accidental deletion of pipeline artifacts through human error.
 - Extended outages or maintenance events that don't trigger BCDR because there's no disaster reported.
 
-Customers can quickly move their production workloads to other regions and not be affected.
+You can quickly move your production workloads to other regions and not be affected.
 
 ## Considerations
 
@@ -142,7 +142,7 @@ To use Azure PowerShell to turn Data Factory triggers off or on, see [Sample pre
 
 Most extract, transform, load (ETL) pipelines are designed to handle duplicate writes, because backfill and restatement require them. Data sinks that support transparent failover can handle duplicate writes with records merge or by deleting and inserting all records in the specific time range.
 
-For data sinks that change endpoints after failover, primary and secondary storage might have duplicate or partial data. You need to merge manually.
+For data sinks that change endpoints after failover, primary and secondary storage might have duplicate or partial data. You need to merge the data manually.
 
 #### Check the witness and control the pipeline flow (optional)
 
