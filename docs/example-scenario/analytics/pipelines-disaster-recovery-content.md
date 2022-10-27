@@ -83,7 +83,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Data Factory and Azure Synapse pipelines are mainstream Azure services that support availability zones, and they're designed to provide the right level of resiliency and flexibility along with ultra-low latency.
 
-The user-managed recovery approach allows customers to continue operating if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, the Data Factory and Azure Synapse pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
+The user-managed recovery approach allows you to continue operating if there are any maintenance events, outages, or human errors in the primary region. By using CI/CD, the Data Factory and Azure Synapse pipelines can integrate to a Git repository and deploy to a secondary region for immediate recovery.
 
 ### Cost optimization
 
@@ -124,7 +124,7 @@ Linked services aren't fully enabled after failover, because of pending private 
 
 ### Set up user-managed recovery through CI/CD
 
-You can use Git and CI/CD to recover pipelines manually in case of Data Factory or Azure Synapse pipeline deletion or outages.
+You can use Git and CI/CD to recover pipelines manually in case of Data Factory or Azure Synapse pipeline deletion or outage.
 
 - To use Data Factory pipeline CI/CD, see [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery) and [Source control in Azure Data Factory](/azure/data-factory/source-control).
 
