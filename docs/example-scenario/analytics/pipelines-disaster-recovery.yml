@@ -5,7 +5,7 @@ metadata:
   description: See automated and user-managed methods to achieve business continuity and disaster recovery (BCDR) for Data Factory and Azure Synapse pipelines.
   author: ssabat
   ms.author: susabat
-  ms.date: 10/28/2022
+  ms.date: 10/31/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
