@@ -16,21 +16,21 @@ The following examples show the potential journeys for a record submission.
 
 **Example 1 - Successful path with no outage or transient errors**
 
-![Successful replication process](./_images/data-dependent-example.vsdx)
+![Successful replication process](./_images/data-dependent-example.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
 1. The **US Instance** synchronizes a new account to the **Europe Instance** via a Logic App. All are working because no transient faults or outages have occurred.
-2. The Contoso LOB app reads the master accounts from **US Instance** and intends to submit an API call that references an account that was replicated to **Europe Instance**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
+2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was replicated to the **Europe Instance**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
-![Failed replication process](./_images/data-dependent-example-fails.vsdx)
+![Failed replication process](./_images/data-dependent-example-fails.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
-2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance**. 
+2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance**.
 
 ## Solution
 
@@ -38,7 +38,7 @@ The following examples show the potential journeys for a record submission.
 
 This can be performed in a number of plugin steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the PreValidation step. PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
 
-![Solution](./_images/solution.vsdx)
+![Solution](./_images/solution.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
 
