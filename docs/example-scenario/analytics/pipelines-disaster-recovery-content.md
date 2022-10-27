@@ -62,7 +62,7 @@ The Azure Global team conducts regular BCDR drills, and Azure Data Factory and A
 
 To achieve BCDR in the event of an entire region failure, you need a data factory or Azure Synapse workspace in the secondary region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover pipelines manually.
 
-Optionally, you can use an active/passive implementation. The primary region is used for normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but not provisioned.
+Optionally, you can use an active/passive implementation. The primary region handles normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but not provisioned.
 
 ### Potential use cases
 
@@ -140,9 +140,9 @@ To use Azure PowerShell to turn Data Factory triggers off or on, see [Sample pre
 
 #### Handle duplicate writes
 
-Most extract, transform, load (ETL) pipelines are designed to handle duplicate writes, because backfill or restatement also require it. Data sinks that support transparent failover can handle duplicate writes with records merge or by deleting and inserting all records in the specific time range.
+Most extract, transform, load (ETL) pipelines are designed to handle duplicate writes, because backfill and restatement require them. Data sinks that support transparent failover can handle duplicate writes with records merge or by deleting and inserting all records in the specific time range.
 
-For data sinks that change endpoints after failover, primary and secondary storage might have duplicate or partial data. Manual merge is required.
+For data sinks that change endpoints after failover, primary and secondary storage might have duplicate or partial data. You need to merge manually.
 
 #### Check the witness and control the pipeline flow (optional)
 
