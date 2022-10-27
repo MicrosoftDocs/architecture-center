@@ -194,6 +194,16 @@ Avoiding this *sync over async* approach is especially important when Event Hubs
 
 Troubleshooting this phenomenon usually starts with reviewing the trigger settings and running experiments that may involve increasing the partition count. Investigations can also lead to changing several of the batching options such as the max batch size or prefetch count. The impression is that it's a throughput problem or configuration setting that just needs to be tuned accordingly. However, the core problem is in the code itself and must be addressed there for the proper resolution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | TPrincipal Solution Specialist GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Before continuing, consider reviewing these related articles:
