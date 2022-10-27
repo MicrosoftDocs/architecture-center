@@ -200,7 +200,7 @@ Troubleshooting this phenomenon usually starts with reviewing the trigger settin
 
 Principal author:
 
- - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | TPrincipal Solution Specialist GBB
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
