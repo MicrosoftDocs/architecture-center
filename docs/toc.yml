@@ -2781,7 +2781,7 @@ items:
                   - name: Fan Engagement solution
                     href: /dynamics365/industry/accelerators/fan-engagement
                     maintainContext: true
-                  - name: Analyze Olympic sports with vision AI
+                  - name: Analyze sports with vision AI
                     href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
                     maintainContext: true
               - name: Architectures
