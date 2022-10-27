@@ -4731,6 +4731,12 @@ items:
                   href: hybrid/azure-arc-sql-server.yml
                 - name: Run containers in a hybrid environment
                   href: hybrid/hybrid-containers.yml
+              - name: AKS on Azure Stack HCI
+                items:
+                - name: AKS on Azure Stack HCI baseline architecture
+                  href: example-scenario/hybrid/aks-baseline.yml
+                - name: AKS on Azure Stack HCI network architecture
+                  href: example-scenario/hybrid/aks-network.yml
               - name: Azure Automation solutions
                 items:
                   - name: Azure Automation hybrid environment
@@ -5232,6 +5238,8 @@ items:
                     href:  example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
                   - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
+                  - name: Refactor mainframe with CloudFrame Renovate
+                    href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml  
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor IBM z/TPF mainframe
