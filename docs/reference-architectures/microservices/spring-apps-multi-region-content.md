@@ -2,7 +2,7 @@ This reference architecture details how to run multiple instances of an Azure Sp
 
 This is useful when:
 
-- You would like to have global reach for your application and, for instance make it available in both Europe, Asia and the Americas.
+- You would like to have global reach for your application. For example, making it available in Europe, Asia and the Americas.
 - You want to bring the workload closer to the end user, making latency as low as possible.
 - You want to increase the overall resilience and Service Level Agreement (SLA) of your application.
 - You want to use a secondary region as a failover site for your first region and opt for an active/passive setup of one or more regions.
