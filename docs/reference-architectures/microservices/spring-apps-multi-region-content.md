@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Spring Apps service across multiple regions in an active/active and highly available configuration.
 
-For some scenarios, you would like your application to be available in multiple Azure regions. This is useful when:
+This is useful when:
 
 - You would like to have global reach for your application and, for instance make it available in both Europe, Asia and the Americas.
 - You want to bring the workload closer to the end user, making latency as low as possible.
