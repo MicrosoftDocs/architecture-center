@@ -3247,8 +3247,6 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Enterprise business intelligence
-                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data on confidential computing
@@ -3263,8 +3261,12 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Employee retention with Databricks and AKS
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
+              - name: Enterprise business intelligence
+                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Geospatial analysis for telecommunications
                 href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: Geospatial analysis with Azure Synapse
@@ -4235,6 +4237,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Helm-based deployments
@@ -5018,6 +5022,8 @@ items:
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
