@@ -1,4 +1,4 @@
-Strategically create data using an upsert to allow systems to synchronize data. Guarantee that the consuming application will be able to accept requests when the data is awaiting synchronization or when it is missing. This scenario builds eventual consistency in Power Apps, to support Azure Web Apps and other similar scenarios. In addition, you can use various Azure services to replicate data.
+This article outlines a scenario in which a hypothetical US-based customer, Contoso, has recently acquired another company based in Europe and is in the process of integrating business systems between the two companies.  As part of this integration, the two CRM/ERP systems must keep their Dynamics 365 Dataverse entities in sync until they can be fully integrated.  A Conotso propietary line-of-business (LOB) app consumes data from both systems and must be able to accept requests when the data is awaiting sychronization or when it is missing. The following design shows how an upsert can be used to build eventual consistency between Power Platform instances.
 
 ## Potential use cases
 
@@ -8,52 +8,51 @@ This pattern can be useful in the following situations:
 - The synchronization of data takes a long time or the process is delayed.
 - Consuming systems have no logic on the creation of the entity being created.
 
-## Context and problem
+## Scenario details
 
-In many modern applications, you must consider and implement fault tolerance. In certain situations, you might synchronize accounts and contacts, for example,  from one instance of Power Platform to another. Suppose you have two instances of Power Platform. "Instance A" synchronizes data to "Instance B" and another system that reads data from "Instance A". It then sends a payload with unique identifiers or alternate keys to "Instance B". When "Instance B" does not have the data, the user receives a bad request because the entity with that record does not exist.
+In order for Contoso's new European subsidiary to be integrated into Conotos's business structure,they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform synchronizes data via a Logic App to the European instance. It then sends a payload with unique identifiers or alternate keys to the European instance. A propietary Contoso LOB app reads user data from the US instance and then sends a payload with unique identifiers or alternate keys to the Europe instance. When the Europe instance does not have the data due to downtime, maintenance or another communications issue, the user receives a bad request because the entity with that record does not exist.
 
-The following examples show the potential journeys for a record submission. 
+The following examples show the potential journeys for a record submission.
 
 **Example 1 - Successful path with no outage or transient errors**
 
-:::image type="content" alt-text="Diagram of an example of a multiple-system synchronization that succeeds." source="./_images/data-dependent-example.png" lightbox="./_images/data-dependent-example.png":::
+![Successful replication process](./_images/data-dependent-example.vsdx)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
-1. **Instance A** synchronizes a new account to **Instance B**. All are working because no transient faults or outages have occurred.
-2. An integrated system reads the master accounts from **Instance A** and intends to submit an API call that references an account that was replicated to **Instance B**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
+1. The **US Instance** synchronizes a new account to the **Europe Instance** via a Logic App. All are working because no transient faults or outages have occurred.
+2. The Contoso LOB app reads the master accounts from **US Instance** and intends to submit an API call that references an account that was replicated to **Europe Instance**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
-:::image type="content" alt-text="Diagram of an example of a multiple-system synchronization that fails." source="./_images/data-dependent-example-fails.png" lightbox="./_images/data-dependent-example-fails.png":::
+![Failed replication process](./_images/data-dependent-example-fails.vsdx)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
-1. **Instance A** attempts to synchronize a new account to **Instance B**. **Instance B** is unreachable, due to downtime or upgrade.
-2. An integrated system reads the master accounts from **Instance A** and intends to submit an API call that references an account that was not replicated to **Instance B**. The API call fails because the account with the given identifier was not created in **Instance B**. 
+1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
+2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance**. 
 
-## Solutions
+## Solution
 
 ### Plugin/flow to always upsert based on the GUID or alternate key
 
 This can be performed in a number of plugin steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the PreValidation step. PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
 
-:::image type="content" alt-text="Diagram of a solution with the plugin." source="./_images/solution.png" lightbox="./_images/solution.png":::
+![Solution](./_images/solution.vsdx)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
 
-1. **Instance A** attempts to synchronize a new account to **Instance B**. **Instance B** is unreachable, due to downtime or upgrade.
-2. An integrated system reads the master accounts from **Instance A**. It intends to submit an API call that references an account that was not replicated to **Instance B**. As it stands, the API call will fail because the record does not exist, due to the sync not working.
+1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
+2. The Contoso LOB app reads the master accounts from the **US Instance**. It intends to submit an API call that references an account that was not replicated to the **Europe Instance**. As it stands, the API call will fail because the record does not exist, due to the sync not working.
 3. A PreValidation/PreCreate plugin performs an upsert on the GUID (updating only the ID and setting the name, if it does not exist). If it exists already, then nothing is changed. If it does not exist, a new account is created (with most of the fields blank).
 4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully.
 
-### Circuit breaker
-
-Introduce a circuit breaker pattern to back off and retry. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
+>[!NOTE]
+> Microsoft recommends introducing a circuit breaker pattern to back off and retry as part of this solution. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
 
 ## Replication technologies
 
-There are multiple ways to replicate data between Dynamics instances, which includes the following:
+The scenario described above utilizes a Logic App as a replication method, but there are multiple ways to replicate data between Dataverse instances, which include but are not limited to:
 
 - Logic Apps
 - Function apps in Azure Functions
