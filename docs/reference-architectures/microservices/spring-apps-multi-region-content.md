@@ -4,7 +4,7 @@ This is useful when:
 
 - You would like to have global reach for your application. For example, making it available in Europe, Asia and the Americas.
 - You want to bring the workload closer to the end user, making latency as low as possible.
-- You want to increase the overall resilience and Service Level Agreement (SLA) of your application.
+- You want to increase the overall resilience and Service Level Objective (SLO) of your application.
 - You want to use a secondary region as a failover site for your primary region and opt for an active/passive design.
 
 This architecture describes a multi region solution for Azure Spring Apps service. It also takes into account how you load balance the incoming requests to your application to one of the regions your application is deployed in. It also provides host name preservation all the way from the browser request to your application code.
