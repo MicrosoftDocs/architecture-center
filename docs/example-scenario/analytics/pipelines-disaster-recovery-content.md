@@ -4,7 +4,7 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ## Architecture
 
-![Graphical user interface, application, Word Description automatically generated](./media/media/image1.png)
+![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.png)
 
 ### Workflow
 
@@ -70,13 +70,13 @@ The Azure Global team conducts regular BCDR drills, and Azure Data Factory and A
 
 #### User-managed redundancy with CI/CD
 
-To achieve BCDR in the event of an entire region failure, you need a data factory or Azure Synapse workspace in the other region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover the pipeline manually and meet your BCDR objectives.
+To achieve BCDR in the event of an entire region failure, you need a data factory or Azure Synapse workspace in the other region. In case of accidental Data Factory or Azure Synapse pipeline deletion, outages, or internal maintenance events, you can use Git and CI/CD to recover the pipeline manually.
 
 - To use Data Factory pipeline CI/CD, see [Continuous integration and delivery - Azure Data Factory](/azure/data-factory/continuous-integration-delivery) and [Source control - Azure Data Factory](/azure/data-factory/source-control).
 
 - To use Azure Synapse pipeline CI/CD, see [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery#azure-synapse-analytics). Make sure to initialize the Azure Synapse workspace first. For more information, see [Source control in Synapse Studio - Azure Synapse Analytics](/azure/synapse-analytics/cicd/source-control).
 
-Optionally, you can use an active/passive implementation. The primary region is used for normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on a specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but not provisioned.
+Optionally, you can use an active/passive implementation. The primary region is used for normal operations and remains active, while the secondary DR region requires pre-planned steps, depending on specific implementation, to be promoted to primary. In this case, all the necessary configurations for infrastructure are available in the secondary region, but not provisioned.
 
 ### Potential use cases
 
@@ -144,8 +144,8 @@ In general, you need to design your pipelines to include activities, like fail a
 
 1. Add an activity in your pipeline to look up the witness and compare the current primary value to the global parameter.
 
-   - If the parameters matches, this pipeline is running on the primary. Proceed with the real work.
-   - If the parameters don't match, this is the secondary. Just return the result.
+   - If the parameters match, this pipeline is running on the primary region. Proceed with the real work.
+   - If the parameters don't match, this pipeline is running on the secondary region. Just return the result.
 
 > [!Note]
 > With this approach, a dependency on the witness lookup is introduced in your pipelines. Failure to read the witness halts all pipeline runs.
