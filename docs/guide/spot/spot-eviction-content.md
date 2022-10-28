@@ -1,12 +1,14 @@
-Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities. The goal of this article is to help you harness those possibilities and drive excellence through them. To do that, it's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for interruptible workloads. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and best practices.
+Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities. 
+
+The goal of this article is to help you harness those possibilities. It's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for interruptible workloads. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and orchestration best practices.
 
 ## Understand Spot VMs
 
-**(1) Regular VMs** - The only different between an pay-as-you-go VM and a Spot VM is its access priority to compute resources. A VM is a package with an operating system, bins/libs, and application(s). It runs on servers in an Azure datacenter. These servers have a hypervisor that creates and manages VMs. The term *compute resources* refers to the capability of the sever and hypervisor to support VMs.
+A VM is a package with an operating system, bins/libs, and application(s). It runs on servers in an Azure datacenter. These servers have a hypervisor that creates and manages VMs. The severs and hypervisor provide the *compute capacity*.
 
-**(2) Low-priority access** - Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access and VMs get priority access to compute resources. Spot VMs can only use spare compute capacity. Spot VMs use whatever high-priority VMs don't. The measurement of compute capacity is at the datacenter/zone level, not region. Zone 1 could have no compute capacity while Zones 2 and 3 in the same region have plenty. Spot VMs will only deploy and persist where there's spare compute capacity.
+**(1) No SLA once created** - Spot VMs don't have an SLA once created. They can lose access to compute capacity at any time. The loss of access to compute capacity is called an eviction. Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the capacity back, an eviction notice will be sent and evict the VM based on the eviction policy. The time between the eviction notice and the eviction is only up to 30 seconds.
 
- High-priority VMs can take compute resources from active Spot VMs. Spot VMs can lose their compute capacity at any time. The loss is called an eviction. Spot VMs are cheaper because of the eviction possibility.
+**(2) Low priority access** - The only different between a pay-as-you-go VM and a spot VM is its access priority to compute capacity. Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access and VMs get priority access to compute resources. Spot VMs can only use spare compute capacity. Spot VMs use whatever high-priority VMs don't. The measurement of compute capacity is at the datacenter/zone level, not region. Zone 1 could have no compute capacity while Zones 2 and 3 in the same region have plenty. Spot VMs will only deploy and persist where there's spare compute capacity. High-priority VMs can take compute resources from active Spot VMs.
 
 ## Understand interruptible workloads
 
@@ -58,6 +60,23 @@ For more information, see:
 
 ## Recommendations
 
+## Design for flexibility
+
+Workloads on Spot VMs need flexibility. You should design your architecture to switch VM types, VM sizes, regions, zone, and resume work later. We recommend identifying a few VM types that have the power to run the application and fit within budget constraints. It will give your orchestration more options to choose from and find spare compute capacity faster.
+
+**DO YOU RECOMMEND DELETION EVICTION POLICY TO INCREASE FLEXIBILITY?**
+
+### Prepare for immediate eviction
+
+**WE NEED TO PROVIDE REOMMENDATIONS FOR IMMEDIATE EVICTION**
+
+## Plan for multiple simultaneous evictions
+
+You should architect the workload to withstand multiple simultaneous evictions. The workload could lose 10% compute capacity, and it will have a significant effect on the throughput of the application.
+
+## Implement CI/CD
+
+**WHAT RECOMMENDATIONS DO YOU HAVE TO SET UP CI/CD?**
 
 ### Set up telemetry
 
@@ -71,8 +90,6 @@ For more information, see:
 
 - [Scheduled events](/azure/virtual-machines/windows/scheduled-events)
 - [Application Insights telemetry](/azure/azure-monitor/app/data-model)
-
-### Prepare for immediate eviction
 
 ### Ensure a graceful shutdown
 
@@ -100,7 +117,7 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 
 If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online. **WHAT MECHANISM DO YOU RECOMMEND?**
 
-- ***(2) Deleted VM*** - The workload is *created*.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
+- ***Deleted VM*** - A deleted Spot VM is removed from Azure. A replacement needs to be *created*, not just reallocated to a compute resource. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility can help your workload find spare compute capacity faster than a stopped / deallocated VM. Stopped / deallocated VMs have to wait for spare compute capacity in the same zone it was created in. You'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
 
 **(2) Conduct health check** - It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
 
@@ -112,20 +129,24 @@ For more information, see [simulate eviction](/azure/virtual-machines/linux/spot
 
 ## Example scenario
 
-The example scenario is for a queue processing application. It uses a producer-consumer dataflow.
+The example scenario is for a queue processing application. It uses a producer-consumer dataflow. The scripts in the scenario are illustrative. They aren't the key to success on SpotVMs. The most important aspect of the example is the continuous integration / continuous development (CI/CD) pipeline to orchestrate the spot VMs. The scenario does a one-time push to deploy the ARM template for the example, but a push/pull mechanism should be in place to enable orchestration.
+
+The bicep template deploys an Ubuntu image (22_04-lts-gen2) on a Standard_D2s_v3 VM with a premium managed disk and local redundant storage (LRS). These configurations meet the needs of this application and aren't general recommendations for your applications.
 
 ![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
 
-1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines application name, location, operating system, and metadata.
-1. **Application version:** The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM
-1. **Storage account:** The storage account holds the source application package (orchestrate.sh) that the VM downloads after deployment. The application version links to the source application package in the storage account. The source application package is called `orchestrate.sh`.
+1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata.
+1. **Application version:** The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
+1. **Storage account:**  The storage account holds the source application package `worker-0.1.0.tar.gz`. The tar.gz file contains the `orchestrate.sh` file.
 1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version.
-1. **Source application package:** The Spot VM downloads source application package (orchestrate.sh) is downloaded to the VM after deployment and installs the .NET worker application.
+1. **Source application package:** The application version links to the source application package in the storage account. It downloads `worker-0.1.0.tar.gz` to the VM after deployment and installs the .NET worker application.
 1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services.
-1. **Query metadata endpoint:** One background service queries the metadata endpoint.
+1. **Query metadata endpoint:** An API request is sent to a static non-routable IP address 169.254.169.254​ in the VM. The API request queries the metadata endpoint for the VM from the Metadata Service endpoint.
 1. **Application Insights:** The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
 1. **Storage Queue:** The other service running in the .NET worker contains message queue logic.
 1. **Azure AD:** Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
+
+**WHERE SHOULD 9 AND 10 GO? I THOUGHT YOU SAID THIS WAS A MQ APP? I'M NOT SURE HOW THE QUEUE FACTORS IN. I WOULD ASSUME IT HOLDS SOME STATEFUL INFORMATION FOR IDEMPOTENCY BUT WE HAVEN'T REALLY GO INTO THAT YET**
 
 ## Deploy this scenario
 
