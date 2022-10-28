@@ -58,6 +58,8 @@ The following guidance might also be relevant when implementing this pattern:
 
 ## Related resources
 
+- [Asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
+- 
 - [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
 
 The following patterns might also be relevant when implementing this pattern:
