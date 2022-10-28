@@ -192,7 +192,7 @@ Other contributors: 
 - [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Azure Data Factory data redundancy](/azure/data-factory/concepts-data-redundancy)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
-- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities)
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/azure/data-factory/concepts-pipelines-activities)
 - [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)
 
 ## Related resources
@@ -202,4 +202,4 @@ Other contributors: 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
