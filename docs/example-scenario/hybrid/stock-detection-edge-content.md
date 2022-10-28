@@ -2,7 +2,7 @@ This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device 
 
 ## Architecture
 
-:::image type="content" source="media/solution-architecture.png" alt-text="Image alt text." lightbox="media/solution-architecture.png ":::
+:::image type="content" source="media/solution-architecture.png" alt-text="Diagram that shows an architecture for detecting out-of-stock items in retail stores." lightbox="media/solution-architecture.png ":::
 
 ### Workflow
 
