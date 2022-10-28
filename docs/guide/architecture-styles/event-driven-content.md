@@ -4,7 +4,7 @@ An event-driven architecture consists of **event producers** that generate a str
 
 Events are delivered in near real time, so consumers can respond immediately to events as they occur. Producers are decoupled from consumers &mdash; a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events. This differs from a [Competing Consumers][competing-consumers] pattern, where consumers pull messages from a queue and a message is processed just once (assuming no errors). In some systems, such as IoT, events must be ingested at very high volumes.
 
-An event driven architecture can use a pub/sub model or an event stream model.
+An event driven architecture can use a [publish/subscribe](/azure/architecture/patterns/publisher-subscriber) (or pub/sub) model or an event stream model.
 
 - **Pub/sub**: The messaging infrastructure keeps track of subscriptions. When an event is published, it sends the event to each subscriber. After an event is received, it cannot be replayed, and new subscribers do not see the event.
 
