@@ -21,7 +21,7 @@ categories:
 
 The fourth industrial revolution, often referred to as *Industry 4.0*, is here. Industry 4.0 brings with it modern industrial applications that will change the way businesses operate. These applications have improved processing power and connectivity. They collect and process data from across an organization to help businesses run more strategically and efficiently. As enterprises scale, they need solutions that can handle these workloads. 
 
-To meet these requirements, modern enterprises need both private 5G networks and multi-access edge computing (MEC) solutions. Private LTE/5G networks give businesses the speed, security, mobility, and quality of service they need to process data efficiently. Edge compute supports latency-sensitive industrial applications and data localization and enables time sensitive data to be processed quickly at the edge. 
+To meet these requirements, modern enterprises need both private 5G networks and multiaccess edge computing (MEC) solutions. Private LTE/5G networks give businesses the speed, security, mobility, and quality of service they need to process data efficiently. Edge compute supports latency-sensitive industrial applications and data localization and enables time sensitive data to be processed quickly at the edge. 
 
 Some challenges need to be addressed before enterprises can realize the benefits of private LTE/5G networks. These challenges include reducing operational and engineering complexity, ensuring end-to-end visibility for multi-site enterprises, providing access security, and improving the delivery of automated, software-based solutions. 
 
