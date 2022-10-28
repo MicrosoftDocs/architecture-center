@@ -356,3 +356,6 @@ Other contributors:
 
 - [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml)
 - [Multi-region web app with private connectivity to a database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Azure Mission-critical overview](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Azure Mission-critical zero-downtime deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment)
+- [Azure Mission-critical continuous validation](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload)
