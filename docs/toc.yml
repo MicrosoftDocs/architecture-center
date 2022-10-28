@@ -4810,6 +4810,8 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Out-of-stock detection at the edge
+                href: example-scenario/hybrid/stock-detection-edge.yml
               - name: Public MEC compute deployment
                 href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Public MEC high availability 
