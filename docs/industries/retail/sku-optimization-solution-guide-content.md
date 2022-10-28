@@ -81,7 +81,7 @@ Several models have been derived from MNL, but it's beyond the scope of this pap
 
 There are libraries for the R and Python programming languages. For R, you might use glm (and derivatives).  For Python, there are [scikit-learn](http://scikit-learn.org/stable), [biogeme](http://biogeme.epfl.ch), and [larch](https://pypi.org/project/larch). These libraries offer tools to specify MNL problems, and parallel solvers to find solutions on a variety of platforms.
 
-Recently, implementation of MNL models on GPUs have been proposed to compute complex models with a number of parameters that would make them intractable otherwise.
+Recently, implementation of MNL models on GPUs has been proposed to compute complex models with a number of parameters that would make them intractable otherwise.
 
 Neural networks with a softmax output layer have been used effectively on large multi-class problems. These networks produce a vector of outputs that represent a probability distribution over a number of different outcomes. They're slow to train compared to other implementations, but they can handle a large number of classes and parameters.
 
@@ -296,3 +296,21 @@ Principal author:
 - [TFoCS solver for Spark](https://github.com/databricks/spark-tfocs)
 
 ## Related resources
+
+Related retail guidance:
+
+- [Solutions for the retail industry](/azure/architecture/industries/retail)
+- [Data management in the retail industry](/azure/architecture/industries/retail/retail-data-management-overview)
+- [Optimize and reuse an existing recommendation system](/azure/architecture/industries/retail/recommendation-engine-optimization)
+- [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
+- [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
+- [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection)
+
+Related architectures:
+
+- [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
+- [Architect scalable e-commerce web app](/azure/architecture/solution-ideas/articles/scalable-ecommerce-web-app)
+- [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
+- [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
+- [Magento e-commerce platform in Azure Kubernetes Service](/azure/architecture/example-scenario/magento/magento-azure)
+- [Retail and e-commerce using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)
