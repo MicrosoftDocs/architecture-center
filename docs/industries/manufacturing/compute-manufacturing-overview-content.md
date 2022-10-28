@@ -105,3 +105,22 @@ Principal authors:
 - Learn the possibilities with [Azure Machine Learning](/azure/machine-learning/?WT.mc_id=computeinmanufacturing-docs-ercenk).
 
 ## Related resources
+
+Related guides:
+
+- [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+- [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
+- [Use subject matter expertise in machine teaching and reinforcement learning](/azure/architecture/solution-ideas/articles/machine-teaching)
+- [Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)
+- [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+
+Related architectures:
+
+- [End-to-end computer vision at the edge for manufacturing](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
+- [Implement real-time anomaly detection for conveyor belts](/azure/architecture/example-scenario/ai/real-time-anomaly-detection-conveyor-belt)
+- [Anomaly detector process](/azure/architecture/solution-ideas/articles/anomaly-detector-process)
+- [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance)
+- [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
+- [Facilities management powered by mixed reality and IoT](/azure/architecture/solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot)
+- [Batch integration with Azure Data Factory for Azure Digital Twins](/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins)
+- [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
