@@ -1,23 +1,3 @@
----
-title: Deploy a custom speech-to-text solution that uses AI
-description: Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.
-author: mishrapratyush
-ms.author: pmishra
-ms.date: 10/26/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-cognitive-services
-  - azure-speech
-  - azure-speech-text
-  - azure-machine-learning
-categories:
-  - ai-machine-learning
----
-
-# Deploy a custom speech-to-text solution
-
 This article is an implementation guide and example scenario that provides a sample deployment of the solution described in **Implement custom speech-to-text**:
 
 > [!div class="nextstepaction"]
