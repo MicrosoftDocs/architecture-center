@@ -1,8 +1,18 @@
 # Build a private 5G network
 
-There are four critical components to a Private 5G Network: the local radio and networking functions, the edge compute platform, the application ecosystem, and the cloud. Today’s Private 5G Network solutions are often built as a collection of loosely integrated components. While this loose integration approach may make sense in terms of physical and organizational demarcation points, it has several critical drawbacks: it is challenging to deploy; complex to manage; costly to scale; and is inherently insecure. 
+This article is the second part of a series of articles about deploying private 5G networks. 
 
-Microsoft offers operators a different approach to monetize the enterprise opportunity with a fully integrated cloud managed private 5G network solution that features cloud-native mobile core technology, advanced edge computing, and a flexible choice of radio and application partners.  This solution is designed for various industry verticals, delivered and managed by operators.  Microsoft’s architectural and go-to-market approach for private 5G network provides unique advantages to both operators and enterprises while a choice of multiple radio access technologies, platforms and applications. 
+> [!div class="nextstepaction"]
+> [Go to the first article](deploy-private-mobile-network.md)
+
+There are four critical components to a private 5G network: the local radio and networking functions, the edge compute platform, the application ecosystem, and the cloud. Private 5G network solutions are often built as a collection of loosely integrated components. This loose integration approach might make sense in terms of physical and organizational demarcation points, but it has drawbacks. The following problems are inherent in this approach: 
+
+- Difficult to deploy 
+- Difficult to manage 
+- Expensive to scale 
+- Not secure 
+
+Microsoft offers a different approach to help operators take advantage of the  opportunity to provide private 5G to enterprises. This cloud-managed private 5G network solution features cloud-native mobile core technology, advanced edge computing, and a flexible choice of radio and application partners. The solution is designed to be delivered and managed by operators. It's appropriate for various industry verticals.  The Microsoft approach for private 5G networks provides advantages to both operators and enterprises, and a choice of platforms and applications. 
 
 Azure Private MEC is a flexible solution for integrating edge compute, networking and applications on a choice of edge platforms.  It is designed for operators and system integrators to deliver high performance MEC use cases to enterprises.
 
