@@ -38,6 +38,16 @@ The following diagram and steps describe the CI/CD pipeline architecture:
 10. User requests for the app go through the DNS server.
 11. The DNS server passes the requests to a load balancer, and sends responses back to the users.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## See also
 
 - [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)

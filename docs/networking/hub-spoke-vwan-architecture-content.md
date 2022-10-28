@@ -170,6 +170,16 @@ A customer-managed hub infrastructure introduces management cost to underlying A
 
 For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Yunus Emre Alpozen](https://www.linkedin.com/in/yemre/) | Program Architect Cross-Workload
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more:

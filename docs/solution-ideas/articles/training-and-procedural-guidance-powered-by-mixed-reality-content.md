@@ -37,7 +37,7 @@ Organizations utilize this to enable employees (new and current) with learning n
 
 * [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db)
+* [Build a .NET web app using Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db)
 * [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api)
-* [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/samples-overview)
+* [What is Video Indexer?](/azure/azure-video-indexer/video-indexer-overview)

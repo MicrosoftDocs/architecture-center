@@ -6,7 +6,7 @@ To migrate an Oracle database to an Azure environment, you have to:
 
 * Decide data migration method to evaluate downtime window.
 
-* Figure out how to archive business continuity and disaster recovery requirements.
+* Figure out how to achieve business continuity and disaster recovery requirements.
 
 ## Architecture
 
@@ -54,6 +54,16 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 ![A decision tree that lays out the decisions you have to make to figure out what migration path is best for you.](media/oracle-migration-tree.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 What you do next depends on where you wind up on the decision tree:
@@ -64,4 +74,4 @@ What you do next depends on where you wind up on the decision tree:
 
 * **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration: Refactor](oracle-migration-refactor.yml).
 
-* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration: Rearchitect](oracle-migration-rearchitect.yml)
+* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration: Rearchitect](oracle-migration-rearchitect.yml).

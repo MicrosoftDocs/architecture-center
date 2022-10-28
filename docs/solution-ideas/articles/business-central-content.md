@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Because Dynamics 365 Business Central SaaS isn't available in all countries, this solution shows you how to use Business Central running as a VM in Azure.
+Because Dynamics 365 Business Central SaaS isn't available in all countries/regions, this solution shows you how to use Business Central running as a VM in Azure.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), you can
 
 ## Scenario details
 
-Dynamics 365 Business Central SaaS isn't available in all countries. Therefore, it's important to demonstrate a similar model using Business Central running as a VM in Azure.
+Dynamics 365 Business Central SaaS isn't available in all countries/regions. Therefore, it's important to demonstrate a similar model using Business Central running as a VM in Azure.
 
 ### Potential use cases
 

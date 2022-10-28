@@ -48,7 +48,7 @@ The architecture consists of the workflow described below. Each component of the
    - Azure storage (for storing datasets)
    - An Azure Container Registry for storing model images during development
 
-   Cognitive Services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning Compute Instance and Compute Clusters are used for development and model building / testing purposes. Azure Data Factory is used to orchestrate batch scoring of models (if needed). App Service and Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
+   Cognitive Services is deployed as a bundle to provide API access to multiple AI-backed services, and Azure Machine Learning Compute Instance and Compute Clusters are used for development and model building / testing purposes. Azure Data Factory is used to orchestrate batch scoring of models (if needed). App Service and Azure Cosmos DB provide an extra layer for deployment of the data product, where a custom application or API can be hosted with its own internal data store.
 
    Regulated industries usually have strict data access restrictions, and usually allow production data to be hosted only within the production environment. Because of this reason, the development lifecycle of data products is occurring only in the production data landing zone, and a separate environment (resource group) is provisioned for development, testing, and deployment purposes.
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.
@@ -192,7 +192,7 @@ Azure security logs can be ingested into SOC through different patterns:
 
 AI and machine learning environments running on Azure must be integrated with an organization's main account provisioning system, where requests to grant access to critical business applications are submitted, approved, and audited.
 
-Account provisioning systems are expected to connect to an organization's Active Directory and Azure Active Directory (AAD), so that business authorization roles map to corresponding AD/AAD security groups.
+Account provisioning systems are expected to connect to an organization's Active Directory and Azure Active Directory (Azure AD), so that business authorization roles map to corresponding Active Directory and Azure AD security groups.
 
 AI/ML environments follow a Role-Based Access Control (RBAC) model, and access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
 
@@ -200,7 +200,7 @@ AI/ML environments follow a Role-Based Access Control (RBAC) model, and access l
 - Azure Machine Learning (AML) workspaces
 - Computing instances
 
-Role-Based Access Control (RBAC) uses security groups in Azure Active Directory (AAD).
+Role-Based Access Control (RBAC) uses security groups in Azure Active Directory (Azure AD).
 
 ### Multifactor authentication
 

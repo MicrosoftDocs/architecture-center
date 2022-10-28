@@ -11,8 +11,6 @@ This reference architecture shows a microservices architecture deployed to Azure
 > [!NOTE]
 > This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
 
-### Workflow
-
 The architecture consists of the following components. For other terms, see [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
 
 **Service Fabric cluster**. A network-connected set of virtual machines (VMs) into which your microservices are deployed and managed.
@@ -203,7 +201,7 @@ Here are some key points for securing your application on Service Fabric:
 
 Consider defining subnet boundaries for each virtual machine scale set to control the flow of communication. Each node type has its own virtual machine scale set in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 
-When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster's Virtual Network. For example, if you are using Azure Cosmos DB to store data, configure the Azure Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
 
 #### Endpoints and interservice communication
 
@@ -230,15 +228,15 @@ Store secrets such as connection strings to data stores in Azure Key Vault. The 
 
 - Store your secrets in the Key Vault.
 
-    Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, "--" is converted into ":".
+    Add secrets in a format that can be translated to a key-value pair. For example, `CosmosDB--AuthKey`. When the configuration is built, `--` is converted into `:`.
 
 - Access those secrets in your service.
 
     Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, builds the configuration, and accesses the secret from the built configuration.
 
-Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database".
+Here's an example where the Workflow service stores a secret in the Key Vault in the format `CosmosDB--Database`.
 
-```c#
+```csharp
 namespace Fabrikam.Workflow.Service
 {
     public class ServiceStartup
@@ -262,7 +260,7 @@ namespace Fabrikam.Workflow.Service
 
 To access the secret, specify the secret name in the built config.
 
-```c#
+```csharp
        if(builtConfig["CosmosDB:Database"] is var database && !string.IsNullOrEmpty(database))
        {
             // Use the secret.
@@ -326,7 +324,7 @@ Application telemetry provides data about your service that can help you monitor
 
 To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling the **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
 
-```c#
+```csharp
     .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddApplicationInsights(hostingContext.Configuration ["ApplicationInsights:InstrumentationKey"]);
@@ -444,6 +442,16 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.md
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 

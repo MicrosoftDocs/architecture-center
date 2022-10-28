@@ -3,8 +3,9 @@ Unisys ClearPath mainframe systems are full-featured operating environments that
 This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
 Asysco AMT Transform automates the migration of the complete mainframe ecosystem to Azure, by converting:
-- Transaction application code to AMT COBOL or directly to C#/.NET. AMT maintains the original code structure to use as a baseline or for future edits.
-- All databases, whether hierarchical, network, or relational, to Azure SQL Server.
+
+- Transaction application code to AMT COBOL or directly to C# and .NET. AMT maintains the original code structure to use as a baseline or to enable future edits.
+- All databases, whether hierarchical, network, or relational, to Azure SQL Database.
 - WFL/ECL scripts to Windows PowerShell or to open-source Visual Basic scripts.
 - All binary or indexed flat files.
 
@@ -121,6 +122,16 @@ You can scale out the server sets to provide more throughput. For more informati
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next Steps
 

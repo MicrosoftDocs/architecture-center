@@ -24,7 +24,7 @@ The data flows through the solution as follows:
 
 1. Sensor data is generated and streamed to Azure API Management.
 2. AKS cluster runs microservices that are deployed as containers behind a service mesh; containers are built using a DevOps process and stored in Azure Container Registry.
-3. Ingest service stores data in an Azure Cosmos DB.
+3. Ingest service stores data in an Azure Cosmos DB instance.
 4. Asynchronously, the analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.
 5. Data scientists can analyze the big data for use in machine learning models using Splunk.
 6. Data is processed by the processing service, which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis.
@@ -45,6 +45,16 @@ This example scenario uses several Azure components:
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): a fully managed relational database service based on the open-source Postgres database engine.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks): An Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache): A fully managed, open source–compatible in-memory data store to power fast, scalable applications.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

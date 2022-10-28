@@ -2,7 +2,7 @@ This document describes the architecture and design considerations of a solution
 
 ## Architecture
 
-![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components runing on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include an geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.][architectural-diagram]
+![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution based on Azure Site Recovery. The solution consists of a configuration server and process server components running on an Azure Stack Hub VM. These components are capable of protecting both Windows Server VMs running such workloads as SQL Server or Sharepoint Server, as well as CentOS and Ubuntu Linux VMs. The Azure components of the solution include a geo-redundant Azure Recovery Services vault handling orchestration tasks and an Azure Storage account serving as the destination of the replication traffic originating from the Azure Stack Hub VMs.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -11,7 +11,7 @@ This document describes the architecture and design considerations of a solution
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription hosting all cloud resources that are part of this solution.
-- An [Azure Active Directory](/azure/active-directory) (Azure AD) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
+- An [Azure Active Directory (Azure AD)](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
 - An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region closest to an on-premises datacenter that will host the Azure Stack Hub deployment.
 
   > [!Note]

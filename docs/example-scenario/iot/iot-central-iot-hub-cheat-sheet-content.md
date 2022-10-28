@@ -119,7 +119,7 @@ The following table shows the level of support for various capabilities in IoT C
 - [Retail buy online, pick up in store (BOPIS)](./vertical-buy-online-pickup-in-store.yml)
 - [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
-- [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [IoT Edge railroad maintenance and safety solution](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)
 - [Project 15 sustainability open platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)

@@ -33,7 +33,7 @@ The data flows through the solution as follows:
 
 ### Alternatives
 
-- [Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction).
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Azure Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction).
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
@@ -66,7 +66,7 @@ Other relevant use cases include:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high-speed communication between regions is also an important factor in this scenario.
+The broad availability of Azure regions is an important factor for this scenario. Having more than one Azure region in a single country/region can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high-speed communication between regions is also an important factor in this scenario.
 
 Azure support for open-source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with lower costs and operating workloads compared to an on-premises solution.
 
@@ -97,7 +97,7 @@ Guidance for big data architectures is available in the [Azure Data Architecture
 Additional IoT architectures:
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)

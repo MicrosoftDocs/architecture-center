@@ -48,11 +48,11 @@ In this architecture, there are two data stores:
 
 ## Database
 
-This architecture uses Azure Cosmos DB with SQL API. This option is chosen because it provides the most features needed in this design:
+This architecture uses Azure Cosmos DB for NoSQL. This option is chosen because it provides the most features needed in this design:
 
 - **Multi-region write**
 
-  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation uses multi-master technology to provide maximum resiliency and availability.
+  Multi-region write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Azure Cosmos DB handles data replication and synchronization between the stamps. This capability significantly lowers latency for geographically distributed end-users of the application. The Azure Mission-Critical reference implementation uses multi-master technology to provide maximum resiliency and availability.
 
   Zone redundancy is also enabled within each replicated region.
 
@@ -60,7 +60,7 @@ This architecture uses Azure Cosmos DB with SQL API. This option is chosen becau
 
 - **Conflict management**
 
-  With the ability to perform writes across multiple regions comes the necessity to adopt a conflict management model as simultaneous writes can introduce record conflicts. Last Writer Wins is the default model and is used for the Mission Critical design. The last writer, as defined by the associated timestamps of the records wins the conflict. The SQL API also allows for a custom property to be defined. 
+  With the ability to perform writes across multiple regions comes the necessity to adopt a conflict management model as simultaneous writes can introduce record conflicts. Last Writer Wins is the default model and is used for the Mission Critical design. The last writer, as defined by the associated timestamps of the records wins the conflict. Azure Cosmos DB for NoSQL also allows for a custom property to be defined.
 
 - **Query optimization**
 
@@ -68,10 +68,10 @@ This architecture uses Azure Cosmos DB with SQL API. This option is chosen becau
 
 - **Backup feature**
 
-  It's recommended that you use the native backup feature of Cosmos DB for data protection. [Cosmos DB's backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
+  It's recommended that you use the native backup feature of Azure Cosmos DB for data protection. [Azure Cosmos DB backup feature](/azure/cosmos-db/online-backup-and-restore) supports online backups and on-demand data restore.
 
 > [!NOTE]
-> Most workloads aren't purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Cosmos DB supports this capability via [Azure Synapse Link for Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
+> Most workloads aren't purely OLTP. There is an increasing demand for real-time reporting, such as running reports against the operational system. This is also referred to as HTAP (Hybrid Transactional and Analytical Processing). Azure Cosmos DB supports this capability via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link-use-cases).
 
 ### Data model for the workload
 
@@ -91,14 +91,14 @@ The workload has these **data access characteristics**:
 
 ### Configuration
 
-Cosmos DB is configured as follows:
+Azure Cosmos DB is configured as follows:
 
 - **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
 
   > [!NOTE] 
   > The _Session_ consistency level offers a reasonable tradeoff for latency, availability and consistency guarantees for this specific application. It's important to understand that _Strong_ consistency level isn't available for multi-master write databases.
 
-- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern, which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling infinite scale.
+- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern, which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Azure Cosmos DB, enabling infinite scale.
 
 - **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance, a custom indexing policy is used. This policy only indexes the properties that are used in query predicates. For example, the application doesn't use the comment text field as a filter in queries. It was excluded from the custom indexing policy.
 
@@ -122,7 +122,7 @@ indexing_policy {
 }
 ```
 
-For information about connection from the application to Cosmos DB in this architecture, see [Application platform considerations for mission-critical workloads](./mission-critical-app-design.md#database-connection)
+For information about connection from the application to Azure Cosmos DB in this architecture, see [Application platform considerations for mission-critical workloads](./mission-critical-app-design.md#database-connection)
 
 ## Messaging services
 
@@ -198,7 +198,7 @@ The messaging system acts as a buffer between message producers and consumers. T
 
 The health of the messaging system must be considered in the health checks for a mission critical application. Consider the following factors:
 
-- The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker.
+- The messaging system acts as a buffer between message producers and consumers. The stamp can be viewed as healthy if producers are able to successfully send messages to the broker and if consumers are able to successfully process messages from the broker.
 - The health check should ensure that messages can be sent to the message system.
 
 ## Next steps

@@ -51,7 +51,7 @@ AKS uses the following [user-assigned managed identities](/azure/active-director
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Lets applications access cloud resources securely with Azure AD | NA | See steps to grant permission at [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity#role-assignment).
+| OSS project | aad-pod-identity | Allows applications to access cloud resources securely with Azure AD | NA | See steps to grant permission at [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity#role-assignment).
 
 For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 
@@ -135,8 +135,14 @@ To use Azure AD Workload Identity end-to-end in a Kubernetes cluster:
 
 Principal authors:
 
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+
+Other contributors:
+
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
 
 ## Next steps
 

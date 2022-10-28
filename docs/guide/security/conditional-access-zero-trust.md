@@ -3,7 +3,7 @@ title: Conditional Access for Zero Trust
 description: An introduction to a design and framework for implementing Zero Trust principles by using Azure AD Conditional Access. 
 author: clajes
 ms.author: clajes
-ms.date: 01/26/2022
+ms.date: 10/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -45,7 +45,8 @@ Every company has different requirements and security policies. When you create 
 For example, a company might have these requirements:
 - All access must be protected by at least two factors.
 - No data on unmanaged devices.
-- No guest access allowed.
+- Require a compliant device for access to resources, whenever possible.
+- Guest user access must be governed by Identity Governance using access packages and access reviews.
 - Access to cloud services must be based on passwordless authentication.
 
 ## Conditional Access guidance
@@ -54,6 +55,16 @@ This section includes the following articles:
 - [Conditional Access design principles and dependencies](./conditional-access-design.yml) provides recommended principles that, together with your company's requirements, serve as input to the suggested persona-based architecture.
 - [Conditional Access architecture and personas](./conditional-access-architecture.yml) introduces the persona-based approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
 - [Conditional Access framework and policies](./conditional-access-framework.md) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps 
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
