@@ -303,6 +303,9 @@ For an implemented example and template of this architecture, see [AKS Landing Z
 
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
+> [!IMPORTANT]
+> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this architecture with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
+
 ### Region considerations
 
 You can deploy the blue and green clusters to separate regions or to the same region. The design and operational principles aren't affected by this choice. However, certain types of additional networking configurations can be affected, such as:
