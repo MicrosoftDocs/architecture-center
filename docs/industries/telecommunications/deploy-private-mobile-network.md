@@ -166,4 +166,4 @@ Other contributor:
 - [Solutions for the telecommunications industry](../../industries/telecommunications.md)
 - [Edge Workload Configuration pattern](../../patterns/edge-workload-configuration.md)
 - [Build a private 5G network](build-private-5g-network.md)
-- third article 
+- [Private 5G network benefits and use cases](private-5g-network-benefits.md)
