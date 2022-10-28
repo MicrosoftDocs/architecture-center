@@ -2,7 +2,7 @@ This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device 
 
 ## Architecture
 
-diagram 
+:::image type="content" source="media/solution-architecture.png" alt-text="Image alt text." lightbox="media/solution-architecture.png ":::
 
 ### Workflow
 
