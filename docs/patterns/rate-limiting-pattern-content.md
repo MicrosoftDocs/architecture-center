@@ -63,7 +63,7 @@ To further reduce latency, you might allocate a small amount of exclusive capaci
 
 ![Azure Blob partitions](./_images/rate-limiting-pattern-03.png)
 
-As an alternative to Azure Storage, you could also implement this kind of lease management system using technologies such as Zookeeper, Consul, etcd, Redis/Redsync, and others.
+As an alternative to Azure Storage, you could also implement this kind of lease management system using technologies such as [Zookeeper](https://zookeeper.apache.org), [Consul](https://www.consul.io), [etcd](https://etcd.io), [Redis/Redsync](https://github.com/go-redsync/redsync), and others.
 
 ## Issues and considerations
 
