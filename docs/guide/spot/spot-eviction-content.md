@@ -1,14 +1,14 @@
-Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities. 
+Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities.
 
 The goal of this article is to help you harness those possibilities. It's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for interruptible workloads. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and orchestration best practices.
 
 ## Understand Spot VMs
 
-A VM is a package with an operating system, bins/libs, and application(s). It runs on servers in an Azure datacenter. These servers have a hypervisor that creates and manages VMs. The severs and hypervisor provide the *compute capacity*.
+A VM is a packaged operating system (OS). The VM package deploys to servers in a datacenter that have a hypervisor to spin up and manage multiple VMs. The sever and hypervisor provide the *compute capacity*. The VM package can exist without compute capacity. It just won't have any power or be able do anything.
 
-**(1) No SLA once created** - Spot VMs don't have an SLA once created. They can lose access to compute capacity at any time. The loss of access to compute capacity is called an eviction. Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the capacity back, an eviction notice will be sent and evict the VM based on the eviction policy. The time between the eviction notice and the eviction is only up to 30 seconds.
+**(1) Low priority access** - The only different between a pay-as-you-go VM and a spot VM is the access priority to compute capacity. Spot VMs have low-priority access to compute capacity. Pay-as-you-go VMs have high-priority access and are first to receive access to compute capacity. Spot VMs use what's left over. They run on spare compute capacity. Spot VMs will only deploy and persist where there's spare compute capacity.
 
-**(2) Low priority access** - The only different between a pay-as-you-go VM and a spot VM is its access priority to compute capacity. Spot VMs have low-priority access to compute resources. Pay-as-you-go VMs have high-priority access and VMs get priority access to compute resources. Spot VMs can only use spare compute capacity. Spot VMs use whatever high-priority VMs don't. The measurement of compute capacity is at the datacenter/zone level, not region. Zone 1 could have no compute capacity while Zones 2 and 3 in the same region have plenty. Spot VMs will only deploy and persist where there's spare compute capacity. High-priority VMs can take compute resources from active Spot VMs.
+**(2) No SLA once created** - Spot VMs don't have an SLA once created. They can lose access to compute capacity at any time. The loss of access to compute capacity is called an eviction. Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the capacity back, an eviction notice will be sent and evict the VM based on the eviction policy. The time between the eviction notice and the eviction is only up to 30 seconds.
 
 ## Understand interruptible workloads
 
@@ -28,7 +28,7 @@ Spot VMs shouldn’t be the single source of compute capacity for non-interrupti
 
 ## Understand eviction
 
- An eviction is when access to compute resources is revoked. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does.
+ An eviction is when access to compute capacity is taken away. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does.
 
 Let's address each type in more detail.
 
@@ -39,12 +39,12 @@ Let's address each type in more detail.
 
 **(2) Eviction policy** - The eviction policy chose for a spot VM affects how its orchestration. There are two types of eviction policies: *Stop/Deallocate* and *Delete*.
 
-- ***Stop/Deallocate policy*** - The *Stop/Deallocate* policy puts the VM in the stopped-deallocated state. The VM remains but loses non-static IP addresses and access to compute capacity. The data disks remains and incurs charges. The VM still occupies cores in the subscription. VMs cannot be moved from their region or zone even the stopped/deallocated state. So the *Stop/Deallocate* eviction policy is best when the workload can wait for release capacity within the same location and VM type.
+- ***Stop/Deallocate policy*** - The *Stop/Deallocate* policy puts the VM in the stopped-deallocated state after an eviction. It's no different than stopping any VM. The VM remains but loses compute capacity and non-static IP addresses. The data disks remains and incurs charges. The VM still occupies cores in the subscription. VMs cannot be moved from their region or zone even the stopped/deallocated state. You can simulate movement by replicating the VM, deploy it to a new location, and deleting the original VM. The *Stop/Deallocate* eviction policy is best when the workload can wait for release capacity within the same location and VM type or with to simulate VM movement.
 - ***Delete policy*** - The *Delete* policy deletes the VM and data disk. It doesn't occupy cores in subscriptions. Deleting a VM allows it a replacement to be deployed where there's immediate capacity. Use the "Delete" policy if the workload can change location and VM type.
 
 For more information, see [eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
 
-## Understand spot price
+## Understand spot pricing
 
 The Spot VMs discount depends on VM size, region of deployment, and operating system. The price of spot VMs fluctuates with demand. The table below gives examples of the cost difference between spot VMs and pay-as-you-go VMs:
 
@@ -62,40 +62,54 @@ For more information, see:
 
 ## Design for flexibility
 
-Workloads on Spot VMs need flexibility. You should design your architecture to switch VM types, VM sizes, regions, zone, and resume work later. We recommend identifying a few VM types that have the power to run the application and fit within budget constraints. It will give your orchestration more options to choose from and find spare compute capacity faster.
+Workloads on Spot VMs need flexibility. You should design your architecture to switch VM types, VM sizes, regions, zone, and resume work later.
+
+## Build repeatable deployment (CI/CD)
+
+**HOW SHOULD CUSTOMERS DO THIS?**
+
+## Find the right VM
+
+We recommend identifying a few VM types that have the power to run the application and fit within budget constraints. It will give your orchestration more options to choose from and find spare compute capacity faster.
+
+You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find the right spot VM SKU for you that will derive in a list of possible SKUs.
 
 **DO YOU RECOMMEND DELETION EVICTION POLICY TO INCREASE FLEXIBILITY?**
 
+
 ### Prepare for immediate eviction
 
-**WE NEED TO PROVIDE REOMMENDATIONS FOR IMMEDIATE EVICTION**
+**HOW DO YOU PREPARE FOR AN IMMEDIATE EVICTION?**
 
-## Plan for multiple simultaneous evictions
+### Continuously monitor for eviction
 
-You should architect the workload to withstand multiple simultaneous evictions. The workload could lose 10% compute capacity, and it will have a significant effect on the throughput of the application.
+Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is knowing in advance when they're going to be evicted. With this information, you can trigging automation for a graceful shutdown and orchestrate a replacement.
 
-## Implement CI/CD
+We recommend monitoring the Scheduled Events for each VM. Each VM has a REST endpoint that provides information about upcoming infrastructure maintenance. These are called Schedule Events, and evictions qualify as a Scheduled Event. You can query the Scheduled Event information via a static, non-routable IP address `169.254.169.254`. Workloads using spot VMs need to query the endpoint frequently enough take action. It is recommended to query the endpoint every second.
 
-**WHAT RECOMMENDATIONS DO YOU HAVE TO SET UP CI/CD?**
-
-### Set up telemetry
-
-Telemetry is the key to workload reliability on Spot VMs. Spot VMs are unreliable. They can be evicted at any time. The only way to have reliability with Spot VMs is knowing when they're going to be evicted.
-
-Each VM in Azure has an endpoint that lets you know when a VM is going to be evicted. The Azure Metadata Service provides a queryable endpoint that indicates an upcoming eviction. The endpoint sends out the `Preempt` signal about 30 seconds before an eviction.
-
-Any interruptible workload running on Spot VMs needs to query these metadata endpoints every 10 seconds or less to provide sufficient time for a graceful interruption. The endpoints are an API queryable from a static, non-routable IP address.
+The `Preempt` signal indicates an scheduled eviction. The automation trigger should listen for this signal and begin the shutdown and subsequent orchestration.
 
 For more information, see:
 
-- [Scheduled events](/azure/virtual-machines/windows/scheduled-events)
+- [Scheduled Events](/azure/virtual-machines/windows/scheduled-events)
+- [Scheduled Event types](/azure/virtual-machines/linux/scheduled-events#event-scheduling)
+- [Endpoint querying frequency](/azure/virtual-machines/linux/scheduled-events#polling-frequency)
 - [Application Insights telemetry](/azure/azure-monitor/app/data-model)
 
-### Ensure a graceful shutdown
 
-An ideal shutdown implements logic to shutdown in under 10 seconds. The shutdown process should release resources, drain connections, and flush event logs. It's good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
+### Plan for multiple simultaneous evictions
 
-### Build indempotent consumers
+You should architect the workload to withstand multiple simultaneous evictions. The workload could lose 10% compute capacity, and it will have a significant effect on the throughput of the application.
+
+**ARCHITECT A SOLUTION WITH PARALLEL PROCESSING? EVENT DRIVEN AUTOSCALE FUNCTIONS? WHERE DOES THE AUTOMATION TRIGGER COME FROM: QUEUE, NET WORKER, OR APPLICATION INSIGHTS?** 
+
+### Design for a graceful shutdown
+
+An ideal shutdown implements logic to shutdown in under 10 seconds. The telemetry should trigger infrastructure automation to recover the compute capacity and resume operations. Azure Monitor alerts tha trigger an Azure Function is one of several ways to automate the orchestration.
+
+The shutdown process should release resources, drain connections, and flush event logs. It's a good practice to save the context by creating checkpoints regularly. Doing so will create a more efficient recovery strategy, which is to recover from the latest well-known checkpoint instead of starting all over on processing.
+
+### Build indempotency
 
 We recommend designing idempotent consumers. Evictions can lead to forced shutdowns despite efforts to ensure graceful shutdowns. Forced shutdowns can terminate processes before completion. Idempotent consumers can receive the same message more than once and the outcome remains the same.
 
@@ -113,11 +127,11 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
 
-- ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The Spot VM package (OS, bins/libs, app) has been removed from a physical compute resource, but the VM package remains in Azure. You cannot move VMs between datacenters/zones. The reallocation of a stopped / deallocated VM has to be in the same region and zone it was in. You can replicate, deploy, and delete to simulate movement.
+- ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The VM, a packaged OS, loses its compute capacity, but the VM package remains in Azure. You cannot move VMs between datacenters/zones. The reallocation of a stopped / deallocated VM has to be in the same region and zone it was in. You can replicate, deploy, and delete to simulate movement.
 
 If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online. **WHAT MECHANISM DO YOU RECOMMEND?**
 
-- ***Deleted VM*** - A deleted Spot VM is removed from Azure. A replacement needs to be *created*, not just reallocated to a compute resource. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility can help your workload find spare compute capacity faster than a stopped / deallocated VM. Stopped / deallocated VMs have to wait for spare compute capacity in the same zone it was created in. You'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
+- ***Deleted VM*** - A deleted Spot VM is removed from Azure. A replacement needs to be *created* and assigned compute capacity, not just reallocated. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility can help your workload find spare compute capacity faster than a stopped / deallocated VM. Stopped / deallocated VMs have to wait for spare compute capacity in the same zone it was created in. You'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
 
 **(2) Conduct health check** - It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
 
