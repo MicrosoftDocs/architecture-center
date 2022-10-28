@@ -1,12 +1,5 @@
 Spot VMs provide access to compute resources at significant discounts and are an attractive solution for cost savings. In this article, you'll learn how to architect interruptible workloads with Azure Spot virtual machines (VMs). The cost-saving potential of Spot VMs creates a range of new possibilities. The goal of this article is to help you harness those possibilities and drive excellence through them. To do that, it's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for interruptible workloads. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and best practices.
 
-1. Understand Spot VMs
-1. Understand interruptible workloads
-1. Understand eviction
-1. Understand Spot VM pricing
-1. Use best practices
-1. Deploy example Scenario
-
 ## Understand Spot VMs
 
 **(1) Regular VMs** - The only different between an pay-as-you-go VM and a Spot VM is its access priority to compute resources. A VM is a package with an operating system, bins/libs, and application(s). It runs on servers in an Azure datacenter. These servers have a hypervisor that creates and manages VMs. The term *compute resources* refers to the capability of the sever and hypervisor to support VMs.
@@ -35,7 +28,7 @@ Spot VMs shouldn’t be the single source of compute capacity for non-interrupti
 
  An eviction is when access to compute resources is revoked. Spot VMs have two configuration options that affect eviction. You set the *eviction type* and *eviction policy* when you create Spot VMs. *Eviction type* determines when eviction occurs. *Eviction policy* determines what eviction does.
 
-Let's address each in more detail.
+Let's address each type in more detail.
 
 **(1) Eviction type** - There are two causes of eviction: capacity changes and price change. The way these affect spot VMs depends on the eviction type chosen when you create the spot VM. Eviction type defines the general conditions of eviction. There are two eviction types: *capacity only* and *price or capacity*.
 
@@ -65,11 +58,6 @@ For more information, see:
 
 ## Recommendations
 
-**We have to build the article around recommendations**
-
-### Initial Deployment
-
-***Any recommendations on deployment?***
 
 ### Set up telemetry
 
@@ -83,6 +71,8 @@ For more information, see:
 
 - [Scheduled events](/azure/virtual-machines/windows/scheduled-events)
 - [Application Insights telemetry](/azure/azure-monitor/app/data-model)
+
+### Prepare for immediate eviction
 
 ### Ensure a graceful shutdown
 
@@ -106,9 +96,9 @@ The eviction policy of the evicted Spot VM affects the replacement process.
 
 ***When using an Azure Spot Instance, what is the best way to have it reallocate when it is evicted?***
 
-- ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The Spot VM package (OS, bins/libs, app) has been removed from a physical compute resources, but the VM package remains in Azure. A stopped / deallocated VM must remain in the region and zone indicated at creation. You cannot move VMs between datacenters/zones. You can replicate, deploy, and delete to simulate movement.
+- ***Stopped / Deallocated VM*** - A stopped / deallocated Spot VM remains accessible in Azure. The Spot VM package (OS, bins/libs, app) has been removed from a physical compute resource, but the VM package remains in Azure. You cannot move VMs between datacenters/zones. The reallocation of a stopped / deallocated VM has to be in the same region and zone it was in. You can replicate, deploy, and delete to simulate movement.
 
-If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online.
+If your workload was designed around **deallocate** then you'll need a mechanism to be made aware of when your compute instance can come back online. **WHAT MECHANISM DO YOU RECOMMEND?**
 
 - ***(2) Deleted VM*** - The workload is *created*.  If your workload was designed around **delete** you'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
 
@@ -139,7 +129,7 @@ The example scenario is for a queue processing application. It uses a producer-c
 
 ## Deploy this scenario
 
-An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM/VMSS instances](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
+An implementation of this guidance is available on [GitHub: Interruptible workloads on Azure Spot VM](https://github.com/mspnp/interruptible-workload-on-spot). You can use that implementation to explore the topics addressed above in this article.
 
 ## Next step
 
