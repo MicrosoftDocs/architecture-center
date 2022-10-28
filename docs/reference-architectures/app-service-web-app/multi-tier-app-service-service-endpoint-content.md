@@ -78,6 +78,14 @@ Some aspects that affect the cost of an implementation are:
 - Whether the solution runs continuously or intermittently.
 - The service tiers chosen.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - Dixit Arora | Senior Customer Engineer
+
 ## Next Steps
 
 - [App Service documentation](/azure/app-service)
