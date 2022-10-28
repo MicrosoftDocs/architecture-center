@@ -1,12 +1,12 @@
-This reference architecture provides guidance for a mission critical workload in a hub-spoke network topology. The workload resources are deployed in a spoke virtual network while the hub network has the networking resources, which are used by this workload and others in the organization. In this topology, there are some options in terms of levels of responsibilities.
+This reference architecture provides guidance for a mission critical workload in a hub-spoke network topology. The spoke primarily has workload resources while the hub has resources that are shared resources, which are used by this workload and others in the organization. In this topology, there are some options in terms of levels of responsibilities.
 
 - **Centralized approach**
 
     The hub-spoke topology is a common approach for organizations to manage a shared platform through centralized teams. Suppose, an organization adopts the use of _landing zones_ for deploying applications. The landing zone provides a pre-provisioned subscription that has the infrastructure needed to run the workload. That infrastructure includes networking, identity access management, policies, and monitoring capabilities. For the networking components, the workload assumes that the virtual private networks (both hub and spoke), Azure Private DNS Zone, ExpressRoute circuit, and other shared services, already exist within the connectivity subscription provided by the landing zone. 
     
-    A key benefit is that the workload doesn't have to manage those resources. Without any extra overhead, the workload can rely on centralized teams, integrate with other workloads (if needed), and use shared services. However, the workload must be designed to operate within the restrictions imposed by the subscription. For example, you might have to implement the regional deployment stamp such that the resources are still ephemeral but the virtual network isn't.
+    A key benefit is that the workload doesn't have to manage those resources. Without any extra overhead, the workload can integrate with other workloads (if needed), and use shared services. However, the workload must be designed to operate within the restrictions imposed by the subscription. For example, you might have to implement the regional deployment stamp such that the resources are still ephemeral but the virtual network isn't.
 
-    In this approach, **the landing zone itself needs to be highly reliable for a mission critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. The workload team must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which  affect the workload, are mitigated at the platform level. 
+    In this approach, **the centrally managed components, such as shared networking services, need to be highly reliable for a mission critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. The workload team must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which  affect the workload, are mitigated at the platform level. 
 
 - **Autonomous approach**
 
@@ -60,7 +60,7 @@ In this architecture, the resources are provisioned in a peered hub and spoke ne
 
 These resources are provisioned as part of a _deployment stamp_ to a single Azure region. They're short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They, however, share [global resources](#global-resources) between each other. 
 
-- **Azure Virtual Network** contains services used by the workload for processing incoming requests. This network isn't short-lived.
+- **Azure Virtual Network** contains services used by the workload for processing incoming requests. This network isn't short-lived. In a centralized approach, this network is pre-provisioned by the platform team as part of landing zone. It has address space and peering in place. It doesn't have subnets. The application team is responsible for deploying the subnets and their settings. 
 
 - **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
 
@@ -95,7 +95,7 @@ How are the subscriptions tied to regions. Does every region run in a separate s
 
 In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned, and the workload resources are placed there. 
 
-For a mission critical workload, multiple environments are recommended. Because all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per enviroment and region are needed to support the blue-green deployment strategy. 
+For a mission critical workload, multiple environments are recommended. If all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per environment and region are needed to support the blue-green deployment strategy. 
 
 The scalability requirements of the workload influence how much address space should be allocated for the virtual network. The network should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
 
