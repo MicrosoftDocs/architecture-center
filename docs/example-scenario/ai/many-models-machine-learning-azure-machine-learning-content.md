@@ -6,6 +6,8 @@
 
 :::image type="content" source="media/many-models-machine-learning-azure.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Azure Machine Learning." lightbox="media/many-models-machine-learning-azure.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure.vsdx) of this architecture.*
+
 ### Workflow
 
 1. **Data ingestion:**
