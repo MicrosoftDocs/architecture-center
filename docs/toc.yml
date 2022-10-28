@@ -5751,6 +5751,14 @@ items:
             href: guide/networking/networking-start-here.md
           - name: Guides
             items:
+              - name: Deploy private 5G networks
+                items: 
+                  - name: Overview
+                    href: industries/telecommunications/deploy-private-mobile-network.md
+                  - name: Build a private 5G network
+                    href: industries/telecommunications/build-private-5g-network.md
+                  - name: Benefits and use cases
+                    href: industries/telecommunications/private-5g-network-benefits.md
               - name: Spoke-to-spoke networking
                 href: networking/spoke-to-spoke-networking.yml
               - name: Network security
