@@ -81,7 +81,7 @@ Several models have been derived from MNL, but it's beyond the scope of this pap
 
 There are libraries for the R and Python programming languages. For R, you might use glm (and derivatives).  For Python, there are [scikit-learn](http://scikit-learn.org/stable), [biogeme](http://biogeme.epfl.ch), and [larch](https://pypi.org/project/larch). These libraries offer tools to specify MNL problems, and parallel solvers to find solutions on a variety of platforms.
 
-Recently, implementation of MNL models on GPUs have been proposed to compute complex models with a number of parameters that would make them intractable otherwise.
+Recently, implementation of MNL models on GPUs has been proposed to compute complex models with a number of parameters that would make them intractable otherwise.
 
 Neural networks with a softmax output layer have been used effectively on large multi-class problems. These networks produce a vector of outputs that represent a probability distribution over a number of different outcomes. They're slow to train compared to other implementations, but they can handle a large number of classes and parameters.
 
