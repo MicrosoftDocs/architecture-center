@@ -59,21 +59,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This architecture handles potentially sensitive data. Make sure that keys are rotated regularly and that the permissions on the Azure storage account and local shares are set correctly.
 
-## Contributors
-
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal author:
-
-- [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
-
-Other contributor:
-
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - [IoT Edge](/azure/iot-edge)
