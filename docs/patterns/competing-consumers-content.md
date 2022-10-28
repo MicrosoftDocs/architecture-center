@@ -20,9 +20,9 @@ This solution has the following benefits:
 
 - It doesn't require complex coordination between the consumers, or between the producer and the consumer instances. The message queue ensures that each message is delivered at least once.
 
-- It's scalable. The system can dynamically increase or decrease the number of instances of the consumer service as the volume of messages fluctuates.
+- It's scalable. When applying [auto-scaling](/azure/architecture/best-practices/auto-scaling) the system can dynamically increase or decrease the number of instances of the consumer service as the volume of messages fluctuates.
 
-- It can improve resiliency if the message queue provides transactional read operations. If a consumer service instance reads and processes the message as part of a transactional operation, and the consumer service instance fails, this pattern can ensure that the message will be returned to the queue to be picked up and handled by another instance of the consumer service.
+- It can improve resiliency if the message queue provides transactional read operations. If a consumer service instance reads and processes the message as part of a transactional operation, and the consumer service instance fails, this pattern can ensure that the message will be returned to the queue to be picked up and handled by another instance of the consumer service. In order to mitigate the risk of a message continuously failing, it is recommended to make use of [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 ## Issues and considerations
 
