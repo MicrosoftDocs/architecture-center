@@ -1812,9 +1812,6 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Glossary of manufacturing terms
-                href: /dynamics-gp/distribution/glossary-manufacturing
-                maintainContext: true
               - name: AI and ML scenarios
                 items:
                   - name: Continuous manufacturing with Bonsai
@@ -2777,12 +2774,14 @@ items:
                     href: solution-ideas/articles/low-latency-network.yml
           - name: Sports
             items:
+              - name: Overview
+                href: industries/sports.md           
               - name: Guides
                 items:
                   - name: Fan Engagement solution
                     href: /dynamics365/industry/accelerators/fan-engagement
                     maintainContext: true
-                  - name: Analyze Olympic sports with vision AI
+                  - name: Analyze sports with vision AI
                     href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
                     maintainContext: true
               - name: Architectures
@@ -3254,8 +3253,6 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Enterprise business intelligence
-                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
               - name: Big data on confidential computing
@@ -3270,8 +3267,12 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Employee retention with Databricks and AKS
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
+              - name: Enterprise business intelligence
+                href: example-scenario/analytics/enterprise-bi-synapse.yml
               - name: Geospatial analysis for telecommunications
                 href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
               - name: Geospatial analysis with Azure Synapse
@@ -3453,7 +3454,11 @@ items:
                       - name: Ansys CFX
                         href: guide/hpc/ansys-cfx.yml
                       - name: Ansys Fluent
-                        href: guide/hpc/ansys-fluent.yml  
+                        href: guide/hpc/ansys-fluent.yml 
+                      - name: Ansys LS-DYNA
+                        href: guide/hpc/ls-dyna.yml
+                      - name: Ansys Rocky
+                        href: guide/hpc/ansys-rocky.yml 
                   - name: Autodesk deployments
                     items:
                       - name: Autodesk Civil 3D
@@ -3472,10 +3477,14 @@ items:
                     href: guide/hpc/luxion-keyshot.yml
                   - name: OpenFOAM
                     href: guide/hpc/openfoam.yml
+                  - name: Remcom XFdtd
+                    href: guide/hpc/remcom-xfdtd.yml
                   - name: Samadii deployments
                     items:
                       - name: Samadii DEM
                         href: guide/hpc/samadii-dem.yml
+                      - name: Samadii EM
+                        href: guide/hpc/samadii-em.yml 
                       - name: Samadii Plasma
                         href: guide/hpc/plasma.yml
                       - name: Samadii SCIV
@@ -3486,6 +3495,8 @@ items:
                         href: guide/hpc/siemens-nx.yml
                       - name: Siemens Tecnomatix
                         href: guide/hpc/siemens-tecnomatix.yml
+                  - name: Visiopharm
+                    href: guide/hpc/visiopharm.yml    
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -3702,6 +3713,8 @@ items:
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
+              - name: Blue-green deployment of AKS clusters
+                href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
               - name: Build a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
               - name: Build CNCF projects by using AKS
@@ -4230,6 +4243,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Helm-based deployments
@@ -4726,6 +4741,12 @@ items:
                   href: hybrid/azure-arc-sql-server.yml
                 - name: Run containers in a hybrid environment
                   href: hybrid/hybrid-containers.yml
+              - name: AKS on Azure Stack HCI (AKS hybrid)
+                items:
+                - name: AKS on Azure Stack HCI baseline architecture
+                  href: example-scenario/hybrid/aks-baseline.yml
+                - name: AKS on Azure Stack HCI network architecture
+                  href: example-scenario/hybrid/aks-network.yml
               - name: Azure Automation solutions
                 items:
                   - name: Azure Automation hybrid environment
@@ -4795,6 +4816,8 @@ items:
                 href: hybrid/hybrid-server-os-mgmt.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Out-of-stock detection at the edge
+                href: example-scenario/hybrid/stock-detection-edge.yml
               - name: Public MEC compute deployment
                 href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
               - name: Public MEC high availability 
@@ -5007,6 +5030,8 @@ items:
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
+              - name: Disaster recovery for data analytics pipelines
+                href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
@@ -5227,6 +5252,8 @@ items:
                     href:  example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
                   - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
+                  - name: Refactor mainframe with CloudFrame Renovate
+                    href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml  
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Refactor IBM z/TPF mainframe

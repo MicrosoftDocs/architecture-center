@@ -165,6 +165,16 @@ The following considerations apply to this solution.
 
 -   Native support for SQL and CICS. The source code debugged is the same as the source being maintained, rather than the output of a pre-processor.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For more information, please contact <legacy2azure@microsoft.com> or check out the following resources:

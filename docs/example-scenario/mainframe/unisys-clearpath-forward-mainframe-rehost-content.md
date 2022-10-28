@@ -90,6 +90,8 @@ Principal authors:
 
  - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior TPM
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For more information, please contact **legacy2azure@microsoft.com**, or check out the following resources:

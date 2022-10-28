@@ -276,6 +276,10 @@ Location: /api/orders/12345
 
 For more information on how to implement this approach, see [Providing asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
 
+### Empty sets in message bodies
+
+Any time the body of a successful response is empty, the status code should be 204 (No Content). For empty sets, such as a response to a filtered request with no items, the status code should still be 204 (No Content), not 200 (OK).
+
 ## Filter and paginate data
 
 Exposing a collection of resources through a single URI can lead to applications fetching large amounts of data when only a subset of the information is required. For example, suppose a client application needs to find all orders with a cost over a specific value. It might retrieve all orders from the */orders* URI and then filter these orders on the client side. Clearly this process is highly inefficient. It wastes network bandwidth and processing power on the server hosting the web API.

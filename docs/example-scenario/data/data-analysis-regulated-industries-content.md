@@ -21,15 +21,14 @@ Implementation of this solution requires these skills:
 - An understanding of how to configure, monitor, and operate solutions in the Azure cloud. This includes governance models, security, policies, landing zones, and automation.
 - An understanding of how to configure and monitor cloud networking, private links, DNS, routing, access control lists, firewalls, and VPN integrations.
 - An understanding of how to monitor cloud security and security incidents and constantly evaluate security threads.
-- An understanding of Azure data tools like Data Factory, Azure Databricks, Azure Data Lake Storage, and Azure SQL Database. 
+- An understanding of Azure data tools like Data Factory, Azure Databricks, Azure Data Lake Storage, and Azure SQL Database.
 - The ability to integrate data components (ETL/ELT), create semantic models, and use different data formats, like Parquet, Avro, and CSV.
 - For end users, familiarity with using Power BI for self-service reporting.
 
 ### Dataflow
 
 - Infrastructure and governance model:
-  - The cloud ops team provisions, in a repeatable and consistent way, the data analysis environment. The team uses existing optimized security
-  settings for regulated industries and an automated, parametrized process. Scripts that have optional modifications for enterprise-specific standards and policies are available for this task. After deploying the environment, the team starts to see security compliance reports and billing information for the environment.
+  - The cloud ops team provisions, in a repeatable and consistent way, the data analysis environment. The team uses existing optimized security settings for regulated industries and an automated, parametrized process. Scripts that have optional modifications for enterprise-specific standards and policies are available for this task. After deploying the environment, the team starts to see security compliance reports and billing information for the environment.
   - The network team typically integrates the environment with the enterprise network, ideally following the hub-and-spoke model with an enterprise firewall. This team also enables private links for endpoints and starts network traffic monitoring. We strongly recommend that you integrate Power BI with the virtual network, to use private traffic.
   - The cloud security team reviews the infrastructure through built-in or enterprise-specific Azure policies. This team reviews the security score of the environment in Azure Advisor or Azure Security Center. The security team also owns and maintains credentials to specific data source systems that are stored in Azure Key Vault, along with any encryption keys. Finally, the security team can start to monitor audit information that's stored in the central Log Analytics workspace.
 - Usage and data analysis capabilities:
@@ -50,7 +49,7 @@ Implementation of this solution requires these skills:
 
 ### Alternatives
 
-The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some organizations can have longer adoption time for some services (such as Azure Synapse), for various reasons. For example, most organizations in a regulated industry require their security teams to create an _allow_ list of services, before they can be used. This process requires a deep technical, security-centric review of the service, which can often take months to complete. As a result, services can be unavailable for use while they wait. In those cases, you might want to implement this pattern, rather than manually deploying a custom data-analytics stack.
+The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some organizations can have longer adoption time for some services (such as Azure Synapse), for various reasons. For example, most organizations in a regulated industry require their security teams to create an *allowlist* of services, before they can be used. This process requires a deep technical, security-centric review of the service, which can often take months to complete. As a result, services can be unavailable for use while they wait. In those cases, you might want to implement this pattern, rather than manually deploying a custom data-analytics stack.
 
 See [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) for an alternative solution to this pattern.
 
@@ -91,10 +90,10 @@ Some of the key benefits of this pattern are:
 
 This architecture can benefit organizations that require a solution that has these qualities:
 
-- A platform as a service (PaaS) solution for data and AI workloads 
+- A platform as a service (PaaS) solution for data and AI workloads.
 - Visualization (ETL/ELT and Power BI)
-- Integration with a network perimeter 
-- A focus on high security, highly protected data, auditing, and monitoring
+- Integration with a network perimeter.
+- A focus on high security, highly protected data, auditing, and monitoring.
 
 Here are some example industries:
 
@@ -115,15 +114,15 @@ The following diagram shows a component-based view, along with a sample integrat
 
 Business users need to present, consume, and slice and dice data quickly, from multiple places and on multiple devices. Ideally on a data model that's optimized (transformed) for the data domain that the data is aligned to.
 
-To achieve this goal, you typically need a scalable, heterogeneous data ingestion process to ingest data from multiple data sources in raw format, usually from an on-premises source. This data needs to be stored cost effectively, frequently with multiple versions and historical snapshots. Next, the data needs to be cleaned, combined, pre-aggregated, and stored for downstream consumption. The final version of the data is typically stored in a serving layer with indexing capabilities for speed of access. You can also use non-indexed storage. Finally, data security mechanisms like masking and encryption are applied to data that shouldn't be seen by users from other geographic regions or departments. Specifically, the security team needs to understand who can view or consume data in various ways and ensure that data is filtered for users based on roles. We strongly recommend that you do this by using automated security mechanisms like role-based access control (RBAC) and Row-Level Security rather than by manually filtering data. 
+To achieve this goal, you typically need a scalable, heterogeneous data ingestion process to ingest data from multiple data sources in raw format, usually from an on-premises source. This data needs to be stored cost effectively, frequently with multiple versions and historical snapshots. Next, the data needs to be cleaned, combined, pre-aggregated, and stored for downstream consumption. The final version of the data is typically stored in a serving layer with indexing capabilities for speed of access. You can also use non-indexed storage. Finally, data security mechanisms like masking and encryption are applied to data that shouldn't be seen by users from other geographic regions or departments. Specifically, the security team needs to understand who can view or consume data in various ways and ensure that data is filtered for users based on roles. We strongly recommend that you do this by using automated security mechanisms like role-based access control (RBAC) and Row-Level Security rather than by manually filtering data.
 
-These concepts are described more thoroughly in the following sections.  
+These concepts are described more thoroughly in the following sections.
 
-_**Business users need to present, consume, and slice and dice data quickly, from multiple places and on multiple devices**._
+**Business users need to present, consume, and slice and dice data quickly, from multiple places and on multiple devices.**
 
 You can achieve this goal by using the Power BI reporting tool. Power BI is easy to use, and you can use it from anywhere and on multiple platforms and devices.
 
-Power BI runs in the cloud as a managed service. You can integrate the service with your perimeter for access from devices. It can also access data sources that are part of the perimeter (on-premises or in the cloud via private link). 
+Power BI runs in the cloud as a managed service. You can integrate the service with your perimeter for access from devices. It can also access data sources that are part of the perimeter (on-premises or in the cloud via private link).
 
 > [!NOTE]
 >
@@ -133,9 +132,9 @@ Power BI also supports integration with Azure Active Directory (cloud identity) 
 
 For example, assume users on mobile devices outside the perimeter need to run predefined, optimized reports that access and render sensitive data from data sources hosted inside the perimeter. In this implementation, users first establish VPN connectivity, if necessary. They're then prompted to authenticate to the Power BI service. After they're verified via multi-factor authentication, the Power BI rendering engine passes the user's identity to the target database that's hosted inside the perimeter. The database can then verify the accessing user. It also has information about the user's role / security group, so it can apply query and data filtering as required by the security policy of that user.
 
-_**Need to get high volumes of data in a scalable way from multiple data sources in raw format (typically from on-premises). Need to store it, together with multiple versions and history, in a scalable way, in inexpensive storage**._
+**Need to get high volumes of data in a scalable way from multiple data sources in raw format (typically from on-premises). Need to store it, together with multiple versions and history, in a scalable way, in inexpensive storage.**
 
-Ideally, Power BI needs to consume optimized data models for a specific data domain to improve the user experience, reduce waiting time, and improve data model maintenance. To produce these models, users typically need to run a process that ingests data from multiple data sources in raw format and store that data for further processing. Although there are many ways to do this processing, this approach uses Data Factory. 
+Ideally, Power BI needs to consume optimized data models for a specific data domain to improve the user experience, reduce waiting time, and improve data model maintenance. To produce these models, users typically need to run a process that ingests data from multiple data sources in raw format and store that data for further processing. Although there are many ways to do this processing, this approach uses Data Factory.
 
 Data Factory is a managed PaaS service that allows users to connect to many data sources by using more than 90 (and the number is growing) supported connectors in multiple file formats. The main interface for Data Factory is the workspace. In the workspace, you can design and run the ETL process at scale by using a drag-and-drop interface. The workspace can be accessed from anywhere the access policy, specified by security administrators, allows. Finally, Data Factory provides access to data sources outside of Azure (for example, on-premises) without crossing the enterprise firewall. It provides this access by using the self-hosted integration runtime. This component is installed on a physical or virtual machine in the on-premises environment. It's deployed in a location that's allowed to send outgoing communication to Azure. After you install this component, Data Factory can use the self-hosted integration runtime to ingest data from valid data sources inside your organization and process it in Azure.
 
@@ -143,7 +142,7 @@ Azure Data Lake Storage is a cost-effective, cloud-native storage service that s
 
 In this pattern, cloud storage (Data Lake Storage) isn't typically accessed directly by Power BI. (Direct access is technically possible and supported.) Instead, storage is both long-term storage and a short-term staging area for data transformation tools like Spark. Power BI usually accesses the transformed data that's created from these tools by using a service better suited to serving and indexing large amounts of data, like Azure dedicated SQL pool.
 
-_**Store data in a structured way, with indexing to improve access speed. The data model is optimized (transformed) for the data domain that the data is aligned to.**_
+**Store data in a structured way, with indexing to improve access speed. The data model is optimized (transformed) for the data domain that the data is aligned to.**
 
 After the data, along with any snapshots, is available in cost-effective object storage (like Data Lake Storage), you need to transform it to the desired form. Typically, all raw data is stored, as opposed to only the final version and form of the data. This approach differs from earlier approaches to ETL/ELT. It allows existing data models to be updated quickly as requirements change, without requiring a reload from the initial source system.
 
@@ -163,7 +162,7 @@ Users can access Data Factory and the Azure Databricks workspace (but not the da
 
  SQL Database plays a key role in this solution as a data source consumed by Power BI clients. The model is optimized for the business domain, for Power BI reports, with the correct business terminology and attributes. Security trimming is done at the database-engine level with native capabilities. In addition, Power BI is configured to consume data over private endpoints from SQL Database, point-to-point, and to ingest data from the Azure Databricks / Data Factory self-hosted integration runtime to improve security.
 
-_**Mask data and secure or hide data that shouldn't be seen by users from other geographic regions or departments.**_
+**Mask data and secure or hide data that shouldn't be seen by users from other geographic regions or departments.**
 
 Data stored in the business domain database (the SQL database) probably contains sensitive data. It's important to allow users to access only a subset of data based on the user's role. And data typically crosses regions from different units in different geographic locations.
 
@@ -270,8 +269,8 @@ You can automatically deploy the Data Analytical Workspace by using the provided
 
 Principal authors:
 
-* [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Principal Cloud Solution Architect
-* [DJ Dean](https://www.linkedin.com/in/deandaniel)  | Principal Cloud Solution Architect
+- [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Principal Cloud Solution Architect
+- [DJ Dean](https://www.linkedin.com/in/deandaniel)  | Principal Cloud Solution Architect
 
 ## Next steps
 

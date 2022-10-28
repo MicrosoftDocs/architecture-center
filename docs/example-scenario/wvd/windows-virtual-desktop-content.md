@@ -103,7 +103,7 @@ The relationships between host pools, workspaces, and other key logical componen
 
 *The numbers in the following descriptions correspond to those in the preceding diagram.*
 
-- *(1)* An application group that contains a published desktop can't contain any other published resources and is called a desktop application group.
+- *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages will be available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
 - *(2)* Application groups assigned to the same host pool must be members of the same workspace.
 - *(3)* A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group, but then it can't service any.
 - *(4)* It's possible to have an empty workspace, but it can't service users.
@@ -191,6 +191,10 @@ Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-w
 Principal author:
 
  * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
+
+ Other contributor:
+
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
 
 ## Next steps
 

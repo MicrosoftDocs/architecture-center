@@ -165,6 +165,8 @@ Principal authors:
 
  - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b/) | Senior Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Building microservices on Azure](../../microservices/index.yml)
