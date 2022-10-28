@@ -54,6 +54,10 @@ With text-based encoding, the message payload is in plain text and therefore can
 
 The downside is that the payload tends to be larger. A common text-based format is JSON.
 
+### Encryption
+
+If there is sensitive data in the messages, consider whether those messages should be encrypted in their entirety or whether only certain fields need to be encrypted. One library that makes it easier to define these semantics independent of the rest of the message encoding is [NServiceBus](https://docs.particular.net/samples/encryption/basic-encryption/).
+
 ### Encoding size
 
 Message size impacts network I/O performance across the wire. Binary formats are more compact than text-based formats. Binary formats require serialization/deserialization libraries.  The payload can't be read unless it's decoded.
