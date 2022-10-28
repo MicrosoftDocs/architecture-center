@@ -197,11 +197,11 @@ Focus on the entire stack by securing the host and containers.
 
 ## Next steps
 
-- [AKS overview](/azure/aks/hybrid/overview)
+- [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
 
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview.md
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
-  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/
+  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/
