@@ -231,6 +231,16 @@ link
 
 ![End-to-End Latency for an Event](images/observability-end-to-end-latency-for-an-event.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To learn more, consider reviewing these related articles:

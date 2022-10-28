@@ -114,6 +114,16 @@ There are several noteworthy approaches that you can use to compensate for issue
 
 In the end, there isn't a perfect solution and the consequences and tradeoffs of each of the strategies needs to be thoroughly examined. Based on the requirements, using several of these techniques together may be the best approach.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Before continuing, consider reviewing these related articles:
