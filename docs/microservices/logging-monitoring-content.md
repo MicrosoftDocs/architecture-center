@@ -29,11 +29,14 @@ In any complex application, at some point something will go wrong. In a microser
 
 Use [Azure Monitor][azure-monitor] to monitor the overall health of your clusters. The following screenshot shows a cluster with critical errors in user-deployed pods.
 
-![Screenshot of Azure Monitor dashboard](./images/monitoring/pod-status.png)
+![Screenshot of the Azure Monitor dashboard](./images/monitoring/pod-status.png)
 
 From here, you can drill in further to find the issue. For example, if the pod status is `ImagePullBackoff`, it means that Kubernetes couldn't pull the container image from the registry. This issue could be caused by an invalid container tag or an authentication error that tries to pull from the registry.
 
 A container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this issue won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
+
+There are multiple container-specific workbooks available in the workbooks pane of an AKS resource. These workbooks can be used for a quick overview, troubleshooting, management, and insights. The following screenshot shows a list of workbooks that are available by default for AKS workloads.
+![Screenshot of the Workbooks for AKS resource.](./images/monitoring/aks-workbooks.png)
 
 ## Metrics
 
@@ -155,10 +158,9 @@ traces
 
 Viewing the result in the Azure portal shows that `DeliveryInfo` is a structured record that contains the serialized representation of the `DeliveryInfo` model:
 
-![Screenshot of Log Analytics workspace](./images/monitoring/structured-logs.png)
+![Screenshot of the Log Analytics workspace](./images/monitoring/structured-logs.png)
 
 Here's the JSON from this example:
-
 ```json
 {
   "Id": "36585f2d-c1fa-4a3d-9e06-a7f40b7d04ef",
@@ -237,7 +239,7 @@ The following screenshot shows the [application map](/azure/azure-monitor/app/ap
 
 The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving&mdash;the arrows just show that both services are calling Service Bus&mdash;but this information is available in the details:
 
-![Screenshot of Application map details.](./images/monitoring/application-map-sb-ops.png)
+![Screenshot of the Application map details.](./images/monitoring/application-map-sb-ops.png)
 
 Because every call includes an operation ID, you can also view the end-to-end steps in a single transaction, including timing information and the HTTP calls at each step. Here's the visualization of one such transaction:
 
