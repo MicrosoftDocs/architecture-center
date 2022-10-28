@@ -1987,6 +1987,14 @@ items:
             href: industries/telecommunications.md
           - name: Guides
             items:
+              - name: Deploy private 5G networks
+                items: 
+                  - name: Overview
+                    href: industries/telecommunications/deploy-private-mobile-network.md
+                  - name: Build a private 5G network
+                    href: industries/telecommunications/build-private-5g-network.md
+                  - name: Benefits and use cases
+                    href: industries/telecommunications/private-5g-network-benefits.md
               - name: Field and cloud edge gateways
                 href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways
               - name: Edge Workload Configuration pattern
