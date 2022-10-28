@@ -1,4 +1,4 @@
-This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on Azure Stack HCI and Windows Server clusters.
+This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS hybrid clusters.
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
 
@@ -14,7 +14,7 @@ The scenario consists of the following components and capabilities:
 
 - [Azure Stack HCI (20H2)][] is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. Azure Stack HCI cluster is implemented as a 2-4 node cluster.
 - Windows Server 2019/2022 datacenter failover cluster is a group of independent computers that work together to increase the availability and scalability of clustered roles.
-- [Azure Kubernetes Service on Azure Stack HCI][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
+- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][] is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale.
 - [Active Directory Domain Services][] is a hierarchical structure that stores information about objects on the network. It provides identity and access solution for identities associated with users, computers, applications, or other resources that are included in a security boundary.
 - [Management cluster][] also known as AKS host is responsible for deploying and managing multiple workload clusters. The management cluster consumes 1 IP address from the node pool, but you should reserve another 2 IPs for update operations. The management cluster also consumes one IP from the VIP pool.
 - [Workload Cluster][] is a highly available deployment of Kubernetes using Linux VMs for running Kubernetes control plane components and Linux and/or Windows worker nodes.
@@ -324,13 +324,13 @@ considerations are framed in the context of these tenets.
 
 ## Next steps
 
-- [AKS overview](/azure-stack/aks-hci/overview)
+- [AKS overview](/azure/aks/hybrid/overview)
 
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
-  [Azure Kubernetes Service on Azure Stack HCI]: /azure-stack/aks-hci/overview
+  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/overview
   [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
-  [Management cluster]: /azure-stack/aks-hci/kubernetes-concepts#the-management-cluster
-  [Workload Cluster]: /azure-stack/aks-hci/kubernetes-concepts#the-workload-cluster
+  [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
+  [Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster
   [Azure Arc]: /azure/azure-arc/overview
   [Azure Policy]: /azure/governance/policy/overview
   [Azure Monitor]: /azure/azure-monitor/overview
@@ -344,7 +344,7 @@ considerations are framed in the context of these tenets.
   [Azure role-based access control (RBAC)]: /azure/role-based-access-control/
   [3]: https://azure.microsoft.com/services/monitor/
   [4]: https://azure.microsoft.com/services/defender-for-cloud/
-  [ingress controller]: /azure-stack/aks-hci/create-ingress-controller
+  [ingress controller]: /azure/aks/hybrid/create-ingress-controller
   [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
   [Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082
   [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
