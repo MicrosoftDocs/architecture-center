@@ -159,6 +159,16 @@ The use of rings as part of a deployment model isn't just for initial deployment
 With a finished deployment, you should also design and implement the monitoring controls that were discussed in the [Conditional Access principles](/azure/architecture/guide/security/conditional-access-design#principles-of-conditional-access).
 
 In addition to automating the initial deployment, you might want to automate changes to policies by using CI/CD pipelines. You could use Microsoft365DSC for this automation.
+  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
