@@ -22,14 +22,14 @@ This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device 
 - **Azure:**  
    - [IoT Hub](https://azure.microsoft.com/products/iot-hub) handles device provisioning and messaging for the edge devices. 
    - [Time Series Insights](https://azure.microsoft.com/products/time-series-insights) stores the messages from IoT Hub for visualization. 
-   - [Power BI](https://powerbi.microsoft.com) provides business-focused reports about out-of-stock events. Power BI provides an easy-to-use dashboard interface for viewing the output from [Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics).
+   - [Power BI](https://powerbi.microsoft.com) displays business-focused reports about out-of-stock events. Power BI provides an easy-to-use dashboard interface for viewing the output from [Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics).
 - **Azure Stack Edge or IoT Edge device:**
    - [IoT Edge](https://azure.microsoft.com/products/iot-edge) orchestrates the runtime for the on-premises containers and handles device management and updates.
    - On an [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) device, [Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave) uses field-programmable gate arrays (FPGAs) to accelerate machine learning inferencing.
 
 ## Scenario details 
 
-The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. The design saves bandwidth and storage space and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where restocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Time Series Insights environment to present insights in Power BI.
+The solution example uses an edge device, like an Azure Stack Edge device, in the store. The device efficiently processes data from cameras in the store. The optimized design lets stores send only relevant events and images to the cloud. This design saves bandwidth and storage space and helps to ensure customer privacy. As frames are read from each camera, a machine learning model processes the images and returns images that represent areas where restocking is needed. The images and out-of-stock areas are displayed on a local web app. You can send this data to a Time Series Insights environment to present insights in Power BI.
 
 ### Potential use cases
 
