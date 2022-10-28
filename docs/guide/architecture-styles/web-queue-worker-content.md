@@ -54,17 +54,17 @@ This section describes a recommended Web-Queue-Worker architecture that uses Azu
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
 
-- The front end is implemented as an Azure App Service web app, and the worker is implemented as an Azure Functions app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
+- The front end is implemented as an [Azure App Service](/azure/app-service/overview) web app, and the worker is implemented as an [Azure Functions](/azure/azure-functions/functions-overview) app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
 
-- You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
+- You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. (The diagram shows an Azure Storage queue.)
 
-- Azure Cache for Redis stores session state and other data that needs low latency access.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) stores session state and other data that needs low latency access.
 
-- Azure CDN is used to cache static content such as images, CSS, or HTML.
+- [Azure CDN](/azure/cdn/cdn-overview) is used to cache static content such as images, CSS, or HTML.
 
-- For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
+- For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-For more information, see [App Service web application reference architecture][scalable-web-app].
+For more information, see the [App Service web application reference architecture][scalable-web-app] and how to [build message-driven business applications with NServiceBus and Azure Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
 
 ### Other considerations
 
