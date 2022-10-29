@@ -231,7 +231,6 @@ This approach can also be used to:
 - Share datasets within the organization or with trusted external partners.
 - Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, and so on.
 
-
 ## Recommendations
 
 ### Discover and govern
