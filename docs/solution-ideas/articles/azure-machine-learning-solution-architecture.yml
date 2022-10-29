@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Machine Learning architecture
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
   author: EdPrice-MSFT
   ms.author: architectures
