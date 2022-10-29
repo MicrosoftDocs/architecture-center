@@ -45,13 +45,24 @@ The architecture consists of the following services and components.
 
 Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
 
+### Components
+
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs)
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/#overview)
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
+- [Azure Analysis Services](https://azure.microsoft.com/products/analysis-services)
+- [Power BI](https://powerbi.microsoft.com)
+- [Azure Active Directory](https://azure.microsoft.com/products/active-directory)
+
+## Scenario details
+
 ### Data pipeline
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into Azure Synapse.
 
 This reference architecture defines a parent pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
-![Screenshot of the pipeline in Azure Data Factory](./images/adf-pipeline.png)
+![Screenshot of the pipeline in Azure Data Factory.](./images/adf-pipeline.png)
 
 ## Recommendations
 
@@ -267,6 +278,14 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 - An Azure Synapse instance.
 - An Azure Analysis Services instance.
 - Azure Data Factory and the Data Factory pipeline for the ELT job.
+
+## Next steps
+
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [Azure Data Factory tutorials](/azure/data-factory/data-factory-tutorials)
 
 ## Related resources
 
