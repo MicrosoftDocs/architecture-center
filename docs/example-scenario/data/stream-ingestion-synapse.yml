@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: High throughput stream ingestion to Azure Synapse
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Use Azure Stream Analytics to ingest data to an Azure Synapse dedicated SQL pool in high throughput scenarios.
   author: ra1han
   ms.author: raihanalam
