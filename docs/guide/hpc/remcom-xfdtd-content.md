@@ -6,7 +6,7 @@ XFdtd includes a schematic editor that's designed for antenna engineers who need
 
 The software enables in-depth analysis of a device's stand-alone performance, with 5G-device design features that support high-frequency array antennas and complex devices that operate at millimeter wave frequencies.
 
-XFdtd is used for antenna design and analysis, antenna modeling, 5G array analysis, biomedical effects, microwave devices and waveguides, radar/scattering, military defense, and automotive radar.
+XFdtd is used for antenna design and analysis, antenna modeling, 5G array analysis, biomedical effects, microwave devices and waveguides, radar/scattering, military defense, and automotive radar. It's ideal for the telecommunications, healthcare, manufacturing, and automotive industries.
 
 ## Why deploy Remcom XFdtd on Azure?
 
