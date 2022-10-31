@@ -1,7 +1,3 @@
-Organizations occasionally find the need to keep two or more Power Platform instances in sync, more specifically, usually a subset of Dataverse entities. This can happen when an organization has intentionally added new instances for geographic isolation but needs a common data set across all geos. Or it can happen when two organizations merge before Power Platform consolidation is complete.
-
-When the syncing process works as designed, line of business applications that consume from both instances do not have issues. However, syncing mechanisms are never error proof, outages or unexpected issues will likely arise. In that case, your line of business application that consumes data from both instances must be built to handle incomplete data.
-
 This article outlines a scenario in which a hypothetical US-based customer, Contoso, has recently acquired another company based in Europe and is in the process of integrating business systems between the two companies.  As part of this integration, the two CRM/ERP systems must keep their Dynamics 365 Dataverse entities in sync until they can be fully integrated.  A Conotso propietary line-of-business (LOB) app consumes data from both systems and must be able to accept requests when the data is awaiting sychronization or when it is missing. The following design shows how an upsert can be used to build eventual consistency between Power Platform instances.
 
 ## Potential use cases
@@ -14,7 +10,7 @@ This pattern can be useful in the following situations:
 
 ## Scenario details
 
-In order for Contoso's new European subsidiary to be integrated into Conotos's business structure,they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform synchronizes data via a Logic App to the European instance. It then sends a payload with unique identifiers or alternate keys to the European instance. A propietary Contoso LOB app reads user data from the US instance and then sends a payload with unique identifiers or alternate keys to the Europe instance. When the Europe instance does not have the data due to downtime, maintenance or another communications issue, the user receives a bad request because the entity with that record does not exist.
+In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform sends reference data via a Logic App to the European instance. A proprietary Contoso LOB app reads user data from the US instance and then sends a payload with unique identifiers or alternate keys to the Europe instance. If the Europe instance does not have the data due to downtime, maintenance, or another communications issue, the user receives a bad request because the entity with that record does not exist.
 
 The following examples show the potential journeys for a record submission.
 
