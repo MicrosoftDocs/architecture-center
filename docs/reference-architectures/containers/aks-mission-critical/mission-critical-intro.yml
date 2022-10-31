@@ -25,6 +25,6 @@ products:
   - azure-container-registry
   - azure-kubernetes-service
   - azure-rbac
-thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-thumb.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-intro-thumb.png
 content: |
    [!include[](mission-critical-intro-content.md)]

@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI
+  title: Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI (AKS hybrid)
   titleSuffix: Azure Example Scenarios
-  description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
+  description: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI (AKS hybrid).
   author: sethmanheim
   ms.author: sethm
   ms.date: 10/17/2022
@@ -16,7 +16,7 @@ products:
   - azure-stack
   - windows-server
 name: Baseline architecture for AKS on Azure Stack HCI
-summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
+summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI (AKS hybrid).
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-journey.svg
 content: |
   [!include[](aks-baseline-content.md)]
