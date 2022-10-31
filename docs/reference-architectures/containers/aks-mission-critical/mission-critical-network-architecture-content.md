@@ -34,6 +34,8 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 :::image type="content" source="./images/mission-critical-architecture-network.svg" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-architecture-network-highres.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-network-architecture.vsdx) of this architecture.*
+
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
