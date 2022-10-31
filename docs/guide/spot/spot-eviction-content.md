@@ -149,16 +149,14 @@ The bicep template deploys an Ubuntu image (22_04-lts-gen2) on a Standard_D2s_v3
 
 ![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
 
-1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata.
-1. **Application version:** The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM.
-1. **Storage account:**  The storage account holds the source application package `worker-0.1.0.tar.gz`. The tar.gz file contains the `orchestrate.sh` file.
-1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version.
-1. **Source application package:** The application version links to the source application package in the storage account. It downloads `worker-0.1.0.tar.gz` to the VM after deployment and installs the .NET worker application.
+1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
+1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two . One i the `orchestrate.sh` powershell script that installs the .NET worker application.
+1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version. It downloads `worker-0.1.0.tar.gz` to the VM after deployment.
+1. **Storage Queue:** The other service running in the .NET worker contains message queue logic. Azure AD grants the spot VM access to the storage queue with a user assigned identity using RBAC.
 1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services.
 1. **Query metadata endpoint:** An API request is sent to a static non-routable IP address 169.254.169.254​ in the VM. The API request queries the metadata endpoint for the VM from the Metadata Service endpoint.
 1. **Application Insights:** The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
-1. **Storage Queue:** The other service running in the .NET worker contains message queue logic.
-1. **Azure AD:** Grants access the spot VM access to the storage queue with a user assigned identity using RBAC.
+
 
 **WHERE SHOULD 9 AND 10 GO? I THOUGHT YOU SAID THIS WAS A MQ APP? I'M NOT SURE HOW THE QUEUE FACTORS IN. I WOULD ASSUME IT HOLDS SOME STATEFUL INFORMATION FOR IDEMPOTENCY BUT WE HAVEN'T REALLY GO INTO THAT YET**
 
