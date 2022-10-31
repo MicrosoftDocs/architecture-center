@@ -36,6 +36,7 @@ From here, you can drill in further to find the issue. For example, if the pod s
 A container crashing will put the container state into `State` = `Waiting`,with `Reason` = `CrashLoopBackOff`. For a typical scenario where a pod is part of a replica set and the retry policy is `Always`, this issue won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
 
 There are multiple container-specific workbooks available in the workbooks pane of an AKS resource. These workbooks can be used for a quick overview, troubleshooting, management, and insights. The following screenshot shows a list of workbooks that are available by default for AKS workloads.
+
 ![Screenshot of the Workbooks for AKS resource.](./images/monitoring/aks-workbooks.png)
 
 ## Metrics
