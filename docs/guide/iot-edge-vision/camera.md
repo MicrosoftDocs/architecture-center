@@ -147,6 +147,16 @@ In planning a computer vision workload, it's important to understand how the cam
   - Application layer
 
   [CSI-2 v3.0](https://resources.mipi.org/blog/mipi-csi-2s-newest-frontier-machine-awareness) added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
+  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
