@@ -6,9 +6,9 @@ This reference architecture demonstrates how Azure Arc extends Kubernetes cluste
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
-### Components
+### Workflow
 
-The architecture consists of the following components:
+The architecture consists of the following aspects:
 
 - **[Azure Arc-enabled Kubernetes][Azure Arc-enabled Kubernetes]**. Attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, it is assigned an Azure Resource Manager ID and a managed identity.
 - **[Azure Kubernetes Service][Azure Kubernetes Service]**. Host Kubernetes clusters in Azure, reducing the complexity and operational overhead of Kubernetes cluster management.
