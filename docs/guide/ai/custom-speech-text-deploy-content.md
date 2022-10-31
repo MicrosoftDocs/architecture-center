@@ -5,7 +5,7 @@ This article is an implementation guide and example scenario that provides a sam
 
 ## Architecture
 
-:::image type="content" source="media/custom-speech-text.png" alt-text="Image alt text.":::
+:::image type="content" source="media/custom-speech-text.png" alt-text="Diagram that shows an architecture for implementing custom speech-to-text.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/custom-speech-text.vsdx) of this architecture.*
 
@@ -14,13 +14,21 @@ This article is an implementation guide and example scenario that provides a sam
 1. Collect existing transcripts to use to train a custom speech model.
 1. If the transcripts are in WebVTT or SRT format, clean the files so that they include only the text portions of the transcripts. 
 1. To normalize the text, remove any punctuation, separate repeating words, and spell out any large numerical values. You can then combine these cleaned sentences in one file. 
-1. After you create the training and test data, you can upload it to Speech Studio. Alternatively, you can use the data's publicly accessible URLs with Azure Speech API and the Speech CLI to create a dataset.
+1. After you create the training and test data, you can upload it to Speech Studio. Alternatively, you can use the data's publicly accessible URLs with Azure Speech-to-text API and the Speech CLI to create a dataset.
 1. In Speech Studio or via the API or CLI, use the new dataset to train a custom speech model. 
 1. Evaluate the newly trained model against the test dataset that you created.
 1. If the new model performs appropriately, publish it for use in speech transcription. Otherwise, use Speech Studio to review the word error rate (WER) details and determine whether you need more data for training.
-1. Include the scripts in CI/CD processes to take advantage of the ability of the API and CLI to help operationalize the model development evaluation and deployment process. 
+1. Include the scripts in CI/CD processes to take advantage of the ability of the API and CLI to help operationalize the model building, evaluation, and deployment process. 
 
-## Scenario
+### Components
+
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is an enterprise-grade service for the end-to-end machine learning lifecycle.
+- [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services)   is a set of APIs, SDKs, and services that can help you make your applications more intelligent, engaging, and discoverable.
+   - [Speech Studio](https://speech.microsoft.com/portal)  is a set of UI-based tools for building and integrating features from Cognitive Services Speech service into your applications. Here, it's one alternative for training datasets. It's also used to review training results.
+   - [Speech-to-text REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) is an API that you can use to upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. You can also use it to operationalize your model creation, evaluation, and deployment.
+   - [Speech CLI](/azure/cognitive-services/speech-service/spx-overview) is a command-line tool for using Speech service without having to write any code. It provides another alternative for creating and training datasets and for operationalizing your processes.
+
+## Scenario details
 
 This article is based on the following fictional scenario: 
 
@@ -50,8 +58,6 @@ A speech-based application uses the Azure Speech SDK to connect to the Azure Spe
 Let's look more closely at these steps:
 
 **1.	Use the Azure Speech SDK, Speech CLI, or REST API to generate transcripts for spoken sentences and utterances**
-
-
 
 Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and a [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts from audio files or directly from microphone input. If you use an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
 
@@ -130,7 +136,11 @@ Notes about the code:
 
 **9.	Operationalize your model building, evaluation, and deployment process**
 
-You need a process to keep deployed models up-to-date, mainly because new base models are published regularly. See [GitHub article] for information about how to use scripting to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed.
+You need a process to keep deployed models up-to-date, mainly because new base models are published regularly. For more information, see the next section of this article.
+
+## Deploy this scenario
+
+For information about how to use scripting to streamline and automate the entire process of creating datasets for training and testing, building and evaluating models, and publishing new models as needed, see [github article].
 
 ## Contributors
 
