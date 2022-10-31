@@ -8,7 +8,7 @@ Altair ultraFluidX is a simulation tool for predicting the aerodynamic propertie
 - Handles rotating geometries via wall-velocity boundary conditions, a Moving Reference Frame (MRF) model, and truly rotating overset grids (OSM).
 - Provides automated volume mesh generation with low surface mesh requirements, local grid refinement, and support for intersecting/baffle parts.
  
-Altair ultraFluidX is used in the automotive, building, and environmental industries.
+Altair ultraFluidX is used in the automotive, building, facilities, energy, and environmental industries.
 
 ## Why deploy ultraFluidX on Azure?
 
