@@ -46,10 +46,10 @@ After multiple models have been built, you usually need to have a system for reg
 Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 
 ### Production platforms
-There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning](/azure/machine-learning/how-to-deploy-and-where).
+There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 > [!NOTE]
-> Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
+> Prior to deployment, one has to ensure the latency of model scoring is low enough to use in production.
 >
 >
 

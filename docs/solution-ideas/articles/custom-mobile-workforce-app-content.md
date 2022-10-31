@@ -4,14 +4,23 @@ This mobile workforce app architecture uses Active Directory to secure corporate
 
 A Xamarin.Forms client app, with support for iOS, Android, and Windows, works offline and enables field engineers to view and edit the jobs assigned to them.
 
-The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics in conjunction with App Insights.
+The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics with App Insights.
+
+## Potential use cases
+
+This solution is optimized for employees that work from the field and don't regularly come into the office.
+
+- Technicians (telecommunications)
+- Engineers
+- Sales
+- Construction (facilities and real estate)
 
 ## Architecture
 
 ![Architecture diagram](../media/custom-mobile-workforce-app.png)
 *Download an [SVG](../media/custom-mobile-workforce-app.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.

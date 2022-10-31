@@ -2,9 +2,9 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: jjfrost
-ms.author: jfrost
-ms.date: 12/13/2021
+author: bhbandam
+ms.author: bhbandam
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -19,7 +19,7 @@ ms.custom:
   - fcp
 ---
 
-# Azure mainframe and midrange architecture concepts and patterns
+# Azure mainframe and midrange architecture design
 
 Mainframe and midrange  hardware is composed of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often *scale-up* and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
 
@@ -52,7 +52,7 @@ Part of demystifying mainframes involves decoding various overlapping terms. For
 
 #### MIPS
 
-The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www-01.ibm.com/servers/resourcelink/lib03060.nsf/pages/lsprITRzOSv2r1?OpenDocument), which shows the relative capacity across different mainframes.
+The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www.ibm.com/docs/en/cma/2.1.1?topic=211-capacity-management-analytics-terminology), which shows the relative capacity across different mainframes.
 
 The table below shows typical MIPS thresholds across small, medium, and large enterprise organizations (SORGs, MORGs, and LORGs).
 
@@ -239,7 +239,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
 - [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
 - [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
-- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
+- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
 
 ### Blog posts
 

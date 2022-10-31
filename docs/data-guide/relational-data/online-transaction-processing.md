@@ -2,8 +2,8 @@
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 07/27/2019
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -74,7 +74,7 @@ In practice, most workloads are not purely OLTP. There tends to be an analytical
 In Azure, all of the following data stores will meet the core requirements for OLTP and the management of transaction data:
 
 - [Azure SQL Database](/azure/sql-database/)
-- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [SQL Server in an Azure virtual machine](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 - [Azure Database for MySQL](/azure/mysql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 
@@ -151,3 +151,11 @@ The following tables summarize the key differences in capabilities.
 |                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

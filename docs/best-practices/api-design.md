@@ -3,8 +3,8 @@ title: Web API design best practices
 titleSuffix: Azure Architecture Center
 description: Learn the best practices for designing web APIs that support platform independence and service evolution.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/12/2018
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -183,7 +183,7 @@ If the server cannot match any of the media type(s) listed, it should return HTT
 
 A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
 
-If the request was fulfilled but there is no respose body included in the HTTP response, then it should return HTTP status code 204 (No Content); for example, a search operation yielding no matches might be implemented with this behavior.
+If the request was fulfilled but there is no response body included in the HTTP response, then it should return HTTP status code 204 (No Content); for example, a search operation yielding no matches might be implemented with this behavior.
 
 ### POST methods
 
@@ -274,7 +274,11 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
+For more information on how to implement this approach, see [Providing asynchronous support for long-running requests](/azure/architecture/best-practices/api-implementation#provide-asynchronous-support-for-long-running-requests) and the [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
+
+### Empty sets in message bodies
+
+Any time the body of a successful response is empty, the status code should be 204 (No Content). For empty sets, such as a response to a filtered request with no items, the status code should still be 204 (No Content), not 200 (OK).
 
 ## Filter and paginate data
 
@@ -531,9 +535,11 @@ You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
-## More information
+## Next steps
 
 - [Microsoft REST API guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Detailed recommendations for designing public REST APIs.
+
+- [Azure REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md). Design guidelines for Azure REST APIs.
 
 - [Web API checklist](https://mathieu.fenniak.net/the-api-checklist). A useful list of items to consider when designing and implementing a web API.
 

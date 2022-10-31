@@ -69,7 +69,7 @@ This pattern can be achieved in different ways, depending on the compute service
 - **Azure Kubernetes Service (AKS)**: AKS is a container-based hosting infrastructure in which multiple applications or application components can be configured to run co-located on the same computing resources (nodes), grouped by computational requirements such as CPU or memory needs (node pools).
 - **Virtual machines**: Deploy a single set of virtual machines for all tenants to use, that way the management costs are shared accross the tenants. Virtual Machine Scale Sets is a feature that supports shared resource management, load-balancing, and horizontal scaling of Virtual Machines.
 
-## Related guidance
+## Related resources
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

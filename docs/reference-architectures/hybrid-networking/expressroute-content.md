@@ -26,6 +26,12 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
+### Components
+
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
@@ -130,6 +136,8 @@ If your provider had already provisioned the circuit, and the `ProvisioningState
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 ExpressRoute circuits provide a high bandwidth path between networks. Generally, the higher the bandwidth the greater the cost.
@@ -201,6 +209,8 @@ You can configure high availability for your Azure connection in different ways,
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
 ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources.
@@ -215,11 +225,10 @@ For auditing or compliance purposes, it may be necessary to prohibit direct acce
 
 To maximize security, do not enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform configuration or maintenance.
 
-If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowed list of IP addresses or networks.
+If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
 
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
->
 
 #### Network monitoring
 
@@ -229,11 +238,13 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
-## Cost considerations
+### Cost optimization
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The services used in this architecture are charged as follows:
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
+
+The next sections explain the service charges that are used in this architecture.
 
 #### Azure ExpressRoute
 
@@ -253,14 +264,6 @@ All application tiers are hosted in a single virtual network and are segmented u
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-#### Virtual machine and internal load balancers
-
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
-
-Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
-
-For more information, see [Azure VM pricing][linux-vms-pricing].
-
 ## Next steps
 
 Product documentation:
@@ -271,16 +274,16 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure ExpressRoute and Virtual WAN](/learn/modules/configure-expressroute-virtual-wan)
-- [Configure virtual network peering](/learn/modules/configure-vnet-peering)
-- [Design and implement Azure ExpressRoute](/learn/modules/design-implement-azure-expressroute)
-- [Explore the Microsoft 365 platform services](/learn/paths/explore-microsoft-365-platform-services)
+- [Configure ExpressRoute and Virtual WAN](/training/modules/configure-expressroute-virtual-wan)
+- [Configure virtual network peering](/training/modules/configure-vnet-peering)
+- [Design and implement Azure ExpressRoute](/training/modules/design-implement-azure-expressroute)
+- [Explore the Microsoft 365 platform services](/training/paths/explore-microsoft-365-platform-services)
 
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 <!-- links -->
 
@@ -290,17 +293,16 @@ Microsoft Learn modules:
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: /azure/architecture/framework/devops/monitoring
+[devops-monitoring]: /azure/architecture/framework/devops/checklist
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
-[0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
+[0]: ./images/expressroute.png "Diagram showing hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
+[visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx

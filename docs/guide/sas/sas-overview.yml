@@ -5,7 +5,7 @@ metadata:
   description: Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.
   author: ranieuwe
   ms.author: ronieuwe
-  ms.date: 06/11/2021
+  ms.date: 08/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

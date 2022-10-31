@@ -16,6 +16,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/compliance/fedramp/index.md",
       "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview"
     },
@@ -29,6 +39,11 @@
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/solution-ideas/articles/remote-patient-monitoring.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/remote-patient-monitoring",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "docs/elasticsearch/automated-performance-tests.md",
       "redirect_url": "/azure/architecture"
@@ -1711,6 +1726,11 @@
       "redirect_url": "/azure/cloud-adoption-framework/reference/vdc"
     },
     {
+      "source_path_from_root": "/docs/networking/guide/well-architected-framework-azure-firewall.md",
+      "redirect_url": "/azure/architecture/framework/services/networking/azure-firewall",
+      "redirect_document_id":  false
+    },
+    {
       "source_path": "docs/vdc/networking-virtual-datacenter.md",
       "redirect_url": "/azure/cloud-adoption-framework/reference/networking-vdc"
     },
@@ -1718,6 +1738,11 @@
       "source_path": "docs/best-practices/naming-conventions.md",
       "redirect_url": "/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-stack-vm-dr.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-stack-vm-disaster-recovery",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/dmz/secure-vnet-hybrid.md",
@@ -1774,6 +1799,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/design-principles/use-the-best-data-store.md",
+      "redirect_url": "/azure/architecture/guide/design-principles/use-best-data-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/sap-netweaver.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-netweaver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/sap/sap-s4hana.yml",
+      "redirect_url": "/azure/architecture/guide/sap/sap-s4hana",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/aws/aws-azure-security-solutions.yml",
+      "redirect_url": "/azure/architecture/guide/aws/aws-azure-security-solutions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -1781,6 +1826,11 @@
     {
       "source_path": "docs/reference-architectures/ai/predictive-maintenance.md",
       "redirect_url": "/azure/architecture/data-guide/big-data/ai-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/sap-on-oracle.yml",
+      "redirect_url": "/azure/architecture/example-scenario/apps/sap-production",
       "redirect_document_id": false
     },
     {
@@ -2198,6 +2248,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/enterprise-bi-synapse.yml",
+      "redirect_url": "/azure/architecture/example-scenario/analytics/enterprise-bi-synapse",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks-content.md",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks/baseline-aks-content",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/framework/security/law-authority.md",
       "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": false
@@ -2335,6 +2400,91 @@
     {
       "source_path": "docs/antipatterns/noisy-neighbor/index.md",
       "redirect_url": "/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/vpn.yml",
+      "redirect_url": "/azure/expressroute/expressroute-howto-coexist-resource-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-to-text-transcription-pipeline.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
+      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/loosely-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/quantum/tightly-coupled-quantum-computing-job.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cicd-for-quantum-computing-jobs.yml",
+      "redirect_url": "/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps-content.md",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-web-apps.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql-content.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cloud-native-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/training-python-models.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/training-python-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-existing-applications-with-aks.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/migrate",
       "redirect_document_id": false
     }
   ]

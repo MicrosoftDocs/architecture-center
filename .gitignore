@@ -205,6 +205,8 @@ FakesAssemblies/
 *.ConsoleHost.config
 settings.config
 
+*.code-workspace
+
 #Java
 
 *.class
@@ -249,3 +251,4 @@ _themes*/
 .vscode/settings.json
 docs/.vscode/settings.json
 .gitignore
+.temp

@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. 
+Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker.
 
 ## Potential use cases
 
@@ -40,4 +40,4 @@ This solution provides a continuous integration and continuous deployment (CI/CD
 * [Use the Azure Container Agents plug-in for Jenkins for dynamic build agents](/azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent)
 * [Build a Java and MySQL web app in Azure](/azure/app-service/app-service-web-tutorial-java-mysql)
 * [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+* [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

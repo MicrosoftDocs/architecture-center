@@ -2,12 +2,18 @@
 
 Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 
+## Potential use cases
+
+* Remote assistance to problem-solve in real-time
+* Tailored, immersive experiences with 3D and the IIoT
+* Knowledge-based work instructions to capture and scale expertise
+
 ## Architecture
 
 ![Architecture diagram](../media/collaborative-design-review-powered-by-mixed-reality.png)
 *Download an [SVG](../media/collaborative-design-review-powered-by-mixed-reality.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
 1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.

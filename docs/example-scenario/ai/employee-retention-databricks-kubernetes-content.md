@@ -88,7 +88,6 @@ A proof-of-concept implementation of this scenario is available on GitHub at [em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this deployment and its architecture.*
 
-
 This proof-of-concept illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
@@ -99,6 +98,14 @@ This proof-of-concept illustrates:
 ## Pricing
 
 All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
 
 ## Next steps
 
@@ -117,11 +124,11 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Perform data science with Azure Databricks](/learn/paths/perform-data-science-azure-databricks)
-- [Build and operate machine learning solutions with Azure Databricks](/learn/paths/build-operate-machine-learning-solutions-azure-databricks)
-- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)
-- [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes)
-- [Automate your workflow with GitHub Actions](/learn/paths/automate-workflow-github-actions)
+- [Perform data science with Azure Databricks](/training/paths/perform-data-science-azure-databricks)
+- [Build and operate machine learning solutions with Azure Databricks](/training/paths/build-operate-machine-learning-solutions-azure-databricks)
+- [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure)
+- [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes)
+- [Automate your workflow with GitHub Actions](/training/paths/automate-workflow-github-actions)
 
 ## Related resources
 

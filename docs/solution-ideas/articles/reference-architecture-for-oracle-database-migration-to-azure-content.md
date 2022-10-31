@@ -1,14 +1,16 @@
-Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It is assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
+This solution migrates an Oracle database and its applications to Azure. We use Oracle Active Data Guard for the database, and we use Azure Load Balancer for the application tier.
 
 ## Architecture
 
-![Architecture Diagram](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
+![Architecture diagram shows completing a database migration from Oracle to Azure.](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
 
-### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-database-migration-to-azure.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.
-2. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
-3. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration.
+1. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
+1. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration.
 
 > [!Note]
 >
@@ -27,7 +29,21 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 
 If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
 
+#### SQL Server Migration Assistant for Oracle
+
+[Microsoft SQL Server Migration Assistant (SSMA) for Oracle](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) is a tool for migrating Oracle databases to Microsoft SQL Server and Azure SQL Database. SSMA for Oracle converts Oracle database objects to SQL Server database objects, creates those objects in SQL Server, and then migrates data from Oracle to SQL Server or Azure SQL Database.
+
+## Scenario details
+
+Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It's assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
+
+### Potential use cases
+
+This solution applies when migrating Oracle DB to Azure.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Migration
 
@@ -43,7 +59,7 @@ Consider using a hyperthreaded memory-optimized virtual machine with constrained
 
 #### Storage
 
-Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name, to ensure your mounts persist across reboots. Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
+Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. The disk/device name may change on reboots when using managed disks. It's recommended that you use the device UUID instead of the name, to ensure your mounts persist across reboots. Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
 
 #### Testing and tuning
 
@@ -52,11 +68,11 @@ We recommend the following tests to validate your application against your new O
 * Run performance tests to ensure that they meet your business expectations.
 * Test database failover, recovery, and restoration to make sure that you're meeting RPO and RTO requirements.
 * List all critical jobs and reports, and run them on new Oracle instance to evaluate their performance against your service-level agreements (SLAs).
-* Finally, when migrating or creating applications for the cloud, it's important to tweak your application code to add cloud-native patterns such as retry pattern and circuit breaker pattern. Additional patterns defined in the Cloud Design Patterns guide could help your application be more resilient.
+* Finally, when migrating or creating applications for the cloud, it's important to tweak your application code to add cloud-native patterns such as retry pattern and circuit breaker pattern. Other patterns defined in the Cloud Design Patterns guide could help your application be more resilient.
 
 #### Oracle licensing
 
-If you are using hyper-threading enabled technology in your Azure VMs, count two vCPUs as equivalent to one Oracle Processor license. See Licensing Oracle Software in the Cloud Computing Environment for details.
+If you're using hyper-threading enabled technology in your Azure VMs, count two vCPUs as equivalent to one Oracle Processor license. See Licensing Oracle Software in the Cloud Computing Environment for details.
 
 #### Backup strategy
 
@@ -101,3 +117,12 @@ Learn more about the various architectural components:
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)
 * [Licensing Oracle Software in the cloud](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
+
+## Related resources
+
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking)
+- [Add IP address spaces to peered virtual networks](/azure/architecture/networking/prefixes/add-ip-space-peered-vnet)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

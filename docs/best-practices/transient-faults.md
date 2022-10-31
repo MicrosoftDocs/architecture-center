@@ -3,11 +3,19 @@ title: Retry general guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 07/13/2016
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+azureCategories: 
+  - databases
+  - security
+  - web
+products:
+  - azure-cloud-services
+  - azure-virtual-machines
 ms.custom:
   - best-practice
 ---
@@ -160,7 +168,7 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Consider how your retry strategy may affect neighbors and other tenants in a shared application, or when using shared resources and services. Aggressive retry policies can cause an increasing number of transient faults to occur for these other users and for applications that share the resources and services. Likewise, your application may be affected by the retry policies implemented by other users of the resources and services. For mission-critical applications, you may decide to use premium services that are not shared. This provides you with much more control over the load and consequent throttling of these resources and services, which can help to justify the additional cost.
 
-## More information
+## Related resources
 
 - [Azure service-specific retry guidelines](./retry-service-specific.md)
 - [Circuit Breaker pattern](../patterns/circuit-breaker.yml)

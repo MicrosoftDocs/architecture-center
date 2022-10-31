@@ -5,7 +5,7 @@ metadata:
   description: Create a connection between your existing Oracle Database and your Azure applications.
   author: amberz
   ms.author: amberz
-  ms.date: 06/23/2020
+  ms.date: 07/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

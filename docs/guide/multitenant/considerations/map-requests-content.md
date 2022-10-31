@@ -1,6 +1,6 @@
 Whenever a request arrives into your application, you need to determine the tenant that the request is intended for. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
 
-![Diagram showing mapping a request from a logical tenant to physical tenant infrastructure.](media/map-requests/map-logical-physical.png)
+![Diagram showing mapping a request from tenants to deployments.](media/map-requests/map-logical-physical.png)
 
 On this page, we provide guidance for technical decision-makers about the approaches you can consider to map requests to the appropriate tenant, and the tradeoffs involved in the approaches.
 
@@ -40,7 +40,7 @@ When using this approach, you should consider the following questions:
 
 ### Token claims
 
-Many applications use claims-based authentication and authorization protocols, such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of _claims_, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate physical tenant infrastructure. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
+Many applications use claims-based authentication and authorization protocols, such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of _claims_, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate deployment. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
 
 If you are using claims to map requests to tenants, you should consider the following questions:
 
@@ -108,7 +108,7 @@ Tenant mapping logic likely runs on every request to your application. Consider 
 
 ### Session affinity
 
-One approach to reducing the performance overhead of tenant mapping logic is to use _session affinity_. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a _session cookie_ to the client that can then passed back to your service, with all subsequent client requests within that session.
+One approach to reducing the performance overhead of tenant mapping logic is to use _session affinity_. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a _session cookie_ to the client. The client passes the session cookie back to your service with all subsequent client requests within that session.
 
 > [!NOTE]
 > Many networking and application services in Azure can issue session cookies and natively route requests by using session affinity.
@@ -124,6 +124,22 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 - If your application uses domain names for mapping requests, then it might also require a DNS change at the time of the migration. The DNS change might take time to propagate to clients, depending on the time-to-live of the DNS entries in your DNS service.
 - If your migration changes the addresses of any endpoints during the migration process, then consider temporarily redirecting requests for the tenant to a maintenance page that automatically refreshes.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+
+Other contributors:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

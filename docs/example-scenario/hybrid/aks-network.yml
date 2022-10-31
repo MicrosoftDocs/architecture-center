@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Kubernetes Service (AKS) network architecture for AKS on Azure Stack HCI
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on Azure Stack HCI and Windows Server clusters.
+  author: sethmanheim
+  ms.author: sethm
+  ms.date: 10/17/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - hybrid
+  - compute
+products:
+  - azure-stack
+  - windows-server
+name: Network architecture for AKS on Azure Stack HCI
+summary: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on Azure Stack HCI and Windows Server clusters.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-journey.svg
+content: |
+  [!include[](aks-network-content.md)]

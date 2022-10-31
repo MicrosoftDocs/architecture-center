@@ -7,6 +7,7 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories: developer-tools
 products:
   - azure-functions
   - azure-app-service
@@ -54,7 +55,7 @@ For more information, see:
 
 ### Perform input validation
 
-Different event sources like Blob storage, Cosmos DB NoSQL databases, event hubs, queues, or Graph events can trigger serverless Functions. Injections aren't strictly limited to inputs coming directly from the API calls. Functions may consume other input from the possible event sources.
+Different event sources like Blob storage, Azure Cosmos DB NoSQL databases, event hubs, queues, or Graph events can trigger serverless Functions. Injections aren't strictly limited to inputs coming directly from the API calls. Functions may consume other input from the possible event sources.
 
 In general, don't trust input or make any assumptions about its validity. Always use safe APIs that sanitize or validate the input. If possible, use APIs that bind or parameterize variables, like using prepared statements for SQL queries.
 

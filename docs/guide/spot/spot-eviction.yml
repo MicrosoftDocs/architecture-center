@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Virtual Machine Spot Eviction
+  description: Learn how to use Spot Eviction and design a solution to handle eviction notices. 
+  author: ju-shim
+  ms.author: jushiman
+  ms.date: 08/29/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-application-insights
+name: Azure Virtual Machine Spot Eviction
+summary: Read this guide to learn how to use Spot Eviction and design a solution to handle eviction notices.
+thumbnailUrl: /azure/architecture/browse/thumbs/spot-orchestration-diagram.png
+content: |
+  [!include[](spot-eviction-content.md)]

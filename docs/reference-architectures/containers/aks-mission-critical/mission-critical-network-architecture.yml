@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Mission-critical baseline architecture with network controls
+  description: Architecture for a highly reliable workload with enhanced network controls such as private endpoints.
+  author: calcof
+  ms.author: prwilk
+  ms.date: 08/10/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - networking
+    - security
+    - devops
+name: Mission-critical baseline architecture with network controls
+azureCategories:
+  - containers
+  - networking
+  - security
+  - devops
+summary: Architecture for a highly reliable workload with enhanced network controls such as private endpoints.
+products:
+  - azure-front-door
+  - azure-firewall
+  - azure-virtual-network
+  - azure-kubernetes-service  
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-architecture-network.svg
+content: |
+   [!include[](mission-critical-network-architecture-content.md)]

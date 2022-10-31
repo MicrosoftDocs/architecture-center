@@ -4,7 +4,7 @@ metadata:
   description: Get started on your architecture design by addressing the applicable PCI-DSS 3.2.1 requirements as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services. Azure Kubernetes Service (AKS).
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 07/06/2021
+  ms.date: 11/11/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

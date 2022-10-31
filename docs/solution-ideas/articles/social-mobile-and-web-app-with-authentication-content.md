@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This mobile client app offers social image sharing with a companion web app. The app back-end service does background image processing using an Azure Function, and it can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Azure Traffic Manager.
+This mobile client app offers social image sharing with a companion web app. The app back-end service does background image processing using an Azure function, and it can notify users of progress via a notification hub. Non-image data is stored in Azure Cosmos DB. The web app accesses the back end service data and images via Azure Traffic Manager.
 
 See the following services, which are featured in this solution architecture:
 
@@ -17,15 +17,15 @@ The mobile client app works in offline mode, which allows you to view and upload
 
 ## Architecture
 
-![Architecture Diagram](../media/social-mobile-and-web-app-with-authentication.png)
+![Architecture diagram shows the route from the Engineer to Application Insights.](../media/social-mobile-and-web-app-with-authentication.png)
 *Download an [SVG](../media/social-mobile-and-web-app-with-authentication.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
 1. Implement authentication through social identity providers.
-1. Store non-image data in Cosmos DB and cache it in Azure Cache for Redis.
+1. Store non-image data in Azure Cosmos DB and cache it in Azure Cache for Redis.
 1. Store uploaded images in Azure Blob Storage.
 1. Queue messages about newly uploaded images.
 1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.
@@ -42,7 +42,7 @@ The mobile client app works in offline mode, which allows you to view and upload
 * An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
 * Use [Azure Functions](https://azure.microsoft.com/services/functions) for serverless background processing. For example, one Azure function can automatically resize new blobs when they're added to a container, while another function listens for messages on a queue in order to delete multiple background images.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully-managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL document database service. It offers querying and transaction-processing over schema-free data, predictable and reliable performance, and rapid development.
 * Azure [Queue storage](https://azure.microsoft.com/services/storage/queues) is used for durable messaging between the App Service backend and Azure Functions.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs): Azure Storage hosts image files to take advantage of better scalability with lower cost. Communication between the web app and the Azure function is often performed using blob triggers and Azure Queue storage.
 * Azure [Notification Hubs](https://azure.microsoft.com/services/notification-hubs) are used for scalable, cross-platform push notifications.

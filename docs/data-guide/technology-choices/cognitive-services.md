@@ -2,8 +2,9 @@
 title: Choose a cognitive services technology
 description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/12/2018
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -99,3 +100,11 @@ The following tables summarize the key differences in capabilities.
 | Custom Speech Service | Speech | Overcome speech recognition barriers like speaking style, background noise, and vocabulary. |
 | Custom Decision Service | Web content (for example, RSS feed) | Use machine learning to automatically select the appropriate content for your home page |
 | Bing Custom Search API | Text (web search query) | Commercial-grade search tool. |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

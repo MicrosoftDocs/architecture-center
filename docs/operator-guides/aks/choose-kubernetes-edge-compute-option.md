@@ -8,6 +8,7 @@ ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories: containers
 ms.category:
   - containers
 products:
@@ -158,6 +159,16 @@ Flexibility:
 
 - Cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Stack HCI or Windows Server
     2019. This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile/) | Principal Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -15,7 +15,7 @@ products:
   - azure-front-door
   - azure-traffic-manager
   - azure-kubernetes-service
-  - azure-spring-cloud
+  - azure-spring-apps
   - azure-cache-redis
 name: IBM z/OS online transaction processing on Azure
 summary: Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost-effective, responsive, scalable, and adaptable.

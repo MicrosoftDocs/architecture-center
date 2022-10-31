@@ -2,28 +2,22 @@
 
 A common blockchain pattern is the IoT-enabled monitoring of an asset, as it moves along a multi-party supply chain.
 
-## Potential use cases
-
-A great example of this pattern is the refrigerated transportation of perishable goods like food or pharmaceuticals where certain compliance rules must be met throughout the duration of the transportation process. In this scenario, an initiating counterparty (such as a retailer) specifies contractual conditions, such as a required humidity and temperature range, that the custodians on the supply chain must adhere to.
-
-At any point, if the device takes a temperature or humidity measurement that is out of range, the smart contract state will be updated to indicate that it's out of compliance, by recording a transaction on the blockchain and triggering remediating events downstream.
-
 ## Architecture
 
-![Architecture Diagram](../media/supply-chain-track-and-trace.png)
+![Architecture diagram shows I O T devices to hub; data from message broker to transaction builder then Blockchain to Event Grid for use by consumers.](../media/supply-chain-track-and-trace.png)
 *Download an [SVG](../media/supply-chain-track-and-trace.svg) of this architecture.*
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
 <p>IoT devices communicate with IoT Hub. IoT Hub as a route configured that will send specific messages to a Service Bus associated with that route. The message is still in the native format for the device and needs to be translated to the format used by Azure Blockchain Workbench.
 
-An Azure Logic App performs that transformation. It is triggered when a new message is added to the Service Bus associated with the IoT hub, it then transforms the message and delivers it to the Service Bus used to deliver messages to Azure Blockchain Workbench.
+An Azure Logic App performs that transformation. It's triggered when a new message is added to the Service Bus associated with the IoT hub, it then transforms the message and delivers it to the Service Bus used to deliver messages to Azure Blockchain Workbench.
 
 The first service bus effectively serves as an "Outbox" for IoT Hub and the second one serves as an "Inbox" for Azure Blockchain Workbench.</p>
 </div>
 
-### Data flow
+### Dataflow
 
-1. IoT devices communicate with IoT Hub. IoT Hub as a route configured that will send specific messages to a Service Bus associated with that route. The message is still in the native format for the device and needs to be translated to the format used by Azure Blockchain Workbench. An Azure Logic App performs that transformation. It is triggered when a new message is added to the Service Bus associated with the IoT hub, it then transforms the message and delivers it to the Service Bus used to deliver messages to Azure Blockchain Workbench. The first service bus effectively serves as an "Outbox" for IoT Hub and the second one serves as an "Inbox" for Azure Blockchain Workbench.
+1. IoT devices communicate with IoT Hub. IoT Hub as a route configured that will send specific messages to a Service Bus associated with that route. The message is still in the native format for the device and needs to be translated to the format used by Azure Blockchain Workbench. An Azure Logic App performs that transformation. It's triggered when a new message is added to the Service Bus associated with the IoT hub, it then transforms the message and delivers it to the Service Bus used to deliver messages to Azure Blockchain Workbench. The first service bus effectively serves as an "Outbox" for IoT Hub and the second one serves as an "Inbox" for Azure Blockchain Workbench.
 1. DLT Consumer fetches the data from the message broker (Service Bus) and sends data to Transaction Builder - Signer.
 1. Transaction Builder builds and signs the transaction.
 1. The signed transaction gets routed to the Blockchain (Private Ethereum Consortium Network).
@@ -43,6 +37,14 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Highly granular and real-time monitoring data for any Azure resource.
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Connect across private and public cloud environments
 * [Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale
+
+## Scenario details
+
+### Potential use cases
+
+A great example of this pattern is the refrigerated transportation of perishable goods like food or pharmaceuticals where certain compliance rules must be met throughout the duration of the transportation process. In this scenario, an initiating counterparty (such as a retailer) specifies contractual conditions, such as a required humidity and temperature range, that the custodians on the supply chain must adhere to.
+
+At any point, if the device takes a temperature or humidity measurement that is out of range, the smart contract state will be updated to indicate that it's out of compliance, by recording a transaction on the blockchain and triggering remediating events downstream.
 
 ## Deploy this scenario
 

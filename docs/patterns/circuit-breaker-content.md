@@ -262,7 +262,7 @@ catch (Exception ex)
 }
 ```
 
-## Related guidance
+## Related resources
 
 The following patterns might also be useful when implementing this pattern:
 

@@ -1,5 +1,3 @@
-
-
 Azure provides Oracle database images with a "bring your own license" model. If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).
 
 See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure-interconnect-faq.html) to figure out if Oracle certifies and supports your Oracle database on Azure.
@@ -7,6 +5,8 @@ See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/clou
 ## Architecture
 
 ![An architecture diagram that shows Oracle databases on Azure Virtual Machines.](media/lift-shift-azure-vms.png)
+
+### Workflow
 
 1. Create Azure VMs with the correct specifications to support your Oracle database.
 
@@ -48,6 +48,16 @@ You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you u
 
 * [FlashGrid Cluster for Oracle RAC on Azure](https://www.flashgrid.io/products/flashgrid-for-oracle-rac-on-azure/)
 * [FlashGrid Cluster for Oracle RAC on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-skycluster)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

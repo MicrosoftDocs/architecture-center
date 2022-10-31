@@ -23,7 +23,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Introduction to integration on Azure
 
-If you're new to integration, the best place to start is with Microsoft Learn. This free online training platform offers videos, tutorials, and hands-on learning for various products and services.
+If you're new to integration, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
 
 The following resources can help you learn the core concepts of integration:
 
@@ -180,7 +180,7 @@ The following resources provide practical recommendations and information for sp
 [AI-based footfall detection]: ../solution-ideas/articles/hybrid-footfall-detection.yml
 [Apache NiFi on Azure]: ../example-scenario/data/azure-nifi.yml
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
-[Architect API integration in Azure]: /learn/paths/architect-api-integration
+[Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
 [Automated Jupyter Notebooks for diagnostics]: ../example-scenario/data/automating-diagnostic-jupyter-notebook.yml
 [AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
@@ -199,16 +199,16 @@ The following resources provide practical recommendations and information for sp
 [Data analysis workloads for regulated industries]: ../example-scenario/data/data-analysis-regulated-industries.yml
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
-[Data integrations with Finance and Operations apps]: /learn/modules/data-integrations-finance-operations
-[Design data integration]: /learn/modules/design-data-integration
+[Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
+[Design data integration]: /training/modules/design-data-integration
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
-[Enterprise business intelligence]: ../reference-architectures/data/enterprise-bi-synapse.yml
+[Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Enterprise integration using message broker and events]: ../reference-architectures/enterprise-integration/queues-events.yml
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
-[Examine business integration for IoT solutions]: /learn/modules/examine-business-integration-for-iot-solutions
-[Explore Event Grid integration]: /learn/modules/explore-event-grid-integration
+[Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
+[Explore Event Grid integration]: /training/modules/explore-event-grid-integration
 [Extract, transform, and load (ETL)]: ../data-guide/relational-data/etl.yml
 [Forecast energy and power demand with machine learning]: ../solution-ideas/articles/forecast-energy-power-demand.yml
 [Geospatial data processing and analytics]: ../example-scenario/data/geospatial-data-processing-analytics-azure.yml
@@ -217,10 +217,10 @@ The following resources provide practical recommendations and information for sp
 [Health data consortium]: ../example-scenario/data/azure-health-data-consortium.yml
 [HPC risk analysis template]: ../solution-ideas/articles/hpc-risk-analysis.yml
 [Identify microservice boundaries]: ../microservices/model/microservice-boundaries.yml
-[Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /learn/modules/data-integration-azure-data-factory
+[Integrate data with Azure Data Factory or Azure Synapse Pipeline]: /training/modules/data-integration-azure-data-factory
 [Integrate Event Hubs with serverless functions on Azure]: ../serverless/event-hubs-functions/event-hubs-functions.yml
 [Integrate IBM mainframe and midrange message queues with Azure]: ../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
-[Integration design for Dynamics 365 solutions]: /learn/modules/integration
+[Integration design for Dynamics 365 solutions]: /training/modules/integration
 [Integration Services]: https://azure.microsoft.com/product-categories/integration
 [Line of business extension]: ../solution-ideas/articles/lob.yml
 [Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
@@ -235,7 +235,7 @@ The following resources provide practical recommendations and information for sp
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
 [Refactor mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
-[Remote patient monitoring solutions]: ../solution-ideas/articles/remote-patient-monitoring.yml
+[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml

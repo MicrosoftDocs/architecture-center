@@ -50,8 +50,9 @@ This architecture uses virtual machines (VM). Azure offers single-node scale up 
 
 Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an [Edsv4](/azure/virtual-machines/edv4-edsv4-series) and [E(d)sv5](/azure/virtual-machines/edv5-edsv5-series) virtual machine starting with 160 GiB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 11.5 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M416 virtual machine types achieve approximately 488,000 SAPS.
 
-**Generation 2 (Gen2) virtual machines** Azure offers the choice when deploying VMs if they should be generation 1 or 2. [Generation 2 VMs](/azure/virtual-machines/generation-2) support key features that aren't available for generation 1 VMs. Particularly for SAP HANA this is of importance since some VM families such as [Mv2](/azure/virtual-machines/mv2-series) or [Mdsv2](/azure/virtual-machines/msv2-mdsv2-series) are **only** supported as Gen2 VMs. Similarly, SAP on Azure certification for some newer VMs might require them to be only Gen2 for full support, even if Azure allows both on them. See details in [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.).
-Since all other VMs supporting SAP HANA allow the choice of either Gen2 only or Gen1+2 selectively, it's recommended to deploy ALL SAP HANA VMs as Gen2 only. Also VMs which have a low memory requirement and not close to the needing Mv2 or other large VM families. Even the smallest 160 GiB SAP HANA VM can run as Gen2 VM and can be, when deallocated, be resized to the largest VM available in your region and subscription.
+**Generation 2 (Gen2) virtual machines** Azure offers the choice when deploying VMs if they should be generation 1 or 2. [Generation 2 VMs](/azure/virtual-machines/generation-2) support key features that aren't available for generation 1 VMs. Particularly for SAP HANA this is of importance since some VM families such as [Mv2](/azure/virtual-machines/mv2-series) or [Mdsv2](/azure/virtual-machines/msv2-mdsv2-series) are **only** supported as Gen2 VMs. Similarly, SAP on Azure certification for some newer VMs might require them to be only Gen2 for full support, even if Azure allows both on them. See details in [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533).
+
+Since all other VMs supporting SAP HANA allow the choice of either Gen2 only or Gen1+2 selectively, it's recommended to deploy all SAP VMs as Gen2 only. This applies also to VMs with low memory requirements. Even the smallest 160 GiB SAP HANA VM can run as Gen2 VM and can be, when deallocated, be resized to the largest VM available in your region and subscription.
 
 **Proximity Placement Groups (PPG)** To optimize network latency, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios), which favor collocation, meaning that virtual machines are in the same datacenter to minimize latency between SAP HANA and connecting application VMs. For SAP HANA architecture itself, no PPGs are needed, they're only an option colocating SAP HANA with application tier VMs. Due to potential restrictions with PPGs, adding the database AvSet to the SAP system's PPG should be done sparsely and **only when required** for latency between SAP application and database traffic. For more information on the usage scenarios of PPGs, see the linked documentation. As PPGs restrict workloads to a single datacenter, a PPG can't span multiple availability zones.
 
@@ -109,11 +110,11 @@ Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-ava
 
 **SAP HANA** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery. Depending on latency in the communication between your virtual machines, synchronous replication can be used within a region. HSR between regions for disaster recovery will in most cases be running in asynchronous manner.
 
-For the Linux Pacemaker cluster, a choice is required which cluster fencing mechanism is used. Cluster fencing is a process of isolating a failed VM from the cluster and restarting it. For RedHat Enterprise Linux (RHEL), the only supported fencing mechanism for Pacemaker on Azure is Azure fence agent. For SUSE Linux Enterprise Server (SLES), either Azure fence agent or STONITH block device (SBD) can be used. Compare the failover times for each solution and choose based on your business requirements for recovery time objective (RTO) if there's a noticeable difference.
+For the Linux Pacemaker cluster, a choice is required which cluster fencing mechanism is used. Cluster fencing is a process of isolating a failed VM from the cluster and restarting it. For RedHat Enterprise Linux (RHEL), the only supported fencing mechanism for Pacemaker on Azure is Azure fence agent. For SUSE Linux Enterprise Server (SLES), either Azure fence agent or STONITH block device (SBD) can be used. Compare the failover times for each solution and choose based on your business requirements for recovery time objective (RTO) if there's a  difference.
 
 **Azure fence agent** This fencing method relies on the Azure ARM API, with Pacemaker querying ARM api about the status of both SAP HANA VMs in the cluster. Should one VM fail, for example OS unresponsive or VM crash, the cluster manager uses again the ARM api to restart the VM and if needed fails the SAP HANA database to the other, active node. For this purpose, a service name principal ([SPN](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-an-azure-fence-agent-stonith-device)) with a custom role to query and restart VMs is used to authorize against the ARM api. No other infrastructure is needed, the SBD VMs in the architecture drawings aren't deployed in case Azure fence agent is used.
 
-**SBD** SBD uses a disk that is accessed as block device (raw, without filesystem) by the cluster manager. This disk, or disks if multiple, acts as a vote. Each of the two cluster nodes running SAP HANA accesses the SDB disks and reads/writes periodically to them small bits of information about status. Thus each cluster node knows the status about the other without depending only on networking between the VMs.
+**SBD** STONITH block device (SBD) uses a disk that is accessed as block device (raw, without filesystem) by the cluster manager. This disk, or disks if multiple, acts as a vote. Each of the two cluster nodes running SAP HANA accesses the SDB disks and reads/writes periodically to them small bits of information about status. Thus each cluster node knows the status about the other without depending only on networking between the VMs.
 
 Preferably three small VMs are deployed in either an availability set or availability zone setup. Each VM exporting small parts of a disk as a block device which is accessed by the two SAP HANA cluster nodes. Three SBD VMs ensure sufficient voting members are available in case of planned or unplanned downtime for either SBD VM.
 
@@ -156,7 +157,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ### Security
 
-Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
+Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
 
 For data at rest, different encryption functionalities provide security as follows:
 
@@ -164,11 +165,11 @@ For data at rest, different encryption functionalities provide security as follo
 
 - To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). 
 - SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
-- Data in Azure physical storage is automatically encrypted at rest with an Azure managed key. You also can choose a customer managed key (CMK) instead of the Azure managed key.
+- Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You also can choose a customer managed key (CMK) instead of the Azure managed key.
 - For support of Azure Disk Encryption on particular Linux distros/version/images check [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 > [!NOTE]
-> Do not use the SAP HANA data-at-rest encryption with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption, nor does Site Recovery yet support Azure Disk Encryption-attached data disks on Linux. Be aware that the usage of customer managed keys might impact storage throughput.
+> Do not combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption. Instead when using SAP HANA native encryption combine it with Server-Side Encryption which is automatically enabled. Be aware that the usage of customer managed keys might impact storage throughput.
 
 For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
 
@@ -191,6 +192,16 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Azure Community Support](https://azure.microsoft.com/support/forums/)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -220,6 +231,6 @@ Explore related architectures:
 - [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./run-sap-bw4hana-with-linux-virtual-machines.yml)
 - [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
 - [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [SAP on Azure Architecture Guide](./sap-overview.yml)

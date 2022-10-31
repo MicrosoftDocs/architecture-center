@@ -108,7 +108,12 @@ The Saga pattern is less suitable for:
 
 [Orchestration-based Saga on Serverless](https://github.com/Azure-Samples/saga-orchestration-serverless) is a saga implementation reference using the orchestration approach that simulates a money transfer scenario with successful and failed workflows.
 
-## Related patterns
+## Next steps
+
+- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
+- Richardson, Chris. 2018: *Microservices Patterns*. Manning Publications.
+
+## Related resources
 
 The following patterns might also be useful when implementing this pattern:
 
@@ -117,8 +122,3 @@ The following patterns might also be useful when implementing this pattern:
 - [Retry](../../patterns/retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
 - [Circuit breaker](../../patterns/circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
 - [Health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
-
-## Related resources
-
-- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
-- Richardson, Chris. 2018: *Microservices Patterns*. Manning Publications.

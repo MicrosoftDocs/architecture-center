@@ -1,35 +1,4 @@
-UniKix is a mainframe-rehosting software suite from NTT DATA. This suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads.
-
-The NTT DATA software offers many useful features:
-
-- A means for converting Integrated Database Management System (IDMS), Natural, and other application environments so that they operate within UniKix
-- A robust, logically threaded NTT DATA engine that provides a rich online transaction processing environment (TPE)
-- A complete, native batch processing environment (BPE)
-- A powerful COBOL compiler
-- A streamlined runtime environment
-- A graphical source-level debugger
-- A portable indexed file system
-
-By using UniKix to rehost mainframe applications, you can take advantage of these features. You can also:
-
-- Avoid licensing fees for mainframe software.
-- Reduce infrastructure maintenance and operating costs.
-- Minimize risk and disruption by retaining existing user interfaces and business logic.
-- Modernize your IT environment.
-- Capitalize on Azure solutions for scalability, high availability, and disaster recovery.
-- Implement a modern DevOps workflow with NTT DATA tools and select Azure tools.
-
-This article outlines a solution for rehosting mainframe applications on Azure. Besides UniKix, the solution's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
-
-## Potential use cases
-
-Industries that use mainframes can benefit from UniKix rehosting solutions. Sectors that process large volumes of transactions on a daily basis are possibilities:
-
-- Banking
-- Insurance
-- Healthcare
-- The military
-- E-commerce
+UniKix is a mainframe-rehosting software suite from NTT DATA. This suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads. This article outlines a solution for rehosting mainframe applications on Azure. Besides UniKix, the solution's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
 
 ## Mainframe architecture
 
@@ -60,7 +29,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 - Partitions run separate workloads or segregate work types within the environment (**I**).
 
-## Rehosted Azure architecture
+## Azure architecture
 
 :::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.png" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using N T T DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
 
@@ -127,6 +96,41 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 - For disaster recovery, the solution replicates the SQL Server data to another region. As another option, you can use the Always On availability groups feature of SQL Server as a disaster recovery solution.
 - In some scenarios, some of the solution's components and workflows are optional or interchangeable.
 
+## Scenario details
+
+UniKix is a mainframe-rehosting software suite from NTT DATA. This suite provides a way to run migrated legacy assets on Azure. Example assets include IBM CICS transactions, IBM IMS applications, batch workloads, and JCL workloads.
+
+The NTT DATA software offers many useful features:
+
+- A means for converting Integrated Database Management System (IDMS), Natural, and other application environments so that they operate within UniKix
+- A robust, logically threaded NTT DATA engine that provides a rich online transaction processing environment (TPE)
+- A complete, native batch processing environment (BPE)
+- A powerful COBOL compiler
+- A streamlined runtime environment
+- A graphical source-level debugger
+- A portable indexed file system
+
+By using UniKix to rehost mainframe applications, you can take advantage of these features. You can also:
+
+- Avoid licensing fees for mainframe software.
+- Reduce infrastructure maintenance and operating costs.
+- Minimize risk and disruption by retaining existing user interfaces and business logic.
+- Modernize your IT environment.
+- Capitalize on Azure solutions for scalability, high availability, and disaster recovery.
+- Implement a modern DevOps workflow with NTT DATA tools and select Azure tools.
+
+This article outlines a solution for rehosting mainframe applications on Azure. Besides UniKix, the solution's core components include Azure ExpressRoute, Azure Site Recovery, and Azure storage and database services.
+
+## Potential use cases
+
+Industries that use mainframes can benefit from UniKix rehosting solutions. The following sectors that process large volumes of transactions on a daily basis are possibilities:
+
+- Banking and finance
+- Insurance
+- Healthcare
+- The military and government
+- E-commerce and retail
+
 ## Considerations
 
 The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/), apply to this solution:
@@ -151,7 +155,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Richard Berry](https://www.linkedin.com/in/richardberryjr) | Senior Program Manager
 

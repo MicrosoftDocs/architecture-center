@@ -180,7 +180,7 @@ This section covers the key areas that must be considered when writing code to p
 
 It's recommended to have your function employ non-blocking, [asynchronous](/azure/azure-functions/functions-best-practices#use-async-code-but-avoid-blocking-calls) code. This is important when I/O calls are involved.
 
-When considering asynchronous programming in an Functions, there are some essential guidelines that should be followed:
+When considering asynchronous programming in a function, there are some essential guidelines that should be followed:
 
 - **All asynchronous or all synchronous:** If a function is configured to run asynchronously, all the I/O calls should be asynchronous as well. In most cases, being partially asynchronous can be worse than code that is entirely synchronous. Choose either asynchronous or synchronous for the implementation of the function and follow it all the way through.
 
@@ -193,6 +193,16 @@ When blocking calls are made on asynchronous operations, it can lead to thread-p
 Avoiding this *sync over async* approach is especially important when Event Hubs is involved since a crash to the function will not update the checkpoint. The next time the function is invoked it could end up in this cycle and appear to be *stuck* or move along slowly as function executions will eventually time out.
 
 Troubleshooting this phenomenon usually starts with reviewing the trigger settings and running experiments that may involve increasing the partition count. Investigations can also lead to changing several of the batching options such as the max batch size or prefetch count. The impression is that it's a throughput problem or configuration setting that just needs to be tuned accordingly. However, the core problem is in the code itself and must be addressed there for the proper resolution.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -1,12 +1,14 @@
 
 
-This article compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
+This article compares three options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
 ## VPN connection
 
 A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location. The encrypted traffic goes over the public Internet.
 
-This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you are willing to trade slightly extended latency for the flexibility and processing power of the cloud.
+This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you're willing to trade slightly extended latency for the flexibility and processing power of the cloud.
+
+:::image type="content" source="./images/vpn-gateway-multisite-connection-diagram.png" alt-text="Diagram of a VPN gateway." lightbox="./images/vpn-gateway-multisite-connection-diagram.png" :::
 
 ### Benefits
 
@@ -20,7 +22,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Reference architecture
 
-- [Hybrid network with VPN gateway](./vpn.yml)
+- [Hybrid network with VPN gateway](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
 <!-- markdownlint-disable MD024 -->
 
@@ -30,9 +32,16 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
+:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.png" :::
+
+> [!NOTE]
+> In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> 
+
 ### Benefits
 
 - Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
+- Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 - May allow your organization direct access to national clouds, depending on the connectivity provider.
 - 99.9% availability SLA across the entire connection.
@@ -48,7 +57,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 ## ExpressRoute with VPN failover
 
-This options combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there is a loss of connectivity in the ExpressRoute circuit.
+This option combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit.
 
 This architecture is suitable for hybrid applications that need the higher bandwidth of ExpressRoute, and also require highly available network connectivity.
 
@@ -66,10 +75,6 @@ This architecture is suitable for hybrid applications that need the higher bandw
 - [Hybrid network with ExpressRoute and VPN failover](./expressroute-vpn-failover.yml)
 
 <!-- markdownlint-disable MD024 -->
-
-## Hub-spoke network topology
-
-A hub-spoke network topology is a way to isolate workloads while sharing services such as identity and security. The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed as spokes.
 
 ### Reference architectures
 

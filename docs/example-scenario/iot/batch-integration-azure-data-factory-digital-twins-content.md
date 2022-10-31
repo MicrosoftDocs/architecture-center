@@ -1,14 +1,4 @@
-Azure Digital Twins can help you build virtual representations of your systems and your enterprise that are regularly updated with data from the people, places, and things in your enterprise. Figuring out how to get relevant data into Azure Digital Twins can seem like a challenge. If that data is from systems that require traditional extract, transform, and load (ETL) techniques, this article can help.
-
-In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
-
-## Potential use cases
-
-This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
-
-- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
-
-- You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
+In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data.
 
 ## Architecture
 
@@ -42,7 +32,23 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 An alternative to this approach is to use [Azure Functions](https://azure.microsoft.com/services/functions) instead of Azure Batch. We chose not to use Azure Functions for this architecture because Functions has a timeout for execution. A timeout could be a problem if the update to Azure Digital Twins requires complex logic, or if the API gets throttled. In such a case, the function could time out before execution is complete. Azure Batch doesn't have this restriction. Also, when using Batch, you can configure the number of virtual machines that are active to process the files. This flexibility helps you to find a balance between the scale and the speed of updates.
 
+## Scenario details
+
+Azure Digital Twins can help you build virtual representations of your systems and your enterprise that are regularly updated with data from the people, places, and things in your enterprise. Figuring out how to get relevant data into Azure Digital Twins can seem like a challenge. If that data is from systems that require traditional extract, transform, and load (ETL) techniques, this article can help.
+
+In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
+
+### Potential use cases
+
+This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
+
+- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
+
+- You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 - Custom activities are essentially console applications.  We took some of the best practices that are outlined in [Creating an Azure Data Factory v2 Custom Activity](https://mrpaulandrew.com/2018/11/12/creating-an-azure-data-factory-v2-custom-activity), a post by Paul Andrew on his blog, as a foundation to be able to run and debug locally.
 
@@ -77,11 +83,13 @@ Performance could be a problem if you need to integrate Azure Digital Twins with
 - [Auto-scaling of Azure Batch](/azure/data-factory/transform-data-using-custom-activity#auto-scaling-of-azure-batch)
 - [Azure Batch and performance efficiency](/azure/architecture/framework/services/compute/azure-batch/performance-efficiency)
 - [Create Generic SCD Pattern in ADF Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/create-generic-scd-pattern-in-adf-mapping-data-flows/ba-p/918519)
-- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/learn/paths/data-integration-scale-azure-data-factory)
+- [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline](/training/paths/data-integration-scale-azure-data-factory)
 
 Depending on the complexity and size of data in the source system, consider the scale of your mapping data flow. For help with addressing performance, see [Mapping data flows performance and tuning guide](/azure/data-factory/concepts-data-flow-performance).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 This scenario relies on managed identities for security of the data.  Data Factory requires the storage account key to generate shared access signatures.  To help protect that key, store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault), and grant the data factory access to it through managed identity.
 
@@ -90,35 +98,37 @@ This scenario relies on managed identities for security of the data.  Data Facto
 - The Custom activity code is contained in a .zip file that's placed in Azure Storage.  A DevOps pipeline can manage the deployment of that code.
 - Data Factory supports an end-to-end DevOps lifecycle.
 
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
+
 ## Deploy this scenario
 
 You can find a reference implementation on GitHub: [Azure Digital Twins Batch Update Prototype](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
 
-## Pricing
-
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
-
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:** 
+Principal author:
 
 - [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
-**Additional contributors:**
+Other contributors:
 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect
 
 ## Next steps
 
-- [Explore Azure Digital Twins implementation](/learn/modules/explore-azure-digital-twins-implementation)
-- [Examine the components of an Azure Digital Twins solution](/learn/modules/examine-components-azure-digital-twins-solution)
-- [Examine the Azure Digital Twins solution development tools and processes](/learn/modules/examine-azure-digital-twins-solution-development-tools-processes)
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
-- [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory)
+- [Explore Azure Digital Twins implementation](/training/modules/explore-azure-digital-twins-implementation)
+- [Examine the components of an Azure Digital Twins solution](/training/modules/examine-components-azure-digital-twins-solution)
+- [Examine the Azure Digital Twins solution development tools and processes](/training/modules/examine-azure-digital-twins-solution-development-tools-processes)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
+- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Digital Twins documentation](/azure/digital-twins)
 

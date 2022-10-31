@@ -98,6 +98,14 @@ The SWIFT Alliance Connect Virtual subscription contains resources that you depl
 
 After the SWIFT Alliance Connect Virtual and Alliance Lite2 AutoClient infrastructure is deployed, follow SWIFT's instructions for installing the Alliance Lite2 AutoClient software. These instructions include peering the virtual networks in both subscriptions.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Senior Cloud Solution Architect
+
 ## Next steps
 
 * [SWIFT's Alliance Lite2](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-lite2)

@@ -2,12 +2,19 @@
 title: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
 description: Learn how to deploy a highly available MongoDB solution to Azure and Azure Stack Hub
 author: BryanLa
-ms.service: azure
+categories: azure
+ms.service: azure-stack
+ms.subservice: azure-stack-hub
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - databases
+products:
+  - azure
+  - azure-stack-hub
 # Intent: As an Azure Stack Hub operator, I want to deploy a highly available MongoDB solution across two Azure Stack Hub environments.
 # Keyword: deploy highly available mongodb azure stack hub
 ---
@@ -102,6 +109,6 @@ Docker images for each deployment eliminate dependency issues between different 
 
 ## Next steps
 
-- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://docs.mongodb.com/manual/mongo).
+- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://www.mongodb.com/docs/mongodb-shell/).
 - To learn more about hybrid cloud apps, see [Hybrid Cloud Solutions.](/azure-stack/user).
 - Modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

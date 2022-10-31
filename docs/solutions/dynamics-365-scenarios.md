@@ -2,8 +2,8 @@
 title: Azure and Dynamics 365 scenarios
 description: Learn about architectures and solutions that use Azure together with Dynamics 365. 
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 03/11/2022
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

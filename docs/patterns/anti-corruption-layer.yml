@@ -3,8 +3,8 @@ metadata:
   title: Anti-corruption Layer pattern
   description: Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 03/01/2022
+  ms.author: architectures
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: design-pattern
@@ -19,4 +19,3 @@ summary: Examine the Anti-corruption Layer pattern. Implement a façade or adapt
 thumbnailUrl: /azure/architecture/browse/thumbs/anti-corruption-layer.png
 content: |
   [!include[](anti-corruption-layer-content.md)]
-  

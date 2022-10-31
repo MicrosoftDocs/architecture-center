@@ -23,7 +23,7 @@ This diagram shows a typical hub-and-spoke topology that you can deploy in Azure
    On the left, the diagram contains a dotted box labeled On-premises network. It contains icons for virtual machines and domain name servers. A bi-directional arrow connects that box to a dotted box on the right labeled Hub virtual network. An icon above that arrow is labeled Azure ExpressRoute. The hub box contains icons for D N S forwarders. Arrows point away from the hub box toward icons for private D N S zones. A bi-directional arrow connects the hub box to a box below it labeled Landing zone virtual network. To the right of the arrow, an icon is labeled Virtual network peering. The landing zone box contains icons for a virtual machine and a private endpoint. An arrow points from the private endpoint to a storage icon that's outside the landing zone box.
 :::image-end:::
 
-*Download an [SVG][SVG version of architecture diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-hub-spoke-diagrams.pptx) of this architecture.*
 
 This architecture is one of two options for network topology that Azure supports. This classic reference design uses basic network components like Azure Virtual Network, virtual network peering, and user-defined routes (UDRs). When you use hub and spoke, you're responsible for configuring the services. You also need to ensure that the network meets security and routing requirements.
 
@@ -47,7 +47,7 @@ The following diagram shows how on-premises users connect to a virtual network a
    The diagram contains a dotted box on the left labeled Consumer network. An icon sits on its border and is labeled Azure ExpressRoute. Outside the box on the left are icons for on-premises users and a private peering. Inside the box is a smaller dotted box labeled Subnet that contains icons for computers and private endpoints. The smaller box's border contains an icon for a network security group. Two dotted arrows flow out of the inner box. They also pass through the outer box's border. One points to a dotted box on the right that's filled with icons for Azure services. The other arrow points to a dotted box on the right labeled Provider network. The provider network box contains a smaller dotted box and an icon for Azure Private Link. The smaller dotted box contains icons for computers. Its border contains two icons: one for a load balancer and one for a network security group.
 :::image-end:::
 
-*Download an [SVG][SVG version of Private Link diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-hub-spoke-diagrams.pptx) of this architecture.*
 
 ## Decision tree for Private Link deployment
 
@@ -106,7 +106,7 @@ The following flowchart summarizes the various options and recommendations. Sinc
    At the top of the flowchart is a green box labeled Start. An arrow points from that box to a blue box labeled Azure Virtual W A N topology. Two arrows flow out of that box. One labeled Yes points to an orange box labeled Spoke. The second arrow is labeled No. It points to a blue box labeled Traffic analysis with N V A or Azure Firewall. Two arrows also flow out of the traffic analysis box. One labeled Yes points to an orange box labeled Hub. The second arrow is labeled No. It points to a blue box labeled Private Endpoint access from on-premises. Two arrows flow out of the Private Endpoint box. One labeled Yes points to the orange box labeled Hub. The second arrow is labeled No. It points to a blue box labeled Single application access. Two arrows flow out of that box. One labeled No points to the orange box labeled Hub. The second arrow is labeled Yes. It points to the orange box labeled Spoke.
 :::image-end:::
 
-*Download an [SVG][SVG version of decision tree] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-hub-spoke-diagrams.pptx) of this architecture.*
 
 ## Considerations
 

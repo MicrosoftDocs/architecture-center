@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Predict student attrition
+  titleSuffix: Azure Example Scenarios
+  description: Use machine learning and responsible AI to predict student attrition. Understand factors that affect education. Provide unbiased support for student success.
+  author: kunanba
+  ms.author: manasatr, charitha.basani, akunanbaeva 
+  ms.date: 07/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+name: Predict student attrition
+azureCategories:
+  - ai-machine-learning
+  - analytics
+summary: Use machine learning and responsible AI to predict student attrition. Understand factors that affect education. Provide unbiased support for student success.
+products:
+  - azure-data-factory
+  - azure-machine-learning
+  - azure-sql-database
+  - azure-synapse-analytics
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/student-attrition-prediction-thumbnail.png
+content: |
+   [!include[](student-attrition-prediction-content.md)]

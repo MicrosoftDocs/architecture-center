@@ -1,75 +1,96 @@
-This article shows you how to visualize the data collected by the [Azure industrial IoT (IIoT) analytics solution](./iiot-architecture.yml). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
+This article discusses data analysis and visualizations in an [Azure industrial IoT (IIoT) analytics](./iiot-architecture.yml) solution. There are several ways to analyze, query, and present industrial data by using visualizations and dashboards. You can use these tools to evaluate solution effectiveness, explore trends, and derive insights. The insights you gain can power advanced queries, machine learning model training, or logic apps that take actions.
 
-## Visualization
+Your IIoT analytics solution might use some or all of the following options, depending on what you need to do with your data.
 
-There are many options for visualizing your industrial data. Your IIoT analytics solution may use some or all of these options, depending on the personas using your solution.
+- Ad-hoc analytics and trend visualizations with [Azure Data Explorer dashboards (Preview)](/azure/data-explorer/azure-data-explorer-dashboards).
 
-- For Process Engineers and other personas looking to perform ad-hoc analytics and trend visualizations, we recommend using [Azure Time Series Insights explorer](/azure/time-series-insights/concepts-ux-panels).
-- For Plant Managers and other personas wanting to develop dashboards, we recommend using Power BI, and connecting Power BI with your data in Time Series Insights using the [Power BI connector](/azure/time-series-insights/concepts-power-bi). Using Power BI, these users can also combine external data from your ERP, EAM, or other systems with the data in Time Series Insights.
-- For advanced visualizations, such as schematic views and process graphics, we recommend a custom web application.
-- For Data Scientists interested in using open source data analysis and visualization tools such as Python, Jupyter Notebooks, and [*Matplotlib*](https://matplotlib.org/), we recommend [Azure Notebooks](https://notebooks.azure.com/).
+- [Power BI](https://powerbi.microsoft.com) visualizations and dashboards. Connect to your Azure IIoT data by using the Azure Data Explorer connector for Power BI. Use Power BI to combine external data from your Enterprise Resource Planning (ERP), Enterprise Asset Management (EAM), or other line-of-business systems with your IIoT data.
 
-## Data Trends
+- Custom web applications, for advanced visualizations like schematic views and process graphics.
 
-The Azure Time Series Insights explorer is a web application that provides powerful data trending and visualization capabilities that make it simple to explore and analyze billions of IIoT events simultaneously.
+- [Microsoft and GitHub notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft) that work with open-source tools like Jupyter Notebook and [Matplotlib](https://matplotlib.org).
 
-Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.
+## Architecture
 
-The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data, as demonstrated in the following figure.
+The following diagram shows how analytics and visualization tools collect, process, store, and analyze warm, cold, and historical data sources.
 
-[![Diagram showing IIoT warm and cold data architecture.](./images/warm-cold-data.png)](./images/warm-cold-data.png#lightbox)
+[![Diagram showing IIoT analytics data flow through collection, processing, storage, and analysis.](./images/warm-cold-data.png)](./images/warm-cold-data.png#lightbox)
 
-Azure Time Series Insights explorer has a powerful yet intuitive user interface, as shown below.
+1. Devices send telemetry data to the cloud through Azure IoT Hub.
+1. IoT Hub sends the device telemetry to a data processing engine, and time series metadata to the time series model store.
+1. The data processing engine routes data into warm storage and cold storage. The engine sends time series IDs to the time series model store.
+1. The query API can query over the warm storage, cold storage, and time series data.
+1. Query results feed into data explorer dashboards, visualizations, and third-party apps.
+1. Advanced analytics tools and machine learning also use cold storage data.
+1. Telemetry metadata and query results continually update the time series model.
 
-[![Screenshot of the Time Series Insights explorer.](./images/preview-explorer-overview.png)](./images/preview-explorer-overview.png#lightbox)
+## Azure Data Explorer
 
-Azure Time Series Insights explorer includes the following key features:
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer is ideally suited to explore, analyze, and visualize raw data from industrial systems.
 
-1. **Environment panel:** Displays all your Azure Time Series Insights environments.
-1. **Navigation bar:** Lets you switch between the Analyze and Model pages.
-1. **Hierarchy tree and search panel:** Lets you select and search for specific data elements to be charted.
-1. **Time series well:** Shows all your currently selected data elements.
-1. **Chart panel:** Displays your current working chart.
-1. **Timeline:** Lets you modify your working time span.
-1. **App bar:** Contains your user management options (such as current tenant), and allows you to change them and language settings.
+Azure Data Explorer provides a web application, the [Web UI](/azure/data-explorer/web-query-data), where you can run queries and build dashboards. For more information, see [Visualize data with Azure Data Explorer dashboards (Preview)](/azure/data-explorer/azure-data-explorer-dashboards). Azure Data Explorer also integrates with other dashboard services like Power BI.
 
-## Dashboards
+Azure Data Explorer can ingest data from [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Power Automate](https://powerautomate.microsoft.com), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), Kafka, Apache Spark, and many other services and platforms. Ingestion is scalable, and there are no limits.
 
-For some personas, such as a Plant Manager, dashboards containing factory or plant KPIs and visualizations are more important than viewing the raw data. For such users, we recommend [Power BI](https://powerbi.microsoft.com/) as the visualization solution. You can [connect](/azure/time-series-insights/concepts-power-bi) Power BI with your data stored in Time Series Insights, providing you with powerful reporting and dashboard capabilities over your industrial data, and allowing you to share insights and results across your organization.
+Supported Azure Data Explorer ingestion formats include JSON, CSV, Avro, Parquet, ORC, TXT, and other formats. For more information, see [Data formats supported by Azure Data Explorer for ingestion](/azure/data-explorer/ingestion-supported-formats).
 
-[![Power BI components](./images/power-bi-components.png)](./images/power-bi-components.png#lightbox)
+Azure Data Explorer supports:
+
+- Optimized hot storage on compute nodes.
+- Cold storage in the subscription's [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) account.
+- Automatic continuous data export to Azure Storage.
+- Distributed columnar storage and retention.
+- External tables to query exported data.
+- Data querying in KQL and SQL.
+- Data visualization formats including Azure Data Explorer Dashboards, Power BI, Grafana, and other visualization tools that use ODBC and JDBC connectors.
+
+The optimized native [Azure Data Explorer connector for Power BI](/azure/data-explorer/power-bi-connector) supports direct query or import mode, including query parameters and filters.
+
+For machine learning (ML), Azure Data Explorer supports R or Python to export ML models for building new models or scoring data. Azure Data Explorer has native capabilities for forecasting, anomaly detection, and clustering for diagnostics and root cause analysis (RCA).
+
+For security, Azure Data Explorer supports virtual network injection, Private Link, and encryption at rest with customer-managed keys. Azure Data Explorer includes granular role-based access control (RBAC) roles for functions and data access, row-level security (RLS), and data masking. Azure Data Explorer is built on Azure Blob Storage for Azure-supported 99.9% availability.
+
+## Power BI
+
+[Power BI](https://powerbi.microsoft.com/industry/manufacturing) is an ideal visualization solution for dashboards that show factory *key progress indicators (KPIs)*. You can [use the Azure Data Explorer connector for Power BI](/azure/data-explorer/power-bi-connector) to connect to industrial data stored in Azure Data Explorer. Power BI provides powerful reporting and dashboard capabilities that let you share insights and results across your organization. Power BI has desktop, web, and mobile interfaces.
 
 By connecting your data to Power BI, you can:
 
-- Perform correlations with other data sources supported by Power BI and access a host of different data visualization options.
-- Create Power BI dashboards and reports using your Time Series Insight data and share them with your organization.
-- Unlock data interoperability scenarios in a simple, easy-to-use manner, and get to insights faster than ever.
-- Modify Time Series Insights data within Power BI using the powerful Advanced Editor.
+- Perform correlations with other data sources that Power BI supports, and use many different data visualization options.
+- Create Power BI dashboards and reports that use your Azure Data Explorer data, and share them with your organization.
+- Unlock data interoperability scenarios simply and easily, with features like suggested Q&A and automatic insights.
+- Interact with Azure Data Explorer data by using the powerful Advanced Query Editor in Power BI.
 
-## Schematic Views
+## Custom web application
 
-For advanced visualizations, such as schematic views or process graphics, you may require a custom web application. A custom web application also allows you to provide a *single pane of glass* user experience and other advanced capabilities including:
+For advanced visualizations, such as schematic views or process graphics, you can create a custom web application. A custom web application can give you a single pane of glass (SPOG) user experience and other advanced capabilities. You can create applications such as:
 
-- a simplified and integrated authoring experience for Azure Stream Analytics jobs and Logic Apps,
-- displaying real-time data using process or custom visuals,
-- displaying KPIs and external data with embedded Power BI dashboards,
-- displaying visual alerts using SignalR, and
-- allowing administrators to add/remove users from the solution.
+- Simplified and integrated authoring experiences for Stream Analytics jobs and Azure Logic Apps.
+- Process or custom visuals that display real-time data.
+- Web apps with [embedded Power BI dashboards](/power-bi/collaborate-share/service-embed-secure) that display KPIs and external data.
+- Visual alert displays using SignalR.
+- Administrative applications for adding or removing solution users.
 
-We recommend building a Single Page Application (SPA) using:
+You can create a single-page application (SPA) by using:
 
-- JavaScript, HTML5, and CSS3
-- [Time Series Insights JavaScript SDK](https://tsiclientsample.azurewebsites.net/) for displaying process or custom visuals with data from Time Series Insights
-- [MSAL.js](/graph/toolkit/providers/msal) to sign in users and acquire tokens to use with the Microsoft Graph
-- [Azure App Services Web Apps](https://azure.microsoft.com/services/app-service/web/) to host the web application
-- Power BI to [embed Power BI dashboards](/power-bi/collaborate-share/service-embed-secure) directly in the web app
-- [Azure Maps](/azure/azure-maps/) to render map visualizations
-- [Microsoft Graph SDK for JavaScript](https://developer.microsoft.com/graph/blogs/microsoft-graph-sdk-for-javascript-2-0-0/) to integrate with Microsoft 365
+- JavaScript, HTML5, and CSS3.
+- [MSAL.js](/graph/toolkit/providers/msal) to sign in users and get tokens to use with the Microsoft Graph.
+- [Azure App Services Web Apps](https://azure.microsoft.com/services/app-service/web) to host the web application.
+- [Power BI embedded analytics](/power-bi/developer/embedded/embedded-analytics-power-bi) to embed your Power BI content such as reports and dashboards in the web application.
+- [Azure Maps](/azure/azure-maps) to render map visualizations.
+- [Microsoft Graph SDK for JavaScript](https://developer.microsoft.com/graph/blogs/microsoft-graph-sdk-for-javascript-2-0-0) to integrate with Microsoft 365.
 
 ## Notebooks
 
-One of the advantages of moving operational data to the cloud is to take advantage of modern big-data tool sets.  One of the most common tools used by Data Scientists for ad-hoc analysis of big data are [Jupyter Notebooks](https://notebooks.azure.com/). [Jupyter (formerly IPython)](/azure/notebooks/azure-notebooks-overview) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas - *the notebook*. Production Engineers should also consider learning Jupyter Notebooks technology to assist in analysis of plant events, finding correlations, and so on.  Jupyter Notebooks provide support for Python 2/3, R, and F# programming languages and can connect to your Time Series Insights data stored Azure storage.
+[Jupyter Notebook](https://jupyter.org) is an open-source web application for creating and sharing notebooks. These documents can contain live code, equations, visualizations, persistent data, and narrative text. Jupyter Notebook supports data sources including Azure Data Explorer, Azure Monitor logs, and Application Insights.
+
+For more information, see:
+
+- [Microsoft and GitHub notebooks](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft) 
+- [Use a Jupyter Notebook and kqlmagic extension to analyze data in Azure Data Explorer](/azure/data-explorer/kqlmagic).
 
 ## Next steps
 
-Now that you have learned the architecture of an Azure IIoT analytics solution, read [the architectural considerations](./iiot-considerations.md) that improve the resiliency and efficiency of this architecture.
+> [!div class="nextstepaction"]
+> [Considerations for an Azure Industrial IoT (IIoT) analytics solution](iiot-considerations.md)
+

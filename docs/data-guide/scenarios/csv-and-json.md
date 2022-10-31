@@ -1,11 +1,20 @@
 ---
 title: Processing CSV and JSON files
 description: Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-sql-database
+  - azure-storage
 ms.custom:
   - guide
 ---
@@ -43,7 +52,7 @@ CSV and JSON file formats both make it easy to exchange data between dissimilar 
 
 ## Working with CSV and JSON data in Azure
 
-Azure provides several solutions for working with CSV and JSON files, depending on your needs. The primary landing place for these files is either Azure Storage or Azure Data Lake Store. Most Azure services that work with these and other text-based files integrate with either object storage service. In some situations, however, you may opt to directly import the data into Azure SQL or some other data store. SQL Server has native support for storing and working with JSON documents, which makes it easy to [import and process those types of files](/sql/relational-databases/json/import-json-documents-into-sql-server). You can use a utility like SQL Bulk Import to easily [import CSV files](/sql/relational-databases/json/import-json-documents-into-sql-server).
+Azure provides several solutions for working with CSV and JSON files, depending on your needs. The primary landing place for these files is either Azure Storage or Azure Data Lake Store. Most Azure services that work with these and other text-based files integrate with either object storage service. In some situations, however, you may opt to directly import the data into Azure SQL or some other data store. SQL Server has native support for storing and working with JSON documents, which makes it easy to [import and process those types of files](/sql/relational-databases/json/import-json-documents-into-sql-server). You can use a utility like SQL Bulk Import to easily import CSV files.
 
 You can also query JSON files directly from Azure Blob Storage without importing them into Azure SQL. For a complete example of this approach, see [Work with JSON files with Azure SQL](https://medium.com/@mauridb/work-with-json-files-with-azure-sql-8946f066ddd4). Currently this option isn't available for CSV files.
 
@@ -58,3 +67,11 @@ There are some challenges to consider when working with these formats:
 - Using CSV and JSON files as your cold storage solution does not scale well when working with big data. In most cases, they cannot be split into partitions for parallel processing, and cannot be compressed as well as binary formats. This often leads to processing and storing this data into read-optimized formats such as Parquet and ORC (optimized row columnar), which also provide indexes and inline statistics about the data contained.
 
 - You may need to apply a schema on the semi-structured data to make it easier to query and analyze. Typically, this requires storing the data in another form that complies with your environment's data storage needs, such as within a database.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

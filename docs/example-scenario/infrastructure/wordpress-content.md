@@ -48,7 +48,7 @@ The second workflow is how authors contribute new content:
 
 ### Alternatives
 
-- [SQL Server for Linux](/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview) can replace the MariaDB data store.
+- [SQL Server for Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview) can replace the MariaDB data store.
 - [Azure database for MySQL](/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
 
 ## Considerations
@@ -63,7 +63,7 @@ This scenario uses virtual machine scale sets for the two front-end web server c
 
 The back end is a MariaDB cluster in an availability set. For more information, see the [MariaDB cluster tutorial][mariadb-tutorial].
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For more resiliency and scalability guidance, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service)] in the Azure Architecture Center.
 
 ### Security
 
@@ -77,7 +77,7 @@ In combination with the use of multiple regions, data replication and virtual ma
 
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
@@ -86,6 +86,14 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much traffic are you expecting in terms of GB/month? The amount of traffic will have the biggest impact on your cost, as it will impact the number of VMs that are required to surface the data in the virtual machine scale set. Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
 
 ## Next steps
 
@@ -102,19 +110,18 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Build a scalable application with virtual machine scale sets](/learn/modules/build-app-with-scale-sets)
-- [Configure Azure Active Directory](/learn/modules/configure-azure-active-directory)
-- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
-- [Configure Azure files and Azure File Sync](/learn/modules/configure-azure-files-file-sync)
-- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/learn/modules/create-cdn-static-resources-blob-storage)
-- [Implement Azure Key Vault](/learn/modules/implement-azure-key-vault)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Build a scalable application with virtual machine scale sets](/training/modules/build-app-with-scale-sets)
+- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
+- [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/training/modules/create-cdn-static-resources-blob-storage)
+- [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 - [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](../../solution-ideas/articles/scalable-web-apps.yml)
 
 <!-- links -->
 

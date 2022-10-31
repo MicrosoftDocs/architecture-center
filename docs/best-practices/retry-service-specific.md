@@ -28,7 +28,7 @@ The following table summarizes the retry features for the Azure services describ
 | **Service** | **Retry capabilities** | **Policy configuration** | **Scope** | **Telemetry features** |
 | --- | --- | --- | --- | --- |
 | **[Azure Active Directory](#azure-active-directory)** |Native in MSAL library |Embedded into MSAL library |Internal |None |
-| **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
+| **[Azure Cosmos DB](#azure-cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
 
 ### Retry usage guidance
 
@@ -67,61 +67,21 @@ Consider the following guidelines when using Azure Active Directory:
 - For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response.
 - Do not retry on errors other than 429 and 5xx.
 
-### More information
+### Next steps
 
-- [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview)
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 
-## Cosmos DB
+## Azure Cosmos DB
 
-Cosmos DB is a fully managed multi-model database that supports schemaless JSON data. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
+Azure Cosmos DB is a fully managed multi-model database that supports schemaless JSON data. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
 
 ### Retry mechanism
 
-The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions][cosmosClientOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
-
-### Policy configuration
-
-The following table shows the default settings for the `CosmosClientOptions` class.
-
-| Setting | Default value | Description |
-| --- | --- | --- |
-| MaxRetryAttemptsOnRateLimitedRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
-| MaxRetryWaitTimeOnRateLimitedRequests |30 |The maximum retry time in seconds for the Azure Cosmos DB service. |
-
-### Example
-
-```csharp
-CosmosClient cosmosClient = new CosmosClient("connection-string", new CosmosClientOptions()
-{
-    MaxRetryAttemptsOnRateLimitedRequests = 5,
-    MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(15)
-});
-
-```
+The Azure Cosmos DB SDKs automatically retry on certain error conditions, and user applications are encouraged to have their own retry policies. See the [guide to designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/sql/conceptual-resilient-sdk-applications) for a complete list of error conditions and when to retry.
 
 ### Telemetry
 
-Retry attempts are logged as unstructured trace messages through a .NET **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log.
-
-For example, if you add the following to your App.config file, traces will be generated in a text file in the same location as the executable:
-
-```xml
-<configuration>
-  <system.diagnostics>
-    <switches>
-      <add name="SourceSwitch" value="Verbose"/>
-    </switches>
-    <sources>
-      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
-        <listeners>
-          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="CosmosDBTrace.txt"></add>
-        </listeners>
-      </source>
-    </sources>
-  </system.diagnostics>
-</configuration>
-```
+Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For more information, see the "Capture the diagnostics" section in [Azure Cosmos DB C# SDK](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics) and [Azure Cosmos DB Java SDK](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
 
 ## Event Hubs
 
@@ -138,7 +98,7 @@ EventHubClient client = EventHubClient.CreateFromConnectionString("[event_hub_co
 client.RetryPolicy = RetryPolicy.Default;
 ```
 
-### More information
+### Next steps
 
 [.NET Standard client library for Azure Event Hubs](https://github.com/Azure/azure-event-hubs-dotnet)
 
@@ -156,7 +116,7 @@ The default retry policy is *exponential back-off with random jitter*, but it ca
 
 Policy configuration differs by language. For more details, see [IoT Hub retry policy configuration](/azure/iot-hub/iot-hub-reliability-features-in-sdks#retry-policy-apis).
 
-### More information
+### Next steps
 
 - [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
 - [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
@@ -344,7 +304,7 @@ namespace RetryCodeSamples
 
 For more examples, see [Configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Configuration.md) on the project website.
 
-### More information
+### Next steps
 
 - [Redis website](https://redis.io)
 
@@ -426,8 +386,8 @@ Consider starting with the following settings for retrying operations. These set
 
 | Context | Example maximum latency | Retry policy | Settings | How it works |
 |---------|---------|---------|---------|---------|
-| Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 300 msec. <br/> TimeBuffer = 300 msec. <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec. <br/> Attempt 2: Delay ~300 msec. <br/> Attempt 3: Delay ~900 msec. |
-| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 sec. <br/> Attempt 4: Delay ~13 sec. |
+| Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec <br/> DeltaBackoff = 300 ms <br/> TimeBuffer = 300 ms <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec <br/> Attempt 2: Delay ~300 ms <br/> Attempt 3: Delay ~900 ms |
+| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec <br/> DeltaBackoff = 1.75 sec <br/> TimeBuffer = 5 sec <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec <br/> Attempt 2: Delay ~3 sec <br/> Attempt 3: Delay ~6 sec <br/> Attempt 4: Delay ~13 sec |
 
 \* Not including additional delay that is added if a Server Busy response is received.
 
@@ -537,7 +497,7 @@ namespace RetryCodeSamples
 }
 ```
 
-### More information
+### Next steps
 
 - [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging)
 
@@ -564,7 +524,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
     new ServicePartitionKey(0));
 ```
 
-### More information
+### Next steps
 
 - [Remote exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
 
@@ -644,7 +604,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 }
 ```
 
-### More information
+### Next steps
 
 - [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
@@ -805,7 +765,7 @@ namespace RetryCodeSamples
 
 More examples of using the Entity Framework retry mechanism can be found in [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic).
 
-### More information
+### Next steps
 
 - [Azure SQL Database performance and elasticity guide](https://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
@@ -1101,7 +1061,7 @@ namespace RetryCodeSamples
 }
 ```
 
-### More information
+### Next steps
 
 - [Azure Storage client Library retry policy recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations)
 
@@ -1173,7 +1133,7 @@ The following are the typical types of retry strategy intervals:
 
 [Polly](http://thepollyproject.org) is a library to programmatically handle retries and [circuit breaker](../patterns/circuit-breaker.yml) strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
 
-### More information
+### Next steps
 
 - [connection resiliency](/ef/core/miscellaneous/connection-resiliency)
 - [Data Points - EF Core 1.1](/archive/msdn-magazine/2017/january/data-points-ef-core-1-1-a-few-of-my-favorite-things)
@@ -1182,7 +1142,6 @@ The following are the typical types of retry strategy intervals:
 
 [msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true

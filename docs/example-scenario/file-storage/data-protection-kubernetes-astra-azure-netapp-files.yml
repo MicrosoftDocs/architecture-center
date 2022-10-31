@@ -5,7 +5,7 @@ metadata:
   description: Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for Azure Kubernetes Service (AKS) applications.
   author: arntdg
   ms.author: b-arntdegier
-  ms.date: 12/21/2021
+  ms.date: 06/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

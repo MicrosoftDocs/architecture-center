@@ -3,8 +3,9 @@ Unisys ClearPath mainframe systems are full-featured operating environments that
 This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
 Asysco AMT Transform automates the migration of the complete mainframe ecosystem to Azure, by converting:
-- Transaction application code to AMT COBOL or directly to C#/.NET. AMT maintains the original code structure to use as a baseline or for future edits.
-- All databases, whether hierarchical, network, or relational, to Azure SQL Server.
+
+- Transaction application code to AMT COBOL or directly to C# and .NET. AMT maintains the original code structure to use as a baseline or to enable future edits.
+- All databases, whether hierarchical, network, or relational, to Azure SQL Database.
 - WFL/ECL scripts to Windows PowerShell or to open-source Visual Basic scripts.
 - All binary or indexed flat files.
 
@@ -18,11 +19,13 @@ The AMT Framework supports several options to move client workloads to Azure:
 
 This stepped method can also provide more processing cycles on the mainframe as applications convert to Azure. Eventually, starvation of the mainframe as applications convert to Azure can highlight the need to retire the mainframe.
 
-## Architecture
+## Legacy architecture
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
 
 ![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
+
+### Workflow
 
 - On-premises admin users interact with the mainframe through Terminal Emulator (MCP systems) or UTS Terminal Emulator (OS 1100/2200 systems) (**A**). On-premises web interface users can interact via a web browser over TLS 1.3 port 443 (**B**). Mainframes use communication standards like IPv4, IPv6, SSL/TLS, Telnet, FTP, and Sockets.
 
@@ -40,9 +43,13 @@ The following diagram shows the typical components of Unisys Burroughs MCP or Un
 
 - A printer subsystem (**H**) manages on-premises printers.
 
+## Azure Architecture
+
 The second diagram shows how the Unisys mainframe components can map and migrate to Azure capabilities.
 
 ![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
+
+### Workflow
 
 1. A web browser to access Azure system resources replaces terminal emulation for demand and online users (**A**). Users access web-based applications over TLS port 443. For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
 
@@ -64,9 +71,9 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 9. The system can support printers (**H**) and other legacy system output devices if they have IP addresses connected to the Azure network.
 
-## Components
+### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
 
 - [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although an Azure Virtual Network is similar to a traditional network on premises, it offers the extra benefits of Azure's infrastructure, such as scalability, availability, and isolation.
 
@@ -110,11 +117,21 @@ You can scale out the server sets to provide more throughput. For more informati
 
 [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
-### Pricing
+### Cost optimization
 
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next Steps
 
