@@ -29,7 +29,7 @@ In any complex application, at some point something will go wrong. In a microser
 
 Use [Azure Monitor][azure-monitor] to monitor the overall health of your clusters. The following screenshot shows a cluster with critical errors in user-deployed pods.
 
-![Screenshot of the Azure Monitor dashboard](./images/monitoring/pod-status.png)
+![Screenshot of the Azure Monitor dashboard.](./images/monitoring/pod-status.png)
 
 From here, you can drill in further to find the issue. For example, if the pod status is `ImagePullBackoff`, it means that Kubernetes couldn't pull the container image from the registry. This issue could be caused by an invalid container tag or an authentication error that tries to pull from the registry.
 
@@ -159,7 +159,7 @@ traces
 
 Viewing the result in the Azure portal shows that `DeliveryInfo` is a structured record that contains the serialized representation of the `DeliveryInfo` model:
 
-![Screenshot of the Log Analytics workspace](./images/monitoring/structured-logs.png)
+![Screenshot of the Log Analytics workspace.](./images/monitoring/structured-logs.png)
 
 Here's the JSON from this example:
 ```json
