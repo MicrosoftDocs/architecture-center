@@ -49,8 +49,6 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |[Agriculture](/azure/industry/agriculture/overview-azure-farmbeats?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Agriculture businesses can use Azure FarmBeats, a business-to-business technology, to build AI or machine learning models that are based on aggregated data sets.     |
 |[Sports](../industries/sports.md)     |    There's been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team.     |
 
-https://learn.microsoft.com/en-us/azure/architecture/industries/sports
-
 ## Related resources
 
 - [Industry-specific Azure IoT reference architectures](../reference-architectures/iot/industry-iot-hub-page.md)
