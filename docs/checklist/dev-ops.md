@@ -155,7 +155,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 - [Automate multistage DevOps pipelines with Azure Pipelines](/azure/architecture/example-scenario/devops/automate-azure-pipelines)
 - [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)
 - [CI/CD for containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)

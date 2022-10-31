@@ -1,4 +1,4 @@
-This article describes a high-level DevOps workflow for deploying application changes to Azure services such as Azure Functions or the Web Apps feature of Azure App Service. The solution uses continuous integration/continuous deployment (CI/CD) practices with Azure Pipelines.
+This article describes a high-level DevOps workflow for deploying application changes to staging and production environments in Azure. The solution uses continuous integration/continuous deployment (CI/CD) practices with Azure Pipelines.
 
 > [!NOTE]
 > Although this article covers CI/CD for application changes, Azure Pipelines can also be used to build CI/CD pipelines for infrastructure as code (IaC) changes.
@@ -6,7 +6,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 ## Architecture
 
 :::image type="complex" source="./media/azure-devops-ci-cd-architecture.png" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines" border="false"::: 
-Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to Web Apps or Functions running in a staging environment. 5. Shows the CD pipeline releasing to Web Apps or Functions running in a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
+Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to a staging environment. 5. Shows the CD pipeline releasing to a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
 :::image-end:::
 
 ### Dataflow
@@ -29,8 +29,6 @@ The data flows through the scenario as follows:
   - CI pipelines run after code is merged. They perform the same validation as PR pipelines, but add integration testing and publish build artifacts if everything succeeds.
   - CD pipelines deploy build artifacts, run acceptance tests, and release to production.
 
-- [Web Apps](https://azure.microsoft.com/services/app-service/web) and [Functions](https://azure.microsoft.com/products/functions) are two options that this example lists for deploying and managing web apps that are written in various languages like C#, Java, JavaScript, or PHP. There are various other deployment options. These two were chosen for this example for simplicity. Both Web Apps and Azure Function Apps are platform as a service (PaaS) offerings that support deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
-
 - [Key Vault](https://azure.microsoft.com/services/key-vault) provides a way to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure Pipelines with a [Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault) or by [linking secrets from Key Vault](/azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault).
 
 - [Monitor](https://azure.microsoft.com/services/monitor) is an observability resource that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
@@ -47,7 +45,11 @@ While this article focuses on Azure DevOps, you could consider these alternative
 
 - [GitHub Repositories](https://docs.github.com/repositories) can be substituted as the code repository. Azure Pipelines integrates seamlessly with GitHub repositories.
 
-Consider these alternatives to hosting in Web Apps or Functions:
+Consider these alternatives for compute environments:
+
+- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments. Web Apps supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
+
+- [Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to integrate services. Functions also supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
 
 - [Azure Virtual Machines](/azure/app-service/choose-web-site-cloud-service-vm) handles workloads that require a high degree of control, or depend on OS components and services that aren't possible with Web Apps (for example, the Windows GAC, or COM).
 
@@ -102,14 +104,6 @@ Azure DevOps costs depend on the number of users in your organization that requi
 This [pricing calculator](https://azure.com/e/498aa024454445a8a352e75724f900b1) provides an estimate for running Azure DevOps with 20 users.
 
 Azure DevOps is billed on a per-user per-month basis. There might be more charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Rob Bagby](https://www.linkedin.com/in/robbagby) | Principal Architecture Content Lead
 
 ## Next steps
 

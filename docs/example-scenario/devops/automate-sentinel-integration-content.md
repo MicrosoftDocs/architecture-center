@@ -811,5 +811,5 @@ Principal authors:
 
 * [Dev SecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
 * [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
-* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 * [Advanced ARM template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)

@@ -1,4 +1,5 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+> [!IMPORTANT]
+> Microservices with AKS and Azure DevOps is a variant of [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml). This article focuses on the AKS-specific facets of deployment.
 
 ## Potential use cases
 
@@ -7,30 +8,24 @@ Use AKS to simplify the deployment and management of microservices-based archite
 ## Architecture
 
 ![Architecture Diagram](../media/microservices-with-aks.png)
-*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-aks.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Developer uses an IDE, such as Visual Studio, to commit changes to GitHub.
-1. GitHub triggers a new build on Azure DevOps.
-1. Azure DevOps packages the microservices as containers and pushes them to the Azure Container Registry.
-1. Containers are deployed to the AKS cluster.
-1. Users access services via apps and a website.
-1. Azure Active Directory is used to secure access to the resources.
-1. Microservices use databases to store and retrieve information.
-1. Administrator accesses via a separate admin portal.
+1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
+2. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These tests require secrets, so this pipeline gets those secrets from Azure Key Vault.
+3. The result of a successful run of this pipeline is the creation and publishing of a container image in a non-production Azure Container Repository.
+4. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
+5. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a manual validation task is run, requiring a person to validate the deployment and resume the pipeline.
+6. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
+7. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
+8. Container Insights forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor every 3 minutes.
+9. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 
 ### Components
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops) packages the microservices as containers.
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
-- [GitHub Enterprise](https://docs.github.com/) provides a code-hosting platform that developers can use for collaborating on both open-source and inner-source projects.
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory). When AKS is integrated with Azure Active Directory, it allows you to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed MySQL Database service on Azure to store stateful data.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+- [Container Insights](/azure/azure-monitor/containers/container-insights-overview) collects logs and metrics and logs and forwards them to Azure Monitor.
+- [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
 
 ## Next steps
 
@@ -41,4 +36,3 @@ Use AKS to simplify the deployment and management of microservices-based archite
 
 - To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml).
 - Follow the [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
-- See the [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml).
