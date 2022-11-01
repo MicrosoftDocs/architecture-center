@@ -8,7 +8,7 @@ Visionpharm:
 - Enables tissue researchers to analyze both simple and complex datasets to generate reliable quantitative results.
 - Uses pre-trained nuclei segmentation APPs, suitable for bright-field and fluorescence applications.
 
-Visiopharm is used in academic institutions, the biopharmaceutical industry, and diagnostic centers.
+Visiopharm is used in academic institutions, the biopharmaceutical industry, and diagnostic centers. It's ideal for the education, healthcare, and manufacturing industries.
 
 ## Why deploy Visiopharm on Azure?
 
