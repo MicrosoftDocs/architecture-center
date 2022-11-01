@@ -42,7 +42,13 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 * [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) load-balances internet and private network traffic with high performance and low latency. Load Balancer works across virtual machines, virtual machine scale sets, and IP addresses.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Cost optimization
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 * [Get pricing estimates](https://azure.microsoft.com/pricing/details/machine-learning)
 
@@ -57,6 +63,7 @@ Principal authors:
 * [Lauryn Gayhardt](https://linkedin.com/in/lgayhardt) | Content Developer
 * [Samantha Salgado](https://linkedin.com/in/sam-s-1978991b4) | Content Developer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

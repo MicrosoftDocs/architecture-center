@@ -211,6 +211,16 @@ A better approach is to invalidate this cache by [using versioning during deploy
 
 This ensures that the CDN always gets new updated files, and removes the need to purge the cache for a new build.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Now that you understand the basics, follow [this readme](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp) to set up and execute the CI/CD pipeline.

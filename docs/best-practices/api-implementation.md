@@ -17,7 +17,6 @@ products:
   - azure-encoding
 ms.custom:
   - best-practice
-social_image_url: /azure/architecture/best-practices/media types that the client can handle, such as `image/jpeg, image/gif, image/png
 ---
 
 <!-- cSpell:ignore CNAME HATEOAS WADL hashedOrderEtag nonMatchEtags matchEtags -->
@@ -637,11 +636,11 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
 2. The web API stores information about the request in a table held in [Azure Table Storage](/azure/storage/tables) or [Microsoft Azure Cache](/azure/azure-cache-for-redis) and generates a unique key for this entry, possibly in the form of a GUID. Alternatively, a message containing information about the request and the unique key could be sent via [Azure Service Bus](/azure/service-bus-messaging) as well.
 3. The web API initiates the processing as a [separate task](/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model) or with a library like [Hangfire](https://www.hangfire.io). The web API records the state of the task in the table as *Running*.
    - If you use Azure Service Bus, the message processing would be done separately from the API, possibly by using [Azure Functions](/azure/azure-functions) or [AKS](/azure/aks).
-5. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
-6. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
+4. The web API returns a response message with HTTP status code 202 (Accepted), and a URI containing the unique key generated - something like */polling/{guid}*.
+5. When the task has completed, the web API stores the results in the table, and it sets the state of the task to *Complete*. Note that if the task fails, the web API could also store information about the failure and set the status to *Failed*.
    - Consider applying [retry techniques](/architecture/patterns/retry) to resolve possibly transient failures.
-8. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
-9. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
+6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI it received earlier.
+7. The web API at the URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (*Running*, *Complete*, or *Failed*). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
    - If the long-running process has more intermediate states, it's better to use a library that supports the saga pattern, like [NServiceBus](https://docs.particular.net/nservicebus/sagas) or [MassTransit](https://masstransit-project.com/usage/sagas).
 
 Options for implementing notifications include:

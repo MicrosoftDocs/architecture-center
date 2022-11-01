@@ -73,7 +73,7 @@ It's important to think about how to handle networking or power failures. For in
 
 ### Security
 
-- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries as you would when using a public cloud. Deploying the same app in datacenters in each country allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within each country's borders. For more guidance, see [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework.
+- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries/regions as you would when using a public cloud. Deploying the same app in datacenters in each country/region allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within the borders of each country/region. See [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework for more guidance.
 
 - **Azure Stack Hub security posture.** Security requires a solid, continuous servicing process. That's why Microsoft invested in an orchestration engine that applies patches and updates across the entire infrastructure. Thanks to partnerships with Azure Stack Hub original equipment manufacturer (OEM) partners, Microsoft extends the same security posture to OEM-specific components, like the Hardware Lifecycle Host and the software running on it. These partnerships ensure that Azure Stack Hub has a uniform, solid security posture across the entire infrastructure. In turn, you can build and secure your app workloads.
 

@@ -63,7 +63,7 @@ The following are some additional ideas that you can use as a starting point for
 - [Population Health Management for Healthcare](../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Medical Data Storage Solutions](../solution-ideas/articles/medical-data-storage.yml)
 - [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [Remote Patient Monitoring Solutions](../solution-ideas/articles/remote-patient-monitoring.yml)
+- [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
 - [Predict Length of Stay and Patient Flow](../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
 - [Predict Length of Stay in Hospitals](../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
 - [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)

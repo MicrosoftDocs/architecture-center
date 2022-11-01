@@ -48,4 +48,4 @@ This solution applies to scenarios that use AKS and GPU-enabled VMs for machine 
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
-- [Training Python models on Azure](../../reference-architectures/ai/training-python-models.yml)
+- [Training Python models on Azure](/azure/architecture/example-scenario/ai/training-python-models)

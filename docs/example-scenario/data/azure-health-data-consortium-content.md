@@ -43,7 +43,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
 
 Throughout the system:
 
-- [Azure Active Directory][What is Azure Active Directory?] (Azure AD), [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
+- [Azure Active Directory (Azure AD)][What is Azure Active Directory?], [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines), a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
@@ -195,9 +195,12 @@ For more information, see [pricing details][Azure pricing calculator].
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 * [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+* [Aruna Ranganathan](https://www.linkedin.com/in/aruna-ranganathan-aa0a2212) | Principal Customer Engineering Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

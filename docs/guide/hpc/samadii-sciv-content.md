@@ -2,7 +2,7 @@ This article briefly describes the steps for running [Samadii SCIV](https://www.
 
 Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the direct simulation Monte Carlo (DSMC) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also provides functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarefied gas regions.
 
-SCIV is used by manufacturers of display devices and semiconductors, in aerospace, and in other industries.
+SCIV is used by manufacturers of display devices and semiconductors, in aerospace, manufacturing, and in other industries.
 
 ## Why deploy Samadii SCIV on Azure?
 

@@ -11,25 +11,27 @@ This example scenario is relevant to organizations that need to analyze data in 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
 1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance.
-2. A Stream Analytics job is started, which receives data via the event hub source.
+2. A Stream Analytics job is started. It receives data via the event hub source.
 3. The Stream Analytics job runs a predefined query to transform the input stream and analyze it based on a fraudulent-transaction algorithm. This query uses a tumbling window to segment the stream into distinct temporal units.
 4. The Stream Analytics job writes the transformed stream representing detected fraudulent calls to an output sink in Azure Blob storage.
 
 ### Components
 
-- [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
-- [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used in this scenario to store the results of the Stream Analytics job.
+- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry that's produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
+- [Azure Stream Analytics](https://azure.microsoft.com/products/stream-analytics) is an event-processing engine that can analyze high volumes of data that streams from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
+- [Blob storage](https://azure.microsoft.com/products/storage/blobs) is used in this scenario to store the results of the Stream Analytics job.
 
 ### Alternatives
 
 Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the Azure Data Architecture Guide.
 
-Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+Algorithms for fraud detection that are more complex can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+For scenarios that are built by using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates that use Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
 
 ## Scenario details
 
-Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
+Potential applications include identifying fraudulent credit card activity or fraudulent mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
 
 By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and using Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
 
@@ -61,7 +63,7 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Azure Event Hubs secures data through an [authentication and security model][docs-event-hubs-security-model] based on a combination of Shared Access Signature (SAS) tokens and event publishers. An event publisher defines a virtual endpoint for an event hub. The publisher can only be used to send messages to an event hub. It is not possible to receive messages from a publisher.
+Azure Event Hubs secures data through an [authentication and security model][docs-event-hubs-security-model] that's based on a combination of Shared Access Signature (SAS) tokens and event publishers. An event publisher defines a virtual endpoint for an event hub. The publisher can only be used to send messages to an event hub. It's not possible to receive messages from a publisher.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -73,9 +75,9 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected data volume.
+To explore the cost of running this scenario, all the services are pre-configured in the cost calculator. To see how the pricing changes for your use case, change the appropriate variables to match your expected data volume.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+We have provided three sample cost profiles that are based on the amount of traffic you expect to get:
 
 - [Small][small-pricing]: process one million events through one standard streaming unit per month.
 - [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
@@ -83,19 +85,23 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Deploy this scenario
 
-To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
+To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] that demonstrates how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+- [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
+- [Azure Event Hubs — A big data streaming platform and event ingestion service][docs-event-hubs]
+- [Welcome to Azure Stream Analytics][docs-stream-analytics]
+- [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 
 ## Related resources
 
@@ -116,6 +122,5 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
 [docs-r-server-sample-solutions]: /machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection
-[technet-fraud-detection]: https://beanalytics.wordpress.com/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security

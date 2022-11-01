@@ -132,6 +132,8 @@ Principal authors:
 
  - [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370/) | Senior Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 * [ExpressRoute Documentation](/azure/expressroute/)

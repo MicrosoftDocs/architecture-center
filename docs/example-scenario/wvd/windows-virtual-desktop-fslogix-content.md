@@ -58,6 +58,9 @@ Additionally, the following table gives an example of how many resources an FSLo
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Azure Virtual Desktop FSLogix user profile containers.
 
+> [!NOTE]
+> While the best practice is have the user profiles stored in Azure, you can also leverage any other storage solution you already have in place in your environment (for example **DFS Namespaces**), and that the sessions hosts can reach, to replicate the user profiles to those locations using **Cloud Cache** as explained below.
+
 [Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
 
 ## Best practices
@@ -284,9 +287,11 @@ Principal author:
 
  * [Christiaan Brinkhoff](https://www.linkedin.com/in/christiaanbrinkhoff) | Principal PM and Community Lead, Windows 365
 
-Other contributor:
+Other contributors:
 
   * [Sven Aelterman](https://www.linkedin.com/in/svenaelterman) | Senior Cloud Solution Architect, Education
+
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
 
 ## Next steps
 

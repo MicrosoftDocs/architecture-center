@@ -1,19 +1,5 @@
 This reference architecture provides strategies for the [partitioning model][Partitions] that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.
 
-Specifically, this document discusses the following strategies:
-
-- How to assign events to partitions.
-- How many partitions to use.
-- How to assign partitions to subscribers when rebalancing.
-
-Many event ingestion technologies exist, including:
-
-- [Azure Event Hubs][Azure Event Hubs]: A fully managed big data streaming platform.
-- [Apache Kafka][Apache Kafka]: An open-source stream-processing platform.
-- [Event Hubs with Kafka][Use Azure Event Hubs from Apache Kafka applications]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
-
-Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.
-
 ## Architecture
 
 :::image type="complex" source="./images/event-processing-service-new.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
@@ -35,6 +21,22 @@ Besides offering partitioning strategies, this document also points out differen
 - Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
 
 - Consumers process the feed of published events that they subscribe to. Consumers also engage in *checkpointing*. Through this process, subscribers use *offsets* to mark their position within a partition event sequence. An offset is a placeholder that works like a bookmark to identify the last event that the consumer read.
+
+## Scenario details
+
+Specifically, this document discusses the following strategies:
+
+- How to assign events to partitions.
+- How many partitions to use.
+- How to assign partitions to subscribers when rebalancing.
+
+Many event ingestion technologies exist, including:
+
+- [Azure Event Hubs][Azure Event Hubs]: A fully managed big data streaming platform.
+- [Apache Kafka][Apache Kafka]: An open-source stream-processing platform.
+- [Event Hubs with Kafka][Use Azure Event Hubs from Apache Kafka applications]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
+
+Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.
 
 ## Recommendations
 
@@ -153,7 +155,7 @@ In Kafka, events are *committed* after the pipeline has replicated them across a
 
 In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Consumers connect via an [AMQP 1.0 session][AMQP 1.0]. This state-aware bidirectional communication channel provides a secure way to transfer messages. Kafka also offers encryption, authorization, and authentication features, but you have to implement them yourself.
 
-## Examples
+## Deploy this scenario
 
 The following code examples demonstrate how to maintain throughput, distribute to a specific partition, and preserve event order.
 
@@ -318,9 +320,11 @@ As these results show, the producer only used two unique keys. The messages then
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

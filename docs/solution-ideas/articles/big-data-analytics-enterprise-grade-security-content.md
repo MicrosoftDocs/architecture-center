@@ -148,7 +148,7 @@ Refer to these articles when planning and deploying solutions using Azure Synaps
 
 -   [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 
--   [Enterprise business intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
+-   [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 
 -   [Advanced Analytics Architecture](./advanced-analytics-on-big-data.yml)
 

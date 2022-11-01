@@ -9,7 +9,7 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 
 :::image type="content" source="media/many-models-machine-learning-azure-spark.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Spark." lightbox="media/many-models-machine-learning-azure-spark.png":::
 
-*Download a [PNG file](./media/many-models-machine-learning-azure-spark.png) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/many-models-machine-learning-azure-spark.vsdx) of this architecture.*
 
 ### Dataflow
 

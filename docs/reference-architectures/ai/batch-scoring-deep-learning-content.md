@@ -143,6 +143,8 @@ Principal authors:
 
  - [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)

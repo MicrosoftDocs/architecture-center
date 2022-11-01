@@ -23,6 +23,8 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ### Potential use cases
 
+This solution is ideal for the aircraft and aerospace industries.
+
 With the right information, it's possible to determine the condition of equipment in order to predict when maintenance should be performed. Predictive maintenance can be used for the following items:
 
 * Real-time diagnostics.

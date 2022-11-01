@@ -119,6 +119,16 @@ The following diagram shows dependencies and related technologies. Some of the t
 
 For more information, see [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)

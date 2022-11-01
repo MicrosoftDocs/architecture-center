@@ -137,6 +137,16 @@ Consider placing a function app into a dedicated App Service plan so that backgr
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal SDE
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Secure an app in Azure App Service][app-service-security]

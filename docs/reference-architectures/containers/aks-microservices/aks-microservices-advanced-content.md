@@ -14,8 +14,6 @@ If you would prefer to start with a more basic microservices example on AKS, see
 
 ### Workflow
 
-The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
-
 This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.yml), [Competing Consumers](../../../patterns/competing-consumers.yml), and [Gateway Routing](../../../patterns/gateway-routing.yml) cloud design patterns. The messaging flow proceeds as follows:
 
 1. An HTTPS request is submitted to schedule a drone pickup. The requests pass through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
@@ -79,6 +77,14 @@ The AKS infrastructure features used in this architecture include:
 **[Azure Key Vault Secret Store CSI provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure)**, gets secrets stored in Azure Key Vault and uses the [Secret Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) interface to mount them into Kubernetes pods.
 
 **[Flux](https://fluxcd.io)**, an open and extensible continuous delivery solution for Kubernetes, powered by the GitOps Toolkit.
+
+## Scenario details
+
+The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
+
+### Potential use cases
+
+This solution is ideal for the aircraft, aerospace, and aviation industries.
 
 ## Recommendations
 
