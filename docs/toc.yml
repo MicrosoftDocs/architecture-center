@@ -5755,8 +5755,6 @@ items:
                     href: industries/telecommunications/deploy-private-mobile-network.md
                   - name: Build a private 5G network
                     href: industries/telecommunications/build-private-5g-network.md
-                  - name: Benefits and use cases
-                    href: industries/telecommunications/private-5g-network-benefits.md
               - name: Spoke-to-spoke networking
                 href: networking/spoke-to-spoke-networking.yml
               - name: Network security
