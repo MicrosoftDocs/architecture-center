@@ -46,7 +46,7 @@ You might consider deploying a single Container Apps environment for each of you
 
 This approach provides the strongest level of data and performance isolation, and it removes the need for your applications to be multitenancy-aware.
 
-However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas) but these [quotas can be increased by request via an Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/). Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model.  Keep in mind, this approach comes with a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
+However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas) but these [quotas can be increased by request via an Azure support ticket](https://azure.microsoft.com/support/create-ticket/). Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model.  Keep in mind, this approach comes with a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
 
 ### Container apps per tenant
 
