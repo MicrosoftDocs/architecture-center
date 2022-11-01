@@ -159,6 +159,16 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

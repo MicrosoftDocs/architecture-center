@@ -134,6 +134,16 @@ An IoT solution tracks analog actions as part of a workflow, but the actions usu
 - Operators notifying a solution when they finish stocking or staging items in a retail workflow.
 - Human-conducted scoring and tuning of training data for AI.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jason Wadsworth](https://www.linkedin.com/in/jason-wadsworth-23549b158/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure IoT documentation](/azure/iot-fundamentals)

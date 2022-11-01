@@ -55,7 +55,7 @@ Before deploying a SAS workload, ensure the following components are in place:
 - A [virtual central processing unit (vCPU) subscription quota](/azure/virtual-machines/windows/quotas) that takes into account your sizing document and VM choice
 - Access to a secure Lightweight Directory Access Protocol (LDAP) server
 
-## Design recommendations for all SAS solutions
+## Recommendations
 
 Consider the points in the following sections when designing your implementation.
 
@@ -280,18 +280,11 @@ SAS platforms support various data sources:
 - SQL Server
 - SQL Server using Open Database Connectivity (ODBC)
 
-## Deployment
+## Considerations
 
-It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
+### Security
 
-When building your environment, see quickstart reference material in these repositories:
-
-- [Automating SAS Deployment on Azure using GitHub Actions](https://github.com/grtn316/viya4-iac-azure)
-- [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
-
-<!--More details can be found in the pages specific to [Viya 3.5](sas-viya-35-overview.md) and [Grid](sas-grid-94-overview.md). -->
-
-## Security
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to protect all data moving in and out of your architecture.
 
@@ -315,7 +308,7 @@ You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encrypti
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
 
-### Protect your infrastructure
+#### Protect your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
 
@@ -325,6 +318,17 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 - Secure Shell Protocol (SSH) ports
 - Remote Desktop Protocol (RDP) ports
 
+## Deploy this scenario
+
+It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
+
+When building your environment, see quickstart reference material in these repositories:
+
+- [Automating SAS Deployment on Azure using GitHub Actions](https://github.com/grtn316/viya4-iac-azure)
+- [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
+
+<!--More details can be found in the pages specific to [Viya 3.5](sas-viya-35-overview.md) and [Grid](sas-grid-94-overview.md). -->
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
@@ -333,7 +337,7 @@ Principal authors:
 - [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
 - [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 - [Drew Furgiuele](https://www.linkedin.com/in/pittfurg) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -349,10 +353,17 @@ For help getting started, see the following resources:
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/availability-zones/az-overview)
 
-## Related resources
-
 For help with the automation process, see the following templates that SAS provides:
 
 - [SAS Viya 4 Infrastructure as Code](https://github.com/sassoftware/viya4-iac-azure)
 - [SAS Viya 3.5 Guide](https://github.com/sassoftware/sas-viya-3.5-ha-deployment/blob/main/sas-viya-3.5-ha-deployment-on-microsoft-azure/SAS-Viya-HA-Deployment-Azure.md)
 - [SAS 9.4 Grid](https://github.com/corecompete/sas94grid-viya)
+
+## Related resources
+
+- [Azure Kubernetes in event stream processing](/azure/architecture/solution-ideas/articles/serverless-event-processing-aks)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](/azure/architecture/microservices/logging-monitoring)
+- [Cost management for Kubernetes](/azure/architecture/aws-professional/eks-to-aks/cost-management)
+- [Oracle Database with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
+- [SQL Server on Azure Virtual Machines with Azure NetApp Files](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)

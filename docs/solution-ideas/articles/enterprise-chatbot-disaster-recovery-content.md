@@ -62,6 +62,16 @@ Key technologies used to implement this architecture:
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs/) | Principal Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Product documentation:

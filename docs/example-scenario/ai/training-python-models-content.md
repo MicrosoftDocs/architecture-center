@@ -106,8 +106,9 @@ While adding more nodes can significantly speed up run time, increased start-up 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
+- [Fidan Boylu Uz](https://www.linkedin.com/in/fidan-boylu-uz-ph-d-mba-3a6b782/) | Principal D&AS Manager
 - [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Sr Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

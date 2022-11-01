@@ -55,7 +55,9 @@ If you don't need all of the functionality provided by API Management, another o
 
 ## Scenario details
 
-This drone-delivery solution is ideal for the aircraft, aviation, and robotics industries. 
+### Potential use cases
+
+This drone-delivery solution is ideal for the aircraft, aviation, aerospace, and robotics industries. 
 
 ## Recommendations
 

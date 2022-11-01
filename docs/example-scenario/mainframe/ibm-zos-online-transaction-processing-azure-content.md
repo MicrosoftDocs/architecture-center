@@ -125,6 +125,8 @@ Principal authors:
 
  - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, please contact datasqlninja@microsoft.com.

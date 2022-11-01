@@ -27,7 +27,7 @@ Here are some examples of functionality that could be offloaded to a gateway:
 
 - SSL termination
 - Authentication
-- IP allow/block list
+- IP allowlist or blocklist
 - Client rate limiting (throttling)
 - Logging and monitoring
 - Response caching
@@ -53,7 +53,7 @@ When choosing a gateway technology, consider the following:
 
 **Deployment**. Azure Application Gateway and API Management are managed services. Nginx and HAProxy will typically run in containers inside the cluster, but can also be deployed to dedicated VMs outside of the cluster. This isolates the gateway from the rest of the workload, but incurs higher management overhead.
 
-**Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allow lists, and other aspects of configuration.
+**Management**. When services are updated or new services are added, the gateway routing rules might need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allowlists, and other aspects of configuration.
 
 ## Deploying Nginx or HAProxy to Kubernetes
 

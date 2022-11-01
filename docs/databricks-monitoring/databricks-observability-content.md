@@ -324,6 +324,8 @@ Principal authors:
 
  - [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: EdPrice-MSFT
 ms.author: yuanzhiqu
-ms.date: 08/08/2022
+ms.date: 10/27/2022
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -304,7 +304,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Web Application Firewall](https://aws.amazon.com/waf) | [Web Application Firewall](/azure/application-gateway/application-gateway-web-application-firewall-overview) | A firewall that protects web applications from common web exploits. |
+| [Web Application Firewall](https://aws.amazon.com/waf) | [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) | A firewall that protects web applications from common web exploits. |
 | [Web Application Firewall](https://aws.amazon.com/waf)| [Firewall](https://azure.microsoft.com/services/azure-firewall) | Provides inbound protection for non-HTTP/S protocols, outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S. |
 
 ### Security
@@ -339,7 +339,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 |------|-------------|---------------|
 | [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk) | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | [API Gateway](https://aws.amazon.com/api-gateway) | [API Management](https://azure.microsoft.com/services/api-management) | A turnkey solution for publishing APIs to external and internal consumers. |
-| [CloudFront](https://aws.amazon.com/cloudfront) | [Content Delivery Network](https://azure.microsoft.com/services/cdn) | A global content delivery network that delivers audio, video, applications, images, and other files. |
+| [CloudFront](https://aws.amazon.com/cloudfront) | [Front Door](https://azure.microsoft.com/services/frontdoor) | Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. |
 | [Global Accelerator](https://aws.amazon.com/global-accelerator) | [Front Door](https://azure.microsoft.com/services/frontdoor) | Easily join your distributed microservices architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure-or anywhere. |
 | [Global Accelerator](https://aws.amazon.com/global-accelerator) | [Cross-regional load balancer](/azure/load-balancer/cross-region-overview) | Distribute and load balance traffic across multiple Azure regions via a single, static, global anycast public IP address. |
 | [LightSail](https://aws.amazon.com/lightsail) | [App Service](https://azure.microsoft.com/services/app-service) | Build, deploy, and scale web apps on a fully managed platform. |

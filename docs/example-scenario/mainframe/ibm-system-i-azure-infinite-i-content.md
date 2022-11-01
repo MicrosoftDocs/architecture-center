@@ -125,6 +125,8 @@ Principal authors:
 
  - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, contact <legacy2azure@microsoft.com>.

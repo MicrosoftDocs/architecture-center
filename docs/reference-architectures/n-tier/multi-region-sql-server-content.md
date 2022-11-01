@@ -214,6 +214,8 @@ Principal author:
 
  - [Donnie Trumpower](https://www.linkedin.com/in/dtrumpower) | Senior Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)

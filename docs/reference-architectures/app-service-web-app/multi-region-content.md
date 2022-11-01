@@ -189,6 +189,16 @@ This architecture follows the multi region deployment recommendation, described 
 
 This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see the [DevOps considerations section][guidance-web-apps-scalability-devops].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - Arvind Boggaram Pandurangaiah Setty | Senior Consultant
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Deep dive on [Azure Front Door - traffic routing methods][front-door-routing]
