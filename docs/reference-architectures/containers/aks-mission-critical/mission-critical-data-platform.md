@@ -157,7 +157,7 @@ Azure Service Bus premium tier is the recommended solution for high-value messag
   - If an acknowledgment isn't received by the broker in the allotted time period, or the handler explicitly abandons the message, the exclusive lock is released. The message is then available for other consumers to process the message.
   - If a message is not successfully processed a configurable number of times, or the handler forwards the message to the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
     - To ensure that messages sent to the dead-letter queue are acted upon, the dead-letter queue should be monitored, and alerts should be set.
-    - The system should have tooling for operators to be able to [inspect, correct, and resubmit messages](/azure/service-bus-messaging/service-bus-dead-letter-queues?source=recommendations#sending-dead-lettered-messages-to-be-reprocessed).
+    - The system should have tooling for operators to be able to [inspect, correct, and resubmit messages](/azure/service-bus-messaging/service-bus-dead-letter-queues#sending-dead-lettered-messages-to-be-reprocessed).
 
 - Because messages can potentially be processed more than one time, message handlers should be made idempotent.
 
