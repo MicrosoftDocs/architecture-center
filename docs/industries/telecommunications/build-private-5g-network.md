@@ -1,9 +1,29 @@
+---
+title: Build a private 5G network
+description: Find out how operators can build private 5G networks for their enterprise customers by using Azure services. 
+author: rickliev 
+ms.author: rickliev
+ms.date: 11/04/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-stack
+  - azure-stack-edge
+  - azure-stack-hci
+  - azure-arc
+  - azure-kubernetes-service
+categories:
+  - networking
+  - mobile
+---
+
 # Build a private 5G network
 
-This article is the second part of a series of articles about deploying private 5G networks. 
+This article is the second of two articles about deploying private 5G networks. 
 
 > [!div class="nextstepaction"]
-> [Go to the first article in the series](deploy-private-mobile-network.md)
+> [Go to the first article](deploy-private-mobile-network.md)
 
 There are four critical components to a private 5G network: the local radio and networking functions, the edge compute platform, the application ecosystem, and the cloud. Private 5G network solutions are often built as a collection of loosely integrated components. This loose integration approach might make sense in terms of physical and organizational demarcation points, but it has drawbacks. The following problems are inherent in this approach: 
 
@@ -48,7 +68,7 @@ Operators don't have to deploy 5G to benefit from a cloud-enabled private 5G net
 
 Azure provides several tools for onboarding edge applications and network functions. The Microsoft private 5G solution uses [Azure Arc](https://azure.microsoft.com/products/azure-arc) and [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager).  
 
-Azure Arc can simplify complex infrastructures that are distributed across on-premises, edge, and multi-cloud environments and extend Azure management to these environments.  
+Azure Arc can simplify complex infrastructures that are distributed across on-premises, edge, and multicloud environments and extend Azure management to these environments.  
 
 For network function workloads, Network Function Manager is a cloud-native orchestration service that customers can use to deploy and provision network functions on Azure Stack platforms. Supported platforms include Azure Stack Edge Pro, which has a built-in GPU, and Azure Stack HCI. When used with Azure Stack Edge, Network Function Manager provides deployment, provisioning, and cloud-based management of network functions or apps running at the private edge, directly from the Azure portal. It's a  managed service, so an Azure-managed service provider handles updates, lifecycle management, and support for network functions and applications on the edge device. The platform supports virtual machines and containerized workloads, and one or two GPUs for acceleration.
 
@@ -117,7 +137,7 @@ Azure private multiaccess edge compute supports multiple layers of reliability. 
 
 ### Is the solution simple, but flexible enough to scale dynamically?
 
-As enterprises realize the benefits of running applications and operations on a private 5G network, the network footprint will expand into other business areas and other sites. Operators will need to scale these solutions quickly and cost-effectively. Having a cloud-based mobile core provides a big advantage in this scenario.  
+As enterprises realize the benefits of running applications and operations on a private 5G network, the network footprint will expand into other business areas and other sites. Operators will need to scale these solutions quickly and cost-effectively. Having a cloud-based mobile core provides a significant advantage in this scenario.  
 
 ### How secure is the network?
 
@@ -137,4 +157,31 @@ Containers and microservices are the building blocks for business applications. 
 
 ### How do I analyze mobile network data?
 
-Connected devices generate data that can useful to enterprises. With this solution, enterprises can bring data into the Azure environment with enhanced security. They can use this data for AI, machine learning, and analytics, including analysis via third-party business intelligence tools.
+Connected devices generate data that can be useful to enterprises. With this solution, enterprises can bring data into the Azure environment with enhanced security. They can use this data for AI, machine learning, and analytics, including analysis via third-party business intelligence tools.
+
+## Contributors 
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author: 
+
+ - [Rick Lievano](https://www.linkedin.com/in/ricklievano) | Director of Business Strategy
+
+Other contributor:
+
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [What is Azure Private 5G Core Preview?](/azure/private-5g-core/private-5g-core-overview)
+- [Key components of a private mobile network](/azure/private-5g-core/key-components-of-a-private-mobile-network)
+- [Private mobile network design requirements](/azure/private-5g-core/private-mobile-network-design-requirements)
+- [Learning path: Deploy 5G services with Azure](/training/paths/deploy-5g-services)
+
+## Related resources
+
+- [Solutions for the telecommunications industry](../../industries/telecommunications.md)
+- [Edge Workload Configuration pattern](../../patterns/edge-workload-configuration.md)
+- [Deploy a private 5G network](deploy-private-mobile-network.md)
