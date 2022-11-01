@@ -1,8 +1,8 @@
-Many industries record video footage to gain insights from their operations. Video monitoring and analyses are  traditionally performed by a person, using their best judgement. This is often monotonous and prone to errors, particularly for tasks difficult for the human eye.
+Many industries record video footage to gain insights about their operations. Video monitoring and analyses are  traditionally performed by a person. This process is often monotonous and prone to errors, particularly for tasks that are difficult for the human eye.
 
-In practicality, a video is just a collection of frames which are played continuously at a defined speed (e.g. 60 frames per second), wherein the video can be decomposed into individual frames to leverage different technologies for analyzing the images. One of such technologies is called Computer Vision, the capability a machine uses in order to be able to see and identify objects and entities on an image. 
+A video recording can be decomposed into individual frames so that various technologies can analyze the images. One such technology is *computer vision*: the capability of a computer to identify objects and entities on an image.
 
-By relying on Computer Vision, the task of monitoring video footage becomes automatized, standardized and hence more accurate. Depending on the specific use case, a Computer Vision model can be trained, and we can expect results that are at least as good as those achieved by the person who trained the model. By implementing [MLOps](/azure/machine-learning/concept-model-management-and-deployment) and improving the model continuously, we can expect better results and react to changes in the video data over time.
+With computer vision, monitoring video footage becomes automatized, standardized, and more accurate. A computer vision model can be trained, and, depending on the use case,  you can frequently get results that are at least as good as those of the person who trained the model. By using [Machine Learning Operations (MLOps)](/azure/machine-learning/concept-model-management-and-deployment) to improve the model continuously, you can expect better results over time, and react to changes in the video data over time.
 
 ## Architecture
 
