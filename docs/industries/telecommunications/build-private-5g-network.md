@@ -94,3 +94,47 @@ An operator needs to provide both the local radio infrastructure and the managed
 Alternative solutions involve splitting the compute functions into two sets: one managed by the operator and the other by the enterprise or another managed service provider. In this approach, solution architecture splits up the management, but enterprises benefit from using Azure as the common management layer for both networking and applications. 
 
 For example, consider a scenario in which the enterprise customer is a national retail chain with hundreds of stores. The enterprise can choose to integrate a select set of modern connected applications with the private 5G network on a single compute platform that's managed by the operator. Or the enterprise can use two distinct compute platforms at every location: one for the mobile network functions (managed by the operator) and another to run distributed cloud and enterprise-developed applications. The architecture will provide flexibility for the enterprise and the operator.
+
+## The telco experience
+
+This solution meets the high-performance, high-availability, low-latency requirements of telecommunications cloud services. It's optimized to help operators and MSPs manage and control private 5G network services for their enterprise customers. By addressing the infrastructure requirements of private 5G networks in a seamless and highly scalable platform, the solution allows operators to focus on their strengths and bring the value of the cloud to their customers. 
+
+## Questions from enterprise customers
+
+As enterprises become better-educated consumers of private 5G network services, they'll look for specific features that align with their unique requirements and use cases. Here are some of the questions that mobile operators can expect to hear from prospective enterprise customers:
+
+### How integrated are the mobile core and edge platforms?
+
+Azure private multiaccess edge compute combines Private 5G Core and the edge compute environment in a single architecture. Seamless integration between the core and the edge provides reassurance that the private network solution will work as expected. Multi-vendor solutions can lead to lengthy integrations and challenges when technical issues arise. Because private 5G networks might handle  mission-critical applications, disruptions aren't acceptable.
+
+### Does the solution offer end-to-end management?
+
+End-to-end management needs to incorporate Azure and partner services in a common management framework. Azure currently provides consistency for the edge platform, Kubernetes, and Private 5G Core. We also recommend that operators develop or integrate their order and service management via Azure APIs to provide automation to simplify the consumption of private 5G networks.
+
+### Is the solution reliable?
+  
+Azure private multiaccess edge compute supports multiple layers of reliability. Enterprises expect high-availability connectivity for mission-critical workloads. Azure provides multi-node edge deployment with Azure Kubernetes Service (AKS) on-premises clusters to run the Private 5G Core containers. For information about the Private 5G Core SLA, see the [Azure SLA page](https://azure.microsoft.com/support/legal/sla/summary) after the product reaches general availability.
+
+### Is the solution simple, but flexible enough to scale dynamically?
+
+As enterprises realize the benefits of running applications and operations on a private 5G network, the network footprint will expand into other business areas and other sites. Operators will need to scale these solutions quickly and cost-effectively. Having a cloud-based mobile core provides a big advantage in this scenario.  
+
+### How secure is the network?
+
+The effective deployment of the [Azure Zero Trust security model](/azure/security/fundamentals/zero-trust) within a common architecture helps to ensure the consistent application of security policy across both operator and enterprise functions. The security model is enabled across all Azure service components. 
+
+### Will the private 5G network integrate with my existing business applications and support my devices?
+
+The Azure approach is to provide open and standardized APIs, SIM provisioning, and profile management for the integration with business applications and devices. Azure partnerships with most network application and device vendors can help provide smooth integration. Because Microsoft owns both the cloud and the mobile core components, integration with OSS/BSS systems is streamlined.
+
+### How can I see what's happening in my network?
+
+With a unified Azure solution, enterprises and operators can view, manage, and monitor everything from telemetry data to network traffic by using a single management tool. Common lifecycle management, security policy, and orchestration provide end-to-end visibility and control for managing the service.
+
+### Does the platform support service automation and orchestration?   
+
+Containers and microservices are the building blocks for business applications. The ability to automate and orchestrate new mobile services is essential for operators and enterprises as they build new applications and services on their 5G networks. Enterprises also need to be able to host these applications either on-premises or in the cloud. The Azure solution provides automation and orchestration across all domains and network functions: physical, virtual, and cloud.  
+
+### How do I analyze mobile network data?
+
+Connected devices generate data that can useful to enterprises. With this solution, enterprises can bring data into the Azure environment with enhanced security. They can use this data for AI, machine learning, and analytics, including analysis via third-party business intelligence tools.
