@@ -2,7 +2,7 @@ Quality assurance systems allow businesses to prevent defects throughout their p
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram shows data into Azure Event Hubs, then to Data Lake, then processes with Stream Analytics, finally to Power B I visualization." source="../media/quality-assurance.png" lightbox="../media/quality-assurance.png":::
+:::image type="content" alt-text="Architecture diagram shows data into Azure Event Hubs, then to Data Lake, then processes with Stream Analytics, finally to Power BI visualization." source="../media/quality-assurance.png" lightbox="../media/quality-assurance.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/quality-assurance.vsdx) of this architecture.*
 
