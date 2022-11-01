@@ -54,10 +54,10 @@ Throughout the process:
 - You can use [Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-pool-configurations) instead of Azure Databricks for sports analytics by using the same open-source frameworks.
 - Instead of Azure SQL Database, you can use [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to store data that's served to the visualize/interact layer.
 - You can use an Azure Synapse Analytics dedicated SQL pool instead of an Azure SQL Database if the reporting requirements require several terabytes of data stored in the serving layer.
-- If you don't want to use a database as the serving layer for reporting, you can choose to use a *semantic lakehouse* approach. In this scenario, reporting applications read data directly from the gold layer (data that's formatted with the Delta format) in Data Lake Storage.
+- If you don't want to use a database as the serving layer for reporting, you can choose to use a *semantic lakehouse* approach. In this scenario, reporting applications connect to logical tables that are defined by a service like [Databricks SQL](https://learn.microsoft.com/en-us/azure/databricks/sql/). These logical tables are used to structure data that is stored in the gold layer (data that's formatted using the Delta format) of Azure Data Lake Storage Gen2 so that it can be easily read. 
 - Instead of Azure Databricks, you can use SQL Database or SQL Managed Instance to query and process data. These databases provide the familiar T-SQL language, which you can use for analysis.
 - You can use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) instead of Azure Databricks to process stream data.
-- You can use Machine Learning instead of Azure Databricks to train your machine learning models.
+- You can use Azure Machine Learning instead of Azure Databricks to train your machine learning models.
 - You can use GitHub instead of Azure DevOps to manage your code repositories and continuous integration and continuous delivery (CI/CD) pipelines.
 
 ## Scenario details
