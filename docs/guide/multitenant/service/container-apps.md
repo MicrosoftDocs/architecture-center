@@ -31,7 +31,7 @@ When working with a multitenant system that uses Azure Container Apps, you need 
 
 The following table summarizes the differences between the main tenancy isolation models for Azure Container Apps:
 
-| **Considerations** | **Environment per tenant** | **Container app per tenant** | **Shared container apps** |
+| **Considerations** | **Environment per tenant** | **Container apps per tenant** | **Shared container apps** |
 | --- | --- | --- | --- |
 | **Data isolation** | High | Low | Low |
 | **Performance isolation** | High | Medium. No network isolation | Low |
@@ -48,7 +48,7 @@ This approach provides the strongest level of data and performance isolation, an
 
 However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas) but these [quotas can be increased by request via an Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/). Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model.  Keep in mind, this approach comes with a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
 
-### Container app per tenant
+### Container apps per tenant
 
 Another approach that you might consider is to isolate your tenants by deploying tenant-specific container app solutions within a shared environment.
 
