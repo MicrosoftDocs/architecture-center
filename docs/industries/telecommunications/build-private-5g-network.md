@@ -62,7 +62,7 @@ Azure automates the deployment and configuration of Private 5G Core on Azure Sta
 
 Operators can use declarative syntax, in standard JSON or Bicep data format, to configure the core. This enables integration with CI/CD pipelines like Azure DevOps or GitHub Actions for repeatable deployments and updates across multiple network sites.
 
-Operators don't have to deploy 5G to benefit from a cloud-enabled private 5G network. Enterprise customers and operators can deploy a private 5G network in a 4G only, 5G only, or hybrid 4G/5G environment. Private 5G Core supports the transition from 4G to a 5G standalone network, so enterprises can start with a 4G implementation and later migrate to 5G or deploy a hybrid 4G/5G private solution. 
+Operators don't have to deploy 5G to benefit from a cloud-enabled private 5G network. Enterprise customers and operators can deploy a private 5G network in a 4G-only, 5G-only, or hybrid-4G/5G environment. Private 5G Core supports the transition from 4G to a 5G standalone network, so enterprises can start with a 4G implementation and later migrate to 5G or deploy a hybrid 4G/5G private solution. 
 
 ## Azure orchestration for edge workloads
 
@@ -91,7 +91,7 @@ Because it uses both the Azure cloud and Azure Stack Edge, this solution archite
 The solution is managed remotely via Azure cloud. It's a multi-tenant solution that gives role-based access control to network admins, enabling them to view, manage, and control private 5G networks and SIMs. Cloud management provides cost savings for several reasons: 
 - The solution can be serviced without the need to send technicians or agents to a site. 
 - Cloud management eliminates the need for an additional on-premises operations support system (OSS).
-- Exposed northbound APIs can be easily integrated with existing SIM and OSS/BSS (business support systems) solutions.
+- Exposed northbound APIs can be easily integrated with existing SIM and OSS/BSS (business support system) solutions.
 
 Automation provides a better user experience and simplifies deployment. Automation can reduce solution deployment from weeks to hours, whether the deployment is managed by the operator, a managed services provider (MSP), or an SI. Without automation, the scale needed to deploy a solution to thousands of enterprises and consumers is unattainable. [Azure Automation](/azure/automation/overview) provides cloud-based automation, operating system updates, and a configuration service that supports consistent management across Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
@@ -125,7 +125,7 @@ As enterprises become better-educated consumers of private 5G network services, 
 
 ### How integrated are the mobile core and edge platforms?
 
-Azure private multiaccess edge compute combines Private 5G Core and the edge compute environment in a single architecture. Seamless integration between the core and the edge provides reassurance that the private network solution will work as expected. Multi-vendor solutions can lead to lengthy integrations and challenges when technical issues arise. Because private 5G networks might handle  mission-critical applications, disruptions aren't acceptable.
+Azure private multiaccess edge compute combines Private 5G Core and the edge compute environment in a single architecture. Seamless integration between the core and the edge provides reassurance that the private network solution will work as expected. Multi-vendor solutions can lead to lengthy integrations and challenges when technical problems arise. Because private 5G networks might handle  mission-critical applications, disruptions aren't acceptable.
 
 ### Does the solution offer end-to-end management?
 
@@ -145,7 +145,7 @@ The effective deployment of the [Azure Zero Trust security model](/azure/securit
 
 ### Will the private 5G network integrate with my existing business applications and support my devices?
 
-The Azure approach is to provide open and standardized APIs, SIM provisioning, and profile management for the integration with business applications and devices. Azure partnerships with most network application and device vendors can help provide smooth integration. Because Microsoft owns both the cloud and the mobile core components, integration with OSS/BSS systems is streamlined.
+The Azure approach is to provide open and standardized APIs, SIM provisioning, and profile management for integration with business applications and devices. Azure partnerships with most network application and device vendors can help provide smooth integration. Because Microsoft owns both the cloud and the mobile core components, integration with OSS/BSS systems is streamlined.
 
 ### How can I see what's happening in my network?
 
