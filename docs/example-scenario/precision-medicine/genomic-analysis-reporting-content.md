@@ -93,7 +93,7 @@ This solution is ideal for the healthcare industry. It applies to many areas:
 
 The following considerations align with the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework] and apply to this solution:
 
-### Availability considerations
+### Availability
 
 The service level agreements (SLAs) of most Azure components guarantee availability:
 
@@ -102,7 +102,7 @@ The service level agreements (SLAs) of most Azure components guarantee availabil
 - [Microsoft Genomics offers a 99.99 percent availability SLA for workflow requests][Microsoft Genomics - Keep your business running].
 - Blob Storage and Data Lake Storage are part of Azure Storage, which offers [availability through redundancy][Azure Storage redundancy].
 
-### Scalability considerations
+### Scalability
 
 Most Azure services are scalable by design:
 
@@ -112,7 +112,7 @@ Most Azure services are scalable by design:
 - [Data Lake Storage can manage exabytes of data][Introduction to Azure Data Lake Storage Gen2].
 - [Microsoft Genomics runs exabyte-scale workloads][Microsoft Genomics - Support your most demanding sequencing needs].
 
-### Security considerations
+### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
@@ -159,6 +159,17 @@ With most Azure services, you can reduce costs by only paying for what you use:
 - [Blob Storage costs depend on data redundancy options and volume][Azure Storage costs].
 - With [Data Lake Storage, pricing depends on many factors: your namespace type, storage capacity, and choice of tier][Data Lake Storage pricing].
 - For [Microsoft Genomics, the charge depends on the number of gigabases that each workflow processes][Microsoft Genomics - pricing].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Wylie Graham](https://www.linkedin.com/in/wyliegraham) | Senior Program Manager
+ - [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
