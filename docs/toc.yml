@@ -4287,6 +4287,8 @@ items:
                 items:
                   - name: Microservices assessment and readiness
                     href: guide/technology-choices/microservices-assessment.md
+                  - name: Comparing Java applications hosting options on Azure
+                    href: guide/technology-choices/service-for-java-comparison.yml
                   - name: Domain modeling for microservices
                     items:
                       - name: Domain analysis
