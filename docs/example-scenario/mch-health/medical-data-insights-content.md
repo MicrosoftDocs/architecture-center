@@ -123,7 +123,8 @@ The following are the additional components that are created specifically for th
 
 Principal authors:
 
- - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
+ - [Slavica Frljanic](https://www.linkedin.com/in/slavica-frljanic-91007b103) | Principal Group Program Manager
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content PM - 
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

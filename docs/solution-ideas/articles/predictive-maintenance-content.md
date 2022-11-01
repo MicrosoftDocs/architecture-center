@@ -36,7 +36,7 @@ Air travel is central to modern life, however, aircraft engines are expensive an
 
 ## Potential use cases
 
-While it's customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
+While it's customized for aircraft monitoring and the aerospace industry, it can easily be generalized for other predictive maintenance scenarios.
 
 ## Deploy this scenario
 

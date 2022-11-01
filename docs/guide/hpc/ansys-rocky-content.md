@@ -6,7 +6,7 @@ The solver in Rocky distributes and manages the combined memory of two or more G
 
 Ansys Rocky enables you to simulate a system with real particle shapes and sizes, specifying both spherical and non-spherical particle shapes, including shells and fibers. 
 
-Rocky is used in industries like food processing, pharmaceutical and biotech, agriculture equipment, and mining/metals.
+Rocky is used in industries like food processing, manufacturing, pharmaceutical and biotech, medical and healthcare, agriculture equipment, energy, and mining/metals.
 
 ## Why deploy Ansys Rocky on Azure?
 

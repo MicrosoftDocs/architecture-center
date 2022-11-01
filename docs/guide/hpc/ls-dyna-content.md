@@ -2,7 +2,7 @@ This article briefly describes the steps for running [Ansys LS-DYNA](https://www
 
 Ansys LS-DYNA is explicit simulation software for applications like drop tests, impact and penetration, smashes and crashes, and occupant safety. It simulates the response of materials to short periods of severe loading. It provides elements, contact formulations, material models, and other controls that can be used to simulate complex models with control over all the details of the problem.
 
-LS-DYNA is used in the automotive, aerospace, construction, military, manufacturing, and bio-engineering industries.
+LS-DYNA is used in the automotive, aerospace, construction, facilities, military, manufacturing, and bio-engineering industries.
 
 ## Why deploy LS-DYNA on Azure?
 

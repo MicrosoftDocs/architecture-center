@@ -8,7 +8,7 @@ Civil 3D is a 3D model-based design solver that civil engineers can use for desi
 
 Civil 3D was originally designed as an AutoCAD add-on. Civil 3D extensions now incorporate grading optimization, rail switch, and crossing enhancements.  
 
-Civil 3D is used primarily to plan, design, and deliver land development, water, and transportation projects, including roads and highways, rail, bridges and tunnels, site development, and storm and sanitary networks. One of the main use cases is grading optimization.
+Civil 3D is used primarily to plan, design, and deliver land development, water, and transportation projects, including roads and highways, rail, bridges and tunnels, site development, and storm and sanitary networks. One of the main use cases is grading optimization. It's ideal for the automotive, energy, environment, construction, and facilities industries.
 
 ## Why deploy Civil 3D on Azure?  
 
