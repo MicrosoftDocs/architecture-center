@@ -111,7 +111,7 @@ Principal authors:
 Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * Kendall Roden | Senior Product Manager, Azure Container Apps
+ * Kendall Roden | Senior Program Manager, Azure Container Apps
  * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
