@@ -89,7 +89,7 @@ This solution enables an ecosystem of applications for operators and enterprise 
 
 ### MEC for networking and applications
 
-An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge or Azure Stack HCI. This approach provides seamless integration between the 5G network, edge computing, and the cloud and significantly reduces Capex and Opex.
+An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge or Azure Stack HCI. This approach provides seamless integration between the 5G network, edge computing, and the cloud and significantly reduces CapEx and OpEx.
 
 Alternative solutions involve splitting the compute functions into two sets: one managed by the operator and the other by the enterprise or another managed service provider. In this approach, solution architecture splits up the management, but enterprises benefit from using Azure as the common management layer for both networking and applications. 
 
