@@ -4,7 +4,7 @@ Samadii EM (electromagnetic) analyzes the electromagnetic field in three-dimensi
 
 The application provides a multi-physics solution to complex electromagnetic problems. It can analyze problems in electrostatic fields, AC electromagnetic fields, and electromagnetic wave fields.
 
-Samadii EM is used in wireless communications and by manufacturers of radar devices, motors, semiconductors, and display devices.
+Samadii EM is used in wireless communications and by manufacturers of radar devices, motors, semiconductors, and display devices. It's ideal for the telecommunications, manufacturing, and automotive industries.
 
 ## Why deploy Samadii EM on Azure?
 
