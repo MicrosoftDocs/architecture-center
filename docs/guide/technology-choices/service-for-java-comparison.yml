@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Compare Java Applications Hosting options on Azure
+  title: Compare Java applications hosting options on Azure
   description: This article provides an overview of recommended strategies for hosting Java applications to Azure, including platform types and supportability.
   author: hangwan97
   ms.author: hangwan
@@ -15,7 +15,7 @@ products:
   - azure-app-service
   - azure-kubernetes-service
   - azure-virtual-machines
-name: Compare Java Applications Hosting options on Azure
+name: Compare Java applications hosting options on Azure
 summary: This article provides an overview of recommended strategies for hosting Java applications to Azure, including platform types and supportability.
 thumbnailUrl: /azure/architecture/browse/thumbs/java-application-tree.png
 content: |
