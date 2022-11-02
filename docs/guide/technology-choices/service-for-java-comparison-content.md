@@ -165,7 +165,7 @@ Principal authors:
 
 - [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
 - [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
-- [Microservices architecture design](../../microservices.yml)
+- [Microservices architecture design](../../microservices)
 - [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)
 - [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
