@@ -25,7 +25,7 @@ This article is the second of two articles about deploying private 5G networks.
 > [!div class="nextstepaction"]
 > [Go to the first article](deploy-private-mobile-network.md)
 
-There are four critical components to a private 5G network: the local radio and networking functions, the edge compute platform, the application ecosystem, and the cloud. Private 5G network solutions are often built as a collection of loosely integrated components. This loose integration approach might make sense in terms of physical and organizational demarcation points, but it has drawbacks. The following problems are inherent in this approach: 
+There are four critical components to a private 5G network: the local radio and networking functions, the edge compute platform, the application ecosystem, and the cloud. Private 5G network solutions are often built as a collection of loosely integrated components. This loose-integration approach might make sense in terms of physical and organizational demarcation points, but it has drawbacks. The following problems are inherent in this approach: 
 
 - Difficult to deploy 
 - Difficult to manage 
@@ -34,7 +34,7 @@ There are four critical components to a private 5G network: the local radio and 
 
 Microsoft offers a different approach to help operators take advantage of the  opportunity to provide private 5G to enterprises. This cloud-managed private 5G network solution features cloud-native mobile core technology, advanced edge computing, and a flexible choice of radio and application partners. The solution is designed to be delivered and managed by operators. It's appropriate for various industry verticals. The Microsoft approach for private 5G networks provides advantages to both operators and enterprises, and a choice of platforms and applications.
 
-[Azure private multiaccess edge compute](https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec) is a solution for integrating edge compute, networking, and applications on a range of edge platforms. It's designed to help operators and system integrators (SI) deliver high-performance MEC solutions to enterprises.
+[Azure private multiaccess edge compute](https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec) is a solution for integrating edge compute, networking, and applications on a range of edge platforms. It's designed to help operators and partners deliver high-performance MEC solutions to enterprises.
 
 :::image type="content" source="media/private-multiaccess-edge-compute.png " alt-text="Diagram that shows the Azure private multiaccess edge compute stack." lightbox="media/private-multiaccess-edge-compute.png":::
 
@@ -80,11 +80,11 @@ This solution significantly reduces the total cost of ownership of operating a p
 
 Azure enables operators to deploy a complete CBRS/4G/5G mobile core as a service. The private 5G network-as-a-service approach changes how private 5G networks are deployed and managed. It gives operators more flexibility and enables them to provide the mobile core functionality as a hosted and managed service.  
 
-The solution can be integrated with a variety of radio access network (RAN) and subscriber identity management (SIM) systems via the Microsoft partner ecosystem. In addition to integration with other applications on Azure, like [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) and [Azure IoT Hub](https://azure.microsoft.com/products/iot-hub), the solution has built-in features that enterprises need for service integrations. These features typically incur separate cost and compute and require complex operations, but these functions are included as part of this solution. No additional hardware is required. The solution also provides integrated local policy to enable differentiated traffic treatment based on SIM policies configured in the Azure cloud and synced to Azure Private 5G Core.
+The solution can be integrated with a variety of radio access network (RAN) and subscriber identity management (SIM) systems via the Microsoft partner ecosystem. In addition to integration with other applications on Azure, like [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) and [Azure IoT Hub](https://azure.microsoft.com/products/iot-hub), the solution has built-in features that enterprises need for service integrations. These features typically incur separate cost and compute, and require complex operations, but these functions are included as part of this solution. No additional hardware is required. The solution also provides integrated local policy to enable differentiated traffic treatment based on SIM policies configured in the Azure cloud and synced to Azure Private 5G Core.
 
 ### Cloud-native solution
 
-Because it uses both the Azure cloud and Azure Stack Edge, this solution architecture brings the benefits of cloud economics and a pay-as-you-go consumption model. Customers can size and deploy the solution for their current workloads and avoid the risk of underestimating or overestimating resource requirements. The Azure cloud also provides built-in enhanced security and privacy compliance. Customers can confidently deploy the solution in verticals that require stringent data privacy, like healthcare, government, public safety, and defense. Deploying an edge-based solution that uses Azure Stack Edge provides both connectivity services and the ability to deploy edge applications. This combination helps customers deploy edge applications that require low-latency and edge-compute processing.
+Because it uses both the Azure cloud and Azure Stack Edge, this solution architecture brings the benefits of cloud economics and a pay-as-you-go consumption model. Customers can size and deploy the solution for their current workloads and avoid the risk of underestimating or overestimating resource requirements. The Azure cloud also provides built-in enhanced security and privacy compliance. Customers can confidently deploy the solution in verticals that require stringent data privacy, like healthcare, government, public safety, and defense. Deploying an edge-based solution that uses Azure Stack Edge provides connectivity services and the ability to deploy edge applications. This combination helps customers deploy edge applications that require low-latency and edge-compute processing.
 
 ### Cloud management, automation, and observability
 
@@ -93,7 +93,7 @@ The solution is managed remotely via Azure cloud. It's a multi-tenant solution t
 - Cloud management eliminates the need for an additional on-premises operations support system (OSS).
 - Exposed northbound APIs can be easily integrated with existing SIM and OSS/BSS (business support system) solutions.
 
-Automation provides a better user experience and simplifies deployment. Automation can reduce solution deployment from weeks to hours, whether the deployment is managed by the operator, a managed services provider (MSP), or an SI. Without automation, the scale needed to deploy a solution to thousands of enterprises and consumers is unattainable. [Azure Automation](/azure/automation/overview) provides cloud-based automation, operating system updates, and a configuration service that supports consistent management across Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
+Automation provides a better user experience and simplifies deployment. Automation can reduce solution deployment from weeks to hours, whether the deployment is managed by the operator, a managed services provider (MSP), or a partner. Without automation, the scale needed to deploy a solution to thousands of enterprises and consumers is unattainable. [Azure Automation](/azure/automation/overview) provides cloud-based automation, operating system updates, and a configuration service that supports consistent management across Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
 :::image type="content" source="media/azure-monitor.png" alt-text="Diagram that describes Azure Monitor." lightbox="media/azure-monitor.png" :::
 
@@ -103,13 +103,13 @@ The single-pane-of-glass approach doesn't just enable operators to deploy the se
 
 ### Integration with Azure services
 
-This solution enables an ecosystem of applications for operators and enterprise customers. These applications include business intelligence and analytics applications and AI and machine learning applications from Microsoft and third parties. Azure private multiaccess edge compute combines Private 5G Core and the Azure-managed edge compute environment in a single architecture. This colocation enables enterprises to move data in and out of their mobile networks for processing and choose which data should be processed on-site and which should be sent to the cloud.  
+This solution enables an ecosystem of applications for operators and enterprise customers. These applications include business intelligence and analytics applications and AI and machine learning applications from Microsoft and others. Azure private multiaccess edge compute combines Private 5G Core and the Azure-managed edge compute environment in a single architecture. This colocation enables enterprises to move data in and out of their mobile networks for processing and choose which data should be processed on-site and which should be sent to the cloud.  
 
 :::image type="content" source="media/integration.png " alt-text="Diagram that shows some of the integrated applications." lightbox="media/integration.png " :::
 
 ### MEC for networking and applications
 
-An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge or Azure Stack HCI. This approach provides seamless integration between the 5G network, edge computing, and the cloud and significantly reduces CapEx and OpEx.
+An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge or Azure Stack HCI. This approach provides seamless integration between the 5G network, edge computing, and the cloud, and significantly reduces CapEx and OpEx.
 
 Alternative solutions involve splitting the compute functions into two sets: one managed by the operator and the other by the enterprise or another managed service provider. In this approach, solution architecture splits up the management, but enterprises benefit from using Azure as the common management layer for both networking and applications. 
 
@@ -157,7 +157,7 @@ Containers and microservices are the building blocks for business applications. 
 
 ### How do I analyze mobile network data?
 
-Connected devices generate data that can be useful to enterprises. With this solution, enterprises can bring data into the Azure environment with enhanced security. They can use this data for AI, machine learning, and analytics, including analysis via third-party business intelligence tools.
+Connected devices generate data that can be useful to enterprises. With this solution, enterprises can bring data into the Azure environment with enhanced security. They can use this data for AI, machine learning, and analytics, including analysis via business intelligence tools from Microsoft and others.
 
 ## Contributors 
 
