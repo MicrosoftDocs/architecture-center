@@ -111,6 +111,8 @@ Also, refer to this decision tree.
 
 :::image type="content" source="images/java-application-tree.png" alt-text="Diagram shows a decision tree for Java on Azure services." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/java-application-tree.vsdx) of this architecture.*
+
 ## Build or migrate Java applications
 
 To build or migrate the Java applications, identify the Java platform of your applications. Some popular platforms are [Java SE](#java-se), [Jakarta EE](#jakarta-ee), and [MicroProfile](#microprofile).
