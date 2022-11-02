@@ -14,8 +14,8 @@ This article describes an architecture that you can use to replace the manual an
 2.	A preconfigured pipeline in Azure Machine Learning recognizes that video files are uploaded to the container and initiates an inference cluster to start separating the video footage into frames.
 3.	FFmpeg, an open-source tool, breaks down the video and extracts frames. You can configure how many frames per second are extracted, the quality of the extraction, and the format of the image file. The format can be JPG or PNG. 
 4.	The inference cluster sends the images to Azure Data Lake Storage. 
-5.	A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts running a workflow.
-6.	The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternately or additionally, it calls a computer vision (optical character recognition) model to identify textual information in the images. 
+5.	A preconfigured logic app that monitors Data Lake Storage detects that new images are being uploaded. It starts a workflow.
+6.	The logic app calls a pretrained custom vision model to identify objects, features, or qualities in the images. Alternatively or additionally, it calls a computer vision (optical character recognition) model to identify textual information in the images. 
 7. Results are received in JSON format. The logic app parses the results and creates key-value pairs. You can store the results in Azure dedicated SQL pools that are provisioned by Azure Synapse Analytics.
 7.	Power BI provides data visualization.
 
@@ -34,13 +34,13 @@ This article describes an architecture that you can use to replace the manual an
 ### Alternatives
 
 - [Azure Video Indexer](https://azure.microsoft.com/services/video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless data integration service that helps you construct ETL and ELT processes.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs small, single-task code without requiring new infrastructure. 
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct ETL and ELT processes.
+- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure. 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development.
 
 ## Scenario details
 
-Many industries record video footage to detect the presence or absence of a particular object or entity or to classify objects or entities. Video monitoring and analyses are  traditionally performed manually. This process is often monotonous and prone to errors, particularly for tasks that are difficult for the human eye. You can automate these processes by using AI and machine learning.
+Many industries record video footage to detect the presence or absence of a particular object or entity or to classify objects or entities. Video monitoring and analyses are  traditionally performed manually. These processes are often monotonous and prone to errors, particularly for tasks that are difficult for the human eye. You can automate these processes by using AI and machine learning.
 
 A video recording can be separated into individual frames so that various technologies can analyze the images. One such technology is *computer vision*: the capability of a computer to identify objects and entities on an image.
 
@@ -48,11 +48,11 @@ With computer vision, monitoring video footage becomes automatized, standardized
 
 ### Potential use cases
 
-This scenario is relevant any business that analyzes videos. It's ideal for these use cases:
+This scenario is relevant for any business that analyzes videos. Here are some sample use cases:
 
 - **Agriculture.** Monitor and analyze crops and soil conditions over time. By using drones or UAVs, farmers can record video footage for analysis.
 
-- **Environmental sciences.** Analyze aquatic species to understand where they're located and how they evolve. By attaching underwater cameras to boats, environmental researchers can navigate the shoreline to record video footage. They can analyze the video footage to understand species migrations and how their populations change over time.
+- **Environmental sciences.** Analyze aquatic species to understand where they're located and how they evolve. By attaching underwater cameras to boats, environmental researchers can navigate the shoreline to record video footage. They can analyze the video footage to understand species migrations and how species populations change over time.
  
 - **Traffic control.** Classify vehicles into categories (SUV, car, truck, motorcycle), and use the information to plan traffic control. Video footage can be provided by CCTV in public locations. Most CCTV cameras record date and time, which can be easily retrieved via optical character recognition (OCR).
 
@@ -81,7 +81,7 @@ For the availability guarantees of the Azure services in this solution, see thes
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Consider the following broad security areas:
+Consider the following resources:
 
 - [Identity management](/azure/architecture/framework/security/overview#identity-management)
 - [Protect your infrastructure](/azure/architecture/framework/security/overview#protect-your-infrastructure)
@@ -96,7 +96,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 Here are some guidelines for optimizing costs: 
 
 - Use the pay-as-you-go strategy for your architecture, and [scale out](/azure/architecture/framework/cost/optimize-autoscale) as needed rather than investing in large-scale resources at the start. 
-- Consider opportunity costs in your architecture, and the benefits of first-mover advantage versus fast follow. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the initial cost and operational costs. 
+- Consider opportunity costs in your architecture, and the balance between first-mover advantage versus fast follow. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the initial cost and operational costs. 
 - Establish [policies](/azure/architecture/framework/cost/principles), [budgets, and controls](/azure/architecture/framework/cost/monitor-alert) that set cost limits for your solution.
 
 ### Operational excellence
