@@ -74,9 +74,9 @@ The blueprint provides exceptional guidance and instructions for technical staff
 
 - The [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) is an Excel workbook. This resource shows what you (the customer) must provide, versus what Microsoft provides, for each requirement in the matrix. More information about this responsibility matrix is included in this article, in the "Security and Compliance" > Blueprint responsibility matrix section of this document.
 
-- The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper examines the blueprint through the lens of requirements to be met for HITRUST certification.
+- The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) technical paper examines the blueprint through the lens of requirements to be met for HITRUST certification.
 
-- The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper reviews the architecture with HIPAA regulations in mind.
+- The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) technical paper reviews the architecture with HIPAA regulations in mind.
 
 These resources are [here on GitHub](https://github.com/Azure/Health-Data-and-AI-Blueprint).
 
@@ -229,7 +229,7 @@ Defender for Cloud standard provides the following services.
 
 - **Hybrid security** – Get a unified view of security across all your on-premises and cloud workloads. This is especially helpful in hybrid cloud networks used by healthcare organizations with Azure.
 - **Advanced threat detection** – Defender for Cloud uses advanced analytics to get an edge over evolving cyber-attacks and mitigate them right away.
-- **Access and application controls** - Block malware and other unwanted applications by applying whitelisting recommendations for your specific workloads and powered by machine learning.
+- **Access and application controls** - Block malware and other unwanted applications by applying allow list recommendations for your specific workloads and powered by machine learning.
 
 In the context of the Health AI blueprint, Defender for Cloud analyzes the system components and provides a dashboard showing vulnerabilities in services and resources in the subscription. Distinct dashboard elements provide visibility into a solution’s concerns as follows.
 
@@ -344,7 +344,7 @@ Principal author:
 - Download the supporting collateral to gain a better understanding of the blueprint implementation beyond the installation and machine learning experiment. This collateral includes the following.
   - [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
   - [The comprehensive threat model](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
-  - [HITRUST health data and AI review whitepaper](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
+  - [HITRUST health data and AI review technical paper](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
   - [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics?WT.mc_id=ms-docs-dastarr)
 
 ## Related resources

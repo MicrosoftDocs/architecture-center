@@ -214,7 +214,14 @@ Optionally, you can mark a partition as read-only in step 1, so that application
 
 Online migration is more complex to perform but less disruptive. The process is similar to offline migration, except the original partition is not marked offline. Depending on the granularity of the migration process (for example, item by item versus shard by shard), the data access code in the client applications might have to handle reading and writing data that's held in two locations, the original partition and the new partition.
 
-## Related patterns
+## Next steps
+
+- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml).
+- [Azure storage scalability and performance targets](/azure/storage/storage-scalability-targets)
+
+## Related resources
+
+- [Choose the right data store](../guide/technology-choices/data-store-overview.md)
 
 The following design patterns might be relevant to your scenario:
 
@@ -223,7 +230,3 @@ The following design patterns might be relevant to your scenario:
 - The [index table pattern](../patterns/index-table.yml) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 
 - The [materialized view pattern](../patterns/materialized-view.yml) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
-
-## Next steps
-
-- Learn about partitioning strategies for specific Azure services. See [Data partitioning strategies](./data-partitioning-strategies.yml)

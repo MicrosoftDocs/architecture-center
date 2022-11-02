@@ -6,7 +6,7 @@ KeyShot is a standalone, real-time ray tracing and global illumination program t
 - Provides physics simulation that allows users to record the physics of an object and apply it as a keyframe animation.
 - Allows control over gravity, friction, and bounciness and the ability to adjust the time, quality, and keyframes per second.
  
-KeyShot customers include product and industrial designers, vehicle design companies, jewelers, and architects.
+KeyShot customers include product and industrial designers, vehicle design companies, jewelers, and architects. It's ideal for the automotive and manufacturing industries.
 
 ## Why deploy KeyShot on Azure?
 

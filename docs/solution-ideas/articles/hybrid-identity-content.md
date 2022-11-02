@@ -24,7 +24,7 @@ This solution enables teams to manage identity for users and applications in a w
 
 * [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises.
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.
-* Learn how to synchronize directories and enable single sign-on with [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD).
+* Learn how to synchronize directories and enable single sign-on with [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory).
 
 ## Next steps
 

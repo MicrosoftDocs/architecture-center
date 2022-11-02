@@ -121,7 +121,7 @@ We recommend that you define these standard locations for use in Conditional Acc
 - **Trusted IPs / Internal networks.** These IP subnets represent locations and networks that have physical access restrictions or other controls in place, like computer system management, network-level authentication, or intrusion detection. These locations are more secure, so Conditional Access enforcement can be relaxed. Consider whether Azure or other datacenter locations (IPs) should be included in this location or have their own named locations.
 - **Citrix-trusted IPs.** If you have Citrix on-premises, it might be useful to configure separate outgoing IPv4 addresses for the Citrix farms, if you need to be able to connect to cloud services from Citrix sessions. In that case, you can exclude those locations from Conditional Access policies if you need to.
 - **Zscaler locations, if applicable.** Computers have a ZPA agent installed and forward all traffic to the internet to or through Zscaler cloud. So it's worth defining Zscaler source IPs in Conditional Access and requiring all requests from non-mobile devices to go through Zscaler.
-- **Countries with which to allow business.** It can be useful to divide countries into two location groups: one that represents areas of the world where employees typically work and one that represents other locations. This allows you to apply additional controls to requests that originate from outside the areas where your organization normally operates.
+- **Countries/regions with which to allow business.** It can be useful to divide countries/regions into two location groups: one that represents areas of the world where employees typically work and one that represents other locations. This allows you to apply additional controls to requests that originate from outside the areas where your organization normally operates.
 - **Locations where multi-factor authentication might be difficult or impossible.** In some scenarios, requiring multi-factor authentication could make it difficult for employees to do their work. For example, staff might not have the time or opportunity to respond to frequent multi-factor authentication challenges. Or, in some locations, RF screening or electrical interference can make the use of mobile devices difficult. Typically, you'd use other controls in these locations, or they might be trusted.
 
 Location-based access controls rely on the source IP of a request to determine the location of the user at the time of the request. It's not easy to perform spoofing on the public internet, but protection afforded by network boundaries might be considered less relevant than it once was. We don't recommend relying solely on location as a condition for access. But for some scenarios it might be the best control that you can use, like if you're securing access from a service account from on-premises that's used in a non-interactive scenario.
@@ -159,6 +159,16 @@ The use of rings as part of a deployment model isn't just for initial deployment
 With a finished deployment, you should also design and implement the monitoring controls that were discussed in the [Conditional Access principles](/azure/architecture/guide/security/conditional-access-design#principles-of-conditional-access).
 
 In addition to automating the initial deployment, you might want to automate changes to policies by using CI/CD pipelines. You could use Microsoft365DSC for this automation.
+  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)

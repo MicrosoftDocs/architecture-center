@@ -56,7 +56,9 @@ Many factors can affect the reliability of an application, such as the ability t
 
 ## Architecture
 
-![Mission critical online](./images/mission-critical-architecture-online.png)
+:::image type="content" border="false" source="./images/mission-critical-architecture-online.png" alt-text="Diagram that shows mission critical online." lightbox="./images/mission-critical-architecture-online.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-intro.vsdx) of this architecture.
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
@@ -178,7 +180,7 @@ Operational data from application and infrastructure must be available to allow 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-![Diagram that shows the monitoring resources.](./images/mission-critical-monitoring-resources.svg)
+:::image type="content" border="false" source="./images/mission-critical-monitoring-resources.png" alt-text="Diagram that shows the monitoring resources." lightbox="./images/mission-critical-monitoring-resources.png":::
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
 

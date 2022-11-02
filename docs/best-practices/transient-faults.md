@@ -168,7 +168,7 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Consider how your retry strategy may affect neighbors and other tenants in a shared application, or when using shared resources and services. Aggressive retry policies can cause an increasing number of transient faults to occur for these other users and for applications that share the resources and services. Likewise, your application may be affected by the retry policies implemented by other users of the resources and services. For mission-critical applications, you may decide to use premium services that are not shared. This provides you with much more control over the load and consequent throttling of these resources and services, which can help to justify the additional cost.
 
-## More information
+## Related resources
 
 - [Azure service-specific retry guidelines](./retry-service-specific.md)
 - [Circuit Breaker pattern](../patterns/circuit-breaker.yml)

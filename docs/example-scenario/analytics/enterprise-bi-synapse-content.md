@@ -34,7 +34,7 @@ This scenario uses the following components:
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 - [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD)
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 
 ### Simplified architecture
 

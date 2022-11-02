@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Long-term security log retention with Azure Data Explorer
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Store security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.
   author: DeepakAgrawalMS
   ms.author: dagrawal

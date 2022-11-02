@@ -42,6 +42,16 @@ Options to achieve alert persistence and cloud syncing include:
 
 For alerts, the best option is the built-in store and forward capability of the IoT Edge runtime. This option is the most suitable because of its time sensitivity, typically small messages size, and ease of use. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](/azure/iot-edge/offline-capabilities).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next step
 
 > [!div class="nextstepaction"]

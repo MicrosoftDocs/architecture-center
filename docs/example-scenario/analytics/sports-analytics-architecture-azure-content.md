@@ -73,7 +73,7 @@ This solution is ideal for the sports industry, and applies to the following sce
 - With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
 - Process and evaluate player performance data to optimize athlete training routines.
 - Analyze historical data to make well-informed personnel decisions during the draft or free agency.
-- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and balls.
+- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and volleyballs.
 
 ## Considerations
 

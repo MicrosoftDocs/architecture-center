@@ -39,7 +39,7 @@ In our cloud-based world, employees and customers can access your custom applica
 
 Building the software to do this is hard. It requires specialists, and it takes time to get right, so you definitely don’t want to build your own. Just as important, identity should be as simple to use as possible, both for your users and your developers. Ideally, you’d like a uniform way to manage identity throughout your environment.
 
-This is what the Microsoft Cloud provides with [Azure Active Directory](/azure/active-directory) (Azure AD), the world’s largest cloud identity service. If your organization uses any components of the Microsoft Cloud today, such as Azure, Power Platform, Microsoft 365, or Dynamics 365, you’re already using Azure AD. It's used throughout the Microsoft Cloud, giving your users a single identity for all of its components.
+This is what the Microsoft Cloud provides with [Azure Active Directory (Azure AD)](/azure/active-directory), the world’s largest cloud identity service. If your organization uses any components of the Microsoft Cloud today, such as Azure, Power Platform, Microsoft 365, or Dynamics 365, you’re already using Azure AD. It's used throughout the Microsoft Cloud, giving your users a single identity for all of its components.
 
 Your custom applications built on the Microsoft Cloud should also use Azure AD. Figure 9 shows how this looks for our sample application.
 

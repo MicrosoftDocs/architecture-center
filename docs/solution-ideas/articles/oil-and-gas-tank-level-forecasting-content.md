@@ -33,6 +33,8 @@ Azure Cognitive Services is adaptable and can be customized to meet different re
 
 ### Potential use cases
 
+This solution is ideal for the energy, automotive, and aerospace industries.
+
 Forecasts are created by harnessing the power of real-time and historical data readily available from sensors, meters, and records, which help with the following scenarios:
 
 * Prevent tank spillage and emergency shutdowns

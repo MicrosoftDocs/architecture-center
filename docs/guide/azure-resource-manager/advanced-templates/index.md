@@ -30,3 +30,13 @@ This section provides advanced examples for Azure Resource Manager templates.
 
 > [!NOTE]
 > These articles assume you have an advanced understanding of Azure Resource Manager templates.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Rick Hallihan](https://www.linkedin.com/in/hallihan/) | Senior Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

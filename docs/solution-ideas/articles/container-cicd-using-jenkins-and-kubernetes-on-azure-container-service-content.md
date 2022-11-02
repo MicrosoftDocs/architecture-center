@@ -4,7 +4,7 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
-*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/os) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/oss/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Potential use cases
 

@@ -16,6 +16,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "docs/compliance/fedramp/index.md",
       "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview"
     },
@@ -29,6 +39,11 @@
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
       "redirect_document_id": false
     },
+    {
+      "source_path": "docs/solution-ideas/articles/remote-patient-monitoring.yml",
+      "redirect_url": "/azure/architecture/example-scenario/digital-health/remote-patient-monitoring",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "docs/elasticsearch/automated-performance-tests.md",
       "redirect_url": "/azure/architecture"

@@ -56,6 +56,16 @@ This section includes the following articles:
 - [Conditional Access architecture and personas](./conditional-access-architecture.yml) introduces the persona-based approach for structuring Conditional Access policies. It also provides suggested personas that you can use as a starting point.
 - [Conditional Access framework and policies](./conditional-access-framework.md) provides specific details on how to structure and name Conditional Access policies that are based on the personas.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps 
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)
 - [What is Conditional Access?](/azure/active-directory/conditional-access/overview)

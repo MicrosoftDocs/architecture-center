@@ -5,7 +5,7 @@ Organizations use NX for design, simulation, and manufacturing solutions that en
 - Provides layout piping and instrumentation diagrams in two dimensions while maintaining the design tied to the 3D model.
 - Eliminates re-creation of annotated 2D CAD drawings by using legacy data with model-based definition.
 
-NX is used in the automotive sector and for projects ranging from supersonic cars to drones for the medical industry.
+NX is used in the automotive sector and for projects ranging from supersonic cars to drones for the medical industry. These scenarios also relate to the aerospace and healthcare industries.
 
 ## Why deploy Siemens NX on Azure?
 

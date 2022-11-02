@@ -10,7 +10,7 @@ Improve uptime and operations in travel and hospitality, manufacturing, retail, 
 ### Dataflow
 
 1. The client authenticates to the facilities management web service and specifies the space's name in the [Azure Digital Twins](/azure/digital-twins) object model.
-1. The client's web service authenticates itself to [Azure Active Directory](/azure/active-directory) (Azure AD).
+1. The client's web service authenticates itself to [Azure Active Directory (Azure AD)](/azure/active-directory).
 1. The Azure AD token is then sent to the [Azure Spatial Anchors](/azure/spatial-anchors) service to retrieve an access token for the client to use later.
 1. Your app service retrieves information about the IoT sensors present in the area specified by the client. It returns IoT sensor IDs and their anchor IDs in Azure Spatial Anchors.
 1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and other metadata required by the client application.

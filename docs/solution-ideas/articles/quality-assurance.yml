@@ -5,7 +5,7 @@ metadata:
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
   author: EdPrice-MSFT
   ms.author: architectures
-  ms.date: 06/09/2022
+  ms.date: 11/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -32,6 +32,6 @@ products:
   - azure-machine-learning
   - azure-stream-analytics
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance.png
+thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance-thumbnail.png
 content: |
   [!include[](quality-assurance-content.md)]
