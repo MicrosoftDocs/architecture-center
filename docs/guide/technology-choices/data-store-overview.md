@@ -2,7 +2,7 @@
 title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
-author: dsk-2015
+author: prwilk
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
