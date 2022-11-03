@@ -70,7 +70,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 
 - This is the entry point for the Platform recovery activities
 - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
-    - See the [Azure Service and Component Section](link_to_article) in this series for a detailed breakdown of this
+    - See the [Azure Service and Component Section](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#azure-service-and-component-view) in this series for a detailed breakdown of this
 - This should also include the binding to the enterprise shared services, ensuring connectivity to access/authentication, the log offloading is working, etc., while also ensuring connectivity to both upstream and downstream processes
 - Data/Processing should be confirmed i.e. what is the timestamp of the recovered platform?
     - If there are questions about data integrity, the decision could be made to rollback further in time before executing the new processing to bring the platform up to date
