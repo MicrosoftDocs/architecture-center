@@ -1,25 +1,10 @@
 This example scenario demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.
 
-This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
-
-The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
-
-- Combining different kinds of data sources into a cloud-scale platform.
-- Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.
-- Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
-- Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
-
-## Potential use cases
-
-This approach can also be used to:
-
-- Establish a data warehouse to be a single source of truth for your data.
-- Integrate relational data sources with other unstructured datasets.
-- Use semantic modeling and powerful visualization tools for simpler data analysis.
-
 ## Architecture
 
 ![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
 The data flows through the solution as follows:
 
@@ -36,7 +21,7 @@ The company has data sources on many different platforms:
 - Oracle on-premises
 - Azure SQL Database
 - Azure table storage
-- Cosmos DB
+- Azure Cosmos DB
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -61,7 +46,28 @@ Data is loaded from these different data sources using several Azure components:
   - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
   - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 
+## Scenario details
+
+This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
+
+The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
+
+- Combining different kinds of data sources into a cloud-scale platform.
+- Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.
+- Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
+- Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
+
+### Potential use cases
+
+This approach can also be used to:
+
+- Establish a data warehouse to be a single source of truth for your data.
+- Integrate relational data sources with other unstructured datasets.
+- Use semantic modeling and powerful visualization tools for simpler data analysis.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
@@ -72,7 +78,9 @@ The technologies in this architecture were chosen because they met the company's
 - Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
 - The [Azure Synapse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Azure AD for identity management and user authentication.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
 
@@ -80,6 +88,14 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 - [Data Factory](https://azure.microsoft.com/pricing/details/data-factory) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
 ## Next steps
 
@@ -91,3 +107,8 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
+
+## Related resources
+
+- [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
+- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

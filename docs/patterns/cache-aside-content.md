@@ -124,9 +124,9 @@ public async Task UpdateEntityAsync(MyEntity entity)
 > [!NOTE]
 > The order of the steps is important. Update the data store *before* removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
 
-## Related guidance
+## Related resources
 
-The following information may be relevant when implementing this pattern:
+The following information might be relevant when implementing this pattern:
 
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 

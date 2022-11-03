@@ -13,12 +13,16 @@ The following Azure services are used in the solution architecture:
 - [Visual Studio App Center](https://www.visualstudio.com/app-center)
 - [App Service - Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 
+## Potential use cases
+
+Organizations utilize this solution to simplify user authentication.
+
 ## Architecture
 
-![Architecture diagram](../media/task-based-consumer-mobile-app.png)
-*Download an [SVG](../media/task-based-consumer-mobile-app.svg) of this architecture.*
+![Architecture diagram shows an engineer create an app in Visual Studio to deploy with App Services and to analyze with Application Insights.](../media/task-based-consumer-mobile-app.png)
+*Download an [SVG file](../media/task-based-consumer-mobile-app.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the mobile app using Visual Studio and Xamarin.
 1. Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.
@@ -33,7 +37,7 @@ The following Azure services are used in the solution architecture:
 ### Components
 
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://www.visualstudio.com/vs) 2017 or [Visual Studio](https://www.visualstudio.com/vs) for Mac.
-* [Building Cross-Platform Applications](/xamarin/cross-platform/app-fundamentals/building-cross-platform-applications/): Create mobile apps for iOS and Android using C# and Azure SDKs.
+* [Building Cross-Platform Applications](/xamarin/cross-platform/app-fundamentals/building-cross-platform-applications): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://www.visualstudio.com/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
 * [App Service](https://azure.microsoft.com/services/app-service): The client app uses one of the mobile client SDKs to connect to an Azure Mobile App backend. The client SDKs have built-in support for offline sync and authentication, making it much easier to build a full-featured app.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.

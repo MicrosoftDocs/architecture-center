@@ -1,19 +1,19 @@
 <!-- cSpell:ignore upsert deadletterqueue KEDA -->
 
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
-
-Additional variations and solution ideas related to this reference architecture are linked to in the [Next steps section](#next-steps) of this article.
+This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
 
 ## Architecture
 
-![Reference architecture for serverless event processing using Azure Functions](./_images/serverless-event-processing.png)
+![Diagram showing a reference architecture for serverless event processing using Azure Functions.](./_images/serverless-event-processing.png)
+
+### Workflow
 
 - Events arrive at Azure Event Hubs.
 - A Function App is triggered to handle the event.
-- The event is stored in a Cosmos DB database.
+- The event is stored in an Azure Cosmos DB database.
 - If the Function App fails to store the event successfully, the event is saved to a Storage queue to be processed later.
 
-## Components
+### Components
 
 **Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
 
@@ -24,7 +24,7 @@ Additional variations and solution ideas related to this reference architecture 
 
 Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks][spark-databricks-product], or [Azure Stream Analytics][stream-analytics-product].
 
-**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API][cosmosdb-sql].
+**Azure Cosmos DB**. [Azure Cosmos DB][cosmosdb] is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using [Azure Cosmos DB for NoSQL][cosmosdb-sql].
 
 **Queue storage**. [Queue storage][queue] is used for dead-letter messages. If an error occurs while processing an event, the function stores the event data in a dead-letter queue for later processing. For more information, see the [Resiliency section](#resiliency) later in this article.
 
@@ -34,13 +34,15 @@ Function Apps are suitable for processing individual records from Event Hubs. Fo
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
 
 - **Event Hubs.** Create two Event Hubs namespaces, a primary (active) namespace and a secondary (passive) namespace. Messages are automatically routed to the active namespace unless you fail over to the secondary namespace. For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 - **Function App.** Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for a dead-letter queue.
-- **Cosmos DB.** Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- **Azure Cosmos DB.** Azure Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Azure Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Azure Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 - **Azure Storage.** Use [RA-GRS storage][ra-grs] for the dead-letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
 ### Scalability
@@ -51,14 +53,14 @@ The throughput capacity of Event Hubs is measured in [throughput units][eh-throu
 
 The [Event Hub trigger][eh-trigger] in the function app scales according to the number of partitions in the event hub. Each partition is assigned one function instance at a time. To maximize throughput, receive the events in a batch, instead of one at a time.
 
-#### Cosmos DB
+#### Azure Cosmos DB
 
-Cosmos DB is available in two different capacity modes:
+Azure Cosmos DB is available in two different capacity modes:
 
 - [Serverless][cosmosdb-serverless], for workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio.
 - [Provisioned throughput][cosmosdb-provisioned], for workloads with sustained traffic requiring predictable performance.
 
-To make sure your workload is scalable, it is important to choose an appropriate [partition key][partition-key] when you create your Cosmos DB containers. Here are some characteristics of a good partition key:
+To make sure your workload is scalable, it is important to choose an appropriate [partition key][partition-key] when you create your Azure Cosmos DB containers. Here are some characteristics of a good partition key:
 
 - The key value space is large.
 - There will be an even distribution of reads/writes per key value, avoiding hot keys.
@@ -135,7 +137,7 @@ This architecture includes steps to configure the Drone Status Function App usin
 
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
-For more information, see the [DevOps section in Microsoft Azure Well-Architected Framework][AWAF-devops-checklist].
+For more information, see the [DevOps checklist][AWAF-devops-checklist].
 
 ### Disaster recovery
 
@@ -145,19 +147,17 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - **Function App**. Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead-letter queue.
 
-- **Cosmos DB**. Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- **Azure Cosmos DB**. Azure Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Azure Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Azure Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
 - **Azure Storage**. Use [RA-GRS][ra-grs] storage for the dead-letter queue. This creates a read-only replica in another region. If the primary region becomes unavailable, you can read the items currently in the queue. In addition, provision another storage account in the secondary region that the function can write to after a fail-over.
 
-## Deploy the solution
+### Cost optimization
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is [available on GitHub][github].
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-## Pricing
+Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations for Azure Functions and Azure Cosmos DB.
 
-Use the [Azure Pricing calculator][azure-pricing-calculator] to estimates costs. See also the **Cost** section in [Microsoft Azure Well-Architected Framework][aaf-cost]. Here are some other considerations.
-
-### Azure Functions
+#### Azure Functions
 
 Azure Functions supports two hosting models:
 
@@ -166,20 +166,24 @@ Azure Functions supports two hosting models:
 
 In this architecture, each event that arrives on Event Hubs triggers a function that processes that event. From a cost perspective, the recommendation is to use the **consumption plan** because you pay only for the compute resources you use.
 
-### Azure Cosmos DB
+#### Azure Cosmos DB
 
-With Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
+With Azure Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
 
 - **Database operations.** The way you get charged for your database operations depends on the type of Azure Cosmos DB account you're using.
-  - In [serverless mode][cosmosdb-serverless], you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of [Request Units][ru] consumed by your database operations.
+  - In [serverless mode][cosmosdb-serverless], you don't have to provision any throughput when creating resources in your Azure Cosmos DB account. At the end of your billing period, you get billed for the amount of [Request Units][ru] consumed by your database operations.
   - In [provisioned throughput][cosmosdb-provisioned] mode, you specify the throughput that you need in [Request Units][ru] per second (RU/s), and get billed hourly for the maximum provisioned throughput for a given hour. **Note:** Because the provisioned throughput model dedicates resources to your container or database, you'll be charged for the throughput you've provisioned even if you don't run any workloads.
 - **Storage.** You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour.
 
-In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
+In this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation, which is cost effective in terms of consumed storage. For more information, see [Azure Cosmos DB pricing model][cosmosdb-pricing].
 
-Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
+Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
-## Next steps
+## Deploy this scenario
+
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is [available on GitHub][github].
+
+## Related resources
 
 - [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml)
 - [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md)

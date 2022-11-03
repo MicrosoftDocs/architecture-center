@@ -2,8 +2,8 @@
 title: Architecting for resiliency and availability
 description: Learn how to build resiliency and availability into your Azure application by starting at the design stage and building key elements into your architecture.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 03/07/2022
+ms.author: architectures
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -17,7 +17,7 @@ categories:
 
 <!-- cSpell:ignore BACPAC DTUs architecting -->
 
-# Architecting Azure applications for resiliency and availability
+# Architect Azure applications for resiliency and availability
 
 After you've developed the requirements for your application, the next step is to build resiliency and availability into it. These qualities can't be added at the end &mdash; you must design them into the architecture.
 

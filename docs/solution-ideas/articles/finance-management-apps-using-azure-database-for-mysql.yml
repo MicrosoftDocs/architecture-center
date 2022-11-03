@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Database for MySQL to securely store critical data and provide users with high-value analytics and insights over aggregated data.
   author: JonDobrzeniecki
   ms.author: jodobrze
-  ms.date: 11/19/2021
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -19,7 +19,7 @@ metadata:
     - use cases
     - azure
     - solutions
-    - "https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql/"
+    - "https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-mysql"
   social_image_url: /azure/architecture/solution-ideas/articles/media/finance-management-apps-using-azure-database-for-mysql.png
 name: Finance management apps using Azure Database for MySQL
 azureCategories:

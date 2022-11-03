@@ -3,16 +3,19 @@ title: "High-performance computing (HPC) on Azure"
 description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: SMBrook
 ms.author: sibrook
-ms.date: 01/03/2022
+ms.date: 08/08/2022
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
+products: azure
+categories: 
+  - compute
+  - storage
 ms.category:
   - compute
   - storage
 ms.custom:
   - fcp
-social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
 <!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
@@ -149,7 +152,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-- [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
+- [GlusterFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
@@ -179,7 +182,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you may want information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you can find additional information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -246,7 +249,7 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
-- [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
+- [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
@@ -280,7 +283,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Univa Grid Engine](https://www.altair.com/grid-engine)
+- [Altair Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
@@ -300,7 +303,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).
 
-In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
+In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you can implement a hub/spoke configuration to isolate your compute resources:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -441,19 +444,18 @@ There are many customers who have seen great success by using Azure for their HP
 
 ## Next steps
 
-For the latest announcements, see:
+For the latest announcements, see the following resources:
 
 - [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples
 
-These tutorials will provide you with details on running applications on Microsoft Batch
+These tutorials will provide you with details on running applications on Microsoft Batch:
 
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-- [Run parallel R workloads on Batch](https://github.com/Azure/doAzureParallel)
 - [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)

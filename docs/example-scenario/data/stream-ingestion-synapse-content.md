@@ -1,14 +1,4 @@
-Traditional data warehouses work well when we're dealing with batch jobs to load data. But in today's world, we see many use cases where the customers can't wait for a batch job to complete for our data scientists, analysts, or dashboards to access the data. Today, more customers require real-time representations of their business in their data warehouse. This requirement goes beyond traditional batch jobs and needs the support for stream ingestion to their data warehouses.
-
-Azure Synapse Analytics seamlessly supports both enterprise data warehousing and big data analytics workloads. Azure Stream Analytics is a serverless stream processing PaaS service that can scale with customer's needs. This example architecture will show how you can use an Azure Stream Analytics job to ingest stream to an Azure Synapse Analytics dedicated SQL pool.
-
-## Potential use cases
-
-Several scenarios can benefit from this architecture:
-
-- Ingest data from a stream to a data warehouse in near real time.
-
-- Apply different stream processing techniques (JOINs, temporal aggregations, filtering, anomaly detection, and so on) to transform the data. Then, store the result in the data warehouse.
+This solution uses Azure Stream Analytics to ingest data to an Azure Synapse dedicated SQL pool in high throughput scenarios.
 
 ## Architecture
 
@@ -18,11 +8,11 @@ The architecture shows the components of the stream data ingestion pipeline. Dat
 
 1. The source systems generate data and send it to an [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) instance. Event Hubs is a big data streaming platform and event ingestion service that can receive millions of events per second.
 
-2. Next, a Stream Analytics job processes the data stream from the Event Hubs instance. Stream Analytics has first-class integration with Event Hubs to consume data streams.
+1. Next, a Stream Analytics job processes the data stream from the Event Hubs instance. Stream Analytics has first-class integration with Event Hubs to consume data streams.
 
-3. The Stream Analytics job has an output configured to sink the data to a Synapse Analytics dedicated SQL pool. Apart from doing a simple passthrough of the data stream to target, the Stream Analytics job can perform standard stream processing tasks, such as JOINs, temporal aggregations, filtering, anomaly detection, and so on.
+1. The Stream Analytics job has an output configured to sink the data to a Synapse Analytics dedicated SQL pool. Apart from doing a simple passthrough of the data stream to target, the Stream Analytics job can perform standard stream processing tasks, such as JOINs, temporal aggregations, filtering, anomaly detection, and so on.
 
-4. The Stream Analytics job writes the data in a Synapse Analytics dedicated SQL pool table.
+1. The Stream Analytics job writes the data in a Synapse Analytics dedicated SQL pool table.
 
 ### Components
 
@@ -40,9 +30,27 @@ The architecture shows the components of the stream data ingestion pipeline. Dat
 
 - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) can replace Azure Stream Analytics by using Spark Structured Streaming. But the solution will be more complex to develop and maintain.
 
+## Scenario details
+
+Traditional data warehouses work well when dealing with batch jobs to load data. But in today's world, we see many use cases where the customers can't wait for a batch job to complete for our data scientists, analysts, or dashboards to access the data. Today, more customers require real-time representations of their business in their data warehouse. This requirement goes beyond traditional batch jobs and requires support from stream ingestion for their data warehouses.
+
+Azure Synapse Analytics seamlessly supports both enterprise data warehousing and big data analytics workloads. Azure Stream Analytics is a serverless stream processing PaaS service that can scale with customer's needs. This example architecture will show how you can use an Azure Stream Analytics job to ingest stream to an Azure Synapse Analytics dedicated SQL pool.
+
+### Potential use cases
+
+Several scenarios can benefit from this architecture:
+
+- Ingest data from a stream to a data warehouse in near real-time.
+
+- Apply different stream processing techniques (JOINs, temporal aggregations, filtering, anomaly detection, and so on) to transform the data. Then, store the result in the data warehouse.
+
 ## Considerations
 
-### Performance
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 To achieve high throughput, there are a few key points that need to be considered while implementing the solution:
 
@@ -54,13 +62,25 @@ To achieve high throughput, there are a few key points that need to be considere
 
 - Stream Analytics will parallelize the job, based on the number of partitions, and it creates separate connections to Synapse Analytics for each parallel process. The total number of connections is equal to the number of partitions multiplied by the number of jobs (connections = partitions x jobs). Synapse Analytics can have a maximum of 1024 connections. Partition wisely, to avoid more than 1024 connections. Otherwise, Synapse Analytics will start throttling the connections.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs) bill is based on tier, throughput units provisioned, and ingress traffic received.
 
 - [Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) bases costs on the number of provisioned streaming units.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) Dedicated SQL pool compute is separate from storage, which enables you to scale compute independently of the data in your system. You can purchase reserved capacity for your Dedicated SQL pool resource, to save up to 65 percent, compared to pay-as-you-go rates.
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Raihan Alam](https://au.linkedin.com/in/raihanalam) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

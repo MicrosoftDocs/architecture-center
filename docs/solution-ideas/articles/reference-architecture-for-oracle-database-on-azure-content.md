@@ -1,10 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure. High availability for your front-end as well as the middle tier can be obtained by using Azure Load Balancers or Application Gateways. An uptime availability of 99.99% for your database tier can be achieved using a combination of Azure Availability Zones and Oracle Active DataGuard with FSFO. For additional availability and/or Disaster Recovery, consider deploying another Database VM in a different Azure region and schedule frequent RMAN backups.
+High availability for your front-end and middle tier can be obtained by using Azure Load Balancers or Application Gateways. An uptime availability of 99.99% for your database tier can be achieved using a combination of Azure Availability Zones and Oracle Active DataGuard with FSFO. For extra availability and/or Disaster Recovery, consider deploying another Database VM in a different Azure region and schedule frequent RMAN backups.
+
+## Potential use cases
+
+This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
 
 ## Architecture
 
-![Architecture diagram](../media/reference-architecture-for-oracle-database-on-azure.png)
+![Architecture diagram shows from client through load balancer and subnets to Azure V NET.](../media/reference-architecture-for-oracle-database-on-azure.png)
 *Download an [SVG](../media/reference-architecture-for-oracle-database-on-azure.svg) of this architecture.*
 
 ### Dataflow
@@ -37,9 +41,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure Application Gateway](/learn/modules/configure-azure-application-gateway)
-- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Configure Azure Application Gateway](/training/modules/configure-azure-application-gateway)
+- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 

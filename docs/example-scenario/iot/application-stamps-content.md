@@ -12,7 +12,9 @@ Deployment stamping benefits:
 
 ## IoT deployment stamping architecture
 
-![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/scale-iot-deployment-stamps.svg)
+:::image type="content" alt-text="A diagram showing a deployment stamping strategy for use in Azure IoT." source="media/scale-iot-deployment-stamps.png" lightbox="media/scale-iot-deployment-stamps.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/scale-iot-deployment-stamps.vsdx) of this architecture.*
 
 The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solution builds atomic stamps that each consist of:
 
@@ -32,7 +34,7 @@ Deployment stamps are intended for atomic deployment, but sometimes you need to 
 
 ### Move devices between hubs
 
-If the stamp components encompass only device-to-cloud behavior, moving devices between hubs is enough to migrate the devices from one stamp to another. [Azure IoT Device Provisioning Service (DPS)](/azure/iot-dps/) provides a way to move devices between IoT Hub instances. To use DPS in stamping strategy, be sure to understand [IoT Hub Device Provisioning Service (DPS) terminology](/azure/iot-dps/concepts-device) and concepts.
+If the stamp components encompass only device-to-cloud behavior, moving devices between hubs is enough to migrate the devices from one stamp to another. [Azure IoT Device Provisioning Service (DPS)](/azure/iot-dps) provides a way to move devices between IoT Hub instances. To use DPS in stamping strategy, be sure to understand [IoT Hub Device Provisioning Service (DPS) terminology](/azure/iot-dps/concepts-device) and concepts.
 
 > [!NOTE]
 > DPS uses *registration IDs*, while IoT Hub uses *device IDs*. These IDs are often the same value, but can be different. When you query or manage devices with the DPS APIs, be sure to use the registration IDs.
@@ -48,7 +50,9 @@ This fully self-contained strategy is:
 - Appropriate as part of a high-availability strategy.
 - Useful for migrating devices and users from test to production environments.
 
-![A diagram showing how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg)
+:::image type="content" alt-text="A diagram showing how to move a set of devices from one stamp to another stamp." source="media/moving-devices-using-dps.png" lightbox="media/moving-devices-using-dps.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/moving-devices-using-dps.vsdx) of this architecture.*
 
 The preceding diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 
@@ -61,7 +65,9 @@ The preceding diagram above shows the process of moving a set of devices from St
 
 When a single application front-end supports multiple device stamps, the application front-end must dynamically update its device-to-hub mapping to maintain cloud-to-device communication. To support devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism for device-to-hub mapping. Service clients can use a shared lookup routine to dynamically detect and migrate device calls to new IoT Hubs.
 
-![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/move-devices-behind-gateway.svg)
+:::image type="content" alt-text="A diagram demonstrating how devices can move from one hub to another using an app gateway." source="media/move-devices-behind-gateway.png" lightbox="media/move-devices-behind-gateway.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/move-devices-behind-gateway.vsdx) of this architecture.*
 
 In this model, the gateway uses a cache to map devices to IoT Hubs, and defaults to the cached endpoint. If the gateway receives a [device not found error](/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound), it uses the [DPS Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks) to query individual device enrollment and determine which IoT Hub the device now uses. The gateway then updates the cache with the new mapping.
 
@@ -73,8 +79,21 @@ Here are some considerations for this strategy:
 
 - In the device-only case, devices are disconnected from the IoT Hub when they move from one stamp to another. In the application-to-device case, the error occurs when the app tries to reach the device through the IoT Hub.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Jason Wadsworth](https://www.linkedin.com/in/jason-wadsworth-23549b158) | Principal Software Engineer
+
 ## Next steps
 
 - [IoT devices, platform, and applications](devices-platform-application.yml)
 - [IoT application-to-device commands](cloud-to-device.yml)
 - [Deployment Stamps design pattern](../../patterns/deployment-stamp.yml)
+
+## Related resources
+
+- [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp)
+- [Move an IoT solution from test to production](/azure/architecture/example-scenario/iot/iot-move-to-production)

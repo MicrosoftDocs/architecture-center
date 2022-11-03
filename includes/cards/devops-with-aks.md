@@ -17,7 +17,7 @@
             <li>7/05/2018</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.</p>
+        <p class="card-content-description">Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

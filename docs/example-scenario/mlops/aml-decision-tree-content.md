@@ -40,7 +40,7 @@ Listed below are the service options that you should consider for each stage of 
 | Compute | [Databricks](/azure/azure-databricks/what-is-azure-databricks)<br>[Azure Machine Learning Compute](/azure/machine-learning/concept-compute-instance) |
 | Tracking / Versioning options | Experiment/Hyper-tuning Tracking:<br><ul>[Azure Machine Learning Experiments](/azure/machine-learning/studio/create-experiment)<br>[Databricks and MLFLow Tracking](https://docs.databricks.com/applications/mlflow/quick-start.html)</ul><br>[Data Versioning/Data Drift: Azure Machine Learning Datasets](/azure/machine-learning/how-to-version-track-datasets)<br><br>Model Versioning:<ul>[Azure Machine Learning Model Management Service](/azure/machine-learning/concept-model-management-and-deployment)<br>[Databricks and MLFlow Model Registry](https://databricks.com/blog/2019/10/17/introducing-the-mlflow-model-registry.html)<br></ul> |
 | Model Training | [Azure Machine Learning Pipelines](/azure/machine-learning/concept-ml-pipelines)<br>[Databricks](https://docs.databricks.com/data/index.html) |
-| Model Deployment | [Batch Scoring in Azure Machine Learning Pipeline](/azure/machine-learning/tutorial-pipeline-batch-scoring-classification)<br>[Real-time Deployment in Azure Machine Learning Service](/azure/machine-learning/how-to-deploy-and-where)<ul>[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)<br>[Azure Container Instance](/azure/container-instances/)<br>[Azure App Service](/azure/app-service/)<br>[Azure Functions](/azure/azure-functions/)<br>[IoT Edge](/azure/iot-edge/about-iot-edge)<br>[Azure Machine Learning Model Deployment](/azure/machine-learning/how-to-deploy-and-where)</ul> |
+| Model Deployment | [Batch Scoring in Azure Machine Learning Pipeline](/azure/machine-learning/tutorial-pipeline-batch-scoring-classification)<br>[Real-time Deployment in Azure Machine Learning Service](/azure/machine-learning/how-to-deploy-managed-online-endpoints)<ul>[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)<br>[Azure Container Instance](/azure/container-instances/)<br>[Azure App Service](/azure/app-service/)<br>[Azure Functions](/azure/azure-functions/)<br>[IoT Edge](/azure/iot-edge/about-iot-edge)<br>[Azure Machine Learning Model Deployment](/azure/machine-learning/how-to-deploy-managed-online-endpoints)</ul> |
 | Monitoring | [Azure Monitor](/azure/azure-monitor/overview)<ul>[Application Insights](/azure/azure-monitor/app/app-insights-overview)<br>[Azure Dashboards](/azure/azure-monitor/learn/tutorial-app-dashboards)</ul>[Power BI](/power-bi/service-azure-and-power-bi) |
 
 ## Use No Code or Code implementation approach
@@ -160,7 +160,7 @@ This table adds scheduling options to the triggers.
 | Azure Monitor | Application Insights<br>Azure Dashboards |
 | Power BI | Analytics and Reports |
 
-## Resources
+## Related resources
 
 * [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 * [MLOps maturity model](mlops-maturity-model.yml)

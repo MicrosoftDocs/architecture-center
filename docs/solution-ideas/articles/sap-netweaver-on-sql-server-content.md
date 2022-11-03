@@ -8,14 +8,14 @@ This system takes advantage of OS clustering for high availability, premium stor
 
 ## Architecture
 
-![Architecture diagram](../media/sap-netweaver-on-sql-server.png)
+![Architecture diagram shows Front-end route, through Primary Azure Region to O S Clustering, to S Q L Server AlwaysOn to D R storage in Azure Region.](../media/sap-netweaver-on-sql-server.png)
 *Download an [SVG](../media/sap-netweaver-on-sql-server.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Using Azure Active Directory synchronized with on-premises Active Directory, SAP application user authenticates from on-premises to SAP landscape on Azure with single sign-on credentials.
+1. By using Azure Active Directory synchronized with on-premises Active Directory, SAP application user authenticates from on-premises to SAP landscape on Azure with single sign-on credentials.
 1. Azure high-speed ExpressRoute Gateway connects on-premises network to Azure virtual machines and other resources securely.
-1. Sales order request flows into highly available SAP ABAP SAP Central Services (ASCS), and then through SAP application servers running on Azure Virtual Machines scale out file server in an Azure VM
+1. Sales order request flows into highly available SAP ABAP SAP Central Services (ASCS), and then through SAP application servers running on Azure Virtual Machines scale out file server in an Azure VM.
 1. The request moves from the SAP app server to SQL Server running on a primary high-performance Azure VM.
 1. Primary (active) and secondary (standby) servers running on SAP certified virtual machines are clustered at OS level for 99.95 percent availability.  Data replication is handled through SQL Server AlwaysOn in synchronous mode from primary to secondary, enabling zero Recovery Point Objective (RPO).
 1. SQL Server data is persisted to high-performance Azure Premium Storage.

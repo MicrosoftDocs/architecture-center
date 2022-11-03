@@ -1,25 +1,12 @@
-Modern enterprise companies base many processes and projects on data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require similar data preparation processes and attention.
-
-1. Data projects start with data *discovery*, to determine where data is and what systems it uses.
-2. Data *integration* then brings multiple data sources together into a unified or connected data set.
-3. The next step is to *normalize, standardize, harmonize,* and *clean* the data so machines can process it in a uniform, consistent, and high-fidelity manner.
-4. Finally, the data must be made easily and readily available for business needs.
-
-During these processes, *governance* must ensure data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
-
-The [CluedIn platform](https://appsource.microsoft.com/product/web-apps/cluedin.cluedin?tab=Overview) encapsulates these data management processes and pillars into a coherent, consistent, end-to-end Master Data Management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
-
-With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
-
-This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn Data Fabric integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
-
-CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
-
-CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI, Azure Databricks, Azure Synapse Analytics, or Azure Cognitive Services  to make it easily available to the rest of the business. Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
+This CluedIn architecture provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
 
 ## Architecture
 
 ![Diagram showing CluedIn architectural structure and data flow.](images/cluedin-architecture.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cluedin-architecture.vsdx) of this architecture.*
+
+### Dataflow
 
 The CluedIn solution consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like data ingestion, streaming data processing, queuing, and user interface.
 
@@ -47,7 +34,7 @@ The CluedIn solution consists of various functional layers that run in a Kuberne
 
 1. The CluedIn application provides cleaned, processed data to analytics services like Power BI and Azure Synapse Analytics for generating insights. The system backs up and stores all data in SQL or Redis databases.
 
-## Components
+### Components
 
 CluedIn runs on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/), a highly available, secure, and fully managed Kubernetes service for deploying and managing containerized applications. AKS offers serverless Kubernetes, integrated CI/CD, and enterprise-grade security and governance.
 
@@ -67,17 +54,38 @@ CluedIn provides processed, governed data to many analytics apps and services, i
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), a comprehensive family of AI services and cognitive APIs for building intelligent apps.
 - [Power BI](https://powerbi.microsoft.com), a Microsoft business analytics service that combines interactive visualizations and business intelligence with an easy-to-use report creation interface.
 
-## Use cases
+## Scenario details
 
-### Building a single view of data
+Modern enterprise companies base many processes and projects on data, but the raw data has to be prepared for consumption. Data use cases from advanced analytics to machine learning all require similar data preparation processes and attention.
+
+1. Data projects start with data *discovery*, to determine where data is and what systems it uses.
+2. Data *integration* then brings multiple data sources together into a unified or connected data set.
+3. The next step is to *normalize, standardize, harmonize,* and *clean* the data so machines can process it in a uniform, consistent, and high-fidelity manner.
+4. Finally, the data must be made easily and readily available for business needs.
+
+During these processes, *governance* must ensure data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
+
+The [CluedIn platform](https://appsource.microsoft.com/product/web-apps/cluedin.cluedin?tab=Overview) encapsulates these data management processes and pillars into a coherent, consistent, end-to-end Master Data Management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
+
+With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
+
+This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn Data Fabric integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
+
+CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
+
+CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI, Azure Databricks, Azure Synapse Analytics, or Azure Cognitive Services  to make it easily available to the rest of the business. Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
+
+### Potential use cases
+
+#### Building a single view of data
 
  - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
 
-### A data fabric
+#### A data fabric
 
  - CluedIn is a Gartner Cool Vendor in 2020, due to its ability to orchestrate data from across 10's, 100's and 1000's of different and complex datasources into a unified data hub. If you need to wrangle data from a lot of different datasources with ease, then CluedIn can be used as a data fabric to achieve this. This can provide a streaming infrastructure for your data that can also proactively clean and master the data as it flows onto downstream consumers.
 
-### Sophisticated merging and linking of master data
+#### Sophisticated merging and linking of master data
 
  - CluedIn's unique data modelling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision.
 
@@ -121,23 +129,26 @@ The CluedIn platform has the following characteristics and considerations:
 
 - For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. Fully scripted data deployment processes support setup, test, and rollout.
 
-## Deployment
+### Cost optimization
+
+The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/).
+
+#### Azure sizing and starting a trial
+
+You can start a 7-day trial of CluedIn on their [website](https://www.cluedin.com/cluedin-on-microsoft-azure), which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
+
+## Deploy this scenario
 
 - To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://documentation.cluedin.net/deployment/docker-compose).
 
 - To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](https://documentation.cluedin.net/deployment/kubernetes). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services, like storage and queues.
 
-## Pricing
-
-The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/).
-
-### Azure sizing and starting a trial
-
-You can start a 7-day trial of CluedIn on their [website](https://www.cluedin.com/cluedin-on-microsoft-azure), which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
-
 ## Next steps
 
 - For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com/).
 - For CluedIn documentation, see the [CluedIn documentation](http://documentation.cluedin.net/).
+
+## Related resources
+
 - For an overview of Azure data architecture, see the [Azure Data Architecture Guide](../../data-guide/index.md).
 - For an example end-to-end Azure data platform, see [Azure data platform end-to-end](../../example-scenario/dataplate2e/data-platform-end-to-end.yml).

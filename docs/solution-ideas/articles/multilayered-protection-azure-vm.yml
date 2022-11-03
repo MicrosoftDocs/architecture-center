@@ -5,7 +5,7 @@ metadata:
   description: Protect Azure VMs by implementing two types of just-in-time access. Align with security principles like defense in depth, least privilege, and zero trust.
   author: husamhilal
   ms.author: huhilal
-  ms.date: 11/08/2021
+  ms.date: 05/31/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

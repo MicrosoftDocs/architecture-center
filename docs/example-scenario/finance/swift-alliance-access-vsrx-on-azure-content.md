@@ -92,7 +92,7 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 
 #### Authentication and authorization
 
-Administrators managing the SWIFT infrastructure in Azure require an identity in the [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) of the Azure tenant associated with the subscription. Azure AD can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Azure AD to follow this recommendation.
+Administrators managing the SWIFT infrastructure in Azure require an identity in the [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) of the Azure tenant associated with the subscription. Azure AD can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Azure AD to follow this recommendation.
 
 Users enrolled in the Azure AD can sign in to the Azure portal, or authenticate with other management tools like [Azure PowerShell](/powershell/azure/overview) or [Azure Command-Line Interface](/cli/azure). [Azure Active Directory Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) and other restrictions, such as IP range restrictions, can be configured with [Conditional Access](/azure/active-directory/conditional-access/overview). Users get permissions on Azure subscriptions through [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs which operations users can do on a subscription.
 
@@ -100,7 +100,7 @@ The Azure AD associated with a subscription enables only the management of Azure
 
 #### Enforcing SWIFT CSP-CSCF policies
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) enables customers to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources, or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
+[Azure Policy](https://azure.microsoft.com/services/azure-policy) enables customers to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources, or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
 
 SWIFT has a policy framework that helps customers enforce a subset of SWIFT CSP-CSCF requirements. As part of this framework, customers use Azure policies within a customer subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT Secure Zone components, and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT Secure Zone.
 
@@ -133,6 +133,14 @@ Because different SWIFT components connect to specific nodes, you can't use Azur
 #### Multi-region multi-active resilience
 
 To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure Paired Regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair will be prioritized for recovery.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
 
 ## Next steps
 

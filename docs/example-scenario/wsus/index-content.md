@@ -33,7 +33,7 @@ Your network will have more than one Azure virtual network, which can be in the 
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
-You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). You'll need to provide the following information:
+You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You'll need to provide the following information:
 
 - Virtual machine:
   - Region: The region where your Azure virtual network is deployed.
@@ -121,7 +121,7 @@ The script will start the initial synchronization needed to make updates availab
 2. Select **Next** until you get to the **Select server roles** page. Select **Windows Server Update Services**. Select **Add Features** when you're prompted with **Add features that are required for Windows Server Update Services?**
 3. Select **Next** until you get to the **Select role services** page.
     - By default, you can use **WID Connectivity**.
-    - Use **SQL Server Connectivity** if you need to support clients that use many different versions of Windows (for example, Windows 10, Windows 8, and Windows 7).
+    - Use **SQL Server Connectivity** if you need to support clients that use many different versions of Windows (for example, Windows 11 and Windows 10).
 
 4. Select **Next** until you get to the **Content location selection** page. Enter the location where you want to store the updates.
 5. Select **Next** until you get to the **Confirm installation selections** page. Select **Install**.
@@ -197,7 +197,23 @@ Currently, WSUS doesn't support synchronization with the Windows Home SKU.
 
 You can use the Update Management solution in Azure to manage and schedule operating system updates for VMs that are syncing against WSUS. The patch status of the VM (that is, which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, the results might differ from what Microsoft Update shows, depending on when WSUS last synced with Microsoft Update. After you configure your WSUS environment, you can enable Update Management. For more information, see [Update Management overview and onboarding steps](/azure/automation/update-management/overview).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Paul Reed](https://www.linkedin.com/in/paulreed55) | Azure Compliance Senior Program Manager
+
 ## Next steps
 
 - For more information on planning a deployment, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 - For more information on managing WSUS, setting up a WSUS synchronization schedule, and more, see [WSUS administration](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus).
+
+## Related resources
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)
+- [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
+- [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)

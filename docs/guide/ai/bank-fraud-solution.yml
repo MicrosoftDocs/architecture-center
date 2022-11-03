@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Detect mobile bank fraud
+  description: Learn about a solution that uses behavioral profiles and machine learning to detect mobile bank fraud. 
+  author: KBaroni
+  ms.author: kbaroni, mhlobil, celabu, frgarofa, sheppardshep
+  ms.date: 08/19/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - security
+products:
+  - azure-machine-learning
+  - azure-synapse-analytics
+  - azure-event-hubs
+  - azure-key-vault
+  - azure-sql-database
+name: Detect mobile bank fraud
+summary: Learn about a solution that uses behavioral profiles and machine learning to detect mobile bank fraud.
+thumbnailUrl: /azure/architecture/browse/thumbs/bank-fraud-solution-high-level-thumb.png
+content: |
+  [!include[](bank-fraud-solution-content.md)]

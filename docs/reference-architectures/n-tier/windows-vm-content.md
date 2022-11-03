@@ -2,7 +2,9 @@
 
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.
 
-![Windows VM in Azure](./images/single-vm-diagram.png)
+![Diagram that shows Windows virtual machine in Azure.](./images/single-vm-diagram.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
 ## Resource group
 
@@ -112,6 +114,9 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 ## Next steps
 
+- To create a Windows VM, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- To install NVIDIA drivers on a Windows VM, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
+- To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
 

@@ -80,6 +80,16 @@ For example, a person entering an unauthorized area might need immediate interve
 
 Scoring data locally and sending only relevant data to the cloud can improve the return on investment (ROI) of a computer vision initiative. IoT Edge custom vision modules can score image data per ML models, and send only images deemed relevant with reasonable confidence to the cloud for further processing. Sending only selected images reduces the amount of data going to the cloud and lowers costs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To continue with this series about IoT Edge vision AI, go on to the next article:
@@ -93,7 +103,6 @@ To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge,
 - [Azure Machine Learning documentation](/azure/machine-learning)
 - [Tutorial: Perform image classification at the edge with Custom Vision Service](/azure/iot-edge/tutorial-deploy-custom-vision)
 - [What is Computer Vision?](/azure/cognitive-services/computer-vision/overview)
-- [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 - [Azure Kinect DK developer kit documentation](/azure/kinect-dk)
 - [Open Neural Network Exchange (ONNX) ML framework](https://onnx.ai)
 - [Model management deep neural network (MMdnn) tool](https://github.com/Microsoft/MMdnn)

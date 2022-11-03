@@ -158,7 +158,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg" alt="Architecture diagram for Design a CI/CD pipeline using Azure DevOps" height="140px" />
+                            <img src="~/example-scenario/apps/media/azure-devops-ci-cd-architecture.png" alt="Architecture diagram for Design a CI/CD pipeline using Azure DevOps" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

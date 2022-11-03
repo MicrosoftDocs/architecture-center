@@ -1,28 +1,12 @@
-
-
-When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle. Azure offers a range of services for managing a software solution that:
-
-* Flexibly maintains databases for all clients.
-
-* Scales the business and logic tier of the solution to prevent bottlenecks at the compute layer.
-
-* Integrates availability and regional failover.
-
-* Provides end-to-end security at all levels of the solution.
-
-## Potential use cases
-
-These use cases have design patterns that can benefit from a multitenant SaaS solution hosted on Azure:
-
-* Develop a customer relationship management (CRM) solution that clients can market and sell to customers.
-
-* Implement a content management system (CMS) system and deliver it to multiple users using this architecture.
+When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle. This solution tours a suite of Azure technologies that secure and balance the traffic.
 
 ## Architecture
 
 ![Diagram showing a multitenant SaaS architecture set up in Azure in two different regions.](./media/multitenant-saas.png)
 
-*Download an [SVG](./media/multitenant-saas.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/multitenant-saas.vsdx) of this architecture.*
+
+### Workflow
 
 A suite of Azure technologies secure and load balance the traffic.
 
@@ -58,15 +42,15 @@ A suite of Azure technologies secure and load balance the traffic.
 
 1. Store and manage relational data outside of the application framework. Doing so provides a single point of data entry for either region. Replication, availability, scalability, and security are achievable by leveraging the strength of Azure SQL Elastic Pools. Provision each tenant a database in a pool. Allocate the resources available in the pool to databases on-demand as load and requests come in. It optimizes database resources available for tenants against your budget.
 
-## Components
+### Components
 
 The primary components are the suggested components for the architecture in this solution. If any of the primary components don't fit your architecture, see the list of alternative components.
 
-### Primary components
+#### Primary components
 
 * [Azure Front Door](https://azure.microsoft.com/services/frontdoor/): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if region failure happens and it can secure the internet-facing entry point via [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview).
 
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (Azure AD): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
+* [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
 
 * [Azure DNS](https://azure.microsoft.com/services/dns/): A hosting service in Azure for domain name resolution. In a multitenant solution, multiple clients will be accessing the solution via their own individual domains. Use Azure DNS to configure and resolve client requests to their correct application stack.
 
@@ -92,13 +76,35 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applies a caching layer as a service to the solution, providing an in-memory managed cache to reduce latency and increase performance for the clients. High throughput allows for a high volume of requests to handle multiple tenants accessing the system. You can flexibly scale up the service as application loads increase. It also supports encryption at rest to protect and isolate cached tenant data.
 
-### Alternative components
+#### Alternative components
 
 * [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/): Allows for the deployment of services to a VM environment that scales and grows automatically as needed. Virtual Machine Scale Sets integrates well with a [Load Balancer](/azure/load-balancer/load-balancer-overview) or Application Gateway, to automatically rebalance load as the scale set grows. Virtual Machine Scale Sets provides the scalability this solution demands. In many cases though, it's unnecessary to manage the full VM environment, and we can defer that level of the stack to App Service or AKS.
 
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Implement as individual dedicated instances as a replacement for Elastic Pools. Using Azure SQL Database adds higher overhead in managing the instance directly and incurs more cost for allocated resources. That said, it's an acceptable alternative when the tenant requires a dedicated server. In particular, the client may require more control over the instance and dedicated available resources. Tenants requiring a dedicated SQL Server can exist side by side with tenants on an Elastic Pool configuration. You can make a tier of SQL databases one of the pricing options available to tenants when purchasing licenses for the SaaS.
 
 * [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): Another option for the deployment of SQL databases. The tenant may have pre-existing IT infrastructure, and existing SQL Servers on-premises. In that case, the tenant may want to use their current licenses, either as a full migration or in a hybrid scenario. The decoupled nature of the SaaS allows for the data layer of the application to target any SQL Database via configuration.
+
+## Scenario details
+
+When you identify a portion of your business's software solution that can be unbranded and marketed to other businesses, it adds an entire new revenue stream for a company. However, configuring the solution to account for the load that a slew of tenants brings is often a challenging obstacle to tackle.
+
+Azure offers a range of services for managing a software solution that:
+
+* Flexibly maintains databases for all clients.
+
+* Scales the business and logic tier of the solution to prevent bottlenecks at the compute layer.
+
+* Integrates availability and regional failover.
+
+* Provides end-to-end security at all levels of the solution.
+
+### Potential use cases
+
+These use cases have design patterns that can benefit from a multitenant SaaS solution hosted on Azure:
+
+* Develop a customer relationship management (CRM) solution that clients can market and sell to customers.
+
+* Implement a content management system (CMS) system and deliver it to multiple users using this architecture.
 
 ## Considerations
 
@@ -126,7 +132,7 @@ The system addresses security from end-to-end at each level of the application:
 
 * In this scenario, the data of multiple tenants may exist side by side on the same database server, if not the same database. Using TDE and JIT decryption protects data on the database. The system encrypts all data on the database at rest, and only decrypts it when requested by the tenant. Clients can provide their own keys, and you can store all client keys in Azure Key Vault to manage encryption for multiple tenants. It protects client data end-to-end, prevents the developer from having access to client data, isolates data between tenants, and helps to meet compliance requirements for security and data.
 
-## Pricing
+### Cost optimization
 
 Azure App Service provides a host of pricing tiers based on the expected compute resources required. For a multitenant SaaS, high availability and scale-out capabilities are key components in choosing the service plan. If you expect to host many tenants, choosing a premium or isolated tier may be necessary to provide the compute resources necessary to account for the high traffic. The standard, premium, and isolated tiers are all dedicated VM instances. You can calculate cost per unit of time by how many VMs of said tier you've specified. For more information, visit the [overview of App Service pricing plans](/azure/app-service/overview-hosting-plans).
 
@@ -144,7 +150,7 @@ By design, the Azure SQL Elastic Pool pricing is highly cost-effective in a mult
 
 * Using a virtual core (vCore) pricing model provides greater flexibility in scaling to meet required resources. Also, you can take advantage of the Azure Hybrid Benefit. Existing SQL Server licenses provide a discount to vCore SQL resources in the cloud. So in an instance when on-premises servers are already part of the developer infrastructure, you can manage cost even more by using these discounts. You can estimate your potential savings using the [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-* You can also save cost on SQL Server resources by purchasing [Azure SQL Database reserved capacity](/azure/sql-database/sql-database-reserved-capacity). A purchase of reserved capacity marks a commitment of long-term SQL Database usage. The term is usually between one to three years. In return, you get discounts on the compute costs of the resources in reservation. For instance, you could make a reservation of 32 general purpose vCores for a year, which would reduce the cost of those 32 vCores for that year. Having multiple tenants purchasing licenses for an SaaS is a strong indicator that making use of Reserved capacity fits the solution, and an ideal cost saver in this workload.
+* You can also save cost on SQL Server resources by purchasing [Azure SQL Database reserved capacity](/azure/sql-database/sql-database-reserved-capacity). A purchase of reserved capacity marks a commitment of long-term SQL Database usage. The term is usually between one to three years. In return, you get discounts on the compute costs of the resources in reservation. For instance, you could make a reservation of 32 general purpose vCores for a year, which would reduce the cost of those 32 vCores for that year. Having multiple tenants purchasing licenses for a SaaS is a strong indicator that making use of Reserved capacity fits the solution, and an ideal cost saver in this workload.
 
 You can find the pricing structure for Azure Cache for Redis on the [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/) page. Adjust the cache tier at any time between a Basic, Standard, and Premium tier based on need. You'll see higher pricing on the larger cache limits and additional features such as replication and disaster recovery. Azure Cache for Redis also offers reserved capacity pricing for long-term usage commitments.
 
@@ -158,8 +164,10 @@ The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/det
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
+* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Azure Active Directory to implement multitenant apps.
+
+## Related resources
+
 * [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.yml) is a reference for the multiregion requirement of the solution.
 
 * [Multitier web application built for high availability and disaster recovery on Azure](../infrastructure/multi-tier-app-disaster-recovery.yml) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.
-
-* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Azure Active Directory to implement multitenant apps.

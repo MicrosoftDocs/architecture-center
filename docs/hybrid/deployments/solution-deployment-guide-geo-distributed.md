@@ -2,12 +2,22 @@
 title: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
 description: Learn how to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub.
 author: BryanLa
-ms.service: azure
+categories: azure
+ms.service: azure-stack
+ms.subservice: azure-stack-hub
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - web
+products:
+  - azure-devops
+  - azure-pipelines
+  - azure-repos
+  - azure-stack-hub
+  - azure-traffic-manager
 # Intent: As an Azure Stack Hub operator, I want to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub so I can ensure information is routed to endpoints based on regional requirements.
 # Keyword: geo-distributed traffic app azure stack hub
 ---
@@ -356,7 +366,7 @@ In this part, we will:
 
 ### Prerequisites
 
-To complete this  solution:
+To complete this solution:
 
 - [Create an App Service app.](/azure/app-service/)
 - [Map a custom DNS name to your web app.](/azure/app-service/app-service-web-tutorial-custom-domain)
@@ -586,7 +596,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 8. Under Geo-mapping, select a region/continent where the resource is located. For example, **Europe.**
 
-9. Under the Country/Region drop-down that appears, select the country that applies to this endpoint. For example, **Germany**.
+9. Under the Country/Region drop-down that appears, select the country/region that applies to this endpoint. For example, **Germany**.
 
 10. Keep **Add as disabled** unchecked.
 

@@ -2,6 +2,8 @@ In a microservices architecture, a client might interact with more than one fron
 
 ![Diagram of an API gateway](../images/gateway.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/gateway.vsdx) of this architecture.*
+
 ## What is an API gateway?
 
 An API gateway sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services. However, there are some potential problems with exposing services directly to clients:
@@ -25,7 +27,7 @@ Here are some examples of functionality that could be offloaded to a gateway:
 
 - SSL termination
 - Authentication
-- IP allow/block list
+- IP allowlist or blocklist
 - Client rate limiting (throttling)
 - Logging and monitoring
 - Response caching
@@ -51,7 +53,7 @@ When choosing a gateway technology, consider the following:
 
 **Deployment**. Azure Application Gateway and API Management are managed services. Nginx and HAProxy will typically run in containers inside the cluster, but can also be deployed to dedicated VMs outside of the cluster. This isolates the gateway from the rest of the workload, but incurs higher management overhead.
 
-**Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allow lists, and other aspects of configuration.
+**Management**. When services are updated or new services are added, the gateway routing rules might need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allowlists, and other aspects of configuration.
 
 ## Deploying Nginx or HAProxy to Kubernetes
 
@@ -71,7 +73,7 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 
 ## Next steps
 
-The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as an opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.yml)

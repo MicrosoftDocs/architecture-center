@@ -1,6 +1,28 @@
-
-
 This reference architecture provides strategies for the [partitioning model][Partitions] that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.
+
+## Architecture
+
+:::image type="complex" source="./images/event-processing-service-new.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
+   At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
+:::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/event-processing-service.vsdx) of this architecture.*
+
+### Dataflow
+
+- *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalents are *clusters*.
+
+- The pipeline distributes incoming events among *partitions*. Within each partition, events remain in production order. Events don't remain in sequence across partitions, however. The number of partitions can affect *throughput*, or the amount of data that passes through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
+
+- Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they're *topics*.
+
+- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer at a time.
+
+- Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
+
+- Consumers process the feed of published events that they subscribe to. Consumers also engage in *checkpointing*. Through this process, subscribers use *offsets* to mark their position within a partition event sequence. An offset is a placeholder that works like a bookmark to identify the last event that the consumer read.
+
+## Scenario details
 
 Specifically, this document discusses the following strategies:
 
@@ -16,24 +38,6 @@ Many event ingestion technologies exist, including:
 
 Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.
 
-## Architecture
-
-:::image type="complex" source="./images/event-processing-service.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
-   At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
-:::image-end:::
-
-- *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalents are *clusters*.
-
-- The pipeline distributes incoming events among *partitions*. Within each partition, events remain in production order. Events don't remain in sequence across partitions, however. The number of partitions can affect *throughput*, or the amount of data that passes through the system in a set period of time. Pipelines usually measure throughput in bits per second (bps), and sometimes in data packets per second (pps).
-
-- Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they're *topics*.
-
-- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer at a time.
-
-- Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
-
-- Consumers process the feed of published events that they subscribe to. Consumers also engage in *checkpointing*. Through this process, subscribers use *offsets* to mark their position within a partition event sequence. An offset is a placeholder that works like a bookmark to identify the last event that the consumer read.
-
 ## Recommendations
 
 Keep the following recommendations in mind when developing a partitioning strategy.
@@ -44,9 +48,11 @@ One aspect of the partitioning strategy is the assignment policy. An event that 
 
 Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
-:::image type="complex" source="./images/pipeline-event-parts.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
+:::image type="complex" source="./images/pipeline-event-parts-new.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/pipeline-event-parts.vsdx) of this architecture.*
 
 The key contains data about the event and can also play a role in the assignment policy.
 
@@ -75,7 +81,7 @@ Use these guidelines to decide how many partitions to use:
 - To avoid starving consumers, use at least as many partitions as consumers. For instance, suppose eight partitions are assigned to eight consumers. Any additional consumers that subscribe will have to wait. Alternatively, you can keep one or two consumers ready to receive events when an existing consumer fails.
 - Use more keys than partitions. Otherwise, some partitions won't receive any events, leading to unbalanced partition loads.
 - In both Kafka and Event Hubs at the Dedicated tier level, you can change the number of partitions in an operating system. However, avoid making that change if you use keys to preserve event ordering. The reason involves the following facts:
-  - Customers rely on certain partitions and the order of the events they contain.
+  - Consumers rely on certain partitions and the order of the events they contain.
   - When the number of partitions changes, the mapping of events to partitions can change. For instance, when the partition count changes, this formula can produce a different assignment:
     `partition assignment = hash  key % number of partitions`
   - Kafka and Event Hubs don't attempt to redistribute events that arrived at partitions before the shuffle. As a result, the guarantee no longer holds that events arrive at a certain partition in publication order.
@@ -121,7 +127,7 @@ Besides the default round robin strategy, Kafka offers two other strategies for 
 
 Keep these points in mind when using a partitioning model.
 
-### Scalability considerations
+### Scalability
 
 Using a large number of partitions can limit scalability:
 
@@ -131,7 +137,7 @@ Using a large number of partitions can limit scalability:
 
 - Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. When consumers subscribe to a large number of partitions but have limited memory available for buffering, problems can arise.
 
-### Availability considerations
+### Availability
 
 A significant number of partitions can also adversely affect availability:
 
@@ -141,15 +147,15 @@ A significant number of partitions can also adversely affect availability:
 
 - With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Handle transient behavior by incorporating retries to minimize failures. Use the [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] to simplify this process.
 
-### Performance considerations
+### Performance
 
 In Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures a high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
 
-### Security considerations
+### Security
 
 In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Consumers connect via an [AMQP 1.0 session][AMQP 1.0]. This state-aware bidirectional communication channel provides a secure way to transfer messages. Kafka also offers encryption, authorization, and authentication features, but you have to implement them yourself.
 
-## Examples
+## Deploy this scenario
 
 The following code examples demonstrate how to maintain throughput, distribute to a specific partition, and preserve event order.
 
@@ -310,21 +316,37 @@ This code produces the following results:
 
 As these results show, the producer only used two unique keys. The messages then went to only two partitions instead of all four. The pipeline guarantees that messages with the same key go to the same partition.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Use Azure Event Hubs from Apache Kafka applications][Use Azure Event Hubs from Apache Kafka applications]
 - [Apache Kafka developer guide for Azure Event Hubs][Apache Kafka developer guide for Azure Event Hubs]
 - [Quickstart: Data streaming with Event Hubs using the Kafka protocol][Quickstart: Data streaming with Event Hubs using the Kafka protocol]
 - [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)][Send events to and receive events from Azure Event Hubs - .NET]
-
-## Related resources
-
 - [Balance partition load across multiple instances of your application][Balance partition load across multiple instances of your application]
 - [Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs][Dynamically add partitions to an event hub in Azure Event Hubs]
 - [Availability and consistency in Event Hubs][Availability and consistency in Event Hubs]
 - [Azure Event Hubs Event Processor client library for .NET][Azure Event Hubs Event Processor client library for .NET]
 - [Effective strategies for Kafka topic partitioning][Effective strategies for Kafka topic partitioning]
 - [Confluent blog post: How to choose the number of topics/partitions in a Kafka cluster?][How to choose the number of topics/partitions in a Kafka cluster?]
+
+## Related resources
+
+- [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
+- [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
+- [Event-driven architecture style](/azure/architecture/guide/architecture-styles/event-driven)
+- [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
+- [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)
+- [Apache open-source scenarios on Azure - Apache Kafka](/azure/architecture/guide/apache-scenarios#apache-kafka)
 
 [AMQP 1.0]: /azure/service-bus-messaging/service-bus-amqp-protocol-guide
 [Apache Kafka]: https://www.confluent.io/what-is-apache-kafka/

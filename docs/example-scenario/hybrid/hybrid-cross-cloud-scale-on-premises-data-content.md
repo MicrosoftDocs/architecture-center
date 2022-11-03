@@ -73,7 +73,7 @@ It's important to think about how to handle networking or power failures. For in
 
 ### Security
 
-- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries as you would when using a public cloud. Deploying the same app in datacenters in each country allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within each country's borders. See [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework for more guidance.
+- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries/regions as you would when using a public cloud. Deploying the same app in datacenters in each country/region allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within the borders of each country/region. See [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework for more guidance.
 
 - **Azure Stack Hub security posture.** Security requires a solid, continuous servicing process. That's why Microsoft invested in an orchestration engine that applies patches and updates across the entire infrastructure. Thanks to partnerships with Azure Stack Hub original equipment manufacturer (OEM) partners, Microsoft extends the same security posture to OEM-specific components, like the Hardware Lifecycle Host and the software running on it. These partnerships ensure that Azure Stack Hub has a uniform, solid security posture across the entire infrastructure. In turn, you can build and secure your app workloads.
 
@@ -111,6 +111,15 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 - **Cross-cloud scaling with Azure Stack Hub.** The key advantage to cloud bursting is that it saves you money. You pay for additional resources only when there's a demand for them. You don't need to spend money on unnecessary extra capacity or try to predict demand peaks and fluctuations.
 - **Processing in the cloud.** You can use cross-cloud scaling to reduce processing burdens. Moving basic apps to the public cloud distributes loads, freeing up local resources for business-critical apps. You can deploy an app to the private cloud and burst it to the public cloud as needed to meet demand.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+
 ## Next steps
 
 - Watch [Dynamically scale apps between datacenters and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0) for an overview of a similar architecture.
@@ -124,6 +133,6 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [DevOps with Azure Stack Hub](/azure/architecture/solution-ideas/articles/hybrid-continuous-integration)

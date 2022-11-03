@@ -1,5 +1,3 @@
-<!-- cSpell:ignore pracjain -->
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in digital asset management.
@@ -30,18 +28,29 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ### Components
 
-Key technologies used to implement tools for technical content review and research:
+The following key technologies are used to implement tools for technical content review and research:
 
-- [Azure Cognitive Search](/azure/search/)
-- [Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Cognitive Services Face](https://azure.microsoft.com/services/cognitive-services/face/)
-- [Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+- [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+- The [Azure Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface) is used to integrate a custom skill into an Azure Cognitive Search enrichment pipeline.
+- [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses text recognition APIs to extract text from images. Computer Vision is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
+- [Face API](https://azure.microsoft.com/services/cognitive-services/face) is AI service that analyzes faces in images. Face API is part of Cognitive Services.
 
 ## Next steps
 
 - Read an architecture overview on [artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md).
-
-- Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
+- Explore the Microsoft learning path [Knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search).
+- To learn more about the components in this solution, see these resources:
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
+  - [Azure Cognitive Search documentation](/azure/search)
+  - [What is Computer Vision?](/azure/cognitive-services/computer-vision/overview)
+  - [What is the Azure Face service?](/azure/cognitive-services/computer-vision/overview-identity)
+
+## Related resources
+
+- [Knowledge mining in auditing, risk, and compliance management](./auditing-and-risk-compliance.yml)
+- [Knowledge mining in business process management](./business-process-management.yml)
+- [Knowledge mining for content research](./content-research.yml)
+- [Knowledge mining in contract management](./contract-management.yml)
+- [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)

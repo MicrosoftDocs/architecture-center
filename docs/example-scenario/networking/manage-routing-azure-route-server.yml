@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Use Azure Route Server to manage the dynamic routing between NVAs and virtual networks. Simplify NVA maintenance, and avoid manually updating route tables.
   author: priyshar
-  ms.author: edprice
-  ms.date: 12/10/2021
+  ms.author: architectures
+  ms.date: 07/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

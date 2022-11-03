@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Power Automate deployment at scale
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.
   author: svarukala
   ms.author: svarukal
-  ms.date: 10/15/2021
+  ms.date: 07/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -23,4 +23,4 @@ name: Power Automate deployment at scale
 summary: See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.
 thumbnailUrl: /azure/architecture/browse/thumbs/power-automate.png
 content: |
-  [!include[](power-automate-content.md)]
+  [!include[](./power-automate-content.md)]

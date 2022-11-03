@@ -271,15 +271,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure resources with tools](/learn/modules/configure-azure-resources-tools)
-- [Configure VPN Gateway](/learn/modules/configure-vpn-gateway)
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
-- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
+- [Configure Azure resources with tools](/training/modules/configure-azure-resources-tools)
+- [Configure VPN Gateway](/training/modules/configure-vpn-gateway)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/training/modules/create-windows-virtual-machine-in-azure)
 
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Hybrid file share with disaster recovery for remote and local branch workers](../../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
 
 <!-- links -->

@@ -74,9 +74,12 @@ spec:
         cpu: "1"
 ```
 
-## Related guidance
+## Next steps
 
 - [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
+
+## Related resources
+
 - [Circuit Breaker pattern](./circuit-breaker.yml)
 - [Retry pattern](./retry.yml)
 - [Throttling pattern](./throttling.yml)

@@ -1,5 +1,3 @@
-
-
 Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for operations that span the virtual and physical worlds. AI and ML can recognize correlations between real-world input data and outcomes and make decisions that automate complex physical industrial systems. But AI machine learning systems can't perform higher-level cognitive functions like exploration, improvisation, creative thinking, or determination of causation.
 
 *Machine teaching* is a new paradigm for machine learning systems that:
@@ -371,12 +369,16 @@ For more information and a demo of this solution, see [Motion control: Horizonta
 - [Gazebo](http://gazebosim.org/)
 - [Simulink](https://www.mathworks.com/products/simulink.html)
 
-## Related resources
+Learn more about machine teaching:
 
-- ["Bonsai, AI for Everyone," 2016 March 2]( https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859)
+- ["Bonsai, AI for Everyone," 2016 March 2](https://medium.com/@BonsaiAI/ai-for-everyone-4ddd36c89859)
 - ["AI use cases: innovations solving more than just toy problems," 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396)
 - [Patrice Y. Simard, Saleema Amershi, David M. Chickering, et al., "Machine Teaching: A New Paradigm for Building Machine Learning Systems," 2017](https://arxiv.org/abs/1707.06742v2)
 - [Carlos E. Perez, "Deep Teaching: The Sexiest Job of the Future," 2017 July 29](https://medium.com/intuitionmachine/why-teaching-will-be-the-sexiest-job-of-the-future-a-i-economy-b8e1c2ee413e)
 - [Tambet Matiisen, "Demystifying deep reinforcement learning," 2015 December 19](https://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/)
 - [Andrej Karpathy, "Deep Reinforcement Learning: Pong from Pixels," 2016 May 31](http://karpathy.github.io/2016/05/31/rl/)
 - [David Kestenbaum, "Pop Quiz: How Do You Stop Sea Captains From Killing Their Passengers?" 2010 September 10](https://www.npr.org/sections/money/2010/09/09/129757852/pop-quiz-how-do-you-stop-sea-captains-from-killing-their-passengers?t=1556642213216)
+
+## Related resources
+
+- [Machine teaching for autonomous systems](autonomous-systems.yml)

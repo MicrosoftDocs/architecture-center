@@ -31,6 +31,6 @@ This pattern may not be suitable:
 - When requests to the back-end system cannot be intercepted.
 - For smaller systems where the complexity of wholesale replacement is low.
 
-## Related guidance
+## Next steps
 
 - Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)

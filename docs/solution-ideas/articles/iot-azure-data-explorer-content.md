@@ -10,7 +10,9 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." border="false" lightbox="../media/iot-azure-data-explorer.png":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." border="false" lightbox="../media/iot-azure-data-explorer-new.png":::
+
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -49,7 +51,7 @@ This solution idea uses the following Azure components:
 
 #### Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast, fully managed, and highly scalable big data analytics service. Azure Data Explorer can analyze large volumes of streaming data from applications, websites, and IoT devices in near real-time to serve analytics applications and dashboards.
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed, and highly scalable big data analytics service. Azure Data Explorer can analyze large volumes of streaming data from applications, websites, and IoT devices in near real-time to serve analytics applications and dashboards.
 
 Azure Data Explorer provides native advanced analytics for:
 
@@ -68,6 +70,14 @@ The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects t
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) runs near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost impact on transactional workloads. Synapse Link uses the [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview) analytics engines from the Azure Synapse workspace.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
 
 ## Next steps
 

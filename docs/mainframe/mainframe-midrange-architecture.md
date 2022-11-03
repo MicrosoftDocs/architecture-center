@@ -2,9 +2,9 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: jjfrost
-ms.author: jfrost
-ms.date: 12/13/2021
+author: bhbandam
+ms.author: bhbandam
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -19,7 +19,7 @@ ms.custom:
   - fcp
 ---
 
-# Azure mainframe and midrange architecture concepts and patterns
+# Azure mainframe and midrange architecture design
 
 Mainframe and midrange  hardware is composed of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often *scale-up* and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
 
@@ -239,7 +239,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
 - [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
 - [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
-- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
+- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
 
 ### Blog posts
 

@@ -2,11 +2,23 @@
 title: Compare AWS and Azure database technology
 description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity
-ms.author: pnp
-ms.date: 09/17/2021
+ms.author: architectures
+categories: azure
+ms.date: 07/25/2022
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: 
+  - analytics 
+  - database
+  - storage
+  - web
+products:
+  - azure-sql-database
+  - azare-storage-accounts
+  - azure-managed-applications
+ms.custom:
+  - article
 ---
 
 # Relational database technologies on Azure and AWS
@@ -32,7 +44,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
-- [Introduction to Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
+- [Introduction to Azure Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
 
 - [How to use Azure Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs)
 

@@ -73,5 +73,12 @@ Tenants won't need to remember separate credentials to access the application, a
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
-- [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.yml)
 - [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)
+
+## Related resources
+
+- [Identity management for multitenant applications in Microsoft Azure](../multitenant-identity/index.yml)
+- [Gatekeeper pattern](/azure/architecture/patterns/gatekeeper)
+- [Edge Workload Configuration pattern](/azure/architecture/patterns/edge-workload-configuration)
+- [Compute Resource Consolidation pattern](/azure/architecture/patterns/compute-resource-consolidation)
+- [Gateway Offloading pattern](/azure/architecture/patterns/gateway-offloading)

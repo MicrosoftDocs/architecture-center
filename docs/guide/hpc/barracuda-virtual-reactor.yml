@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Barracuda Virtual Reactor on an Azure virtual machine
+  description: Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on an Azure virtual machine.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/05/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Barracuda Virtual Reactor on a virtual machine
+summary: Find out how Barracuda Virtual Reactor CFD software performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/barracuda-virtual-reactor-thumb.png
+content: |
+  [!include[](barracuda-virtual-reactor-content.md)]

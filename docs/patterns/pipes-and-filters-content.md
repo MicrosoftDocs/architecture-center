@@ -260,12 +260,12 @@ public class FinalReceiverRoleEntry : RoleEntryPoint
 The following guidance might also be relevant when implementing this pattern:
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
+- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver's blog.
 
-## Related guidance
+## Related resources
 
 The following patterns might also be relevant when implementing this pattern:
 
 - [Competing Consumers pattern](./competing-consumers.yml). A pipeline can contain multiple instances of one or more filters. This approach is useful for running parallel instances of slow filters, enabling the system to spread the load and improve throughput. Each instance of a filter will compete for input with the other instances, two instances of a filter shouldn't be able to process the same data. Provides an explanation of this approach.
 - [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml). It might be possible to group filters that should scale together into the same process. Provides more information about the benefits and tradeoffs of this strategy.
 - [Compensating Transaction pattern](./compensating-transaction.yml). A filter can be implemented as an operation that can be reversed, or that has a compensating operation that restores the state to a previous version in the event of a failure. Explains how this can be implemented to maintain or achieve eventual consistency.
-- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver's blog.

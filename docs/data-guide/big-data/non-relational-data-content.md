@@ -40,7 +40,7 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:
 
-- [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
+- [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
@@ -61,7 +61,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 Relevant Azure services:
 
-- [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
+- [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
@@ -161,3 +161,11 @@ The following compares the requirements for each of the non-relational data stor
 | Wide (lots of columns/attributes) |  No | Yes | Yes |
 | Datum size | Small (KBs) | Large (GBs) to Very Large (TBs) | Small (KBs) |
 | Overall Maximum Scale | Large (low TBs)  | Very Large (PBs) | Large (low TBs) |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

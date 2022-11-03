@@ -15,20 +15,22 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 ![Diagram showing the Charon-SSP and Solaris architecture.](../media/solaris.png)
 
+### Dataflow
+
 1. The Charon-SSP Director allows managing multiple server hosts, each potentially running one or more child Solaris VMs. This setup provides a single place of management as you scale out your farm of host VMs and their Solaris child VMs. Charon-SSP Manager provides an easy-to-use and intuitive graphical management interface.
-2. The Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
-3. The child Solaris VMs are based on the SPARC processor architecture.
-4. The child Solaris VMs each get their own Azure network interface, and therefore have their own dedicated private IP addresses. Optionally, you can easily set up Azure public IP addresses on the same network interfaces.
-5. The Solaris VM images can reside on the solid-state drive (SSD) managed disk of the host Azure VM. Azure Ultra SSD managed disks are also a potential option for even higher input/output operations per second (IOPS).
-6. Azure Storage Account file shares mounted on the Linux VM allow mapping of the Charon-SSP Virtual Tape Manager to a locally mounted device, which is backed by an Azure Files storage account in the cloud. This mapping allows for low-cost storage of archived tapes for regulatory and compliance purposes.
-7. The management VM that runs Charon-SSP Director and Manager can be either Windows-based, or Linux-based with a graphic user interface like [GNOME](https://www.gnome.org/).
-8. End users can secure-shell (SSH) connect directly to the Solaris VMs, which have their own dedicated network interface cards and IP addresses.
+1. The Charon-SSP Agent runs on Linux distributions on Azure VMs. This component runs the child Solaris VMs and emulates the SPARC processor architecture.
+1. The child Solaris VMs are based on the SPARC processor architecture.
+1. The child Solaris VMs each get their own Azure network interface, and therefore have their own dedicated private IP addresses. Optionally, you can easily set up Azure public IP addresses on the same network interfaces.
+1. The Solaris VM images can reside on the solid-state drive (SSD) managed disk of the host Azure VM. Azure Ultra SSD managed disks are also a potential option for even higher input/output operations per second (IOPS).
+1. Azure Storage Account file shares mounted on the Linux VM allow mapping of the Charon-SSP Virtual Tape Manager to a locally mounted device, which is backed by an Azure Files storage account in the cloud. This mapping allows for low-cost storage of archived tapes for regulatory and compliance purposes.
+1. The management VM that runs Charon-SSP Director and Manager can be either Windows-based, or Linux-based with a graphic user interface like [GNOME](https://www.gnome.org).
+1. End users can secure-shell (SSH) connect directly to the Solaris VMs, which have their own dedicated network interface cards and IP addresses.
 
 [XDMCP](https://wiki.ubuntu.com/xdmcp) is available for desktop access to the Solaris VMs. XDMCP isn't an encrypted protocol, so the recommended topology for accessing a Solaris VM via XDMCP is to create a Windows Server VM in Azure as a "hop" server, in which an XDMCP client, such as [MobaXterm](https://mobaxterm.mobatek.net), can be installed. With this configuration, all network traffic occurs over the private Azure virtual network.
 
 ### Components
 
-- [Azure VMs](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems including Windows and Linux.
+- [Azure VMs](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems including Windows and Linux.
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Azure Virtual Network is similar to a traditional network in your own datacenter, but provides the additional scale, availability, and isolation benefits of the Azure infrastructure.
 
@@ -45,5 +47,5 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See [Charon-SSP](https://www.stromasys.com/solutions/charon-ssp/) on the Stromasys website.
-- Read the [Charon-SSP Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide/).
+- See [Charon-SSP](https://www.stromasys.com/solutions/charon-ssp) on the Stromasys website.
+- Read the [Charon-SSP Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide).

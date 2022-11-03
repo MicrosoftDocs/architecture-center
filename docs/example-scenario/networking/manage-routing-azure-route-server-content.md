@@ -1,22 +1,12 @@
-Network routing is the process of determining the path that traffic takes across networks to reach a destination. Route tables list network topology information that's useful for determining routing paths.
-
-When your virtual network contains a network virtual appliance (NVA), you need to manually configure and update your route tables.
-
 This article presents a solution for managing the dynamic routing between NVAs and virtual networks. At the core of the solution is Azure Route Server. This service simplifies the configuration, maintenance, and deployment of NVAs in your virtual network. When you use Route Server, you no longer need to manually update NVA route tables when your virtual network addresses change.
-
-## Potential use cases
-
-This solution applies to scenarios that:
-
-- Use dual-homed networks. Besides typical hub-and-spoke network topologies, Router Server also supports dual-homed network topologies. This type of configuration peers a spoke virtual network with two or more hub virtual networks. For detailed information, see [About dual-homed network with Azure Route Server][About dual-homed network with Azure Route Server].
-- Connect NVAs to Azure ExpressRoute. Some virtual networks contain Route Server, an ExpressRoute gateway, and an NVA. By default, Route Server doesn't propagate the NVA routes to ExpressRoute. Route Server also doesn't propagate ExpressRoute routes to the NVA. You can get ExpressRoute and the NVA to exchange routes by turning on route exchange functionality in Route Server. For detailed information, see [About Azure Route Server support for ExpressRoute and Azure VPN][About Azure Route Server support for ExpressRoute and Azure VPN].
-- Use Azure to connect to the internet from an on-premises system. Organizations that lack good internet access might use this configuration. Systems that have already migrated internet proxies to Azure are other possibilities. Route Server makes this setup possible.
 
 ## Architecture
 
 :::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
+### Workflow
 
 - This hub-and-spoke architecture has a hub virtual network and one spoke virtual network. The hub virtual network has multiple subnets, each containing virtual machines (VMs).
 
@@ -75,6 +65,22 @@ This solution applies to scenarios that:
 
 - Instead of using Route Server, you can add user-defined routes to each subnet's route table. For more information about user-defined routes, see [User-defined in Virtual network traffic routing][Virtual network traffic routing - User-defined].
 
+## Scenario details
+
+Network routing is the process of determining the path that traffic takes across networks to reach a destination. Route tables list network topology information that's useful for determining routing paths.
+
+When your virtual network contains a network virtual appliance (NVA), you need to manually configure and update your route tables.
+
+This article presents a solution for managing the dynamic routing between NVAs and virtual networks. At the core of the solution is Azure Route Server. This service simplifies the configuration, maintenance, and deployment of NVAs in your virtual network. When you use Route Server, you no longer need to manually update NVA route tables when your virtual network addresses change.
+
+### Potential use cases
+
+This solution applies to scenarios that:
+
+- Use dual-homed networks. Besides typical hub-and-spoke network topologies, Router Server also supports dual-homed network topologies. This type of configuration peers a spoke virtual network with two or more hub virtual networks. For detailed information, see [About dual-homed network with Azure Route Server][About dual-homed network with Azure Route Server].
+- Connect NVAs to Azure ExpressRoute. Some virtual networks contain Route Server, an ExpressRoute gateway, and an NVA. By default, Route Server doesn't propagate the NVA routes to ExpressRoute. Route Server also doesn't propagate ExpressRoute routes to the NVA. You can get ExpressRoute and the NVA to exchange routes by turning on route exchange functionality in Route Server. For detailed information, see [About Azure Route Server support for ExpressRoute and Azure VPN][About Azure Route Server support for ExpressRoute and Azure VPN].
+- Use Azure to connect to the internet from an on-premises system. Organizations that lack good internet access might use this configuration. Systems that have already migrated internet proxies to Azure are other possibilities. Route Server makes this setup possible.
+
 ## Considerations
 
 Consider these points when implementing this solution:
@@ -86,7 +92,6 @@ Consider these points when implementing this solution:
 - In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN Gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 
 - There's no limit on the number of service endpoints that you can use in a virtual network. But some Azure services, such as Storage, enforce limits on the number of subnets that you can use to secure the resource. For more information, see [Next steps in Virtual Network service endpoints][Next steps in Virtual Network service endpoints].
-
 
 When considering this solution, also keep in mind the points in the following sections.
 
@@ -110,33 +115,33 @@ Most components in this solution are managed services that automatically scale. 
 
 This solution uses only managed components. At a regional level, all these components are automatically resilient. Route Server offers high availability. When you deploy Route Server in an Azure region that supports availability zones, your implementation has zone-level redundancy. For more information about availability zones, see [Regions and availability zones][Regions and availability zones].
 
-## Pricing
+### Cost optimization
 
 To estimate the cost of implementing this solution, see the [Azure pricing calculator][Pricing calculator]. For general information about reducing unnecessary expenses, see [Overview of the cost optimization pillar][Overview of the cost optimization pillar].
 
 The following sections discuss pricing information for the solution's components.
 
-### Route Server
+#### Route Server
 
 Currently, there's no upfront cost or termination fee for Route Server. For pricing information, see [Azure Route Server pricing][Azure Route Server pricing].
 
-### Virtual Network
+#### Virtual Network
 
 You can use Virtual Network free of charge. With an Azure subscription, you can create up to 50 virtual networks across all regions. Traffic that's within a virtual network's boundaries is free. As a result, there's no charge for communication between two VMs in the same virtual network.
 
-### VPN Gateway
+#### VPN Gateway
 
 When you use VPN Gateway, all inbound traffic is free. You're charged only for outbound traffic. Internet bandwidth costs apply with VPN outbound traffic. For more information, see [VPN Gateway pricing][VPN Gateway pricing].
 
-### ExpressRoute
+#### ExpressRoute
 
 ExpressRoute data transfers that are inbound are free of charge. For outbound data transfer, you're charged a predetermined rate. A fixed monthly port fee also applies. For more information, see [Azure ExpressRoute pricing][Azure ExpressRoute pricing].
 
-### Service endpoints
+#### Service endpoints
 
 There's no charge for using service endpoints.
 
-### NVAs
+#### NVAs
 
 NVAs are charged based on the appliance that you use. You're also charged for the Azure VMs that you deploy and the underlying infrastructure resources that you consume, such as storage and networking. For more information, see [Linux Virtual Machines Pricing][Linux Virtual Machines Pricing].
 
@@ -148,10 +153,10 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 - [Azure road map][Azure road map]
 - [Networking blog][Networking blog]
 - [SLA for Azure Route Server][SLA for Azure Route Server]
+- [What is Azure Route Server?][What is Azure Route Server?]
 
 ## Related resources
 
-- [What is Azure Route Server?][What is Azure Route Server?]
 - [Azure Firewall architecture overview][Azure Firewall architecture overview]
 - [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
 - [Build solutions for high availability using availability zones][Build solutions for high availability using availability zones]

@@ -1,14 +1,14 @@
-With Azure Logic Apps, you can integrate cloud data into on-premises data storage. For instance, a logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
-
-## Potential use cases
-
-Use this solution to automate data integration tasks that you perform in response to API calls.
+This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage.
 
 ## Architecture
 
 :::image type="complex" source="./media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
    The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from the J S O N file into an A P I Management icon that's inside the Azure box. A second arrow points from the A P I Management icon to a Logic Apps icon that's also inside the Azure box. Three arrows point away from the Logic Apps icon. One leads to a Key Vault icon that's inside the Azure box. One leads to an on-premises data gateway icon that's between the two boxes. And the third leads to an Azure Monitor icon that's inside the Azure box. Another arrow points from the gateway to a SQL Server icon that's inside the on-premises box. A final arrow points from the SQL Server icon to a person outside the on-premises box.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/logic-apps-data-integration.vsdx) of this architecture.*
+
+### Workflow
 
 1. API Management accepts API calls in the form of HTTP requests.
 
@@ -56,19 +56,27 @@ A few alternatives exist for this solution:
 
 - [Power Apps][What is Power Apps?] also provides solutions for automating workflows that involve connecting to on-premises data sources.
 
+## Scenario details
+
+A logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
+
+### Potential use cases
+
+Use this solution to automate data integration tasks that you perform in response to API calls.
+
 ## Considerations
 
 Keep these points in mind when considering this architecture.
 
-### Availability considerations
+### Availability
 
 For high availability, [add the on-premises gateway to a cluster][Install a gateway cluster] instead of installing a standalone gateway.
 
-### Scalability considerations
+### Scalability
 
 With the serverless model that Logic Apps uses, the service automatically scales to meet demand. But be aware of [limits on read and write operations with the on-premises data gateway][Limits on read and write operations with the on-premises data gateway].
 
-### Security considerations
+### Security
 
 - The on-premises data gateway uses credential encryption and user authentication to protect data during transfers between on-premises and Azure systems.
 - API Management helps to ensure that only authorized clients call your logic app. You can also take these steps:
@@ -86,7 +94,7 @@ With the serverless model that Logic Apps uses, the service automatically scales
   - [Restrict access by IP address range][Restrict access by IP address range].
   - [Use obfuscation to secure run history data][Secure data in run history by using obfuscation].
 
-## Pricing
+### Cost optimization
 
 The following table provides cost profiles that use varying levels of expected throughput:
 
@@ -105,6 +113,15 @@ Explore these strategies for minimizing Logic Apps costs:
 - [Specify precise trigger conditions][Trigger conditions] for workflows.
 - [Turn off logic apps][Disable or enable logic apps] that don't have to run constantly.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant – Azure Cloud & AI
+
 ## Next steps
 
 - [Import a Logic App as an API][Import a Logic App as an API]
@@ -118,7 +135,7 @@ Explore these strategies for minimizing Logic Apps costs:
 - [On-premises data gateway documentation][On-premises data gateways documentation]
 - Similar architectures:
 
-  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Cloud that connects to an on-premises SQL Server instance.
+  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Apps that connects to an on-premises SQL Server instance.
   - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
   - [Serverless web application][Serverless web application]: A serverless web app that uses Azure Functions to read database data.
 

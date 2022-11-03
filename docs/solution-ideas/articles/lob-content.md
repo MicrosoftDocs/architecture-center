@@ -1,25 +1,27 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
+This example shows how you can modernize your legacy systems that can't support new processes and provide better user experience.
 
 ## Potential use cases
 
-Out-of-box or custom connectors can help simplify process automation and connect to 3rd party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
+Out-of-box or custom connectors can help simplify process automation and connect to third party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
 
 ## Architecture
 
-![Architecture Diagram](../media/lob.png)
+![Architecture shows data from C D S to S Q L via Data Factory and from E R P to S Q L. Power app gets data, sends via C S V, Power B I shows trends.](../media/lob.png)
 
-### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/lob.vsdx) of this architecture.*
+
+### Dataflow
 
 The data flows through the solution as follows:
 
 1. Supplier data stored in CDS is moved to SQL via Data Factory.
-2. Purchase order (PO) data stored in ERP system is sent to Azure SQL database.
-3. Azure Functions uses API to surface PO data monthly and creates a task for user to review.
-4. Power Apps retrieves data from Azure SQL Database through API.
-5. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
-6. Power BI reports trends in supplier status.
+1. Purchase order (PO) data stored in ERP system is sent to Azure SQL database.
+1. Azure Functions uses API to surface PO data monthly and creates a task for user to review.
+1. Power Apps retrieves data from Azure SQL Database through API.
+1. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
+1. Power BI reports trends in supplier status.
 
 ### Components
 
@@ -34,4 +36,4 @@ Data is loaded from these different data sources using several Azure components:
 
 ## Next steps
 
-- Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)
+- Learn more: [https://aka.ms/learnpowerapps](/training/browse/?products=power-apps)

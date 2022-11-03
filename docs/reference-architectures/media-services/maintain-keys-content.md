@@ -49,7 +49,7 @@ On success, the Logic App sends the following response back through Event Grid:
 }
 ```
 
-While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#rollkey) for details about this message and response.
+While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#requester-asks-gridwich-to-rotate-to-a-new-storage-key) for details about this message and response.
 
 ## Secret Changed Handler Logic App for third-party keys
 
@@ -129,15 +129,15 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
-- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
-- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
-- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+- [Configure and manage secrets in Azure Key Vault](/training/modules/configure-and-manage-azure-key-vault)
+- [Create a long-running serverless workflow with Durable Functions](/training/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Event Grid](/training/modules/azure-event-grid)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/training/modules/intro-to-logic-apps)
 
 ## Related resources
 
 - [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
 - [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
-- [Test Media Services V3 encoding](test-encoding.yml)
+- [Test Media Services v3 encoding](test-encoding.yml)

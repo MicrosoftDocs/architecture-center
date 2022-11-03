@@ -33,7 +33,7 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 1. Apache Spark consumes events. AKS provides a managed environment for the Apache Spark jobs.
 
-1. An application that uses the Cassandra API for Azure Cosmos DB writes events to Cassandra. This database serves as a storage platform for events. AKS hosts the microservices that write to Cassandra.
+1. An application that uses Azure Cosmos DB for Apache Cassandra writes events to Cassandra. This database serves as a storage platform for events. AKS hosts the microservices that write to Cassandra.
 
 1. The change feed feature of Azure Cosmos DB processes events in real time.
 
@@ -62,7 +62,7 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
   - [Gremlin][The Gremlin Graph Traversal Machine and Language].
   - [MongoDB][MongoDB].
 
-  Through the [Cassandra API][Introduction to the Azure Cosmos DB Cassandra API], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
+  Through the [Azure Cosmos DB for Apache Cassandra][Introduction to Azure Cosmos DB for Apache Cassandra], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
 
 - [AKS][Azure Kubernetes Service (AKS) marketing page] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
 
@@ -76,15 +76,15 @@ You can replace the open-source-compatible products and services in this solutio
 
 ## Considerations
 
-Design and implement each service with best practices in mind. For guidelines on each service, see [Microsoft Docs][Microsoft Docs]. Also review the information in the following sections:
+Design and implement each service with best practices in mind. For guidelines on each service, see the [Microsoft documentation site](/). Also review the information in the following sections:
 
-### Performance considerations
+### Performance
 
 - Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance.
 
-- Configure Azure Cosmos DB Cassandra API for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB Cassandra API]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
+- Configure Azure Cosmos DB for Apache Cassandra for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB for Apache Cassandra]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
 
-### Scalability considerations
+### Scalability
 
 - Take your streaming requirements into account when choosing an [Event Hubs tier][Event Hubs pricing]:
 
@@ -93,45 +93,17 @@ Design and implement each service with best practices in mind. For guidelines on
 
 - Consider [autoscale-provisioned throughput][Create Azure Cosmos containers and databases with autoscale throughput] for Azure Cosmos DB if your workloads are unpredictable and spiky. You can configure Azure Cosmos DB to use manually provisioned throughput or autoscale-provisioned throughput. With autoscale, Azure automatically and instantly scales the request units per second according to your usage.
 
-### Security considerations
+### Security
 
 - Use [Azure Private Link][What is Azure Private Link?] to make Azure services part of your virtual network. When you use Private Link, traffic between the services and your network flows over the Azure backbone without traversing the public internet. The Azure services in this solution support Private Link for selected SKUs.
 
-- Check your organization's security policies. With Azure Cosmos DB Cassandra API, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
+- Check your organization's security policies. With Azure Cosmos DB for Apache Cassandra, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
 
-### Resiliency considerations
+### Resiliency
 
 Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
 
-## Deploy this scenario
-
-Keep these points in mind when you deploy this solution:
-
-- When you deploy Event Hubs for Kafka, refer to [Quickstart: Data streaming with Event Hubs using the Kafka protocol][Quickstart: Data streaming with Event Hubs using the Kafka protocol]. This article provides the following information:
-
-  - How to send and receive messages with Kafka in Event Hubs
-  - Sample code for a publishing application
-  - How to switch existing Kafka applications to Event Hubs for Kafka by making configuration changes
-
-- Concerning Apache Spark:
-
-  - For information on building a basic Spark application, see [Connect your Apache Spark application with Azure Event Hubs][Connect your Apache Spark application with Azure Event Hubs].
-  - To host the Spark application on AKS, see [Running Apache Spark jobs on AKS][Running Apache Spark jobs on AKS].
-
-- Consider using a Java application to write events to Cassandra. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)][Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)].
-
-- When you use the [Azure Cosmos DB change feed][Change feed in Azure Cosmos DB], refer to [Change feed in the Azure Cosmos DB API for Cassandra][Change feed in the Azure Cosmos DB API for Cassandra] for this information:
-
-  - How to use query predicates in [Cassandra Query Language (CQL)][The Cassandra Query Language (CQL)] to query the change feed API
-  - Sample code for a Java application
-
-- For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from a Cassandra API account in Azure Cosmos DB][Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
-
-- For information on writing data to Azure Database for PostgreSQL with a batch-oriented application, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL][Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]. This article also contains sample Java code for storing data.
-
-- For information on data storage and retrieval with Azure Cache for Redis, see [Quickstart: Use Azure Cache for Redis in Java][Quickstart: Use Azure Cache for Redis in Java]. This article also contains sample Java code for accessing a cache.
-
-## Pricing
+### Cost optimization
 
 To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
 
@@ -151,10 +123,46 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
   - Persistence
   - Active geo-replication
 
+## Deploy this scenario
+
+Keep these points in mind when you deploy this solution:
+
+- When you deploy Event Hubs for Kafka, refer to [Quickstart: Data streaming with Event Hubs using the Kafka protocol][Quickstart: Data streaming with Event Hubs using the Kafka protocol]. This article provides the following information:
+
+  - How to send and receive messages with Kafka in Event Hubs
+  - Sample code for a publishing application
+  - How to switch existing Kafka applications to Event Hubs for Kafka by making configuration changes
+
+- Concerning Apache Spark:
+
+  - For information on building a basic Spark application, see [Connect your Apache Spark application with Azure Event Hubs][Connect your Apache Spark application with Azure Event Hubs].
+  - To host the Spark application on AKS, see [Running Apache Spark jobs on AKS][Running Apache Spark jobs on AKS].
+
+- Consider using a Java application to write events to Cassandra. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)][Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)].
+
+- When you use the [Azure Cosmos DB change feed][Change feed in Azure Cosmos DB], refer to [Change feed in Azure Cosmos DB for Apache Cassandra][Change feed in Azure Cosmos DB for Apache Cassandra] for this information:
+
+  - How to use query predicates in [Cassandra Query Language (CQL)][The Cassandra Query Language (CQL)] to query the change feed API
+  - Sample code for a Java application
+
+- For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from Azure Cosmos DB for Apache Cassandra][Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
+
+- For information on writing data to Azure Database for PostgreSQL with a batch-oriented application, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL][Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]. This article also contains sample Java code for storing data.
+
+- For information on data storage and retrieval with Azure Cache for Redis, see [Quickstart: Use Azure Cache for Redis in Java][Quickstart: Use Azure Cache for Redis in Java]. This article also contains sample Java code for accessing a cache.
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram) | Cloud Solution Architect
+
 ## Next steps
 
 - [Apache Kafka developer guide for Azure Event Hubs][Apache Kafka developer guide for Azure Event Hubs]
-- [Frequently asked questions about the Cassandra API in Azure Cosmos DB][Frequently asked questions about the Cassandra API in Azure Cosmos DB]
+- [Frequently asked questions about Azure Cosmos DB for Apache Cassandra][Frequently asked questions about Azure Cosmos DB for Apache Cassandra]
 - [Best practices for building an application with Azure Database for PostgreSQL][Best practices for building an application with Azure Database for PostgreSQL]
 - [Azure Cache for Redis FAQ][Azure Cache for Redis FAQ]
 
@@ -162,17 +170,9 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 To learn about related solutions, see the following information:
 
-### Analytics overview
-
-[Analytics architecture design][Analytics architecture design]
-
-### Architecture guides
-
+- [Analytics architecture design][Analytics architecture design]
 - [Choose an analytical data store in Azure][Choose an analytical data store in Azure]
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
-
-### Reference architectures
-
 - [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
 - [Build web and mobile applications][Build web and mobile applications]
@@ -204,43 +204,42 @@ To learn about related solutions, see the following information:
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml
 [The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
-[Change feed in the Azure Cosmos DB API for Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
+[Change feed in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
 [Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.md
 [Choose a data analytics technology in Azure]: ../../data-guide/technology-choices/analysis-visualizations-reporting.md
 [Connect your Apache Spark application with Azure Event Hubs]: /azure/event-hubs/event-hubs-kafka-spark-tutorial
 [Create Azure Cosmos containers and databases with autoscale throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [Data streaming with AKS]: ../../solution-ideas/articles/data-streaming-scenario.yml
 [Event Hubs pricing]: https://azure.microsoft.com/pricing/details/event-hubs
-[Frequently asked questions about the Cassandra API in Azure Cosmos DB]: /azure/cosmos-db/cassandra/cassandra-faq
+[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq
 [The Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
-[Introduction to the Azure Cosmos DB Cassandra API]: /azure/cosmos-db/cassandra/cassandra-introduction
+[Introduction to Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-introduction
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
 [Kubernetes]: https://kubernetes.io
-[Microsoft Docs]: https://docs.microsoft.com
 [MongoDB]: https://www.mongodb.com
-[Open source on Azure]: https://azure.microsoft.com/en-au/overview/open-source
+[Open source on Azure]: https://azure.microsoft.com/overview/open-source/
 [Overview of Event Hubs Dedicated]: /azure/event-hubs/event-hubs-dedicated-overview
 [Overview of Event Hubs Premium (Preview)]: /azure/event-hubs/event-hubs-premium-overview
 [Parquet]: https://parquet.apache.org
-[Partitioning in Azure Cosmos DB Cassandra API]: /azure/cosmos-db/cassandra/cassandra-partitioning
+[Partitioning in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-partitioning
 [Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]: https://azure.microsoft.com/blog/performance-best-practices-for-using-azure-database-for-postgresql-connection-pooling
 [PgBouncer]: https://www.pgbouncer.org
 [Pgpool Wiki]: https://www.pgpool.net/mediawiki/index.php/Main_Page
 [PostgreSQL]: https://www.postgresql.org
-[Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
+[Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
 [Quickstart: Data streaming with Event Hubs using the Kafka protocol]: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
 [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/connect-java
 [Redis]: https://redis.io
 [Running Apache Spark jobs on AKS]: /azure/aks/spark-job
 [Secure Azure Cosmos keys using Azure Key Vault]: /azure/cosmos-db/access-secrets-from-keyvault
-[Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]: /azure/cosmos-db/cassandra/query-data
+[Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/query-data
 [Use Azure Event Hubs from Apache Kafka applications]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1874059-open-source-data-engine-stream-processing-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Database for MySQL?]: /azure/mysql/overview
 [What is Azure Database for PostgreSQL?]: /azure/postgresql/overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
-[What is PaaS?]: https://azure.microsoft.com/en-au/overview/what-is-paas
+[What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Apache NiFi on Azure
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.
   author: MuazmaZ
   ms.author: muzahid
-  ms.date: 10/29/2021
+  ms.date: 08/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

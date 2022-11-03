@@ -1,17 +1,27 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure with Azure Stack enables organizations to make technology placement decisions based on business needs-simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+Azure with Azure Stack enables organizations to make technology placement decisions based on business needs. It can help with simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+
+## Potential use cases
+
+Industries that can benefit from this service include:
+
+- Financial services/finance
+- Government
+- Manufacturing
+- Retail
+- Healthcare
 
 ## Architecture
 
 ![Architecture diagram](../media/data-sovereignty-and-gravity.png)
 *Download an [SVG](../media/data-sovereignty-and-gravity.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. User enters data into Azure-based web app.
-1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.
-1. Data is stored in SQL database on virtual machine (VM).
+1. A user enters data into an Azure-based web app.
+1. The application commits the data to a database, over a virtual-network-to-virtual-network VPN connection to Azure Stack.
+1. The data is stored in a SQL database on a virtual machine (VM).
 
 ### Components
 

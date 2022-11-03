@@ -3,6 +3,7 @@ title: R developer&apos;s guide - R programming
 description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
+categories: azure
 ms.author: jepeach
 ms.date: 04/02/2020
 ms.topic: conceptual
@@ -11,6 +12,9 @@ ms.subservice: cloud-fundamentals
 ms.workload:
   - data-services
 ms.devlang: R
+azureCategories:
+  - ai-machine-learning
+  - analytics
 products:
   - azure-machine-learning
   - azure-data-science-vm
@@ -67,13 +71,12 @@ To learn more about the DSVM, see [Introduction to Azure Data Science Virtual Ma
 
 ## ML Services on HDInsight
 
-[Microsoft ML Services](/azure/hdinsight/r-server/r-server-overview) provide data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage.
+[Microsoft ML Services](https://azure.microsoft.com/services/hdinsight/r-server/#overview) provide data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage.
 
 This is an enterprise-grade solution that allows you to scale your R code across a cluster.  By using functions in Microsoft's [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  This allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
 
 This ability to scale makes ML Services on HDInsight a great option for R developers with massive data sets.  It provides a flexible and scalable platform for running your R scripts in the cloud.
-
-For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](/azure/hdinsight/r-server/r-server-get-started).
+For a walkthrough on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#getting-started).
 
 ## Azure Databricks
 

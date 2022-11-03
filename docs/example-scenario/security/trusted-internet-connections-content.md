@@ -213,6 +213,14 @@ The cost of each solution scales down as resources increase. The pricing in [Azu
 > [!NOTE]
 > Consult [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) for up-to-date pricing based on the resources deployed for the selected solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Paul Lizer](https://www.linkedin.com/in/paullizer) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [TIC 3.0 core guidance documents | CISA](https://www.cisa.gov/publication/tic-30-core-guidance-documents)

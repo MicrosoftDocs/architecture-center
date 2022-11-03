@@ -4,10 +4,11 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 ## Architecture
 
-![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
-*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png) of this architecture.*
+![Diagram showing continuous integration and continuous deployment pipeline to manage your Power Platform Application.](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
 
-### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/devops-cicd-for-power-apps.vsdx) of this architecture.*
+
+### Dataflow
 
 1. The solution is updated, which triggers the build pipeline.
 1. Continuous integration exports the solution from the development environment and commits files to Azure Repos.
@@ -26,9 +27,36 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos): Azure Repos provides cloud-hosted private Git repos.
 * [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor, which you can use to monitor your live applications.
 
-## Pricing
+## Scenario details
+
+This architecture enables you to use Azure DevOps, Azure Repos, and Azure Application Insights (via Azure Monitor) to build a CI/CD (continuous integration/continuous deployment) pipeline for Microsoft Power Platform (namely Power Apps).
+
+### Potential use cases
+
+* Applications that interact with other Microsoft 365 services.
+* Employee onboarding application.
+* Image processing tools.
+* New user setup scenarios.
+* Service request applications.
+* Applications with complex entity relationships.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 * [Customize and get pricing estimates](https://azure.com/e/b96a4a9dbf804edabc83d00b41ffb245)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
 
 ## Next steps
 

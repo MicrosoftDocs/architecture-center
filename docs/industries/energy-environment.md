@@ -3,8 +3,8 @@ title: Solutions for the energy and environment industries
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build efficient, scalable, and reliable solutions in the energy and environment industries.
 author: EdPrice-MSFT
-ms.author: edprice 
-ms.date: 12/08/2021
+ms.author: architectures 
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
