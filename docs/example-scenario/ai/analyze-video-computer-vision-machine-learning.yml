@@ -17,7 +17,7 @@ products:
   - azure-cognitive-services
   - azure-logic-apps
   - azure-synapse-analytics
-  - azure-blob-storage
+  - azure-data-lake-storage
 name: Analyze video content with Computer Vision and Azure Machine Learning
 summary: Use Computer Vision and Azure Machine Learning to analyze your video content. 
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-video-thumb.png

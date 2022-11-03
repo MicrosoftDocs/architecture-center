@@ -27,7 +27,7 @@ This article describes an architecture that you can use to replace the manual an
 - [Computer Vision](https://azure.microsoft.com/products/cognitive-services/computer-vision) is part of [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services). It's used to retrieve information about each image.
 - [Custom Vision](https://azure.microsoft.com/products/cognitive-services/custom-vision-service) enables you to customize and embed state-of-the-art computer vision image analysis for your specific domains.
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) automates workflows by connecting apps and data across environments. It provides a way to access and process data in real time. 
-- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. Azure Synapse contains the same data integration engine as Azure Data Factory, so you can create at-scale ETL pipelines without leaving Azure Synapse.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 - [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) (formerly SQL DW) is a collection of analytics resources that are provisioned when you use Azure Synapse SQL.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to provide visualizations of your data.
 
