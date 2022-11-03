@@ -3,7 +3,7 @@
 ## Data service topology
 
 At a high-level the data service topology for Contoso’s data platform can be illustrated as:
-![Contoso data service topology](../media/dr-for-azure-data-contoso-service-topology.png)
+![Contoso data service topology](../images/dr-for-azure-data-contoso-service-topology.png)
 This logical diagram abstracts the key functions of the Contoso data ecosystem into a simplified, high-level view. This supports the sections covering the scenario deployments, in line with the DR strategy selection and the segregation of responsibilities in a recovery process.
 
 ## DR Impact vs Customer Activity 
@@ -160,7 +160,7 @@ The following sections present a breakdown of Contoso activity required across D
     - Notes
         - Automatic restore points are [deleted after 7 days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
         - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently (July 2022), there is a ceiling of 42 user-defined restore points that are automatically deleted after 7 days
-        - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance.  This will only incur storage costs – and have zero compute costs. This offers a way to keep a” live” DB copy at specific intervals
+        - Synapse can also perform a DB restore in the local or remote region, and then imimagestely PAUSE the instance.  This will only incur storage costs – and have zero compute costs. This offers a way to keep a” live” DB copy at specific intervals
 - **Azure Event Hubs**
     - Contoso SKU selection: Standard
     - DR Impact
@@ -226,7 +226,7 @@ The following sections present a breakdown of Contoso activity required across D
     - Notes
         - Automatic restore points are [deleted after 7 days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
         - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently (July 2022), there is a ceiling of 42 user-defined restore points that are automatically deleted after 7 days
-        - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance.  This will only incur storage costs – and have zero compute costs. This offers a way to keep a” live” DB copy at specific intervals
+        - Synapse can also perform a DB restore in the local or remote region, and then imimagestely PAUSE the instance.  This will only incur storage costs – and have zero compute costs. This offers a way to keep a” live” DB copy at specific intervals
 - **Power BI**
     - Contoso SKU selection: Power BI Pro
     - DR Impact

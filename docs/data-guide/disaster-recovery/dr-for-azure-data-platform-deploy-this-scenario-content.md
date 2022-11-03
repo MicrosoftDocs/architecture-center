@@ -54,21 +54,21 @@ Once this process has been completed, technical and business SME validation can 
 For a “Redeploy on Disaster” strategy, the following high-level process flow can be described.
 
 1. **Recover Contoso – Enterprise Shared Services and source systems**  
-![Recover Contoso art](../media/dr-for-azure-data-platform-recover-contoso.png)
+![Recover Contoso art](../images/dr-for-azure-data-platform-recover-contoso.png)
 
 - This step is a prerequisite to the recovery of the data platform 
 - This would be completed by the various Contoso Operational Support groups responsible for the Enterprise shared services, operational source systems, etc
 
 2. **Recover Azure services**
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
-![Recover Azure services art](../media/dr-for-azure-data-platform-recover-azure.png)
+![Recover Azure services art](../images/dr-for-azure-data-platform-recover-azure.png)
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
 
 - This step is a prerequisite to the recovery of data platform
 - This would be completed by Microsoft and other PaaS/SaaS partners
 
 3. **Recover the Data Platform Foundation**  
-![Recover Platform Foundations art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
+![Recover Platform Foundations art](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
 - This is the entry point for the Platform recovery activities
 - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
@@ -83,13 +83,13 @@ Azure Services refers to the applications and services that make the Azure Cloud
     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this i.e. inbound/outbound flows
 
 4. **Recover the Individual Solutions Hosted by the Platform**  
-![Individual Solution Recovery art](../media/dr-for-azure-data-platform-recover-platform-foundations.png)
+![Individual Solution Recovery art](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 - Each individual solution should have its own DR runbook. This should at least contain the nominated business stakeholders who will test/signoff that DR has been completed
 - Depending on resource contention or priority, key solutions/workloads may be prioritized over others i.e. core enterprise processes over ad hoc labs
 - Once the validation steps have been completed, there is a handover to the downstream solutions to start their DR recovery process
 
 5. **Handover to Downstream, Dependent Systems**
-![Dependant Services art](../media/dr-for-azure-data-platform-recover-dependent-services.png)
+![Dependant Services art](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
 - Once the Dependent services have been recovered, this brings the E2E DR recovery process to an end
 

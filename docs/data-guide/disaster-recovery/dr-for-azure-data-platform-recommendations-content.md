@@ -77,7 +77,7 @@ While the end-to-end simulation of a DR event will be difficult across a modern 
 
 - **Relying on Microsoft to do it all**
 Within the Microsoft Azure services, there is a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
-![Shared Responsibility diagram](../media/shared-responsibility-model.png)
+![Shared Responsibility diagram](../images/shared-responsibility-model.png)
 Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy
@@ -85,7 +85,7 @@ Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, t
 ### Disaster event scope
 
 Different events will have a different scope of impact and, therefore, a different response. The following diagram illustrates this for a disaster event:
-![Event scope and recovery process diagram](../media/dr-for-azure-data-platform-event-scope.png)
+![Event scope and recovery process diagram](../images/dr-for-azure-data-platform-event-scope.png)
 
 ### Disaster strategy options
 
@@ -104,7 +104,7 @@ While the operating cost attributed to the higher levels of service resiliency o
 
 The DR scenario for this worked example is a complete Azure regional outage that directly impacts the primary region which hosts the Contoso Data Platform. 
 For this outage scenario, the relative impact on the four high-level DR Strategies are:
-![DR Strategy Impacts art](../media/dr-for-azure-data-platform-strategy.png)
+![DR Strategy Impacts art](../images/dr-for-azure-data-platform-strategy.png)
 
 *Classification Key*
 

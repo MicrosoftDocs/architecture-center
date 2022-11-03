@@ -9,18 +9,8 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - databases
-    - analytics
-  ms.custom:
-    - acom-architecture
-    - bcdr
-    - e2e-hybrid
-    - "https://azure.microsoft.com/solutions/architecture/dr-for-azure-data-platform-overview"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/AzureAnalyticsEndToEnd.png
-name: Overview
+name: DR for Azure Data Platform - Recommendations
 azureCategories:
-  - databases
   - analytics
 summary: Overview of solution idea recommendations.
 products:
