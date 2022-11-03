@@ -66,7 +66,7 @@ Microsoft Defender for Cloud can monitor for any suspicious outbound connectivit
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Senior Cloud Solution Architect
  
