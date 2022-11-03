@@ -2497,6 +2497,8 @@ items:
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Logical data warehouse with Azure Synapse
+                href: solution-ideas/articles/logical-data-warehouse.yml
               - name: Manage data across the Azure SQL estate
                 href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
               - name: Mining equipment monitoring
@@ -3121,6 +3123,8 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml
               - name: Loan credit risk with SQL Server
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
+              - name: Logical data warehouse with Azure Synapse
+                href: solution-ideas/articles/logical-data-warehouse.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
               - name: Mining equipment monitoring
