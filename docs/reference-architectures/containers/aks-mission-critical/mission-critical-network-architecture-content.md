@@ -221,7 +221,7 @@ You can further restrict access to the jump box subnet by using an NSG that only
 
 To build deployment pipelines, you need to provision additional compute to run build agents. These resources won't directly impact the runtime availability of the workload but a reliability failure can jeopardize the ability to deploy or service your mission critical environment. So, reliability features should be extended to these resources.
 
-This architecture uses virtual machine scale sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
+This architecture uses Virtual Machine Scale Sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
 
 ## Cost considerations
 
