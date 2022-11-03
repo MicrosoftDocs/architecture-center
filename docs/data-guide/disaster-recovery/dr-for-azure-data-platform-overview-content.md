@@ -33,4 +33,4 @@ The key assumptions for this DR worked example are
 - Each solution hosted by the Azure data platform has completed a Business Impact Assessment or similar, providing clear service requirements for RPO, RTO and MTO
 
 ## Next steps
-A suggested next step is to learn about the [architecture](article2) designed for the use case.
+Now that you have learned about the scenario at a high level, you can move on to learn about the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) designed for the use case.

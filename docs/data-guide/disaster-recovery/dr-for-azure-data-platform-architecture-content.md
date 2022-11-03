@@ -347,4 +347,4 @@ This section contains HA/DR guidance for other key Azure Data components and ser
     - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql)
 
 ## Next Steps
-Now that you have learned about the scenario's architecture, you can learn about the [scenario details](../articles/dr-for-azure-data-platform-scenario-details)
+Now that you have learned about the scenario's architecture, you can learn about the [scenario details](../disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)

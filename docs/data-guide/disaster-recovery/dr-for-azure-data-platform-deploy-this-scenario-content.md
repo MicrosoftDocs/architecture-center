@@ -241,4 +241,4 @@ There is strong guidance for:
 - [Five Best Practices to Anticipate Failure](https://techcommunity.microsoft.com/t5/azure-architecture-blog/five-best-practices-to-anticipate-failure/ba-p/3314035)
 
 ## Next steps
-Now that you have learned how to deploy the scenario, you can read a [summary](../articles/dr-for-azure-data-platform-summary.yml) of the DR for Azure data platform series.
+Now that you have learned how to deploy the scenario, you can read a [summary](../disaster-recovery/dr-for-azure-data-platform-summary.yml) of the DR for Azure data platform series.

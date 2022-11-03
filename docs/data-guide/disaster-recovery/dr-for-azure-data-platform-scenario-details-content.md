@@ -282,4 +282,4 @@ The following sections present a breakdown of Contoso activity required across D
 > If new/updated configuration or releases occurred at the point of the disaster event, that should be checked and redeployed (if required) as part of the work to bring the platform up to the current date
 
 ## Next steps
-Now that you have learned about the scenario details, you can learn about [recommendations related to this scenario](../dr-for-azure-data-platform-recommendations)
+Now that you have learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations)
