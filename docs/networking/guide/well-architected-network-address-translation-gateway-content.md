@@ -62,6 +62,16 @@ A common approach is to design an outbound-only network virtual appliance (NVA) 
 
 Microsoft Defender for Cloud can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Microsoft Defender for Cloud](/azure/security-center).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Microsoft Well-Architected Framework](/azure/architecture/framework)
