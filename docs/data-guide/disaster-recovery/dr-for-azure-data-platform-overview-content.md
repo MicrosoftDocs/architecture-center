@@ -1,5 +1,3 @@
-# Disaster recovery for the Azure Analytics platform
-
 ## Overview
 Azure provides many options to provide resiliency and address disaster recovery (DR), but higher levels of service will often attract complexity and/or a cost premium. This is the key design trade-off of DR for customers, cost versus resiliency versus complexity.  
 

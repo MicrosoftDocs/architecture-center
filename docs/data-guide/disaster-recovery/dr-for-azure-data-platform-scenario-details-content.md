@@ -1,5 +1,3 @@
-# Disaster recovery for the Azure Analytics platform: Scenario Details
-
 ## Data service topology
 
 At a high-level the data service topology for Contoso’s data platform can be illustrated as:

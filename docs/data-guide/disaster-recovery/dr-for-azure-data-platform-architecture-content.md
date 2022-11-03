@@ -1,5 +1,3 @@
-# Disaster recovery for the Azure Analytics platform: Architecture
-
 ## Use case definition
 To support this worked example, the fictitious firm “Contoso” will be used with an Azure Data Platform based upon Microsoft Reference Architectures.
 

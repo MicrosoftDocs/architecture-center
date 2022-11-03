@@ -1,5 +1,3 @@
-# Disaster recovery for the Azure Analytics platform: Recommendations
-
 ## Lessons learned
 
 1. Ensure all the parties involved understand the difference between High Availability and Disaster Recovery: a common pitfall is to confuse the two concepts and mismatch the solutions associated with them 

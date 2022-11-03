@@ -1,5 +1,3 @@
-# Disaster recovery for the Azure Analytics platform: Deploy this scenario
-
 ## Customer Activities Required
 
 ### Pre-incident
