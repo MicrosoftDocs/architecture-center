@@ -324,6 +324,16 @@ The SAP community provides many free templates to help you get started. Although
 
 - [SAP NetWeaver 3-tier (managed disk)](https://azure.microsoft.com/resources/templates/sap-3-tier-marketplace-image-md/)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 The following resources can help you get started:
