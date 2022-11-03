@@ -4,7 +4,7 @@ Azure offers many options for teams to build and deploy Java applications. This 
 
 ## Platform
 
-Before you select a cloud scenario for your Java application, identify its platform type. Most Java applications use one of the following platform types:
+Before you select a cloud scenario for your Java application, identify its platform. Most Java applications use one of the following platforms:
 
 - [Spring Boot JAR applications](#spring-boot-jar-applications)
 - [Spring Cloud applications](#spring-cloud-applications)
@@ -15,7 +15,7 @@ Before you select a cloud scenario for your Java application, identify its platf
 
 Spring Boot JAR applications are typically invoked directly from the command line. They handle web requests. Instead of relying on an application server to handle HTTP requests, these applications incorporate HTTP communication and other dependencies directly into the application package. Such applications are often built with frameworks such as [Spring Boot](https://spring.io/projects/spring-boot), [Dropwizard](https://www.dropwizard.io), [Micronaut](https://micronaut.io), [MicroProfile](https://microprofile.io), and [Vert.x](https://vertx.io).
 
-These applications are packaged into archives with the *.jar* extension, known as JAR files.
+These applications are packaged into archives that have the *.jar* extension, known as JAR files.
 
 ### Spring Cloud applications
 
@@ -29,15 +29,15 @@ These services are packaged into multiple applications as JAR files.
 
 Web applications run inside a servlet container. Some use servlet APIs directly, while others use other frameworks that encapsulate servlet APIs, such as [Apache Struts](https://struts.apache.org), [Spring MVC](https://spring.io), and [JavaServer Faces](https://www.oracle.com/java/technologies/javaserverfaces.html).
 
-Web applications are packaged into archives with the *.war* extension, known as WAR files.
+Web applications are packaged into archives that have the *.war* extension, known as WAR files.
 
 ### Jakarta EE applications
 
-Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or none of the elements of web applications. They can also contain and consume many more components as defined by the Jakarta EE specification. Jakarta EE applications were formerly known as *Java EE applications* or *J2EE applications*.
+Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or none of the elements of web applications. They can also contain and consume many more components, as defined by the Jakarta EE specification. Jakarta EE applications were formerly known as *Java EE applications* or *J2EE applications*.
 
-Jakarta EE applications can be packaged as archives with the *.ear* extension, known as EAR files, or as WAR files.
+Jakarta EE applications can be packaged as WAR files or as archives that have the *.ear* extension, known as EAR files.
 
-Jakarta EE applications must be deployed onto Jakarta EE-compliant application servers, such as [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/home).
+Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/home).
 
 Applications that rely only on features provided by the Jakarta EE specification can be migrated from one compliant application server onto another. If your application is dependent on a specific application server, you might need to select an Azure service destination that permits you to host that application server.
 
@@ -53,11 +53,11 @@ Use the following table to identify potential platforms for your application typ
 | **Jakarta EE applications**         |          |          |          | &#x2714; |          | &#x2714; | &#x2714; |
 | **Azure region availability**       | [Details][1] | [Details][2] | [Details][2] | [Details][2] | [Details][3] | [Details][4] | [Details][5] |
 
-Azure Kubernetes Service (AKS) and Virtual Machines support all application types, but they require that your team to take on more responsibilities, as shown in the next section.
+Azure Kubernetes Service (AKS) and Virtual Machines support all application types, but they require that your team to take on more responsibilities, as described in the next section.
 
 ## Supportability
 
-Besides the platform choices, modern Java applications might have other supportability needs such as:
+Besides the platform choices, modern Java applications might have other supportability needs, such as:
 
 - [Batch or scheduled jobs](#batch-or-scheduled-jobs)
 - [Virtual network integration](#virtual-network-integration)
@@ -66,7 +66,7 @@ Besides the platform choices, modern Java applications might have other supporta
 
 ### Batch or scheduled jobs
 
-Instead of waiting for requests or user input, some applications run briefly, execute a particular workload, and then exit. Sometimes, such jobs need to run once or at regular, scheduled intervals. On premises, such jobs are often invoked from a server's cron table.
+Instead of waiting for requests or user input, some applications run briefly, run a particular workload, and then exit. Sometimes, such jobs need to run once or at regular, scheduled intervals. On-premises, such jobs are often invoked from a server's cron table.
 
 These applications are packaged as JAR files.
 
@@ -83,19 +83,19 @@ Serverless is a cloud-native development model that allows developers to build a
 
 ### Containerization
 
-Containerization is the packaging together of software code with all its necessary components like libraries, frameworks, and other dependencies. The application is isolated in its own container.
+Containerization is the packaging together of software code with all its necessary components, like libraries, frameworks, and other dependencies. The application is isolated in its own container.
 
 ### CI/CD
 
-Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The main concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][6] or other solutions such as [Jenkins][7].
+Continuous integration and continuous delivery (CI/CD) is a method to frequently deliver applications to customers by introducing automation into the stages of application development. The main concepts in CI/CD are *continuous integration*, *continuous delivery*, and *continuous deployment*. All of the Azure choices support most CI/CD tooling. For example, you might use solutions such as [Azure Pipelines][6] or [Jenkins][7].
 
 ### Open-source search engine
 
 Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure Cognitive Search](/azure/search).
 
-### Big data tool
+### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure maybe be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure might be suitable for your needs.
 
 ### Supportability options
 
@@ -125,15 +125,15 @@ Java Platform, Standard Edition (Java SE) is a computing platform for the develo
 
 ### Jakarta EE
 
-Jakarta EE is the open source future of cloud native enterprise Java. It's a set of specifications that extend Java SE with enterprise features such as distributed computing and web services. Jakarta EE applications run reference runtimes. These runtimes can be microservices or application servers. They handle transactions, security, scalability, concurrency, and management of the components the application deploys.
+Jakarta EE is the open source future of cloud-native enterprise Java. It's a set of specifications that extend Java SE with enterprise features such as distributed computing and web services. Jakarta EE applications run reference runtimes. These runtimes can be microservices or application servers. They handle transactions, security, scalability, concurrency, and management of the components the application deploys.
 
 ### MicroProfile
 
 The MicroProfile project provides a collection of specifications designed to help developers build Enterprise Java cloud-native microservices. [Quarkus](https://quarkus.io) and [Open Liberty](https://openliberty.io) are popular implementations of MicroProfile.
 
-### Build or migrate options
+### Build or migrate summary
 
-The following table provides build or migration guidance by application type and Azure service.
+The following table provides build or migration information by application type and Azure service.
 
 |                              | Type             | Java SE  | MicroProfile | JarkartaSE |
 |------------------------------|------------------|----------|--------------|------------|
@@ -153,9 +153,11 @@ The following table provides build or migration guidance by application type and
 
 Principal authors:
 
+- [Asir Vedamuthu Selvasingh](https://www.linkedin.com/in/asir-architect-javaonazure) | Principal Program Manager
 - [Hang Wang](https://www.linkedin.com/in/hang-wang-software) | Product Manager
 - [Xinyi Zhang](https://www.linkedin.com/in/xinyi-zhang-3030008) | Principal PM Manager
-- [Asir Vedamuthu Selvasingh](https://www.linkedin.com/in/asir-architect-javaonazure) | Principal Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
