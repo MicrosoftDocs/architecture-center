@@ -1,29 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Logical Data Warehouse
-  titleSuffix: Azure Reference Architecture for Logical Data Warehouse
-  description: Learn about the Logical Data Warehouse pattern and how to use Synapse SQL On-Demand to build it on Azure.
+  title: Logical data warehouse with Azure Synapse serverless SQL pools
+  titleSuffix: Azure Architecture Center
+  description: See how the logical data warehouse pattern lets you use Azure Synapse serverless SQL pools to query data lake and transactional data without data movement.
   author: jondobrzeniecki
   ms.author: jodobrze
-  ms.date: 04/18/2022
+  ms.date: 11/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: solution-idea
 azureCategories:
-  - "analytics"
-  - "databases"
-  - "integration"
-  - "storage"
+  - analytics
+  - databases
+  - integration
+  - storage
 products:
-  - "azure-data-lake"
-  - "azure-data-lake-gen2"
-  - "azure-cosmos-db"
-  - "azure-databricks"
-  - "azure-synapse-analytics"
-  - "power-bi"
-  - "azure-data-factory"
-name: Logical Data Warehouse with Synapse Serverless SQL Pools
-summary: Learn about the Logical Data Warehouse pattern and how to use Synapse SQL On-Demand to build it on Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/logical-data-warehouse.png
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-data-lake
+  - azure-synapse-analytics
+  - power-bi
+name: Logical data warehouse with Azure Synapse serverless SQL pools
+summary: See how the logical data warehouse pattern lets you use Azure Synapse serverless SQL pools to query data lake and transactional data without data movement.
+thumbnailUrl: /azure/architecture/browse/thumbs/logical-data-warehouse-architecture-dataflow.png
 content: |
   [!include[](logical-data-warehouse-content.md)]
