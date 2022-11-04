@@ -210,7 +210,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Standard
-    - DR Uplift options: While Azure Stream Analytics is a fully managed PaaS offering, it does not provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure region
+    - DR Uplift options: While Azure Stream Analytics is a fully managed PaaS offering, it does not provide automatic geo-failover. [Geo-redundancy](/azure/stream-analytics/geo-redundancy) can be achieved by deploying identical Stream Analytics jobs in multiple Azure regions
 
 - **Azure Machine Learning**
     - Component Recovery Responsibility: Contoso and Microsoft
