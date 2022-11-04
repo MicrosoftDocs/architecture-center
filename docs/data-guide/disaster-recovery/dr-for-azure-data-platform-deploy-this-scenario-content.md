@@ -195,7 +195,7 @@ It is important that a DR plan is tested regularly for the organization to build
 
 The key area to focus on during a DR test is to ensure the prescriptive steps are still correct and the estimated timings are still relevant.
 
-- If the instructions reflect the portal screens rather than code – the instructions should be validated at least every 12 months due to the cadence of change in cloud
+- If the instructions reflect the portal screens rather than code – the instructions should be validated at least every 12 months due to the cadence of change in cloud.
 
 While the aspiration is to have a fully automated DR process, this may be unlikely due to the rarity of the event. Therefore, it is recommended to establish the recovery baseline with DSC IaC used to deliver the platform and then uplift as new projects build upon this.
 
