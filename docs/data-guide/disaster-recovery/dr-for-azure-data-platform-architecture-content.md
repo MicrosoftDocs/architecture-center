@@ -39,7 +39,7 @@ The workflow is read left to right, following the flow of data:
 - **Platform** - The foundation upon which the platform is built, i.e. Contoso’s Azure Foundations as described above.
 
 >[!NOTE]
->For many customers, the conceptual level of the Data Platform Reference architecture used will align, but the physical implementation may vary, i.e. ELT (extract, load, transform) capabilities may be provided by Azure Data Factory, data modelling by Azure SQL server, etc. To address this concern, the Stateless vs Stateful section below will provide guidance.
+>For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary, i.e. ELT (extract, load, transform) capabilities may be provided by Azure Data Factory, data modeling by Azure SQL server, etc. To address this concern, the Stateless vs Stateful section below will provide guidance.
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a “Redeploy on Disaster” DR strategy based upon an operating cost-minimization approach.  
 
