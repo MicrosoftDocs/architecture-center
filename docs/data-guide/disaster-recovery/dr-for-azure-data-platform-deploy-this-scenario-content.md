@@ -191,7 +191,7 @@ From this baseline, the DR plan runbook can be selectively executed, paying spec
 
 It is important that a DR plan is tested regularly for the organization to build the “muscle memory” for recovery and validate the plan.
 
-- Data and configuration backups should also be regularly tested to ensure they are “fit for purpose” to support any recovery activities 
+- Data and configuration backups should also be regularly tested to ensure they are “fit for purpose” to support any recovery activities.
 
 The key area to focus on during a DR test is to ensure the prescriptive steps are still correct and the estimated timings are still relevant.
 
