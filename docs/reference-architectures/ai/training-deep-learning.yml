@@ -25,6 +25,6 @@ products:
   - azure-blob-storage
   - azure-container-registry
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/distributed-dl-architecture-thumbnail.png
 content: |
   [!include[](training-deep-learning-content.md)]
