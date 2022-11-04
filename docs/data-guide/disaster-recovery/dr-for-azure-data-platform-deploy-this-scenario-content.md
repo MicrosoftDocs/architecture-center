@@ -123,7 +123,7 @@ Hot Spare customers would monitor the Microsoft recovery of components/services 
 > - Once Fallback to the primary has been completed, the system load balancers can be updated to bring the primary region back into system topology. If available, a canary release approach can be used to incrementally switch the primary region on for the system.
 
 ## DR plan structure
-An effective DR plan presents a step-by-step guide for service recovery that can be executed by an Azure technical resource. As such, the following lists a proposed MVP structure for DR Plan.
+An effective DR plan presents a step-by-step guide for service recovery that can be executed by an Azure technical resource. As such, the following lists a proposed MVP structure for a DR Plan.
 
 - Process Requirements
     - Any customer DR process-specific detail, such as the correct authorization required to start DR, and make key decisions about the recovery as necessary (including “definition of done”), service support DR ticketing reference, war room details, etc.
