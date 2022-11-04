@@ -302,7 +302,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Pay As You Go 
     - DR Uplift options: N/A, the APIs for Cognitive Services are hosted by [Microsoft-managed data centers](/azure/cognitive-services/what-are-cognitive-services#regional-availability)
     - Notes
-        -  If Cognitive Services has been deployed via customer deployed [docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer
+        -  If Cognitive Services has been deployed via customer deployed [Docker containers](/azure/cognitive-services/cognitive-services-container-support), recovery remains the responsibility of the customer
 
 - **Azure Cognitive Search**
     - Component Recovery Responsibility: Microsoft
