@@ -199,7 +199,7 @@ The key area to focus on during a DR test is to ensure the prescriptive steps ar
 
 While the aspiration is to have a fully automated DR process, this may be unlikely due to the rarity of the event. Therefore, it is recommended to establish the recovery baseline with DSC IaC used to deliver the platform and then uplift as new projects build upon this.
 
-- Over time as components and services are extended, an NFR should be enforced, requiring the production deployment pipeline to be refactored to provide coverage for DR
+- Over time as components and services are extended, an NFR should be enforced, requiring the production deployment pipeline to be refactored to provide coverage for DR.
 
 If your runbook timings exceed your RTO, there are several options:
 
