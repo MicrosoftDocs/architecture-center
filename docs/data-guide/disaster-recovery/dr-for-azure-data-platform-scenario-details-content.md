@@ -137,7 +137,7 @@ The following sections present a breakdown of Contoso activity required across D
     - Notes 
         - DevOps Services is [built upon the Azure backbone](/azure/devops/organizations/security/data-protection?view=azure-devops#built-on-azure) and uses [Azure blob storage with geo-replication](/azure/devops/organizations/security/data-protection?view=azure-devops#data-redundancy) to ensure resiliency
 
-### Area - Data Platform components
+### Area: Data Platform components
 
 - **Storage Account – Azure Data Lake Gen2**
     - Contoso SKU selection: LRS

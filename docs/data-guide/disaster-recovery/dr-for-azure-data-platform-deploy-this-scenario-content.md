@@ -1,4 +1,4 @@
-## Customer Activities Required
+## Customer activities required
 
 ### Pre-incident
 
@@ -41,13 +41,13 @@ For Power BI
 
 - Microsoft will publish a PIR to the [M365 Admin - Service Health](https://portal.office.com/AdminPortal/Home) for review
 
-## Wait for Microsoft Process
+## Wait for Microsoft process
 
 The “Wait for Microsoft” process is simply waiting for Microsoft to recover all components and services in the impacted, primary region. Once recovered, validate the binding of the data platform to enterprise share services etc., the date of the system and then execute the processes of bringing the system up to the current date.  
 
 Once this process has been completed, technical and business SME validation can be completed enabling the stakeholder sign-off for the service recovery.
 
-## Redeploy on Disaster
+## Redeploy on disaster
 
 For a “Redeploy on Disaster” strategy, the following high-level process flow can be described.
 
@@ -65,7 +65,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 - This step is a prerequisite to the recovery of data platform
 - This would be completed by Microsoft and other PaaS/SaaS partners
 
-3. **Recover the Data Platform Foundation**  
+3. **Recover the data platform foundation**  
 ![Recover Platform Foundations art](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
 - This is the entry point for the Platform recovery activities
@@ -80,13 +80,13 @@ Azure Services refers to the applications and services that make the Azure Cloud
     - This handover should include confirmation of the current timestamp of the data/processes
     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this i.e. inbound/outbound flows
 
-4. **Recover the Individual Solutions Hosted by the Platform**  
+4. **Recover the individual solutions hosted by the platform**  
 ![Individual Solution Recovery art](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 - Each individual solution should have its own DR runbook. This should at least contain the nominated business stakeholders who will test/signoff that DR has been completed
 - Depending on resource contention or priority, key solutions/workloads may be prioritized over others i.e. core enterprise processes over ad hoc labs
 - Once the validation steps have been completed, there is a handover to the downstream solutions to start their DR recovery process
 
-5. **Handover to Downstream, Dependent Systems**
+5. **Handover to downstream, dependent systems**
 ![Dependant Services art](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
 - Once the Dependent services have been recovered, this brings the E2E DR recovery process to an end
@@ -94,7 +94,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 >[!NOTE]
 >While it is theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
 
-6. **Fallback to the Primary Region**
+6. **Fallback to the primary region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it is available for BAU.  
 
 Depending on the nature of the source systems and various data processes, fallback of the data platform could be done independently of other parts of the data eco-system.  
@@ -122,7 +122,7 @@ Hot Spare customers would monitor the Microsoft recovery of components/services 
 >
 > - Once Fallback to the primary has been completed, the system load balancers can be updated to bring the primary region back into system topology. If available, a canary release approach can be used to incrementally switch the primary region on for the system.
 
-## DR Plan structure
+## DR plan structure
 An effective DR plan presents a step-by-step guide for service recovery that can be executed by an Azure technical resource. As such, the following lists a proposed MVP structure for DR Plan.
 
 - Process Requirements
@@ -184,7 +184,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
     - Uplift key components to higher levels of service tiers such as PaaS, where Microsoft takes greater responsibility for service recovery activities
     - Extend the RTO with stakeholders
 
-## DR Testing
+## DR testing
  The nature of the Azure Cloud service offering results in constraints for any DR testing scenarios. Therefore, the guidance is to stand up a DR subscription with the data platform components as they would be available in the secondary region.  
 
 From this baseline, the DR plan runbook can be selectively executed, paying specific attention to the services and components which can be deployed and validated. This process will require a curated test dataset, enabling the confirmation of the technical and business validation checks as per the plan. 

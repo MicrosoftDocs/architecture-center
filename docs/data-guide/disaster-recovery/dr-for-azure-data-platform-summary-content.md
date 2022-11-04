@@ -2,7 +2,7 @@ This series of articles provides an illustrative example of how an organization 
 
 - This series of articles are intended to complement the guidance provided by Microsoft’s [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), Azure’s [Well-Architected Framework](/azure/architecture/framework/) and [Business Continuity Management](/azure/availability-zones/business-continuity-management-program)
 
-## Key Terms Glossary
+## Key terms glossary
 
 **Term**|**Definition**|**Notes**
 :-----:|:-----:|:-----:

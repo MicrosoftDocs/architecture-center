@@ -56,7 +56,7 @@
 
 ## Considerations
 
-### Anti-paterns
+### Anti-patterns
 
 - **Copy/Paste this article series**
 This article series is intended to provide guidance to customers looking for the next level of detail for an Azure-specific DR process. As such, it’s based upon the generic Microsoft IP and reference architectures rather than any single customer-specific Azure implementation.  
@@ -94,7 +94,8 @@ There are four high-level options for a [disaster recovery strategy](/azure/arch
 - **Warm Spare (Active/Passive)** - A secondary hosted solution is created in an alternate region, and components are deployed to guarantee minimal capacity; however, the components don't receive production traffic. The secondary services in the alternative region may be “turned off” or running at a lower performance level until such time as a DR event is occurs
 - **Hot Spare (Active/Active)** - The solution is hosted in an active/active setup across multiple regions. The secondary hosted solution receives, processes, and serves data as part of the larger system
 
-### DR Strategy Impacts
+### DR strategy impacts
+
 While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) (KDD) for a DR strategy. There are other important considerations.
 
 >[!NOTE]
