@@ -147,6 +147,14 @@ With this approach, on-premises and Azure DNS clients can resolve the name and a
 
 For more information, see [Bandwidth pricing][Bandwidth pricing].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - Jose Angel Fernandez Rodrigues | Senior Specialist GBB
+
 ## Next steps
 
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]

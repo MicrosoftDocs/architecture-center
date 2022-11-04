@@ -2,7 +2,9 @@ This architecture shows how to use an Azure Stack Edge or Azure IoT Edge device 
 
 ## Architecture
 
-:::image type="content" source="media/solution-architecture.png" alt-text="Diagram that shows an architecture for detecting out-of-stock items in retail stores." lightbox="media/solution-architecture.png ":::
+:::image type="content" border="false" source="media/solution-architecture.png" alt-text="Diagram that shows an architecture for detecting out-of-stock items in retail stores." lightbox="media/solution-architecture.png ":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/stock-detection-edge.vsdx) of this architecture.*
 
 ### Workflow
 

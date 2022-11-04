@@ -36,6 +36,16 @@ The example scenario uses several Azure components:
 - [Azure Storage](https://azure.microsoft.com/services/storage): Azure Storage offers a durable, highly available, massively scalable cloud storage solution and includes object, file, disk, queue, and table storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions): An event-driven serverless compute platform that can also solve complex orchestration problems.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes)

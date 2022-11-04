@@ -244,6 +244,16 @@ The following figure illustrates how these options are reflected in the Profisee
 
 Running costs consist of a software license and Azure consumption. For more information, [contact Profisee](https://profisee.com/contact/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Gaurav Malhotra](https://www.linkedin.com/in/gamalhotra/) | Principal Group PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory.
