@@ -113,7 +113,7 @@ Customers are advised to review their own data platform’s dependencies (both u
 For a “Warm Spare” strategy, the high-level process flow is closely aligned to that of the “Redeploy on Disaster”, the key difference being that components have already been procured in the secondary region. This eliminates the risk of resource contention from other organizations looking to complete their own DR in that region.
 
 ## Hot spare process
-The “Hot Spare” strategy means the Platform service and the solutions its hosts will continue, despite the disaster event.  
+The "Hot Spare" strategy means that the Platform services including PaaS and IaaS systems will persist despite the disaster event as the secondary systems run in tandem with the primary systems.  
 
 Hot Spare customers would monitor the Microsoft recovery of components/services in the primary region. Once completed, customers would validate these and complete the fallback to the primary region. This would be similar to the DR Failover process i.e. check the available codebase and data, redeploying as required.
 
