@@ -9,7 +9,7 @@ For Azure services
 
 For Power BI
 
-- Be familiar with [Service Health](https://portal.office.com/AdminPortal/Home) in the Microsoft 365 admin center. This will act as the ‘one stop shop’ during an incident
+- Be familiar with [Service Health](https://portal.office.com/AdminPortal/Home) in the Microsoft 365 admin center. This will act as the “one-stop shop” during an incident
 - Consider the use of [M365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app?view=o365-worldwide) to get automatic service incident alert notifications
 
 ### During the incident
