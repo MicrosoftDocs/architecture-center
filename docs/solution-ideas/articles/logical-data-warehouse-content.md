@@ -2,7 +2,9 @@
 
 The logical data warehouse (LDW) pattern lays a lightweight virtualized relational layer on top of data that's stored in a data lake or database. This virtualization layer provides data warehouse access without requiring data movement.
 
-Data warehousing with data virtualization can combine online transaction processing (OLTP) data with analytical data from data lakes. This solution avoids moving data through complex, expensive, and latency-prone extract, transform, and load (ETL) pipelines for a less complex, faster way to serve business intelligence (BI) and analytical workloads.
+Data warehousing with data virtualization can combine online transaction processing (OLTP) data with analytical data from data lakes. This solution provides a low-complexity, low-latency way to serve business intelligence (BI) and analytics workloads.
+
+*Apache Spark™ is a trademark of the Apache Software Foundation in the United States and/or other countries/regions. No endorsement by The Apache Software Foundation is implied by the use of this mark.*
 
 ## Architecture
 
@@ -34,7 +36,7 @@ By using an LDW with Azure Synapse serverless SQL pools, you can join cold batch
 
 ## Scenario details
 
-The LDW concept is similar to a [data lakehouse](/azure/databricks/lakehouse), but LDW with Azure Synapse Analytics includes support for [hybrid transaction/analytical processing (HTAP)](https://wikipedia.org/wiki/Hybrid_transactional/analytical_processing). HTAP uses Azure Synapse serverless SQL pools to query OLTP data that's stored in Azure Cosmos DB.
+This solution avoids moving data through complex, expensive, and latency-prone extract, transform, and load (ETL) pipelines. The LDW concept is similar to a [data lakehouse](/azure/databricks/lakehouse), but LDW with Azure Synapse Analytics includes support for [hybrid transaction/analytical processing (HTAP)](https://wikipedia.org/wiki/Hybrid_transactional/analytical_processing). HTAP uses Azure Synapse serverless SQL pools to query OLTP data that's stored in Azure Cosmos DB.
 
 An Azure Synapse Analytics LDW is based on serverless SQL pools that are available with all Azure Synapse workspaces. An enhanced version of the [OPENROWSET](/azure/synapse-analytics/sql/develop-openrowset) function enables serverless SQL pools to access data in Data Lake Storage.
 
@@ -58,7 +60,7 @@ Azure Synapse serverless SQL pools support the following file formats:
 - JSON
 - Parquet
 
-Azure Synapse serverless SQL pools also support the [Delta Lake](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake) format. This support allows patterns like *enrich in Spark, serve with SQL*, where Apache Spark services like [Azure Databricks](https://azure.microsoft.com/products/databricks) or [Apache Spark pools in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) engineer data to create curated datasets in the data lake. Instead of having to load these datasets into a physical data warehouse, you can define an LDW over the data lake to provide the model/serve layer for reporting.
+Azure Synapse serverless SQL pools also support the [Delta Lake](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake) format. This support allows patterns like *enrich in Spark, serve with SQL*, where Apache Spark™ services like [Azure Databricks](https://azure.microsoft.com/products/databricks) or [Apache Spark pools in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) engineer data to create curated datasets in the data lake. Instead of having to load these datasets into a physical data warehouse, you can define an LDW over the data lake to provide the model/serve layer for reporting.
 
 :::image type="content" source="../media/logical-data-warehouse-architecture.png" alt-text="Diagram that shows the flow of external data to the reporting layer with Azure Synapse serverless SQL pool." lightbox="../media/logical-data-warehouse-architecture.png":::
 
