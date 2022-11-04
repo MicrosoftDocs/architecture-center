@@ -327,7 +327,7 @@ For a DR scenario that calls for redeployment:
     - When procuring the component, a key decision will be the selection of the data redundancy feature. This is typically a trade-off between availability and durability with operating costs
     - Datastore components will also need a data backup strategy. In some cases, this will be covered by the data redundancy features i.e. Storage Accounts, while others will need a separate backup process i.e. SQL Databases
     - If required, the component can be redeployed from source control with a smoke-test to validate that it is available with the correct configuration
-    - Either using the data redundancy feature or a backup dataset, the component can be rehydrated. Once completed, the dataset should be checked to ensure it’s complete, accurate and validate the current date/timestamp
+    - A redeployed component containing a dataset must have its dataset rehydrated. This can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for completeness.
         - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in earlier backup being used in place of the latest available
     - Any delta between component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
     - Once the component dataset is up to date, the component can be introduced into the broader system
