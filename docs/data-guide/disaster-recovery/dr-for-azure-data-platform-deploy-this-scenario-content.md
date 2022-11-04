@@ -89,7 +89,7 @@ Azure Services refers to the applications and services that make the Azure Cloud
 5. **Handover to downstream, dependent systems**
 ![Dependant Services art](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
-- Once the Dependent services have been recovered, this brings the E2E DR recovery process to an end
+- Once the dependent services have been recovered, this brings the E2E DR recovery process to an end
 
 >[!NOTE]
 >While it is theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
