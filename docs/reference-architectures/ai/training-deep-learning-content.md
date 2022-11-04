@@ -4,9 +4,9 @@ A reference implementation for this architecture is available on [GitHub][github
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows distributed deep learning" source="./_images/distributed_dl_architecture.png" lightbox="./_images/distributed_dl_architecture.png":::
+:::image type="content" alt-text="Architecture diagram that shows distributed deep learning" source="./_images/distributed-dl-architecture.png" lightbox="./_images/distributed-dl-architecture.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/distributed_dl_architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/distributed-dl-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
