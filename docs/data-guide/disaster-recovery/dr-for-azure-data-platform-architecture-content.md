@@ -59,7 +59,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Premium P1
     - DR Uplift options: ADD’s resiliency is part of its SaaS offering
     - Notes
-        - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/
+        - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
     - Component Recovery Responsibility: Microsoft
