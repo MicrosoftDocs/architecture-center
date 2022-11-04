@@ -211,7 +211,7 @@ Microsoft has recently released [Azure Chaos Studio](/azure/chaos-studio/) (late
 
 Chaos Studio supports two types of faults - *service-direct* faults, which run directly against an Azure resource without any installation or instrumentation (for example, rebooting an Azure Cache for Redis cluster or adding network latency to AKS pods), and *agent-based* faults, which run in virtual machines or virtual machine scale sets to perform in-guest failures (for example, applying virtual memory pressure or killing a process).
 
-The current iteration of Chaos studio is focused on the scope of VM’s with limited faults testing for [Cosmos DB](/azure/chaos-studio/chaos-studio-fault-library#cosmos-db-failover) and [Azure Cache](/azure/chaos-studio/chaos-studio-fault-library#azure-cache-for-redis-reboot). Until additional fault libraries are added, Chaos studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
+The current iteration of Chaos Studio is focused on the scope of VM’s with limited faults testing for [Cosmos DB](/azure/chaos-studio/chaos-studio-fault-library#cosmos-db-failover) and [Azure Cache](/azure/chaos-studio/chaos-studio-fault-library#azure-cache-for-redis-reboot). Until additional fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
 
 More information on Chaos studio can be found [here](/azure/chaos-studio/)
 
