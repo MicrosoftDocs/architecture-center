@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Active Directory B2C (AAD B2C) considerations for multitenancy 
+  title: Azure Active Directory B2C considerations for multitenancy 
   description: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
   author: landonpierce 
   ms.author: landonpierce 

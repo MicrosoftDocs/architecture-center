@@ -1,29 +1,38 @@
 
-[Azure Active Directory B2C]() is a managed Identity Provider capable of performing... (need more info here for a synopsis)
+Azure Active Directory B2C provides business-to-consumer identity as a service. An identity solution for a multitenant application is typically one of the biggest considerations when designing your application. Your identity solution will serve as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them. In this article, we describe different considerations and approaches for using Azure Active Directory B2C in a multitenant solution.
 
-An identity solution for a multitenant application is typically one of the biggest considerations when designing your application. Your identity solution will serve as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them.
-
-If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document: 
+If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document:
 
   - [Identity Approaches](../approaches/identity#authorization)
   - [Identity Considerations](../considerations/identity)
-  - [Tenancy Models]()
+  - [Tenancy Models](../considerations/tenancy-models)
+
+> [!NOTE]
+> In this article, we will be discussing two very closely named topics: application tenants and Azure Active Directory B2C tenants.
+>
+> We use the term *application tenant* to refer to **your** tenants, which might be your customers or groups of users.
+>
+> Azure Active Directory B2C (B2C) also includes the concept of a tenant to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple B2C tenants. Although the terms are the same, the concepts are not. When we refer to an Azure Active Directory B2C tenant in this article, we disambiguate it by using the full term *B2C tenant*.
 
 ## Isolation Models
 
-- When working with Azure Active Directory B2C, you need to decide how you are going to isolate your user pools from different tenants.
+- When working with Azure Active Directory B2C, you need to decide how you are going to isolate your user pools from different application tenants.
 - You need to consider things like:
-  - Is the user going to need to access more than one tenant?
-  - Do you need complex permissioning and Role Based Access Control (RBAC?)
-  - Do you need to federate logins to your customer's Identity Provider(s)? (SAML, AAD, Social Logins, etc)
+  - Is the user going to need to access more than one application tenant?
+  - Do you need complex permissions and/or Role Based Access Control (RBAC?)
+  - Do you need to federate logins to your customer's Identity Provider(s)? (SAML, Azure Active Directory, Social Logins, etc)
   - Do you have data residency requirements?
   - What are your user personas? (ie who is logging into your software?)
 
-*Insert Table/Chart outlining the different Isolation Models*
 
-- Shared B2C Tenant
-- B2C Tenant per Customer
-- Vertically partitioned B2C tenants
+| Consideration | Shared B2C tenant | B2C tenant per application tenant | Vertically partitioned B2C tenant |
+|-|-|-|-|
+| **Data isolation** | Low | High | Medium |
+| **Deployment complexity** | Low | High | Medium to High, depending on your partition strategy |
+| [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per B2C tenant and per IP | Number of B2C tenants per subscription, Maximum number of directories for a single user | N/A  |
+| **Operational complexity** | Low | High | Medium to high, depending on your partition strategy |
+| **Example scenario** | You do not have any strict data residency requirements | You need to support a high degree of separation between your application tenants| You need to meet data residency requirements or you'd like to enable custom federated identity providers for some or all of your application tenants |
+
 
 ### Shared B2C tenant
 
@@ -35,7 +44,7 @@ Using a single, shared B2C tenant is generally the easiest isolation model to ma
 - You do not need complex authorization, or are okay with building a custom roles/permissions system **(add link)**
 - Your end users need access to more than one application tenant under the same account
 
-Discuss here the pros/cons of a shared B2C tenant. Easier to manage, but have a theoretical limit of the number of identity providers you can enable (because of limit of custom policies). 
+Discuss here the pros/cons of a shared B2C tenant. Easier to manage, but have a theoretical limit of the number of identity providers you can enable (because of limit of custom policies). Also need to discuss limits here. https://learn.microsoft.com/en-us/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits 
 
 ### B2C tenant per customer
 
@@ -46,7 +55,7 @@ Provisioning a B2C tenant per customer allows for more customization per tenant 
 - Your application is or can be "tenant aware" and knows which B2C tenant your users will need to sign into
 - Your end users do not need access to more than one application tenant under the same account
 
-Discuss here the pros/cons of a B2C tenant per customer. More easily customizable per customer, but much more overhead to think about. Also have a theoretical limit of 200 (need to confirm number) B2C tenants per subscription. Not a great solution if customers must exist in multiple tenants. Another con is that your application must know which tenant to sign the user into. 
+Discuss here the pros/cons of a B2C tenant per customer. More easily customizable per customer, but much more overhead to think about. Also have a theoretical limit of 200 (need to confirm number) B2C tenants per subscription. Not a great solution if customers must exist in multiple tenants. Another con is that your application must know which tenant to sign the user into. Also discuss here other limits such as aPI request limits as well as a single user can only belong to 500 tenants.  
 
 ### Vertically partitioned B2C tenants
 
