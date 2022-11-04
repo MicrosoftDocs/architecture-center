@@ -183,7 +183,7 @@ The following sections present a breakdown of Contoso activity required across D
         - Availability Zone Failure: N/A
         - Azure Regional Failure: Contoso would need to redeploy the IoT Hub into the secondary region
     - Notes
-        - A key feature of Stream Analytics is its ability to recover from[Node failure](azure/analytics-dr/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
+        - A key feature of Stream Analytics is its ability to recover from[Node failure](/azure/analytics-dr/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
 - **Azure Cognitive Services**
     - Contoso SKU selection: Pay As You Go
     - DR Impact
@@ -198,7 +198,7 @@ The following sections present a breakdown of Contoso activity required across D
         - Azure Regional Failure: Contoso would need to redeploy Machine Learning into the secondary region
     - Notes
         - While the Machine Learning infrastructure is managed by Microsoft; the [associated resources are managed by the customer](/azure/machine-learning/how-to-high-availability-machine-learning#understand-azure-services-for-azure-machine-learning). Only Key Vault is highly available by default
-        - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment)
+        - Depending on the service criticality supported, Microsoft recommends a [multi-regional deployment](/azure/machine-learning/how-to-high-availability-machine-learning#plan-for-multi-regional-deployment)
 - **Azure Synapse – Data Explorer Pools**
     - Contoso SKU selection: Compute Optimised Gen2
     - DR Impact
@@ -239,7 +239,7 @@ The following sections present a breakdown of Contoso activity required across D
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
-        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned RUs](azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read & write activities
+        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned RUs](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read & write activities
     - Notes
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability at all times it's recommended to set up your Azure Cosmos DB account with a single write region and at least a second (read) region and enable Service-Managed failover
 - **Azure Cognitive Search**
@@ -280,4 +280,4 @@ The following sections present a breakdown of Contoso activity required across D
 > If new/updated configuration or releases occurred at the point of the disaster event, that should be checked and redeployed (if required) as part of the work to bring the platform up to the current date
 
 ## Next steps
-Now that you have learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations)
+Now that you have learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations.yml)
