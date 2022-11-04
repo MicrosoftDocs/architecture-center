@@ -1,8 +1,6 @@
-Deploy SAS Grid 9.4 on Azure NetApp Files
-
 SAS is a vendor of software solutions for analytics, artificial intelligence, business intelligence, customer intelligence, data management, and fraud and security intelligence.
 
-When considering deploying [SAS Grid in the Azure Cloud], [Azure NetApp Files] has proven to be a [viable primary storage option for SAS Grid]. SAS cluster sizes are predicated upon the architectural constraint of a single SASDATA namespace per SAS cluster and the available single [Azure NetApp Files volume bandwidth]. By using the scalable services of Azure NetApp Files, the storage allocations can be scaled up or down at any time without interruption to the services, and the storage service level can be adjusted to the performance requirements dynamically as well.
+If you're deploying [SAS Grid on Azure](/azure/architecture/guide/sas/sas-overview), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is a [viable primary storage option](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs). SAS cluster sizes are based on the architectural constraint of a single SASDATA namespace per SAS cluster and the available single [Azure NetApp Files volume bandwidth](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). By using the scalable services of Azure NetApp Files, the storage allocations can be scaled up or down at any time without interruption to the services, and the storage service level can be adjusted to the performance requirements dynamically as well.
 
 ## Architecture
 
