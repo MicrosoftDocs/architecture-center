@@ -12,6 +12,8 @@ By using an LDW with Azure Synapse serverless SQL pools, you can join cold batch
 
 :::image type="content" source="../media/logical-data-warehouse-architecture-dataflow.png" alt-text="Diagram showing a flow of data from left to right as the steps describe." lightbox="../media/logical-data-warehouse-architecture-dataflow.png":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ldw-images.pptx) of all the diagrams in this article.*
+
 ### Dataflow
 
 1. Azure Data Factory integrates data from source systems into the enterprise data lake.
@@ -81,6 +83,8 @@ This pattern is useful for the following cases:
 
 Principal author:
 - [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Sr. Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
