@@ -3039,6 +3039,8 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
+              - name: Automate video analysis
+                href: example-scenario/ai/analyze-video-computer-vision-machine-learning.yml
               - name: Baseball decision analysis with ML.NET
                 href: data-guide/big-data/baseball-ml-workload.yml
               - name: Batch scoring for deep learning
@@ -4293,6 +4295,8 @@ items:
                 items:
                   - name: Microservices assessment and readiness
                     href: guide/technology-choices/microservices-assessment.md
+                  - name: Compare Java application hosting options
+                    href: guide/technology-choices/service-for-java-comparison.yml
                   - name: Domain modeling for microservices
                     items:
                       - name: Domain analysis
