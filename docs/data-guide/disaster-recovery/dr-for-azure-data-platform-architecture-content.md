@@ -32,7 +32,7 @@ The workflow is read left to right, following the flow of data:
 - **Ingest** - The Platform’s capability to ingest data from various sources of varying structure and speed. This design reflects a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
 - **Store** - The capability to securely store data at scale that has been ingested onto the platform
 - **Process** - The Platform’s capability to process data, making it “fit for purpose” for downstream processes, i.e. cleansing, standardizing, modeling etc.   The pre-processing of data typically ensures that it's in a “position and a condition, ready for use”
-- **Enrich** - The capability to enhance data processed on the platform via statistical,  Machine Learning or other modelling techniques or prebuilt Azure AI Services
+- **Enrich** - The capability to enhance data processed on the platform via statistical, Machine Learning or other modeling techniques or prebuilt Azure AI Services
 -  **Serve** - The Platform’s capability to shape and present data for downstream consumption
 - **Data Consumers** - The individuals, applications or downstream processes which consume data from the platforms’ various serving touchpoints
 - **Discover and Govern** - The Platform’s capabilities to govern the data it contains and ensure it is indexed, discoverable/searchable, well-described, with full lineage and is transparent to its end users and consuming processes.
