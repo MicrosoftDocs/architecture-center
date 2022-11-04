@@ -141,7 +141,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Standard
-    - DR Uplift options: Azure Firewall is [highly available by design](/azure/firewall/features#built-in-high-availability) and can be created with [Availability Zones](azure/firewall/deploy-availability-zone-powershell) for increased availability
+    - DR Uplift options: Azure Firewall is [highly available by design](/azure/firewall/features#built-in-high-availability) and can be created with [Availability Zones](/azure/firewall/deploy-availability-zone-powershell) for increased availability
 
 - **Azure DDoS**
     - Component Recovery Responsibility: Microsoft
@@ -165,7 +165,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
-    - DR Uplift options: A VPN Gateway can be deployed into an [Availability Zone](/en-us/azure/availability-zones/az-overview) with the VpnGw#AZ SKU’s to provide a [zone redundant service](azure/expressroute/expressroute-faqs#what-is-expressroute-premium)
+    - DR Uplift options: A VPN Gateway can be deployed into an [Availability Zone](/en-us/azure/availability-zones/az-overview) with the VpnGw#AZ SKU’s to provide a [zone redundant service](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium)
 
 - **Azure Load Balancer**
     - Component Recovery Responsibility: Contoso
@@ -292,7 +292,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Computed Optimized Gen2 
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - Azure Synapse Analytics [automatically takes snapshots](azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days
+        - Azure Synapse Analytics [automatically takes snapshots](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired data center. The RPO for a geo-restore is 24 hours
         - If Self-Hosted Data Pipelines are used, they will remain the customers responsibility recovery from a disaster
 
@@ -336,7 +336,7 @@ For a DR scenario that calls for redeployment:
 This section contains HA/DR guidance for other key Azure Data components and services.
 
 - Azure Databricks - DR guidance can be found in the [product documentation](/azure/databricks/administration-guide/disaster-recovery)
-- Azure Analysis Services - HA guidance can be found in the [product documentation](azure/analysis-services/analysis-services-bcdr)
+- Azure Analysis Services - HA guidance can be found in the [product documentation](/azure/analysis-services/analysis-services-bcdr)
 - Azure Database for MySQL 
     - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity)
     - Single Server HA guidance can be found in the [product documentation](/azure/mysql/single-server/concepts-business-continuity)

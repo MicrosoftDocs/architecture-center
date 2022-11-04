@@ -26,10 +26,10 @@
     1. b.	An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner will help meet the goal.
 1. Composite SLAs mean that the more components you have in your architecture, the higher the probability of a failure. You could use composite SLA to define an outage
 1. Regarding subscription design, the additional infrastructure for disaster recovery could be stored in the original subscription. In the context of using PaaS services like ADLS Gen2 or Azure Data Factory, there are native features that allow to failover to secondary instances in other regions, the latter still being "stored" in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes
-1. It should be noted that [subscription limits](azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach, along with the design complexity and management control ensuring the DR resource group isn’t used for BAU workflows
+1. It should be noted that [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach, along with the design complexity and management control ensuring the DR resource group isn’t used for BAU workflows
 1. Design the DR workflow based on a solution’s criticality and dependencies. i.e. you shouldn’t try to rebuild an Azure Analysis Services instance before your data warehouse is up and running, as it will trigger an error. Leave development labs later in the process, recover core enterprise solutions first
 1. Try to identify recovery tasks that can be parallelized across solutions, reducing the total RTO
-1. If Azure Data Factory is used within a solution, do not forget to include Self-Hosted integration runtimes in the scope. [Azure Site Recovery](azure/site-recovery/site-recovery-overview) is ideal for those machines
+1. If Azure Data Factory is used within a solution, do not forget to include Self-Hosted integration runtimes in the scope. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is ideal for those machines
 1. 11.	Manual operations should be automated as much as possible to avoid human errors (especially when under pressure). It is strongly recommended to:
     1. Resource provisioning through ARM templates or Powershell scripts
     1. Versioning of source code and resource configuration
@@ -99,7 +99,7 @@ There are four high-level options for a [disaster recovery strategy](/azure/arch
 While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) (KDD) for a DR strategy. There are other important considerations.
 
 >[!NOTE]
->[Cost Optimization](azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with Azure’s [Well-Architected Framework](/azure/architecture/framework/). Its goal is to reduce unnecessary expenses and improve operational efficiencies
+>[Cost Optimization](/azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with Azure’s [Well-Architected Framework](/azure/architecture/framework/). Its goal is to reduce unnecessary expenses and improve operational efficiencies
 
 The DR scenario for this worked example is a complete Azure regional outage that directly impacts the primary region which hosts the Contoso Data Platform. 
 For this outage scenario, the relative impact on the four high-level DR Strategies are:

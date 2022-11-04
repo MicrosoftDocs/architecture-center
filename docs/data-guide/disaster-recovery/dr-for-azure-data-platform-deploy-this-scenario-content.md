@@ -227,7 +227,7 @@ There is strong guidance for:
 
 ## Related resources
 
-- [Architecting for resiliency and availability](azure/architecture/reliability/architect)
+- [Architecting for resiliency and availability](/azure/architecture/reliability/architect)
 - [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)
 - [Backup and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
     - [Recover from the loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region)
