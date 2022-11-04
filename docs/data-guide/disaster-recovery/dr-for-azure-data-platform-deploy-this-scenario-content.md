@@ -180,7 +180,7 @@ An effective DR plan presents a step-by-step guide for service recovery that can
 - The Technical recovery steps should follow the order of the workflows (typically left to right), once the foundation components/services have been recovered, i.e. Key Vault. This will ensure upstream dependencies are available and components can be appropriately tested
 - Once the step-by-step plan has been completed, a total time for activities with contingency should be obtained. If this total is over the agreed RTO, there are several options available:
     - Automate selected recovery processes (where possible)
-    - Look for opportunities to run selected recovery steps in parallel (where possible). However, noting e that this may require additional DR executor resources.
+    - Look for opportunities to run selected recovery steps in parallel (where possible). However, noting that this may require additional DR executor resources.
     - Uplift key components to higher levels of service tiers such as PaaS, where Microsoft takes greater responsibility for service recovery activities
     - Extend the RTO with stakeholders
 
