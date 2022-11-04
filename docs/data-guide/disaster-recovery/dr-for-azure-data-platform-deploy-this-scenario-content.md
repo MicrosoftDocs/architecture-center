@@ -104,7 +104,7 @@ Customers are advised to review their own data platform’s dependencies (both u
 - Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery 
 - Component/Service configuration would be validated. Deltas would be addressed via redeployment from source control
 - The system date in the primary region would be established across stateful components. The delta between this and date/timestamp in the secondary region should be addressed by re-executing or replaying the data ingestion processes from that point forward
-- With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, during a lull in system activity and process
+- With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, during a lull in system activity and processing
 - During the fallback, the primary region would be brought into sync with the secondary region, before the system was switched over
 - After a period of a parallel run, the secondary region would be taken offline from the system
 - The components in the secondary region would either be dropped or stripped back, depending on the DR strategy selected
