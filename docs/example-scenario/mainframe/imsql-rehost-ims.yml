@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use IMSql to rehost IMS DB and IMS TM systems on .NET and SQL Server by using virtual machines.
   author: EdPrice-MSFT
   ms.author: bhbandam
-  ms.date: 08/01/2022
+  ms.date: 11/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

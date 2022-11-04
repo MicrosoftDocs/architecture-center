@@ -354,6 +354,16 @@ The available sensor information includes the direction of drill bit force, weig
 
 For more information and a demo of this solution, see [Motion control: Horizontal oil drilling](https://aidemos.microsoft.com/machineteaching/motion-control).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras/) | Principal Software Engineering Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Machine teaching for autonomous systems](autonomous-systems.yml)
