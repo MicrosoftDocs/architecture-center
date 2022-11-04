@@ -220,6 +220,16 @@ To deploy this scenario:
 4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
 5. Create a new Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Sunil Sabat](https://www.linkedin.com/in/sunilsabat/) | Principal Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory.
