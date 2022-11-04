@@ -252,7 +252,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Notes
         - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - Periodic and Continuous
         - [Regional failovers](/azure/cosmos-db/high-availability#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application
-        - The following guidance described the [impact of a region outage based upon the cosmos configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
+        - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
 
 - **Azure Data Share**
  - Component Recovery Responsibility: Microsoft
