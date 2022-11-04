@@ -107,6 +107,16 @@ foreach ($vNetPeering in $hubPeerings)
 
 ```
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Randy Campbell](https://www.linkedin.com/in/randy-campbell-7831226/) | Principal Consultant
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Learn more about [managing Virtual Network peerings](/azure/virtual-network/virtual-network-manage-peering).
