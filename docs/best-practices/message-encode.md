@@ -56,7 +56,7 @@ The downside is that the payload tends to be larger. A common text-based format 
 
 ### Encryption
 
-If there is sensitive data in the messages, consider whether those messages should be encrypted in their entirety or whether only certain fields need to be encrypted. One library that makes it easier to define these semantics independent of the rest of the message encoding is [NServiceBus](https://docs.particular.net/samples/encryption/basic-encryption/).
+If there is sensitive data in the messages, consider whether those messages should be encrypted in their entirety as described in this guidance on [encrypting Azure Service Bus data at rest](/azure/service-bus-messaging/configure-customer-managed-key). Alternatively, if only certain fields need to be encrypted and you'd prefer to reduce cloud costs, consider using a library like [NServiceBus](https://docs.particular.net/samples/encryption/basic-encryption/) for that.
 
 ### Encoding size
 
