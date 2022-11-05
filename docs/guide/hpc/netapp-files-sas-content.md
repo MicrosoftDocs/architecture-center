@@ -22,7 +22,7 @@ link for all of them
 The compute tier uses SASDATA (and optionally SASWORK) volumes to share data across the grid. SASDATA is an NFS-connected volume on Azure NetApp Files.
 
 - A compute node reads input data from SASDATA and writes results back to SASDATA.
-- A subsequent part of the analytics job can be run by another node in the compute tier.It uses the same procedure to obtain and store the information that it needs to process.
+- A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
 
 ### Potential use cases
 
@@ -135,7 +135,7 @@ Depending on the scale of your SAS Grid deployment, you have few options for sto
 
 Take these considerations into account when choosing an option:
 
--	[Temporary storage](https://azure.microsoft.com/blog/virtual-machines-best-practices-single-vms-temporary-storage-and-uploaded-disks) (or *ephemeral storage*) provides the highest bandwidth, but it comes only in smaller sizes. (Size depends on the VM SKU.) Depending on the available and required capacities, this option might be best.
+-	[Temporary storage](https://azure.microsoft.com/blog/virtual-machines-best-practices-single-vms-temporary-storage-and-uploaded-disks) (or *ephemeral storage*) provides the highest bandwidth, but it's available only in smaller sizes. (Size depends on the VM SKU.) Depending on the available and required capacities, this option might be best.
 -	If the required SASWORK capacity exceeds the temporary storage size of your chosen VM SKU, consider using an Azure managed disk to host SASWORK. Keep in mind, however, that the throughput to a managed disk is limited by the VM architecture by design, and that it varies depending on the VM SKU. So this storage option is viable only for environments that have lower SASWORK performance requirements. 
 -	For the highest SASWORK capacity requirements and an average performance requirement beyond what Azure managed disks can provide, consider Azure NetApp Files for SASWORK. It provides a large size together with fast throughput.
 
@@ -150,77 +150,83 @@ The options in the table correspond to deployments described in the architecture
 
 :::image type="content" source="media/temporary-storage.png" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.png":::
 
+link 
+
 For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast and cost-effective solution. In this architecture, each VM in the compute tier is equipped with some temporary storage. To determine the temporary storage sizes for the VMs you use, see the [Azure VM documentation](/azure/virtual-machines/sizes).
 
 ### Dataflow 
 
-- A compute node reads input data from SASDATA and writes its results back to the same.
-- A subsequent part of the analytics job can be executed by another node in the compute tier and will use the same process to obtain and store the information it needs to process.
-- The temporary work directory SASWORK is not shared and is stored on temporary storage on each compute node. 
+- A compute node reads input data from SASDATA and writes results back to SASDATA.
+- A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+- The temporary work directory SASWORK isn't shared. It's stored in temporary storage on each compute node. 
 
-image 
+## Managed disk architecture
 
-Where capacity requirements for SASWORK exceed the available Temporary storage capacities, Azure Managed Disk is a good alternative. Managed Disks are available in various sizes and performance levels. Details about Managed Disk are provided [here].
+:::image type="content" source="media/managed-disk.png "alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png":::
 
-### Dataflow
+link 
 
-1.	A compute node reads input data from SASDATA and writes its results back to the same.
-2.	A subsequent part of the analytics job can be executed by another node in the compute tier and will use the same process to obtain and store the information it needs to process.
-3.	The temporary work directory SASWORK is not shared and is stored on Azure Managed Disk attached to each compute node. 
-
-image 
-
-For the larger SASWORK capacity and/or ‘medium’ performance requirements consider using Azure NetApp Files. Azure NetApp Files provides volume capacities up to 100TiB in size. Each node in the compute tier will need to have its own SASWORK volume which should not be shared. 
+If your capacity requirements for SASWORK exceed the capacities available in temporary storage, Azure managed disks are a good alternative. Managed disks are available in various sizes and performance levels. For more information, see [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets).
 
 ### Dataflow
 
-1.	A compute node reads input data from SASDATA and writes its results back to the same.
-2.	A subsequent part of the analytics job can be executed by another node in the compute tier and will use the same process to obtain and store the information it needs to process.
-3.	The temporary work directory SASWORK is not shared and is stored on individual Azure NetApp Files volumes attached to each compute node. 
+-	A compute node reads input data from SASDATA and writes results back to SASDATA.
+-	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+-	The temporary work directory SASWORK isn't shared. It's stored on managed disks that are attached to each compute node. 
 
-Scale and configuration recommendations
+## Azure NetApp Files architecture
 
-For the best and most consistent latency experience of the data traffic between the instances in the SAS cluster, make sure all VMs are created in the same [proximity placement group].
+:::image type="content" source="media/azure-netapp-files.png "alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png":::
 
-Review the General Tuning Guidance section in the [Best Practices for Using SAS on Azure].
+link
 
-For optimal network bandwidth [Accelerated Networking] should be enabled.
+For higher SASWORK capacity and/or medium performance requirements, consider using Azure NetApp Files. Azure NetApp Files provides volume capacities as high as 100 TiB. Each node in the compute tier should have its own SASWORK volume. The volumes shouldn't be shared. 
 
-RHEL distributions and NFS settings
+### Dataflow
 
-RHEL distributions
+-	A compute node reads input data from SASDATA and writes results back to SASDATA.
+-	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+-	The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
 
-Red Hat Enterprise Linux, (RHEL) is the distribution of choice for SAS customers when running SAS 9 on Linux.  Each of the kernels supported by Red Hat have their own unique bandwidth constraints in and of themselves when using NFS.
+## Scale and configuration recommendations
 
-For specifics for running SAS on Microsoft Azure the [Best Practices for Using MS Azure with SAS paper] is a must-read. 
+- For the best and most consistent latency for data traffic between the instances in the SAS cluster, make sure all VMs are created in the same [proximity placement group](/azure/virtual-machines/co-location).
+- Review the **General Tuning Guidance** section in the [Best Practices for Using SAS on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680).
+- For optimal network bandwidth, enable [Accelerated Networking](/azure/virtual-network/accelerated-networking-how-it-works).
 
-Azure instances E64-16ds_v4 and E64-32ds_v4 - or v5 equivalents - are recommended for SAS. Based on this, the following Azure NetApp Files relevant performance guidance is provided at a high level:
+## RHEL distributions and NFS settings
 
-SAS on Azure NetApp Files sizing guidance:
+### RHEL distributions
 
-- If using RHEL7, the E64-16ds_v4 - or v5 equivalent - is the best choice based upon the 100MiB/s per physical core target for SASDATA, e.g.:
-   - E64-16ds_v4 – 90 –100MiB/s per core
-   - E64-32ds_v4 – 45-50MiB/s per core
+Red Hat Enterprise Linux (RHEL) is the recommended distribution for running SAS 9 on Linux. Each kernel supported by Red Hat has its own NFS bandwidth constraints.
 
-- If using RHEL8.2, using either the E64-16ds_v4 or E64-32ds_v4 - or v5 equivalents - are viable though the former is preferrable given the 100MiB/s per core target for SASDATA, e.g.:
-   - E64-16ds_v4 – 150-160 MiB/s per core
-   - E64-32ds_v4 – 75-80 MiB/s per core
+For specifics about running SAS on Azure, see [Best Practices for Using SAS on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680). 
 
-- If using RHEL8.3, both the E64-16ds_v4 and the E64-32ds_v4 - or v5 equivalents - are fully acceptable given the per core throughput target, e.g.:
-   - Validation indicates 3200MiB/s of Reads
-   - These results are achieved by applying the NFS nconnect mount option
+Azure Standard_E64-16ds_v4 and Standard_E64-32ds_v4 VMs, or their v5 equivalents, are recommended for SAS. Taking these recommendations into account, this section provides some guidelines for using SAS with Azure NetApp Files.
 
-Testing has shown that a single RHEL 7 instance is expected to achieve no more than roughly 750-800MiB/s of read throughput against a single Azure NetApp Files storage endpoint (i.e., against a network socket) while 1500MiB/s of writes are achievable against the same, using a 64KiB rsize and wsize NFS mount options. There is evidence that the aforementioned read throughput ceiling is an artifact of the 3.10 kernel. Refer to [RHEL CVE-2019-11477] for detail.
+- If you use RHEL 7, Standard_E64-16ds_v4 or Standard_E64-16ds_v5 is the best choice, based on the 100-MiB/s per physical core target for SASDATA.
+   - Standard_E64-16ds_v4: 90–100 MiB/s per core
+   - Standard_E64-32ds_v4: 45-50 MiB/s per core
 
-Testing has shown that a single RHEL 8.2 instance with its 4.18 kernel is free of the limitations found in the 3.10 kernel above, as such 1200-1300MiB/s of read traffic, using a 64KiB rsize and wsize NFS mount option, is achievable. Expect the same 1500MiB/s of achievable throughput as seen in RHEL7 for large sequential writes.
+- If you use RHEL 8.2, either Standard_E64-16ds_v4 or Standard_E64-32ds_v4, or their v5 equivalents, are possible options. Standard_E64-16ds_v4 is preferable, given the 100-MiB/s per core target for SASDATA.
+   - Standard_E64-16ds_v4: 150-160 MiB/s per core
+   - Standard_E64-32ds_v4: 75-80 MiB/s per core
 
-It is understood that with a single RHEL 8.3 instance with the [nconnect mount option] (new to the RHEL8.3 distribution), somewhere around 3,200MiB/s read throughput is achievable from a single Azure NetApp Files volume.  Expect no more than 1,500MiB/s of writes to an Azure NetApp Files single volume, even when applying nconnect.  
+- If you use RHEL 8.3, both Standard_E64-16ds_v4 and Standard_E64-32ds_v4, or their v5 equivalents, are fully acceptable, given the per-core throughput target:
+   - Validation indicates 3,200 MiB/s of reads.
+   - These results are achieved with the NFS `nconnect` mount option.
 
-Kernel tunables
+Testing shows that a single RHEL 7 instance achieves no more than roughly 750-800 MiB/s of read throughput against a single Azure NetApp Files storage endpoint (that is, against a network socket). 1,500 MiB/s of writes are achievable against the same endpoint, if 64-KiB `rsize` and `wsize` NFS mount options are used. Some evidence suggests that the previously noted read throughput ceiling is an artifact of the 3.10 kernel. For more information, see [RHEL CVE-2019-11477](https://access.redhat.com/security/cve/cve-2019-11477).
 
-Slot table entries
+Testing shows that a single RHEL 8.2 instance, with its 4.18 kernel, is free of the limitations noted in the 3.10 kernel. So 1,200-1,300 MiB/s of read traffic is achievable, if a 64-KiB `rsize` and `wsize` NFS mount option is used. For large sequential writes, you can expect the same 1500 MiB/s of achievable throughput that you'd get on RHEL 7.
 
-NFSv3 does not have a mechanism to [negotiate concurrency] between the client and the 
+With a single RHEL 8.3 instance, with the [nconnect mount option](https://access.redhat.com/solutions/4090971) (which is new in the RHEL 8.3 distribution), about 3,200 MiB/s read throughput is achievable from a single Azure NetApp Files volume. Expect no more than 1,500 MiB/s of writes to an Azure NetApp Files single volume, even when you apply `nconnect`.  
+
+### Kernel tunables
+
+#### Slot table entries
+
+NFSv3 doesn't have a mechanism to [negotiate concurrency](/azure/azure-netapp-files/performance-linux-concurrency-session-slots#nfsv3) between the client and the 
 server. The client and the server each define their limits without consulting the other. For the best performance, you should line up the maximum number of client-side sunrpc slot table entries with that supported without pushback on the server. When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which is not an ideal performance scenario.
 
 By default, modern Linux kernels define the per-connection sunrpc slot table entry size sunrpc.max_tcp_slot_table_entries as supporting 65,536 outstanding operations. These slot table entries define the limits of concurrency. Values this high are unnecessary, as Azure NetApp Files defaults to 128 outstanding operations. 
