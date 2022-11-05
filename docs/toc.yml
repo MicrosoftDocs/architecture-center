@@ -2916,19 +2916,19 @@ items:
                     href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Stream processing
                     href: /azure/architecture/data-guide/technology-choices/stream-processing
-              - name: Disaster Recovery
+              - name: Disaster recovery for Azure data platform
                 items:
-                  - name: DR for Azure data platform - Scenario Overview
+                  - name: Overview
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml
-                  - name: DR for Azure data platform - Architecture
+                  - name: Architecture
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml
-                  - name: DR for Azure data platform - Scenario Details
+                  - name: Scenario details
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml
-                  - name: DR for Azure data platform - Recommendations
+                  - name: Recommendations
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml
-                  - name: DR for Azure data platform - Deploy this Scenario
+                  - name: Deploy this scenario
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml
-                  - name: DR for Azure data platform - Summary
+                  - name: Summary
                     href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
               - name: Industry guidance
                 items:
