@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
 author: EdPrice-MSFT
 categories: azure
-ms.date: 08/30/2018
+ms.date: 11/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -43,6 +43,12 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 - Clients/consumers of a service should support transient fault handling and retry.
 - For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern.
 - Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
+
+## Related resources
+
+- [Autoscaling](/azure/architecture/best-practices/auto-scaling)
+- [Background jobs](/azure/architecture/best-practices/background-jobs)
+- [Pipes and Filters pattern](/azure/architecture/patterns/pipes-and-filters)
 
 <!-- links -->
 
