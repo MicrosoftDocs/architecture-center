@@ -54,6 +54,8 @@ This section describes a recommended Web-Queue-Worker architecture that uses Azu
 
 *Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
 
+### Workflow
+
 - The front end is implemented as an [Azure App Service](/azure/app-service/overview) web app, and the worker is implemented as an [Azure Functions](/azure/azure-functions/functions-overview) app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
 
 - You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. (The diagram shows an Azure Storage queue.)
@@ -77,6 +79,16 @@ For more information, see the [App Service web application reference architectur
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 
 - Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version, if there was a problem with the update.
+
+## Related resources
+
+- [RESTful web API design](/azure/architecture/best-practices/api-design)
+- [Autoscaling](/azure/architecture/best-practices/auto-scaling)
+- [Caching guidance](/azure/architecture/best-practices/caching)
+- [CDN guidance](/azure/architecture/best-practices/cdn)
+- [Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)
+- [Use the best data store for your data](/azure/architecture/guide/design-principles/use-best-data-store)
+- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
 
 <!-- links -->
 
