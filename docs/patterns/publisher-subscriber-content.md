@@ -117,3 +117,4 @@ The following patterns might be relevant when implementing this pattern:
 ## Related resources
 
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
+- A [blog post describing different ways of handling messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery).
