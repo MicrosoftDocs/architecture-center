@@ -34,21 +34,21 @@ This article focuses on three requirements that the network secure ingress patte
 
 The network secure ingress pattern encapsulates the global routing pattern. As such, the implementation is able to route requests to workloads in different regions.
 
-:::image type="content" source="_images/secure-ingress-use-case-one.png" alt-text="Diagram showing an HTTPS request being routed to two workloads in different regions":::
+:::image type="content" source="_images/secure-ingress-use-case-one.png" alt-text="Diagram showing an HTTPS request being routed to two workloads in different regions.":::
 <br/>*Figure 1: Global routing*
 
 ### Low latency failover
 
 The implementation must be able to identify healthy and unhealthy workloads and adjust the routing accordingly in a time sensitive manner. The latency should be able to support adjusting the routing in a manner of minutes.
 
-:::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram showing an HTTPS request not being routed to an unhealthy workload":::
+:::image type="content" source="_images/secure-ingress-use-case-two.png" alt-text="Diagram showing an HTTPS request not being routed to an unhealthy workload.":::
 <br/>*Figure 2: Low latency failover*
 
 ### Mitigating attacks at the edge
 
 Mitigating the attacks at the edge necessitates the "network secure" part of the implementation. The workloads or PaaS services shouldn't be accessible via the internet. Internet traffic should only be able to route through the gateway. The gateway should have the ability to mitigate exploits.
 
-:::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram showing an HTTPS request with a SQL statement in the querystring of a request not being stopped at the edge":::
+:::image type="content" source="_images/secure-ingress-use-case-three.png" alt-text="Diagram showing an HTTPS request with a SQL statement in the querystring of a request not being stopped at the edge.":::
 <br/>*Figure 3: Mitigating attacks at the edge*
 
 ## Patterns
