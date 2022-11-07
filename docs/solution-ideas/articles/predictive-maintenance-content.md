@@ -9,7 +9,7 @@ This predictive maintenance solution monitors aircraft and predicts the remainin
 
 ### Dataflow
 
-  1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator. Alternatively, It could be offline by periodically importing the sensor data into the solution.
+  1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator. Alternatively, it could process offline data by periodically importing sensor log files or data into the solution.
   1. This synthetic data feeds into the [Azure Event Hubs](/azure/event-hubs) service as data points.
   1. Two [Azure Stream Analytics](/azure/stream-analytics) jobs analyze the data to provide near real-time analytics on the input stream from the event hub. One of the Stream Analytics jobs archives all raw incoming events to the Azure Storage service for later processing by the [Azure Data Factory](/azure/data-factory) service, and the other publishes results onto a Power BI dashboard.
   1. The [HDInsight](/azure/hdinsight) service is used to run Hive scripts orchestrated by Azure Data Factory. The scripts provide aggregations on the raw events that were archived by the Stream Analytics job.
