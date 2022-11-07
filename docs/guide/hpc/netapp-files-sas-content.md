@@ -162,7 +162,7 @@ For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast 
 
 ## Managed disk architecture
 
-:::image type="content" source="media/managed-disk.png "alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png":::
+:::image type="content" source="media/managed-disk.png" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png":::
 
 link 
 
@@ -176,7 +176,7 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 ## Azure NetApp Files architecture
 
-:::image type="content" source="media/azure-netapp-files.png "alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png":::
+:::image type="content" source="media/azure-netapp-files.png" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png":::
 
 link
 
@@ -227,36 +227,36 @@ With a single RHEL 8.3 instance, with the [nconnect mount option](https://access
 #### Slot table entries
 
 NFSv3 doesn't have a mechanism to [negotiate concurrency](/azure/azure-netapp-files/performance-linux-concurrency-session-slots#nfsv3) between the client and the 
-server. The client and the server each define their limits without consulting the other. For the best performance, you should line up the maximum number of client-side sunrpc slot table entries with that supported without pushback on the server. When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which is not an ideal performance scenario.
+server. The client and the server each define their limits without awareness of the other. For the best performance, you should line up the maximum number of client-side `sunrpc` slot table entries with that supported without pushback on the server. When a client overwhelms the server network stack's ability to process a workload, the server responds by decreasing the window size for the connection, which isn't ideal for performance.
 
-By default, modern Linux kernels define the per-connection sunrpc slot table entry size sunrpc.max_tcp_slot_table_entries as supporting 65,536 outstanding operations. These slot table entries define the limits of concurrency. Values this high are unnecessary, as Azure NetApp Files defaults to 128 outstanding operations. 
+By default, modern Linux kernels define the per-connection `sunrpc` slot table entry size `sunrpc.max_tcp_slot_table_entries` to support 65,536 outstanding operations. These slot table entries define the limits of concurrency. Values this high are unnecessary because Azure NetApp Files defaults to 128 outstanding operations. 
 
-Therefore, it is recommended to tune the client to the same number:
+We recommend that you to tune the client to the same number:
 
-- Kernel Tunables (via /etc/sysctl.conf)
-   - sunrpc.tcp_max_slot_table_entries=128
+- Kernel tunables (via */etc/sysctl.conf*)
+   - `sunrpc.tcp_max_slot_table_entries=128`
 
-Filesystem cache tunables
+#### File system cache tunables
 
-You also need to [understand the following factors] about filesystem cache tunables:
+You also need to [understand the following factors](/azure/azure-netapp-files/performance-linux-filesystem-cache) about file system cache tunables:
 
 - Flushing a dirty buffer leaves the data in a clean state, usable for future reads until memory pressure leads to eviction.
 - There are three triggers for an asynchronous flush operation:
-   - Time based: When a buffer reaches the age defined by these [vm.dirty_expire_centisecs] | [vm.dirty_writeback_centisecs] tunables, it must be marked for cleaning (that is, flushing, or writing to storage).
-   - Memory pressure: See [vm.dirty_ratio] | [vm.dirty_bytes] for details.
+   - Time based: When a buffer reaches the age defined by the [vm.dirty_expire_centisecs] or [vm.dirty_writeback_centisecs] tunable, it must be marked for cleaning (that is, flushing or writing to storage).
+   - Memory pressure: For details, see [vm.dirty_ratio | vm.dirty_bytes](/azure/azure-netapp-files/performance-linux-filesystem-cache#vmdirty_ratio--vmdirty_bytes).
    - Close: When a file handle is closed, all dirty buffers are asynchronously flushed to storage.
 
-These factors are controlled by four tunables. Each tunable can be tuned dynamically and persistently using tuned or `sysctl` in the `/etc/sysctl.conf` file. Tuning these variables improves performance for SAS Grid:
+These factors are controlled by four tunables. You can tune each tunable dynamically and persistently by using `tuned` or `sysctl` in the */etc/sysctl.conf* file. Tuning these variables improves performance for SAS Grid:
 
-- Kernel Tunables (via custom tuned profile)
-   - include = throughput-performance
-   - vm.dirty_bytes = 31457280
-   - vm.dirty_expire_centisecs = 100
-   - vm.dirty_writeback_centisecs = 300
+- Kernel tunables (via custom tuned profile)
+   - `include = throughput-performance`
+   - `vm.dirty_bytes = 31457280`
+   - `vm.dirty_expire_centisecs = 100`
+   - `vm.dirty_writeback_centisecs = 300`
 
-### NFS Mount Options
+### NFS mount options
 
-The following NFS mount options are recommended for NFS shared file systems being used for permanent **SASDATA** files:
+We recommend the following NFS mount options for NFS shared file systems that are used for permanent **SASDATA** files:
 
 RHEL 7 and 8.2
 
@@ -269,7 +269,7 @@ RHEL 8.3
 bg,rw,hard,rsize=65536,wsize=65536,vers=3,noatime,nodiratime,rdirplus,acdirmin=0,tcp,_netdev,nconnect=8
 ```
 
-Mount options for **SASWORK** volumes where the respective volumes are used for SASWORK exclusively and not shared between nodes:
+We recommend the following mount options for **SASWORK** volumes, where the respective volumes are used exclusively for SASWORK and not shared between nodes:
 
 RHEL 7 and 8.2
 
@@ -282,98 +282,107 @@ RHEL 8.3
 ```
 bg,rw,hard,rsize=65536,wsize=65536,vers=3,noatime,nodiratime,rdirplus,acdirmin=0,tcp,_netdev,nocto,nconnect=8
 ```
-For more information on the benefits and cost of the **nocto** mount option, refer to [Close-to-open consistency and cache attribute timers].
 
-Please review [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure], *including all updates in the comments*.
+For more information on the benefits and cost of the `nocto` mount option, see [Close-to-open consistency and cache attribute timers](/azure/azure-netapp-files/performance-linux-mount-options#close-to-open-consistency-and-cache-attribute-timers).
 
-NFS readahead settings
+You should also review [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/579437), including all updates in the comments.
 
-It is recommended to set the NFS Readahead tunable for all RHEL distributions to 15,360 KiB per [these instructions].
+### NFS read-ahead settings
 
-Alternatives
+We recommend that you set the NFS read-ahead tunable for all RHEL distributions to 15,360 KiB. For more information, see [How to persistently set read-ahead for NFS mounts](/azure/azure-netapp-files/performance-linux-nfs-read-ahead#how-to-persistently-set-read-ahead-for-nfs-mounts).
 
-The storage solution in the architecture above is highly available as specified by the [service level agreement], but for additional protection and availability the storage volumes can be replicated to another Azure region using Azure NetApp Files [cross region replication](). The key advantages to having the storage solution replicate the volumes is that there is no additional load on the application VMs and it eliminates the need to run virtual machines in the destination region during normal operation. The storage contents are replicated without using any compute infrastructure resources and as a bonus the destination region does not need to run the SAS software. The destination VMs do not need to be running to support this scenario.
+### Alternatives
 
-The following architecture shows how the storage contents on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. In case of a failover the secondary region is brought online, and the virtual machines are started so production can resume at the second region. Traffic needs to be re-routed to the second region by reconfiguring load-balancers that are not depicted in this diagram.
+The storage solution in the preceding architectures is highly available, as specified by the [Azure NetApp Files service level agreement](https://azure.microsoft.com/support/legal/sla/netapp/v1_1). For additional protection and availability, you can replicate the storage volumes to another Azure region by using Azure NetApp Files [cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction). 
 
-image 
+There are two key advantages to replicating the volumes via the storage solution: 
+
+- There's no additional load on the application VMs.
+- This solution eliminates the need to run VMs in the destination region during normal operation. 
+
+The storage contents are replicated without the use of any compute infrastructure resources, and the destination region doesn't need to run the SAS software. The destination VMs don't need to be running to support this scenario.
+
+The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. In case of a failover, the secondary region is brought online, and the virtual machines are started so production can resume in the second region. You need to re-route traffic to the second region by reconfiguring load-balancers that aren't shown in the diagram.
+
+:::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png ":::
 
 The typical RPO for this solution is less than 20 minutes when the cross-region replication update interval is set to 10 minutes. 
 
-Dataflow 
+#### Dataflow 
 
-1.	A compute node reads input data from SASDATA and writes its results back to the same.
-2.	A subsequent part of the analytics job can be executed by another node in the compute tier and will use the same process to obtain and store the information it needs to process.
-3.	The temporary work directory SASWORK is not shared and is stored on individual Azure NetApp Files volumes attached to each compute node. 
-4.	Azure NetApp Files cross-region replication is used to asynchronously replicate the SASDATA volume, including all snapshots, to the DR region of choice to facilitate failover in case of regional disaster.
+-	A compute node reads input data from SASDATA and writes results back to SASDATA.
+-	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+-	The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
+-	Azure NetApp Files cross-region replication asynchronously replicates the SASDATA volume, including all snapshots, to a DR region to facilitate failover in case of regional disaster.
 
-Considerations
+## Considerations
 
-The [Azure Well-Architected Framework] is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- Reliability
-- Security
-- Performance Efficiency
-- Cost Optimization
-- Operational Excellence
+### Reliability
 
-The following sections describe how Azure NetApp Files helps comply with these framework pillars.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Reliability
+Azure NetApp Files provides with a standard [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
-Azure NetApp Files comes with a standard [99.99% availability SLA], for all tiers and all supported regions. Azure NetApp Files also supports [Availability Zone volume placement], enabling provisioning volumes in the Availability Zone of choice, as well as HA deployments across zones. 
+Integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service for improved RPO/RTO SLAs. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.	
 
-Integrated data protection with [snapshots and backup] is included with the service for improved RPO/RTO SLAs, while [cross-region replication] helps achieving the same across Azure regions.	
+### Security
 
-Security
+Security provides assurance against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Azure NetApp Files is [inherently secure], as volume are provisioned – and data traffic stays –  within the confined customer VNets, and as such does not provide a publicly addressable endpoint. It is not available for consumption via the public Internet. All [data is encrypted at rest] at all times, and optionally data-in-transit can be encrypted. 
+Azure NetApp Files provides a level of [security](/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) because volumes are provisioned, and data traffic stays, within your virtual networks. There's no publicly addressable endpoint. All [data is encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) at all times. You can optionally encrypt data-in-transit. 
 
-[Azure Policy] helps to enforce organizational standards and to assess compliance at-scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions]. 
+[Azure Policy](/azure/governance/policy/overview) can help you enforce organizational standards and to assess compliance at-scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions](/azure/azure-netapp-files/azure-policy-definitions). 
 
-Performance Efficiency
+### Performance efficiency
 
-Performance
+#### Performance
 
-Depending on the requirements for throughput and capacity, consider the following:
-1.	The performance characteristics of Azure NetApp Files volumes as explained in the [performance considerations for Azure NetApp Files].
-2.	Required Azure NetApp Files capacity and service levels for SASDATA
-3.	Using the guidance in this document to select your storage type for SASWORK
+Depending on your requirements for throughput and capacity, keep the following considerations in mind:
 
-Scalability
+-	The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
+- The required Azure NetApp Files capacity and service levels for SASDATA.
+- The guidance in this article for choosing your storage type for SASWORK.
 
-The compute performance is easily scaled by adding more virtual machines into the scale sets that run the three tiers of the SAS solution. 
+#### Scalability
 
-Storage is scaled by seamlessly increasing or decreasing the capacity of the Azure NetApp Files volumes, while performance is scaled at the same time, when [auto QoS] is selected. For more granular control of each volume’s performance, you can also control the performance of each volume separately by choosing [manual QoS] for your capacity pools. 
+You can easily scale compute performance by adding VMs to the scale sets that run the three tiers of the SAS solution. 
 
-Azure NetApp Files volumes come in three performance tiers, [ultra, premium and standard]. Choose the tier that best suits your performance requirements taking into account that available performance bandwidth scales with the size of a volume, as explained [here]. You can change the service level of a volume at any time if a previously made selection proves to be inadequately oversized or undersized. Please refer to the Azure NetApp Files [cost model pricing examples].
+You can dynamically scale storage of Azure NetApp Files volumes. If you use [automatic QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations), performance is scaled at the same time. For more granular control of each volume, you can also control the performance of each volume separately by using [manual QoS](/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) for your capacity pools.
 
-You can use the [Azure NetApp Files Performance Calculator] to get you started. 
+Azure NetApp Files volumes are available in three performance tiers: [Ultra, Premium, and Standard](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements, taking into account that available performance bandwidth [scales with the size of a volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). You can change the service level of a volume at any time. For more information about the Azure NetApp Files cost model, see these [pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
-Cost Optimization
+You can use the [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer) to get started. 
 
-Cost modeling
+### Cost optimization
 
-Understanding the [cost model for Azure NetApp Files] helps you manage your expenses from the service.
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure NetApp Files is billed on provisioned storage capacity, which is allocated by creating capacity pools. Capacity pools are billed monthly based on a set cost per allocated GiB per hour. Capacity pool allocation is measured hourly.
+#### Cost model
 
-If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider [dynamically resizing your volumes and capacity pools] to balance cost with capacity and performance needs.
+Understanding the [cost model for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-cost-model) can help you manage your expenses.
 
-If your capacity pool size requirements remain the same but performance requirements fluctuate, consider [dynamically changing the service level of a volume]. You can provision and deprovision capacity pools of different types throughout the month, providing just-in-time performance, and lowering costs during periods where performance is not needed.
+Azure NetApp Files billing is based on provisioned storage capacity, which you allocate by creating capacity pools. Capacity pools are billed monthly based on a set cost per allocated GiB per hour.
 
-Pricing
+If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider [dynamically resizing your volumes and capacity pools](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes) to balance cost with your capacity and performance needs.
 
-Using the required capacity and performance requirements, decide which service level of Azure NetApp Files you need (standard, premium, ultra). Then use the [Azure Pricing calculator] to evaluate the costs involved for the following components:
+If your capacity pool size requirements remain the same, but performance requirements fluctuate, consider [dynamically changing the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level). You can provision and deprovision capacity pools of different types throughout the month, providing just-in-time performance, and lowering costs during periods when you don't need high performance.
 
-- Required SAS on Azure components
+#### Pricing
+
+Based on your capacity and performance requirements, decide which Azure NetApp Files service level you need (Standard, Premium, or Ultra). Then use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) to evaluate the costs for these components:
+
+- SAS on Azure components
 - Azure NetApp Files
-- Managed Disk (optionally)
-- Virtual Network
+- Managed disk (optionally)
+- Virtual network
  
-Operational excellence
+### Operational excellence
 
-Bringing SAS Grid to the Azure Cloud brings unprecedented speed of deployment and flexibility. Benefits include:
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+SAS Grid on Azure provides flexibility and a fast deployment. Here are some benefits:
 
 - Meet changing business demands with dynamic workload balancing
 - Create a highly available SAS computing environment
@@ -382,22 +391,23 @@ Bringing SAS Grid to the Azure Cloud brings unprecedented speed of deployment an
 - Manage all your analytical workloads
 - Easily transition from a siloed server or multiple PC environment to a SAS grid environment
 
-Deploy the solution
+## Deploy this scenario
 
-It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
+It's best to deploy the workloads by using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
-To start designing your SAS Grid on Azure solution review the [SAS on Azure Architecture section] and [Automating SAS Deployment on Azure using GitHub Actions | GitHub]. 
+To get a start with designing your SAS Grid on Azure solution, review [SAS on Azure Architecture](/azure/architecture/guide/sas/sas-overview) and [Automating SAS Deployment on Azure by using GitHub Actions](https://github.com/grtn316/viya4-iac-azure). 
+
+## Contributors 
 
 ## Next steps
 
-Get started with SAS Grid on Azure by viewing this [quickstart webinar on how to get started on Microsoft Azure].
+- [Quickstart webinar on how to get started on Azure](https://www.sas.com/en_us/webinars/quickstarts-on-microsoft.html)
+- [Azure NetApp Files: A shared file system to use with SAS Grid on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437)
+- [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer)
 
 ## Related resources
 
-SAS on Azure architecture – VM Sizing recommendations | Microsoft Docs 
-SAS on Azure architecture – SAS on Azure NetApp Files | Microsoft Docs
-SAS on Azure architecture – Network and VM Placement considerations | Microsoft Docs
-Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure | SAS Support Communities
-Azure NetApp Files Performance Calculator
-Security considerations
-
+- [SAS on Azure, VM sizing recommendations](/azure/architecture/guide/sas/sas-overview#vm-sizing-recommendations)
+- [SAS on Azure, Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs) 
+- [SAS on Azure, network and VM placement considerations](/azure/architecture/guide/sas/sas-overview#network-and-vm-placement-considerations) 
+- [SAS on Azure, security considerations](/azure/architecture/guide/sas/sas-overview#security)
