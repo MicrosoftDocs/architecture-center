@@ -110,6 +110,16 @@ Machine Learning Services offers an embedded, predictive analytics and data scie
 
 While Machine Learning Services has been part of on-premises SQL Server since 2016, it is relatively new to Azure SQL Managed Instance.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jeremy Peach](https://www.linkedin.com/in/jeremypeach/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ### Next steps
 
 - [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)

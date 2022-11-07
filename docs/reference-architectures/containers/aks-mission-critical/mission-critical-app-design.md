@@ -101,7 +101,7 @@ Key characteristics:
 - Services aren't constrained to use the same compute platform, programming language, or operating system.
 - Services scale independently.
 - Downstream failures don't affect client transactions.
-- Transactional integrity is more difficult to maintain, because data creation and persistence happens in separate services.
+- Transactional integrity is more difficult to maintain, because data creation and persistence happens in separate services. This is also a challenge across messaging and persistence services, as described in [this guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 - End-to-end tracing requires more complex orchestration.
 
 Using well-known design patterns, such as [Queue-Based Load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers), is highly recommended. These patterns help in load distribution from the producer to the consumers and asynchronous processing by consumers. For example, the worker allows the API to accept the request and return to the caller quickly while processing a database write operation separately.

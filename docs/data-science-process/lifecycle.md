@@ -50,6 +50,16 @@ For each stage, we provide the following information:
 
 For examples of how to execute steps in TDSPs that use Azure Machine Learning, see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
