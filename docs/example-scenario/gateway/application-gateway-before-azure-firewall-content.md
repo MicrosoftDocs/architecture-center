@@ -142,7 +142,7 @@ The following diagram shows the packet flow in a case that uses Virtual WAN. In 
 1. Azure Firewall Premium requests DNS resolution from a DNS server in the shared services virtual network.
 1. The DNS server answers the resolution request.
 1. Azure Firewall Premium runs security checks on the packets. If they pass the tests, Azure Firewall Premium forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to Azure Firewall Premium.
+1. The VM responds and sets the destination IP address to Application Gateway. The Application subnet redirects the packets to Azure Firewall Premium.
 1. Azure Firewall Premium forwards the packets to Application Gateway.
 1. Application Gateway sends the packets to the VPN.
 1. The VPN answers the client.
