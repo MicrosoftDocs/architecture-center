@@ -119,7 +119,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure Data Lake Storage Gen1 | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
-| Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, select streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
+| Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
 | Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
 | Authentication protocol | OAuth 2.0. Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory | Hash-based message authentication code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
