@@ -21,7 +21,7 @@ Contoso has implemented the following foundational Azure structure, which is a s
 >Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
 Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs:
-[![Architecture for a modern data platform using Azure data services.](./images/azure-analytics-end-to-end.png)](./images/azure-analytics-end-to-end.png#lightbox)
+[![Architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
 *Contoso's data platform*
 
 Contoso’s Data Platform - Workflow  
