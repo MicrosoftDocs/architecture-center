@@ -5780,10 +5780,10 @@ items:
                   - name: Network security and containment
                     href: /security/compass/network-security-containment
                     maintainContext: true
-                  - name: DDoS Protection Standard features
-                    href: /azure/ddos-protection/ddos-protection-standard-features
+                  - name: Azure DDoS Protection features
+                    href: /azure/ddos-protection/ddos-protection-features
                     maintainContext: true
-                  - name: DDoS Protection reference architectures
+                  - name: Azure DDoS Protection reference architectures
                     href: /azure/ddos-protection/ddos-protection-reference-architectures
                     maintainContext: true
                   - name: Security baseline for DDoS Protection

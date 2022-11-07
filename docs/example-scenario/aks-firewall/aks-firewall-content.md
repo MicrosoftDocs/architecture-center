@@ -180,7 +180,7 @@ The Azure platform provides improved protection against various threats, such as
 
 DDoS attacks are among the biggest availability and security concerns facing organizations that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that's publicly reachable via the internet. Every property in Azure includes protection via Azure infrastructure DDoS Protection Basic at no extra cost. The scale and capacity of the globally deployed Azure network provides improved defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. It helps protect all Azure services, including PaaS services like Azure DNS.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 Following are some additional security considerations:
 
@@ -197,7 +197,7 @@ Following are some additional security considerations:
   - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
   - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline)
   - [Azure security baseline for Azure Bastion](/security/benchmark/azure/baselines/bastion-security-baseline)
-  - [Azure security baseline for Azure DDoS Protection Standard](/security/benchmark/azure/baselines/ddos-protection-security-baseline)
+  - [Azure security baseline for Azure DDoS Protection](/security/benchmark/azure/baselines/azure-ddos-protection-security-baseline)
 
 ### Availability and reliability
 
