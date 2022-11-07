@@ -802,6 +802,10 @@ items:
             href: patterns/category/design-implementation.md
           - name: Messaging
             href: patterns/category/messaging.md
+      - name: Pattern implementations
+        items:
+          - name: Network secure global ingress
+            href: pattern-implementations/network-secure-ingress.md
       - name: Ambassador
         href: patterns/ambassador.yml
       - name: Anti-corruption Layer
