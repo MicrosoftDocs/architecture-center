@@ -43,8 +43,6 @@ Using a single, shared B2C tenant is generally the easiest isolation model to ma
 - Your end users need access to more than one application tenant under the same account
 - Your application needs are within the Azure AD B2C service [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits)
 
-Discuss here the pros/cons of a shared B2C tenant. Easier to manage, but have a theoretical limit of the number of identity providers you can enable (because of limit of custom policies). Also need to discuss limits here. https://learn.microsoft.com/en-us/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits 
-
 ### B2C tenant per customer
 
 Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your customers onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
@@ -89,15 +87,28 @@ Additionally, something else to keep in mind, is that you can also use identity 
 
 **Example**: You have customers in 3 distinct regions (Regions A, B, and C). You are employing a vertically partitioned B2C tenant strategy and are separating your customers into a B2C tenant per region. In this scenario, you would need *4* B2C tenants: one each for regions A, B, and C, and a fourth to act as a "funnel" tenant. The multitenant application would trust the funnel tenant as its identity provider, and the funnel tenant would establish a trust between each of the regional tenants as an identity provider. Upon a user being directed to the funnel tenant for login, the funnel tenant would be responsible for looking up which of the regional tenants the user belongs to, and directing them to it for login.
 
-
-<!-- Want to link the global funnel pattern whitepaper here eventually, but it is still undergoing peer review -->
-
-
 ## Data Residency
 
 When provisioning a B2C tenant, you will be asked to select a region for your tenant to be deployed to. This selection is important as this is the region that your customer data will reside in. If you have any specific data residency requirements for a subset of your customers, this is when you should consider using the vertically partitioned strategy.
 
-## Roles & permissions
+## Authorization
+
+Azure AD B2C is typically focused on the *authentication* of users. In order to perform *authorization*, there are extra considerations you must take into account. Generally speaking, you have 3 main options when it comes to *authorization*:
+
+1. Keep the authorization logic entirely out of Azure AD B2C and implement it in the application itself.
+   - The main benefit here is that you don't need to build it inside of your User Flows or Custom Policies, and don't need to host an additional REST API.
+   - Another benefit of this approach is that the authorization information can be refreshed at will (eg. with every user request), whereas the other options emit authorization information as claims inside the application token. Today, this token only gets refreshed when the user signs out and back in or goes through some other user flow interactively; otherwise the token contents are not re-evaluated. 
+   - The disadvantage is that if there are multiple applications that have the same authorization requirements, they have to re-implement the authorization logic across each application and cannot benefit from a central component which provides and maintains this as a service from a single place.
+
+2. Use [custom user attributes](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow) in Azure AD B2C to store the user's roles
+     - These user attributes are easy to define and can simply be selected as Application Claims in the token, which makes them easy to use from [user flows](/azure/active-directory-b2c/user-flow-overview) (meaning you do not need to use [custom policies](/azure/active-directory-b2c/custom-policy-overview)).
+     - In this case, you would need to create a user management application that is able to perform CRUD (Create, Read, Update, Delete) operations on these attributes via the [Microsoft Graph API](/graph/use-the-api), as they are not visible in the Azure portal.
+     - You will also need to take care to never allow these user attributes to be modified by the end users themselves (e.g. through a profile edit user flow), otherwise a user could simply modify their own permissions.
+     - You should consider prefixing the user attributes with the app name to avoid conflicts, e.g. App1_AppRoles and App2_AppRoles.
+     - Also note that custom user attributes today do not allow *collections*. If there are multiple roles you must return, they must be returned as a single string using a separator. There is a [string length limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 250 characters for a single custom user attribute, so this wouldn't work well if you need a *lot* of different roles or permissions.  
+
+3. Use an external, custom REST API to return authorization claims
+      -   
 
 Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build-your-own. App roles being more basic and having a limit of (?) app roles per app. Building your own is much more complex.  
 
