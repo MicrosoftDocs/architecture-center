@@ -3505,6 +3505,8 @@ items:
                         href: guide/hpc/siemens-tecnomatix.yml
                   - name: Visiopharm
                     href: guide/hpc/visiopharm.yml    
+                  - name: WRF
+                    href: guide/hpc/weather-research-forecasting.yml
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
