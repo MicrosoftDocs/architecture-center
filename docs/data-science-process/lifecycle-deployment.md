@@ -57,6 +57,16 @@ For examples of model operationalization with Azure Machine Learning, see [Deplo
 * A final modeling report with deployment details
 * A final solution architecture document
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Here are links to each step in the lifecycle of the TDSP:
