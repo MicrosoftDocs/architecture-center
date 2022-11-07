@@ -38,7 +38,7 @@ The architecture consists of the following aspects:
 
 ## Scenario details
 
-The benefits of using a hub and spoke configuration include cost savings, overcoming subscription limits, and workload isolation.
+The benefits of using a hub and spoke configuration include [cost savings, overcoming subscription limits, and workload isolation](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 ### Potential use cases
 
