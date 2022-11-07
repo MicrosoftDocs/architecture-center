@@ -6,8 +6,6 @@ The logical data warehouse (LDW) pattern lays a lightweight virtualized relation
 
 ## Architecture
 
-By using an LDW with Azure Synapse serverless SQL pools, you can join cold batch data, hot streaming data, and live transactional data in a single T-SQL query or view definition.
-
 :::image type="content" source="../media/logical-data-warehouse-architecture-dataflow.png" alt-text="Diagram showing a flow of data from left to right as the steps describe." border="false" lightbox="../media/logical-data-warehouse-architecture-dataflow.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ldw-images.pptx) of all the diagrams in this article.*
@@ -35,6 +33,8 @@ By using an LDW with Azure Synapse serverless SQL pools, you can join cold batch
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development.
 
 ## Scenario details
+
+By using an LDW with Azure Synapse serverless SQL pools, you can join cold batch data, hot streaming data, and live transactional data in a single T-SQL query or view definition.
 
 This solution avoids moving data through complex, expensive, and latency-prone extract, transform, and load (ETL) pipelines. The LDW concept is similar to a [data lakehouse](/azure/databricks/lakehouse), but LDW with Azure Synapse Analytics includes support for [hybrid transaction/analytical processing (HTAP)](https://wikipedia.org/wiki/Hybrid_transactional/analytical_processing). HTAP uses Azure Synapse serverless SQL pools to query OLTP data that's stored in Azure Cosmos DB.
 
@@ -68,7 +68,7 @@ Azure Synapse serverless SQL pools also support the [Delta Lake](/azure/synapse-
 
 The LDW with Azure Synapse serverless SQL pools is an implementation of the [Data Lakehouse](/azure/databricks/lakehouse) pattern. Using Databricks SQL to implement an LDW is an alternative solution. However, Databricks SQL lacks the HTAP capability of Azure Synapse Link for Cosmos DB.
 
-## Potential use cases
+### Potential use cases
 
 This pattern is useful for the following cases:
 
