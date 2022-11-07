@@ -48,7 +48,7 @@ Background jobs can be initiated in several different ways. They fall into one o
 
 Event-driven invocation uses a trigger to start the background task. Examples of using event-driven triggers include:
 
-- The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job.
+- The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job. This pattern is known as [asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
 - The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API that is exposed as a web service. It passes the data that is required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
 
@@ -66,7 +66,7 @@ Typical examples of tasks that are suited to schedule-driven invocation include 
 
 If you use a schedule-driven task that must run as a single instance, be aware of the following:
 
-- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task.
+- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task. For more information about this, read this [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean).
 - If tasks run for longer than the period between scheduler events, the scheduler may start another instance of the task while the previous one is still running.
 
 ## Returning results
