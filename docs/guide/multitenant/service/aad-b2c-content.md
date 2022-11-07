@@ -3,6 +3,7 @@ Azure Active Directory B2C provides business-to-consumer identity as a service. 
 
 If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document:
 
+  - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
   - [Identity Approaches](../approaches/identity#authorization)
   - [Identity Considerations](../considerations/identity)
   - [Tenancy Models](../considerations/tenancy-models)
@@ -94,9 +95,7 @@ Additionally, something else to keep in mind, is that you can also use identity 
 
 ## Data Residency
 
-When provisioning a B2C tenant, you will be asked to select a region for your tenant to be deployed to. This selection is important as this is the region that your customer data will reside in. If you have any specific data residency requirements for a subset of your customers, this is when you may want to consider  
-
-## User Journey Configuration
+When provisioning a B2C tenant, you will be asked to select a region for your tenant to be deployed to. This selection is important as this is the region that your customer data will reside in. If you have any specific data residency requirements for a subset of your customers, this is when you should consider using the vertically partitioned strategy.
 
 ## Roles & permissions
 
@@ -107,22 +106,34 @@ Link to identity approaches article here. [https://learn.microsoft.com/en-us/azu
 Could link to Azure SaaS Dev Kit here maybe, as it has one of these built. Could also link to SaaS Starter Web App doc [https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app).  
 
 Also may want to discuss how this applies to different isolation models. 
-## Maintenance Overhead
+## Maintenance
 
 Consider talking here about the maintenance overhead of b2c tenants. Rotating keys, certificates, etc. 
 
 ### Deployments & DevOps
 
-## Securing applications
+Discuss here how a well configured DevOps pipeline should be used to manage this. Especially if configuring SSO per client. Will want to find or build other samples or resources to link here as well.
+
+This is one, but we need to validate it as it's a bit old. [https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
+
+## Azure AD B2B vs Azure AD B2C
+
+[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature within Azure AD External Identities that allows you to invite guest users into your *organizational* Azure AD tenant for collaboration purposes. B2B collaboration is most often used when you need an external user, such as a vendor, to have access to resources within your Azure AD tenant.
+
+Azure AD B2C is also grouped within Azure AD External Identities, but provides a different set of features. It is specifically intended for use by customers of your product. These users are managed inside a separate Azure AD B2C tenant.
+
+In some scenarios, depending on your user personas, you could have a need for either Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if you needed to authenticate staff users within your organization, users that work for a vendor, and customers all within the same app, you would need both Azure AD B2B and Azure AD B2C.
+
+Here are some additional resources to review for more information on this subject:
+
+- [Use Azure AD or Azure AD B2C](/architecture/guide/multitenant/approaches/identity#use-azure-ad-or-azure-ad-b2c)
+- [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
+- [Woodgrove Demo](https://aka.ms/CIAMdemo) - An example application that uses Azure AD B2B and Azure AD B2C.
+
+## Application Security 
 
 Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). Need to also document the workaround.  
 
-
-## DevOps
-
-Discuss here how a well configured DevOps pipeline should be used to manage this. Especially if configuring SSO per client. Will want to find or build other samples or resources to link here as well. 
-
-This is one, but we need to validate it as it's a bit old. [https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
 
 ## Contributors
 
