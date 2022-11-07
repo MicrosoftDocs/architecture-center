@@ -6,7 +6,7 @@ This series of articles provides an illustrative example of how an organization 
 
 **Term**|**Definition**|**Notes**
 :-----:|:-----:|:-----:
-AAD|Azure Active Directory|[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+Azure AD|Azure Active Directory|[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
 ACL|Access Control Lists| 
 ADLS|Azure Data Lake Storage|[Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azure/aks/)
@@ -31,7 +31,7 @@ LRS|Locally Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/c
 MSEE|Microsoft Enterprise Edge| 
 MTO|Maximum Tolerable Outage|The maximum acceptable amount of time that dependent business processes can tolerate the platform being unavailable. </br>*MTO = RTO + WRT*
 MVP|Minimum Viable Product | 
-NFR|Non-Functional Requirement|How a solution or system should act.
+NFR|Non-Functional Requirement|Requirements on a solution or system related to usability, scalability, security and accessibility rather than functionality.
 NSG|Network Security Group|[Azure network security groups overview](/azure/virtual-network/network-security-groups-overview)
 OPEX|Operational Expenditure| 
 PaaS|Platform As A Service|[What is PaaS? Platform as a Service](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-paas/)
