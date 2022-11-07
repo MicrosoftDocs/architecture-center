@@ -57,7 +57,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: Premium P1
-    - DR Uplift options: AAD’s resiliency is part of its SaaS offering
+    - DR Uplift options: Azure AD’s resiliency is part of its SaaS offering
     - Notes
         - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
