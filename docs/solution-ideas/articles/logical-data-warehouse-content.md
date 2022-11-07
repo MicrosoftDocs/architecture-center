@@ -44,7 +44,7 @@ This data access allows creation of relational database objects like tables and 
 
 :::image type="complex" source="../media/logical-data-warehouse-architecture-concept.png" alt-text="Diagram showing side by side comparison of the LDW conceptual design, next to an implementation of LDW with Azure Synapse serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture-concept.png":::
    Each diagram has three layers. The bottom layer shows files in cloud storage. The second layer is the logical database showing tables with arrows from the cloud storage files to the logical tables. The top layer is the logical tables being accessed by a dashboard for reporting and analytics. The implementation with Azure Synapse diagram shows the logical layer being implemented with a serverless SQL database. A SQL Server endpoint is shown above the logical layer tables. Power BI and SSMS access the SQL endpoint. The Azure Synapse components like SQL endpoint and serverless SQL database are inside a box with an Azure Synapse logo."
-:::image-end
+:::image-end:::
 
 The ability to access transactional data stores like Azure Cosmos DB through the Azure Synapse Link for Azure Cosmos DB expands these capabilities. Accessing OLTP data by using HTAP architecture provides instant updates without interfering with live transactions.
 
