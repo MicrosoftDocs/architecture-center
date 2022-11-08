@@ -5783,7 +5783,7 @@ items:
                   - name: Azure DDoS Protection features
                     href: /azure/ddos-protection/ddos-protection-features
                     maintainContext: true
-                  - name: Azure DDoS Protection reference architectures
+                  - name: Azure DDoS Protection architectures
                     href: /azure/ddos-protection/ddos-protection-reference-architectures
                     maintainContext: true
                   - name: Security baseline for DDoS Protection
