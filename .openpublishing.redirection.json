@@ -2406,6 +2406,11 @@
       "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
       "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/power-platform/eventual-consistency.yml",
+      "redirect_url": "/azure/architecture/guide/power-platform/eventual-consistency",
+      "redirect_document_id": false
     }
   ]
 }

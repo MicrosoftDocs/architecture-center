@@ -470,7 +470,7 @@ items:
                - name: Citizen AI with Power Platform
                  href: example-scenario/ai/citizen-ai-power-platform.yml
                - name: Eventual consistency with Power Apps
-                 href: reference-architectures/power-platform/eventual-consistency.yml
+                 href: guide/power-platform/eventual-consistency.yml
                - name: Extract text using Power Automate
                  href: example-scenario/ai/extract-object-text.yml
                - name: Optimize inventory and forecast demand
@@ -6012,7 +6012,7 @@ items:
                 href: /azure/developer/java/ee/jboss-on-azure
                 maintainContext: true
               - name: Eventual consistency in Power Platform
-                href: reference-architectures/power-platform/eventual-consistency.yml
+                href: /guide/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
               - name: Basic web application
