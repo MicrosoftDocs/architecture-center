@@ -1,6 +1,6 @@
 This reference architecture provides guidance for deploying a mission critical workload that uses centralized shared services and integrates with other workloads of an enterprise. As a workload owner, you might find yourself in this situation if there's a need to deploy the workload in an _application Azure landing zone_ provided by your organization. In this case, the organization will also provide _platform Azure landing zones_ with pre-provisioned shared resources that are managed by centralized teams.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > An application landing zone is a pre-provisioned subscription that's connected to the organization's shared resources. It has basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring capabilities. Platform landing zones is a collection of various subscriptions each with specific functionality. For example, the connectivity subscription contains Azure Private DNS Zone, ExpressRoute circuit, Firewall in a virtual network that's available for application teams to use. 
 >
 > A key benefit is that the application team can offload management of shared reources to central teams, and can focus on development efforts. The organization benefits by applying consistent governance and optimizing on cost of reusing resources for multiple application teams. 
@@ -23,7 +23,7 @@ It builds on the [**mission-critical baseline architecture with network controls
 
 - **Multiple deployment environments**
 
-    - One application landing zone subscription as the production enviroment that contains only team-managed resources that are used to run, deploy, maintain, and monitor the application in production, across all regions. 
+    - One application landing zone subscription as the production environment that contains only team-managed resources that are used to run, deploy, maintain, and monitor the application in production, across all regions. 
     - One application landing zone subscription as pre-production environment to contain deployments that fully reflect production. Multiple independent deployments may exist in this subscription, such as staging and integration.
     - One application landing zone subscription that contains all development environments. The environments are short-lived while the subscription isn't 
 
