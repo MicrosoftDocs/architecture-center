@@ -10,7 +10,7 @@ This reference architecture is for a voicemail solution. It offers common functi
 Multiple clients can connect to the workload using various protocols. They can be HTTP or non-web protocols, such as Session Initiation Protocol. A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
 
 ## Workload requirements
-- The workload is expected to have an Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
+- The workload is expected to have a Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
 - Application requests for all the supported protocols must be load-balanced across all the active service instances (SIs).
 - Replication of write operations on subscriber data must be instantaneous across regions. Any service instance reading data always gets served the latest and most up to date version of the subscriber data.
 - If a failure occurs in the middle of an active subscriber voice mail session, the caller will need to reconnect. The application isn't required to maintain active session state for in-flight messages.
@@ -36,7 +36,7 @@ Stores application payload metadata and end-user provisioning data. Also used by
 
 **Gateway component** 
 
-Allows access to the application through a gateway outside the cloud. Before sending traffic, this component is determines the health of the backend endpoints from a DNS server.
+Allows access to the application through a gateway outside the cloud. Before the gateway sends traffic, it determines the health of the backend endpoints from a DNS server.
 
 > [!IMPORTANT] 
 > Global routing is handled through DNS. If any global service or a foundational service, such as DNS, identity platform isn't available, the entire system will be impacted. 
@@ -83,10 +83,10 @@ Within each region, a set of resources are deployed as part of a deployment stam
 
 Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orchestrator because it's widely adopted and supports advanced scalability and deployment topologies. 
 
-### Key design strategies
+## Key design strategies
 
 - **Active-active muti-region deployment**. 12 service instances are deployed across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
-- **Replicated storage**. The application itself is stateless. Any data that's shared between regions is replicated. For example, data stored in Cosmos DB is  replicated between regions. Another component used is Blob Storage which is replicated into just two regions for cost efficiency.
+- **Replicated storage**. The application itself is stateless. Any data that's shared between regions is replicated. For example, data stored in Cosmos DB is  replicated between regions. Another component used is Blob Storage, which is replicated into just two regions for cost efficiency.
 - **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Application logic uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
 - **Shared fate within each stamp**. TODO
 - **Avoid correlated failure modes**. Take independent elements, which aren't highly available, and combine them so that they remain independent entities. (e.g., 99.9% \/ 99.9% = 99.9999% if indep, 99.9% if not). TODO
@@ -161,7 +161,7 @@ Traffic Manager is on the critical path for clients making their initial connect
 
 > TODO: Incorporate these RI features
 
-- further threat modelling, regular penetration testing and other security reviews, regular automated security monitoring;
+- further threat modeling, regular penetration testing and other security reviews, regular automated security monitoring;
 - use of PIM for just-in-time access to systems;
 - use of Azure Policy to drive governance;
 - use of DDoS Protection;
