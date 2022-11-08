@@ -19,4 +19,4 @@ name: Migrate your IoT solutions to Azure
 summary: Find out about migrating your IoT solutions to Azure, including devices, gateways, ingestion, communications, event processing, and analytics.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-iot-reference-architecture.png
 content: |
-  [!include[](migrate-iot-solution-content.md)]
+  [!include[](migrate-iot-solution-azure-content.md)]

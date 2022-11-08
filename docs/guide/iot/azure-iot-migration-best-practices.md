@@ -22,7 +22,7 @@ categories:
 
 This article provides guidance for architects, developers, and IT staff who plan to migrate Internet of Things (IoT) solutions to Azure. This article reviews recommendations and best practices to plan migration to Azure IoT.
 
-What are the benefits of the migration to Azure IoT? Azure continues to help IoT customers achieve their goals through edge-to-cloud services. For more information, see the [Well-architected framework for IoT](../../framework/iot/iot-overview.md).
+What are the benefits of the migration to Azure IoT? Azure continues to help IoT customers achieve their goals through edge-to-cloud services. For more information, see the [Well-architected framework for IoT](/well-architected/iot/iot-overview).
 
 ## Evaluate your IoT solution before migration
 
@@ -30,7 +30,7 @@ One of the first steps in migration is to analyze your IoT solution. Start with 
 
 - Understand and audit your existing IoT solution
 
-  It's essential to understand the business, technical requirements and needs, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform. We recommend that you use the [Well-Architected Framework for IoT](../../framework/iot/iot-overview) to understand the best practices when designing a solution.
+  It's essential to understand the business, technical requirements and needs, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform. We recommend that you use the [Well-Architected Framework for IoT](/well-architected/iot/iot-overview) to understand the best practices when designing a solution.
 
 - Enumerate and obtain key information about your IoT solution
 
@@ -76,7 +76,7 @@ Every IoT migration differs in various factors, such as devices, network require
 
 - Plan and assess
 
-  Identify and map your IoT solution, including devices, edge devices, messaging services, applications, storage, and analytics. Create a matrix with all the elements to plan the migration. To speed up the inventory of the digital state, the Well-Architected Framework defines an IoT architecture as a set of foundational layers. Specific technologies support the different layers, and the IoT Well-Architected Framework highlights options for designing and creating each layer. For more information, see [IoT architecture layers](../../framework/iot/iot-overview#iot-architecture-layers).
+  Identify and map your IoT solution, including devices, edge devices, messaging services, applications, storage, and analytics. Create a matrix with all the elements to plan the migration. To speed up the inventory of the digital state, the Well-Architected Framework defines an IoT architecture as a set of foundational layers. Specific technologies support the different layers, and the IoT Well-Architected Framework highlights options for designing and creating each layer. For more information, see [IoT architecture layers](/well-architected/iot/iot-overview#iot-architecture-layers).
 
 - Design
 
@@ -108,11 +108,11 @@ Every IoT migration differs in various factors, such as devices, network require
 
   We recommend that you use the Well-architected framework to understand how to optimize your solution and implement best practices. That framework has the following pillars:
 
-- [Reliability](../../framework/iot/iot-reliability.md)
-- [Security](../../framework/iot/iot-security.md)
-- [Cost optimization](../../framework/iot/iot-cost-optimization.md)
-- [Operational excellence](../../framework/iot/iot-operational-excellence.md)
-- [Performance efficiency](../../framework/iot/iot-performance.md)
+- [Reliability](/framework/iot/iot-reliability)
+- [Security](/framework/iot/iot-security)
+- [Cost optimization](/framework/iot/iot-cost-optimization)
+- [Operational excellence](/framework/iot/iot-operational-excellence)
+- [Performance efficiency](/framework/iot/iot-performance)
 
 ## Contributors
 
@@ -138,8 +138,8 @@ Other contributors:
 
 ## Related resources
 
-- [Azure IoT reference architecture](../../reference-architectures/iot)
-- [Overview of Well-Architected Framework for IoT](../../framework/iot/iot-overview?wt.mc_id=techcomm_wablog_blog_azuremktg)
-- [Industrial IoT prediction patterns](../../guide/iiot-patterns/iiot-prediction-patterns)
-- [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores)
-- [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview)
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [Overview of Well-Architected Framework for IoT](/well-architected/iot/iot-overview?wt.mc_id=techcomm_wablog_blog_azuremktg)
+- [Industrial IoT prediction patterns](../../guide/iiot-patterns/iiot-prediction-patterns.yml)
+- [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)
+- [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
