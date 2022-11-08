@@ -52,7 +52,7 @@ This can be performed in a number of [plugin](/power-apps/developer/data-platfor
 4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report from the LOB application is generated successfully.
 
 >[!NOTE]
-> Microsoft recommends introducing a circuit breaker pattern to back off and retry as part of this solution. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
+> Microsoft recommends introducing a circuit breaker pattern in your custom code to back off and retry as part of this solution to handle platform outages when referencing either instance. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
 
 ## Replication technologies
 
