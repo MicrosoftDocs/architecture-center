@@ -95,7 +95,7 @@ For extra levels of data protection, you can use data protection solutions that 
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines): SAS Grid requires high memory, storage, and I/O bandwidth, in an appropriate ratio with the number of cores. Azure offers predefined VM sizes with lower vCPU counts that can help to balance the number of cores required with the amount of memory, storage, and I/O bandwidth.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines): SAS Grid requires high memory, storage, and I/O bandwidth, in an appropriate ratio with the number of cores. Azure offers predefined virtual machine (VM) sizes with lower vCPU counts that can help to balance the number of cores required with the amount of memory, storage, and I/O bandwidth.
 
   For more information, see [Constrained vCPU capable VM sizes](/azure/virtual-machines/constrained-vcpu). It's important to thoroughly understand what compute resources are available with *each* instance. To run SAS Grid on Azure with Azure NetApp Files, we recommended these instance types:
 
@@ -122,11 +122,11 @@ Because Azure NetApp Files can provide high throughput and low-latency access to
 
 To estimate the required tier for your SASDATA capacity, use the [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer). (Be sure to select **advanced**.)
 
-Because Azure NetApp Files NFS volumes are shared, they're a good candidate for hosting SASDATA, when used with the properly sized VM instance types and RHEL distribution, discussed later in this article.
+Because Azure NetApp Files NFS volumes are shared, they're a good candidate for hosting SASDATA, when used with the properly sized VM instance types and Red Hat Enterprise Linux (RHEL) distribution, discussed later in this article.
 
 ## Storage options for SASWORK 
 
-The following table shows the most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options:
+The following table shows the most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options: temporary storage, managed disk, and Azure NetApp Files. 
 
 ||	Temporary storage|	Managed disk|	Azure NetApp Files|
 |-|-|-|-|
@@ -191,14 +191,14 @@ For higher SASWORK capacity and/or medium performance requirements, consider usi
 ## Scale and configuration recommendations
 
 - For the best and most consistent latency for data traffic between the instances in the SAS cluster, make sure all VMs are created in the same [proximity placement group](/azure/virtual-machines/co-location).
-- Review the **General Tuning Guidance** section in the [Best Practices for Using SAS on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680).
+- Review the **General Tuning Guidance** section in [Best Practices for Using SAS on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680).
 - For optimal network bandwidth, enable [Accelerated Networking](/azure/virtual-network/accelerated-networking-how-it-works).
 
 ## RHEL distributions and NFS settings
 
 ### RHEL distributions
 
-Red Hat Enterprise Linux (RHEL) is the recommended distribution for running SAS 9 on Linux. Each kernel supported by Red Hat has its own NFS bandwidth constraints.
+RHEL is the recommended distribution for running SAS 9 on Linux. Each kernel supported by Red Hat has its own NFS bandwidth constraints.
 
 For specifics about running SAS on Azure, see [Best Practices for Using SAS on Azure](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680). 
 
@@ -216,11 +216,11 @@ Azure Standard_E64-16ds_v4 and Standard_E64-32ds_v4 VMs, or their v5 equivalents
    - Validation indicates 3,200 MiB/s of reads.
    - These results are achieved with the NFS `nconnect` mount option.
 
-Testing shows that a single RHEL 7 instance achieves no more than roughly 750-800 MiB/s of read throughput against a single Azure NetApp Files storage endpoint (that is, against a network socket). 1,500 MiB/s of writes are achievable against the same endpoint, if 64-KiB `rsize` and `wsize` NFS mount options are used. Some evidence suggests that the previously noted read throughput ceiling is an artifact of the 3.10 kernel. For more information, see [RHEL CVE-2019-11477](https://access.redhat.com/security/cve/cve-2019-11477).
+Testing shows that a single RHEL 7 instance achieves no more than roughly 750-800 MiB/s of read throughput against a single Azure NetApp Files storage endpoint (that is, against a network socket). 1,500 MiB/s of writes are achievable against the same endpoint, if you use 64-KiB `rsize` and `wsize` NFS mount options. Some evidence suggests that the previously noted read throughput ceiling is an artifact of the 3.10 kernel. For more information, see [RHEL CVE-2019-11477](https://access.redhat.com/security/cve/cve-2019-11477).
 
-Testing shows that a single RHEL 8.2 instance, with its 4.18 kernel, is free of the limitations noted in the 3.10 kernel. So 1,200-1,300 MiB/s of read traffic is achievable, if a 64-KiB `rsize` and `wsize` NFS mount option is used. For large sequential writes, you can expect the same 1500 MiB/s of achievable throughput that you'd get on RHEL 7.
+Testing shows that a single RHEL 8.2 instance, with its 4.18 kernel, is free of the limitations noted in the 3.10 kernel. So 1,200-1,300 MiB/s of read traffic is achievable, if you use a 64-KiB `rsize` and `wsize` NFS mount option. For large sequential writes, you can expect the same 1500 MiB/s of achievable throughput that you'd get on RHEL 7.
 
-With a single RHEL 8.3 instance, with the [nconnect mount option](https://access.redhat.com/solutions/4090971) (which is new in the RHEL 8.3 distribution), about 3,200 MiB/s read throughput is achievable from a single Azure NetApp Files volume. Expect no more than 1,500 MiB/s of writes to an Azure NetApp Files single volume, even when you apply `nconnect`.  
+With a single RHEL 8.3 instance, with the [nconnect mount option](https://access.redhat.com/solutions/4090971) (which is new in the RHEL 8.3 distribution), about 3,200 MiB/s read throughput is achievable from a single Azure NetApp Files volume. Don't expect more than 1,500 MiB/s of writes to an Azure NetApp Files single volume, even when you apply `nconnect`.  
 
 ### Kernel tunables
 
@@ -302,7 +302,7 @@ There are two key advantages to replicating the volumes via the storage solution
 
 The storage contents are replicated without the use of any compute infrastructure resources, and the destination region doesn't need to run the SAS software. The destination VMs don't need to be running to support this scenario.
 
-The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. If there's a failover, the secondary region is brought online, and the virtual machines are started so production can resume in the second region. You need to reroute traffic to the second region by reconfiguring load-balancers that aren't shown in the diagram.
+The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. If there's a failover, the secondary region is brought online, and the VMs are started so production can resume in the second region. You need to reroute traffic to the second region by reconfiguring load balancers that aren't shown in the diagram.
 
 :::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png ":::
 
@@ -325,9 +325,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure NetApp Files provides with a standard [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
+Azure NetApp Files provides a standard [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
-Integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service for improved RPO/RTO SLAs. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.	
+For improved RPO/RTO SLAs, integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.	
 
 ### Security
 
@@ -335,7 +335,7 @@ Security provides assurance against deliberate attacks and the abuse of your val
 
 Azure NetApp Files provides a level of [security](/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) because volumes are provisioned, and data traffic stays, within your virtual networks. There's no publicly addressable endpoint. All [data is encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) at all times. You can optionally encrypt data-in-transit. 
 
-[Azure Policy](/azure/governance/policy/overview) can help you enforce organizational standards and to assess compliance at-scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions](/azure/azure-netapp-files/azure-policy-definitions). 
+[Azure Policy](/azure/governance/policy/overview) can help you enforce organizational standards and assess compliance at scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions](/azure/azure-netapp-files/azure-policy-definitions). 
 
 ### Performance efficiency
 
@@ -347,7 +347,7 @@ Depending on your requirements for throughput and capacity, keep the following c
 
 -	The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
 - The required Azure NetApp Files capacity and service levels for SASDATA.
-- The guidance in this article for choosing your storage type for SASWORK.
+- The guidance in this article for choosing a storage type for SASWORK.
 
 #### Scalability
 
@@ -371,7 +371,7 @@ Azure NetApp Files billing is based on provisioned storage capacity, which you a
 
 If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider [dynamically resizing your volumes and capacity pools](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes) to balance cost with your capacity and performance needs.
 
-If your capacity pool size requirements remain the same, but performance requirements fluctuate, consider [dynamically changing the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level). You can provision and deprovision capacity pools of different types throughout the month, providing just-in-time performance and lowering costs during periods when you don't need high performance.
+If your capacity pool size requirements remain the same but performance requirements fluctuate, consider [dynamically changing the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level). You can provision and deprovision capacity pools of different types throughout the month, providing just-in-time performance and reducing costs during periods when you don't need high performance.
 
 #### Pricing
 
