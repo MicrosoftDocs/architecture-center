@@ -466,6 +466,8 @@ items:
                     href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
+                  - name: Azure Front Door
+                    href: guide/multitenant/service/front-door.md
                   - name: Azure NAT Gateway
                     href: guide/multitenant/service/nat-gateway.md
                   - name: Azure Private Link
