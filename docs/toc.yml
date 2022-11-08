@@ -3455,6 +3455,8 @@ items:
                 href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
+              - name: SAS Grid on Azure NetApp Files
+                href: guide/hpc/netapp-files-sas.yml
               - name: HPC deployments 
                 items:
                   - name: ADS CFD Code Leo
