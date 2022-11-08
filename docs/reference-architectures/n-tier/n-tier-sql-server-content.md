@@ -122,7 +122,7 @@ For a customer-managed VM, all these rules apply. However, the current recommend
 
 #### Scale sets
 
-For the web and business tiers, consider using [virtual machine scale sets][vmss] instead of deploying separate VMs. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
+For the web and business tiers, consider using [Virtual Machine Scale Sets][vmss] instead of deploying separate VMs. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -188,7 +188,7 @@ Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
 #### Virtual machine scale sets
 
-Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
+Virtual machine scale sets are available on all Windows VM sizes. You are only charged for the Azure VMs you deploy and any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
 
 For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
