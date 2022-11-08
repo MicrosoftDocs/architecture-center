@@ -7,7 +7,7 @@ This article provides guidance for architects, developers, and IT staff who plan
 
 The best practices and recommendations align with the well-architected framework for IoT. For more information, see [Overview of well-architected IoT workloads](../../framework/iot/iot-overview.md).
 
-To learn more about the evaluations to make before migrating and discover the common strategies for a solution migration from an IoT solution to Azure, see []().
+To learn more about the evaluations to make before migrating and discover the common strategies for a solution migration from an IoT solution to Azure, see [Understanding IoT solution to Azure migration and best practices](azure-iot-migration-best-practices.md).
 
 ## Architecture
 
