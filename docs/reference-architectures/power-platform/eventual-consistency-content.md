@@ -66,7 +66,7 @@ The scenario described above utilizes a custom Logic App as the replication meth
 
 ## Issues and considerations
 
-Consider the impact of any business logic on an entity that is not hydrated yet. Consider a scenario where the entity is not fully hydrated and synchronized yet. Some of the properties will be null, so you need to ensure that any decisions on the data are factored in when using this approach. You may receive a `NullReferenceException` error. 
+Consider the impact of any business logic on an entity that is not hydrated yet. Consider a scenario where the entity is not fully hydrated and synchronized yet. Some of the properties will be null, so you need to ensure that any decisions on the data are factored in when using this approach.
 
 ## When to use this approach
 
