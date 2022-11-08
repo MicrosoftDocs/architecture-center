@@ -5,7 +5,7 @@ This article provides guidance for architects, developers, and IT staff who plan
 - Event processing and analytics
 - Other necessary layers
 
-The best practices and recommendations align with the well-architected framework for IoT. For more information, see [Overview of well-architected IoT workloads](../../framework/iot/iot-overview.md).
+The best practices and recommendations align with the well-architected framework for IoT. For more information, see [Overview of well-architected IoT workloads](/well-architected/iot/iot-overview).
 
 To learn more about the evaluations to make before migrating and discover the common strategies for a solution migration from an IoT solution to Azure, see [Understanding IoT solution to Azure migration and best practices](azure-iot-migration-best-practices.md).
 
@@ -39,7 +39,7 @@ Azure IoT solutions involve:
 - Insights that you form about the data.
 - Actions that you take based on insights.
 
-For example, a motor sends temperature data. Use this data to evaluate whether the motor performs as expected. You use the insight about the motor's performance to prioritize its maintenance schedule. For more information, see [Azure IoT reference architecture](../../reference-architectures/iot#architecture).
+For example, a motor sends temperature data. Use this data to evaluate whether the motor performs as expected. You use the insight about the motor's performance to prioritize its maintenance schedule. For more information, see [Azure IoT reference architecture](../../reference-architectures/iot.yml#architecture).
 
 ## Consideration to migrate your IoT solution to Azure
 
@@ -282,11 +282,9 @@ This article focuses on migration. There are more services for you to consider t
 
 - Azure Kubernetes Services.
 
-  Azure Kubernetes Service (AKS) is a managed container orchestration service based on the open-source Kubernetes system. AKS simplifies deploying a managed Kubernetes cluster by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Azure manages Kubernetes control nodes, you manage and maintain only the agent nodes. For information on how to integrate Azure services with IoT Hub and AKS to build an IoT application, see [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform). For more information, see [Introduction to Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes).
+  Azure Kubernetes Service (AKS) is a managed container orchestration service based on the open-source Kubernetes system. AKS simplifies deploying a managed Kubernetes cluster by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Azure manages Kubernetes control nodes, you manage and maintain only the agent nodes. For information on how to integrate Azure services with IoT Hub and AKS to build an IoT application, see [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml). For more information, see [Introduction to Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes).
 
 Consider these services in future iterations of the architecture design.
-
-
 
 ## Contributors
   
@@ -324,8 +322,8 @@ You can connect with a vast network of partners to help on your migration journe
 
 ## Related resources
 
-- [Get started with Azure IoT solutions](../../architecture/reference-architectures/iot/iot-architecture-overview.md)
+- [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [Overview of Well-Architected Framework for IoT](../../framework/iot/iot-overview.md)
+- [Overview of Well-Architected Framework for IoT](/well-architected/iot/iot-overview)
 - [Industrial IoT prediction patterns](../../guide/iiot-patterns/iiot-prediction-patterns.yml)
 - [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)
