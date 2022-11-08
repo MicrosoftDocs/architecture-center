@@ -3,7 +3,7 @@ To support this worked example, the fictitious firm “Contoso” will be used w
 
 ### Data Service - Component View
 Contoso has implemented the following foundational Azure structure, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture).
-![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-analytics-alz-architecture.png)
+[![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
 
 *The numbers in the following descriptions correspond to the preceding diagram above.*
 
