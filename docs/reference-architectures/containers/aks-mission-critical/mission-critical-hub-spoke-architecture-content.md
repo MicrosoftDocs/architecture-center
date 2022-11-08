@@ -1,34 +1,40 @@
-This reference architecture provides guidance for a mission critical workload in a hub-spoke network topology. The spoke primarily has workload resources while the hub has resources that are shared resources, which are used by this workload and others in the organization. In this topology, there are some options in terms of levels of responsibilities.
+This reference architecture provides guidance for deploying a mission critical workload that uses centralized shared services and integrates with other workloads of an enterprise. As a workload owner, you might find yourself in this situation if there's a need to deploy the workload in an _application Azure landing zone_ provided by your organization. In this case, the organization will also provide _platform Azure landing zones_ with pre-provisioned shared resources that are managed by centralized teams.
 
-- **Centralized approach**
+> [IMPORTANT]
+> An application landing zone is a pre-provisioned subscription that's connected to the organization's shared resources. It has basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring capabilities. Platform landing zones is a collection of various subscriptions each with specific functionality. For example, the connectivity subscription contains Azure Private DNS Zone, ExpressRoute circuit, Firewall in a virtual network that's available for application teams to use. 
+>
+> A key benefit is that the application team can offload management of shared reources to central teams, and can focus on development efforts. The organization benefits by applying consistent governance and optimizing on cost of reusing resources for multiple application teams. 
+> 
+> If you aren't familiar with the concept of landing zones, we highly recommend you start with [What is an Azure landing zone?](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 
-    The hub-spoke topology is a common approach for organizations to manage a shared platform through centralized teams. Suppose, an organization adopts the use of _landing zones_ for deploying applications. The landing zone provides a pre-provisioned subscription that has the infrastructure needed to run the workload. That infrastructure includes networking, identity access management, policies, and monitoring capabilities. For the networking components, the workload assumes that the virtual private networks (both hub and spoke), Azure Private DNS Zone, ExpressRoute circuit, and other shared services, already exist within the connectivity subscription provided by the landing zone. 
-    
-    A key benefit is that the workload doesn't have to manage those resources. Without any extra overhead, the workload can integrate with other workloads (if needed), and use shared services. However, the workload must be designed to operate within the restrictions imposed by the subscription. For example, you might have to implement the regional deployment stamp such that the resources are still ephemeral but the virtual network isn't.
 
-    In this approach, **the centrally managed components, such as shared networking services, need to be highly reliable for a mission critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. The workload team must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which  affect the workload, are mitigated at the platform level. 
+In this approach, **the centrally managed components need to be highly reliable for a mission critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. The workload team must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which  affect the workload, are mitigated at the platform level. 
 
-- **Autonomous approach**
-
-    Alternatively, the entire infrastructure can be federated as part of the workload.  
-    
-    The workload team is responsible for all shared services deployed in the regional hub network. They also add identity and governance policies as per the workload's needs. The goal is to maximize reliability by removing external (and, or centralized) dependencies so that end-to-end workload flows aren't disrupted. The common flows include observability, deployment, and even the networking choices. For example, the implementation can choose to make the network ephemeral along with regional stamp resources, or not.
-
-    However, **expect added complexity and management overhead**.
-
-This architecture shows a hybrid approach. It leans on being autonomous while adhering to some aspects of a landing zone subscription. It builds on the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml), which is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the hub network. Like other mission-critical architecture designs, cloud-native capabilities are used to maximize reliability and operational effectiveness of the workload.
-
-> [!NOTE]
-> You can also build on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)** where the workload is accessed over a public endpoint.
-
-It's recommended that you become familiar with the **baseline architecture** before proceeding with this article.
+It builds on the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml), which is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress is assumed through the shared hub network in the connectivity subscription. It's recommended that you become familiar with the **baseline architecture** before proceeding with this article.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
+## Key design strategies
+
+- **Autonomous observability**
+
+    Even though the platform provides a management subscription for the purposes of centralized observability, application team will be responsible for provisioning dedicated monitoring resources for the workload. This decision enables the team to query their data collection quickly in case of issues. <!--TODO justification needs to be written better> 
+
+- **Multiple deployment environments**
+
+    - One application landing zone subscription as the production enviroment that contains only team-managed resources that are used to run, deploy, maintain, and monitor the application in production, across all regions. 
+    - One application landing zone subscription as pre-production environment to contain deployments that fully reflect production. Multiple independent deployments may exist in this subscription, such as staging and integration.
+    - One application landing zone subscription that contains all development environments. The environments are short-lived while the subscription isn't 
+
+
+- <!--TODO keep adding as you write it>
+
 ## Architecture
 
 ![Architecture diagram of a mission-critical workload in a hub-spoke topology.](./images/mission-critical-architecture-hub-spoke.svg)
+
+It builds on the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml), which is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the hub network. Like other mission-critical architecture designs, cloud-native capabilities are used to maximize reliability and operational effectiveness of the workload.
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 

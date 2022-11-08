@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mission-critical baseline architecture in hub-spoke topology on Azure
-  description: Reference architecture for a highly reliable workload that he mission-critical workload takes a dependency on the Azure landing zone to provide connectivity resources which allow for integration with other applications and shared services. 
+  title: Mission-critical baseline architecture in an Azure landing zone
+  description: Reference architecture for a mission-critical workload that takes a dependency on Azure landing zones for connectivity resources, which allows integration with other applications and shared services of an enterprise. 
   author: calcof
   ms.author: prwilk
   ms.date: 08/30/2022
@@ -13,12 +13,12 @@ metadata:
     - networking
     - security
     - devops
-name: Mission-critical baseline architecture in hub-spoke topology on Azure
+name: Mission-critical baseline architecture in an Azure landing zone
 azureCategories:
   - containers
   - networking
   - management-and-governance
-summary: Reference architecture for a highly reliable workload that he mission-critical workload takes a dependency on the Azure landing zone to provide connectivity resources which allow for integration with other applications and shared services. 
+summary: Reference architecture for a mission-critical workload that takes a dependency on Azure landing zones for connectivity resources, which allows integration with other applications and shared services of an enterprise. 
 products:
   - azure-front-door
   - azure-container-registry
