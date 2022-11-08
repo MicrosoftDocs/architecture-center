@@ -5,7 +5,7 @@ metadata:
   description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
   author: EdPrice-MSFT
   ms.author: architectures
-  ms.date: 07/28/2022
+  ms.date: 09/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -28,6 +28,6 @@ products:
   - azure-machine-learning
 name: Batch scoring with R models to forecast sales  
 summary: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
-thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models.png
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-r-models-thumbnail.png
 content: |
   [!include[](batch-scoring-R-models-content.md)]

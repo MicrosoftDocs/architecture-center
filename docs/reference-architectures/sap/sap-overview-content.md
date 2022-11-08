@@ -204,7 +204,7 @@ Your SAP data is likely the treasure of your organization's technical footprint.
 
 SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model. This means security protections are built into the service by Microsoft at the level of the physical datacenter, physical network, physical host, and hypervisor. For the areas above the hypervisor—such as the guest operating system for SAP—you need to carefully evaluate the services and technologies you select to ensure you are providing the proper security controls for your architecture.
 
-For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured.
+For authentication, you can take advantage of [Azure Active Directory (Azure AD)](/azure/active-directory/) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured.
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
 [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
@@ -323,6 +323,16 @@ The SAP community provides many free templates to help you get started. Although
 - [Automated SAP deployments in Azure](https://github.com/Azure/sap-hana)
 
 - [SAP NetWeaver 3-tier (managed disk)](https://azure.microsoft.com/resources/templates/sap-3-tier-marketplace-image-md/)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

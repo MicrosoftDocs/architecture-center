@@ -21,7 +21,7 @@ The focus of this article is to show a practical architecture that uses Azure se
 4. Azure Databricks processes stream data from Azure Event Hubs and combines it with static data.
 5. The final processed data is written to Data Lake Storage in Delta format.
 6. Transformed data that's used in the visualization layer, like Power BI, is written to an Azure SQL Database. This database becomes the data source for any reporting needs.
-7. Curated data is visualized and manipulated through Power BI, Power Apps, or a custom web application that is hosted by an Azure App Service.
+7. Curated data is visualized and manipulated through Power BI, Power Apps, or a custom web application that's hosted by an Azure App Service.
 8. Azure Machine Learning builds and trains machine learning models by using data imported into Azure Machine Learning Datasets and external sources. The datasets and sources are directly linked to the Azure Machine Learning Workspace. You can control access and authentication for data and the Machine Learning workspace with Azure Active Directory (Azure AD) and Azure Key Vault. Models can also be retrained as necessary in Machine Learning.
 9. As an alternative to storing model results in Data Lake Storage or SQL Database, you can deploy Machine Learning models to containers using Azure Kubernetes Services (AKS) as a web service and called via a REST API endpoint. The web service deploys by using an Azure App Service, and then you can send data to the REST API endpoint and receive the prediction returned by the model within the web application.
 
@@ -54,10 +54,10 @@ Throughout the process:
 - You can use [Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-pool-configurations) instead of Azure Databricks for sports analytics by using the same open-source frameworks.
 - Instead of Azure SQL Database, you can use [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to store data that's served to the visualize/interact layer.
 - You can use an Azure Synapse Analytics dedicated SQL pool instead of an Azure SQL Database if the reporting requirements require several terabytes of data stored in the serving layer.
-- If you don't want to use a database as the serving layer for reporting, you can choose to use a *semantic lakehouse* approach. In this scenario, reporting applications read data directly from the gold layer (data that's formatted with the Delta format) in Data Lake Storage.
+- If you don't want to use a database as the serving layer for reporting, you can choose to use a *semantic lakehouse* approach. In this scenario, reporting applications connect to logical tables that are defined by a service like [Databricks SQL](/azure/databricks/sql). These logical tables are used to structure data that's stored in the gold layer (data that's formatted using the Delta format) of Azure Data Lake Storage Gen2, so that the data can be easily read. 
 - Instead of Azure Databricks, you can use SQL Database or SQL Managed Instance to query and process data. These databases provide the familiar T-SQL language, which you can use for analysis.
 - You can use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) instead of Azure Databricks to process stream data.
-- You can use Machine Learning instead of Azure Databricks to train your machine learning models.
+- You can use Azure Machine Learning instead of Azure Databricks to train your machine learning models.
 - You can use GitHub instead of Azure DevOps to manage your code repositories and continuous integration and continuous delivery (CI/CD) pipelines.
 
 ## Scenario details
@@ -73,7 +73,7 @@ This solution is ideal for the sports industry, and applies to the following sce
 - With consideration for spatial metrics, determine the best possible player positioning and strategies during gameplay.
 - Process and evaluate player performance data to optimize athlete training routines.
 - Analyze historical data to make well-informed personnel decisions during the draft or free agency.
-- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and balls.
+- Store and analyze real-time telemetry from Internet of Things (IoT) devices that are attached to equipment like bats, shoulder pads, and volleyballs.
 
 ## Considerations
 
@@ -109,6 +109,10 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
+## Deploy this scenario
+
+To deploy this scenario, follow the steps described in this Azure quickstart, [Deploy the Sports Analytics on Azure Architecture](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/sports-analytics-architecture/). Be sure to read the **Prerequisites** section in the quickstart before deploying the solution. 
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -117,6 +121,7 @@ Principal authors:
 
 - [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jake Switzer](https://www.linkedin.com/in/jake-switzer-1629a983) | Sports Analytics Solution Architect
+- [Tash Tahir](https://www.linkedin.com/in/tashtahir/) | Principal Cloud Solution Architect
 
 Other contributor:
 

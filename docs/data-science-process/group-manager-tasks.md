@@ -252,6 +252,16 @@ To configure permissions for members:
 1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**.
 
    ![Grant permissions to members](./media/group-manager-tasks/grant-permissions.png)
+   
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

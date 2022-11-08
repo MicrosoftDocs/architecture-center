@@ -168,7 +168,7 @@ Each component in the landing zone is discussed below.
 Principal authors:
 
 - [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist
-- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Senior Cloud Solutions Architect
+- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Principal Cloud Solution Architect
 
 Other contributors:
 

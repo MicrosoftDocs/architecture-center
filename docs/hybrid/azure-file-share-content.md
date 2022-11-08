@@ -6,7 +6,7 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Components
+### Workflow
 
 The architecture consists of the following components:
 
@@ -19,6 +19,8 @@ The architecture consists of the following components:
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
 
 ## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 
@@ -124,6 +126,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal author:
+
 - [Andrew Coughlin](https://www.linkedin.com/in/andrew-coughlin-644a3a38) | Senior Cloud Solutions Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

@@ -27,7 +27,7 @@ There are two main patterns for connecting spoke virtual networks to each other:
 
 ### Pattern 1: Spokes directly connected to each other
 
-Direct connections between spokes typically offer better throughput, latency, and scalability than connections that go through a network virtual appliance (NVA) across a hub. Sending traffic through NVAs can add latency to the traffic if the NVAs are in a different availability zone and at least two virtual network peerings need to be crossed when traffic is sent over the hub. There are several options for connecting two spoke virtual networks to each other directly: virtual network peering, VPN tunnels, and Azure Virtual Network Manager.
+Direct connections between spokes typically offer better throughput, latency, and scalability than connections that go through a network virtual appliance (NVA) across a hub. Sending traffic through NVAs can add latency to the traffic if the NVAs are in a different availability zone and at least two virtual network peerings need to be crossed when traffic is sent over the hub. There are several options for connecting two spoke virtual networks to each other directly: virtual network peering, Azure Virtual Network Manager, and VPN tunnels.
 
 - [**Virtual network peering.**][vnet_peering] The advantages of direct virtual network peerings over spokes are: 
   - Lower cost, because fewer virtual network peering hops are required.
@@ -50,7 +50,7 @@ Direct connections between spokes typically offer better throughput, latency, an
 
 - **VPN tunnels connecting virtual networks.** You can configure VPN services to directly connect spoke virtual networks by using Microsoft [VPN gateways][vnet_to_vnet] or third-party VPN NVAs. The advantage of this option is that spoke virtual networks connect across commercial and sovereign clouds within the same cloud provider or connectivity cross-cloud providers. Also, if there are software-defined wide area network (SD-WAN) NVAs in each spoke virtual network, this configuration can facilitate using the third-party provider's control plane and feature set to manage virtual network connectivity. 
 
-   This option can also help you meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter that aren't already provided by [MACsec encryption][macsec]. But this option comes with its own set of challenges because of the bandwidth limits of IPsec tunnels (1.25 Gbps per tunnel) and the design constraints of having virtual network gateways in both hub and spoke virtual networks. If the spoke virtual network has a virtual network gateway, it can't be connected to Virtual WAN or use a hub's virtual network gateway to connect to on-premises networks.
+   This option can also help you meet compliance requirements for the encryption of traffic across virtual networks in a single Azure datacenter that aren't already provided by [MACsec encryption][macsec]. But this option comes with its own set of challenges because of the bandwidth limits of IPsec tunnels (1.25 Gbps per tunnel) and the design constraints of having virtual network gateways in both hub and spoke virtual networks: If the spoke virtual network has a virtual network gateway, it can't be connected to Virtual WAN or use a hub's virtual network gateway to connect to on-premises networks.
 
 #### Pattern 1: Single region
 
@@ -60,7 +60,7 @@ Regardless of the technology that you use to connect spoke virtual networks to e
 
 #### Pattern 1: Multiple regions
 
-Designs that connect all spoke virtual networks to each other can also be extended to multiple regions. In this topology, Azure Virtual Network Manager is even more critical, to reduce the administrative overhead of maintaining the large number of connections.
+Designs that connect all spoke virtual networks to each other can also be extended to multiple regions. In this topology, Azure Virtual Network Manager is even more critical, to reduce the administrative overhead of maintaining the required large number of connections.
 
 :::image type="content" source="media/spoke-to-spoke-through-peerings-2-hubs-full-mesh.png" alt-text="Network diagram that shows a two-region hub-and-spoke design with spokes in the same region connected via virtual network peerings." lightbox="media/spoke-to-spoke-through-peerings-2-hubs-full-mesh.png" border="false":::
 

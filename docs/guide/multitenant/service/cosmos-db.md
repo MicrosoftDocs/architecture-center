@@ -28,7 +28,7 @@ On this page, we describe some of the features of Azure Cosmos DB that are usefu
 
 ### Partitioning
 
-By using partitions with your Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). With large containers, Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
+By using partitions with your Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 More information:
 
@@ -37,16 +37,16 @@ More information:
 
 ### Managing request units
 
-Cosmos DB's pricing model is based on the number of *request units* per second that you provision or consume. A request unit is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second for your workload, which is referred to as *throughput*. Cosmos DB provides several options for how you provision throughput. In a multitenant environment, the selection you make affects the performance and price of your Cosmos DB resources.
+Azure Cosmos DB pricing model is based on the number of *request units* per second that you provision or consume. A request unit is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second for your workload, which is referred to as *throughput*. Azure Cosmos DB provides several options for how you provision throughput. In a multitenant environment, the selection you make affects the performance and price of your Azure Cosmos DB resources.
 
-One tenancy model for Cosmos DB involves deploying separate containers for each tenant within a shared database. Cosmos DB enables you to provision request units for a database, and all of the containers share the request units. If your tenant workloads don't typically overlap, this can provide a useful approach to reduce your operational costs. However, note that this approach is susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) because a single tenant's container might consume a disproportionate amount of the shared provisioned request units. To mitigate this after you've identified noisy tenants, you can optionally set provisioned throughput on a specific container. The other containers in the database continue to share their throughput, but the noisy tenant consumes their own dedicated throughput.
+One tenancy model for Azure Cosmos DB involves deploying separate containers for each tenant within a shared database. Azure Cosmos DB enables you to provision request units for a database, and all of the containers share the request units. If your tenant workloads don't typically overlap, this can provide a useful approach to reduce your operational costs. However, note that this approach is susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) because a single tenant's container might consume a disproportionate amount of the shared provisioned request units. To mitigate this after you've identified noisy tenants, you can optionally set provisioned throughput on a specific container. The other containers in the database continue to share their throughput, but the noisy tenant consumes their own dedicated throughput.
 
-Cosmos DB also provides a serverless tier, which is suited for workloads with intermittent or unpredictable traffic. Alternatively, autoscaling enables you to configure policies to specify the scaling of provisioned throughput. In a multitenant solution, you might combine all of these approaches to support different types of tenant.
+Azure Cosmos DB also provides a serverless tier, which is suited for workloads with intermittent or unpredictable traffic. Alternatively, autoscaling enables you to configure policies to specify the scaling of provisioned throughput. In a multitenant solution, you might combine all of these approaches to support different types of tenant.
 
 > [!NOTE]
-> When planning your Cosmos DB configuration, ensure you consider the [service quotas and limits](/azure/cosmos-db/concepts-limits).
+> When planning your Azure Cosmos DB configuration, ensure you consider the [service quotas and limits](/azure/cosmos-db/concepts-limits).
 
-To monitor and manage the costs that are associated with each tenant, every operation using the Cosmos DB API includes the request units consumed. You can use this information to aggregate and compare the actual request units consumed by each tenant, and you can then identify tenants with different performance characteristics.
+To monitor and manage the costs that are associated with each tenant, every operation using the Azure Cosmos DB API includes the request units consumed. You can use this information to aggregate and compare the actual request units consumed by each tenant, and you can then identify tenants with different performance characteristics.
 
 More information:
 
@@ -58,11 +58,11 @@ More information:
 
 ### Customer-managed keys
 
-Some tenants might require the use of their own encryption keys. Cosmos DB provides a customer-managed key feature. This feature is applied at the level of a Cosmos DB account, so tenants who require their own encryption keys need to be deployed using dedicated Cosmos DB accounts.
+Some tenants might require the use of their own encryption keys. Azure Cosmos DB provides a customer-managed key feature. This feature is applied at the level of an Azure Cosmos DB account, so tenants who require their own encryption keys need to be deployed using dedicated Azure Cosmos DB accounts.
 
 More information:
 
-- [Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk)
+- [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk)
 
 ## Isolation models
 
@@ -76,7 +76,7 @@ When working with a multitenant system that uses Azure Cosmos DB, you need to ma
 
 ### Shared container with partition keys per tenant
 
-When you use a single container for multiple tenants, you can make use of Cosmos DB's partitioning support. By using separate partition keys for each tenant, you can easily query the data for a single tenant. You can also query across multiple tenants, even if they are in separate partitions. However, [cross-partition queries](/azure/cosmos-db/sql/how-to-query-container#cross-partition-query) have a higher request unit (RU) cost than single-partition queries.
+When you use a single container for multiple tenants, you can make use of Azure Cosmos DB partitioning support. By using separate partition keys for each tenant, you can easily query the data for a single tenant. You can also query across multiple tenants, even if they are in separate partitions. However, [cross-partition queries](/azure/cosmos-db/sql/how-to-query-container#cross-partition-query) have a higher request unit (RU) cost than single-partition queries.
 
 This approach tends to work well when the amount of data stored for each tenant is small. It can be a good choice for building a [pricing model](../considerations/pricing-models.md) that includes a free tier, and for business-to-consumer (B2C) solutions. In general, by using shared containers, you achieve the highest density of tenants and therefore the lowest price per tenant.
 
@@ -98,9 +98,9 @@ Lifecycle management is generally simpler when containers are dedicated to tenan
 
 ### Database account per tenant
 
-Cosmos DB enables you to provision separate database accounts for each tenant, which provides the highest level of isolation, but the lowest density. A single database account is dedicated to a tenant, which means they are not subject to the noisy neighbor problem. You can also configure the location of the database account according to the tenant's requirements, and you can tune the configuration of Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. When using a dedicated Cosmos DB account per tenant, consider the [maximum number of Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations).
+Azure Cosmos DB enables you to provision separate database accounts for each tenant, which provides the highest level of isolation, but the lowest density. A single database account is dedicated to a tenant, which means they are not subject to the noisy neighbor problem. You can also configure the location of the database account according to the tenant's requirements, and you can tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations).
 
-If you allow tenants to migrate from a shared account to a dedicated Cosmos DB account, consider the migration approach you'll use to move a tenant's data between the old and new accounts.
+If you allow tenants to migrate from a shared account to a dedicated Azure Cosmos DB account, consider the migration approach you'll use to move a tenant's data between the old and new accounts.
 
 ### Hybrid approaches
 
@@ -117,14 +117,14 @@ You can consider a combination of the above approaches to suit different tenants
 
 Principal authors:
 
- * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- * [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * Thomas Weiss | Principal Program Manager
+- [Mark Brown](https://www.linkedin.com/in/markjbrown1) | Principal PM Manager, Azure Cosmos DB
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- Thomas Weiss | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -134,6 +134,6 @@ Review [storage and data approaches for multitenancy](../approaches/storage-data
 
 ## Related resources
 
-* [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems): A blog post that discusses how to build a multitenant system that uses Azure Cosmos DB.
-* [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
-* [Building a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made that relate to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR, and more, all using ASP.NET Core on Azure App Services.
+- [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems): A blog post that discusses how to build a multitenant system that uses Azure Cosmos DB.
+- [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
+- [Building a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made that relate to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR, and more, all using ASP.NET Core on Azure App Services.

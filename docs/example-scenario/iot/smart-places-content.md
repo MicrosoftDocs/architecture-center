@@ -207,7 +207,7 @@ These services provide support for components in all areas of the solution:
   - Document databases.
   - Graph databases.
   - SQL-style queries.
-  - A Cassandra API.
+  - An Azure Cosmos DB for Apache Cassandra.
 
   [Azure Synapse Link for Azure Cosmos DB][What is Azure Synapse Link for Azure Cosmos DB?] provides a way to run analytics on Azure Cosmos DB data by using Azure Synapse Analytics. As a result, you can combine various data services in solutions that use Azure Cosmos DB.
 

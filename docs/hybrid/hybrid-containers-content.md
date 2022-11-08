@@ -6,7 +6,7 @@ This reference architecture illustrates how developers can create, manage, and m
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
 - **[Microsoft Azure Container Registry (ACR)][azure-container-registry]**. ACR is a service that creates a managed registry. ACR builds, stores, and manages container images and can store containerized machine learning models.
 - **[Azure Kubernetes Service (AKS)][azure-kubernetes-service]**. AKS is a managed service that offers a managed Kubernetes cluster with elastic scale-out functionality.
@@ -20,6 +20,8 @@ This reference architecture illustrates how developers can create, manage, and m
 - **[On-premises Kubernetes cluster][kubernetes]**. In this architecture, a local Kubernetes cluster is used to run multiple containers on-premises.
 
 ## Scenario details
+
+### Potential use cases
 
 Typical uses for this architecture include:
 

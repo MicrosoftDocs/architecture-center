@@ -4,7 +4,8 @@ description: Compare technology choices for big data batch processing in Azure, 
 author: EdPrice-MSFT
 categories: azure
 ms.author: architectures
-ms.date: 07/25/2022
+ms.reviewer: tozimmergren
+ms.date: 10/03/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -15,13 +16,14 @@ products:
   - azure-data-lake
 ms.custom:
   - guide
+  - engagement-fy23
 ---
 
 # Choose a batch processing technology in Azure
 
-Big data solutions often use long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage.
+Big data solutions often use long-running batch jobs to filter, aggregate and otherwise prepare the data for analysis. Usually, these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage.
 
-The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
+The fundamental requirement of such batch processing engines is to scale out computations to handle a large volume of data. Unlike real-time processing, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
 ## Technology choices for batch processing
 
@@ -31,7 +33,7 @@ The key requirement of such batch processing engines is the ability to scale out
 
 ### Azure Data Lake Analytics
 
-[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store.
+[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It's optimized for distributed processing of large data sets stored in Azure Data Lake Store.
 
 - Languages: [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
 - Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and Azure Synapse.
@@ -39,11 +41,11 @@ The key requirement of such batch processing engines is the ability to scale out
 
 ### HDInsight
 
-HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
+HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
 
 - Languages: R, Python, Java, Scala, SQL
-- Kerberos authentication with Active Directory, Apache Ranger based access control
-- Gives you full control of the Hadoop cluster
+- Kerberos authentication with Active Directory, Apache Ranger-based access control
+- Gives you complete control of the Hadoop cluster
 
 ### Azure Databricks
 
@@ -57,17 +59,6 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
 
-### Azure Distributed Data Engineering Toolkit
-
-The [Distributed Data Engineering Toolkit](https://github.com/azure/aztk) (AZTK) is a tool for provisioning on-demand Spark on Docker clusters in Azure.
-
-AZTK is not an Azure service. Rather, it's a client-side tool with a CLI and Python SDK interface, that's built on Azure Batch. This option gives you the most control over the infrastructure when deploying a Spark cluster.
-
-- Bring your own Docker image.
-- Use low-priority VMs for an 80% discount.
-- Mixed mode clusters that use both low-priority and dedicated VMs.
-- Built in support for Azure Blob Storage and Azure Data Lake connection.
-
 ## Key selection criteria
 
 To narrow the choices, start by answering these questions:
@@ -78,7 +69,7 @@ To narrow the choices, start by answering these questions:
 
 - Will you perform batch processing in bursts? If yes, consider options that let you auto-terminate the cluster or whose pricing model is per batch job.
 
-- Do you need to query relational data stores along with your batch processing, for example to look up reference data? If yes, consider the options that enable querying of external relational stores.
+- Do you need to query relational data stores along with your batch processing, for example, to look up reference data? If yes, consider the options that enable the querying of external relational stores.
 
 ## Capability matrix
 

@@ -16,7 +16,7 @@ metadata:
     - ai-ml
     - Azure Spatial Anchors
     - Azure Active Directory
-    - Azure Cosmos DB
+    - Cosmos DB
     - Azure App Service
     - Media Services
     - Microsoft HoloLens

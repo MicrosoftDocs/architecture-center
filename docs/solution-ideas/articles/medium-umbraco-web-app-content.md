@@ -31,7 +31,7 @@ Some industries that utilize Umbraco include:
 
 Use the following pre-built template to deploy this architecture to Azure:
 
-- [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
+- [Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fumbraco%2Fumbraco-cms-webapp-redis-cache%2Fazuredeploy.json)
 - [View template source](https://azure.microsoft.com/resources/templates/umbraco-cms-webapp-redis-cache)
 
 ## Next steps

@@ -66,7 +66,7 @@ CluedIn provides functionality for all of the above. In addition, the following 
 - Hierarchies can now be visualized natively in Power BI.
 - Workflows are migrated and can be built and extended directly in Power Automate.
 - Business rules and data quality services are natively migrated into the CluedIn Rules engine.
-- CluedIn provides built-in data enrichment for your MDS records, to automatically fix and validated addresses, company information, and more.
+- CluedIn provides built-in data enrichment for your MDS records, to automatically fix and validate addresses, company information, and more.
 - Manage consent and run data subject access requests.
 - Write back to the MDS instance, if necessary.
 

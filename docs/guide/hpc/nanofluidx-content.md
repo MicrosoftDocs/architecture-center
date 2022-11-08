@@ -17,7 +17,7 @@ Altair nanoFluidX is designed for use on clusters of graphical
 processing units (GPUs), so it's fast.
 
 It's primarily used in industries like construction, off-highway,
-mining, agriculture, space exploration, and process industries. It's best
+mining (energy), agriculture, space exploration (aerospace), and process/manufacturing. It's best
 suited for simulation of free surface oiling, sloshing, and mixing.
 
 ## Why deploy nanoFluidX on Azure?

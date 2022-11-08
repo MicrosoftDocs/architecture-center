@@ -64,7 +64,7 @@ The solution uses the components that are listed in the following subsections.
 
 - The diagram shows Qlik installed on-premises, a recommended best practice to keep it close to the on-premises data sources. An alternative is to install Qlik in the cloud on an Azure virtual machine.
 - Qlik Data Integration can deliver directly to Databricks without going through Kafka or an event hub.
-- Qlik Data integration can't replicate directly to Cosmos DB, but you can integrate Cosmos DB with an event hub by using event-sourcing architecture.
+- Qlik Data integration can't replicate directly to Azure Cosmos DB, but you can integrate Azure Cosmos DB with an event hub by using event-sourcing architecture.
 
 ## Scenario details
 

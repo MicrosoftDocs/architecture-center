@@ -12,7 +12,10 @@ Calculate business metrics by using IoT telemetry and other business systems dat
 
 :::image type="content" source="images/overall-equipment-effectiveness.png" alt-text="Diagram that shows how to calculate overall equipment effectiveness by using Azure Synapse and Azure Data Explorer." lightbox="images/overall-equipment-effectiveness.png":::
 
-- Dataflow:
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-patterns-transparency.pptx) of this pattern.*
+
+### Dataflow
+
     1. The edgeHub module sends the machine availability data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT. IoT Hub or Azure IoT Central sends module updates to the edge and provides an edge management control plan.
     2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
     3. Azure Data Explorer dashboards use Kusto Query Language (KQL) to fetch the data from the cluster and build a near real-time dashboard around machine availability.
@@ -25,18 +28,33 @@ Calculate business metrics by using IoT telemetry and other business systems dat
     10. The PySpark code stores the OEE data in Azure SQL Database.
     11. Power BI connects with SQL Database for reporting and visualization.
 
+### Potential use cases
+
 - Use this pattern when:
   - You're using Azure Synapse for data fabric aspects like data lake management, data pipeline management, serverless data processing, data warehousing, and data governance.
   - You need to combine both real-time and batch data pipelines and perform business KPI calculations.
   - You need to standardize KPI calculations across factories and business units.
 
-- Considerations:
+## Considerations
+
   - For more information on data flows, see [Data flows in Azure Synapse](/azure/synapse-analytics/concepts-data-flow-overview).
   - For more information on spark connectors, see [Azure Data Explorer (Kusto) spark connector](/azure/synapse-analytics/quickstart-connect-azure-data-explorer).
   - For a less compute intensive and serverless calculation engine, use [Azure Functions](https://azure.microsoft.com/en-us/services/functions) instead of an Azure Synapse spark pool.
 
+### Deploy this scenario
+
 - Deployment sample:
   - [OEE and KPI calculation engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Jomit Vaghela](https://www.linkedin.com/in/jomit) | Principal Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

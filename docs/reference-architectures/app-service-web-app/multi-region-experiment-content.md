@@ -14,7 +14,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
 - **Front Door**. [Front Door](/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
-- **Geo-replication** of SQL Database and/or Cosmos DB.
+- **Geo-replication** of SQL Database and/or Azure Cosmos DB.
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
@@ -86,9 +86,9 @@ As a best practice, create a health probe path in your application backend that 
 
 Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
-### Cosmos DB
+### Azure Cosmos DB
 
-Cosmos DB supports geo-replication across regions in active-active pattern with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Azure Cosmos DB supports geo-replication across regions in active-active pattern with multiple write regions. Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -121,9 +121,9 @@ Front Door is a possible failure point in the system. If the service fails, clie
 
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
 
-#### Cosmos DB
+#### Azure Cosmos DB
 
-RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
+RPO and recovery time objective (RTO) for Azure Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Azure Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Azure Cosmos DB consistency levels, see [Consistency levels and data durability in Azure Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
 #### Storage
 
@@ -165,7 +165,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - The provisioned throughput or [Request Units per second (RU/s)](/azure/cosmos-db/request-units).
 
-    There are two types of throughput that can be provisioned in Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
+    There are two types of throughput that can be provisioned in Azure Cosmos DB, standard and autoscale. Standard throughput allocates the resources required to guarantee the RU/s that you specify. For autoscale, you provision the maximum throughput, and Azure Cosmos DB instantly scales up or down depending on the load, with a minimum of 10% of the maximum autoscale throughput. Standard throughput is billed for the throughput provisioned hourly. Autoscale throughput is billed for the maximum throughput consumed hourly.
 
 - Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 

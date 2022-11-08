@@ -2,7 +2,7 @@ This solution illustrates geographic traffic routing, a process for implementing
 
 ## Potential use cases
 
-Organizations that have wide-reaching geographies strive to distribute data and enable access to that data while ensuring required levels of security, compliance, and performance per user, location, and device across borders.
+Organizations that have wide-reaching geographies strive to distribute data and enable access to that data. At the same time, they must ensure required levels of security, compliance, and performance per user, location, and device across borders.
 
 Use this solution when:
 

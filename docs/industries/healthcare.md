@@ -2,8 +2,8 @@
 title: Solutions for the healthcare industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
@@ -63,7 +63,7 @@ The following are some additional ideas that you can use as a starting point for
 - [Population Health Management for Healthcare](../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Medical Data Storage Solutions](../solution-ideas/articles/medical-data-storage.yml)
 - [HIPAA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [Remote Patient Monitoring Solutions](../solution-ideas/articles/remote-patient-monitoring.yml)
+- [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
 - [Predict Length of Stay and Patient Flow](../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
 - [Predict Length of Stay in Hospitals](../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
 - [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)

@@ -1,6 +1,6 @@
 The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.
 
-![Logical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-logical.svg)
+![Logical diagram of Web-Queue-Worker architecture style.](./images/web-queue-worker-logical.svg)
 
 Other components that are commonly incorporated into this architecture include:
 
@@ -50,19 +50,23 @@ Consider this architecture style for:
 
 This section describes a recommended Web-Queue-Worker architecture that uses Azure App Service.
 
-![Physical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-physical.png)
+![Physical diagram of Web-Queue-Worker architecture style.](./images/web-queue-worker-physical.png)
 
-- The front end is implemented as an Azure App Service web app, and the worker is implemented as an Azure Functions app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
+*Download a [Visio file](https://arch-center.azureedge.net/web-queue-worker.vsdx) of this architecture.*
 
-- You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
+### Workflow
 
-- Azure Cache for Redis stores session state and other data that needs low latency access.
+- The front end is implemented as an [Azure App Service](/azure/app-service/overview) web app, and the worker is implemented as an [Azure Functions](/azure/azure-functions/functions-overview) app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
 
-- Azure CDN is used to cache static content such as images, CSS, or HTML.
+- You can use either [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) or [Azure Storage queues](/azure/storage/queues/storage-queues-introduction) for the message queue. (The diagram shows an Azure Storage queue.)
 
-- For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) stores session state and other data that needs low latency access.
 
-For more information, see [App Service web application reference architecture][scalable-web-app].
+- [Azure CDN](/azure/cdn/cdn-overview) is used to cache static content such as images, CSS, or HTML.
+
+- For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction).
+
+For more information, see the [App Service web application reference architecture][scalable-web-app] and how to [build message-driven business applications with NServiceBus and Azure Service Bus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus).
 
 ### Other considerations
 
@@ -75,6 +79,16 @@ For more information, see [App Service web application reference architecture][s
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 
 - Use deployment slots to manage deployments. This method lets you deploy an updated version to a staging slot, then swap over to the new version. It also lets you swap back to the previous version, if there was a problem with the update.
+
+## Related resources
+
+- [RESTful web API design](/azure/architecture/best-practices/api-design)
+- [Autoscaling](/azure/architecture/best-practices/auto-scaling)
+- [Caching guidance](/azure/architecture/best-practices/caching)
+- [CDN guidance](/azure/architecture/best-practices/cdn)
+- [Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)
+- [Use the best data store for your data](/azure/architecture/guide/design-principles/use-best-data-store)
+- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
 
 <!-- links -->
 

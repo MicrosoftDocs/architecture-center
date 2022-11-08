@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - sap
     - SAP on Azure
-    - Azure SQL Server
     - SAP NetWeaver
     - SQL Server
     - Azure Virtual Machine

@@ -4,7 +4,7 @@ The following example focuses specifically on the SAP BW/4HANA application tier.
 
 ![Reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure](./images/sap-bw4hana.png)
 
-### Workflow
+### Components
 
 This architecture makes use of the following technologies:
 
@@ -240,6 +240,16 @@ SAP has its own User Management Engine (UME) to control role-based access and au
 [Security Guide SAP BW∕4HANA](https://help.sap.com/viewer/d3b558c9e49d4eb495c99c63a0ae549a/1.0.4/en-US).
 
 The [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4hana#security-considerations) provides other infrastructure security considerations that apply to SAP BW/4HANA.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

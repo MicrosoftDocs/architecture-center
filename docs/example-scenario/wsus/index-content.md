@@ -121,7 +121,7 @@ The script will start the initial synchronization needed to make updates availab
 2. Select **Next** until you get to the **Select server roles** page. Select **Windows Server Update Services**. Select **Add Features** when you're prompted with **Add features that are required for Windows Server Update Services?**
 3. Select **Next** until you get to the **Select role services** page.
     - By default, you can use **WID Connectivity**.
-    - Use **SQL Server Connectivity** if you need to support clients that use many different versions of Windows (for example, Windows 10, Windows 8, and Windows 7).
+    - Use **SQL Server Connectivity** if you need to support clients that use many different versions of Windows (for example, Windows 11 and Windows 10).
 
 4. Select **Next** until you get to the **Content location selection** page. Enter the location where you want to store the updates.
 5. Select **Next** until you get to the **Confirm installation selections** page. Select **Install**.
@@ -209,3 +209,11 @@ Principal author:
 
 - For more information on planning a deployment, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 - For more information on managing WSUS, setting up a WSUS synchronization schedule, and more, see [WSUS administration](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus).
+
+## Related resources
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)
+- [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
+- [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)

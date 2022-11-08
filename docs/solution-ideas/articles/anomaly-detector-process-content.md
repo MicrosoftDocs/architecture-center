@@ -4,11 +4,11 @@ This article presents an architecture for a near real-time implementation of an
 
 ![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
 
-*Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/anomaly-detector-process.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Time-series data can come from multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
+1. Time-series data can come from multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Azure Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
 1. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 1. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
 1. The anomaly detector API detects anomalies and returns the results to compute.

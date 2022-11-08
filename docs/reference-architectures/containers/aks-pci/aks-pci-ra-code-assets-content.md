@@ -8,7 +8,7 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
 
-That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
+That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE (site reliability engineer) cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
 
 > [!IMPORTANT]
 >
@@ -24,11 +24,11 @@ The firewall instance secures outbound network traffic. Without this layer of se
 
 **Azure Bastion**
 
-The baseline architecture provided a subnet for Azure Bastion, but didn't provision the resource. This architecture adds Azure Bastion in the subnet. It provides secure access to a jump box.
+The baseline architecture provided a subnet for Azure Bastion, but didn't provision the resource. This architecture adds Azure Bastion in the subnet and it provides secure access to a jump box.
 
 **Azure Image Builder**
 
-Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with management tools such as the Azure CLI, `kubectl`, and Flux CLI pre-installed.
+Provisioned in a separate virtual network, it creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with management tools such as the Azure CLI, `kubectl`, and Flux CLI pre-installed.
 
 **Azure Virtual Machine Scale Sets for jump box instances**
 
@@ -67,7 +67,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - **In-scope:** The PCI workload, the environment in which it resides, and operations.
 
-- **Out-of-scope:** Other workloads that may share services but are isolated from the in-scope components.
+- **Out-of-scope:** Other workloads that might share services, but are isolated from the in-scope components.
 
 The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow that model, use a  rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
 
@@ -146,11 +146,11 @@ Enable [Azure DDoS Protection Standard](/azure/ddos-protection/manage-ddos-prote
 
 ## Identity access management
 
-Define roles and set access policies according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
+Define roles and set access control according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
 
-Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) can provide additional layers of required authentication validation for privileged access, based on the rules you build.
+Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) and [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks), which provides an additional layers of required authentication validation for privileged access, based on the rules you build.
 
-For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
+For more details on using PowerShell to configure conditional access, see [New-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/new-azureadmsconditionalaccesspolicy), [Get-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/get-azureadmsconditionalaccesspolicy), and [Remove-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/remove-azureadmsconditionalaccesspolicy).
 
 ## Disk encryption
 
@@ -216,9 +216,9 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 Use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) in Microsoft Defender for Cloud to view and remediate security recommendations and to view security alerts on your container resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
-Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
+Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several options. You can turn on AKS diagnostic logs and send them to a Log Analytics workspace that is part of [Azure Monitor](/azure/azure-monitor/overview). Another option is to integrate data into security information and event management (SIEM) solutions, such as [Microsoft Sentinel](/azure/sentinel/overview).
 
-As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
+As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data, and make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
 For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/MDfCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 

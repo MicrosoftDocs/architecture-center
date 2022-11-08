@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Firewall architecture overview
+  title: Azure Network Virtual Appliances Firewall architecture overview
   description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
   author: RZomerman
   ms.author: rozome
@@ -12,7 +12,7 @@ metadata:
     - networking
   ms.custom:
     - example-scenario
-name: Azure Firewall architecture overview
+name: Azure Network Virtual Appliances Firewall architecture overview
 azureCategories:
   - networking
 summary: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.

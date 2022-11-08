@@ -40,6 +40,8 @@ This architecture is relevant for the following scenarios:
 
 In this scenario, users need to use a mobile client that supports modern authentication. We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
 
+#### Workflow
+
 1. The user starts Outlook profile configuration by entering an email address. Outlook mobile connects to the AutoDetect service. 
 2. The AutoDetect service makes an anonymous AutoDiscover V2 request to Exchange Online to get the mailbox. Exchange Online replies with a 302 redirect response that contains the ActiveSync URL address for the mailbox, pointing to Exchange Online. You can see an [example of this type of request here](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#connection-flow).
 3. Now that the AutoDetect service has information about the endpoint of the mailbox content, it can call ActiveSync without authentication.
@@ -56,6 +58,8 @@ In this scenario, users need to use a mobile client that supports modern authent
 14.	Azure AD returns access and refresh tokens to the client.
 15. The client uses the access token to connect to Exchange Online and retrieve the mailbox content.
 
+#### Configuration
+
 To block attempts to access Exchange Online ActiveSync via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook mobile service uses. Specifically, you need to disable AutoDiscover, ActiveSync, and Outlook Service. Here's the corresponding authentication policy configuration:
 ```
 AllowBasicAuthAutodiscover         : False
@@ -71,6 +75,8 @@ For federated domains, you can configure AD FS to trigger multi-factor authentic
 :::image type="content" border="false" source="./media/mobile-on-premises.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange on-premises." lightbox="./media/mobile-on-premises.png":::
 
 In this scenario, users need to use a mobile client that supports modern authentication, as described in [Using hybrid modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019). We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
+
+#### Workflow
 
 1. The user starts Outlook profile configuration by entering an email address. Outlook mobile connects to the AutoDetect service.
 2. The AutoDetect service makes an anonymous AutoDiscover V2 request to Exchange Online to get the mailbox. 
@@ -92,6 +98,8 @@ In this scenario, users need to use a mobile client that supports modern authent
 18.	If the mailbox isn't provisioned, the provisioning API creates a mailbox.
 19.	The provisioning API establishes a secure connection to the on-premises ActiveSync endpoint. The API synchronizes the user's messaging data by using the second access token as the authentication mechanism. The refresh token is used periodically to generate a new access token so that data can synchronize in the background without user intervention.
 20.	Data is returned to the client.
+
+#### Configuration
 
 To block attempts to access Exchange on-premises ActiveSync via legacy authentication (the red dashed lines in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook mobile service uses. Specifically, you need to disable AutoDiscover and ActiveSync. Here's the corresponding authentication policy configuration:
 ```
@@ -235,6 +243,7 @@ Here are the high-level steps:
 Principal author:
 
 * [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+* [Ella Parkum](https://www.linkedin.com/in/ella-parkum-15036923) | Principal Customer Solution Architect-Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

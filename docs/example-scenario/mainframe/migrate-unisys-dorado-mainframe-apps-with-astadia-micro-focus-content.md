@@ -46,7 +46,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
-### Azure Architecture
+### Azure architecture
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 

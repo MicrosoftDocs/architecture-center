@@ -26,7 +26,7 @@ The architecture consists of the following components.
 
 - **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
 
-## Components
+### Components
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute). ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
@@ -225,11 +225,10 @@ For auditing or compliance purposes, it may be necessary to prohibit direct acce
 
 To maximize security, do not enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform configuration or maintenance.
 
-If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowed list of IP addresses or networks.
+If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowlist of IP addresses or networks.
 
 > [!NOTE]
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
->
 
 #### Network monitoring
 

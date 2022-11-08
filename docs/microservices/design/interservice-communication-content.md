@@ -56,7 +56,9 @@ However, there are also some challenges to using asynchronous messaging effectiv
 
 ## Drone Delivery: Choosing the messaging patterns
 
-With these considerations in mind, the development team made the following design choices for the Drone Delivery application
+This solution uses the Drone Delivery example. It's ideal for the aerospace and aircraft industries.
+
+With these considerations in mind, the development team made the following design choices for the Drone Delivery application:
 
 - The Ingestion service exposes a public REST API that client applications use to schedule, update, or cancel deliveries.
 

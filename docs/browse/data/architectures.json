@@ -365,7 +365,7 @@
                 "FlowStep_D": "Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.",
                 "FlowStep_E": "Power users take advantage of the inbuilt capabilities of Azure Databricks to perform root cause determination and raw data analysis.",
                 "FlowStep_F": "Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).",
-                "FlowStep_G": "Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps."
+                "FlowStep_G": "Take the insights from Azure Databricks to Azure Cosmos DB to make them accessible through web and mobile apps."
             },
             "name": "advanced-analytics-on-big-data",
             "popularity": 229,
@@ -1821,7 +1821,7 @@
             "word_count": 1610,
             "read_time": "7 min read",
             "Title": "CI/CD pipeline for container-based workloads",
-            "MetaDescription": "Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.",
+            "MetaDescription": "Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Azure Cosmos DB, and Grafana.",
             "category": [
                 "containers",
                 "devops",
@@ -1840,9 +1840,9 @@
                 "<p><a href=\"https://learn.microsoft.com/azure/virtual-machines/linux/overview\">Azure Linux Virtual Machines</a> is the IaaS platform used to run the Jenkins and Grafana instances.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/container-registry/container-registry-intro\">Azure Container Registry</a> stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.</p>",
-                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.</p>",
+                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Azure Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview\">Azure Monitor</a> helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.</p>",
-                "<p><a href=\"https://grafana.com\">Grafana</a> is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.</p>"
+                "<p><a href=\"https://grafana.com\">Grafana</a> is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Azure Cosmos DB.</p>"
             ],
             "Flow": {
                 "FlowStep_A": "A developer makes changes to the Node.js web application source code.",
@@ -1851,7 +1851,7 @@
                 "FlowStep_D": "The Jenkins build job uses a dynamic build agent in Azure Kubernetes Service to perform a container build process.",
                 "FlowStep_E": "A container image is created from the code in source control, and is then pushed to an Azure Container Registry.",
                 "FlowStep_F": "Through continuous deployment (CD), Jenkins deploys this updated container image to the Kubernetes cluster.",
-                "FlowStep_G": "The Node.js web application uses Cosmos DB as its back end. Both Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.",
+                "FlowStep_G": "The Node.js web application uses Azure Cosmos DB as its back end. Both Azure Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.",
                 "FlowStep_H": "A Grafana instance provides visual dashboards of the application performance based on the data from Azure Monitor."
             },
             "code_languages": [
@@ -2820,7 +2820,7 @@
             "Flow": {
                 "FlowStep_A": "Sensor data is generated and streamed to Azure API Management.",
                 "FlowStep_B": "AKS cluster runs microservice that are deployed as containers behind a service mesh. Containers are built using a DevOps process and stored in Azure Container Registry.",
-                "FlowStep_C": "Ingest service stores data in a Azure Cosmos DB",
+                "FlowStep_C": "Ingest service stores data in an Azure Cosmos DB instance",
                 "FlowStep_D": "Asynchronously, the Analysis service receives the data and streams it to Apache Kafka and Azure HDInsight.",
                 "FlowStep_E": "Data scientists can analyze the large big data for use in machine learning models using Splunk.",
                 "FlowStep_F": "Data is processed by the processing service which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis."
@@ -2850,7 +2850,7 @@
             "image": "/azure/architecture/solution-ideas/media/data-cache-with-redis-cache.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\data-cache-with-redis-cache.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Azure Cache for Redis perfectly complements Azure database services such as Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.</p>",
+            "Summary": "<p>Azure Cache for Redis perfectly complements Azure database services such as Azure Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.</p>",
             "name": "data-cache-with-redis-cache",
             "popularity": 68,
             "topic": "Databases"
@@ -3458,7 +3458,7 @@
                 "<p><a href=\"https://learn.microsoft.com/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, as well as on other environments.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/governance/policy/overview\">Azure Policy</a> lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.</p>",
                 "<p>You can use <a href=\"https://learn.microsoft.com/azure/key-vault/key-vault-overview\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. This sensitive information is read by your application at run-time, so it's abstracted away from your developers.</p>",
-                "<p>Azure <a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is a globally distributed, multi-model database service, that is fully managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.</p>",
+                "<p>Azure <a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is a globally distributed, multi-model database service, that is fully managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/application-gateway/ingress-controller-overview\">Azure Application Gateway</a> is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).</p>",
                 "<p>Using <a href=\"https://learn.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.</p>",
                 "<p>Using <a href=\"https://learn.microsoft.com/azure/active-directory-b2c/overview\">Azure AD B2C</a> you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.</p>"
@@ -3674,7 +3674,7 @@
                 "<p><a href=\"https://learn.microsoft.com/azure/container-registry/\">Azure Container Registry</a> supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/aks/intro-kubernetes\">Azure Kubernetes Service</a> makes it simple to deploy managed Kubernetes clusters by offloading much of the complexity, responsibility, and operational overhead to Azure.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory (Azure AD)</a> enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Azure AD can manage identity for all environments across subscriptions. <a href=\"https://learn.microsoft.com/azure/role-based-access-control/overview\">Role-based access control (RBAC)</a> restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.</p>",
-                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/optimize-dev-test\">Azure Cosmos DB</a> is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.</p>",
+                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/optimize-dev-test\">Azure Cosmos DB</a> is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/devtest-labs/security-baseline\">Azure Monitor</a> can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in <a href=\"https://learn.microsoft.com/azure/security-center/security-center-enable-data-collection\">Azure Security Center</a>.</p>"
             ],
             "Summary": "<p>Microservice architectures design applications as collections of loosely coupled services. In a microservices architecture, services are fine-grained and protocols are lightweight. Microservices offer benefits such as clear separation of concerns and decoupling of dependencies.</p>\n<p>Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.</p>\n<p><em>Development testing (DevTest)</em> is a software development approach that integrates testing early in the development phase to speed development. <em>DevOps</em> is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. <a href=\"https://kubernetes.io/\">Kubernetes</a> is an open-source container orchestration system for automating application deployments.</p>\n<p>This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an <a href=\"https://azure.microsoft.com/services/kubernetes-service/\">Azure Kubernetes Service (AKS)</a> microservice application. </p>",
@@ -4878,7 +4878,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
             "word_count": 36,
             "read_time": "1 min read",
-            "Title": "Gaming using Cosmos DB",
+            "Title": "Gaming using Azure Cosmos DB",
             "MetaDescription": "Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale.",
             "category": [
                 "databases"
@@ -4905,7 +4905,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db",
             "word_count": 37,
             "read_time": "1 min read",
-            "Title": "Globally distributed applications using Cosmos DB",
+            "Title": "Globally distributed applications using Azure Cosmos DB",
             "MetaDescription": "Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.",
             "category": [
                 "databases",
@@ -5732,15 +5732,15 @@
                 "<p><a href=\"https://learn.microsoft.com/azure/azure-functions/functions-overview\">Azure Functions</a> provides the back-end API for the web application, as well as the event processing for uploaded images.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/event-grid/overview\">Event Grid</a> triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction\">Blob storage</a> stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.</p>",
-                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.</p>"
+                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.</p>"
             ],
             "Summary": "<p>This scenario is relevant for businesses that need to process images.</p>\n<p>Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.</p>\n<p>By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of <a href=\"https://learn.microsoft.com/azure/#pivot=products&amp;panel=ai\">Cognitive Services</a>.</p>",
             "Flow": {
-                "FlowStep_A": "The API layer is built using Azure Functions. These APIs enable the application to upload images and retrieve data from Cosmos DB.",
+                "FlowStep_A": "The API layer is built using Azure Functions. These APIs enable the application to upload images and retrieve data from Azure Cosmos DB.",
                 "FlowStep_B": "When an image is uploaded via an API call, it's stored in Blob storage.",
                 "FlowStep_C": "Adding new files to Blob storage triggers an Event Grid notification to be sent to an Azure Function.",
                 "FlowStep_D": "Azure Functions sends a link to the newly uploaded file to the Computer Vision API to analyze.",
-                "FlowStep_E": "Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis along with the image metadata."
+                "FlowStep_E": "Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Azure Cosmos DB to persist the results of the analysis along with the image metadata."
             },
             "name": "intelligent-apps-image-processing",
             "popularity": 106,
@@ -6504,7 +6504,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/iot-using-cosmos-db",
             "word_count": 1253,
             "read_time": "5 min read",
-            "Title": "IoT using Cosmos DB",
+            "Title": "IoT using Azure Cosmos DB",
             "MetaDescription": "Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.",
             "category": [
                 "iot",
@@ -6514,15 +6514,15 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\iot-using-cosmos-db.svg",
             "publish_date": "3/23/2020",
             "alternative_choices": "alternatives",
-            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>\n<p>Azure Cosmos DB is Microsoft\u2019s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.</p>\n<p>Cosmos DB is ideally suited for IoT solutions. Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.</p>\n<p>Cosmos DB is a multi-model database with wire protocol\u2013compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter Notebook files.</p>",
+            "Summary": "<p>Scale instantly and elastically to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.</p>\n<p>Azure Cosmos DB is Microsoft\u2019s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.</p>\n<p>Azure Cosmos DB is ideally suited for IoT solutions. Azure Cosmos DB can ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.</p>\n<p>Azure Cosmos DB is a multi-model database with wire protocol\u2013compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, Etcd, and Table along with built-in support for Jupyter Notebook files.</p>",
             "Flow": {
                 "FlowStep_A": "Events generated from IoT devices are sent to the analyze and transform layer through Azure IoT Hub as a stream of messages. Azure IoT Hub stores streams of data in partitions for a configurable amount of time.",
                 "FlowStep_B": "Azure Databricks, running Apache Spark Streaming, picks up the messages in real time from IoT Hub, processes the data based on the business logic and sends the data to Serving layer for storage. Spark Streaming can provide real time analytics such as calculating moving averages, min and max values over time periods.",
-                "FlowStep_C": "Device messages are stored in Cosmos DB as JSON documents. This is considered the **hot data store**. Different JSON schemas representing different device vendors can be stored in Cosmos DB or converted to a canonical JSON schema.",
+                "FlowStep_C": "Device messages are stored in Azure Cosmos DB as JSON documents. This is considered the **hot data store**. Different JSON schemas representing different device vendors can be stored in Azure Cosmos DB or converted to a canonical JSON schema.",
                 "FlowStep_D": "The storage layer consists of:",
                 "FlowStep_E": "Microsoft Power BI can be used by your users to analyze warehoused data.",
                 "FlowStep_F": "Web, mobile and other applications can be built on the storage layer. For example, you can expose APIs based on the storage layer data for third-party uses.",
-                "FlowStep_G": "Use Cosmos DB Change Feed to execute an Azure Function each time a device message is added or updated in Cosmos DB.",
+                "FlowStep_G": "Use Azure Cosmos DB change feed to execute an Azure function each time a device message is added or updated in Azure Cosmos DB.",
                 "FlowStep_H": "Some device messages (for example, a fault code) may require an action to be performed on the device. Using the Azure IoT Hub Service API, the Azure Function can connect to Azure IoT Hub and perform an action on the device (for example, reboot) using either:"
             },
             "name": "iot-using-cosmos-db",
@@ -7237,7 +7237,7 @@
             "Flow": {
                 "FlowStep_A": "An RSS news feed acts as the generator that obtains data from a document or article. For example, with an article, data typically includes a title, a summary of the original body of the news item, and sometimes images.",
                 "FlowStep_B": "A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].",
-                "FlowStep_C": "A notification triggers an ingest function in Azure Functions that stores the article text in Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.",
+                "FlowStep_C": "A notification triggers an ingest function in Azure Functions that stores the article text in Azure Cosmos DB and the article images (if any) in Azure Blob Storage.  The article is then passed to the next queue.",
                 "FlowStep_D": "A translate function is triggered by the queue event. It uses the [Translate Text API][translate-text] of Azure Cognitive Services to detect the language, translate if necessary, and collect the sentiment, key phrases, and entities from the body and the title. Then it passes the article to the next queue.",
                 "FlowStep_E": "A detect function is triggered from the queued article. It uses the [Computer Vision][vision] service to detect objects, landmarks, and written words in the associated image, then passes the article to the next queue.",
                 "FlowStep_F": "A face function is triggered is triggered from the queued article. It uses the [Azure Face API][face] service to detect faces for gender and age in the associated image, then passes the article to the next queue.",
@@ -8267,7 +8267,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db",
             "word_count": 34,
             "read_time": "1 min read",
-            "Title": "Personalization using Cosmos DB",
+            "Title": "Personalization using Azure Cosmos DB",
             "MetaDescription": "Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights",
             "category": [
                 "databases",
@@ -8354,7 +8354,7 @@
                 "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a> takes in user clickstream data from website and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/machine-learning-studio\">Machine Learning Studio</a>: Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/cache\">Azure Cache for Redis</a> stores pre-computed cold-start product affinity scores for users without history.</p>",
-                "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> Visualizes user activity data as well as offers presented by reading in data from Cosmos DB.</p>"
+                "<p><a href=\"https://powerbi.microsoft.com\">Power BI</a> Visualizes user activity data as well as offers presented by reading in data from Azure Cosmos DB.</p>"
             ],
             "Summary": "<p>Personalized marketing is essential for building customer loyalty and remaining profitable. Reaching customers and getting them to engage is harder than ever, and generic offers are easily missed or ignored. Current marketing systems fail to take advantage of data that can help solve this problem.</p>\n<p>Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer's unique interests and preferences, putting products in front of the people most likely to buy them.</p>\n<p>By personalizing your offers, you'll deliver an individualized experience for every current or prospective customer, boosting engagement and improving customer conversion, lifetime value, and retention.</p>",
             "name": "personalized-marketing",
@@ -8895,7 +8895,7 @@
             "Flow": {
                 "FlowStep_A": "The Manufacturing Assembly Line simulation data is streamed by the newly deployed Azure Web Jobs.",
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs as data points/events, that will be consumed in the rest of the solution flow and stored in Azure Synapse Analytics.",
-                "FlowStep_C": "There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to a Azure Machine Learning endpoint sending the results to a Power BI Dashboard."
+                "FlowStep_C": "There are 2 Azure Stream Analytics jobs used in this pattern to provide near real-time analytics on the input stream from the Azure Event Hub. Both jobs filter through the input data and pass the data points along to an Azure Machine Learning endpoint sending the results to a Power BI Dashboard."
             },
             "name": "quality-assurance",
             "popularity": 39,
@@ -8950,7 +8950,7 @@
                 "FlowStep_E": "Leverage native connectors between Azure Databricks and Azure Synapse Analytics to access and move data at scale.",
                 "FlowStep_F": "Build analytical dashboards and embedded reports on top of Azure Data Warehouse to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.",
                 "FlowStep_G": "Power users take advantage of the inbuilt capabilities of Azure Databricks and Azure HDInsight to perform root cause determination and raw data analysis.",
-                "FlowStep_H": "Take the insights from Azure Databricks to Cosmos DB to make them accessible through real time apps."
+                "FlowStep_H": "Take the insights from Azure Databricks to Azure Cosmos DB to make them accessible through real time apps."
             },
             "name": "real-time-analytics",
             "popularity": 181,
@@ -9115,9 +9115,9 @@
             "Summary": "<p>Predict and prevent future incidents by combining IoT and intelligence to optimize treatments, using Azure to remotely monitor patients and analyze the massive amounts of data generated by medical devices.</p>",
             "Flow": {
                 "FlowStep_A": "Securely ingest medical sensor and device data using Azure IoT Hub.",
-                "FlowStep_B": "Securely store sensor and device data in Cosmos DB.",
+                "FlowStep_B": "Securely store sensor and device data in Azure Cosmos DB.",
                 "FlowStep_C": "Analyze sensor and device data using a pre-trained Cognitive Services API or a custom developed Machine Learning model.",
-                "FlowStep_D": "Store Artificial Intelligence (AI) and Machine Learning results in Cosmos DB.",
+                "FlowStep_D": "Store Artificial Intelligence (AI) and Machine Learning results in Azure Cosmos DB.",
                 "FlowStep_E": "Interact AI and Machine Learning results using Power BI, while preserving Role-Based Access Control (RBAC).",
                 "FlowStep_F": "Integrate data insights with backend systems and processes using Logic Apps."
             },
@@ -9290,7 +9290,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db",
             "word_count": 32,
             "read_time": "1 min read",
-            "Title": "Retail and e-commerce using Cosmos DB",
+            "Title": "Retail and e-commerce using Azure Cosmos DB",
             "MetaDescription": "Support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.",
             "category": [
                 "databases",
@@ -10209,7 +10209,7 @@
             "word_count": 1340,
             "read_time": "6 min read",
             "Title": "Scalable order processing",
-            "MetaDescription": "This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.",
+            "MetaDescription": "This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Azure Cosmos DB and HDInsight.",
             "category": [
                 "web",
                 "databases"
@@ -10220,16 +10220,16 @@
             "pricing_calculator": "https://azure.com/e/3d43949ffbb945a88cc0a126dc3a0e6e",
             "pricing_guidance": "pricing",
             "components": [
-                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Cosmos DB</a> is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages <a href=\"https://learn.microsoft.com/azure/cosmos-db/change-feed\">Cosmos DB's Change Feed</a> features to provide data consistency and fault recovery.</p>",
+                "<p><a href=\"https://learn.microsoft.com/azure/cosmos-db/introduction\">Azure Cosmos DB</a> is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and leverages <a href=\"https://learn.microsoft.com/azure/cosmos-db/change-feed\">Azure Cosmos DB change feed</a> features to provide data consistency and fault recovery.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction\">Apache Kafka on HDInsight</a> is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline.</p>"
             ],
-            "Summary": "<p>This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.</p>\n<p>This scenario takes an event sourcing approach, using a functional programming model implemented via <a href=\"https://azure.com/microservices\">microservices</a>. Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.</p>\n<p>Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/databases\">fully managed intelligent database services in Azure</a>.</p>",
+            "Summary": "<p>This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.</p>\n<p>This scenario takes an event sourcing approach, using a functional programming model implemented via <a href=\"https://azure.com/microservices\">microservices</a>. Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.</p>\n<p>Using managed Azure services such as Azure Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available <a href=\"https://azure.microsoft.com/product-categories/databases\">fully managed intelligent database services in Azure</a>.</p>",
             "Flow": {
                 "FlowStep_A": "Event messages enter the system via customer-facing applications (synchronously over HTTP) and various back-end systems (asynchronously via Apache Kafka). These messages are passed into a command processing pipeline.",
                 "FlowStep_B": "Each event message is ingested and mapped to one of a defined set of commands by a command processor microservice. The command processor retrieves any current state relevant to executing the command from an event stream snapshot database. The command is then executed, and the output of the command is emitted as a new event.",
-                "FlowStep_C": "Each event emitted as the output of a command is committed to an event stream database using Cosmos DB.",
-                "FlowStep_D": "For each database insert or update committed to the event stream database, an event is raised by the Cosmos DB Change Feed. Downstream systems can subscribe to any event topics that are relevant to that system.",
-                "FlowStep_E": "All events from the Cosmos DB Change Feed are also sent to a snapshot event stream microservice, which calculates any state changes caused by events that have occurred. The new state is then committed to the event stream snapshot database stored in Cosmos DB. The snapshot database provides a globally distributed, low latency data source for the current state of all data elements. The event stream database provides a complete record of all event messages that have passed through the architecture, which enables robust testing, troubleshooting, and disaster recovery scenarios."
+                "FlowStep_C": "Each event emitted as the output of a command is committed to an event stream database using Azure Cosmos DB.",
+                "FlowStep_D": "For each database insert or update committed to the event stream database, an event is raised by the Azure Cosmos DB change feed. Downstream systems can subscribe to any event topics that are relevant to that system.",
+                "FlowStep_E": "All events from the Azure Cosmos DB change feed are also sent to a snapshot event stream microservice, which calculates any state changes caused by events that have occurred. The new state is then committed to the event stream snapshot database stored in Azure Cosmos DB. The snapshot database provides a globally distributed, low latency data source for the current state of all data elements. The event stream database provides a complete record of all event messages that have passed through the architecture, which enables robust testing, troubleshooting, and disaster recovery scenarios."
             },
             "name": "ecommerce-order-processing",
             "popularity": 82,
@@ -10644,7 +10644,7 @@
                 "FlowStep_C": "The customer information is recorded in [Dynamics 365](/dynamics365/) or other CRM.",
                 "FlowStep_D": "The information about a new customer is sent to [Power BI](/power-bi/).",
                 "FlowStep_E": "The customer information is added to the mailing list ([MailChimp](https://mailchimp.com/)).",
-                "FlowStep_F": "The solution creates a record of the member in [Cosmos DB](/azure/cosmos-db/)."
+                "FlowStep_F": "The solution creates a record of the member in [Azure Cosmos DB](/azure/cosmos-db/)."
             },
             "name": "onboarding-customers-with-a-cloud-native-serverless-architecture",
             "popularity": 112,
@@ -10692,7 +10692,7 @@
             "http_url": "/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db",
             "word_count": 32,
             "read_time": "1 min read",
-            "Title": "Serverless apps using Cosmos DB",
+            "Title": "Serverless apps using Azure Cosmos DB",
             "MetaDescription": "Use Azure Functions and Azure Cosmos DB to build globally distributed, scalable serverless applications.",
             "category": [
                 "databases",
@@ -10800,7 +10800,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\serverless\\_images\\serverless-web-app.png",
             "publish_date": "5/28/2019",
             "alternative_choices": "alternatively,-you-can-store-application-secrets-in-key-vault.-this-allows-you-to-centralize-the-storage-of-secrets,-control-their-distribution,-and-monitor-how-and-when-secrets-are-being-accessed.-for-more-information,-see-[configure-an-azure-web-application-to-read-a-secret-from-key-vault][key-vault-web-app].-however,-note-that-functions-triggers-and-bindings-load-their-configuration-settings-from-app-settings.-there-is-no-built-in-way-to-configure-the-triggers-and-bindings-to-use-key-vault-secrets.",
-            "Summary": "<p>This reference architecture shows a <a href=\"https://azure.microsoft.com/solutions/serverless/\">serverless</a> web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.</p>\n<p><img alt=\"GitHub logo\" src=\"https://learn.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for a serverless web application\" src=\"https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.png\" />\n<em>Download an <a href=\"https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.svg\">SVG</a> of this architecture.</em></p>\n<p>The term serverless has two distinct but related meanings:</p>\n<ul>\n<li><strong>Backend as a service</strong> (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.</li>\n<li><strong>Functions as a service</strong> (FaaS). In this model, a \"function\" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.</li>\n</ul>\n<p>Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:</p>\n<ol>\n<li>Compute resources are allocated dynamically as needed by the platform.</li>\n<li>Consumption-based pricing: You are charged only for the compute resources used to execute your code.</li>\n<li>The compute resources scale on demand based on traffic, without the developer needing to do any configuration.</li>\n</ol>\n<p>Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an <a >event-driven architecture style</a> natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see <a href=\"https://learn.microsoft.com/azure/event-grid/compare-messaging-services\">Choose between Azure services that deliver messages</a>.</p>",
+            "Summary": "<p>This reference architecture shows a <a href=\"https://azure.microsoft.com/solutions/serverless/\">serverless</a> web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Azure Cosmos DB and returns the results to the web app.</p>\n<p><img alt=\"GitHub logo\" src=\"https://learn.microsoft.com/azure/architecture/_images/github.png\" /> A reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update\">GitHub</a>.</p>\n<p><img alt=\"Reference architecture for a serverless web application\" src=\"https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.png\" />\n<em>Download an <a href=\"https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/_images/serverless-web-app.svg\">SVG</a> of this architecture.</em></p>\n<p>The term serverless has two distinct but related meanings:</p>\n<ul>\n<li><strong>Backend as a service</strong> (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.</li>\n<li><strong>Functions as a service</strong> (FaaS). In this model, a \"function\" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.</li>\n</ul>\n<p>Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:</p>\n<ol>\n<li>Compute resources are allocated dynamically as needed by the platform.</li>\n<li>Consumption-based pricing: You are charged only for the compute resources used to execute your code.</li>\n<li>The compute resources scale on demand based on traffic, without the developer needing to do any configuration.</li>\n</ol>\n<p>Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an <a >event-driven architecture style</a> natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see <a href=\"https://learn.microsoft.com/azure/event-grid/compare-messaging-services\">Choose between Azure services that deliver messages</a>.</p>",
             "Flow": {
                 "FlowStep_A": "The user clicks the \"Sign in\" link in the web application.",
                 "FlowStep_B": "The browser is redirected the Azure AD sign in page.",
@@ -11022,12 +11022,12 @@
             "image": "/azure/architecture/solution-ideas/media/social-mobile-and-web-app-with-authentication.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\social-mobile-and-web-app-with-authentication.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.</p>\n<p>The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.</p>\n<p>The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.</p>\n<p><a href=\"https://azure.microsoft.com/services/visual-studio-team-services\">Visual Studio Team Services</a></p>\n<p><a href=\"https://www.visualstudio.com/vs\">Visual Studio</a></p>\n<p><a href=\"https://www.visualstudio.com/xamarin\">Visual Studio Tools for Xamarin</a></p>\n<p><a href=\"https://azure.microsoft.com/services/application-insights\">Application Insights</a></p>\n<p><a href=\"https://www.visualstudio.com/app-center\">Visual Studio App Center</a></p>\n<p><a href=\"https://azure.microsoft.com/services/app-service/mobile\">App Service Mobile Apps</a></p>",
+            "Summary": "<p>This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in Azure Cosmos DB. The web app accesses the back end service data and images via Traffic Manager.</p>\n<p>The mobile client app works in offline mode, allowing you to view and upload images even when you don't have a network connection.</p>\n<p>The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.</p>\n<p><a href=\"https://azure.microsoft.com/services/visual-studio-team-services\">Visual Studio Team Services</a></p>\n<p><a href=\"https://www.visualstudio.com/vs\">Visual Studio</a></p>\n<p><a href=\"https://www.visualstudio.com/xamarin\">Visual Studio Tools for Xamarin</a></p>\n<p><a href=\"https://azure.microsoft.com/services/application-insights\">Application Insights</a></p>\n<p><a href=\"https://www.visualstudio.com/app-center\">Visual Studio App Center</a></p>\n<p><a href=\"https://azure.microsoft.com/services/app-service/mobile\">App Service Mobile Apps</a></p>",
             "Flow": {
                 "FlowStep_A": "Create the app using Visual Studio and Xamarin.",
                 "FlowStep_B": "Add the Azure App Service Mobile Apps back end service to the app solution.",
                 "FlowStep_C": "Implement authentication through social identity providers.",
-                "FlowStep_D": "Store non-image data in Cosmos DB and cache it in Azure Cache for Redis.",
+                "FlowStep_D": "Store non-image data in Azure Cosmos DB and cache it in Azure Cache for Redis.",
                 "FlowStep_E": "Store uploaded images in Azure Blob Storage.",
                 "FlowStep_F": "Queue messages about newly uploaded images.",
                 "FlowStep_G": "Use Azure Functions to dequeue messages and process images retrieved from blob storage.",

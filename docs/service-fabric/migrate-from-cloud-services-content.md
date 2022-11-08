@@ -31,7 +31,7 @@ Service Fabric is a good fit for this project, because most of the features need
 - **Service orchestration** across a cluster of machines.
 - **Higher density** for optimizing resource consumption. A single node can host multiple services.
 
-Service Fabric is used by various Microsoft services, including Azure SQL Database, Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications.
+Service Fabric is used by various Microsoft services, including Azure SQL Database, Azure Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications.
 
 ## Comparing Cloud Services with Service Fabric
 
