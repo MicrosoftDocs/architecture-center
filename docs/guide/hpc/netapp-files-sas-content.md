@@ -36,7 +36,7 @@ A scalable SAS Grid deployment that uses Azure NetApp Files is applicable to the
 
 ## Requirements for storage performance
 
-For SAS 9.4 (SAS Grid or SAS Analytics Pro) deployments on Azure, Azure NetApp Files is a viable primary storage option for SAS Grid clusters of limited size. [SAS recommends of 100 MiB/s throughput per physical core.](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680) Given that recommendation, SAS Grid clusters that use an Azure NetApp Files volume for SASDATA (persistent SAS data files) are scalable to 32 to 48 physical cores across two or more Azure virtual machines. SAS cluster sizes are based on the architectural constraint of a single SASDATA namespace per SAS cluster and the available single [Azure NetApp Files volume bandwidth](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). The core count guidance will be revisited as Azure infrastructure (compute, network, and per-file system storage bandwidth) increases over time.
+For SAS 9.4 (SAS Grid or SAS Analytics Pro) deployments on Azure, Azure NetApp Files is a viable primary storage option for SAS Grid clusters of limited size. [SAS recommends 100 MiB/s throughput per physical core.](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680) Given that recommendation, SAS Grid clusters that use an Azure NetApp Files volume for SASDATA (persistent SAS data files) are scalable to 32 to 48 physical cores across two or more Azure virtual machines. SAS cluster sizes are based on the architectural constraint of a single SASDATA namespace per SAS cluster and the available single [Azure NetApp Files volume bandwidth](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). The core count guidance will be revisited as Azure infrastructure (compute, network, and per file system storage bandwidth) increases over time.
 
 ### Azure NetApp Files volume performance expectations
 
@@ -44,7 +44,7 @@ A single Azure NetApp Files volume can handle up to 4,500 MiB/s of reads and 1,5
 
 SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The important *per volume* numbers for an 80:20 workload with 64,000 read/write are: 
 
-- 2,400 MiB/s of read throughput and 600 MiB/s of write throughput running concurrently (~3,000 MiB/s combined)
+- 2,400 MiB/s of read throughput and 600 MiB/s of write throughput running concurrently (~3,000 MiB/s combined).
 
 For more information, see [Azure NetApp Files performance benchmarks for Linux](/azure/azure-netapp-files/performance-benchmarks-linux).
 
@@ -70,7 +70,7 @@ The output at the bottom of the screen provides recommended capacity requirement
 
 - **Throughput**. The bandwidth of the volume, based on the workload mix. For an 80% 64-KiB sequential read workload, 3,096 MiB/s is the expected maximum.
 - **IOPS**. The number of IOPS the volume will provide at the specified throughput.
-- **Volume Size**. The amount of capacity needed by the volume at the given service levels to achieve the required throughput. Volume capacity (reported in GiBs) can be equal to or less than capacity pool size. This recommendation is based on the assumption that you're using auto QoS capacity pool types. To further optimize capacity versus throughput distribution across volumes within a capacity pool, consider manual QoS capacity pool types.
+- **Volume Size**. The amount of capacity needed by the volume at the given service levels to achieve the required throughput. Volume capacity (reported in GiBs) can be equal to or less than capacity pool size. This recommendation is based on the assumption that you're using automatic QoS capacity pool types. To further optimize capacity versus throughput distribution across volumes within a capacity pool, consider manual QoS capacity pool types.
 - **Capacity Pool Size**. The pool size. A volume's capacity is carved from a capacity pool. Capacity pools are sized in 1-TiB increments.
 - **Capacity Pool Cost (USD/month)**. The cost per month of the capacity pool at the given size and service level.
 - **Volume Show Back (USD/month)**. The cost per month of the capacity for the volume at the specified capacity. Charges are based on the allocated capacity pool sizes. The volume show back indicates the volume amount.
@@ -83,13 +83,13 @@ Control costs as needed by using volume shaping in Azure NetApp Files. Two dynam
 - [Dynamically resize a volume and capacity pool](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes)
 - [Dynamically change the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level)
 
-Learn more about [Azure NetApp Files cost modeling](/azure/azure-netapp-files/azure-netapp-files-cost-model).
+Learn more about the [Azure NetApp Files cost model](/azure/azure-netapp-files/azure-netapp-files-cost-model).
 
 ## Data protection
 
 Azure NetApp Files uses [snapshots](/azure/azure-netapp-files/snapshots-introduction) to help you protect your data. Snapshots provide space-efficient, crash-consistent, near-instantaneous images of your Azure NetApp Files volumes. You can create snapshots manually at any time or schedule them by using a [snapshot policy](/azure/azure-netapp-files/snapshots-manage-policy) on the volume.
 
-Use a snapshot policy to add automated data protection to your volumes. You can restore snaphots in-place quickly by using [snapshot revert](/azure/azure-netapp-files/snapshots-revert-volume). Or you can [restore a snapshot to a new volume](/azure/azure-netapp-files/snapshots-restore-new-volume) for fast data recovery. You can also use [restore to new volume functionality](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to provide test/dev environments with current data.
+Use a snapshot policy to add automated data protection to your volumes. You can restore snaphots in place quickly by using [snapshot revert](/azure/azure-netapp-files/snapshots-revert-volume). Or you can [restore a snapshot to a new volume](/azure/azure-netapp-files/snapshots-restore-new-volume) for fast data recovery. You can also use [restore to new volume functionality](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to provide test/dev environments with current data.
 
 For extra levels of data protection, you can use data protection solutions that use [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) or partner backup software.
 
@@ -122,13 +122,13 @@ Because Azure NetApp Files can provide high throughput and low-latency access to
 
 To estimate the required tier for your SASDATA capacity, use the [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer). (Be sure to select **advanced**.)
 
-Because Azure NetApp Files NFS volumes are shared, they're a good candidate for hosting SASDATA, combined with the properly sized VM instance types and RHEL distribution, discussed later in this article.
+Because Azure NetApp Files NFS volumes are shared, they're a good candidate for hosting SASDATA, when used with the properly sized VM instance types and RHEL distribution, discussed later in this article.
 
 ## Storage options for SASWORK 
 
-Depending on the scale of your SAS Grid deployment, you have few options for storing SASWORK data. The following table shows the three most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options:
+The following table shows the most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options:
 
-|SASWORK|	Temporary storage|	Managed disk|	Azure NetApp Files|
+||	Temporary storage|	Managed disk|	Azure NetApp Files|
 |-|-|-|-|
 |Size	|Small	|Large|	Extra large|
 |Speed	|Extra large	|Small|	Medium|
@@ -136,7 +136,7 @@ Depending on the scale of your SAS Grid deployment, you have few options for sto
 Take these considerations into account when choosing an option:
 
 -	[Temporary storage](https://azure.microsoft.com/blog/virtual-machines-best-practices-single-vms-temporary-storage-and-uploaded-disks) (or *ephemeral storage*) provides the highest bandwidth, but it's available only in smaller sizes. (Size depends on the VM SKU.) Depending on the available and required capacities, this option might be best.
--	If the required SASWORK capacity exceeds the temporary storage size of your chosen VM SKU, consider using an Azure managed disk to host SASWORK. Keep in mind, however, that the throughput to a managed disk is limited by the VM architecture by design, and that it varies depending on the VM SKU. So this storage option is viable only for environments that have lower SASWORK performance requirements. 
+-	If the required SASWORK capacity exceeds the temporary storage size of the VM SKU that you've selected, consider using an Azure managed disk to host SASWORK. Keep in mind, however, that the throughput to a managed disk is limited by the VM architecture by design, and that it varies depending on the VM SKU. Therefore, this storage option is viable only for environments that have lower SASWORK performance requirements. 
 -	For the highest SASWORK capacity requirements and an average performance requirement beyond what Azure managed disks can provide, consider Azure NetApp Files for SASWORK. It provides a large size together with fast throughput.
 
 > [!IMPORTANT]
