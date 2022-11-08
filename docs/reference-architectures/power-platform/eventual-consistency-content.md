@@ -56,7 +56,7 @@ This can be performed in a number of [plugin](/power-apps/developer/data-platfor
 
 ## Replication technologies
 
-The scenario described above utilizes a Logic App as a replication method, but there are multiple ways to replicate data between Dataverse instances, which include but are not limited to:
+The scenario described above utilizes a custom Logic App as the replication method, but there are multiple ways to replicate data between Dataverse instances, which include, but are not limited to:
 
 - Logic Apps
 - Function apps in Azure Functions
