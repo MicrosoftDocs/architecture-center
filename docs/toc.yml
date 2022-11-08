@@ -6012,7 +6012,7 @@ items:
                 href: /azure/developer/java/ee/jboss-on-azure
                 maintainContext: true
               - name: Eventual consistency in Power Platform
-                href: /guide/power-platform/eventual-consistency.yml
+                href: guide/power-platform/eventual-consistency.yml
           - name: Architectures
             items:
               - name: Basic web application

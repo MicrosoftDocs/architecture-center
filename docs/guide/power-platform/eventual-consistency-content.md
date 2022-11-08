@@ -20,7 +20,7 @@ The following examples show the potential journeys and the result of synchroniza
 
 **Example 1 - Successful path with no outage or transient errors**
 
-![Diagram showing a successful replication process.](./_images/data-dependent-example.png)
+![Diagram showing a successful multi-system synchronization.](./_images/data-dependent-example.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
@@ -29,7 +29,7 @@ The following examples show the potential journeys and the result of synchroniza
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
-![Diagram showing a failed replication process.](./_images/data-dependent-example-fails.png)
+![Diagram showing a failed multi-system synchronization.](./_images/data-dependent-example-fails.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
@@ -42,7 +42,7 @@ The following examples show the potential journeys and the result of synchroniza
 
 This can be performed in a number of [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). **PreValidation** happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a **PreCreate** plugin step will suffice.
 
-![Diagram showing a dataverse plug-in providing the solution.](./_images/solution.png)
+![Diagram showing a dataverse plug-in providing the solution to a failed multi-system synchronization.](./_images/solution.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
 
