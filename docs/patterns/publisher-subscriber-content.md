@@ -114,7 +114,10 @@ The following patterns might be relevant when implementing this pattern:
 
 - [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
 
+[This blog post](https://particular.net/blog/you-dont-need-ordered-delivery) describes different ways of handling messages that arrive out of order.
+
 ## Related resources
 
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
-- A [blog post describing different ways of handling messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery).
+- [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
+- [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml)
