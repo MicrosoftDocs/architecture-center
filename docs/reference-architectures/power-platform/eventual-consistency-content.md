@@ -34,7 +34,7 @@ The following examples show the potential journeys and the result of synchroniza
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime, maintenance or another communications issue.
-2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance** and the report is not generated.
+2. The Contoso LOB app reads the main account entities from the **US Instance** and intends to submit an API call that references an account entity that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance** and the report is not generated.
 
 ## Solution
 
