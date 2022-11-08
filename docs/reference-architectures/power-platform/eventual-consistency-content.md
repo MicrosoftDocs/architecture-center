@@ -83,7 +83,6 @@ This pattern may not be suitable in the following scenario:
 
 - [Power Platform](/power-platform)
 - [What is Power Apps?](/powerapps/powerapps-overview)
-- [App Service overview](/rest/api/appservice/web-apps)
 - [What is Azure Logic Apps?](/azure/logic-apps)
 - [Get started with Power Automate](/power-automate/getting-started)
 
