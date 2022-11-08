@@ -6,6 +6,8 @@ This article describes a high-level DevOps workflow for deploying application ch
 
 ![Diagram showing continuous integration and continuous deployment pipeline for virtual machines.](../media/cicd-for-azure-vms.svg)
 
+*Download a [Visio file](https://arch-center.azureedge.net/cicd-for-azure-vms.vsdx) of this architecture.*
+
 ### Components
 
 The architecture uses these components.
@@ -56,6 +58,7 @@ An observability resource  that collects and stores metrics and logs, applicatio
 1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data. 
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 
 ## Next steps
 

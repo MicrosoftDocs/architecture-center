@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise business intelligence
+  titleSuffix: Azure Architecture Center
+  description: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse and transforms the data for analysis.
+  author: galinagpolyakova
+  ms.author: gapolyak, costarnoah, gstevens
+  ms.date: 09/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - integration
+    - analytics
+    - databases
+  ms.custom:
+    - example-scenario
+name: Enterprise business intelligence
+azureCategories:
+  - integration
+  - analytics
+  - databases
+summary: Learn how to implement a pipeline that moves data from an on-premises data warehouse into Azure Synapse and transforms the data for analysis.
+products:
+  - power-bi
+  - azure-synapse-analytics
+  - azure-data-factory
+  - azure-active-directory
+  - azure-blob-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
+content: |
+   [!include[](enterprise-bi-synapse-content.md)]

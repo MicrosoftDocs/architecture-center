@@ -69,7 +69,7 @@ You'll find a robust list of the use cases in the "MDM use cases" section, later
 
 * Consolidating customer data for analytics.
 * Understanding the total catalog of your product data, in a consistent and accessible form, such as each product's name, description, and characteristics.
-* Establishing reference data to further consistently describe other sets of master data. For example, reference data includes lists of countries, currencies, colors, sizes, and units of measure.
+* Establishing reference data to further consistently describe other sets of master data. For example, reference data includes lists of countries/regions, currencies, colors, sizes, and units of measure.
 
 In addition, these MDM solutions help financial organizations (in the finance industry) that rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting.
 
@@ -199,7 +199,7 @@ Product data is often spread across multiple enterprise applications, such as ER
 
 ### Reference data 360
 
-In the context of analytics, reference data exists as numerous lists of data, which is often used to further describe other sets of master data. For example, reference data includes lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms are:
+In the context of analytics, reference data exists as numerous lists of data, which is often used to further describe other sets of master data. For example, reference data includes lists of countries/regions, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms are:
 
 - Multiple representations of the same thing. For example, the state of Georgia is listed as "GA" and "Georgia," which makes it difficult to aggregate and drill down into data consistently.
 - Difficulty aggregating data from across applications due to an inability to crosswalk the reference data values between the systems. For example, the color red is represented by "R" in the ERP system, and it shows as "Red" in the PLM system.
@@ -244,6 +244,16 @@ The following figure illustrates how these options are reflected in the Profisee
 
 Running costs consist of a software license and Azure consumption. For more information, [contact Profisee](https://profisee.com/contact/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Gaurav Malhotra](https://www.linkedin.com/in/gamalhotra/) | Principal Group PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory.
@@ -268,4 +278,4 @@ Running costs consist of a software license and Azure consumption. For more info
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
 - [Automated enterprise BI](enterprise-bi-adf.yml)
 - [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
-- [Enterprise business intelligence](enterprise-bi-synapse.yml)
+- [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

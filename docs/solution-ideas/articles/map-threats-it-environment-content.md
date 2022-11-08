@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article explains how to diagram the essential IT environment of your organization and develop a threat map. These diagrams can help you to plan and build your defensive layer of security. Understanding your IT environment and how it's architected is essential to defining the security services that the environment requires for necessary levels of protection. 
+This article explains how to diagram the essential IT environment of your organization and develop a threat map. These diagrams can help you to plan and build your defensive layer of security. Understanding your IT environment and how it's architected is essential to defining the security services that the environment requires for necessary levels of protection.
 
 Computer systems contain information that is valuable to the organizations that produce it—and to malicious actors. A malicious actor can be an individual or a group of people who perform malicious acts against a person or organization. Their efforts can cause harm to the computers, devices, systems, and networks of companies. Their goals are to compromise or steal valuable information by using threats like malware or brute force attacks.
 
-In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. This is the second article in a series of five articles that are introduced in [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). 
+In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. This is the second article in a series of five articles that are introduced in [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml).
 
 The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map. MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org).
 
@@ -43,7 +43,6 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **DB** | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
 | **AZURE AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
 
-
 The diagram represents Microsoft 365 through the components listed in the following table.
 
 | Label | Description | Documentation |
@@ -57,20 +56,20 @@ To help you understand which part of your IT environment those threats are likel
 
 The architecture diagram includes the following layers:
 
-1.  **On-premises**
+1. **On-premises**
 
     The diagram includes some essential services such as servers (VMs), network appliances, and DNS. It includes common applications that are found in most IT environments and run on virtual machines or physical servers. It also includes various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user credentials. The diagram includes all these components in the on-premises environment.
 
-2.  **Office 365 environment**
+2. **Office 365 environment**
 
     This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Azure Active Directory (Azure AD). Users must be authenticated to obtain access to Microsoft 365 applications, and Azure AD acts as the identity provider. Microsoft 365 authenticates users against the same type of Azure AD that Azure uses. In most organizations, the [Azure AD *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
 
-3.  **Azure environment**
+3. **Azure environment**
 
     This layer represents Azure public cloud services, including virtual machines, virtual networks, platforms as services, web applications, databases, storage, identity services, and more. For more information about Azure, see [Azure documentation](/azure).
 
-4.  **MITRE ATT&CK tactics and techniques** 
- 
+4. **MITRE ATT&CK tactics and techniques**
+
     This diagram shows the top 16 threats, according to the tactics and techniques as published by The MITRE Corporation. In red lines, you can see an example of a blended attack, which means that a malicious actor might coordinate multiple attacks simultaneously.
 
 ### How to use the MITRE ATT&CK framework
@@ -79,8 +78,8 @@ You can start with a simple search for the name of the threat or of the attack c
 
 You can also browse threats on the tactics or techniques pages:
 
-  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise)
-  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise)
+- [Enterprise tactics](https://attack.mitre.org/tactics/enterprise)
+- [Enterprise techniques](https://attack.mitre.org/techniques/enterprise)
 
 You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator), an intuitive tool provided by MITRE that helps you discover tactics, techniques, and details about threats.
 
@@ -110,14 +109,14 @@ The example architecture in this article uses the following Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
- * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
 ## Next steps
 
@@ -139,4 +138,3 @@ For more details about this reference architecture, see the other articles in th
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integrate Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-

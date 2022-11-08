@@ -37,6 +37,16 @@ This scenario is implemented several Azure components:
 - [Azure CDN](https://azure.microsoft.com/services/cdn): A global CDN solution for delivering high-bandwidth content.
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs): Send push notifications to any platform from any back end.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes)

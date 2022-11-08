@@ -62,12 +62,22 @@ Key technologies used to implement this architecture:
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs/) | Principal Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Product documentation:
 
 - Cognitive Services - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)
-- Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
+- Azure Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
 - Key Vault - [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)
 - Storage - [Disaster recovery and account failover](/azure/storage/common/storage-disaster-recovery-guidance)
 

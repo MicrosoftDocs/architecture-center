@@ -18,9 +18,9 @@ The architecture consists of the following components:
 
 **Azure Stream Analytics**. [Stream Analytics](/azure/stream-analytics/) is an event-processing engine. A Stream Analytics job reads the data streams from the two event hubs and performs stream processing.
 
-**Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
+**Azure Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to an Azure Cosmos DB document database.
 
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
+**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Azure Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
 
 **Azure Monitor**. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
 
@@ -144,7 +144,7 @@ SELECT System.Timestamp AS WindowTime,
 
 Stream Analytics provides several [windowing functions](/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past 5 minutes.
 
-In the architecture shown here, only the results of the Stream Analytics job are saved to Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
+In the architecture shown here, only the results of the Stream Analytics job are saved to Azure Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
 
 ## Considerations
 
@@ -174,9 +174,9 @@ Use the Stream Analytics [job diagram](/azure/stream-analytics/stream-analytics-
 
 ![Diagram showing Stream Analytics jobs.](./images/stream-processing-asa/job-diagram.png)
 
-#### Cosmos DB
+#### Azure Cosmos DB
 
-Throughput capacity for Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
+Throughput capacity for Azure Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document.
 
 In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 
@@ -188,7 +188,7 @@ Any of the following warning signals indicate that you should scale out the rele
 
 - Event Hubs throttles requests or is close to the daily message quota.
 - The Stream Analytics job consistently uses more than 80% of allocated Streaming Units (SU).
-- Cosmos DB begins to throttle requests.
+- Azure Cosmos DB begins to throttle requests.
 
 The reference architecture includes a custom dashboard, which is deployed to the Azure portal. After you deploy the architecture, you can view the dashboard by opening the [Azure portal](https://portal.azure.com) and selecting `TaxiRidesDashboard` from list of dashboards. For more information about creating and deploying custom dashboards in the Azure portal, see [Programmatically create Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
@@ -220,7 +220,7 @@ Stream Analytics can be expensive if you are not processing the data in real-tim
 
 #### Azure Event Hubs and Azure Cosmos DB
 
-For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
+For cost considerations about Azure Event Hubs and Azure Cosmos DB, see Cost considerations see the [Stream processing with Azure Databricks](stream-processing-databricks.yml) reference architecture.
 
 ### DevOps
 
@@ -230,7 +230,7 @@ For cost considerations about Azure Event Hubs and Cosmos DB, see Cost considera
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
 
-  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+  In this architecture, Azure Event Hubs, Log Analytics, and Azure Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 

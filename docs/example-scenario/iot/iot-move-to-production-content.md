@@ -69,6 +69,17 @@ The following example shows how to implement a test-to-production environment tr
 > [!div class="nextstepaction"]
 > [Overview of Azure IoT Hub Device Provisioning Service](/azure/iot-dps/about-iot-dps#provisioning-process)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225/) | Principal Software Engineering Manager
+ - [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo/) | Principal Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)

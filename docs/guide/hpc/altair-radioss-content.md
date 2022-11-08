@@ -6,7 +6,7 @@ Radioss is a multidisciplinary finite-element solver for linear and nonlinear pr
 - Implements extensive material laws and rupture criteria for crack propagation in brittle materials like windshields.
 - Provides a fast solution for airbag deployment that uses finite-volume method technology.
 
-Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects.
+Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects. It's ideal for the automotive, aerospace, and energy industries.
 
 ## Why deploy Radioss on Azure?
 
@@ -95,9 +95,9 @@ Azure Marketplace image.
 To set up an HPC cluster on Azure, complete these steps:
 
 1.  [Install and configure Azure
-    CycleCloud.](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+    CycleCloud.](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
 2.  [Create an HPC cluster from built-in
-    templates.](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+    templates.](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
 3.  [Connect to the head node (the
     scheduler).](/azure/cyclecloud/how-to/connect-to-node)
 
@@ -248,7 +248,7 @@ Other contributors:
 -   [Virtual networks and virtual machines on
     Azure](/azure/virtual-network/network-overview)
 -   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+    Azure](/training/paths/run-high-performance-computing-applications-azure)
 -   [What is Azure
     CycleCloud?](/azure/cyclecloud/overview)
 

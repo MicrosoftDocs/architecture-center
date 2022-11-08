@@ -1,10 +1,4 @@
-This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
-
-- Extraction: Connecting to and extracting from a source database.
-- Transformation:
-  - Staging: Temporarily storing data in its original format and preparing it for transformation.
-  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
-- Loading: Inserting data into a target database.
+This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services.
 
 ## Architecture
 
@@ -87,7 +81,7 @@ The solution uses the following components:
 
 - [Azure Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
-- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
 - [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -122,6 +116,14 @@ The solution uses the following components:
 ## Scenario details
 
 Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+
+Specifically, this solution covers:
+
+- Extraction: Connecting to and extracting from a source database.
+- Transformation:
+  - Staging: Temporarily storing data in its original format and preparing it for transformation.
+  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
+- Loading: Inserting data into a target database.
 
 ### Potential use cases
 

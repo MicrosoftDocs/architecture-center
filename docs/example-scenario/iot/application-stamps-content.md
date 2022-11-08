@@ -12,7 +12,9 @@ Deployment stamping benefits:
 
 ## IoT deployment stamping architecture
 
-![A diagram showing a deployment stamping strategy for use in Azure IoT.](media/scale-iot-deployment-stamps.svg)
+:::image type="content" alt-text="A diagram showing a deployment stamping strategy for use in Azure IoT." source="media/scale-iot-deployment-stamps.png" lightbox="media/scale-iot-deployment-stamps.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/scale-iot-deployment-stamps.vsdx) of this architecture.*
 
 The preceding diagram illustrates a deployment stamping strategy for Azure IoT. This solution builds atomic stamps that each consist of:
 
@@ -48,7 +50,9 @@ This fully self-contained strategy is:
 - Appropriate as part of a high-availability strategy.
 - Useful for migrating devices and users from test to production environments.
 
-![A diagram showing how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg)
+:::image type="content" alt-text="A diagram showing how to move a set of devices from one stamp to another stamp." source="media/moving-devices-using-dps.png" lightbox="media/moving-devices-using-dps.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/moving-devices-using-dps.vsdx) of this architecture.*
 
 The preceding diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 
@@ -61,7 +65,9 @@ The preceding diagram above shows the process of moving a set of devices from St
 
 When a single application front-end supports multiple device stamps, the application front-end must dynamically update its device-to-hub mapping to maintain cloud-to-device communication. To support devices moving to different stamps and IoT Hubs, gateways can use a caching mechanism for device-to-hub mapping. Service clients can use a shared lookup routine to dynamically detect and migrate device calls to new IoT Hubs.
 
-![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/move-devices-behind-gateway.svg)
+:::image type="content" alt-text="A diagram demonstrating how devices can move from one hub to another using an app gateway." source="media/move-devices-behind-gateway.png" lightbox="media/move-devices-behind-gateway.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/move-devices-behind-gateway.vsdx) of this architecture.*
 
 In this model, the gateway uses a cache to map devices to IoT Hubs, and defaults to the cached endpoint. If the gateway receives a [device not found error](/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound), it uses the [DPS Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks) to query individual device enrollment and determine which IoT Hub the device now uses. The gateway then updates the cache with the new mapping.
 

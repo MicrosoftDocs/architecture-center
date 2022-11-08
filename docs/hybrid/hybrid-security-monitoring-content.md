@@ -226,7 +226,7 @@ There are two types of icons represented on the **Compute** blade:
 
 ![Purple computer icon that represents a non-azure monitored computer][icon-nonazurevm] Non-Azure computer
 
-![Blue terminal icon that represents a Azure monitored computer][icon-azurevm] Azure computer
+![Blue terminal icon that represents an Azure monitored computer][icon-azurevm] Azure computer
 
 > [!NOTE]
 > Part two of the reference architecture will connect alerts from Microsoft Defender for Cloud and stream them into Microsoft Sentinel.

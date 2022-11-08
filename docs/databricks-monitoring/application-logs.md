@@ -22,6 +22,9 @@ products:
 
 # Send Azure Databricks application logs to Azure Monitor
 
+> [!NOTE]
+> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The library supports Azure Databricks 10.x (Spark 3.2.x) and earlier. Azure Databricks 11.0 includes [breaking changes](/azure/databricks/release-notes/runtime/11.0#log4j-is-upgraded-from-log4j-1-to-log4j-2) to the logging systems that the **spark-monitoring** library integrates with. The work required to update the **spark-monitoring** library to support Azure Databricks 11.0 (Spark 3.3.0) and newer is not currently planned.
+
 This article shows how to send application logs and metrics from Azure Databricks to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
 
 ## Prerequisites
@@ -111,6 +114,11 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
     logWarning("Warning message")
     logError("Error message")
     ```
+
+> [!NOTE]
+> If you're using the library and you have Apache Spark Notebooks, any logs that Spark generates during execution for the notebook automatically go to Log Analytics.
+>
+> There is a limitation for Python to support custom logging messages using the Spark configured Log4j. Logs can only be sent from the driver node because executor nodes don't have access to the Java Virtual Machine from Python.
 
 ## Run the sample application
 

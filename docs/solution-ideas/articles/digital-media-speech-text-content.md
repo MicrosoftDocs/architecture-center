@@ -30,7 +30,7 @@ This solution applies to scenarios that can benefit from the ability to search r
 - [Web Apps](/azure/app-service/overview) hosts the website or web application.
 - [Azure Media Indexer](/azure/media-services/previous/media-services-index-content) makes the content of your media files searchable and generates a full-text transcript for closed-captioning and keywords. Media files are processed individually or in batches.
 
-## Components
+### Components
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 - [Azure Media Services](https://azure.microsoft.com/services/media-services) is a cloud-based platform that you can use to stream video, enhance accessibility and distribution, and analyze video content.

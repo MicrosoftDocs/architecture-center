@@ -15,7 +15,9 @@ This architecture is useful for organizations who require:
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a PaaS application.](../media/dev-test-paas.png)
+:::image type="content" border="false" source="../media/dev-test-paas.png" alt-text="Diagram showing the configuration of DevTest and DevOps for a PaaS application." lightbox="../media/dev-test-paas.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-paas.vsdx) of this architecture.*
 
 ### Dataflow
 

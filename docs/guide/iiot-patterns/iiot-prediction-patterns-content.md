@@ -10,7 +10,10 @@ Predict process and equipment failures by using batch-process machine learning.
 
 :::image type="content" source="images/machine-language-batch.png" alt-text="Diagram that shows an architecture used to predict equipment failures by using machine learning pipelines." lightbox="images/machine-language-batch.png":::
 
-- Dataflow:
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-prediction-patterns.pptx) of this pattern.*
+
+### Dataflow
+
     1. The edgeHub module sends data about the current process and equipment conditions to Azure IoT Hub or Azure IoT Central by using AMQP or MQTT. Then, IoT Hub or Azure IoT Central sends module updates to the edge and provides a control plan for edge management.
     2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
     3. Azure Data Lake Storage receives data from IoT Hub or Azure IoT Central for long term storage and model training.
@@ -22,16 +25,21 @@ Predict process and equipment failures by using batch-process machine learning.
     9. The batch prediction pipeline stores the prediction results in a database in Azure SQL Database.
     10. Power BI connects to SQL Database for reporting and visualization of the predictions.
 
+### Potential use cases
+
 - Use this pattern when you:
   - Need to build custom machine learning models on structured or tabular data.
   - Need to use raw telemetry data for feature engineering.
   - Perform predictions on an hourly or daily basis.
 
-- Considerations:
+### Considerations
+
   - [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml)
   - [Understand and build Machine Learning pipelines](/azure/machine-learning/concept-train-machine-learning-model#machine-learning-pipeline)
   - [Azure security baseline for Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context)
   - [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost)
+
+### Deploy this scenario
 
 - Deployment samples:
   - [Exploratory data analysis for failure predictions by using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
@@ -43,7 +51,10 @@ Predict process and equipment failures by using an API.
 
 :::image type="content" source="images/machine-learning-realtime.png" alt-text="Diagram that shows how to predict equipment failures in near real-time by using machine learning pipelines and deployment endpoints." lightbox="images/machine-learning-realtime.png":::
 
-- Dataflow:
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-prediction-patterns.pptx) of this pattern.*
+
+### Dataflow
+
     1. The edgeHub module sends data about the current process and equipment conditions to IoT Hub or Azure IoT Central by using AMQP or MQTT. Then, IoT Hub or Azure IoT Central sends module updates to the edge and provides a control plan for edge management.
     2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
     3. Data Lake Storage receives data from IoT Hub or Azure IoT Central for long term storage and model training.
@@ -60,13 +71,16 @@ Predict process and equipment failures by using an API.
     14. A web app that's subscribed to Web PubSub gets the message instantly and updates the UI for real-time reporting.
     15. Power BI connects with SQL Database for reporting and visualization of historic predictions.
 
+### Potential use cases
+
 - Use this pattern when you:
   - Need to build custom machine-learning models on structured or tabular data.
   - Need to use raw telemetry data for feature engineering.
   - Perform predictions within single-digit minutes.
   - Need custom dashboards to provide action recommendations that might impact currently running manufacturing processes.
 
-- Considerations:
+### Considerations
+
   - For predictions within seconds or milliseconds, see [Packaging the model as an edge module and deploying at the edge](/azure/iot-edge/tutorial-machine-learning-edge-06-custom-modules?view=iotedge-2020-11).
   - For information about no-code or low-code automated machine learning, see [What is automated machine learning (AutoML)?](/azure/machine-learning/concept-automated-ml)
   - For information about Machine Learning pipelines, see [Understand and build Machine Learning pipelines](/azure/machine-learning/concept-train-machine-learning-model#machine-learning-pipeline).
@@ -75,6 +89,8 @@ Predict process and equipment failures by using an API.
   - For information about real-time web application services, see [How do I choose between Azure SignalR Service and Azure Web PubSub service?](/azure/azure-web-pubsub/resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service).
   - For information about selecting a compute target, see [Choosing a compute target for deploying machine learning models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
   - The near real-time inference is only in the cloud. Consider deploying the model to IoT Edge to support offline and edge scenarios.
+
+### Deploy this scenario
 
 - Deployment samples:
   - [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
@@ -86,7 +102,10 @@ Automate a quality inspection in manufacturing by using a custom vision.
 
 :::image type="content" source="images/machine-learning-image-recognition.png" alt-text="Augment manual quality inspection by using deep learning based image recognition models on the edge." lightbox="images/machine-learning-image-recognition.png":::
 
-- Dataflow:
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-prediction-patterns.pptx) of this pattern.*
+
+### Dataflow
+
     1. Machine Learning builds a defect detection model by using initial labeled images stored in Data Lake Storage. The service then builds a container image and pushes the image to a container registry.
     2. The IoT Edge deployment contains multiple modules, including modules for defect detection, prediction storage, a prediction dashboard, and file upload to upload images for model retraining. These modules are packaged as a container image, stored in a container registry, and pulled by the edge via module deployments.
     3. The defect detection module flags the defect and sends the prediction message to IoT Hub or Azure IoT Central by using the edgeHub module. IoT Hub or Azure IoT Central sends module updates to the edge and provides an edge management control plan.
@@ -96,18 +115,23 @@ Automate a quality inspection in manufacturing by using a custom vision.
     7. The file upload module sends the defective detection images to Data Lake Storage for model retraining.
     8. The Machine Learning service retrains the model by using the new data collected in Data Lake Storage.
 
+### Potential use cases
+
 - Use this pattern when you:
   - Need to build custom machine learning models on image data.
   - Need to build a pipeline to get data from external device sources, like a camera.
   - Perform near real-time predictions within milliseconds.
   - Need custom dashboards to provide action recommendations that might impact currently running manufacturing processes.
 
-- Considerations:
+### Considerations
+
   - Use partner solutions that combine hardware and software to help accelerate time to value. Consider the cost of scaling such a solution.
   - Building custom solutions can be cost-effective for scale and help build your intellectual property. Consider the complexity of managing such a solution.
   - For details around use cases, camera selection, and edge integrations, see [Vision AI solutions with IoT Edge](../../guide/iot-edge-vision/index.md).
   - For a deep dive into how computer vision works, see [First principles of Computer Vision](https://www.youtube.com/channel/UCf0WB91t8Ky6AuYcQV0CcLw).
   - Consider the use of dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview) with GPUs to improve both image preprocessing and inference speeds.
+
+### Deploy this scenario
 
 - Deployment samples:
   - [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
@@ -124,6 +148,8 @@ Principal author:
 Other contributor:
 
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

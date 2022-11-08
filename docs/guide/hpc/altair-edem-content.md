@@ -17,8 +17,8 @@ tablets, and powders. EDEM:
 EDEM includes three core components: EDEM Creator, Simulator, and
 Analyst.
 
-EDEM is primarily used in industries like construction, off-highway,
-mining, agriculture, space exploration, and process industries.
+EDEM is primarily used in industries like construction (facilities), off-highway,
+mining (energy), agriculture, space exploration (aerospace), and process/manufacturing.
 
 ## Why deploy EDEM on Azure?
 

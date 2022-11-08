@@ -4,7 +4,7 @@ metadata:
   description: How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.
   author: cdennig
   ms.author: dechrist
-  ms.date: 11/12/2021
+  ms.date: 10/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide  

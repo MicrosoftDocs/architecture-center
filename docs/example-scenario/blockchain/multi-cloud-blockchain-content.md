@@ -1,4 +1,4 @@
-Blockchain and Distributed Ledger Technology (DLT) networks are multi-party systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
+Blockchain and distributed ledger technology (DLT) networks are multiparty systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
 
 The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
 
@@ -12,11 +12,11 @@ This approach supports:
 
 - Heterogeneous DLT deployments where separate organizations own and manage each node.
 
-- Centralized DevOps, monitoring, and compliance management across multi-party networks.
+- Centralized DevOps, monitoring, and compliance management across multiparty networks.
 
 ## Architecture
 
-This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
+This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 

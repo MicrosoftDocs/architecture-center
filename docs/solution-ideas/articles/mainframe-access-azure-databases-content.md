@@ -9,7 +9,7 @@ IBM Db2 clients and servers use the Distributed Relational Database Architecture
 Various scenarios can benefit from this solution:
 
 - *Coexistent* environments that have modernized data as part of a [data-first][Five reasons a data-first strategy works] migration but still run mainframe or midrange applications.
-- *Hybrid* situations, or environments that combine on-premises and cloud datacenters. This case covers systems with mainframe applications in COBOL, PL/I, or assembly language that need access to an Azure SQL Server database.
+- *Hybrid* situations, or environments that combine on-premises and cloud datacenters. This case covers systems with mainframe applications in COBOL, PL/I, or assembly language that need access to an SQL Server database hosted in Azure.
 - Mainframe or midrange systems with workloads that need remote access to SQL Server databases.
 
 ## Architecture

@@ -152,7 +152,7 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 ## Next steps
 
 - [Quickstart: Deploy an AKS cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
-- [Introduction to AKS](/learn/modules/intro-to-azure-kubernetes-service)
+- [Introduction to AKS](/training/modules/intro-to-azure-kubernetes-service)
 
 ## Related resources
 

@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Mainframe file replication and sync on Azure
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
   author: ashish-khandelwal-ms
   ms.author: askhande
-  ms.date: 05/31/2022
+  ms.date: 10/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

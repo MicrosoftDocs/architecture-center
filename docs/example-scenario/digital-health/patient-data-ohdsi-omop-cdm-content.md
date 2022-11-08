@@ -50,7 +50,7 @@ If you require more scalability or control, consider these alternatives:
 
 The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use their patient health data to accelerate research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
 
-[OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries. It offers one of the few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data.
+[OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries/regions. It offers one of the few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data.
 
 ### Potential use cases
 

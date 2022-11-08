@@ -12,7 +12,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - iot
-    - Azure Cosmos DB
+    - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db"
 name: Azure Cosmos DB in IoT workloads
 azureCategories:

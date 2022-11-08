@@ -6,7 +6,7 @@ keywords: edge, workload, configuration
 author: microsoftCSE
 categories: azure
 ms.author: hecamm
-ms.date: 03/21/2022
+ms.date: 10/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
