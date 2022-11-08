@@ -330,16 +330,57 @@ Service Bus implements retries using implementations of the abstract [**RetryPol
 
 | Package | Description | Namespace |
 |---------|-------------|-------|
-| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
-|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .NET Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | Azure Service Bus client library for .NET | `Azure.Messaging.ServiceBus` |
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | (Deprecated) Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .NET Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
 
-Both versions of the client library provide the following built-in implementations of `RetryPolicy`:
+#### Retrying with the Azure.Messaging.ServiceBus package
+
+The `ServiceBusRetryOptions` property specifies the retry options for the `ServiceBusClient` object:
+
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| CustomRetryPolicy | | A custom retry policy to be used in place of the individual option values.|
+| Delay | 0.8 seconds | The delay between retry attempts for a fixed approach or the delay on which to base calculations for a backoff-based approach.|
+| MaxDelay | 60 seconds | The maximum permissible delay between retry attempts.|
+| MaxRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
+| Mode | Exponential | The approach to use for calculating retry delays.|
+| TryTimeout | 60 seconds | The maximum duration to wait for completion of a single attempt, whether the initial attempt or a retry.|
+
+Set the `Mode` property to configure the [ServiceBusRetryMode](/dotnet/api/azure.messaging.servicebus.servicebusretrymode) with any of these values:
+
+|Property|Value|Description|
+|--------|-----|-----------|
+|Exponential|1|Retry attempts will delay based on a backoff strategy, where each attempt will increase the duration that it waits before retrying.|
+|Fixed|0|Retry attempts happen at fixed intervals; each delay is a consistent duration.|
+
+Example:
+
+```csharp
+using Azure.Messaging.ServiceBus;
+
+string connectionString = "<connection_string>";
+string queueName = "<queue_name>";
+
+// Because ServiceBusClient implements IAsyncDisposable, we'll create it
+// with "await using" so that it is automatically disposed for us.
+var options = new ServiceBusClientOptions();
+options.RetryOptions = new ServiceBusRetryOptions
+{
+    Delay = TimeSpan.FromSeconds(10),
+    MaxDelay = TimeSpan.FromSeconds(30),
+    Mode = ServiceBusRetryMode.Exponential,
+    MaxRetries = 3,
+};
+await using var client = new ServiceBusClient(connectionString, options);
+```
+
+#### Retrying with older packages
+
+Both older versions provide the following built-in implementations of `RetryPolicy`:
 
 - [RetryExponential](/dotnet/api/microsoft.servicebus.retryexponential). Implements exponential backoff.
-
 - [NoRetry](/dotnet/api/microsoft.servicebus.noretry). Does not perform retries. Use this class when you don't need retries at the Service Bus API level, for example when another process manages retries as part of a batch or multistep operation.
-
-The `RetryPolicy.Default` property returns a default policy of type `RetryExponential`. This policy object has the following settings:
 
 | Setting | Default value | Meaning |
 |---------|---------------|---------|
