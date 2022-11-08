@@ -48,7 +48,7 @@ This can be performed in a number of [plugin](/power-apps/developer/data-platfor
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
 2. The Contoso LOB app reads the main account entities from the **US Instance**. It intends to submit an API call that references an account entity that was not replicated to the **Europe Instance**. As it stands, the API call would fail because the record does not exist, due to the sync not working.
-3. A PreValidation/PreCreate plugin performs an upsert on the GUID (updating only the ID and setting the name, if it does not exist). If it exists already, then nothing is changed. If it does not exist, a new account is created (with most of the fields blank).
+3. However, a **PreValidation**/**PreCreate** plugin first performs an _upsert_ based on the provided entity GUID and provided reference data. If it exists already, then nothing is changed. If it does not exist, a new account is created, with most of the fields blank.
 4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report is generated successfully.
 
 >[!NOTE]
