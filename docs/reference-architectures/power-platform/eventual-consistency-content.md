@@ -40,7 +40,7 @@ The following examples show the potential journeys and the result of synchroniza
 
 ### Plugin/flow to always upsert based on the GUID or alternate key
 
-This can be performed in a number of [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
+This can be performed in a number of [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). **PreValidation** happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a **PreCreate** plugin step will suffice.
 
 ![Diagram showing a dataverse plug-in providing the solution.](./_images/solution.png)
 
