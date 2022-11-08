@@ -16,7 +16,7 @@ This pattern can be useful in the following situations:
 
 In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform sends a daily batch of reference data via a Logic App to the European instance. A proprietary Contoso LOB app used to generate reporting on problem tickets that users have created reads user data from both dataverse instances to pull the relevant data. If the synchronization process has not been completed and the Europe instance is not up to date due to downtime, maintenance, or another communications issue, the request will produce a generic error due to entities missing from that instance.
 
-The following examples show the potential journeys for a record submission.
+The following examples show the potential journeys and the result of synchronization delays.
 
 **Example 1 - Successful path with no outage or transient errors**
 
