@@ -53,7 +53,7 @@ Your method of key rotation will differ depending on what you're using to create
 
 ### Availability
 
-When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys that are necessary for TDE must be accessible. Azure Monitor insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
+When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys that are necessary for TDE must be accessible. Azure Monitor Insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ### Operations
 
