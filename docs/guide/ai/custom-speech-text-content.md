@@ -106,7 +106,7 @@ After you build your model, keep the following recommendations in mind:
 
 -	**Be aware of the difference between lexical text and display text.** Speech Studio produces WER based on lexical text. However, what the user sees is the  display text with punctuation, capitalization, and numerical words represented as numbers. Following is an example of lexical text versus display text.
 
-    **Lexical text:** the speed is great and the time is even better fifty seven oh six seconds for the german
+    **Lexical text:** the speed is great and the time is even better fifty seven oh six three seconds for the german
 
     **Display text:** The speed is great. And that time is even better. 57063 seconds for the German. 
 
