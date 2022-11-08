@@ -5,53 +5,45 @@ This architecture provides guidance for designing a carrier-grade solution for a
 
 ## Use case
 
-This reference architecture is for a voicemail solution, where multiple clients connect to the workload in a shared model. They can connect using non-web protocols, such as  Session Initiation Protocol, Real-time Transport Protocol. They can also connect over the internet. Certain operations  persist state, which can be client configuration, messages, and related metadata. 
+This reference architecture is for a voicemail solution. It offers common functionalities such as, play greeting and record voicemail, retrieve voicemail through phone or app, configure features, and much more.  
 
-## Business requirements
-- The workload is expected to be highly available and tolerant to regional failures.
-- Traffic must be load-balanced through a global router using application-specific protocols combined with DNS.
-- Read and write operations on client data must be instantaneous across regions and cost optimized, as much as possible. Application logic can accept an eventual consistency data replication model with distributed processing pools, instead of the application requiring global synchronization of its data with a single point of control.
-- Other operations can query for that data. Those operations are simple request/response and don't need long-lived sessions. In case of a failure, the client will just retry the operation. 
-- The application isn't required to maintain active session state for in-flight messages if failure occurs.  
-- There aren't any regulatory requirements.
-- _**Client requests be served at the edge to reduce latency**._
+Multiple clients can connect to the workload using various protocols. They can be HTTP or non-web protocols, such as Session Initiation Protocol. A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
+
+## Workload requirements
+- The workload is expected to have an Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
+- Application requests for all the supported protocols must be load-balanced across all the active service instances (SIs).
+- Replication of write operations on subscriber data must be instantaneous across regions. Any service instance reading data always gets served the latest and most up to date version of the subscriber data.
+- If a failure occurs in the middle of an active subscriber voice mail session, the caller will need to reconnect. The application isn't required to maintain active session state for in-flight messages.
 
 ## Architecture
 
-![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.svg)
+![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.png)
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and the operations. The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
-> TODO: Finalize the list with the SMEs. Add stamp resources.
 
 ### Global resources
 
-These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
+These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform and DNS. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
 
 **Azure Traffic Manager**
 
 The global load balancer that uses DNS-based routing to send traffic to the application SI that has public endpoints. Health endpoint monitoring is enabled to make sure that traffic is sent to healthy backend instances. 
 
-An alternate technology choice is Azure Front Door. This option only applies to HTTP(S) traffic and can add to the cost. 
-
-**Azure DNS** 
-
-Handles traffic that flows through the intermediate gateway. The gateway is responsible for monitoring the health of the backend endpoints.
-
 **Azure Cosmos DB**
 
-Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-master write is enabled so that data is replicated to each region. Also, zone redundancy is enabled through availability zone redundancy support (AZRS). 
+Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-master write is enabled so that data is replicated to each region, instantaneously. Also, zone redundancy is enabled through availability zone redundancy support (AZRS). 
+
+**Gateway component** 
+
+Allows access to the application through a gateway outside the cloud. Before sending traffic, this component is determines the health of the backend endpoints from a DNS server.
 
 > [!IMPORTANT] 
-> If any global service is unavailable, the entire system will be impacted. If Azure DNS is unavailable, Traffic Manager won't be able to route traffic. If Azure AD fails, existing compute nodes will continue to work, however, new nodes won't be created. 
+> Global routing is handled through DNS. If any global service or a foundational service, such as DNS, identity platform isn't available, the entire system will be impacted. 
 
 ### Regional resources
 
-This set of services that are deployed to a given region and their lifetime is tied to the region. They are independent in that unavailability of a resource in one region shouldn't impact resources in another region. There might be simultaneous outages in multiple regions but the impact must be restricted to the individual region.
-
-**Workload compute**
-
-Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orchestrator because it's widely adopted and supports advanced scalability and deployment topologies. 
+This set of services that are deployed each region and their lifetime is tied to the region.  
 
 **Azure Container Registry**
 
@@ -61,15 +53,43 @@ Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled
 
 Stores global secrets such as connection strings to the global database and regional secrets.
 
+**Azure Monitor**
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Log Analytics Workspace. 
+
+**Virtual machine scale set**
+
+Run as jump box instances to run tools against the cluster, such as kubectl.
+
 **Azure Blob Storage**
 
 Premium SKU is used for large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Storage is configured for  zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
 
+**Azure Functions**
+
+Triggers special functionality of the workload, such as  delivery of messages at the indicated time and delayed notifications.
+
+**Azure Queue Storage**
+
+All regional resources are stateless except for Queue Storage that stores messages temporarily as mitigation of write failures.
+
+> [!IMPORTANT] 
+> Regional resources are independent in that unavailability of a resource in one region shouldn't impact resources in another region. There might be simultaneous outages in multiple regions but the impact must be restricted to the individual region. The resources can be further categorized by their functional requirement. Azure Blob Storage, Functions, Queue Storage participate in processing a request. Other components, Key Vault, Monitor, and Container Registry are provisioned for management operations.
+
+### Regional stamp resources
+
+Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency, scale. The resources are expected to be ephemeral. They are created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
+
+**Workload compute**
+
+Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orchestrator because it's widely adopted and supports advanced scalability and deployment topologies. 
+
 ### Key design strategies
 
-- 12 service instances are deployed across four regions in an active-active model. 
-- Traffic is load-balanced using application-specific protocols combined with DNS and Azure Traffic Manager.
-- Shared data is replicated between regions by Cosmos DB so that each subscriber’s configuration and messages can be read and written locally by each service instance.  Subscriber data, and message metadata is held in Cosmos DB and replicated across all regions.  The messages themselves are written to blob storage and replicated into just two regions for cost efficiency.  
+- **Active-active muti-region deployment**. 12 service instances are deployed across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
+- **Replicated storage**. The application itself is stateless. Any data that's shared between regions is replicated. For example, data stored in Cosmos DB is  replicated between regions. Another component used is Blob Storage which is replicated into just two regions for cost efficiency.
+- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Application logic uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
+- **Shared fate within each stamp**. TODO
+- **Avoid correlated failure modes**. Take independent elements, which aren't highly available, and combine them so that they remain independent entities. (e.g., 99.9% \/ 99.9% = 99.9999% if indep, 99.9% if not). TODO
 
 ## Workload design
 
