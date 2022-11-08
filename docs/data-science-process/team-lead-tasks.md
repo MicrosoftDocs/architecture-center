@@ -325,6 +325,16 @@ For information about sharing other resources with your team, such as Azure HDIn
 
 1. Confirm that the new drive and storage is successfully mounted on your machine.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Here are links to detailed descriptions of the other roles and tasks defined by the Team Data Science Process:
