@@ -25,7 +25,7 @@ The following examples show the potential journeys and the result of synchroniza
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
 1. The **US Instance** synchronizes a new account to the **Europe Instance** via a Logic App. All are working because no transient faults or outages have occurred.
-2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was replicated to the **Europe Instance**. It works because everything was up and no outages or transient faults occurred. The report is generated successfully.
+2. The Contoso LOB app reads the main account entities from the **US Instance** and intends to submit an API call that references an account entity that was replicated to the **Europe Instance**. It works because everything was up, and no outages or transient faults occurred. The report from the LOB application is generated successfully.
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
