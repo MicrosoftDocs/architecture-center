@@ -85,6 +85,16 @@ After training, the data scientist focuses next on model evaluation.
       * Upload, list, and download fairness assessment insights to/from Azure Machine Learning studio.  
       * See the fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Here are links to each step in the lifecycle of the TDSP:
