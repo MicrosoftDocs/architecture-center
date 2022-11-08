@@ -102,7 +102,7 @@ Not all regions support Availability Zones, and not all VM sizes are supported i
 az vm list-skus --resource-type virtualMachines --zone false --location eastus -o table
 ```
 
-Virtual Machine Scale Sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
+Virtual Machine Scale Sets automatically use placement groups, which act as an implicit availability set. For more information about placement groups, see [Working with large Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups).
 
 ### Health probes
 

@@ -177,13 +177,13 @@ For more information, see:
 
 ## Performance efficiency
 
-*Virtual machine scale sets -* Use virtual machine scale sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of virtual machine scale sets are:
+*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
 
 - Create and manage multiple VMs easily
 - High availability and application resiliency
 - Automated scaling as resource demand changes
 
-For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
 
