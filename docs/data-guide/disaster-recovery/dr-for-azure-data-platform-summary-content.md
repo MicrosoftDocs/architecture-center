@@ -43,7 +43,7 @@ SaaS|Software As A Service|[What is SaaS? Software as a Service](https://azure.m
 SDLC|Software Development Lifecycle| 
 SME|Subject Mater Expert| 
 SLA|Service Level Agreement| 
-SSO|Single Sign-On| 
+SSO|Single sign-on| 
 UDR|User Defined Route|[Azure virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview)
 VM|Virtual Machine|[Virtual Machines (VMs) for Linux and Windows](https://azure.microsoft.com/en-us/services/virtual-machines/)
 VNET|Azure – Virtual Network|[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)

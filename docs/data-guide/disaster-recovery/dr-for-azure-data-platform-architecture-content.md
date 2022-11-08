@@ -21,7 +21,7 @@ Contoso has implemented the following foundational Azure structure, which is a s
 >Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
 
 Within this foundational structure, Contoso has implemented the following elements to support its enterprise business intelligence needs:
-[![Architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
+[![Diagram that shows architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
 *Contoso's data platform*
 
 Contoso’s Data Platform - Workflow  
@@ -31,7 +31,7 @@ The workflow is read left to right, following the flow of data:
 - **Data Sources** - The sources or types of data that the data platform can consume from  
 - **Ingest** - The Platform’s capability to ingest data from various sources of varying structure and speed. This design reflects a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
 - **Store** - The capability to securely store data at scale that has been ingested onto the platform
-- **Process** - The Platform’s capability to process data, making it “fit for purpose” for downstream processes lik cleansing, standardizing and modeling.   The pre-processing of data typically ensures that it's in a “position and a condition, ready for use”
+- **Process** - The Platform’s capability to process data, making it “fit for purpose” for downstream processes like cleansing, standardizing and modeling.   The pre-processing of data typically ensures that it's in a “position and a condition, ready for use”
 - **Enrich** - The capability to enhance data processed on the platform via statistical, Machine Learning or other modeling techniques or prebuilt Azure AI Services
 -  **Serve** - The Platform’s capability to shape and present data for downstream consumption
 - **Data Consumers** - The individuals, applications or downstream processes that consume data from the platforms’ various serving touchpoints
@@ -43,11 +43,11 @@ The workflow is read left to right, following the flow of data:
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a “Redeploy on Disaster” DR strategy based upon an operating cost-minimization approach.  
 
-This will provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
+The following sections will provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
 ## Azure service and component view
 
-The following tables presents a breakdown of each Azure service and component used across the Contoso – Data platform, with options for DR uplift.
+The following tables present a breakdown of each Azure service and component used across the Contoso – Data platform, with options for DR uplift.
 >[!NOTE]
 >The sections below are organized by stateful vs stateless services
 
@@ -59,7 +59,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Premium P1
     - DR Uplift options: Azure AD’s resiliency is part of its SaaS offering
     - Notes
-        - [Advancing service reslience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+        - [Advancing service resilience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
     - Component Recovery Responsibility: Microsoft
@@ -82,8 +82,8 @@ The following tables presents a breakdown of each Azure service and component us
     - DR Uplift options: DevOps [service and data resiliency](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability) is part of its SaaS offering 
     - Notes
         - DevOps Server as the on-premises offering will remain the customer’s responsibility for disaster recovery
-        - If third party services (SonarCloud, Jfrog Artifactory, Jenkins build servers for example) are used, they will remain the customer’s responsibility for recovery from a disaster
-        - If IaaS VMs are used within the DevOps toolchain, they will remain the customer’s responsibility for recovery from a disaster
+        - If third party services (SonarCloud, Jfrog Artifactory, Jenkins build servers for example) are used, they'll remain the customer’s responsibility for recovery from a disaster
+        - If IaaS VMs are used within the DevOps toolchain, they'll remain the customer’s responsibility for recovery from a disaster
 
 ### Stateless Foundational Components
 
@@ -191,7 +191,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Standard
-    - DR Uplift options: An Event Hub namespace can be created with [availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones) enabled. This resiliency can be extended to cover a full region outage with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal)
+    - DR Uplift options: An event hub namespace can be created with [availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones) enabled. This resiliency can be extended to cover a full region outage with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal)
     - Notes
         - By design, Event Hubs geo-disaster recovery doesn't replicate data, therefore there are several [considerations to keep in mind](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#considerations) for failover and fallback
 
@@ -276,7 +276,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Contoso SKU selection: Computed Optimized Gen2 
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - If Self-Hosted Data Pipelines are used, they will remain the customer’s responsibility for recovery from a disaster
+        - If Self-Hosted Data Pipelines are used, they'll remain the customer’s responsibility for recovery from a disaster
 
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
@@ -294,7 +294,7 @@ The following tables presents a breakdown of each Azure service and component us
     - Notes
         - Azure Synapse Analytics [automatically takes snapshots](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired data center. The RPO for a geo-restore is 24 hours
-        - If Self-Hosted Data Pipelines are used, they will remain the customers responsibility recovery from a disaster
+        - If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster
 
 - **Azure Cognitive Services**
     - Component Recovery Responsibility: Microsoft
@@ -313,10 +313,10 @@ The following tables presents a breakdown of each Azure service and component us
         -  [Multiple services in separate regions](/azure/search/search-performance-optimization#multiple-services-in-separate-geographic-regions) can extend the resiliency further
     - Notes
         - In Cognitive Search business continuity (and disaster recovery) is achieved through multiple search services.
-        - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required in the event of a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services
+        - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages). If continuous service is required during a catastrophic failure, the recommendation is to have a second service in a different region, and implementing a geo-replication strategy to ensure indexes are fully redundant across all services
 
 ## Stateful vs Stateless Components
-The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and enable the extension of this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.  
+The speed of innovation across the Microsoft product suite and Azure, in particular, means the component set that we've used for this worked example will quickly evolve. To future-proof against providing stale guidance and extend this guidance to components not explicitly covered in this document, the section below provides some instruction based upon the coarse-grain classification of state.  
 
 A component/service can be described as stateful if It's designed to remember preceding events or user interactions. Stateless means there's no record of previous interactions, and each interaction request has to be handled based entirely on information that comes with it.
 
@@ -324,8 +324,8 @@ For a DR scenario that calls for redeployment:
 
 - Components/services that are “stateless”, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system
 - Components/services that are “stateful”, like Azure SQL database and storage accounts, require more attention
-    - When procuring the component, a key decision will be the selection of the data redundancy feature. This is typically a trade-off between availability and durability with operating costs
-    - Datastore components will also need a data backup strategy. In some cases, this strategy will be covered by the data redundancy features that is, Storage Accounts, while others will need a separate backup process that is, SQL Databases
+    - When procuring the component, a key decision will be the selection of the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs
+- Datastore components will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
     - If necessary, the component can be redeployed from source control with a smoke-test to validate that It's available with the correct configuration
     - A redeployed component containing a dataset must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for completeness.
         - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in earlier backup being used in place of the latest available

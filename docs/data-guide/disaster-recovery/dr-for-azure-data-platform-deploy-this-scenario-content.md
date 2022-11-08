@@ -35,7 +35,7 @@ See the sections below for this detail.
 
 For Azure Services
 
-- Microsoft will publish a PIR to the [Azure Portal - Service Health](https://www.aka.ms/ash-portal) for review
+- Microsoft will publish a PIR to the [Azure portal - Service Health](https://www.aka.ms/ash-portal) for review
 
 For Power BI 
 

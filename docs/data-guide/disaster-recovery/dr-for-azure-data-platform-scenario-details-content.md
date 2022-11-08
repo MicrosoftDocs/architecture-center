@@ -164,9 +164,9 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR Impact
         - Azure Data Center Failure: Contoso would need to validate availability and redeploy if necessary
         - Availability Zone Failure: Contoso would need to validate availability and redeploy if necessary
-        - Azure Regional Failure: Contoso would need to redeploy the Event Hub into the secondary region
+        - Azure Regional Failure: Contoso would need to redeploy the Event Hubs instance into the secondary region
     - Notes
-        - The Event Hub namespace could be created with [availability zones enabled](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones), addressing the Data center outage risk
+        - The Event Hubs namespace could be created with [availability zones enabled](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones), addressing the Data center outage risk
         - This resiliency can be extended to cover a full region outage with [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr)
 - **Azure IoT Hubs**
     - Contoso SKU selection: Standard
