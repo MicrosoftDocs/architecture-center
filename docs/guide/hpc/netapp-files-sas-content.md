@@ -13,7 +13,7 @@ This article provides general information for running SAS Grid 9.4 on Azure, usi
 
 ## Architecture
 
-:::image type="content" source="media/main-architecture.png" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.png":::
+:::image type="content" source="media/main-architecture.png" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.png" border="false":::
  
 *Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
 
@@ -69,14 +69,14 @@ In the  calculator, select **advanced**, select a region, and enter the followin
 The output at the bottom of the screen provides recommended capacity requirements at each service level and the cost per month, based on the price for the selected region:
 
 - **Throughput**. The bandwidth of the volume, based on the workload mix. For an 80% 64-KiB sequential read workload, 3,096 MiB/s is the expected maximum.
-- **IOPS**. The number of IOPS the volume will provide at the specified throughput.
+- **IOPS**. The number of IOPS the volume provides at the specified throughput.
 - **Volume Size**. The amount of capacity needed by the volume at the given service levels to achieve the required throughput. Volume capacity (reported in GiBs) can be equal to or less than capacity pool size. This recommendation is based on the assumption that you're using automatic QoS capacity pool types. To further optimize capacity versus throughput distribution across volumes within a capacity pool, consider manual QoS capacity pool types.
 - **Capacity Pool Size**. The pool size. A volume's capacity is carved from a capacity pool. Capacity pools are sized in 1-TiB increments.
 - **Capacity Pool Cost (USD/month)**. The cost per month of the capacity pool at the given size and service level.
 - **Volume Show Back (USD/month)**. The cost per month of the capacity for the volume at the specified capacity. Charges are based on the allocated capacity pool sizes. The volume show back indicates the volume amount.
 
 > [!NOTE]
-> The user experience will be the same regardless of the service level, as long as sufficient bandwidth is provisioned.
+> The user experience is the same regardless of the service level, as long as sufficient bandwidth is provisioned.
 
 Control costs as needed by using volume shaping in Azure NetApp Files. Two dynamic options are available to influence performance and cost:
 
@@ -148,7 +148,7 @@ The options in the table correspond to deployments described in the architecture
 
 ## Temporary storage architecture
 
-:::image type="content" source="media/temporary-storage.png" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.png":::
+:::image type="content" source="media/temporary-storage.png" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
 
@@ -162,7 +162,7 @@ For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast 
 
 ## Managed disk architecture
 
-:::image type="content" source="media/managed-disk.png" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png":::
+:::image type="content" source="media/managed-disk.png" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
 
@@ -176,7 +176,7 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 ## Azure NetApp Files architecture
 
-:::image type="content" source="media/azure-netapp-files.png" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png":::
+:::image type="content" source="media/azure-netapp-files.png" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
 
@@ -304,7 +304,7 @@ The storage contents are replicated without the use of any compute infrastructur
 
 The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. If there's a failover, the secondary region is brought online, and the VMs are started so production can resume in the second region. You need to reroute traffic to the second region by reconfiguring load balancers that aren't shown in the diagram.
 
-:::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png ":::
+:::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
 
