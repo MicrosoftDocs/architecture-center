@@ -14,42 +14,42 @@ This pattern can be useful in the following situations:
 
 ## Scenario details
 
-In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform sends reference data via a Logic App to the European instance. A proprietary Contoso LOB app reads user data from the US instance and then sends a payload with unique identifiers or alternate keys to the Europe instance. If the Europe instance does not have the data due to downtime, maintenance, or another communications issue, the user receives a bad request because the entity with that record does not exist.
+In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform sends a daily batch of reference data via a Logic App to the European instance. A proprietary Contoso LOB app used to generate reporting on problem tickets that users have created reads user data from both dataverse instances to pull the relevant data. If the synchronization process has not been completed and the Europe instance is not up to date due to downtime, maintenance, or another communications issue, the request will produce a generic error due to entities missing from that instance.
 
 The following examples show the potential journeys for a record submission.
 
 **Example 1 - Successful path with no outage or transient errors**
 
-![Successful replication process](./_images/data-dependent-example.png)
+![Diagram showing a successful replication process.](./_images/data-dependent-example.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example.vsdx) of this architecture.*
 
 1. The **US Instance** synchronizes a new account to the **Europe Instance** via a Logic App. All are working because no transient faults or outages have occurred.
-2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was replicated to the **Europe Instance**. It works because everything was up and no outages or transient faults occurred. An HTTP status of 204 is returned.
+2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was replicated to the **Europe Instance**. It works because everything was up and no outages or transient faults occurred. The report is generated successfully.
 
 **Example 2 - Unsuccessful path where sync is down or delayed**
 
-![Failed replication process](./_images/data-dependent-example-fails.png)
+![Diagram showing a failed replication process.](./_images/data-dependent-example-fails.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
-1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
-2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance**.
+1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime, maintenance or another communications issue.
+2. The Contoso LOB app reads the master accounts from the **US Instance** and intends to submit an API call that references an account that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance** and the report is not generated.
 
 ## Solution
 
 ### Plugin/flow to always upsert based on the GUID or alternate key
 
-This can be performed in a number of plugin steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the PreValidation step. PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
+This can be performed in a number of [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). PreValidation happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a PreCreate plugin step will suffice.
 
-![Solution](./_images/solution.png)
+![Diagram showing a dataverse plug-in providing the solution.](./_images/solution.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
 2. The Contoso LOB app reads the master accounts from the **US Instance**. It intends to submit an API call that references an account that was not replicated to the **Europe Instance**. As it stands, the API call will fail because the record does not exist, due to the sync not working.
 3. A PreValidation/PreCreate plugin performs an upsert on the GUID (updating only the ID and setting the name, if it does not exist). If it exists already, then nothing is changed. If it does not exist, a new account is created (with most of the fields blank).
-4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully.
+4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report is generated successfully.
 
 >[!NOTE]
 > Microsoft recommends introducing a circuit breaker pattern to back off and retry as part of this solution. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
