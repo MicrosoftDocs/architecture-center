@@ -32,7 +32,7 @@ One of the first steps in migration is to analyze your IoT solution. Start with 
 
   It's essential to understand the business, technical requirements and needs, performance, long-term growth, and important factors of your operation. This knowledge helps establish the minimum base of requirements for your platform. We recommend that you use the [Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview) to understand the best practices when designing a solution.
 
-- Enumerate and obtain key information about your IoT solution
+- Obtain key information about your IoT solution
 
   Be clear about the requirements of your IoT solution. Requirements include device configuration, networks, security requirements, applications, and their dependencies. This information helps you analyze which components in the Azure cloud allow you to build your IoT platform in the most transparent way, addressing current requirements and future needs.
 
@@ -62,7 +62,7 @@ There are some common strategies for cloud scenarios:
 
 - Refactor and rearchitect your IoT solution
 
-  Suppose during your evaluation you discover that you need to combine scenarios where some components of your IoT solution can be rehosted, such as applications or databases. Others could be a replatform or rebuild to take advantage of some PaaS components. In that case, refactor and rearchitect is the best option. You can reduce the migration time and effort and make adjustments to your backend and business rules in later stages.
+  Suppose during your evaluation you discover that you need to combine scenarios where some components of your IoT solution can be rehosted, such as applications or databases. Others could be a replatform or rebuild to take advantage of some PaaS components. In that case, *refactor and rearchitect* is the best option. You can reduce the migration time and effort and make adjustments to your backend and business rules in later stages.
 
   If you want a cloud-native solution and modernize your solution, consider rebuilding your IoT solution. Azure offers managed services, such as [Azure Kubernetes Service](/azure/aks), [Azure Container](/azure/containers) services, and [Azure API Management](/azure/api-management). As a result, you have a highly flexible platform. This process could be more costly in time and resources.
 
@@ -72,7 +72,7 @@ There are some common strategies for cloud scenarios:
 
 ## IoT migration process
 
-Every IoT migration differs in various factors, such as devices, network requirements, maturity, level of solution complexity and skill level of the IT team. As a general guide, every migration includes some form of the following steps. These steps are important avoid making the wrong technology and methodology choices or encountering surprises during the migration process.
+Every IoT migration differs in various ways, such as devices, network requirements, maturity, level of solution complexity and skill level of the IT team. As a general guide, every migration includes some form of the following steps. These steps help avoid the wrong technology and methodology choices. They can help avoid surprises during the migration process.
 
 - Plan and assess
 
@@ -80,7 +80,7 @@ Every IoT migration differs in various factors, such as devices, network require
 
 - Design
 
-  Once you identify your migration strategy, analyze and design your solution in Azure. We recommend that you visit the Architecture Center and validate the reference architectures. During this stage, identify all the components to migrate and their dependencies. Prepare contingency plans. Learn how to construct your [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) with two possible paths: *use enterprise-scale* or *start small and expand*.
+  After you identify your migration strategy, analyze and design your solution in Azure. We recommend that you visit the Architecture Center and validate the reference architectures. During this stage, identify all the components to migrate and their dependencies. Prepare contingency plans. Learn how to construct your [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) with two possible paths: *use enterprise-scale* or *start small and expand*.
 
   Find the tools you need to set up your cloud environment in the [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide).
 

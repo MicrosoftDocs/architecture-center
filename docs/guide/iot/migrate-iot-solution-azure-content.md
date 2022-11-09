@@ -7,7 +7,7 @@ This article provides guidance for architects, developers, and IT staff who plan
 
 The best practices and recommendations align with the well-architected framework for IoT. For more information, see [Overview of well-architected IoT workloads](/azure/architecture/framework/iot/iot-overview).
 
-To learn more about the evaluations to make before migrating and discover the common strategies for a solution migration from an IoT solution to Azure, see [Understanding IoT solution to Azure migration and best practices](azure-iot-migration-best-practices.md).
+To learn more about evaluations to make before you migrate and discover common strategies, see [Understanding IoT solution to Azure migration and best practices](azure-iot-migration-best-practices.md).
 
 ## Architecture
 
@@ -39,7 +39,7 @@ Azure IoT solutions involve:
 - Insights that you form about the data
 - Actions that you take based on insights
 
-For example, a motor sends temperature data. Use this data to evaluate whether the motor performs as expected. You use the insight about the motor's performance to prioritize its maintenance schedule. For more information, see [Azure IoT reference architecture](../../reference-architectures/iot.yml#architecture).
+For example, a motor sends temperature data. Use this data to evaluate whether the motor performs as expected. Use the insight about the motor's performance to prioritize its maintenance schedule. For more information, see [Azure IoT reference architecture](../../reference-architectures/iot.yml#architecture).
 
 ## Consideration to migrate your IoT solution to Azure
 
@@ -68,9 +68,9 @@ Consult the following table:
 | CA Certificates                    | CA Certificates (Azure IoT Hub)               |
 | Device Identity (X509 Certificate) | Device Identity (X509 Certificate Thumbprint) |
 
-The migration application is in charge of getting the list of all the devices and their metadata from the current solution. Then it creates and registers new devices in IoT Hub using the appropriate metadata mapping.
+The migration application gets a list of devices and their metadata from the current solution. Then it creates and registers new devices in IoT Hub using the appropriate metadata mapping.
 
-The following example describes a console application that uses the [IoT Hub Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks). In step 1, the application connects to your current IoT service to obtain the list of devices, identities, device names, and other metadata by using a REST API. Cloud providers expose a function to obtain the list of devices through a REST Service. We recommend storing device data in case you must rerun the migration process.
+The following example describes a console application that uses the [IoT Hub Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks). Cloud providers expose a function to obtain the list of devices through a REST Service. In step 1, the application connects to your current IoT service to obtain the list of devices, identities, device names, and other metadata by using a REST API. We recommend storing device data in case you must rerun the migration process.
 
 After the application has the list of devices, in step 2, it creates the devices in IoT Hub through the IoT Hub Service SDK. For more information about how to bulk-create devices on IoT Hub, see [this sample](https://github.com/Azure/azure-iot-hub-python/blob/main/samples/iothub_registry_manager_bulk_create_sample.py).
 
@@ -82,13 +82,13 @@ After the application has the list of devices, in step 2, it creates the devices
 
 1. The console application connects to Azure IoT Hub by using the IoT Hub SDKs and creates devices in bulk.
 
-You can host the application in an [Azure Functions](/azure/azure-functions), [Azure App Service](/azure/app-service/overview), or a console application. At the end of the migration, ensure that you have the same number of devices in both services and that the migration created the required metadata.
+You can host the application in an [Azure Functions](/azure/azure-functions), [Azure App Service](/azure/app-service/overview), or console application. At the end of the migration, ensure that you have the same number of devices in both services and that the migration created the required metadata.
 
 ### Understanding how devices communicate with Azure IoT Hub
 
 Every IoT solution is different. One of the critical elements to consider is the code implemented in your devices, typically called *firmware*. Cloud providers usually support two mechanisms to connect devices to the service for connecting and managing IoT devices: *REST API* and *Message Queuing Telemetry Transport (MQTT)*. In addition to supporting both mechanisms, Azure provides an SDK to enrich the functionalities provided by the IoT solution.
 
-To migrate your IoT solution, you need to decide whether to make the following changes:
+To migrate your IoT solution, decide whether to make changes in the following areas:
 
 - [Azure IoT Device SDKs](#azure-iot-device-sdks)
 - [Device communications without SDK by using MQTT or HTTP](#device-communications-without-sdk-by-using-mqtt-or-http)
@@ -97,7 +97,7 @@ To migrate your IoT solution, you need to decide whether to make the following c
 
 ### Azure IoT Device SDKs
 
-Azure IoT Hub provides SDKs in common languages like C#, Java, Node, C#, C, and Python. Use an SDK to build applications that run on your IoT devices using device client or module client. These applications send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub. For documentation and examples in different languages, see [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
+Azure IoT Hub provides SDKs in common languages like C#, Java, Node, C#, C, and Python. Use an SDK to build applications that run on your IoT devices using device client or module client. These applications send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub. For more information and examples in different languages, see [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 
 IoT Hub allows devices to use the following protocols for device-side communications:
 
@@ -135,7 +135,7 @@ A key element in the devices code is the endpoint or URL of the IoT service. The
 
 ### Authentication
 
-When you're migrating your IoT solution to Azure, one of the key elements to consider is authentication. Azure IoT Hub supports the following authentication methods:
+When you're migrating your IoT solution to Azure, a key element to consider is authentication. Azure IoT Hub supports the following authentication methods:
 
 - [X.509 certificates](/azure/iot-hub/iot-hub-x509ca-overview)
 
@@ -159,7 +159,7 @@ For more information, see [Security recommendations for Azure IoT deployment](/a
 
 This example uses devices that need to continue using the JSON Web Token (JWT) tokens and ECC certificates.
 
-If the devices in your current solution use JWT tokens, you might want to continue using the tokens to authenticate because they're pre-installed in your devices. You can create a device provisioning flow that uses the Azure IoT Hub and Azure IoT Hub device provisioning service.
+If the devices in your current solution use JWT tokens, you might want to continue using the tokens to authenticate because they're pre-installed in your devices. You can create a device provisioning flow that uses Azure IoT Hub and the Azure IoT Hub device provisioning service.
 
 Create individual enrollment in the device provisioning service and assign an Azure Function to validate the JWT token using a public key. The function returns the IoT Hub assigned to the device only when the JWT Token is validated. Then the device provisioning service returns the credentials to devices.
 
@@ -201,8 +201,8 @@ Using [IoT Hub device twins](/azure/iot-hub/iot-hub-devguide-device-twins), you 
 
 There are two options to send commands from the cloud to the devices, depending on the use case you implement:
 
-- [IoT Hub direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) is a synchronous communication for commands that require immediate confirmation.
-- [Cloud-to-device messages](/azure/iot-hub/iot-hub-devguide-messages-c2d) is for an asynchronous communication with the device.
+- [IoT Hub direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) uses synchronous communication for commands that require immediate confirmation.
+- [Cloud-to-device messages](/azure/iot-hub/iot-hub-devguide-messages-c2d) uses asynchronous communication with the device.
 
 Commands are invoked by using an HTTP call from the cloud. Commands can be received over MQTT from the device. For direct methods, the device can receive and respond to the commands either using the Azure IoT SDK or [the MQTT protocol directly](/azure/iot-hub/iot-hub-mqtt-support#respond-to-a-direct-method).
 
@@ -224,7 +224,7 @@ Consider using the IoT Hub device provisioning service, which is a helper servic
 
 ### Device onboarding with device provisioning service using MQTT
 
-Also in that case, migrating your solution, you can decide to use the Azure IoT SDK or the [MQTT protocol directly](/azure/iot-dps/iot-dps-mqtt-support) to provision your devices.
+You can use the Azure IoT SDK or the [MQTT protocol directly](/azure/iot-dps/iot-dps-mqtt-support) to provision your devices. This example uses the SDK.
 
 :::image type="content" source="media/device-onboard-dps-mqtt.png" alt-text="Diagram shows device onboarding with DPS using MQTT as described in the steps below." border="false":::
 
@@ -268,7 +268,7 @@ Use Azure Functions for IoT to create IoT solutions that you can rapidly deploy.
 
 You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string. For an example that shows the integration between Azure Function and IoT Hub, see [Azure IoT Hub bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-iot).
 
-### Using Azure Services for data storage and analytics
+### Use Azure Services for data storage and analytics
 
 Azure offers services for a wide variety of data-related needs, including ones you would expect like file storage and relational databases [Azure SQL](https://azure.microsoft.com/products/azure-sql) and managed open source databases like [PostgreSQL](https://azure.microsoft.com/products/postgresql). Azure also offers more specialized services, such [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) and [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db).
 
@@ -296,11 +296,13 @@ Consider these services in future iterations of the architecture design.
   
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+Principal authors:
+
 - [Chafia Aouissi](https://www.linkedin.com/in/caouissi ) | Senior PM Manager
 - [Armando Blanco Garcia](https://www.linkedin.com/in/armbla) | Senior Program Manager
 - [Valeria Naldi](https://www.linkedin.com/in/valerianaldi) | Principal Software Engineering
 
-Other contributor:
+Other contributors:
 
 - [Emmanuel Bertrand](https://www.linkedin.com/in/bertrandemmanuel) | Principal PM Manager
 - [Peter Tuton](https://www.linkedin.com/in/petertuton) | Principal Cloud Solution Architect
