@@ -22,7 +22,7 @@ categories:
 
 This article provides guidance for architects, developers, and IT staff who plan to migrate Internet of Things (IoT) solutions to Azure. This article reviews recommendations and best practices to plan migration to Azure IoT.
 
-What are the benefits of the migration to Azure IoT? Azure continues to help IoT customers achieve their goals through edge-to-cloud services. For more information, see [Future-ready IoT implementations on Microsoft Azure](/blog/futureready-iot-implementations-on-microsoft-azure).
+What are the benefits of the migration to Azure IoT? Azure continues to help IoT customers achieve their goals through edge-to-cloud services. For more information, see [Future-ready IoT implementations on Microsoft Azure](https://azure.microsoft.com/blog/futureready-iot-implementations-on-microsoft-azure/).
 
 ## Evaluate your IoT solution before migration
 
@@ -133,8 +133,8 @@ Other contributors:
 
 ## Next steps
 
-- [Azure cloud migration best practices checklist](/cloud-adoption-framework/migrate/azure-best-practices)
-- [Introduction to the Azure migration guide](/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools)
+- [Azure cloud migration best practices checklist](/azure/cloud-adoption-framework/migrate/azure-best-practices)
+- [Introduction to the Azure migration guide](/azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools)
 - [Overview of Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview)
 
 ## Related resources

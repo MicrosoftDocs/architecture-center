@@ -13,7 +13,7 @@ To learn more about the evaluations to make before migrating and discover the co
 
 The first step to migrating your IoT solution to Azure is understanding Azure IoT services. For more information about key components and the reference architecture, see [Azure IoT reference architecture](../../reference-architectures/iot.yml).
 
-:::image type="content" source="media/azure-iot-reference-architecture.png" alt-text="This diagram shows the Azure IoT reference architecture." border="false":::
+:::image type="content" source="media/azure-iot-reference-architecture.png" alt-text="This diagram shows the Azure IoT reference architecture." lightbox="media/azure-iot-reference-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
@@ -68,7 +68,7 @@ Consult the following table:
 | CA Certificates                    | CA Certificates (Azure IoT Hub)               |
 | Device Identity (X509 Certificate) | Device Identity (X509 Certificate Thumbprint) |
 
-The migration application is in charge of getting the list of all the devices and their metadata from the current solution. Then it creates and registersnew devices in IoT Hub using the appropriate metadata mapping.
+The migration application is in charge of getting the list of all the devices and their metadata from the current solution. Then it creates and registers new devices in IoT Hub using the appropriate metadata mapping.
 
 The following example describes a console application that uses the [IoT Hub Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks). In step 1, the application connects to your current IoT service to obtain the list of devices, identities, device names, and other metadata by using a REST API. Cloud providers expose a function to obtain the list of devices through a REST Service. We recommend storing device data in case you must rerun the migration process.
 
@@ -316,7 +316,7 @@ Here are examples of architectures and quick starts to understand how to use Azu
 - [Industrial IoT Patterns](/azure/architecture/guide/iiot-patterns/iiot-patterns-overview)
 - [Video capture and analytics for retail](/azure/architecture/solution-ideas/articles/video-analytics)
 - [Create smart places by using Azure Digital Twins](/azure/architecture/example-scenario/iot/smart-places)
-- [Overview of Well-Architected Framework for IoT](/well-architected/iot/iot-overview)
+- [Overview of Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview)
 
 You can connect with a vast network of partners to help on your migration journey to Azure. Partners have extensive experience in IoT projects, analytics, and applications. They are in different regions, have certified experts, and are ready to support you. For more information about partners, see these sites:
 
