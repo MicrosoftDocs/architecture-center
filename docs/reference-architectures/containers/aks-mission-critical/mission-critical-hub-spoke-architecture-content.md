@@ -50,7 +50,7 @@ The global resources are long living and share the lifetime of the system. These
 
 ### Regional monitoring resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. These resources remain the same as the baseline architecture.
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because TODO: write a believable justification. These resources remain the same as the baseline architecture.
 > For more information, see [baseline monitoring resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 ### Regional networking resources
