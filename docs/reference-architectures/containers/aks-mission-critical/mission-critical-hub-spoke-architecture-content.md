@@ -3,9 +3,9 @@ This reference architecture provides guidance for deploying a mission critical w
 In this approach, **the centrally managed components need to be highly reliable for a mission critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. The workload team must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which  affect the workload, are mitigated at the platform level. 
 
 > [!IMPORTANT]
-> An application landing zone is a pre-provisioned subscription that's connected to the organization's shared resources. It has basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring capabilities. Platform landing zones is a collection of various subscriptions each with specific functionality. For example, the connectivity subscription contains Azure Private DNS Zone, ExpressRoute circuit, Firewall in a virtual network that's available for application teams to use. 
+> An application landing zone is a pre-provisioned subscription that's connected to the organization's shared resources. It has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring capabilities. Platform landing zones is a collection of various subscriptions each with specific functionality. For example, the connectivity subscription contains Azure Private DNS Zone, ExpressRoute circuit, Firewall in a virtual network that's available for application teams to use. 
 >
-> A key benefit is that the application team can offload management of shared reources to central teams, and can focus on development efforts. The organization benefits by applying consistent governance and optimizing on cost of reusing resources for multiple application teams. 
+> A key benefit for the application team is that they can offload management of shared reources to central teams, and  focus on development efforts. The organization benefits by applying consistent governance and optimizing on cost of reusing resources for multiple application teams. 
 > 
 > If you aren't familiar with the concept of landing zones, we highly recommend you start with [What is an Azure landing zone?](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 
@@ -19,12 +19,12 @@ This architecture builds on the [**mission-critical baseline architecture with n
 
 - **Autonomous observability**
 
-    Even though the platform provides a management subscription for the purposes of centralized observability, application team will be responsible for provisioning dedicated monitoring resources for the workload. This decision enables the team to query their data collection quickly in case of issues. TODO justification needs to be written better 
+    Even though the platform provides a management subscription for the purposes of centralized observability, application teams will be responsible for provisioning dedicated monitoring resources for the workload. This decision enables the team to query their data collection quickly in case of issues. TODO justification needs to be written better 
 
 - **Multiple deployment environments**
 
     - One application landing zone subscription as the production environment that contains only team-managed resources that are used to run, deploy, maintain, and monitor the application in production, across all regions. 
-    - One application landing zone subscription as pre-production environment to contain deployments that fully reflect production. Multiple independent deployments may exist in this subscription, such as staging and integration.
+    - One application landing zone subscription as a pre-production environment to contain deployments that fully reflect production. Multiple independent deployments may exist in this subscription, such as staging and integration.
     - One application landing zone subscription that contains all development environments. The environments are short-lived while the subscription isn't 
 
 
@@ -32,9 +32,9 @@ This architecture builds on the [**mission-critical baseline architecture with n
 
 ## Architecture
 
-![Architecture diagram of a mission-critical workload in a hub-spoke topology.](./images/mission-critical-architecture-hub-spoke.svg)
+![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-hub-spoke.svg)
 
-The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. For product documentation about Azure services, see [Related resources](#related-resources).
+The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
 
@@ -69,7 +69,7 @@ The workload takes dependency on these resources and are assumed to be pre-provi
 
 ### Regional stamp resources
 
-These resources live in an application landing zone subscription that is provisioned by the platform team. They resources are part of a _deployment stamp_ and intended to be ephemeral (short-lived) to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They, however, share [global resources](#global-resources) between each other. 
+These resources live in an application landing zone subscription that is provisioned by the platform team. The resources are part of a _deployment stamp_ and intended to be ephemeral (short-lived) to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They, however, share [global resources](#global-resources) between each other. 
 
 - **Azure Virtual Network** is pre-provisioned in the landing zone subscription. It's the only part of stamp that is _not_ ephemeral. The workload deloyment references the network and provisions the resources in subnets defined by the application team. 
 
@@ -90,7 +90,7 @@ For more information, see [**Regional stamp resources**](/azure/architecture/ref
 Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the [baseline deployment pipeline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources).
 
 ## Management resources
-To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
+To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine (VM) instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
 --------------STOP HERE---------------------------
 
