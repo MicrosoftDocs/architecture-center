@@ -2435,7 +2435,7 @@
     {
       "source_path": "docs/reference-architectures/power-platform/eventual-consistency.yml",
       "redirect_url": "/azure/architecture/guide/power-platform/eventual-consistency",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/example-scenario/quantum/loosely-coupled-quantum-computing-job.yml",
