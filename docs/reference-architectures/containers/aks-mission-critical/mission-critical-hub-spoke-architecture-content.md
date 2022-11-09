@@ -92,6 +92,11 @@ Build and release pipelines for a mission critical application must be fully aut
 ## Management resources
 To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
+--------------STOP HERE---------------------------
+
+
+## DUMP ZONE
+
 ## Subscription democratization
 
 TO DO:
