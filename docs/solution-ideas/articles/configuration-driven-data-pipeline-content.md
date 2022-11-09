@@ -12,7 +12,47 @@ This article is a solution idea for creating and maintaining a data pipeline by 
 
 ### Dataflow
 
-1. **Configuration:** The metadata of the pipeline defines the pipeline stages, data sources, transformations, and aggregation logic. Here's an example of a configuration file:
+1. **Configuration:** The metadata of the pipeline defines the pipeline stages, data sources, transformations, and aggregation logic. There are three pipeline stages: staging, standardization, and serving. The aggregation logic can be implemented in Spark SQL.
+1. **REST APIs:** The REST APIs are used to manage the pipeline configuration. The business users or operations team can manage the pipeline configuration by using a web UI that's based on the API layer.
+1. **Framework:** The framework loads the configuration files and converts them into Azure Databricks jobs. It encapsulates the complex Spark cluster and job runtime and presents an interface that's easy to use so that the business users can focus on business logic. The framework is based on PySpark and Azure Delta Lake. It's created and managed by data engineers.
+
+### Components
+
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) loads external data and stores it in Azure Data Lake Storage.
+- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) accepts streaming data from various sources. Azure Databricks loads streaming data directly from Event Hubs.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is the data storage layer of the staging, standardization, and serving zones.
+- [Azure Databricks](https://azure.microsoft.com/products/databricks) is the calculation engine for data transformation. The transformation logic is implemented with Spark SQL.
+- [Azure Databricks Client Library](https://github.com/Azure/azure-databricks-client) provides a convenient interface to the Azure Databricks REST API, which is used to deploy the Azure Databricks job that's converted from the configuration file.
+- [Azure Functions](https://azure.microsoft.com/products/functions) provides a way to implement the API layer that's used to create and deploy Azure Databricks jobs.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is the [Azure Devops](https://azure.microsoft.com/products/devops) service that provides the pipelines that automate the builds and deployments in the framework. The framework can be built as a wheel (.whl) file and published to Azure Databricks clusters as a library.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that can work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights.
+
+## Scenario details
+
+This section has additional information about applying and implementing configuration-driven pipelines.
+
+### Potential use cases
+
+- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
+- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
+
+### The medallion architecture
+
+In the medallion architecture that Azure Databricks introduced, a data pipeline has three stages: staging, standardization, and serving.
+
+| Stage | Description |
+|-|-|
+| Bronze/Staging | The data from external systems is ingested and stored. The data structures in this stage correspond to the table structures as they are on the source systems, along with additional metadata columns like the date and time of the load, the process ID, and so on. |
+| Silver/Standardization | The staged data is cleansed and transformed and then stored. It provides enriched datasets that are suited for further business analysis. The master data can be versioned with slowly changed dimension (SCD) patterns, and the transaction data is deduplicated and contextualized by using master data. |
+| Gold/Serving | The data from the standardization stage is aggregated and then stored. The data is organized in consumption-ready, project-specific databases that are provided by services such as those in the [Azure SQL](https://azure.microsoft.com/products/azure-sql) family. |
+
+Enterprise data warehouses can have large numbers of existing data pipelines. The data pipelines are usually managed by data engineers who write and maintain the code that implements data ingestion, data transformation, and data curation. The code is usually written in Spark SQL, Scala, or Python, and stored in a Git repository. The data engineers need to maintain the code and deploy the pipelines with complicated DevOps deployment pipelines. As business requirements increase and change, the need for engineering effort can become a bottleneck to data pipeline development. As a consequence, the business users or operations teams can wait for a long time to get the data they need.
+
+This solution proposes a data pipeline that's driven by a configuration file. The configuration file can be in JSON format. It specifies the data ingestion, transformation, and curation processes. The configuration file is the only file that needs to be maintained for data processing. In this way, business users or operations teams can maintain the data pipeline without help from developers.
+
+### Configuration file example
+
+The metadata of the pipeline defines the pipeline stages, data sources, transformations, and aggregation logic. Here's an example of a configuration file:
 
    ```json
    {
@@ -58,49 +98,13 @@ This article is a solution idea for creating and maintaining a data pipeline by 
    }
    ```
 
-   There are three pipeline stages: **staging**, **standardization**, and **serving**. The aggregation logic can be implemented in Spark SQL. In this example, there are two Spark SQL procedures. The one in **standardization** merges price and sales data. The one in **serving** aggregates the sales data.
+There are three pipeline stages: **staging**, **standardization**, and **serving**. The aggregation logic can be implemented in Spark SQL. In this example, there are two Spark SQL procedures. The one in **standardization** merges price and sales data. The one in **serving** aggregates the sales data.
 
-1. **REST APIs:** The REST APIs are used to manage the pipeline configuration. The business users or operations team can manage the pipeline configuration by using a web UI that's based on the API layer.
-
-1. **Framework:** The framework loads the configuration files and converts them into Azure Databricks jobs. It encapsulates the complex Spark cluster and job runtime and presents an interface that's easy to use so that the business users can focus on business logic. The framework is based on PySpark and Azure Delta Lake. It's created and managed by data engineers.
-
-### Components
-
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) loads external data and stores it in Azure Data Lake Storage.
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) accepts streaming data from various sources. Azure Databricks loads streaming data directly from Event Hubs.
-- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is the data storage layer of the staging, standardization, and serving zones.
-- [Azure Databricks](https://azure.microsoft.com/products/databricks) is the calculation engine for data transformation. The transformation logic is implemented with Spark SQL.
-- [Azure Databricks Client Library](https://github.com/Azure/azure-databricks-client) provides a convenient interface to the Azure Databricks REST API, which is used to deploy the Azure Databricks job that's converted from the configuration file.
-- [Azure Functions](https://azure.microsoft.com/products/functions) provides a way to implement the API layer that's used to create and deploy Azure Databricks jobs.
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is the [Azure Devops](https://azure.microsoft.com/products/devops) service that provides the pipelines that automate the builds and deployments in the framework. The framework can be built as a wheel (.whl) file and published to Azure Databricks clusters as a library.
-- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that can work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights.
-
-## Scenario details
-
-This section has additional information about applying and implementing configuration-driven pipelines.
-
-### Potential use cases
-
-- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
-- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
-
-### The medallion architecture
-
-In the medallion architecture that Azure Databricks introduced, a data pipeline has three stages: staging, standardization, and serving.
-
-| Stage | Description |
-|-|-|
-| Bronze/Staging | The data from external systems is ingested and stored. The data structures in this stage correspond to the table structures as they are on the source systems, along with additional metadata columns like the date and time of the load, the process ID, and so on. |
-| Silver/Standardization | The staged data is cleansed and transformed and then stored. It provides enriched datasets that are suited for further business analysis. The master data can be versioned with slowly changed dimension (SCD) patterns, and the transaction data is deduplicated and contextualized by using master data. |
-| Gold/Serving | The data from the standardization stage is aggregated and then stored. The data is organized in consumption-ready, project-specific databases that are provided by services such as those in the [Azure SQL](https://azure.microsoft.com/products/azure-sql) family. |
-
-Enterprise data warehouses can have large numbers of existing data pipelines. The data pipelines are usually managed by data engineers who write and maintain the code that implements data ingestion, data transformation, and data curation. The code is usually written in Spark SQL, Scala, or Python, and stored in a Git repository. The data engineers need to maintain the code and deploy the pipelines with complicated DevOps deployment pipelines. As business requirements increase and change, the need for engineering effort can become a bottleneck to data pipeline development. As a consequence, the business users or operations teams can wait for a long time to get the data they need.
-
-This solution proposes a data pipeline that's driven by a configuration file. The configuration file can be in JSON format. It specifies the data ingestion, transformation, and curation processes. The configuration file is the only file that needs to be maintained for data processing. In this way, business users or operations teams can maintain the data pipeline without help from developers.
+### Framework code snippets
 
 Here are some code snippets of the framework, which runs Spark jobs based on the configuration file.
 
-- During staging, the pipeline reads raw data from the source system and stores it in the staging zone of Data Lake Storage. The input and output are defined in the configuration file as follows:
+- In the staging zone, it reads raw data from the source system and stores it in the staging zone of Data Lake Storage. The input and output are defined in the configuration file as follows:
 
   ```json
   df = spark \
@@ -119,7 +123,7 @@ Here are some code snippets of the framework, which runs Spark jobs based on the
           .toTable(target)
   ```
 
-- During standardization, the pipeline transforms data by using Spark SQL that's defined in the configuration file, and outputs the result to the standardization zone of Data Lake Storage.
+- In the standardization zone, it transforms data by using Spark SQL that's defined in the configuration file, and outputs the result to the standardization zone of Data Lake Storage.
 
   ```json
   df = spark.sql(sql)
@@ -131,7 +135,7 @@ Here are some code snippets of the framework, which runs Spark jobs based on the
           .toTable(target)
   ```
   
-- During serving, the pipeline aggregates data by using Spark SQL that's defined in the configuration file, and outputs the result to the serving zone of Data Lake Storage.
+- In the serving zone, it aggregates data by using Spark SQL that's defined in the configuration file, and outputs the result to the serving zone of Data Lake Storage.
 
 ```json
   df = spark.sql(sql)
