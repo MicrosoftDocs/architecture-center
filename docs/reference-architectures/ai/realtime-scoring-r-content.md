@@ -2,7 +2,7 @@ This reference architecture shows how to implement a real-time web service in R 
 
 ## Architecture
 
-![Diagram that shows the real-time scoring of R machine learning models on Azure.][0]
+[ ![Diagram that shows the real-time scoring of R machine learning models on Azure.](./_images/realtime-scoring-r.png) ](./_images/realtime-scoring-r.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/realtime-scoring-r.vsdx) of this architecture.*
 
@@ -78,4 +78,3 @@ The main cost consideration in this architecture is the Kubernetes cluster's com
 [aks-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [docker]: https://docs.docker.com/registry/spec/api
 [r-sdk]: https://azure.github.io/azureml-sdk-for-r/index.html
-[0]: ./_images/realtime-scoring-r.png
