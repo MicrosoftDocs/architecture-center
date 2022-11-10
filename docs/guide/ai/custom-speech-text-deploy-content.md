@@ -96,7 +96,7 @@ Based on the results in the preceding table, for the base model, **Model 1: 2021
 |olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight     |   olympic champion to go back to back in the downhill since nineteen ninety eight the great **catch a sizing are** of germany what ninety four and ninety eight      |   olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight      |
 |she has dethroned the olympic champion goggia|she has dethroned the olympic champion **georgia**|she has dethroned the olympic champion goggia|
 
-Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." However, when the custom model is trained with data that includes the athletes' names and other domain-specific words and phrases, it is able learn and recognize them.
+Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." However, when the custom model is trained with data that includes the athletes' names and other domain-specific words and phrases, it's able learn and recognize them.
 
 **4.	Review various options for creating custom models. Decide whether one or many custom models will work better**
 
@@ -135,7 +135,7 @@ Notes about the code:
 
 **9.	Operationalize the model building, evaluation, and deployment process**
 
-After the custom model is published, it needs to be evaluated on a regular basis and updated if new vocabulary is added. Your business might evolve, and you might need more custom models to increase coverage for additional domains. The Azure Speech team also releases new base models, which are trained on more data, as they become available. Automation can help you keep up with these changes. The next section of this article provides more details about automating the preceding steps.
+After the custom model is published, it needs to be evaluated regularly and updated if new vocabulary is added. Your business might evolve, and you might need more custom models to increase coverage for more domains. The Azure Speech team also releases new base models, which are trained on more data, as they become available. Automation can help you keep up with these changes. The next section of this article provides more details about automating the preceding steps.
 
 ## Deploy this scenario
 
