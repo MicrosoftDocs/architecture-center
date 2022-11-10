@@ -1,4 +1,4 @@
-This article is an implementation guide and example scenario that provides a sample deployment of the solution described in **Implement custom speech-to-text**:
+This article is an implementation guide and example scenario that provides a sample deployment of the solution that's described in **Implement custom speech-to-text**:
 
 > [!div class="nextstepaction"]
 > [Go to part one of this guide](custom-speech-text.yml)
@@ -47,7 +47,7 @@ A speech-based application uses the Azure Speech SDK to connect to the Azure Spe
 
 1.	Use Speech Studio, Azure Speech SDK, Speech CLI, or the REST API to generate transcripts for spoken sentences and utterances.
 2.	Compare the generated transcript with the human-generated transcript.
-3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain.
+3.	If certain domain-specific words are transcribed incorrectly, consider creating a custom speech model for that specific domain.
 4.	Review various options for creating custom models. Decide whether one or many custom models will work better. 
 5.	Collect training and testing data.
 6.	Ensure the data is in an acceptable format.
@@ -59,9 +59,9 @@ Let's look more closely at these steps:
 
 **1.	Use Speech Studio, Azure Speech SDK, Speech CLI, or the REST API to generate transcripts for spoken sentences and utterances**
 
-Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and a [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts from audio files or directly from microphone input. If the content is in an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format supported by the Azure Speech SDK, like .wav.
+Azure Speech provides [SDKs](/azure/cognitive-services/speech-service/speech-sdk), a [CLI interface](/azure/cognitive-services/Speech-Service/spx-overview), and a [REST API](/azure/cognitive-services/speech-service/rest-speech-to-text) for generating transcripts from audio files or directly from microphone input. If the content is in an audio file, it needs to be in a [supported format](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train#audio-data-for-testing). In this scenario, Contoso has previous event recordings (audio and video) in .avi files. Contoso can use tools like [FFmpeg](https://ffmpeg.org) to extract audio from the video files and save it in a format that's supported by the Azure Speech SDK, like .wav.
 
-In the following code, the standard PCM audio codec, `pcm_s16le`, is used to extract audio in a single channel (mono) that has sampling rate of 8 KHz.
+In the following code, the standard PCM audio codec, `pcm_s16le`, is used to extract audio in a single channel (mono) that has a sampling rate of 8 KHz.
 
 ```
 ffmpeg.exe -i INPUT_FILE.avi -acodec pcm_s16le -ac 1 -ar 8000 OUTPUT_FILE.wav
@@ -86,7 +86,7 @@ Based on these results, the custom model (**Olympics_Skiing_v6**) is better than
 
 Note the **Insertion** and **Deletion** rates, which indicate that the audio file is relatively clean and has low background noise.
 
-**3.	If certain domain-specific words transcribe incorrectly, consider creating a custom speech model for that specific domain**
+**3.	If certain domain-specific words are transcribed incorrectly, consider creating a custom speech model for that specific domain**
 
 Based on the results in the preceding table, for the base model, **Model 1: 20211030**, about 10 percent of the words are substituted. In Speech Studio, use the detailed comparison feature to identify domain-specific words that are missed. The following table shows one section of the comparison.
 
@@ -106,7 +106,7 @@ Contoso found that creating separate custom language models for each sport (one 
 
 **5.	Collect training and testing data**
 
-The [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train) article provides details about collecting the data needed for training a custom model. Contoso collected transcripts for various Olympics sports by diverse commentators and used language model adaptation to build one model per sport type. However, they used one pronunciation file for all custom models (one for each sport). Because the testing and training data are kept separate, after a custom model was built, Contoso used event audio whose transcripts weren't included in the training dataset for model evaluation. 
+The [Training and testing datasets](/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train) article provides details about collecting the data needed for training a custom model. Contoso collected transcripts for various Olympics sports from diverse commentators and used language model adaptation to build one model per sport type. However, they used one pronunciation file for all custom models (one for each sport). Because the testing and training data are kept separate, after a custom model was built, Contoso used event audio whose transcripts weren't included in the training dataset for model evaluation. 
 
 **6.	Ensure the data is in an acceptable format**
 
@@ -131,7 +131,7 @@ recognizer = new SpeechRecognizer(config, sourceLanguageConfig, audioInput);
 Notes about the code:
  
 - `endpoint` is the endpoint ID of the custom model that's deployed in step 7.
-- `subscriptionKey` and `region` are the Azure Cognitive Services subscription key and region. You can get these values in the [Azure portal](https://portal.azure.com) by going to the resource group where the Cognitive Services resource was created and looking at its keys.
+- `subscriptionKey` and `region` are the Azure Cognitive Services subscription key and region. You can get these values from the [Azure portal](https://portal.azure.com) by going to the resource group where the Cognitive Services resource was created and looking at its keys.
 
 **9.	Operationalize the model building, evaluation, and deployment process**
 
