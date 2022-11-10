@@ -109,22 +109,31 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    New-AzResourceGroup -Name $resGroupName -Location $location
    ```
 
-1. Add subnets for API Management and Application Gateway.
+1. Add vnet and subnets for API Management and Application Gateway.
 
    ```powershell
-   # Retrieve virtual network information
-   $vnet = Get-AzVirtualNetwork -Name <vnet-name>  -ResourceGroupName <resource-group-name>
+   $vnetName = "<vnet-name>"
+   $vnetAddressPrefix = "<vnet-address-prefix>"
+   $appGatewaySubnetPrefix = "<app-gtwy-subnet-address-prefix>"
+   $apimSubnetPrefix = "<apim-subnet-address-prefix>"
+
+   # Create virtual network
+   $vnet = New-AzVirtualNetwork `
+   -Name $vnetName `
+   -ResourceGroupName $resGroupName `
+   -Location $location `
+   -AddressPrefix $vnetAddressPrefix
 
    # Add the appgtw-subnet to the existing virtual network 
-   $subnetApplication GatewayConfig = Add-AzVirtualNetworkSubnetConfig `
+   $subnetApplication = Add-AzVirtualNetworkSubnetConfig `
    -Name appgtw-subnet `
-   -AddressPrefix <subnet-prefix-address> `
+   -AddressPrefix $appGatewaySubnetPrefix `
    -VirtualNetwork $vnet
 
    # Add the apim-subnet to the existing virtual network 
    $subnetAPIMConfig = Add-AzVirtualNetworkSubnetConfig `
      -Name apim-subnet `
-     -AddressPrefix <subnet-prefix-address> `
+     -AddressPrefix $apimSubnetPrefix `
      -VirtualNetwork $vnet
 
    # Attach subnets to the virtual network 
