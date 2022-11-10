@@ -70,17 +70,41 @@ Another approach is for each functional service, there should be 1 IPv6 AKS Serv
 
 # Considerations
 
+[Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/) should be incorporated while designing your own solution. 
+
 ## Reliability
 
+[Reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview) of a system is the capability to recover from failures while ensuring system availability.
+
 Consider having AKS deployed across [availability zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones), which help protect applications against planned maintenance events and unplanned outages.
+
+Azure offers 3 availability zones for each supported region. Running AKS in at least 2 of them, and each application has at least 2 pods spreading across zones will ensure if one zone is offline, the other can still serve end-users without any disruption.
+
+If customer want to have even better resilience, [multi-regions AKS can be considered](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster), where each region will also support dual-stack networking.
 
 ## Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/security/overview).
 
+Azure also provides [end-to-end secure pipeline](https://learn.microsoft.com/en-us/azure/aks/concepts-security) from build to application workloads running AKS.
+
+Besides, users can leverage Azure Firewall, Azure Network Security Group, and Azure WAF to enhance network security across network layers.
+
 ## Cost Optimization
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/cost/overview).
+
+This dualstack-network AKS architecture helps to absorb the cost of handling IPv6 traffic to the existing infrastructure by having IPv6 ingress deployed on the same AKS without any changes to current setup. It means customers do not pay extra money for IPv6 traffic handler. This shows significant impact when customer's workloads run in multi availability zones or multi regions.
+
+## Operational Excellence
+
+Following guidance from [Operational Excellence](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/overview) pillar, the solution also works as a plugin to existing system. It means customer can add this change to support IPv6 traffic or disable it without affecting existing system. Last but not least, it can also be monitored by the existing mechanism applied to AKS without having extra infrastructure components to manage.
+
+## Performance Efficiency
+
+There are two advantages that the solution brings:
+- IPv6 and IPv4 traffic shares the same computing resources. Great resource resuability enables customers to scale the computing resources easier instead of dealing with IPv6 and IPv4 resources separately.
+- IPv6 and IPv4 ingresses are the gate to computing infrastructure. Each of them can scale independently which maximizes performance with optimal cost.
 
 # Potential Use Cases
 
