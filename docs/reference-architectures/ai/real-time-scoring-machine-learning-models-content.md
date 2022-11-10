@@ -6,7 +6,7 @@ Two scenarios are covered in this article: deploying regular Python models, and 
 
 :::image type="content" alt-text="Architecture diagram for real-time scoring of Python models on Azure." source="./_images/python-model-architecture.png" lightbox="./_images/python-model-architecture.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/./_images/python-model-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/python-model-architecture.vsdx) of this architecture.*
 
 ### Scenario: Stack Overflow FAQ matching
 
