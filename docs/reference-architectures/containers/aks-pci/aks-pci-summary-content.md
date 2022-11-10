@@ -145,7 +145,7 @@ Maintain information about approved solutions that are part of the infrastructur
 
 ### Observability
 
-To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year for in storage accounts for long-term archival and auditing.
+To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year by configuring [data retention and archive policies](/azure/azure-monitor/logs/data-retention-archive) in Azure Monitor Logs.
 
 Make sure logs are only accessed by roles that need them. Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access.
 
