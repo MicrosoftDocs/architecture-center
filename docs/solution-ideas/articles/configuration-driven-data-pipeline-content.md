@@ -31,11 +31,6 @@ This article is a solution idea for creating and maintaining a data pipeline by 
 
 This section has additional information about applying and implementing configuration-driven pipelines.
 
-### Potential use cases
-
-- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
-- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
-
 ### The medallion architecture
 
 In the medallion architecture that Azure Databricks introduced, a data pipeline has three stages: staging, standardization, and serving.
@@ -146,6 +141,11 @@ Here are some code snippets of the framework, which runs Spark jobs based on the
           .option("checkpointLocation", serving_path+"/"+target+"_chkpt") \
           .toTable(target)
   ```
+
+### Potential use cases
+
+- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
+- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
 
 ## Contributors
 
