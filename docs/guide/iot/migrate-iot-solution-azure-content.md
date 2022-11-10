@@ -93,7 +93,7 @@ Every IoT solution is different. One of the critical elements to consider is the
 To migrate your IoT solution, decide whether to make changes in the following areas:
 
 - [Azure IoT Device SDKs](#azure-iot-device-sdks)
-- [Device communications without SDK by using MQTT or HTTP](#device-communications-without-sdk-by-using-mqtt-or-http)
+- [Device communications without SDK by using MQTT or HTTP](#device-communications-without-an-sdk-by-using-mqtt-or-http)
 - [Endpoint](#endpoint)
 - [Authentication](#authentication)
 
