@@ -78,6 +78,8 @@ After the application has the list of devices, it creates the devices in IoT Hub
 
 :::image type="content" source="media/bulk-migration-console-app.png" alt-text="Diagram shows a migration path from current IoT service by using a C# console application as described in the steps below." border="false":::
 
+### Dataflow
+
 1. The console application connects to the current IoT service by using a REST API to obtain the list of devices and metadata.
 
    Optionally, the application stores the device information.
@@ -169,6 +171,8 @@ In that way, the device sends the symmetric key and the signed JWT token during 
 
 :::image type="content" source="media/example-iot-migration.png" alt-text="Diagram shows a migration path where devices continue to use current tokens to authenticate as described in the steps below." border="false":::
 
+### Dataflow
+
 1. A device sends the enrollment symmetric key and JWT token signed using an ECC private key to the Azure IoT Hub device provisioning service. See this [IoT migration sample](https://github.com/Azure-Samples/iot-migration/blob/main/ecc-jwt/sample-device/mydevice.py).
 2. The device provisioning service validates the symmetric key and sends the provisioning payload to a function by using an HTTP trigger.
 3. The Azure Function app gets the public key from a secure store, such as Azure Key Vault.
@@ -230,6 +234,8 @@ You can use the Azure IoT SDK or the [MQTT protocol directly](/azure/iot-dps/iot
 
 :::image type="content" source="media/device-onboard-dps-mqtt.png" alt-text="Diagram shows device onboarding with DPS using MQTT as described in the steps below." border="false":::
 
+### Dataflow
+
 1. Create a shared access signature token to authenticate the device with the device provisioning service and updates it in the device.
 1. The device connects with device provisioning service.
    1. The device publishes a `CONNECT` message to the device provisioning service.
@@ -251,6 +257,8 @@ You can use the Azure IoT SDK or the [MQTT protocol directly](/azure/iot-dps/iot
 This section describes the flow of the reserved topics to use to onboard with MQTT and the device provisioning service with no SDK required.
 
 :::image type="content" source="media/device-onboard-mqtt.png" alt-text="Diagram shows device onboarding without DPS using MQTT as described in the steps below." border="false":::
+
+### Dataflow
 
 1. Generate credentials for the device on IoT Hub and updates them in the device. Credentials are either shared access signature or X.509 certificates.
 1. The device publishes a `CONNECT` message to the IoT Hub MQTT broker with credentials. The device must know the `deviceId` and MQTT broker endpoint.
