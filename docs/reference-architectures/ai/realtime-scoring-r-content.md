@@ -4,6 +4,8 @@ This reference architecture shows how to implement a real-time web service in R 
 
 ![Diagram that shows the real-time scoring of R machine learning models on Azure.][0]
 
+*Download a [Visio file](https://arch-center.azureedge.net/realtime-scoring-r.vsdx) of this architecture.*
+
 This reference architecture takes a container-based approach. A Docker image is built containing R, as well as the various artifacts needed to score new data. These include the model object itself and a scoring script. An image is created and pushed to the Azure Container Registry associated with the Azure Machine Learning workspace. This is then deployed to an inference cluster using Azure Kubernetes Service.
 
 ### Workflow
