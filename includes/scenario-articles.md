@@ -1,13 +1,11 @@
 ---
 author: doodlemania2
 ms.author: adboegli
-ms.date: 06/25/2019
 ms.topic: include
 ms.service: architecture-center
-ms.subservice: example-scenario
 ---
 
-<!-- cSpell:ignore DSVM newsfeed newsfeeds apim Grafana Agisoft wordpress -->
+<!-- cSpell:ignore DSVM apim Agisoft -->
 <!-- markdownlint-disable MD033 MD041 -->
 
 ## AI Scenarios

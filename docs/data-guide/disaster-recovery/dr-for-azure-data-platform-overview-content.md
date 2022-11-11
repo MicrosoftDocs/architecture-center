@@ -1,5 +1,9 @@
 ## Overview
 
+This series of articles provides an illustrative example of how an organization could design a disaster recovery (DR) strategy, describe the process to recover service for an enterprise Azure Data platform in the event of a disaster and test that DR process.
+
+- This series of articles is intended to complement the guidance provided by Microsoft’s [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery), Azure’s [Well-Architected Framework](/azure/architecture/framework/) and [Business Continuity Management](/azure/availability-zones/business-continuity-management-program)
+
 Azure provides many options to provide resiliency and address disaster recovery (DR), but higher levels of service will often attract complexity and/or a cost premium. The trade-off of cost versus resiliency versus complexity is the key decision-making factor for most customers as it relates to DR.
 
 While occasional point failures do happen across the Azure service, it should be noted that Microsoft Data Centers and Azure Services have multiple layers of redundancy built-in. Any failure is normally limited in scope and is typically recovered within a matter of hours. Historically it’s far more likely that a key service such as identity management will experience a service issue rather than an entire Azure region going offline.
