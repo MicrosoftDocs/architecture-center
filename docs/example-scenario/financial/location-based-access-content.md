@@ -95,7 +95,9 @@ The key components are part of Azure AD P2. For more information, see [Pricing -
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Azure AD software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage. Application developers must follow the appropriate guidance to correctly integrate the solution and deliver the best user experience. For more information, see:
+Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Azure AD software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage.
+
+Application developers must follow the appropriate guidance to correctly integrate the solution and deliver the best user experience. For more information, see:
 
 - [Developer guidance for Azure AD Conditional Access](/azure/active-directory/develop/v2-conditional-access-dev-guide)
 - [Developer guidance for Azure AD Conditional Access authentication context](/azure/active-directory/develop/developer-guide-conditional-access-authentication-context)
