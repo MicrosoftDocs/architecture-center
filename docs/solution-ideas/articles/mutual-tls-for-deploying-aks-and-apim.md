@@ -12,9 +12,9 @@ This approach can be used to manage the following scenarios:
 
 * Integrate API Management with Azure Kubernetes Service
 * Deploy API Management in internal mode and expose APIs using Application Gateway
-* Configure mTLS and end to end encryption for maximum secuirty and traffic over Https  
+* Configure mTLS and end to end encryption for maximum security and traffic over Https  
 * Securely connect to Azure PaaS services over Private Endpoint
-* Microsoft Defender for Cloud for Container secuirty
+* Microsoft Defender for Cloud for Container security
 
 ## Architecture
 
@@ -26,7 +26,7 @@ This approach can be used to manage the following scenarios:
 
 1. User request to application endpoint from internet
 2. Application Gateway receive traffic as Https and presents PFX certificate from Azure Key Vault
-3. Decrypt traffic using private Keys ( SSL Offloaded),performs web application firewall inspections, and ReEncrypt traffic using Public Key ( end-to-end encryption )
+3. Decrypt traffic using private Keys ( SSL Offloaded),performs web application firewall inspections, and reEncrypt traffic using Public Key ( end-to-end encryption )
 4. Apply Application Gateway rules, backend Settings base on backend pool and send traffic to API management backend pool over Https
 5. API Management deployed as internal vNet mode with private IP address and receive traffic as Https with custom domain PFX certificates. 
 6. API Management policies and authentication using OAuth with Azure Active directory and client certificate validation. To receive and verify client certificates over HTTP/2 in Azure API management,  you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade in API management
