@@ -1,4 +1,4 @@
-The high volume of transactions for mainframe applications creates a large volume of data. Azure offers a compelling target for mainframe modernization and data migration. Azure relational and NoSQL databases provide scalability, high availability, and ease of maintenance that meets or exceeds mainframe environments. If you retire a mainframe workload and retain the data in a low-cost storage, Azure provides options.
+The high volume of transactions for mainframe applications creates a large volume of data. Azure offers a compelling target for mainframe modernization and data migration. Azure relational and NoSQL databases provide scalability, high availability, and ease of maintenance that meets or exceeds mainframe environments. If you want to retire a mainframe workload and retain the data in a low-cost storage, Azure provides options.
 
 Migrating workloads from mainframe to Azure as a part of application replatforming or refactoring typically requires data migration at scale. [mLogica's LIBER*IRIS](https://www.mlogica.com/products/liber-m-mainframe-modernization) provides a proven solution for bulk data migration from a mainframe to Azure. The solution operates at scale for migrating enterprise workloads. This article shows how to migrate IBM z/OS mainframe data with high fidelity to Azure.
 
@@ -16,20 +16,20 @@ The following diagram shows the architecture of how mLogica LIBER*IRIS integrate
 
 The steps to migrate mainframe data to Azure are as follows:
 
-1. Analysts copy data definition language (DDL), Database description (DBD), copybooks, data layouts and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
+1. Analysts copy data definition language (DDL), database description (DBD), copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
 2. The mLogica data migration cluster generates data extraction scripts to run on the mainframe.
-3. Use FTPS over the VPN to transfer the data extraction scripts to mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
+3. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
 4. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
 5. The sequential files and load scripts are transferred by using binary SFTP to Azure Blob Storage. Mainframe data is still in EBCDIC format at this point.
-6. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. For cost savings, data files can be stored on a hot access tier and log files on a cold access tier in different storage accounts.
+6. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. For cost savings, you can store data files on a hot access tier and log files on a cold access tier in different storage accounts.
 7. The scripts load the ASCII converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput, as needed. Execution logs and detailed exception logs are stored in Azure Blob Storage for further analysis.
-8. mLogica Liber-IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. This NoSQL data can be loaded to Azure Cosmos DB by using Cosmos DB SQL API.
+8. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Cosmos DB SQL API.
 
 ### Components
 
 - Networking and Identity
 
-  - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Office 365.  
+  - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
   - [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
   - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an identity and access management service, which can be synchronized with an on-premises directory.
 
@@ -39,7 +39,7 @@ The steps to migrate mainframe data to Azure are as follows:
 
 - Storage
 
-  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct Binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines using NFS.
+  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines using NFS.
   - [Azure SQL](https://azure.microsoft.com/products/azure-sql), [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql), and [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL. They provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
   - [Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
 
@@ -96,12 +96,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Database services in Azure support various security options:
 
 - Data encryption at rest using [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
-- Data encryption in transit using [TLS](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit
+- Data encryption in transit using [TLS](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit)
 - Data encryption while processing using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves)
 
 You can control authentication and access control on the mLogica data migration cluster by using Azure AD. Azure resources can be configured for authentication and authorization using Azure AD and role-based access control.
 
-Data transferred between the mLogica data migration cluster and the mainframe is encrypted in transit by using TLS. TSL certificates can be stored securely in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Data transferred from the mainframe to Azure Blob Storage is encrypted in transit using SSH.
+Data transferred between the mLogica data migration cluster and the mainframe is encrypted in transit by using TLS. TLS certificates can be stored securely in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Data transferred from the mainframe to Azure Blob Storage is encrypted in transit using SSH.
 
 The mainframe data and load scripts are temporarily stored in Azure Blob Storage. They're encrypted at rest. Data is deleted from Azure Blob Storage once the migration is complete.
 
