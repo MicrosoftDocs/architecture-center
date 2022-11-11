@@ -489,7 +489,7 @@ items:
               - name: Identity
                 items:
                   - name: Azure Active Directory B2C
-                    href: guide/multitenant/service/aad-b2c-content.yml
+                    href: guide/multitenant/service/azure-ad-b2c.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search

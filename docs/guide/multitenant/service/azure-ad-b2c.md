@@ -44,42 +44,46 @@ If you are brand new to this topic, please review the following recommended reso
   - Do you have data residency requirements?
   - What are your user personas? (ie who is logging into your software?)
 
-The following table summarizes the differences between the main tenancy models for Azure AD B2C: 
+The following table summarizes the differences between the main tenancy models for Azure AD B2C:
 
 | Consideration | Shared B2C tenant | B2C tenant per application tenant | Vertically partitioned B2C tenant |
 |-|-|-|-|
 | **Data isolation** | Low | High | Medium |
-| **Deployment complexity** | Low | High | Medium to High, depending on your partition strategy |
+| **Deployment complexity** | Low | Very High | Medium to High, depending on your partition strategy |
 | [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per B2C tenant and per IP | Number of B2C tenants per subscription, Maximum number of directories for a single user | A combination of requests, number of B2C tenants per subscription, and number of directories for a single user, depending on your partition strategy |
-| **Operational complexity** | Low | High | Medium to high, depending on your partition strategy |
-| **Example scenario** | You do not have any strict data residency requirements | You need to support a high degree of separation between your application tenants| You need to meet data residency requirements or you'd like to enable custom federated identity providers for some or all of your application tenants |
+| **Operational complexity** | Low | Very High | Medium to high, depending on your partition strategy |
+| **Number of Azure AD B2C Tenants required** | 1 | *n*, where n is equal to the number of application tenants | Between 1 and *n*, depending on your partition strategy |
+| **Example scenario** | You are building a SaaS offering for consumers in one region such as a music or video streaming service | You are building a SaaS offering for businesses such as a government record keeping software. Your customers require a high degree of separation between other application tenant data | You are building a SaaS offering for businesses such as an accounting & record keeping software. You need to support data residency requirements or custom federated identity providers. |
 
 ### Shared B2C tenant
 
 Using a single, shared B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared B2C tenant should be considered if the following apply to your scenario:
 
-- You do not have data residency or data isolation requirements
-- You only have local accounts or only have a small number of federated identity providers or social logins you'd like to support (ie you do not need to allow each of your customers to bring a custom identity provider)
-- You are okay with your customers using a common login page
-- Your end users need access to more than one application tenant under the same account
+- You do not have data residency or strict data isolation requirements
 - Your application needs are within the Azure AD B2C service [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits)
+- You use local accounts or only have a small number of federated identity providers or social logins you'd like to support (ie you do not need to allow each of your customers to bring a custom identity provider)
+- You have a unified sign-in experience for all application tenants
+- Your end users need access to more than one application tenant under the same account
 
 The diagram below illustrates the shared Azure AD B2C tenant model:
 
 ![A diagram showing 3 applications connecting to a single, shared Azure AD B2C tenant](media/azure-ad-b2c/SharedTenantDiagram.drawio.png)
 
-### B2C tenant per customer
+### B2C tenant per application tenant 
+
+> [!WARNING]
+> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases. A common misconception is to assume using something like the [deployment stamp pattern](../../../patterns/deployment-stamp-content.md) means you also need to include identity in the "stamp". This is not necessarily the case, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
 
 Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your customers onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
 
 Provisioning a B2C tenant per customer should be considered if the following apply to your scenario:
 
 - You have very high data isolation requirements between application tenants
-- You need to perform custom configuration for *every* application tenant 
-- Your application is or can be "tenant aware" and knows which B2C tenant your users will need to sign into
-- Your end users do not need access to more than one application tenant under the same account
 - You have a strategy planned for deploying and [maintaining](#maintenance-overhead) a large number of B2C tenants long term
 - You have a strategy planned for sharding your customers between one or more Azure subscriptions to work within the 20 B2C tenant limit per subscription
+- Your application is or can be "tenant aware" and knows which B2C tenant your users will need to sign into
+- You need to perform custom configuration for *every* application tenant
+- Your end users do not need access to more than one application tenant under the same account
 
 The diagram below illustrates the Azure AD B2C tenant per application tenant model: 
 ![A diagram showing 3 applications, each connecting to their own Azure AD B2C tenant](media/azure-ad-b2c/TenantPerCustomerDiagram.drawio.png)
