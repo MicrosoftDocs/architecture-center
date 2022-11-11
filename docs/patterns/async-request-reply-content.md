@@ -144,7 +144,7 @@ public static class AsyncProcessingWorkAcceptor
 
 ### AsyncProcessingBackgroundWorker function
 
-The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result on a Storage Account.
+The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to a Storage Account.
 
 ```csharp
 public static class AsyncProcessingBackgroundWorker
@@ -163,7 +163,7 @@ public static class AsyncProcessingBackgroundWorker
 
         BlobClient blob = inputContainer.GetBlobClient($"{id}.blobdata");
 
-        // Now write away the process 
+        // Now write the results to blob storage.
         await blob.UploadAsync(customer);
     }
 }
@@ -191,15 +191,15 @@ public static class AsyncOperationStatusChecker
 
         log.LogInformation($"C# HTTP trigger function processed a request for status on {thisGUID} - OnComplete {OnComplete} - OnPending {OnPending}");
 
-        // ** Check to see if the blob is present **
+        // Check to see if the blob is present
         if (await inputBlob.ExistsAsync())
         {
-            // ** If it's present, depending on the value of the optional "OnComplete" parameter choose what to do. **
+            // If it's present, depending on the value of the optional "OnComplete" parameter choose what to do.
             return await OnCompleted(OnComplete, inputBlob, thisGUID);
         }
         else
         {
-            // ** If it's NOT present, then we need to back off, so depending on the value of the optional "OnPending" parameter choose what to do. **
+            // If it's NOT present, then we need to back off, so depending on the value of the optional "OnPending" parameter choose what to do.
             string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
             switch (OnPending)
