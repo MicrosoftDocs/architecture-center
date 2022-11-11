@@ -81,7 +81,7 @@ The key components of this solution are part of Azure AD. Resilience depends on 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This solution provides access control into applications and workloads, but when the protected application exports or downloads backend data, you also need to protect that data. Consider the protection of data at rest, specifically when the data is personal and other sensitive information. FSI regulatory requirements typically require the data within LOB applications to be encrypted at rest and in transit, and only accessible to authorized users from compliant devices.
+This solution provides access control into applications and workloads, but when the protected application exports or downloads backend data, you also need to protect that data. Consider the protection of data at rest, specifically when the data is personal and other sensitive information. FSI regulations typically require the data within LOB applications to be encrypted at rest and in transit, and only accessible to authorized users from compliant devices.
 
 Technologies like data classification and encryption, data leak prevention (DLP), and other data protection technologies help keep out wrongdoers and ensure that FSIs meet their regulatory and compliance commitments. The current solution doesn't specifically address those capabilities.
 
@@ -95,16 +95,16 @@ The key components are part of Azure AD P2. For more information, see [Pricing -
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Azure AD software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage. Application developers must follow the appropriate guidance to correctly integrate the solution and deliver the best user experience.
+Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Azure AD software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage. Application developers must follow the appropriate guidance to correctly integrate the solution and deliver the best user experience. For more information, see:
+
+- [Developer guidance for Azure AD Conditional Access](/azure/active-directory/develop/v2-conditional-access-dev-guide)
+- [Developer guidance for Azure AD Conditional Access authentication context](/azure/active-directory/develop/developer-guide-conditional-access-authentication-context)
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Performance of this solution depends on Azure AD. Developers should follow appropriate guidance to ensure a smooth experience for their application users that doesn't degrade performance. For more information, see:
-
-- [Developer guidance for Azure AD Conditional Access](/azure/active-directory/develop/v2-conditional-access-dev-guide)
-- [Developer guidance for Azure AD Conditional Access authentication context](/azure/active-directory/develop/developer-guide-conditional-access-authentication-context)
+Performance of this solution depends on Azure AD. Developers should follow appropriate guidance to ensure a smooth experience for their application users that doesn't degrade performance.
 
 ## Deploy this scenario
 
