@@ -1,4 +1,4 @@
-The articles in this series have showed how to design a disaster recovery (DR) strategy for an Azure-based data platform with information on resliency options for many Azure services that your organization may be using or looking to incorporate into your data platform.  Every organization's data needs are different, but the guidance provided in this series is meant to give you a starting point to design a DR strategy that fits your business requirements.  
+The articles in this series have showed how to design a disaster recovery (DR) strategy for an Azure-based data platform with information on resiliency options for many Azure services that your organization may be using or looking to incorporate into your data platform.  Every organization's data needs are different, but the guidance provided in this series is meant to give you a starting point to design a DR strategy that fits your business requirements.  
 
 For further business and workload resiliency guidance, you can refer to the [Well-Architected Framework](/azure/architecture/framework/resiliency/) and the [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience).
 
