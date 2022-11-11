@@ -1,5 +1,24 @@
-
-Azure Active Directory B2C provides business-to-consumer identity as a service. An identity solution for a multitenant application is typically one of the biggest considerations when designing your application. Your identity solution will serve as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them. In this article, we describe different considerations and approaches for using Azure Active Directory B2C in a multitenant solution.
+---
+title: Azure Active Directory B2C considerations for multitenancy
+titleSuffix: Azure Architecture Center
+description: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
+author: landonpierce
+ms.author: landonpierce 
+ms.date: 11/11/2022 
+ms service: architecture-center
+ms.subservice: azure-guide
+products:
+ - azure
+ - azure-active-directory-b2c
+categories:
+ - web 
+ms.category:
+  - fcp
+ms.custom:
+  - guide
+  - fcp
+---
+Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. An identity solution for a multitenant application is typically one of the biggest considerations when designing your application. Your identity solution will serve as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them. In this article, we describe different considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document:
 
@@ -25,11 +44,13 @@ If you are brand new to this topic, please review the following recommended reso
   - Do you have data residency requirements?
   - What are your user personas? (ie who is logging into your software?)
 
+The following table summarizes the differences between the main tenancy models for Azure AD B2C: 
+
 | Consideration | Shared B2C tenant | B2C tenant per application tenant | Vertically partitioned B2C tenant |
 |-|-|-|-|
 | **Data isolation** | Low | High | Medium |
 | **Deployment complexity** | Low | High | Medium to High, depending on your partition strategy |
-| [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per B2C tenant and per IP | Number of B2C tenants per subscription, Maximum number of directories for a single user | N/A  |
+| [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per B2C tenant and per IP | Number of B2C tenants per subscription, Maximum number of directories for a single user | A combination of requests, number of B2C tenants per subscription, and number of directories for a single user, depending on your partition strategy |
 | **Operational complexity** | Low | High | Medium to high, depending on your partition strategy |
 | **Example scenario** | You do not have any strict data residency requirements | You need to support a high degree of separation between your application tenants| You need to meet data residency requirements or you'd like to enable custom federated identity providers for some or all of your application tenants |
 
