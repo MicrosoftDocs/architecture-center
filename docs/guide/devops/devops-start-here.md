@@ -5,7 +5,7 @@ description: Learn about DevOps and how to implements DevOps solutions on Azure 
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:

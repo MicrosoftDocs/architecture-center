@@ -5,7 +5,7 @@ description: Use these design and implementation patterns to simplify administra
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

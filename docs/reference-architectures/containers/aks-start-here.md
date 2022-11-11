@@ -5,7 +5,7 @@ description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance of
 author: ckittel
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:

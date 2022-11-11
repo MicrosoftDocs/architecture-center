@@ -5,7 +5,7 @@ description: Understand the Busy Database antipattern, which can cause performan
 author: EdPrice-MSFT
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 
