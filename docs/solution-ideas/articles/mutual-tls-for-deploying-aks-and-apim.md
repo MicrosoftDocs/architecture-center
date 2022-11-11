@@ -1,10 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to integrate Azure Kubernetes Service,API Managenent with mTLS with end to end encryption.
+This solution demonstrates how to integrate Azure Kubernetes Service,API Management with mTLS with end to end encryption.
 
 ## Potential use cases
 
-Azure Kubernetes Service (AKS) integration with API Management and Application Gateway with mTLS. Deploy AKS as private cluster, horizontal scaling, self-healing,  load balancing, and secret management using Azure Key Vault. Securely connect to Azure PaaS services over private endpoint.
+*Azure Kubernetes Service (AKS) integration with API Management and Application Gateway with mTLS. 
+*End to end mutual TLS between Azure API management and Azure Kubernetes Service
+*Highly secure deployment for customers (ex: financial sector) demanding end to end TLS
 
 This approach can be used to manage the following scenarios:
 
@@ -23,15 +25,15 @@ This approach can be used to manage the following scenarios:
 ### Dataflow
 
 1. User request to application endpoint from internet
-2. Application Gateway receive traffic as Https and Validate PFX certificate, private key
-3. Decrypt traffic using private Keys ( SSL Offloaded) and ReEncrypt traffic using Public Key ( end-to-end encryption )
-4. Apply Application Gateway rules, Http Settings base on backend pool and send traffic to backend pool over Https
-5. API Management deployed as internal vNet mode with private IP address and receive traffic as Https with custom domain PFX certificates
-6. API Management policies and authentication using OAuth with Azure Active directory
-7. Traffic send to AKS ( Azure Kubernetes Service) ingress controller over Https
+2. Application Gateway receive traffic as Https and presents PFX certificate from Azure Key Vault
+3. Decrypt traffic using private Keys ( SSL Offloaded),performs web application firewall inspections, and ReEncrypt traffic using Public Key ( end-to-end encryption )
+4. Apply Application Gateway rules, backend Settings base on backend pool and send traffic to API management backend pool over Https
+5. API Management deployed as internal vNet mode with private IP address and receive traffic as Https with custom domain PFX certificates. 
+6. API Management policies and authentication using OAuth with Azure Active directory and client certificate validation. To receive and verify client certificates over HTTP/2 in Azure API management,  you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade in API management
+7. Traffic send to AKS private cluster ( Azure Kubernetes Service) ingress controller over Https
 8. AKS ingress controller receive traffic as Https and verify PEM server certificate and private key
-9. Ingress TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Decrypt traffic using private key (  Offloaded)
-10. Re-encrypt traffic using Private Key and send traffic to AKS service to Pods over Https. AKS Ingress can be configured as Https backend or Passthrough based on requirement
+9. Ingress controller TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Ingress controller decrypts traffic using private key (  Offloaded)
+10. Ingress controller re-encrypt traffic using Private Key and send traffic to AKS service to Pods over Https. AKS Ingress can be configured as Https backend or Passthrough based on requirement
 
 ### Components
 
@@ -50,6 +52,7 @@ This approach can be used to manage the following scenarios:
 * [Application Insights in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) Application Insights is an extension of Azure Monitor and provides Application Performance Monitoring (also known as “APM”) features.
 * [Microsoft Sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel) Microsoft Sentinel is a cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data across an enterprise—fast.
 * [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion) Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses. Provision the service directly in your local or peered virtual network to get support for all the VMs within it.
+* [Azure Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources) Managed identities eliminate the need to manage credentials, such as certificates,secrets and keys
 
 ## Next steps
 
