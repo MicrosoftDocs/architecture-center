@@ -28,7 +28,7 @@ Network secure ingress encapsulates several design patterns, including the globa
 
 ## Video: Network secure ingress implementation
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=163c161c-0f7e-4fea-b126-c8f540fc84e0&embedUrl=/azure/architecture//azure/architecture/pattern-implementations/network-secure-ingress]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=163c161c-0f7e-4fea-b126-c8f540fc84e0&embedUrl=/azure/architecture/pattern-implementations/network-secure-ingress]
 
 ## Pattern requirements
 
