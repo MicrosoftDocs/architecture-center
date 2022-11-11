@@ -408,7 +408,7 @@ To get a start with designing your SAS Grid on Azure solution, review [SAS on Az
 Principal authors:
 
 - [Geert van Teylingen](https://www.linkedin.com/in/geertvanteylingen) | Group Product Manager
-- [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Group Product Manager 
+- [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer 
 
 Other contributors:
 
