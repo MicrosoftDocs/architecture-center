@@ -5,7 +5,7 @@ description: Learn about sample architectures, solutions, and guides that can he
 author: EdPrice-MSFT
 ms.author: edprice
 ms.date: 08/31/2022
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 categories:
