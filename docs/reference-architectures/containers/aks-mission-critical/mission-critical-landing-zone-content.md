@@ -140,17 +140,30 @@ At least, one Azure landing zone subscription is recommended for consolidating t
 
 ### Zero-downtime deployment
 
-The Azure Well-Architected mission-critical methodology requires a zero-downtime deployment approach. One way to acheive this goal is to enforce consistency by deploying new infrastructure every time there's a change to the application code. 
+The Azure Well-Architected mission-critical methodology requires a zero-downtime deployment approach. 
 
-This reference implementation for this design shows the deployment assests in the way the workload:
+TODO: write a better intro
 
-- Integrates with shared Azure resources provisioned in the platform landing zones. 
-- Uses Azure resources provisioned in the application landing zone but are not owned by the application team.
+#### Ephemeral resources
 
-In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp is responsible for allocating subnet(s) in the provided IP address space, applying network security groups, and connecting the Azure resources to those subnets. The stamp is not allowed to create the virtual network nor its peering to the regional hub. 
+One way to acheive this goal is to enforce consistency by deploying entire new infrastructure (global, regional, stamp resource) every time there's a change to the code is deployed.
+
+In this architecture, that approach changes. Only the resources owned by the application team are deployed every time. The deployment must take into consideration how to work with resources that cannot be destroyed and are owned by the platform team.
+
+In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp is responsible for allocating subnet(s) in the provided IP address space, applying network security groups, and connecting the Azure resources to those subnets. The stamp isn't allowed to create the virtual network or its peering to the regional hub. 
 
 The networking section explores the preceding case in detail.
 
+#### DINE (deploy-if-not-exists) Azure policies
+
+Azure landing zones use DINE (deploy-if-not-exists) Azure policies to manipulate deployed resources in application landing zones. 
+
+Evaluate the impact of all DINE policies that will be applied to your resources, early in the workload’s development cycle. If you need make to changes, incorporate them into your declarative deployments. Otherwise, there might be a mismatch between what you deployed and the final resource configuration. Don't fix post-deployment discrepencies through imperative approaches as they can impact reliability.  
+
+#### Canary deployments
+
+Typically, the fundamental change in this architecture over the prior reference architectures will be surfaced in the networking components; Azure DNS, virtual networks, network peering, etc. which will require integration in your deployment. We’ll focus on the virtual network to illustrate. Instead of your deployment stamp creating the virtual network (treating host networks as ephemeral), you can assume that your workload Azure landing zone will have at least two virtual networks pre-provisioned, per region. This gives you the ability to still perform canary deployments for reliable and safe deployment practices (including the option to rollback), by targeting one network for your vNext deployment, while the other serves production traffic. Your deployment pipeline will be responsible for shaping the target virtual network’s subnets, deploying resources connected to it and private endpoints into it, and then shifting traffic to that subnet as per the prior reference architectures.
+When the prior deployment stamp is no longer required, all stamp resources are deleted by your pipelines, except the pre-provisioned network, making it ready to be the eventual vNext target. Ideally, you’d de-provision/delete as much as practical, which would even include deleting subnets inside the virtual network to get back to a fully “factory reset” state, as subnets would be considered part of the stamp, ready for that next deployment.
 
 
 
