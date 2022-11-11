@@ -54,3 +54,13 @@ This article assumes that you have an Azure subscription, a storage account, and
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/free/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](/azure/storage/common/storage-account-create).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
