@@ -167,7 +167,7 @@ Principal author:
 ## Related resources
 
 - [Azure data architecture guide](../../data-guide/index.md)
-- [Azure data platform end-to-end](../../dataplate2e/data-platform-end-to-end.yml)
+- [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Rehost Adabas & Natural applications in Azure](rehost-adabas-software-ag.yml)
 - [Rehost a general mainframe on Azure](mainframe-rehost-architecture-azure.yml)
