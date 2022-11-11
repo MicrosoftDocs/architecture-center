@@ -64,6 +64,10 @@ Using a single, shared B2C tenant is generally the easiest isolation model to ma
 - Your end users need access to more than one application tenant under the same account
 - Your application needs are within the Azure AD B2C service [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits)
 
+The diagram below illustrates the shared Azure AD B2C tenant model:
+
+![A diagram showing 3 applications connecting to a single, shared Azure AD B2C tenant](media/azure-ad-b2c/SharedTenantDiagram.drawio.png)
+
 ### B2C tenant per customer
 
 Provisioning a B2C tenant per customer allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your customers onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
@@ -76,6 +80,9 @@ Provisioning a B2C tenant per customer should be considered if the following app
 - Your end users do not need access to more than one application tenant under the same account
 - You have a strategy planned for deploying and [maintaining](#maintenance-overhead) a large number of B2C tenants long term
 - You have a strategy planned for sharding your customers between one or more Azure subscriptions to work within the 20 B2C tenant limit per subscription
+
+The diagram below illustrates the Azure AD B2C tenant per application tenant model: 
+![A diagram showing 3 applications, each connecting to their own Azure AD B2C tenant](media/azure-ad-b2c/TenantPerCustomerDiagram.drawio.png)
 
 ### Vertically partitioned B2C tenants
 
@@ -91,6 +98,10 @@ You should consider provisioning your B2C tenants using a vertically partitioned
 - You are concerned about your larger customers hitting one of the Azure AD B2C [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow)
 - You have a strategy planned for deploying and [maintaining](#maintenance-overhead) a medium to large number of B2C tenants long term
 - You have a strategy planned for sharding your customers between one or more Azure subscriptions to work within the 20 B2C tenant limit per subscription if required
+
+The diagram below illustrates the vertically partitioned Azure AD B2C tenant model:
+
+![A diagram showing 3 applications, with two of them connected to a shared Azure AD B2C tenant, and the third connected to a dedicated Azure AD B2C tenant](media/azure-ad-b2c/VerticallyPartitionedDiagram.drawio.png)
 
 <!-- #### Implementation considerations
 
