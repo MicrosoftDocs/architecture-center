@@ -325,7 +325,7 @@ items:
             - name: Mission-critical baseline architecture with network controls
               href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Mission-critical baseline architecture in Azure landing zones
-              href: reference-architectures/containers/aks-mission-critical/mission-critical-hub-spoke-architecture.yml
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
             - name: Design areas
               items:
                 - name: Application platform

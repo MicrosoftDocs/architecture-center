@@ -92,16 +92,79 @@ Build and release pipelines for a mission critical application must be fully aut
 ## Management resources
 To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine (VM) instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
+
+
+## Deployment considerations
+
+TODO: write intro later
+
+### Subscription topology for deployment environments
+
+The application (and new features) must be tested thoroughly as part of the application lifecycle before releasing to  production. Here are some key points.
+
+- **Isolation**. It's a common practice to place workloads in separate environments for development, pre-production, and production. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. 
+- **Lifecycle**. Environments have different lifecycle requirements. Some are long standing while others are ephemeral (short-lived), which can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
+
+Using subscriptions as a way to contain the environments can achieve the required level of isolation. The subscriptions themselves are usually not ephemeral while the deployments within them can be.
+
+All application landing zone subscriptions inherit the same governance from the organization's management groups. That way, consistency with production is ensured, in terms of testing and validation. However, subscription topology can become complex. Depending on the number of environments, you'll need several subscriptions for just one workload. Depending on the type of environment, some enviroments might need dedicated subscriptions while other environments might be consolidated into one subscription.
+
+Regardless, the application landing zone subscription must be provisioned by your platform team. Work with them to design the topology so that the overall reliability target for the workload is met. Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization. Avoid usage of shared resources between environments, even when environments are colocated in the same subscription.
+
+**Production**
+
+One production environment is required for global, regional, and stamp resources owned by the application team. These resources will run, deploy, maintain, and monitor the application, across all regions. Factor in resources needed for production runtime _and_ the side-by-side zero-downtime deployments. In addition, there are build agents, Azure Bastion, and jump boxes needed for management.
+
+There might be resource limits defined on the subscription given to you as part of the application landing zone.
+If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
+- One application landing zone subscription that contains both Azure DevOps build agents and global resources.
+- One application landing zone subscription, per region, that would contain the regional, stamp, and jump box resources for that region’s stamp(s).
+
+Here's an example subscription topology used in this architecture.
+
+![Diagram of an example subscription layout for a mission-critical workload in an Azure landing zone.](./images/connected-subscription.png)
+
+**Pre-production**
+
+Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. These environments are short-lived and should be destroyed after validation tests are completed. 
+
+At least one Azure landing zone subscription is required. It can run many independent environments, however, having multiple environments in dedicated subscriptions is recommended. Of course, this subscription may also be subject to resource limits like the production subscription, described above.
+
+**Development**
+
+Development must be done in completely separate environment. It's recommended that development enviroments are short-lived. The enviroment should share the lifetime of a feature.  For instance, you can create a new development environment tied to the feature branch and destroy it when the feaure is merged with an upstream branch. Consider using automated pipelines for that purpose.
+
+Multiple features should be simultaneously developed in multiple dedicated environments. Shared environments for parallel feature development should be avoided as they can cause bugs to leak into production environment. 
+
+At least, one Azure landing zone subscription is recommended for consolidating these environments. This environment should be a scaled down version of production, containing all relevant Azure resources and components used by the application. While subscription that has production-like rigor is ideal, for development, a subscription with fewer constraints, governance, and capabilities can be considered. This deviation is to support the flexibility needed for activities such as exploratory development, v-next feature resource usage and configuration, advanced debugging techniques, and so on. That subscription should still be provided by your platform team. Work with your platform team to place the subscription under a suitable management group hierarchy to achieve this outcome. 
+
+### Zero-downtime deployment
+
+The Azure Well-Architected mission-critical methodology requires a zero-downtime deployment approach. One way to acheive this goal is to enforce consistency by deploying new infrastructure every time there's a change to the application code. 
+
+This reference implementation for this design shows the deployment assests in the way the workload:
+
+- Integrates with shared Azure resources provisioned in the platform landing zones. 
+- Uses Azure resources provisioned in the application landing zone but are not owned by the application team.
+
+In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp is responsible for allocating subnet(s) in the provided IP address space, applying network security groups, and connecting the Azure resources to those subnets. The stamp is not allowed to create the virtual network nor its peering to the regional hub. 
+
+The networking section explores the preceding case in detail.
+
+
+
+
+
+TO DO:
+
+How are the subscriptions tied to regions. Does every region run in a separate subscription? If there are 2 regions, there are 4 vnets. Do i have 4, 2, 1 sub. 
+
+
 --------------STOP HERE---------------------------
 
 
 ## DUMP ZONE
 
-## Subscription democratization
-
-TO DO:
-
-How are the subscriptions tied to regions. Does every region run in a separate subscription? If there are 2 regions, there are 4 vnets. Do i have 4, 2, 1 sub. 
 
 ## Networking considerations
 
