@@ -206,13 +206,13 @@ public static class AsyncOperationStatusChecker
             {
                 case OnPendingEnum.OK:
                     {
-                        // Return an HTTP 200 status code with the 
+                        // Return an HTTP 200 status code.
                         return new OkObjectResult(new { status = "In progress", Location = rqs });
                     }
 
                 case OnPendingEnum.Synchronous:
                     {
-                        // Back off and retry. Time out if the backoff period hits one minute
+                        // Back off and retry. Time out if the backoff period hits one minute.
                         int backoff = 250;
 
                         while (!await inputBlob.ExistsAsync() && backoff < 64000)
