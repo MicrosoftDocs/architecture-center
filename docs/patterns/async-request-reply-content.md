@@ -199,7 +199,7 @@ public static class AsyncOperationStatusChecker
         }
         else
         {
-            // If it's NOT present, then we need to back off, so depending on the value of the optional "OnPending" parameter choose what to do.
+            // If it's NOT present, then we need to back off. Depending on the value of the optional "OnPending" parameter, choose what to do.
             string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
             switch (OnPending)
