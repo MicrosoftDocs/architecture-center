@@ -144,7 +144,7 @@ public static class AsyncProcessingWorkAcceptor
 
 ### AsyncProcessingBackgroundWorker function
 
-The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to a Storage Account.
+The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to a storage account.
 
 ```csharp
 public static class AsyncProcessingBackgroundWorker
