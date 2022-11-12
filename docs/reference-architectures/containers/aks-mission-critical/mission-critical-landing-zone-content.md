@@ -27,6 +27,7 @@ This architecture builds on the [**mission-critical baseline architecture with n
     - One application landing zone subscription as a pre-production environment to contain deployments that fully reflect production. Multiple independent deployments may exist in this subscription, such as staging and integration.
     - One application landing zone subscription that contains all development environments. The environments are short-lived while the subscription isn't 
 
+- Zero-downtime deployments with non-ephemeral resources
 
 - TODO:  keep adding as you see interesting things
 
@@ -140,40 +141,42 @@ At least, one Azure landing zone subscription is recommended for consolidating t
 
 ### Zero-downtime deployment
 
-The Azure Well-Architected mission-critical methodology requires a zero-downtime deployment approach. 
+A mission-critical workload must not experience outage caused by updates to the application. The Azure Well-architected design methodology recommends acheiving that goal by enforcing consistent deployments each time. For that, two strategies are recommended:
+- Fully automated deployment pipelines
+- Tearing down existing deployment and creating new infrastructure resources (global, regional, and stamp) every time there's a change to the code is deployed.
 
-TODO: write a better intro
+In the baseline architecture, those strategies can be implemented when the application team has full autonomy of the workload resources. They can be created and destroyed in every deployment. In this architecture, the platform team owns some of those resources, applies policies. So, there are some areas where you might need to adjust your approach.
 
-#### Ephemeral resources
+#### Non-ephemeral resources
 
-One way to acheive this goal is to enforce consistency by deploying entire new infrastructure (global, regional, stamp resource) every time there's a change to the code is deployed.
-
-In this architecture, that approach changes. Only the resources owned by the application team are deployed every time. The deployment must take into consideration how to work with resources that cannot be destroyed and are owned by the platform team.
-
-In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp is responsible for allocating subnet(s) in the provided IP address space, applying network security groups, and connecting the Azure resources to those subnets. The stamp isn't allowed to create the virtual network or its peering to the regional hub. 
+In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp allocates subnet(s) in the provided IP address space, applies network security groups, and connects the Azure resources to those subnets. The stamp isn't allowed to create the virtual network or its peering to the regional hub. 
 
 The networking section explores the preceding case in detail.
 
 #### DINE (deploy-if-not-exists) Azure policies
 
-Azure landing zones use DINE (deploy-if-not-exists) Azure policies to manipulate deployed resources in application landing zones. 
+Azure landing zones use DINE (deploy-if-not-exists) Azure policies to manipulate deployed resources in application landing zones, even when they are owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
 
-Evaluate the impact of all DINE policies that will be applied to your resources, early in the workload’s development cycle. If you need make to changes, incorporate them into your declarative deployments. Otherwise, there might be a mismatch between what you deployed and the final resource configuration. Don't fix post-deployment discrepencies through imperative approaches as they can impact reliability.  
+Evaluate the impact of all DINE policies that will be applied to your resources, early in the workload’s development cycle. If you need make to changes, incorporate them into your declarative deployments. Don't fix post-deployment discrepencies through imperative approaches as they can impact the overall reliability.  
 
 #### Canary deployments
 
-Typically, the fundamental change in this architecture over the prior reference architectures will be surfaced in the networking components; Azure DNS, virtual networks, network peering, etc. which will require integration in your deployment. We’ll focus on the virtual network to illustrate. Instead of your deployment stamp creating the virtual network (treating host networks as ephemeral), you can assume that your workload Azure landing zone will have at least two virtual networks pre-provisioned, per region. This gives you the ability to still perform canary deployments for reliable and safe deployment practices (including the option to rollback), by targeting one network for your vNext deployment, while the other serves production traffic. Your deployment pipeline will be responsible for shaping the target virtual network’s subnets, deploying resources connected to it and private endpoints into it, and then shifting traffic to that subnet as per the prior reference architectures.
-When the prior deployment stamp is no longer required, all stamp resources are deleted by your pipelines, except the pre-provisioned network, making it ready to be the eventual vNext target. Ideally, you’d de-provision/delete as much as practical, which would even include deleting subnets inside the virtual network to get back to a fully “factory reset” state, as subnets would be considered part of the stamp, ready for that next deployment.
+The baseline architecture uses Blue-Green model to deploy application updates. New stamps with changes are deployed alongside existing stamps. After traffic is moved to the new stamp, the existing stamp is destroyed. 
+
+In this architecture, the existing stamp cannot be destroyed because platform-owned resources aren't ephemeral. For example, networking components, such as Azure DNS, virtual networks, network peering, and so on. The workload assumes at least two virtual networks pre-provisioned, per region, in the application landing zone. 
+
+In this case, the Canary model can achieve reliable and safe deployment with option to rollback. First, a new stamp is deployed with code changes. The deployment pipeline references the pre-provisioned virtual network and allocates subnets, deploys resources, adds private endpoints. Then, it shifts traffic to the new subnets.
+
+When the existing stamp is no longer required, all stamp resources are deleted by the pipeline, except the pre-provisioned network. This takes the stamp to a “factory reset” state, and is used for the next new deployment.
 
 
-
-
-TO DO:
-
-How are the subscriptions tied to regions. Does every region run in a separate subscription? If there are 2 regions, there are 4 vnets. Do i have 4, 2, 1 sub. 
 
 
 --------------STOP HERE---------------------------
+#### Deployment identity and access management
+
+Your Azure landing zone platform team should provide you with a deployment service principal, per subscription, that has permissions scoped to just the resources within that application landing zone subscription. In cases with multiple environments (e.g. stage and integration) in a single application landing zone subscription, ideally you would be provisioned one service principal per environment. This separation of service principals helps ensure reliability in that a mis-configured pipeline constrains its blast radius to just resources it has access to, a single environment. Expect those service principals to provide autonomy over resources your workload will need to create and to be restricted from excessively manipulating the corp-provided and configured resources within the subscription.
+Reliability of deployment infrastructure should be considered at the same level as the runtime resources, which means that deployment infrastructure should be bound to your application landing zone subscriptions or even bound to your individual environments, and never sharing deployment resources (build agents and their network) between your production Azure landing zone and pre-production instances. Per-region deployment resources could be considered for additional reliability.
 
 
 ## DUMP ZONE
