@@ -93,7 +93,7 @@ The profile doesn't include the following components:
 - Compliance services required for solutions working with sensitive data, including:
 
   - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
-  - Azure DDoS Protection: standard
+  - Azure DDoS Protection: Network Protection
   - Azure Firewall
   - Azure Application Gateway and Azure Web Application Firewall
   - Azure Key Vault
