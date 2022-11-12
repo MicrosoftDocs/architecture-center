@@ -174,7 +174,7 @@ public static class AsyncProcessingBackgroundWorker
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function first checks whether the request was completed
 
 - If the request was completed, the function either returns a valet-key to the response, or redirects the call immediately to the valet-key URL.
-- If the request is still pending, then we should return a [200 code including the current state](/azure/architecture/best-practices/api-design#asynchronous-operations)
+- If the request is still pending, then we should return a [200 code, including the current state](/azure/architecture/best-practices/api-design#asynchronous-operations).
 
 ```csharp
 public static class AsyncOperationStatusChecker
