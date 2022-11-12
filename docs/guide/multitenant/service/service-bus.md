@@ -1,7 +1,7 @@
 ---
 title: Azure Service Bus considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems, and it provides links to guidance for how to use Azure Service Bus in a multitenant solution.
+description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
 author: willvelida
 ms.author: willvelida
 ms.date: 11/14/2022
@@ -88,7 +88,7 @@ See [Configure customer-managed keys for encrypting Azure Service Bus data at re
 
 Shared access signatures (SAS) give you the ability to grant a tenant access to Service Bus resources with specific rights. If you choose to isolate your tenants at a messaging entity level, you can grant SAS keys on a queue or topic that only apply to a particular tenant.
 
-For further information, see the following articles:
+For more information, see the following articles:
 
 - [Shared Access Signature in Azure Service Bus](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature)
 - [Service Bus access control with Shared Access Signatures](/azure/service-bus-messaging/service-bus-sas)
