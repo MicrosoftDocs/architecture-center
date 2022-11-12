@@ -50,6 +50,16 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 ![Screenshot shows an Azure DevOps dashboard example.](./media/track-progress/dashboard.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
