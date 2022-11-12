@@ -213,6 +213,16 @@ Here is an example of how the data science project work items should appear in *
 
 ![18](./media/agile-development/18-workitems-1.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Collaborative coding with Git](collaborative-coding-with-git.md) describes how to do collaborative code development for data science projects using Git as the shared code development framework, and how to link these coding activities to the work planned with the agile process.
