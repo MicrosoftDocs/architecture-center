@@ -217,6 +217,16 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 
 ![Screenshot of the SQL Server Import Tool.][1]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Resources
 
 [Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)

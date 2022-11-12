@@ -43,7 +43,7 @@ For network and subnet topology details, see the [Azure sample template][azure-s
 
 * Either Azure AD or Azure AD B2C can be used as an identity provider in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which is recommended, or your own DNS provider.
-* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and when content caching isn't required. [Azure DDoS Protection Standard][ddos-standard] is recommended for protecting internet-facing Application Gateway services.
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and when content caching isn't required. [Azure DDoS Network Protection][ddos-network-protection] is recommended for protecting internet-facing Application Gateway services.
 * Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app resolve, and public access to the App Service is rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis].
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However, static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs, or both. For more information about zone-redundancy in API Manager, see [Availability zone support][apim-zr].
@@ -382,6 +382,6 @@ Other contributor:
 [autoscale]:/azure/architecture/best-practices/auto-scaling
 [appservicehealthchecks]:/azure/app-service/monitor-instances-health-check
 [healthchecksaspnet]:/aspnet/core/host-and-deploy/health-checks
-[ddos-standard]:/azure/ddos-protection/ddos-protection-overview
+[ddos-network-protection]:/azure/ddos-protection/ddos-protection-overview
 [bicep]:/azure/azure-resource-manager/bicep/overview?tabs=bicep
 [afd-best-practices]:/azure/frontdoor/best-practices
