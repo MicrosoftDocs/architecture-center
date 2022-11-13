@@ -57,7 +57,7 @@ Monitoring data for global resources and regional resources are stored independe
 
 ### Regional networking resources
 
-The **baseline architecture** is deploys resources owned by the application team. However in this architecture, networking resources are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
+The **baseline architecture** deploys resources owned by the application team. However in this architecture, networking resources are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
 
 The stamp depends on these platform-owned resources. **Azure Virtual Network** provides a shared environment, **Azure Firewall** inspects all egress traffic, and **On-premises gateway** connects to on-premises network through a VPN device or ExpressRoute circuit. 
 > For more information, see [Connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology).
@@ -126,7 +126,7 @@ Regardless, work with the platform team to design a topology that meets the over
 There might be resource limits defined on the subscription given to you as part of the application landing zone.
 If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
 - One application landing zone subscription that contains both Azure DevOps build agents and global resources.
-- One application landing zone subscription, per region. It contains the regional, stamp, and jump box resources for the regional stamp(s).
+- One application landing zone subscription, per region. It contains the regional, stamp, and jump boxes for the regional stamp(s).
 
 Here's an example subscription topology used in this architecture.
 
@@ -160,7 +160,7 @@ In the baseline architecture, those strategies can be implemented as the applica
 
 In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp allocates subnet(s) in the provided IP address space, applies network security groups, and connects the Azure resources to those subnets. The stamp isn't allowed to create the virtual network or peering to the regional hub. 
 
-You'll have to consider using and reusing the non-ephemeral resources. The strategy is illustrated for networking resources in the next section.
+You'll need to reuse the non-ephemeral resources in each deployment. The strategy is illustrated for networking resources in the next section.
 
 #### Deployment model
 
