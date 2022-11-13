@@ -16,7 +16,7 @@ This architecture builds on the [**mission-critical **baseline architecture** wi
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Key design strategies
-The design strategies for mission-critical baseline still apply in this use case. Here are the additional  considerations for this architecture:
+The design strategies for mission-critical baseline still apply in this use case. Here are the considerations for this architecture:
 
 
 - **Autonomous observability**
@@ -51,15 +51,15 @@ The global resources are long living and share the lifetime of the system. The A
 
 ### Regional monitoring resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can be potentially a single point of failure. The Azure services and their configuration remain the same as the **baseline architecture**.
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can potentially be a single point of failure. The Azure services and their configuration remain the same as the **baseline architecture**.
 
 > For more information, see [baseline monitoring resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 ### Regional networking resources
 
-The **baseline architecture** is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
+The **baseline architecture** is deploys resources owned by the application team. However in this architecture, networking resources are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
 
-The workload depends on these resources, which are pre-provisioned in the connectivity subscription. The resources are **Azure Virtual Network** to provide a shared environment, **Azure Firewall** to inspect all egress traffic, and **On-premises gateway** to connect to on-premises network through a VPN device or ExpressRoute circuit. 
+The stamp depends on these platform-owned resources. **Azure Virtual Network** provides a shared environment, **Azure Firewall** inspects all egress traffic, and **On-premises gateway** connects to on-premises network through a VPN device or ExpressRoute circuit. 
 > For more information, see [Connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology).
 
 ### Regional stamp resources
@@ -82,6 +82,8 @@ Build and release pipelines for a mission critical application must be fully aut
 To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine (VM) instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the **baseline architecture**.
 
 > For more information, see [Management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
+
+## Monitoring considerations
 
 
 
@@ -113,7 +115,7 @@ Multiple features should be simultaneously developed in multiple dedicated envir
 
 ### Subscription topology for workload infrastructure
 
-Using subscriptions to contain the environments can achieve the required level of isolation. The subscriptions themselves are usually not ephemeral while the deployments within them can be. The application landing zone subscription is provisioned by your platform team.
+Using subscriptions to contain the environments can achieve the required level of isolation. Typically, the subscriptions aren't ephemeral but the deployments within them can be. The application landing zone subscription is provisioned by your platform team.
 
 All application landing zone subscriptions inherit the same governance from the organization's management groups. That way, consistency with production is ensured for testing and validation. However, subscription topologies can become complex. Depending on the number of environments, you'll need several subscriptions for just one workload. Depending on the type of environment, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription.
 
@@ -124,7 +126,7 @@ Regardless, work with the platform team to design a topology that meets the over
 There might be resource limits defined on the subscription given to you as part of the application landing zone.
 If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
 - One application landing zone subscription that contains both Azure DevOps build agents and global resources.
-- One application landing zone subscription, per region, that contains regional, stamp, and jump box resources for that region’s stamp(s).
+- One application landing zone subscription, per region. It contains the regional, stamp, and jump box resources for the regional stamp(s).
 
 Here's an example subscription topology used in this architecture.
 
@@ -203,6 +205,8 @@ As platform policies evolve, make sure you're involved in the change control pro
 
 
 ## Networking considerations
+
+The baseline architecture is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
 
 In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned, and the workload resources are placed there. 
 
