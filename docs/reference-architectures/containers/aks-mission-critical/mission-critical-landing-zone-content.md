@@ -89,7 +89,7 @@ To gain access to the private compute cluster, this architecture uses private bu
 
 ## Deployment considerations
 
-Failed deployments or erroneous releases are common causes for application outages. Here are some points to consider so that the application (and new features) is tested thoroughly as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
+Failed deployments or erroneous releases are common causes for application outages. The application (and new features) must be thoroughly tested as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
 
 ### Deployment environments
 
@@ -112,6 +112,9 @@ Pre-production environments, such as staging and integration, are needed to make
 Development must be done in separate environment. This environment should be a scaled down version of production, containing all relevant Azure resources and components used by the application. It's recommended that development environments are short-lived. The environment should share the lifetime of a feature. For instance, you can create a new development environment tied to the feature branch and destroy it when the feature is merged with an upstream branch. Consider using automated pipelines for that purpose.
 
 Multiple features should be simultaneously developed in multiple dedicated environments. Shared environments for parallel feature development should be avoided as they can cause bugs to leak into production environment. 
+
+> [!TIP]
+> All environments should take dependencies on production instances of external resources including platform resources. For example, a production regional hub in the connectivity subscription. You'll be able to minimize the delta between pre-production and production environments.
 
 ### Subscription topology for workload infrastructure
 
