@@ -89,6 +89,26 @@ To gain access to the private compute cluster, this architecture uses private bu
 
 > For more information, see [Management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
+## Networking considerations
+
+This is responsible for carving target virtual network subnet(s) within a provided IP address space, applying NSGs, and connecting the Azure resources to those subnets by using some post-networking-stamp-deployment imperative manipulation. This is the main reason why the all-networking stamp resources are considered long-lived. In other words, when the deployment stamp is no longer required, all stamp resources are deleted including subnets but with exception of the pre-provisioned virtual network and those considered completely disconnected.
+
+As a result, it is the workload team the owner of and responsible for deploying the following ephemeral networking resources:
+1.	Completely disconnected vnets such us:
+a.	One long-lived build agent virtual network, this should be able peered to both target-vnet. Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
+b.	Two long-lived ops virtual networks, one per target virtual network. Every ops-vnet is peered to its counterpart target-vnet. These are not deleted along the Deployment Stamp but they are owned by the Application team. Addtionally, hosted jumpboxes enable ops team to access global resources. Singletons per regions is an option and while you could try to make them ephemeral this will overcomplicate your architecture.
+2.	Subnets for your every AKS cluster considering the number of node pools (system and worker) and auto-scaling.
+3.	Private endpoints Subnet where you could expose Cosmos DB, Azure Key Vault, etc.
+4.	Network Security Groups for each subnet.  Use NSGs to lock down this communication within the virtual network. Consider using Service Tags.
+5.	Private endpoints, incoming client requests will still require a public endpoint to be exposed to the internet, however, all subsequent communication can be within the virtual network using private endpoints. When using Azure Front Door Premium, it's possible to route directly from edge nodes to private application endpoints. If this is cross-premises service, please note that the platform team oversees handling the central DNS records creating since the Application Team won’t have the permissions. 
+6.	DNS Private Zones (and its records) for those services per location you want to access privately using their private link support via their private endpoints. These won’t require cross-premises access (i.e. Red Hat OpenShift). You may be blocked by the Platform Team via Azure Policy if only centralized DNS architecture is allowed. 
+7.	Ip Groups
+8.	If your architecture is growing in number of spokes and peering limit are at risk (or overcomplicated management is an issue), UDRs to force traffic from Landing Zone subscription to connectivity subscription are a valid option to be considered.  Use UDRs to lock down communication within the virtual network to Azure services using ServiceTags.
+
+
+While this is adding complexity MC for the sake of reliability recommends having 2 GLB Azure services and 1 third party GLB. Same as suggested in online.
+
+
 ## Monitoring considerations
 
 The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is recommended.  
@@ -179,13 +199,13 @@ A mission-critical workload must not experience outage caused by updates to the 
 
 In the baseline architecture, those strategies can be implemented as the application team has full autonomy of the workload resources. They can be created and destroyed in every deployment. In this architecture, the platform team owns some of those resources, applies policies. So, there are some areas where you might need to adjust your approach.
 
-#### Non-ephemeral resources
+##### Non-ephemeral resources
 
 In the application landing zone, the stamp resources are ephemeral and owned by the application team. But, the given pre-peered virtual network isn't. The deployment stamp allocates subnet(s) in the provided IP address space, applies network security groups, and connects the Azure resources to those subnets. The stamp isn't allowed to create the virtual network or peering to the regional hub. 
 
 You'll need to reuse the non-ephemeral resources in each deployment. The strategy is illustrated for networking resources in the next section.
 
-#### Deployment model
+##### Deployment model
 
 The **baseline architecture** uses Blue-Green model to deploy application updates. New stamps with changes are deployed alongside existing stamps. After traffic is moved to the new stamp, the existing stamp is destroyed. 
 
@@ -196,13 +216,13 @@ In this case, the Canary model can achieve reliable and safe deployment with the
 When the existing stamp is no longer required, all stamp resources are deleted by the pipeline, except the pre-provisioned network. It will take the stamp to a factory reset state, and is used for the next new deployment.
 
 
-#### DINE (deploy-if-not-exists) Azure policies
+##### DINE (deploy-if-not-exists) Azure policies
 
 Azure landing zones use DINE (deploy-if-not-exists) Azure policies to manipulate deployed resources in application landing zones, even when they're owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
 
 Evaluate the impact of all DINE policies that will be applied to your resources, early in the workload’s development cycle. If you need make to changes, incorporate them into your declarative deployments. Don't fix post-deployment discrepancies through imperative approaches as they can impact the overall reliability.  
 
-#### Deployment identity and access management
+##### Deployment identity and access management
 
 As part of the application landing zone subscription, the platform team should give you a deployment service principal. It has permissions scoped to the resources within that subscription. 
 
