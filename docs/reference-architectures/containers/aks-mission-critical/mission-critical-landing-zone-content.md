@@ -24,7 +24,7 @@ The design strategies for mission-critical baseline still apply in this use case
     Even though the platform provides a management subscription for the purposes of centralized observability, application teams will be responsible for provisioning dedicated monitoring resources for the workload. This decision enables the team to query their data collection quickly.  
 
 - **Isolation**
-Using subscriptions to contain the environments can achieve the required level of isolation. The subscriptions themselves are usually not ephemeral while the deployments within them can be.
+Using subscriptions to contain the environments can achieve the required level of isolation. The subscriptions themselves are not ephemeral while the deployments within them can be.
 - **Multiple deployment environments**
 
 
@@ -53,6 +53,9 @@ The global resources are long living and share the lifetime of the system. The A
 
 Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can potentially be a single point of failure. The Azure services and their configuration remain the same as the **baseline architecture**.
 
+> [!IMPORTANT]
+> There are dependencies on the platform-owned monitoring resources that must considered you are developing a health model for this architecture. See the [Monitoring considerations](#monitoring-considerations) section.
+
 > For more information, see [baseline monitoring resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 ### Regional networking resources
@@ -74,7 +77,10 @@ Other Azure services and their configuration remain the same as the **baseline a
 
 ### Deployment pipeline resources
 
-Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the **baseline architecture**. However, there are [deployment considerations](#deployment-considerations) unique to this architecture. 
+Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the **baseline architecture**. 
+
+> [!IMPORTANT]
+> There unique aspects to deploying this architecture. See the [Deployment considerations](#deployment-considerations) section. 
 
 > For more information, see [Deployment pipeline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources).
 
@@ -89,15 +95,15 @@ The Azure landing zone platform provides shared observability resources as part 
 
 Mission-critical workloads need telemetry that's unique and not applicable or actionable for centralized operations team. Offloading the responsibility may cause in delays in incident response. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents the overall health.
 
-The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to to monitor resources, respectively and maintained separately. Aggregrating logs, dashboarding, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload is not impacted.
-
-> Refer to: [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
+The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources, respectively and maintained separately. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload is not impacted.
 
 ### Health model
 
-Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When defining an overall health score, the model must take into consideration the platform flows that the application depends on. Those platform resources are in-scope for the architecture. The workload operators must have visibility into platform-provided log sinks. The platform team must grant role-based access control (RBAC) to log sinks for relevant platform resources that are used by your architecture. Then, build log, health, and alert queries to perform cross-workspace queries to factor in those resources.
+Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When you're defining an overall health score, include the platform flows that the application depends on. Those platform resources are in-scope for the architecture. The workload operators must have visibility into platform-provided log sinks. The platform team must grant role-based access control (RBAC) to log sinks for relevant platform resources that are used by your architecture. Then, build log, health, and alert queries to perform cross-workspace queries to factor in those resources.
 
 In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database.
+
+> Refer to: [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
 ## Deployment considerations
 
@@ -208,9 +214,7 @@ The application landing zone subscription inherits Azure policies, Azure Network
 
 For deployments, don't depend on the platform-provided policies exclusively as they can lead to reliability issues. Especially when those policies and rules change outside your workload’s control. It's highly recommended that you create Azure policies that meet the workload requirement. This effort might lead to some duplication but that's acceptable, considering the potential impact on reliability of the system. If there are changes in the platform policies, the workload policies will still be in effect locally. 
 
-As platform policies evolve, make sure you're involved in the change control process so that the reliability target of your application isn't compromised.
-
-In this architecture, the networking components in the Connectivity subscription are key areas. This includes understanding updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute failover to VPN Gateway, DNS infrastructure, and so on. 
+As platform policies evolve, make sure you're involved in the change control process so that the reliability target of your application isn't compromised. In this architecture, the networking components in the Connectivity subscription are key areas. Make sure you understand and agree with the updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on. 
 
 
 
