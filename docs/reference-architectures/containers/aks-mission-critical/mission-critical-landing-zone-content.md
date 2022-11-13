@@ -12,7 +12,7 @@ In this approach, **the centrally managed components need to be highly reliable 
 
 This architecture builds on the [**mission-critical **baseline architecture** with network controls**](./mission-critical-network-architecture.yml). It's recommended that you become familiar with the **baseline architecture** before proceeding with this article. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Key design strategies
@@ -80,7 +80,7 @@ Other Azure services and their configuration remain the same as the **baseline a
 Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the **baseline architecture**. 
 
 > [!IMPORTANT]
-> There unique aspects to deploying this architecture. See the [Deployment considerations](#deployment-considerations) section. 
+> The deployment strategy must take into consideration the non-ephemeral resources that aren't owned by the application team but are in-scope for this architecture. See the [Deployment considerations](#deployment-considerations) section. 
 
 > For more information, see [Deployment pipeline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources).
 
