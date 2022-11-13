@@ -41,24 +41,18 @@ Using subscriptions to contain the environments can achieve the required level o
 
 ![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-hub-spoke.svg)
 
-The components of this architecture are same as the [**mission-critical **baseline architecture** with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
+The components of this architecture are same as the [**mission-critical baseline architecture** with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
 
-The global resources are long living and share the lifetime of the system. These resources remain the same as the baseline architecture. Here's a brief summary: 
-
-- **Azure Front Door Premium SKU** is used as the global load balancer for reliably routing traffic to the regional deployments, which are exposed through private endpoints. 
-
-- **Azure Cosmos DB with SQL API** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
-
-- **Azure Container Registry** is used to store all container images with geo-replication capabilities. Access is limited to authorized private endpoint connections.
+The global resources are long living and share the lifetime of the system. The Azure services and their configuration remain the same as the **baseline architecture**.
 
 > For more information, see [**Global resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#global-resources).
 
 ### Regional monitoring resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can be potentially a single point of failure. **Azure Log Analytics** and 
-**Azure Application Insights** are used and their configuration remain the same as the baseline architecture.
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can be potentially a single point of failure. The Azure services and their configuration remain the same as the **baseline architecture**.
+
 > For more information, see [baseline monitoring resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 ### Regional networking resources
@@ -72,26 +66,22 @@ The workload depends on these resources, which are pre-provisioned in the connec
 
 These resources live in an application landing zone subscription that is provisioned by the platform team. The resources are part of a _deployment stamp_ and intended to be ephemeral (short-lived) to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They, however, share [global resources](#global-resources) between each other. 
 
-- **Azure Virtual Network** is pre-provisioned in the landing zone subscription. It's the only part of stamp that is _not_ ephemeral. The workload deployment references the network and provisions the resources in subnets defined by the application team. 
+**Azure Virtual Network** is pre-provisioned in the landing zone subscription. It's the only part of stamp that is _not_ ephemeral. The workload deployment references the network and provisions the resources in subnets defined by the application team. 
 
-- **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
-
-- **Internal load balancer** is the application origin. Front Door uses this origin for establishing private and direct connectivity to the backend using Private Link. 
-
-- **Azure Kubernetes Service (AKS)** is the orchestrator for [backend compute](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) that runs an application and is stateless. The AKS cluster is private. 
-
-- **Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-message-broker). Access is limited to authorized private endpoint connections.
-
-- **Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). Access is limited to authorized private endpoint connections.
+Other Azure services and their configuration remain the same as the **baseline architecture**.
 
 > For more information, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
 ### Deployment pipeline resources
 
-Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the [baseline deployment pipeline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources). However, there are [deployment considerations](#deployment-considerations) unique to this architecture. 
+Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the **baseline architecture**. However, there are [deployment considerations](#deployment-considerations) unique to this architecture. 
+
+> For more information, see [Deployment pipeline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources).
 
 ### Management resources
-To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine (VM) instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the [baseline management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
+To gain access to the private compute cluster, this architecture uses private build agents and jump box virtual machine (VM) instances. Azure Bastion provides secure access to the jump box VMs. These resources remain the same as the **baseline architecture**.
+
+> For more information, see [Management resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
 
 
@@ -101,11 +91,11 @@ Failed deployments or erroneous releases are common causes for application outag
 
 ### Deployment environments
 
-- **How is isolation maintained?**. It's a general practice to place workloads in separate environments for development, pre-production, and production. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. 
+- **How is isolation maintained?** It's a general practice to place workloads in separate environments for development, pre-production, and production. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. 
 
-- **What is the expected lifecycle?**. Environments have different lifecycle requirements. Some are long standing while others are ephemeral (short-lived), which can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
+- **What is the expected lifecycle?** Environments have different lifecycle requirements. Some are long standing while others are ephemeral (short-lived), which can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
 
-- **What are the tradeoffs?**. Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization.
+- **What are the tradeoffs?** Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization.
 
 ##### Production environment
 
