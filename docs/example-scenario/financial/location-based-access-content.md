@@ -14,15 +14,15 @@ Application developers **(B)** make their apps aware of the application context,
 
 1. End-users are already authenticated to App 1. A user tries to take Action 1 within App 1.
 
-1. Action 1 requires authentication context claim `C1` to successfully execute. If the current token doesn't have a claim `C1`, it triggers a claims challenge.
+1. Action 1 requires authentication context claim `C1` to run successfully. If the current token doesn't have a claim `C1`, it triggers a claims challenge.
 
-1. Azure AD executes Conditional Access policy `C1` that maps claim `C1` to GPS location `CH (Switzerland)`, and requests location from the user's Authenticator app.
+1. Azure AD runs Conditional Access policy `C1` that maps claim `C1` to GPS location `CH (Switzerland)`, and requests location from the user's Authenticator app.
 
-1. The user consents appropriately if it's the first time, and provides location information.
+1. The user consents if it's the first time they're sharing location data, and provides location information.
 
 1. If the location information matches `CH (Switzerland)`, Azure AD issues a new access token with claim `C1`.
 
-1. The call comes back to App 1 with the new access token and claim `C1`, and Action 1 successfully executes.
+1. The call comes back to App 1 with the new access token and claim `C1`, and Action 1 runs successfully.
 
 ### Components
 
@@ -44,7 +44,7 @@ This article illustrates Azure AD Conditional Access with an authentication cont
 
 Today, FSIs face challenges like increasing competition, cultural shift, dynamic business changes, macroeconomic driving costs, and rising enterprise and consumer customer expectations. Some of the greatest challenges are around security breaches and stringent compliance and regulatory requirements. FSIs must protect critical data from wrongdoers, and prevent and mitigate security breaches. At the same time, FSIs must empower authorized users to access their data seamlessly and securely.
 
-Some countries/regions have local and global regulatory requirements or data residency requirements. Enterprises also need the ability to allow or block access to data based on user location. So in addition to controls such as multifactor authentication (MFA), role-based access control (RBAC), and attribute-based access control (ABAC), FSIs must consider user location at the time of data access.
+Some countries/regions have local and global regulatory requirements or data residency requirements. Enterprises also need the ability to allow or block access to data based on user location. So, in addition to controls such as multifactor authentication (MFA), role-based access control (RBAC), and attribute-based access control (ABAC), FSIs must consider user location at the time of data access.
 
 The GPS location-based Conditional Access policy uses the following key Authenticator and Azure AD Conditional Access capabilities:
 
@@ -64,7 +64,7 @@ Potential use cases aren't limited to the financial sector. Other industries may
 - Block access to data within an LOB application if the user isn't within a certain jurisdiction, such as Singapore.
 - Block access to certain parts of an application, or data like trade secrets, if the user isn't within the appropriate jurisdiction, such as the United States.
 - Block access to certain parts of an application if the user isn't within a certain area, like the European Union.
-- Allow privileged admin access to Azure resources in a certain jurisdiction only if the privileged admin is within that jurisdiction.
+- Allow Privileged Identity Management (PIM) admin access to Azure resources in a certain jurisdiction only if the privileged admin is within that jurisdiction.
 - Allow access to a certain SharePoint site for a certain jurisdiction only from within that jurisdiction.
 
 ## Considerations
@@ -120,8 +120,8 @@ Also see [Use the Conditional Access auth context to perform step-up authenticat
 
 Principal authors:
 
+- [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
 - [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
-- [Caleb Baker]( https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
 - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
