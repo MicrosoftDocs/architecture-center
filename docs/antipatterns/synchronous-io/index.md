@@ -5,7 +5,7 @@ description: Blocking the calling thread while I/O completes can reduce performa
 author: EdPrice-MSFT
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 

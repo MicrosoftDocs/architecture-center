@@ -4,7 +4,7 @@ description: Learn how to deploy a Kubernetes cluster solution for high availabi
 author: BryanLa
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla

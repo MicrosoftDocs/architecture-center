@@ -482,6 +482,10 @@ items:
                     href: guide/multitenant/service/sql-database.md
                   - name: Azure Storage
                     href: guide/multitenant/service/storage.md
+              - name: Messaging
+                items:
+                  - name: Azure Service Bus
+                    href: guide/multitenant/service/service-bus.md
               - name: Security
                 items:
                   - name: Azure Key Vault
@@ -5158,6 +5162,10 @@ items:
                     href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
+              - name: Migration to Azure IoT best practices
+                href: guide/iot/azure-iot-migration-best-practices.md
+              - name: Migrate your IoT solutions to Azure
+                href: guide/iot/migrate-iot-solution-azure.yml
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.yml
               - name: Moving from test to production
@@ -5479,6 +5487,10 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Batch scoring for media
+                href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Gridwich media processing system
                 items:
                   - name: Gridwich architecture
@@ -5521,8 +5533,12 @@ items:
                         href: reference-architectures/media-services/test-encoding.yml
           - name: Solution ideas
             items:
+              - name: HPC media rendering
+                href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Instant broadcasting with serverless
                 href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+              - name: Keyword search in videos
+                href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Live streaming digital media
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Video-on-demand digital media
@@ -5808,10 +5824,10 @@ items:
                   - name: Network security and containment
                     href: /security/compass/network-security-containment
                     maintainContext: true
-                  - name: DDoS Protection Standard features
-                    href: /azure/ddos-protection/ddos-protection-standard-features
+                  - name: Azure DDoS Protection features
+                    href: /azure/ddos-protection/ddos-protection-features
                     maintainContext: true
-                  - name: DDoS Protection reference architectures
+                  - name: Azure DDoS Protection architectures
                     href: /azure/ddos-protection/ddos-protection-reference-architectures
                     maintainContext: true
                   - name: Security baseline for DDoS Protection

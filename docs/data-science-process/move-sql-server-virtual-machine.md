@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: tdsp
 ms.custom:
@@ -216,6 +216,16 @@ SQL Server supports:
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
 ![Screenshot of the SQL Server Import Tool.][1]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Resources
 

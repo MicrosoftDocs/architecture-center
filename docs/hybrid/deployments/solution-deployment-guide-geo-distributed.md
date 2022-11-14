@@ -5,7 +5,7 @@ author: BryanLa
 categories: azure
 ms.service: azure-stack
 ms.subservice: azure-stack-hub
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod

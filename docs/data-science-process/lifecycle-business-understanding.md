@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:
@@ -99,5 +99,3 @@ Here are links to each step in the lifecycle of the TDSP:
    3. [Modeling](lifecycle-modeling.md)
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
-
-

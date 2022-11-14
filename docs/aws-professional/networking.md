@@ -5,7 +5,7 @@ author: vaboya
 categories: azure
 ms.author: johanv
 ms.date: 10/31/2022
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:

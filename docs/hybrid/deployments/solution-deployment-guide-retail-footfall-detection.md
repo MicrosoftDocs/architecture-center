@@ -4,7 +4,7 @@ description: Learn how to deploy an AI-based footfall detection solution for ana
 author: BryanLa
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
@@ -20,7 +20,6 @@ categories:
 # Intent: As an Azure Stack Hub operator, I want to deploy a footfall detection solution using Azure and Azure Stack Hub so I can analyze visitor traffic in retail stores.
 
 # Keyword: AI footfall detection azure stack hub
-
 ---
 
 # Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub

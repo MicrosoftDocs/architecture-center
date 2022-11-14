@@ -6,7 +6,7 @@ Two scenarios are covered in this article: deploying regular Python models, and 
 
 :::image type="content" alt-text="Architecture diagram for real-time scoring of Python models on Azure." source="./_images/python-model-architecture.png" lightbox="./_images/python-model-architecture.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/./_images/python-model-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/python-model-architecture.vsdx) of this architecture.*
 
 ### Scenario: Stack Overflow FAQ matching
 
@@ -115,7 +115,7 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 **Container registry**. This solution uses Azure Container Registry to store the Docker image. The code that the application depends on, and the model, are contained within this image. Enterprise applications should use a private registry to help guard against running malicious code and to help keep the information inside the container from being compromised.
 
-**DDoS protection**. Consider enabling [DDoS Protection Standard][ddos]. Although basic DDoS protection is enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure virtual network resources.
+**DDoS protection**. Consider enabling [Azure DDoS Network Protection][ddos]. Although basic DDoS protection is enabled as part of the Azure platform, DDoS Network Protection provides mitigation capabilities that are tuned specifically to Azure virtual network resources.
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 

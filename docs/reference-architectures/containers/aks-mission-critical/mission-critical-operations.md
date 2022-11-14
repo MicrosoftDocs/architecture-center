@@ -5,7 +5,7 @@ author: robbagby
 categories: networking
 ms.author: allensu
 ms.date: 06/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:

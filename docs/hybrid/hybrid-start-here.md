@@ -4,7 +4,7 @@ description: Get an introductory overview of hybrid cloud technologies and how y
 author: EdPrice-MSFT
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.date: 07/26/2022
 ms.author: architectures
 categories:

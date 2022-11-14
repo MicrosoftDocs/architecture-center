@@ -4,7 +4,7 @@ title: Data management in the retail industry
 author: dstarr
 ms.author: dastarr
 ms.date: 04/26/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: industry
 products:
   - azure-data-lake

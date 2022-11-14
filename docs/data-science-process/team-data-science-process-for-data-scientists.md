@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
@@ -60,6 +60,16 @@ You can use the items in the following table to guide your own self-study. Read 
 | Monitor your Solution                                                                     | [Application Insights](/azure/azure-monitor/app/app-insights-overview)                                            | There are multiple tools you can use to monitor your end solution. Azure Application Insights makes it easy to integrate built-in monitoring into your solution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Set up Application Insights to monitor an Application](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview)                                                   | Another method to monitor your application is to integrate it into your DevOps process. The Azure Monitor logs system provides a rich set of features to help you watch your analytic solutions after you deploy them.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Complete this tutorial](/azure/azure-monitor/logs/get-started-queries) on using Azure Monitor logs.                                                                                                                                                                                                                                                                                                       |
 | Complete this Learning Path                                                               |                                                                                                                           | Congratulations! You've completed this learning path.                                                                                                                                                                                                                                                                                                                                            |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md) This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.

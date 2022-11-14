@@ -3,7 +3,7 @@ title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
 ms.date: 11/08/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 categories: 
 - management-and-governance

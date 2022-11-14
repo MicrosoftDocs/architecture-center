@@ -4,7 +4,7 @@ description: Compare Google Cloud and Microsoft Azure services. Not every Google
 author: EdPrice-MSFT
 ms.author: petuton
 ms.date: 08/08/2022
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 categories:
