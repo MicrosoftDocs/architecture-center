@@ -4938,7 +4938,7 @@ items:
               - name: Deployment guidance
                 items:
                   - name: Azure AD deployment checklist
-                    href: /azure/active-directory/fundamentals/active-directory-deployment-checklist
+                    href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
                     maintainContext: true
                   - name: Azure AD deployment plans
                     href: /azure/active-directory/fundamentals/active-directory-deployment-plans
