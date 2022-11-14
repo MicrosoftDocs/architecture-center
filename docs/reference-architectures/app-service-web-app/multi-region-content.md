@@ -18,7 +18,7 @@ This architecture builds on the one shown in [Scalable web application][guidance
 
 ### Components
 
-Refer to the [Scalable web application][guidance-web-apps-scalability] article that this design is based on for a detailed description of the components in scope for this design.
+Refer to the [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app#workflow) article that this design is based on for a detailed description of the components in scope for this design.
 
 ## Scenario details
 
@@ -64,7 +64,7 @@ Consider placing the primary region, secondary region, and Front Door into separ
 
 **Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the origin pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
 
-**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the origin to be marked as healthy. If Front Door marks the origin as degraded, it fails over to the other origin. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
+**Health probe**. Front Door uses an HTTPS probe to monitor the availability of each back end. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation, and the number of successful samples required for the origin to be marked as healthy. If Front Door marks the origin as degraded, it fails over to the other origin. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
 
 As a best practice, create a health probe path in your application origin that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy origin when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
@@ -101,7 +101,7 @@ In order to benefit from the highest resilience offered for Azure Service Bus, u
 
 In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity and disaster recovery (BCDR) is achieved through multiple search services.
 
-In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](https://learn.microsoft.com/en-us/azure/search/search-capacity-planning#adjust-capacity). 
+In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](/azure/search/search-capacity-planning#adjust-capacity). 
 
 You can utilize [Availability Zones](/azure/availability-zones/az-overview) with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region.
 
@@ -146,7 +146,7 @@ RPO and recovery time objective (RTO) for Azure Cosmos DB are configurable via t
 
 RA-GRS storage provides durable storage, but it's important to consider the following factors when contemplating performing a failover:
 
-- **Anticipate data loss:** Data replication to the secondary region is performed asynchronously. Therefore, if a geo-failover is performed, some data loss should be anticipated if changes to the primary account have not fully synchronized to the secondary account.  You can [check the Last Sync Time property](https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get) of the secondary storage account to see the last time that data from the primary region was written successfully to the secondary region.
+- **Anticipate data loss:** Data replication to the secondary region is performed asynchronously. Therefore, if a geo-failover is performed, some data loss should be anticipated if changes to the primary account have not fully synchronized to the secondary account.  You can [check the Last Sync Time property](/azure/storage/common/last-sync-time-get) of the secondary storage account to see the last time that data from the primary region was written successfully to the secondary region.
 - **Plan your recovery time objective (RTO) accordingly:** Failover to the secondary region typically takes about one hour, so your DR plan should take this into account when calculating your RTO parameters.
 - **Plan your fail back carefully:** It is important to understand that when a storage account fails over, the data in the original primary account is lost, so attempting a fail back to the primary region without careful planning is risky.  After failover completes, the new primary - in the failover region - will be configured for locally redundant storage (LRS).  You must manually reconfigure it as geo-replicated storage to initiate replication to the primary region and then give sufficient time to let the accounts sy
 - Transient failures, such as a network outage, will not trigger a storage failover. Design your application to be resilient to transient failures. Mitigation options include:
@@ -198,7 +198,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ### Operational excellence
 
-[Operational excellence](/azure/architecture/framework/devops/overview) refers to the operations processes that deploy an application and keep it running in production and is an extension of the [Well-Architected Framework Reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview) guidance.  This guidance provides a detailed overview of architecting resiliency into your application framework to ensure your workloads are available and can recover from failures at any scale.  A core tenet of this approach is to design your application infrastructure to be highly available, optimally across multiple geographic regions as this design illustrates.  
+[Operational excellence](/azure/architecture/framework/devops/overview) refers to the operations processes that deploy an application and keep it running in production and is an extension of the [Well-Architected Framework Reliability](/azure/architecture/framework/resiliency/overview) guidance.  This guidance provides a detailed overview of architecting resiliency into your application framework to ensure your workloads are available and can recover from failures at any scale.  A core tenet of this approach is to design your application infrastructure to be highly available, optimally across multiple geographic regions as this design illustrates.  
 
 ## Contributors
 
@@ -241,7 +241,6 @@ Principal authors:
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-failover]: /azure/sql-database/sql-database-disaster-recovery
-[sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
