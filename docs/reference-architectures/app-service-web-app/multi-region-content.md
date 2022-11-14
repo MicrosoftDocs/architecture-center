@@ -241,7 +241,6 @@ Principal authors:
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-failover]: /azure/sql-database/sql-database-disaster-recovery
-[sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
