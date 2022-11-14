@@ -39,7 +39,7 @@ Using subscriptions to contain the environments can achieve the required level o
 
 ## Architecture
 
-![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-hub-spoke.svg)
+![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-hub-spoke.png)
 
 The components of this architecture are same as the [**mission-critical baseline architecture** with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -143,39 +143,67 @@ For instance, it is case that build agents are going to resolve the private endp
 
 Azure Landing Zones recommends linking all hub virtual networks in all regions to the very same Azure Private DNS zones considering the up to 1000 virtual network links as a hard limit. It is important to have in mind the rest of the Azure Public and Private DNS zones limits.
 
-### Design choices
+### Networking component configuration
 
-As a result, it is the workload team the owner of and responsible for deploying the following ephemeral networking resources:
-1.	Completely disconnected vnets such us:
-a.	One long-lived build agent virtual network, this should be able peered to both target-vnet. Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
+In this architecture, the application team has chosen to configure the pre-provisioned virtual network and connectivity between resources in this manner.
+
+#### Regional stamp virtual network
+This is responsible to create the corp-connected virtual networks (also referred as target virtual network), and other collocated virtual networks defining the proper IP address space for each of them. All these Virtual Networks are considered spokes, and as such corp-connected so they can access company resources in other network locations and on-prem.
+
+Please note that same as the corp-provided, these corp-connected virtual networks from this section are considered long-lived as well and as such pre-provisioned. The rest of the virtual networks can be considered ephemeral and won’t be created along with the spokes.
+
+Your workload Azure landing zone will have at least two corp-connected virtual networks pre-provisioned, per region and are created as part of this stamp. This gives you the ability to perform reliable and safe deployments practices (including the option to rollback), by targeting one network for your vNext deployment, while the other serves production traffic.
+
+The following long lived network resources are created as part of this regional stamp:
+1.	Two target virtual networks, one serving production traffic and the other enabling safe deployments.
+2.	All NGS that are going to be later enforced by Azure Policies.
+
+
+#### Regional stamp subnetting
+
+The stamp virtual network is provided by the platform team and is considered to be non-ephemeral. The resources in that network are still ephemeral.
+
+Azure Front Door Premium SKU is used as the global load balancer. This SKU enables the capability to inspect and route directly from edge nodes to application endpoints. This design remains the same as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-ingress). However, if the traffic is routed to a cross-premises service, it will reach central DNS records maintained by the platform team.  
+
+> [!IMPORTANT]
+> TODO: DNS Private Zones (and its records) for those services per location you want to access privately using their private link support via their private endpoints. These won’t require cross-premises access (i.e. Red Hat OpenShift). You may be blocked by the Platform Team via Azure Policy if only centralized DNS architecture is allowed.  
+
+After traffic reaches the virtual network, communication with PaaS services within the network, is locked down by using private endpoints, just like the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-endpoints-for-paas-services). These endpoints are placed in a dedicated subnet, outside the AKS node pool subnet. The address space is large enough to accommodate all private endpoints necessary for the stamp. Private IP addresses to the private endpoints are assigned from that subnet. Network Security Groups (NSGs) and firewall rules are place on each subnet to inspect communication within the virtual network. NSGs use ServiceTags for the supported services. 
+
+The scalability requirements of the workload influence how much address space should be allocated for the subnets. The subnets should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
+
+The virtual network peering must be able to support the growth of the workload. TODO: If your architecture is growing in number of spokes and peering limit are at risk (or overcomplicated management is an issue), UDRs to force traffic from Landing Zone subscription to connectivity subscription are a valid option to be considered.  Use UDRs to lock down communication within the virtual network to Azure services using ServiceTags.
+
+#### Regional virtual network in the Connectivity subscription
+
+This is responsible to create the corp-provided virtual network and peering them (the spokes to regional hub) by following DINE (deploy-if-not-exists). In this way, these corp-provided resources become long-lived and must be subject to in-place upgrades. All these virtual networks are considered hubs, and as such corp-provided so they are enabling the integration of the spokes with internal and external company resources.
+
+The following long live resources are created as part of this regional stamp:
+1.	DNS infrastructure (i.e. Active Directory integrated DNS) deployed onto at least two virtual machines considered servers.
+2.	Private DNS zones that requires cross-premises DNS name resolution. Platform team can create the records.
+3.	The Policy Definitions to enforce:
+a.	use of private endpoints and automate creating the DNS record in the DNS zone that your Application team creates.
+b.	use a centralized DNS architecture
+4.	The Policy Assignments at the desired scope in your management group hierarchy.
+5.	Two corp-connected virtual networks, one serving production traffic and the other enabling safe deployments. Both are configured targeting the DNS servers just created.
+6.	One Azure Gateway virtual network.
+7.	Azure ExpressRoute (main connectivity method for cross-premises) for private connectivity to Azure infrastructure, this is required to access on-premises resources and determines that we are under a connected scenario as this is making an external network integration. For adding reliability use redundant paths (dual circuits).  You may need to use multiple ExpressRoute by taking into account the maximum number of prefixes that ExpressRoute with private peering advertises from Azure to on-premises, and bandwidth as this is shared per circuit among all virtual networks connected to it. Use this also as a NVA in case it is discovered that most landing zones need to connect across regions to reduce the number of peerings or even for those cases where peering is not allowed for security reasons. To reduce the network management overhead you could consider using a Virtual WAN-based solution.
+8.	VPN gateway (less than 30 VPN connections) for connectivity to remote organization branches over the public internet to Azure infrastructure. This can be also considered be used for reliability as a backup connectivity alternative adding resiliency.
+9.	Azure Route Server if transitivity between ER and Azure VPN is required.
+10.	Azure Firewall virtual network, one per application might be considered when these applications are internet-bound.
+11.	Virtual Networks peering for hub-spoke same region connectivity. Avoid traversing subscriptions using hair-pinned circuits with ExpressRoutes or VPN gateway or similar in favor of peered virtual networks. Please take into account the limited number of peerings per virtual network taking into account number of regions and deployment redundancy. From the Spoke stamp we offer a valid alternative using UDRs in case you find that needed.
+12.	Global virtual network peering in case it is discovered that a few landing zones need to connect across regions.
+13.	Azure Firewall resource to control and inspect egress traffic
+14.	Azure NAT Gateway, if large internet-bound connections are required
+
+
+
+#### Operations virtual network
+
+This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network), where the operational traffic is isolated in a separate virtual network. This virtual network is owned by the application team and is non-ephemeral.  
+
+TODO: a.	One long-lived build agent virtual network, this should be able peered to both target-vnet (which both?). Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
 b.	Two long-lived ops virtual networks, one per target virtual network. Every ops-vnet is peered to its counterpart target-vnet. These are not deleted along the Deployment Stamp but they are owned by the Application team. Addtionally, hosted jumpboxes enable ops team to access global resources. Singletons per regions is an option and while you could try to make them ephemeral this will overcomplicate your architecture.
-2.	Subnets for your every AKS cluster considering the number of node pools (system and worker) and auto-scaling.
-3.	Private endpoints Subnet where you could expose Cosmos DB, Azure Key Vault, etc.
-4.	Network Security Groups for each subnet.  Use NSGs to lock down this communication within the virtual network. Consider using Service Tags.
-5.	Private endpoints, incoming client requests will still require a public endpoint to be exposed to the internet, however, all subsequent communication can be within the virtual network using private endpoints. When using Azure Front Door Premium, it's possible to route directly from edge nodes to private application endpoints. If this is cross-premises service, please note that the platform team oversees handling the central DNS records creating since the Application Team won’t have the permissions. 
-6.	DNS Private Zones (and its records) for those services per location you want to access privately using their private link support via their private endpoints. These won’t require cross-premises access (i.e. Red Hat OpenShift). You may be blocked by the Platform Team via Azure Policy if only centralized DNS architecture is allowed. 
-7.	Ip Groups
-8.	If your architecture is growing in number of spokes and peering limit are at risk (or overcomplicated management is an issue), UDRs to force traffic from Landing Zone subscription to connectivity subscription are a valid option to be considered.  Use UDRs to lock down communication within the virtual network to Azure services using ServiceTags.
-
-
-While this is adding complexity MC for the sake of reliability recommends having 2 GLB Azure services and 1 third party GLB. Same as suggested in online.
-
-
-## Monitoring considerations
-
-The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is recommended.  
-
-Mission-critical workloads need telemetry that's unique and not applicable or actionable for centralized operations team. Offloading the responsibility may cause in delays in incident response. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents the overall health.
-
-The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources, respectively and maintained separately. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload is not impacted.
-
-### Health model
-
-Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When you're defining an overall health score, include the platform flows that the application depends on. Those platform resources are in-scope for the architecture. The workload operators must have visibility into platform-provided log sinks. The platform team must grant role-based access control (RBAC) to log sinks for relevant platform resources that are used by your architecture. Then, build log, health, and alert queries to perform cross-workspace queries to factor in those resources.
-
-In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database.
-
-> Refer to: [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
 ## Deployment considerations
 
@@ -280,6 +308,23 @@ As part of the application landing zone subscription, the platform team should g
 
 If you're running multiple deployments within a subscription, you would be given one service principal per environment. Having separate service principals ensures reliability by limiting the blast radius. If there's a mis-configured pipeline, then only resources in that environment are impacted. Expect those service principals to provide autonomy over resources your workload will need to create and to be restricted from excessively manipulating the corp-provided and configured resources within the subscription.
 
+## Monitoring considerations
+
+The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is recommended.  
+
+Mission-critical workloads need telemetry that's unique and not applicable or actionable for centralized operations team. Offloading the responsibility may cause in delays in incident response. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents the overall health.
+
+The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources, respectively and maintained separately. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload is not impacted.
+
+### Health model
+
+Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When you're defining an overall health score, include the platform flows that the application depends on. Those platform resources are in-scope for the architecture. The workload operators must have visibility into platform-provided log sinks. The platform team must grant role-based access control (RBAC) to log sinks for relevant platform resources that are used by your architecture. Then, build log, health, and alert queries to perform cross-workspace queries to factor in those resources.
+
+In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database.
+
+> Refer to: [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
+
+
 ## Integration with the platform-provided policies
 
 The application landing zone subscription inherits Azure policies, Azure Network Manager rules, and other controls from its management group. Those guardrails are provided by the platform team. 
@@ -288,36 +333,6 @@ For deployments, don't depend on the platform-provided policies exclusively as t
 
 As platform policies evolve, make sure you're involved in the change control process so that the reliability target of your application isn't compromised. In this architecture, the networking components in the Connectivity subscription are key areas. Make sure you understand and agree with the updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on. 
 
-
-
---------------STOP HERE---------------------------
-
-
-
-## DUMP ZONE
-
-
-## Networking considerations
-
-The baseline architecture is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
-
-In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned, and the workload resources are placed there. 
-
-For a mission critical workload, multiple environments are recommended. If all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per environment and region are needed to support the blue-green deployment strategy. 
-
-The scalability requirements of the workload influence how much address space should be allocated for the virtual network. The network should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
-
-The reference implementation is currently configured to require at least one virtual network with a `/23` address space for each stamp. This is to allow for a `/24` subnet for AKS nodes and their pods. 
-
-
-## Overall reliability
-TBD
-
-## Tradeoffs
-TBD
-
-## Shift in responsibility
-TBD
 
 ## Deploy this architecture
 
@@ -351,3 +366,24 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure Blob Storage](/azure/storage/blobs/)
 - [Azure Firewall](/azure/storage/firewall/)
+
+--------------STOP HERE---------------------------
+
+
+
+## DUMP ZONE
+
+
+## Networking considerations
+
+The baseline architecture is designed to restrict both ingress and egress traffic from the same virtual network. However in this architecture, egress restrictions are provided through the connectivity subscription provisioned as part of the platform landing zone. It has virtual networking peering with the regional stamp network.
+
+In the baseline architecture, each stamp has a virtual network with a dedicated subnet for the compute cluster and another subnet to hold the private endpoints of different services. While that layout doesn't change in this design, the workload assumes that the virtual network is pre-provisioned, and the workload resources are placed there. 
+
+For a mission critical workload, multiple environments are recommended. If all those environments need connectivity, you'll need other pre-provisioned networks per environment. In this architecture, at least two virtual networks per environment and region are needed to support the blue-green deployment strategy. 
+
+
+
+The reference implementation is currently configured to require at least one virtual network with a `/23` address space for each stamp. This is to allow for a `/24` subnet for AKS nodes and their pods. 
+
+
