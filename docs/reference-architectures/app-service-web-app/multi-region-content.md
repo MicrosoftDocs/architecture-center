@@ -18,7 +18,7 @@ This architecture builds on the one shown in [Scalable web application][guidance
 
 ### Components
 
-Refer to the [Scalable web application][guidance-web-apps-scalability] article that this design is based on for a detailed description of the components in scope for this design.
+Refer to the [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app#workflow) article that this design is based on for a detailed description of the components in scope for this design.
 
 ## Scenario details
 
