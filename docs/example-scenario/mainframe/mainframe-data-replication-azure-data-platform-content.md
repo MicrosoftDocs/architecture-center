@@ -1,12 +1,12 @@
-The high volume of transactions for mainframe applications creates a large volume of data. Azure offers a compelling target for mainframe modernization and data migration. Azure relational and NoSQL databases provide scalability, high availability, and ease of maintenance that meets or exceeds mainframe environments. If you want to retire a mainframe workload and retain the data in a low-cost storage, Azure provides options.
+The high volume of transactions for mainframe applications creates a large volume of data. Azure offers a compelling target for mainframe modernization and data migration. Azure relational and NoSQL databases provide scalability, high availability, and ease of maintenance that meets or exceeds that of mainframe environments. If you want to retire a mainframe workload and retain the data in a low-cost storage, Azure provides options.
 
 Migrating workloads from mainframe to Azure as a part of application replatforming or refactoring typically requires data migration at scale. [mLogica's LIBER*IRIS](https://www.mlogica.com/products/liber-m-mainframe-modernization) provides a proven solution for bulk data migration from a mainframe to Azure. The solution operates at scale for migrating enterprise workloads. This article shows how to migrate IBM z/OS mainframe data with high fidelity to Azure.
 
-*mLogica LIBER\*IRIS and their logos are trademarks of its company. No endorsement is implied by the use of these marks.*
+*mLogica LIBER\*IRIS and its logos are trademarks of its company. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
-The following diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data to Azure at scale.
+The following diagram shows how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data to Azure at scale.
 
 :::image type="content" source="media/mlogica-mainframe-data-migration-architecture-inline.png" alt-text="Diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data." lightbox="media/mlogica-mainframe-data-migration-architecture-expanded.png" border="false":::
 
@@ -16,14 +16,14 @@ The following diagram shows the architecture of how mLogica LIBER*IRIS integrate
 
 The steps to migrate mainframe data to Azure are as follows:
 
-1. Analysts copy data definition language (DDL), database description (DBD), copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
+1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
 2. The mLogica data migration cluster generates data extraction scripts to run on the mainframe.
 3. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
 4. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
 5. The sequential files and load scripts are transferred by using binary SFTP to Azure Blob Storage. Mainframe data is still in EBCDIC format at this point.
-6. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. For cost savings, you can store data files on a hot access tier and log files on a cold access tier in different storage accounts.
+6. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. To reduce costs, you can use two storage accounts: store data files on a hot access tier and log files on a cold access tier.
 7. The scripts load the ASCII converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput, as needed. Execution logs and detailed exception logs are stored in Azure Blob Storage for further analysis.
-8. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Cosmos DB SQL API.
+8. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Azure Cosmos DB SQL API.
 
 ### Components
 
@@ -31,23 +31,23 @@ The steps to migrate mainframe data to Azure are as follows:
 
   - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) lets you extend your on-premises networks into Azure over a private connection by using a connectivity provider.
   - [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a virtual network gateway used to send encrypted traffic between an Azure virtual network and an on–premises location over the internet.
-  - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an identity and access management service, which can be synchronized with an on-premises directory.
+  - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an identity and access management service that can be synchronized with an on-premises directory.
 
 - Application
 
-  - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides on–demand, scalable computing resources available in Azure. The mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
+  - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides on–demand, scalable computing resources. The mLogica data migration cluster runs on Azure Linux virtual machines optimized for network performance.
 
 - Storage
 
-  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines using NFS.
+  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) offers a highly available, encrypted-at-rest, cost-efficient, high-capacity storage facility. It enables direct binary SFTP traffic from the mainframe. Blob Storage can mount containers on Linux virtual machines by using NFS.
   - [Azure SQL](https://azure.microsoft.com/products/azure-sql), [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql), and [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) are fully managed platform as a service (PaaS) services for SQL Server, PostgreSQL, and MySQL. They provide high-performance, highly available options for mainframe relational data, emulated non-relational data, and emulated Virtual Storage Access Method (VSAM) data.
-  - [Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
+  - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is an Azure NoSQL database. Use it to migrate non-relational mainframe sources like Information Management System (IMS), Integrated Database Management System (IDMS), and adaptable database system (ADABAS).
 
 - Monitoring
 
   - [Azure Monitor](https://azure.microsoft.com/products/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
   - [Application Insight](/azure/azure-monitor/app/app-insights-overview) receives application telemetry to analyze and present.
-  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. This feature can consolidate data from multiple sources into a single workspace. These sources include platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications. They can be analyzed together using a sophisticated query language. It's capable of quickly analyzing millions of records.
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. This feature can consolidate data from multiple sources into a single workspace. These sources include platform logs from Azure services, log and performance data from virtual machine agents, and usage and performance data from applications. Analyze these sources together by using a sophisticated query language, which is capable of quickly analyzing millions of records.
   - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) is a feature of Azure Monitor. Log queries help you use the data collected in Azure Monitor Logs and mLogica load script execution logs, which are stored in Blob Storage. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations.
 
 ### Potential use cases
@@ -99,11 +99,11 @@ Database services in Azure support various security options:
 - Data encryption in transit using [TLS](/azure/azure-sql/database/security-overview#transport-layer-security-encryption-in-transit)
 - Data encryption while processing using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves)
 
-You can control authentication and access control on the mLogica data migration cluster by using Azure AD. Azure resources can be configured for authentication and authorization using Azure AD and role-based access control.
+You can control authentication and access control on the mLogica data migration cluster by using Azure AD. You can configure Azure resources for authentication and authorization using Azure AD and role-based access control.
 
-Data transferred between the mLogica data migration cluster and the mainframe is encrypted in transit by using TLS. TLS certificates can be stored securely in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Data transferred from the mainframe to Azure Blob Storage is encrypted in transit using SSH.
+Data transferred between the mLogica data migration cluster and the mainframe is encrypted in transit by using TLS. TLS certificates can be stored in [Azure Key Vault](https://azure.microsoft.com/products/key-vault) for enhanced security. Data transferred from the mainframe to Azure Blob Storage is encrypted in transit using SSH.
 
-The mainframe data and load scripts are temporarily stored in Azure Blob Storage. They're encrypted at rest. Data is deleted from Azure Blob Storage once the migration is complete.
+The mainframe data and load scripts are temporarily stored in Azure Blob Storage. They're encrypted at rest. Data is deleted from Azure Blob Storage after the migration is complete.
 
 This example workflow uses Azure ExpressRoute or [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) for a private and efficient connection to Azure from your on-premises environment.
 
@@ -117,7 +117,7 @@ Here are some cost optimization possibilities:
 
 - Use lifecycle policy to move data between access tiers in Azure storage.
 
-- In Azure storage, if there's no access for a time, move your data from a hotter access tier to a cooler. You can move data from a cooler access tier to an archive access tier.
+- In Azure storage, if there's no access for a period of time, move your data from a hotter access tier to a cooler one. You can also move data from a cooler access tier to an archive access tier.
 
 - Use [Azure Advisor](https://azure.microsoft.com/products/advisor) to find underused resources. Get recommendations on how to reconfigure or consolidate resources to reduce your spending.
 
@@ -131,7 +131,7 @@ Azure DevOps can be used for re-engineering mainframe applications on Azure duri
 
 - [Azure Boards](https://azure.microsoft.com/products/devops/boards). Agile planning, work item tracking, visualization, and reporting.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines). A language, platform, and cloud independent continuous integration/continuous delivery (CI/CD) platform with support for containers or Kubernetes.
-- [Azure Repos](https://azure.microsoft.com/products/devops/repos). Provides cloud-hosted private git repositories.
+- [Azure Repos](https://azure.microsoft.com/products/devops/repos). Cloud-hosted private Git repositories.
 - [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts). Integrated package management with support for Maven, npm, Python, and NuGet package feeds from public or private sources.
 - [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans). An integrated planned and exploratory testing solution.
 
@@ -143,11 +143,11 @@ If you're migrating multiple large independent datasets, deploy the mLogica data
 
 You can upload multiple data sets in parallel from the mainframe to Blob Storage.
 
-[Azure SQL DB serverless](https://learn.microsoft.com/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an autoscaling option based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information on autoscaling in Azure, see [Autoscaling](https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling).
+[Azure SQL DB serverless](/azure/azure-sql/database/serverless-tier-overview?view=azuresql) provides an option for autoscaling based on workload. Other Azure databases can be scaled up and down using automation to meet the workload demands. For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributor.*
 
 Principal author:
 
@@ -157,12 +157,12 @@ Principal author:
 
 ## Next steps
 
-- [Azure Monitor overview](https://learn.microsoft.com/azure/azure-monitor/overview)
-- [Introduction to Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [mLogica LIBER*IRIS](https://www.mlogica.com/products/liber-m-mainframe-modernization)
-- [Quickstart: Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
-- [Virtual machines in Azure](https://learn.microsoft.com/azure/virtual-machines/overview)
-- [Welcome to Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction)
+- [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
+- [Virtual machines in Azure](/azure/virtual-machines/overview)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
 ## Related resources
 
