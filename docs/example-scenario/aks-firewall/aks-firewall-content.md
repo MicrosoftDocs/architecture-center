@@ -120,7 +120,7 @@ For more information, see:
 
 If you use [Azure DevOps](/azure/devops), note that you can't use [Azure DevOps Microsoft-hosted agents](/azure/devops/pipelines/agents/agents?tabs=browser#microsoft-hosted-agents) to deploy your workloads to a private AKS cluster. They don't have access to its API server. To deploy workloads to your private AKS cluster, you need to provision and use an [Azure DevOps self-hosted agent](/azure/devops/pipelines/agents/agents?tabs=browser#install) in the same virtual network as your private AKS cluster, or in a peered virtual network. In the latter case, be sure to create a virtual network link between the private DNS zone of the AKS cluster in the node resource group and the virtual network that hosts the Azure DevOps self-hosted agent. 
 
-You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) Azure DevOps agent on a virtual machine, or you can use a virtual machine scale set. For more information, see [Azure virtual machine scale set agents](/azure/devops/pipelines/agents/scale-set-agents). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core container (for Windows hosts) or Ubuntu container (for Linux hosts) with Docker. Deploy it as a pod with one or multiple replicas in your private AKS cluster. For more information, see:
+You can deploy a single [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) Azure DevOps agent on a virtual machine, or you can use a Virtual Machine Scale Set. For more information, see [Azure Virtual Machine Scale Set agents](/azure/devops/pipelines/agents/scale-set-agents). As an alternative, you can set up a self-hosted agent in Azure Pipelines to run inside a Windows Server Core container (for Windows hosts) or Ubuntu container (for Linux hosts) with Docker. Deploy it as a pod with one or multiple replicas in your private AKS cluster. For more information, see:
 
 - [Self-hosted Windows agents](/azure/devops/pipelines/agents/v2-windows)
 - [Self-hosted Linux agents](/azure/devops/pipelines/agents/v2-linux)
@@ -180,7 +180,7 @@ The Azure platform provides improved protection against various threats, such as
 
 DDoS attacks are among the biggest availability and security concerns facing organizations that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that's publicly reachable via the internet. Every property in Azure includes protection via Azure infrastructure DDoS Protection Basic at no extra cost. The scale and capacity of the globally deployed Azure network provides improved defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. It helps protect all Azure services, including PaaS services like Azure DNS.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 Following are some additional security considerations:
 
@@ -197,7 +197,7 @@ Following are some additional security considerations:
   - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
   - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline)
   - [Azure security baseline for Azure Bastion](/security/benchmark/azure/baselines/bastion-security-baseline)
-  - [Azure security baseline for Azure DDoS Protection Standard](/security/benchmark/azure/baselines/ddos-protection-security-baseline)
+  - [Azure security baseline for Azure DDoS Protection](/security/benchmark/azure/baselines/azure-ddos-protection-security-baseline)
 
 ### Availability and reliability
 

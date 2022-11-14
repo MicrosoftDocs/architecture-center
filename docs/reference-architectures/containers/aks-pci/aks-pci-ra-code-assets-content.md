@@ -142,7 +142,7 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 
 ### DDoS protection
 
-Enable [Azure DDoS Protection Standard](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+Enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
 
 ## Identity access management
 
