@@ -142,3 +142,13 @@ Here are a few examples of ways to explore data using pandas:
     # correlation between column_a and column_b
     dataframe_blobdata[['<column_a>', '<column_b>']].corr()
     ```
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
