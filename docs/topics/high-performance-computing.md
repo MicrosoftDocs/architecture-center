@@ -4,7 +4,7 @@ description: Learn about high-performance computing (HPC) on Azure, which uses m
 author: SMBrook
 ms.author: sibrook
 ms.date: 08/08/2022
-ms.topic: guide
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 products: azure

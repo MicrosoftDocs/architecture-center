@@ -5,7 +5,7 @@ description: Learn about ways to mitigate the Extraneous Fetching antipattern, t
 author: EdPrice-MSFT
 categories: azure
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 

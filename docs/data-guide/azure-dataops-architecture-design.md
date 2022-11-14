@@ -4,7 +4,7 @@ description: DataOps is a lifecycle approach to data analytics that uses agile p
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:

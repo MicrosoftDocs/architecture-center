@@ -5,7 +5,7 @@ description: See an overview of Microsoft mixed-reality concepts, training, best
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 08/16/2022
-ms.topic: overview
+ms.topic: conceptual
 ms.service: architecture-center
 categories:
   - mixed-reality

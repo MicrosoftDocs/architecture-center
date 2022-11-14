@@ -7,7 +7,7 @@ author: microsoftCSE
 categories: azure
 ms.author: hecamm
 ms.date: 10/12/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

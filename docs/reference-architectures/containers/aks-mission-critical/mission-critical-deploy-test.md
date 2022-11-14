@@ -5,7 +5,7 @@ author: sebader
 categories: devops
 ms.author: allensu
 ms.date: 07/22/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:

@@ -4,7 +4,7 @@ description: Learn the basics of Microsoft Azure accounts, platform, and service
 author: cjnova
 ms.author: petuton
 ms.date: 12/13/2021
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:

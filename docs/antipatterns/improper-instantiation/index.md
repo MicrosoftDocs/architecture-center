@@ -5,7 +5,7 @@ description: Avoid continually creating new instances of an object that is meant
 author: EdPrice-MSFT
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 
