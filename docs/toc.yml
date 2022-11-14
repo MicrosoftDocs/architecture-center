@@ -5487,6 +5487,10 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Batch scoring for media
+                href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Gridwich media processing system
                 items:
                   - name: Gridwich architecture
@@ -5529,8 +5533,12 @@ items:
                         href: reference-architectures/media-services/test-encoding.yml
           - name: Solution ideas
             items:
+              - name: HPC media rendering
+                href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Instant broadcasting with serverless
                 href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+              - name: Keyword search in videos
+                href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Live streaming digital media
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Video-on-demand digital media
