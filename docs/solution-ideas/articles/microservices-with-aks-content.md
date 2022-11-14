@@ -9,6 +9,8 @@ Use AKS to simplify the deployment and management of microservices-based archite
 
 ![Architecture Diagram](../media/microservices-with-aks.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-devops-ci-cd-aks-architecture.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
