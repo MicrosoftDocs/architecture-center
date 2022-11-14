@@ -266,7 +266,7 @@ This architecture can be highly optimized for performance and scale:
 * Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
 * Review [subscription limits and quotas][quotas] to ensure that services scale to demand.
 * Configure [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
-* Monitor application performance using [Azure Monitor - Application Insights][insights].
+* Monitor application performance using [Azure Monitor Application Insights][insights].
 * Performance-test workloads to measure latency caused by cross-zone connections, if any.
 
 ## Deploy this scenario
