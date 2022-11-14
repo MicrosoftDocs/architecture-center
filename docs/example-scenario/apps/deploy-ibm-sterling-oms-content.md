@@ -21,9 +21,7 @@ From the perspective of infrastructure, this architecture will solve for these r
 
 ### Components
 
-- [Azure RedHat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/) Azure Red Hat OpenShift provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat.
-
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host the OpenShift platform and run the OMS containers. Virtual Machines is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources.
+- [Azure RedHat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/) Azure Red Hat OpenShift (ARO) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat.
 
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs.  Virtual Network is the fundamental building block for private networks in Azure.
 
@@ -33,11 +31,7 @@ From the perspective of infrastructure, this architecture will solve for these r
 
 - [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview) Azure Database for PostgreSQL Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
-- [Azure Kubernetes Service - IBM MQ](https://learn.microsoft.com/en-us/azure/aks/) Azure Kubernetes Service makes an ideal place to run your IBM MQ workload by offering a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure, and provides seamless integration with Azure Premium Files as a storage class for your MQ disk workloads, while providing built-in high-avaibility for your nodes.
-
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) to provide a jump box for management of your OMS Azure-based resources and services. Note: If you have network connectivity into your Azure environment, you can perform the installation from an existing machine instead.
-
-- [Azure Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services and be used to develop monitoring dashboards and alerts for the health and performance of your resources.
 
 ### Alternatives
 
@@ -50,7 +44,7 @@ The following services typically aren't necessary, but they're effective alterna
 
 ## Scenario details
 
-IBM's Sterling Order Management Software (OMS) is an enterprise software platform that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
+IBM's Sterling Order Management Software (OMS) is an order management system that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
 
 Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS vX on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
 
@@ -60,12 +54,13 @@ Many industries and sectors use the solutions in OMS, such as:
 
 - Retail
 - Ecommerce
+- Manufacturing
 
 Find more information about use cases for OMS on IBM's website at [IBM Sterling Order Management](https://www.ibm.com/products/order-management).
 
 ## Recommendations
 
-We recommend installing the latest stable version of OMS (v 10.0, Q3 2022) because it provides the best integration options with Azure by offering support for PostgresSQL as well as the Azure RedHat OpenShift container platform. Before building out your own deployment, we recommend using the quickstart guide to deploy OMS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling).
+This guidance was written to support versions of OMS v 10.0, Q3 2022 and later because it provides the best integration options with Azure by offering support for PostgresSQL as well as the Azure RedHat OpenShift container platform. Before building out your own deployment, we recommend using the quickstart guide to deploy OMS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling).
 
 We work closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). Contact your IBM account team for support beyond this documentation.
 
@@ -97,11 +92,9 @@ OMS has a dependency on a relational database system for state and data manageme
 OMS has been tested with Azure RedHat OpenShift v4.10.15. Before you deploy Azure RedHat OpenShift (ARO), there are a few things you need to determine:
 
 - Domain - When you deploy ARO, you will need to specify a domain name that will be appended to all services that get deployed in your cluster
-- API and Ingress Information - You should decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be visible, either cubically or privately. Note that if you decide to hide your API and/or Ingress with private connectivity, you will only be able to reach these endpoints from a machine that can reach the network where your service is deployed to.
+- API and Ingress Information - You should decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be visible. Note that if you decide to hide your API and/or Ingress with private connectivity, you will only be able to reach these endpoints from a machine that can reach the network where your service is deployed to.
 - Master and Worker VM Size and count - You should consider the required number of worker nodes in your cluster, plus the appropriate size of each, when deploying your instance. This may take testing and validation to arrive at due to the number of agents in your deployment and the number of pods for each agent type you choose to run. You can adjust this post-deployment as you need to scale as well.
 
-> [!NOTE]
-> After you install OpenShift, the owner of the control plane is responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size by using machine sets in the admin console, not through the Azure portal. For more information, see [Creating a machine set on Azure](https://docs.openshift.com/container-platform/4.6/machine_management/creating_machinesets/creating-machineset-azure.html).
 
 ### Sizing your environment
 
@@ -173,12 +166,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 A standard deployment of OMS consists of the following components. Note that many of these compute-based resources can be adjusted to meet your needs (for instance scaling up your MQ agent nodes to allow greater throughput):
 
 **Azure RedHat OpenShift (OMS)**
- - 3 control VMs (Standard_D8s_v3)
- - 3 worker VMs (Standard_D8s_v3)
-
-**Azure Kubernetes Service (MQ)**
-- 3 control nodes (Standard_B4ms)
-- 3 MQ nodes in dedicated MQ pool (Standard_D4s_v3)
+ - 3 control VMs (Standard_D8s_v5)
+ - 3 worker VMs (Standard_D8s_v5)
 
 **Additional Resources**
 - 1 Virtual Network
@@ -190,13 +179,13 @@ A standard deployment of OMS consists of the following components. Note that man
 - 1 Jump Box Virtual Machine
 - Azure Bastion
 
-Note that your deployment may differ slightly (i.e. you decide to run DB2 in Azure VMs, for instance). You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
+Note that your deployment will differ slightly (i.e. you decide to run DB2 in Azure VMs, or deploy IBM MQ into your ARO environment). You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
 
 ### Reliability
 
-OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure OpenShift and OMS work successfully. OpenShift and OMS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
+Auzre RedHat OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure Auzre RedHat OpenShift and OMS work successfully. Auzre RedHat OpenShift and OMS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
 
-OMS and OpenShift use database storage to persist state outside of the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
+OMS and Auzre RedHat OpenShift use database storage to persist state outside of the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
 
 Because human error is common, you should deploy OMS by using as much automation as possible. In our [quickstart guide](https://github.com/Azure/sterling), we provide some sample scripts for setting up full, end-to-end automation.
 
