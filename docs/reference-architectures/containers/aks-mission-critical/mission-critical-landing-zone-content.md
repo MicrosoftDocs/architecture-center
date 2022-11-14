@@ -91,7 +91,59 @@ To gain access to the private compute cluster, this architecture uses private bu
 
 ## Networking considerations
 
-This is responsible for carving target virtual network subnet(s) within a provided IP address space, applying NSGs, and connecting the Azure resources to those subnets by using some post-networking-stamp-deployment imperative manipulation. This is the main reason why the all-networking stamp resources are considered long-lived. In other words, when the deployment stamp is no longer required, all stamp resources are deleted including subnets but with exception of the pre-provisioned virtual network and those considered completely disconnected.
+Networking is the fundamental change from the **baseline architecture**. The workload deployed in the Azure application landing zone will need connectivity to the federated resources in the platform landing zone. That access could be for  accessing on-premises resources, controlling egress traffic, and so on. The platform-owned resources are on the critical path for the mission-critical workload. The design choices that provide maximum reliability is a shared responsibility between the platform team and application team. If any shared component doesn't meet the reliability target of the workload, the application team is accountable for driving continuous evaluation and the overall change with the platform team.
+
+### Network topology
+
+The platform team decides the network topology for the entire organization. This architecture assumes the hub-spoke topology, used for regional deployments. These resources are pre-provisioned for the workload(s) in the organization.
+
+- The hub virtual network in the Connectivity subscription. It has federated resources such as Azure Private DNS Zones, ExpressRoute circuit.
+- The spoke vitual network connects with the hub resources through virtual network peering. The workload will run in that network.
+
+> [!NOTE]
+> A key benefit in using the federated hub is that the workload can integrate with other workloads either in Azure or cross-premises by traversing the organization-managed network hubs. Another benefit is cost optimization when compared to the **baseline architecture with network controls**. This change also lowers the operational costs because of the shift in responsibility to the platform team for shared resources. 
+
+The application team is responsible for:
+
+- Defining virtual network subnet(s) within the provided IP address space in the spoke network. 
+- Applying network security groups (NSGs). 
+- Making sure the subnets are accessible after organizational policies are applied by the platform team after the deployment. 
+
+The spoke virtual network is considered to be non-epheremal (long-lived). When the deployment stamp is no longer required, all stamp resources are deleted including subnets but not the pre-provisioned network.
+
+##### IP address planning
+
+Application can experience outages because of network disruptions. 
+
+IP address overlapping: Understand what is address overlapping and provide ways to avoid it. How's the architecture doing it?
+
+When allocating subnets, the address spaces should be right-sized. They should be able to contain runtime and deployments resources, deal with failovers, and support scalability. The number of spokes in a application landing zone is limited by the number of virtual network peering connections and number of prefixes ExpressRoute advertises. While planning the first reached should be considered as a hard limit for your architecture. This is truth same as in online.
+
+##### Multi-region redundancy
+
+A basic principle of designing mission-critical workloads is removing single points of failure in the system. This architecture addresses that principle by building redundancy in layers. 
+
+A baseline expectation of this architecture is deployment in multiple regions to withstand regional outages. The platform team must replicate the hub and peering(s) in each region. This makes the hub virtual network, Azure Firewall, and gateway in scope of the workload's regional resources, as indicated in the architecture diagram. 
+
+##### Network segmentation
+
+Proper network segmentation must be maintained so that the workload's reliability isn't compromised by unauthorized access. This architecture uses network security groups (NSGs) to protect traffic across subnets and traffic from the Connectivity subscription. 
+
+The platform team must be aware that in this design, there isn't any traffic between the stamps. Also aren't any inter-region flows.
+
+##### DNS resolution
+
+Private DNS zones are hosted in the Connectivity subscription to enable cross-premises DNS name resolution. 
+
+For mission-critical workloads, the platform team should factor in potential DNS failures. When possible, the Azure Private DNS zones should be delegated to the application team for more reliable DNS resolution. 
+
+TODO: Discuss this: https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/Networking-Custom-Domains.md#custom-domain-support
+
+For instance, it is case that build agents are going to resolve the private endpoints FQDN using workload Private DNS zones. The following diagram depicts a region 1 deployment diagram with DNS forwarding and resolution and connectivity Private DNS zones
+
+Azure Landing Zones recommends linking all hub virtual networks in all regions to the very same Azure Private DNS zones considering the up to 1000 virtual network links as a hard limit. It is important to have in mind the rest of the Azure Public and Private DNS zones limits.
+
+### Design choices
 
 As a result, it is the workload team the owner of and responsible for deploying the following ephemeral networking resources:
 1.	Completely disconnected vnets such us:
