@@ -89,3 +89,13 @@ The SSIS feature pack allows for more complex flows to be handled by packaging t
 
 * To run a Hive script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Hive Task](/sql/integration-services/control-flow/azure-hdinsight-hive-task).
 * To run a Pig script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Pig Task](/sql/integration-services/control-flow/azure-hdinsight-pig-task).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

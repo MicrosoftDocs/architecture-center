@@ -45,6 +45,13 @@ Enterprise data warehouses can have large numbers of existing data pipelines. Th
 
 This solution proposes a data pipeline that's driven by a configuration file. The configuration file can be in JSON format. It specifies the data ingestion, transformation, and curation processes. The configuration file is the only file that needs to be maintained for data processing. In this way, business users or operations teams can maintain the data pipeline without help from developers.
 
+### Potential use cases
+
+- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
+- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
+
+## Deploy this solution
+
 ### Configuration file example
 
 The metadata of the pipeline defines the pipeline stages, data sources, transformations, and aggregation logic. Here's an example of a configuration file:
@@ -141,11 +148,6 @@ Here are some code snippets of the framework, which runs Spark jobs based on the
           .option("checkpointLocation", serving_path+"/"+target+"_chkpt") \
           .toTable(target)
   ```
-
-### Potential use cases
-
-- In a manufacturing company, the factory operator wants to ingest all recipe data from the on-premises servers in its factories, which number more than 30. It provides a curated view of the data to ensure that it's complete, so that production can start. The factories can have different data schemas. Configuration-driven data pipelines can simplify the data ingestion and standardization process.
-- A solution provider hopes to build a common data platform for customers. The platform should significantly reduce development efforts by engineers and the need to handle various data sources, data schemas, and transformation logic. This helps the solution provider to onboard the customers rapidly.
 
 ## Contributors
 

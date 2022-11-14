@@ -7,16 +7,16 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
 
 * Security camera detection processes.
-* Image and video analysis (the media and entertinament industry).
+* Image and video analysis (the media and entertainament industry).
 * Transportation and traffic (the automotive and mobility industry).
 * Manufacturing.
 * Energy (smart grids).
 
 ## Architecture
 
-[![Architecture diagram showing an A I -enabled application that's running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)](../media/ai-at-the-edge.svg#lightbox)
+:::image type="content" alt-text="Architecture diagram showing an AI -enabled application that's running at the edge with Azure Stack Hub." source="../media/ai-at-the-edge.png" lightbox="../media/ai-at-the-edge.png":::
 
-*Download an [SVG file](../media/ai-at-the-edge.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ai-at-the-edge.vsdx) of this architecture.*
 
 ### Dataflow
 

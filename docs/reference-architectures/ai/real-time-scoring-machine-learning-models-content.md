@@ -115,7 +115,7 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 **Container registry**. This solution uses Azure Container Registry to store the Docker image. The code that the application depends on, and the model, are contained within this image. Enterprise applications should use a private registry to help guard against running malicious code and to help keep the information inside the container from being compromised.
 
-**DDoS protection**. Consider enabling [DDoS Protection Standard][ddos]. Although basic DDoS protection is enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure virtual network resources.
+**DDoS protection**. Consider enabling [Azure DDoS Network Protection][ddos]. Although basic DDoS protection is enabled as part of the Azure platform, DDoS Network Protection provides mitigation capabilities that are tuned specifically to Azure virtual network resources.
 
 **Logging**. Use best practices before storing log data, such as scrubbing user passwords and other information that could be used to commit security fraud.
 

@@ -143,6 +143,16 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 1. Paste the ssh key copied into the text box and save.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)

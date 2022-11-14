@@ -376,20 +376,12 @@ await using var client = new ServiceBusClient(connectionString, options);
 
 ### Telemetry
 
-Service Bus logs retries as ETW events using an **EventSource**. You must attach an **EventListener** to the event source to capture the events and view them in Performance Viewer, or write them to a suitable destination log. The retry events are of the following form:
+Service Bus collects the same kinds of monitoring data as other Azure resources. You can [Monitor Azure Service Bus](/azure/service-bus-messaging/monitor-service-bus) using Azure Monitor.
 
-```text
-Microsoft-ServiceBus-Client/RetryPolicyIteration
-ThreadID="14,500"
-FormattedMessage="[TrackingId:] RetryExponential: Operation Get:https://retry-tests.servicebus.windows.net/TestQueue/?api-version=2014-05 at iteration 0 is retrying after 00:00:00.1000000 sleep because of Microsoft.ServiceBus.Messaging.MessagingCommunicationException: The remote name could not be resolved: 'retry-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3, TimeStamp:9/5/2014 10:00:13 PM."
-trackingId=""
-policyType="RetryExponential"
-operation="Get:https://retry-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"
-iteration="0"
-iterationSleep="00:00:00.1000000"
-lastExceptionType="Microsoft.ServiceBus.Messaging.MessagingCommunicationException"
-exceptionMessage="The remote name could not be resolved: 'retry-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
-```
+You also have various options for sending telemetry with the Service Bus .NET client libraries.
+
+- [Tracking with Azure Application Insights](/azure/service-bus-messaging/service-bus-end-to-end-tracing#tracking-with-azure-application-insights)
+- [Tracking with OpenTelemetry](/azure/service-bus-messaging/service-bus-end-to-end-tracing#tracking-with-opentelemetry)
 
 ### Example
 
