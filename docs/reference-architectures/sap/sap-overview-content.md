@@ -8,7 +8,6 @@ This architecture guidance builds on the principles of the Cloud Adoption Framew
 
 **SAP workload** - Our workload best practices provide architecture design recommendations to follow throughout the lifecycle of an SAP workload. For more information, see [SAP workload best practices]( /azure/architecture/framework/sap/overview).
 
-
 ## SAP Architecture Center
 
 The articles in the SAP on Azure architecture center contain guides, architectures, and solution ideas, each with a different purpose worth reviewing.
