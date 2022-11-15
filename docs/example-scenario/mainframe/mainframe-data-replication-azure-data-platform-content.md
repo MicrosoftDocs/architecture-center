@@ -17,7 +17,7 @@ The following diagram shows how mLogica LIBER*IRIS integrates with Azure compone
 The steps to migrate mainframe data to Azure are as follows:
 
 1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
-2. The mLogica data migration cluster generates data extraction scripts to run on the mainframe.
+2. The mLogica Liber*IRIS data migration cluster generates data extraction scripts to run on the mainframe.
 3. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
 4. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
 5. The sequential files and load scripts are transferred by using binary SFTP to Azure Blob Storage. Mainframe data is still in EBCDIC format at this point.
