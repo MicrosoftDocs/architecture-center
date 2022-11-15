@@ -6,7 +6,7 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does *not* represent or implement an actual PCI DSS workload.
 
-![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
+:::image type="content" border="false" source="./images/regulated-architecture.svg" alt-text="Architecture of an AKS PCI infrastructure." lightbox="./images/regulated-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-pci-ra-code-assets.vsdx) of this architecture.*
 
@@ -95,7 +95,7 @@ The hub-spokes are all deployed in separate virtual networks, each in their priv
 
 A combination of various Azure services and features and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.
 
-![Network configuration](./images/network-topology.svg)
+:::image type="content" border="false" source="./images/network-topology.svg" alt-text="Diagram of the network configuration." lightbox="./images/network-topology.svg":::
 
 ### Subnet security through network security groups (NSGs)
 
@@ -200,7 +200,7 @@ Protect container images and other OCI artifacts because they contain the organi
 
 ## Kubernetes API Server operational access
 
-![Diagram of Kubernetes API Server operational access with a jump box.](./images/aks-jumpbox.svg)
+:::image type="content" border="false" source="./images/aks-jumpbox.svg" alt-text="Diagram of Kubernetes API Server operational access with a jump box." lightbox="./images/aks-jumpbox.svg":::
 
 You can limit commands executed against the cluster, without necessarily building an operational process based around jump boxes. If you have an IAM-gated IT automation platform, make use of the predefined actions to control and audit the type of actions.
 
