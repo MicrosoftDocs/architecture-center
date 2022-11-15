@@ -16,7 +16,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 Azure provides the Container Insights feature that monitors containers, including AKS clusters. For more information, see [Container insights overview](/azure/azure-monitor/insights/container-insights-overview).
 
-AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. This includes information about the caller, time when the call was made, source where the call was initiated, and so on. For more information, see [Enable and review Kubernetes control plane logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs).
+AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. Logs includes information about the caller, time when the call was made, source where the call was initiated, and so on. For more information, see [Enable and review Kubernetes control plane logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs).
 
 RBAC (role-based access control) can be used to manage the resource access policy as a standard practice on Azure.
 
@@ -30,12 +30,12 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 |---|---|
 |[Requirement 10.1](#requirement-101)|Implement audit trails to link all access to system components to each individual user.|
 |[Requirement 10.2](#requirement-102)|Implement automated audit trails for all system components to reconstruct specific events.|
-|[Requirement 10.3](#requirement-103)|Record at least the following audit trail entries for all system components for specific events.|
-|[Requirement 10.4](#requirement-104)|Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. |
+|[Requirement 10.3](#requirement-103)|Record at least the audit trail entries specified in this section for all system components for specific events.|
+|[Requirement 10.4](#requirement-104)|Using time-synchronization technology, synchronize all critical system clocks and times and ensure our recommendations are implemented for acquiring, distributing, and storing time. |
 |[Requirement 10.5](#requirement-105)|Secure audit trails so they cannot be altered.|
 |[Requirement 10.6](#requirement-106)|Review logs and security events for all system components to identify anomalies or suspicious activity.|
 |[Requirement 10.7](#requirement-107)|Retain audit trail history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from backup).|
-|[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include|
+|[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner.|
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
 ### **Requirement 11**&mdash;Regularly test security systems and processes
@@ -67,19 +67,19 @@ Implement audit trails to link all access to system components to each individua
 
 #### Your responsibilities
 
-We recommend that you use these ways to track operations performed on each component:
+We recommend that you use audit operations performed on each component using the following methods:
 
-- Activity Log. This log provides information about the type and time of Azure resource operations. It also logs the identity that started the operation. It's enabled by default, and the information is collected as soon as the resource operation is done. This audit trail is write-only and cannot be deleted.
+- [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log). The activity log provides information about the type and time of Azure resource operations. It also logs the identity that started the operation. It's enabled by default, and the information is collected as soon as the resource operation is done. The audit trail is write-only and cannot be deleted.
 
-  Data is retained for 90 days. For longer retention options, consider [sending Activity Log entries to Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive) and configure a retention and archive policy.
+  Data is retained for 90 days. For longer retention options, consider [sending activity log entries to Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive) and configure a retention and archive policy.
 
     ![Screenshot that shows the Azure Activity Log.](images/activity-log.png)
 
-- Diagnostic setting. Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable this for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose categories of logs and metric data and send them to a destination. Your diagnostics sink  must meet the required retention periods.
+- [Azure Diagnostic settings](azure/azure-monitor/essentials/diagnostic-settings). Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable diagnostic settings for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose the type of logs and metric data to send to a destination. Your diagnostics destination must meet the required retention periods.
 
-    - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. This includes `kube-audit` or `kube-audit-admin`, and `guard`.
+    - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. Diagnostic settings include `kube-audit` or `kube-audit-admin`, and `guard`.
 
-      Enable `kube-audit-admin` to see log-data API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and add to the cost. These logs have information about the access and identity name that's used to make the request.
+      Enable `kube-audit-admin` to see log-based API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and increase your consumption cost. These logs have information about the access and identity name that's used to make the request.
 
       Enable `guard` logs to track managed Azure AD and Azure role-based access control (RBAC) audits.
 
@@ -87,11 +87,11 @@ We recommend that you use these ways to track operations performed on each compo
 
     For more information, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
 
-    This reference implementation enables `cluster-autoscaler`, `kube-controller-manager`, `kube-audit-admin`, and `guard` logs. All that information is sent to a Log Analytics workspace for analysis. The retention period is set to 90 days.
+    This reference implementation enables `cluster-autoscaler`, `kube-controller-manager`, `kube-audit-admin`, and `guard` logs and forwards to a Log Analytics workspace. The workspace retention period is set to 90 days.
 
     ![Screenshot that shows the AKS diagnostic setting.](images/aks-diagnostic-setting.png)
 
-- Azure Kubernetes Service Diagnostics. Use this feature to detect and troubleshoot issues with the cluster, such as node failures. Also included is networking-specific diagnostic data. This feature is available at no additional cost. This data isn't typically user-associated, but it can help correlate system changes that users have made. For information about this feature, see [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics).
+- Azure Kubernetes Service (AKS) diagnostics helps detect and troubleshoot issues with the cluster, such as node failures. It also includes networking-specific diagnostic data, and is available at no additional cost. This data isn't typically user-associated, but it can help correlate system changes that users have made. For information, see [Azure Kubernetes Service diagnostics](/azure/aks/concepts-diagnostics).
 
 The preceding audit trail mechanisms should be implemented at the time of resource deployment. Azure Policy should also be active to ensure that these configurations aren't inadvertently or maliciously disabled in your CDE.
 
@@ -325,17 +325,17 @@ Also, detect anomalies in traffic patterns by connecting NSG flow logs into a ce
 
 ## Requirement 11.5
 
-Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly.
+Deploy a change tracking solution (for example, [Microsoft Defender for Cloud File Integrity Monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview)) to alert personnel to unauthorized modification of critical system files, configuration files, or content files. Configure the product to perform critical file comparisons at least weekly.
 
 #### Your responsibilities
 
-In your cluster, run a file integrity monitoring (FIM) solution in conjunction with a Kubernetes-aware security agent to detect file and system-level access that could result in node-level changes. When choosing a FIM solution, have a clear understanding of its features and the depth of detection. Consider software developed by reputable vendors.
+In your cluster, run a file integrity monitoring (FIM) solution in together with a Kubernetes-aware security agent to detect file and system-level access that could result in node-level changes. When choosing a FIM solution, have a clear understanding of its features and the depth of detection. Consider software developed by reputable vendors.
 
 > [!IMPORTANT]
 >
 > The reference implementation provides a placeholder `DaemonSet` deployment to run a FIM solution antimalware agent. The agent will run on every node VM in the cluster. Place your choice of antimalware software in this deployment.
 
-Check all default settings of the FIM tool to ensure that the values detect the parameters you want to cover, and adjust those settings appropriately.
+Check all default settings of the FIM tool to ensure that the values detect the scenarios you want to cover, and adjust those settings appropriately.
 
 Enable the solution to send logs to your monitoring or SIEM solution so that they can generate alerts. Be aware of log schema changes, or you might miss critical alerts.
 
