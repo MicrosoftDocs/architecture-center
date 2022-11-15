@@ -4636,6 +4636,8 @@ items:
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: CI/CD using Jenkins and Terraform
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
+              - name: Configuration-driven data pipeline
+                href: solution-ideas/articles/configuration-driven-data-pipeline.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
               - name: DevSecOps for infrastructure as code
