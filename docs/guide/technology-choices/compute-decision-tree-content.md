@@ -199,6 +199,7 @@ Principal authors:
 Other contributors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Service Engineer
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
 
 ## Next steps
