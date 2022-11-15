@@ -1,22 +1,19 @@
-The SAP on Azure architecture center provides architectural guidance for SAP workloads running on Azure. It captures specific use cases for SAP workloads and gives various levels of detail on implementation, configuration, and deployment instruction. This architecture guidance builds on the principles of the Cloud Adoption Framework (CAF) and Microsoft Well-Architected Framework (WAF).
+The SAP on Azure architecture center provides architectural guidance for SAP workloads running on Azure. The architectural content  provides implementation, configuration, and deployment instructions for SAP platforms, workloads, and applications.
 
-## SAP Frameworks
+The guidance applies the principles of the Cloud Adoption Framework (CAF) and the Well-Architected Framework (WAF) to specific SAP use cases. It assumes a familiarity with these principles and our guidance specific to SAP.
 
- Within those frameworks, we’ve created custom guidance for SAP on Azure. These provide standard best practices that will help you with your SAP cloud adoption and workload.
+For more information, see:
 
-**SAP cloud adoption** - Our SAP cloud adoption guidance outlines the process of integrating an SAP platform into your cloud adoption efforts. For more information, see [SAP adoption scenario]( /azure/cloud-adoption-framework/scenarios/sap/).
+- [SAP adoption scenario]( /azure/cloud-adoption-framework/scenarios/sap/)
+- [SAP workload best practices]( /azure/architecture/framework/sap/overview)
 
-**SAP workload** - Our workload best practices provide architecture design recommendations to follow throughout the lifecycle of an SAP workload. For more information, see [SAP workload best practices]( /azure/architecture/framework/sap/overview).
+You'll find different types of content in the SAP on Azure architecture center. We have guides, architectures, and solution ideas, each with a different purpose and application.
 
-## SAP Architecture Center
+**Guides** - The guides provide check lists, configurations, and design guidance. They offer instructions to implement best practices for SAP solutions. For more information, see [Guides](../../guide/sap/sap-internet-inbound-outbound.yml).
 
-The articles in the SAP on Azure architecture center contain guides, architectures, and solution ideas, each with a different purpose worth reviewing.
+**Architectures** - Architectures give detailed instructions on how to design SAP platforms, workloads, and applications in Azure. Some have code that let you deploy the solution. For more information, see [Architectures](run-sap-hana-for-linux-virtual-machines.yml).
 
-**Guides** - The guides provide check lists, configurations, and design guidance. They offer you instructions to implement best practices for SAP solutions. For more information, see [Guides](../../guide/sap/sap-internet-inbound-outbound.yml).
-
-**Architectures** - The architectures give detailed instructions on how to design SAP platforms, workloads, and applications in Azure. Some of the architectures provide infrastructure-as-code templates that let you deploy the solution to your subscription. For more information, see [Architectures](run-sap-hana-for-linux-virtual-machines.yml).
-
-**Solution ideas** - Solution ideas are conceptual. Subject matter experts develop these ideas to inspire others to test and develop real-world SAP solutions from these concepts. For more information, see [Solution ideas](../../solution-ideas/articles/sap-netweaver-on-sql-server.yml)
+**Solution ideas** - Solution ideas are conceptual. They are meant to inspire new ideas and novel approaches to architecture. For more information, see [Solution ideas](../../solution-ideas/articles/sap-netweaver-on-sql-server.yml)
 
 ## Next Step
 
