@@ -9,7 +9,7 @@ We have two SAP frameworks: SAP cloud adoption and SAP workload best practices. 
 >[!div class="nextstepaction"]
 > [SAP adoption scenario]( /azure/cloud-adoption-framework/scenarios/sap/)
 
-**SAP workload** - Our workload best practices provide architecture design recommendations to follow throughout the lifecycle of an SAP workload.
+**SAP workload best practices** - Our workload best practices provide architecture design recommendations to follow throughout the lifecycle of an SAP workload.
 
 >[!div class="nextstepaction"]
 > [SAP workload best practices]( /azure/architecture/framework/sap/overview)
