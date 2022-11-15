@@ -1933,6 +1933,10 @@ items:
               - name: ITAR
                 href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
+          - name: Solution ideas
+            items:
+              - name: Azure 5G split core shop floor network
+                href: solution-ideas/articles/private-network-split-core-manufacture.yml
       - name: Energy and Environment
         items:
           - name: Overview
