@@ -199,7 +199,7 @@ Focus on the entire stack by securing the host and containers.
 
 - [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview.md
+  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
@@ -221,11 +221,11 @@ Focus on the entire stack by securing the host and containers.
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
   [cost optimization]: /azure/architecture/framework/cost/overview
   [Create Cluster Wizard in Windows Admin Center]: /azure-stack/hci/deploy/create-cluster
-  [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs]: /azure/aks/hybrid/manage/vm
+  [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs]: /azure-stack/hci/manage/vm
   [Open Service Mesh (OSM)]: https://docs.openservicemesh.io/
   [virtualization-based security (VBS)]: /windows-hardware/design/device-experiences/oem-vbs
   [Azure Stack HCI solutions]: https://azure.microsoft.com/overview/azure-stack/hci
-  [Calico network policies]: /azure/aks/hybrid/calico-networking-policy.md
+  [Calico network policies]: /azure/aks/hybrid/calico-networking-policy
   [2]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [Azure Key Vault Secrets provider extension]: /azure/azure-arc/kubernetes/tutorial-akv-secrets-provider
   [Open Service Mesh AKS add-on]: /azure/aks/open-service-mesh-about
