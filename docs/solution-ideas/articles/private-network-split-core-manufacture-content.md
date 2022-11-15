@@ -90,8 +90,8 @@ Some of the use cases for manufacturing as seen in the industry are:
 ## Related resources
 
 - [Data analysis workloads for regulated industries](../../example-scenario/data/data-analysis-regulated-industries.yml)
-- [End-to-end computer vision at the edge for manufacturing](../../architecture/reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Industrial IoT connectivity patterns](https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-connectivity-patterns)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Industrial IoT connectivity patterns](../../guide/iiot-patterns/iiot-connectivity-patterns.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
-- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance)
-- [Video capture and analytics for retail](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/video-analytics)
+- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
+- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
