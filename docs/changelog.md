@@ -2,8 +2,8 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 11/08/2022
-ms.topic: conceptual
+ms.date: 11/14/2022
+ms.topic: article
 ms.service: architecture-center
 categories: 
 - management-and-governance
@@ -26,6 +26,18 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Eventual consistency between multiple Power Apps instances](./guide/power-platform/eventual-consistency.yml)
+- [Azure Service Bus considerations for multitenancy](./guide/multitenant/service/service-bus.md)
+- [IoT solution to Azure IoT migration best practices](./guide/iot/azure-iot-migration-best-practices.md)
+- [Migrate your IoT solutions to Azure](./guide/iot/migrate-iot-solution-azure.yml)
+- [Configuration-driven data pipeline](./solution-ideas/articles/configuration-driven-data-pipeline.yml)
+- [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)
+- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)
+- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Summary](./data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml)
 - [Deploy Turbostream on an Azure virtual machine](./guide/hpc/turbostream.yml)
 - [Deploy WRF on an Azure virtual machine](./guide/hpc/weather-research-forecasting.yml)
 - [Network secure ingress pattern implementation with Azure Front Door Premium tier](./pattern-implementations/network-secure-ingress.md)
@@ -37,6 +49,39 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Set up data science environments in Azure](./data-science-process/environment-setup.md)  ([#7aa65d565](https://github.com/MicrosoftDocs/architecture-center/commit/7aa65d565))
+- [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#91b452e05](https://github.com/MicrosoftDocs/architecture-center/commit/91b452e05))
+- [Create Hive tables and load data from Blob storage](./data-science-process/move-hive-tables.md)  ([#34cec9e85](https://github.com/MicrosoftDocs/architecture-center/commit/34cec9e85))
+- [Load data into Azure Storage environments](./data-science-process/ingest-data.md)  ([#37f1c3ffe](https://github.com/MicrosoftDocs/architecture-center/commit/37f1c3ffe))
+- [Platforms and tools for data science projects](./data-science-process/platforms-and-tools.md)  ([#65ac360a7](https://github.com/MicrosoftDocs/architecture-center/commit/65ac360a7))
+- [Move Blob storage data with Azure Storage Explorer](./data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)  ([#3628b026a](https://github.com/MicrosoftDocs/architecture-center/commit/3628b026a))
+- [Move data to a SQL Server virtual machine](./data-science-process/move-sql-server-virtual-machine.md)  ([#26c3e759f](https://github.com/MicrosoftDocs/architecture-center/commit/26c3e759f))
+- [Agile development of data science projects](./data-science-process/agile-development.md)  ([#36efc61fa](https://github.com/MicrosoftDocs/architecture-center/commit/36efc61fa))
+- [Team Data Science Process project planning](./data-science-process/team-data-science-process-project-templates.md)  ([#e2df0fac6](https://github.com/MicrosoftDocs/architecture-center/commit/e2df0fac6))
+- [Collaborative coding with Git](./data-science-process/collaborative-coding-with-git.md)  ([#882abe866](https://github.com/MicrosoftDocs/architecture-center/commit/882abe866))
+- [Execute data science tasks - Team Data Science Process](./data-science-process/execute-data-science-tasks.md)  ([#77242b54c](https://github.com/MicrosoftDocs/architecture-center/commit/77242b54c))
+- [Test data science code with Azure DevOps](./data-science-process/code-test.md)  ([#404f95be5](https://github.com/MicrosoftDocs/architecture-center/commit/404f95be5))
+- [Track progress of Team Data Science Process projects](./data-science-process/track-progress.md)  ([#c3f51e417](https://github.com/MicrosoftDocs/architecture-center/commit/c3f51e417))
+- [Team Data Science Process for DevOps](./data-science-process/team-data-science-process-for-devops.md)  ([#3223b80f2](https://github.com/MicrosoftDocs/architecture-center/commit/3223b80f2))
+- [Identify scenarios and plan the analytics process](./data-science-process/plan-your-environment.md)  ([#869219a47](https://github.com/MicrosoftDocs/architecture-center/commit/869219a47))
+- [Move data to and from Azure Blob storage](./data-science-process/move-azure-blob.md)  ([#b10d93939](https://github.com/MicrosoftDocs/architecture-center/commit/b10d93939))
+- [Move Blob storage data with SSIS connectors](./data-science-process/move-data-to-azure-blob-using-ssis.md)  ([#2151ed12a](https://github.com/MicrosoftDocs/architecture-center/commit/2151ed12a))
+- [Move data to Azure SQL Database](./data-science-process/move-sql-azure.md)  ([#44feec4f7](https://github.com/MicrosoftDocs/architecture-center/commit/44feec4f7))
+- [Parallel bulk data import in SQL partition tables](./data-science-process/parallel-load-sql-partitioned-tables.md)  ([#0c07ba1c5](https://github.com/MicrosoftDocs/architecture-center/commit/0c07ba1c5))
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)  ([#3387211f7](https://github.com/MicrosoftDocs/architecture-center/commit/3387211f7))
+- [Azure icons](./icons/index.md)  ([#e8ffc1e1f](https://github.com/MicrosoftDocs/architecture-center/commit/e8ffc1e1f))
+- [Web-Queue-Worker architecture style](./guide/architecture-styles/web-queue-worker.yml)  ([#8aeaaf628](https://github.com/MicrosoftDocs/architecture-center/commit/8aeaaf628))
+- [Design to scale out](./guide/design-principles/scale-out.md)  ([#8aeaaf628](https://github.com/MicrosoftDocs/architecture-center/commit/8aeaaf628))
+- [Team Data Science Process group manager tasks](./data-science-process/group-manager-tasks.md)  ([#5a22ce330](https://github.com/MicrosoftDocs/architecture-center/commit/5a22ce330))
+- [Tasks for an individual contributor in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#5e62e146b](https://github.com/MicrosoftDocs/architecture-center/commit/5e62e146b))
+- [Data acquisition and understanding of Team Data Science Process](./data-science-process/lifecycle-data.md)  ([#57c5c6190](https://github.com/MicrosoftDocs/architecture-center/commit/57c5c6190))
+- [Deployment stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-deployment.md)  ([#ee79820b5](https://github.com/MicrosoftDocs/architecture-center/commit/ee79820b5))
+- [Business understanding in Team Data Science Process](./data-science-process/lifecycle-business-understanding.md)  ([#eb2c8cb5e](https://github.com/MicrosoftDocs/architecture-center/commit/eb2c8cb5e))
+- [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#6aad6b7d0](https://github.com/MicrosoftDocs/architecture-center/commit/6aad6b7d0))
+- [Customer acceptance stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-acceptance.md)  ([#656780874](https://github.com/MicrosoftDocs/architecture-center/commit/656780874))
+- [Team Data Science Process roles and tasks](./data-science-process/roles-tasks.md)  ([#19d501862](https://github.com/MicrosoftDocs/architecture-center/commit/19d501862))
+- [Tasks for the team lead in the Team Data Science Process Team](./data-science-process/team-lead-tasks.md)  ([#42f4a39c1](https://github.com/MicrosoftDocs/architecture-center/commit/42f4a39c1))
+- [Tasks for the project lead in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#b7699bc17](https://github.com/MicrosoftDocs/architecture-center/commit/b7699bc17))
 - [Virtual network peering and VPN gateways](./reference-architectures/hybrid-networking/vnet-peering.yml)  ([#f3e409e1b](https://github.com/MicrosoftDocs/architecture-center/commit/f3e409e1b))
 - [IoT measure and control loops](./example-scenario/iot/measure-control-loop.yml)  ([#7780cf158](https://github.com/MicrosoftDocs/architecture-center/commit/7780cf158))
 - [IoT monitor and manage loops](./example-scenario/iot/monitor-manage-loop.yml)  ([#aa6d9b7dc](https://github.com/MicrosoftDocs/architecture-center/commit/aa6d9b7dc))
@@ -432,8 +477,6 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
 - [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
 - [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
-- [Rehost IMS workloads to virtual machines by using IMSql](./example-scenario/mainframe/imsql-rehost-ims.yml)
-- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)
 
 ### Updated articles
 
@@ -453,10 +496,7 @@ The following new and updated articles have recently been published in the Azure
 - [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#39fa80883](https://github.com/MicrosoftDocs/architecture-center/commit/39fa80883))
 - [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#bec86648c](https://github.com/MicrosoftDocs/architecture-center/commit/bec86648c))
 - [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)  ([#3314a883d](https://github.com/MicrosoftDocs/architecture-center/commit/3314a883d))
-- [Eventual consistency between multiple Power Apps instances](./reference-architectures/power-platform/eventual-consistency.yml)  ([#364740577](https://github.com/MicrosoftDocs/architecture-center/commit/364740577))
 - [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
 - [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
-- [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
-- [Secure your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
 
