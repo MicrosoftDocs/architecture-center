@@ -1,8 +1,4 @@
-The SAP on Azure architecture center provides architectural guidance for SAP workloads running on Azure. The architectural content  provides implementation, configuration, and deployment instructions for SAP platforms, workloads, and applications.
-
-The guidance applies the principles of the Cloud Adoption Framework (CAF) and the Well-Architected Framework (WAF) to specific SAP use cases. It assumes a familiarity with these principles and our guidance specific to SAP.
-
-For more information, see:
+The SAP on Azure architecture center provides architectural guidance for SAP workloads running on Azure. The architectural content  provides implementation, configuration, and deployment instructions for SAP platforms, workloads, and applications. The guidance applies the principles of the Cloud Adoption Framework (CAF) and the Well-Architected Framework (WAF) to specific SAP use cases. It assumes a familiarity with these principles and our guidance specific to SAP. For more information, see:
 
 - [SAP adoption scenario]( /azure/cloud-adoption-framework/scenarios/sap/)
 - [SAP workload best practices]( /azure/architecture/framework/sap/overview)
