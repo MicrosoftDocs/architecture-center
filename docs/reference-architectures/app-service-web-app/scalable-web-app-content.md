@@ -13,11 +13,10 @@ This reference architecture shows proven practices for improving scalability and
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
 
 - **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
-- **Front Door**. [Front Door](/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Front Door**. [Front Door](/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery System](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) in this solution.  
 - **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Service Bus queue][queue-storage]. The message triggers a function app. Alternatively, you can use Azure Storage queues. For a comparison, see [Storage queues and Service Bus queues - compared and contrasted][queues-compared].
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
-- **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Azure Cosmos DB][cosmosdb].
 - **Azure Cognitive Search**. Use [Azure Cognitive Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -46,15 +45,10 @@ For more detailed guidance on designing a caching strategy, see [Caching guidanc
 
 ### CDN
 
-Use [Azure CDN][azure-cdn] to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an edge server that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application.
-
-If your app consists mostly of static pages, consider using [CDN to cache the entire app][cdn-app-service]. Otherwise, put static content such as images, CSS, and HTML files, into [Azure Storage and use CDN to cache those files][cdn-storage-account].
+Use [Front Door's native CDN functionality](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an edge server that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application. Front Door additionally offers [dynamic site acceleration](/azure/cdn/cdn-dynamic-site-acceleration) allowing you to deliver a better overall user experience for your web app than would be available with only static content caching.
 
 > [!NOTE]
 > Azure CDN cannot serve content that requires authentication.
->
-
-For more detailed guidance, see [Content Delivery Network (CDN) guidance][cdn-guidance].
 
 ### Storage
 
@@ -165,7 +159,6 @@ Principal author:
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-service-web-app]: /azure/app-service-web/app-service-web-overview
 [app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service
-[azure-cdn]: https://azure.microsoft.com/services/cdn
 [azure-dns]: /azure/dns/dns-overview
 [azure-redis]: https://azure.microsoft.com/services/cache
 [azure-search]: /azure/search
@@ -173,9 +166,6 @@ Principal author:
 [basic-web-app]: ./basic-web-app.yml
 [basic-web-app-devops]: ./basic-web-app.yml#devops
 [caching-guidance]: ../../best-practices/caching.yml
-[cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
-[cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
-[cdn-guidance]: ../../best-practices/cdn.yml
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
