@@ -192,15 +192,13 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
-
-- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
-
 Other contributors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Julie Ng](https://www.linkedin.com/in/julie-io) | Senior Service Engineer
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Service Engineer
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
+- [Phil Huang](https://www.linkedin.com/in/phil-huang-09b09895) | Senior Cloud Solution Architect
 
 ## Next steps
 
