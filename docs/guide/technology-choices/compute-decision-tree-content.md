@@ -21,16 +21,16 @@ This article includes several tables that can help you to make these tradeoff de
 
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
 
-- [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Spring Apps](/azure/spring-apps). A managed service designed and optimized for hosting Spring Boot apps.
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
-- [Azure Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
-- [Azure Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
-- [Azure Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
-- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
 - [Azure Virtual machines](/azure/virtual-machines). Deploy and manage VMs inside an Azure virtual network.
+- [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [Azure Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps). A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes.
+- [Azure Spring Apps](/azure/spring-apps). A managed service designed and optimized for hosting Spring Boot apps.
+- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
+- [Azure Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications.
 
 ## Understand the hosting models
 
