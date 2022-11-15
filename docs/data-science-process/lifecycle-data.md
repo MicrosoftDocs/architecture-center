@@ -4,7 +4,7 @@ description: The goals, tasks, and deliverables for the data acquisition and und
 author: marktab
 manager: marktab
 editor: marktab
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:

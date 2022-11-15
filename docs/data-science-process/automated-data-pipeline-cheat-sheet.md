@@ -7,7 +7,7 @@ manager: marktab
 editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2021
 ms.author: tdsp
 ms.category:

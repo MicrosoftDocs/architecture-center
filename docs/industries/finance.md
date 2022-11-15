@@ -5,7 +5,7 @@ description: Architectures and ideas to use Azure and other Microsoft services f
 author: PageWriter-MSFT
 ms.author: prwilk
 ms.date: 08/15/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:

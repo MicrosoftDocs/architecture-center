@@ -5,7 +5,7 @@ author: nielsams
 categories: monitoring
 ms.author: allensu
 ms.date: 08/15/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:

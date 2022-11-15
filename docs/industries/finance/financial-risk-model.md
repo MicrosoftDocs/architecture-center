@@ -7,7 +7,7 @@ categories:
   - azure
   - ai-machine-learning
 ms.service: industry
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/28/2022
 azureCategories:
   - management-and-governance

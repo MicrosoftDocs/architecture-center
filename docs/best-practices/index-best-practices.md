@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas.
 author: EdPrice-MSFT
 ms.date: 01/04/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

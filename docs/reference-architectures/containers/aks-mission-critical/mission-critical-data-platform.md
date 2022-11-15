@@ -5,7 +5,7 @@ author: msimecek
 categories: database
 ms.author: csiemens
 ms.date: 09/20/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
