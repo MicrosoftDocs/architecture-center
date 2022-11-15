@@ -9,8 +9,7 @@ metadata:
   ms.service: architecture-center
 name: SAP on Azure architecture center
 summary: Overview of SAP guidance and resources that links to platform, workload, and architecture guidance
-products:
-  - azure-sap
+products: 
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-overview-architecture-diagram.png
 content: |
    [!include[](sap-overview-content.md)]
