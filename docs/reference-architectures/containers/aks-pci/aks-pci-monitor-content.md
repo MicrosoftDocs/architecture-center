@@ -75,7 +75,7 @@ We recommend that you use audit operations performed on each component using the
 
     ![Screenshot that shows the Azure Activity Log.](images/activity-log.png)
 
-- [Azure Diagnostic settings](azure/azure-monitor/essentials/diagnostic-settings). Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable diagnostic settings for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose the type of logs and metric data to send to a destination. Your diagnostics destination must meet the required retention periods.
+- [Azure Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings). Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable diagnostic settings for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose the type of logs and metric data to send to a destination. Your diagnostics destination must meet the required retention periods.
 
     - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. Diagnostic settings include `kube-audit` or `kube-audit-admin`, and `guard`.
 
