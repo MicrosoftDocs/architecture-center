@@ -94,7 +94,7 @@ Those resources are on the critical path for the workload. The design choices th
 The platform team decides the network topology for the entire organization. This architecture assumes the hub-spoke topology, used for regional deployments. 
 
 - The hub virtual network in the Connectivity subscription. It has federated resources such as Azure Private DNS Zones, ExpressRoute circuit.
-- The spoke vitual network connects with the hub resources through virtual network peering. The workload will run in that network.
+- The spoke virtual network connects with the hub resources through virtual network peering. The workload will run in that network.
 
 > [!NOTE]
 > A key benefit in using the federated hub is that the workload can integrate with other workloads either in Azure or cross-premises by traversing the organization-managed network hubs. Another benefit is cost optimization when compared to the **baseline architecture with network controls**. This change also lowers the operational costs because of the shift in responsibility to the platform team for shared resources. 
@@ -111,13 +111,13 @@ The spoke virtual network is considered to be non-epheremal. When the deployment
 
 The virtual networks that participate in peerings must have distinct addresses. Overlapping addresses, for example of on-premises and workload networks, can cause disruptions leading to outage.
 
-When allocating subnets, the address spaces should be right-sized. They should be able to contain the runtime and deployments resources, handle failovers, and support scalability. The number of spokes in a application landing zone is limited by the number of peered connections allowed by the platform team.  
+When you allocate subnets, the address spaces should be right-sized. They should be able to contain the runtime and deployments resources, handle failovers, and support scalability. The number of spokes in an application landing zone is limited by the number of peered connections allowed by the platform team.  
 
 ##### Multi-region redundancy
 
 A basic principle of designing mission-critical workloads is removing single points of failure in the system. This architecture addresses that principle by building redundancy in layers. 
 
-A baseline expectation of this architecture is deployment in multiple regions to withstand regional outages. The platform team must replicate the hub and peering(s) in each region. This makes the hub virtual network, Azure Firewall, and gateway in scope of the workload's regional resources, as indicated in the architecture diagram. 
+A baseline expectation of this architecture is deployment in multiple regions to withstand regional outages. The platform team must replicate the hub and peering(s) in each region. The hub virtual network, Azure Firewall, and gateway are in scope of the workload's regional resources, as indicated in the architecture diagram. 
 
 ##### Network segmentation
 
