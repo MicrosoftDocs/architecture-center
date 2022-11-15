@@ -7,9 +7,9 @@ You'll find different types of content in the SAP on Azure architecture center. 
 
 **Guides** - The guides provide check lists, configurations, and design guidance. They offer instructions to implement best practices for SAP solutions. For more information, see [Guides](../../guide/sap/sap-internet-inbound-outbound.yml).
 
-**Architectures** - Architectures give detailed instructions on how to design SAP platforms, workloads, and applications in Azure. Some have code that let you deploy the solution. For more information, see [Architectures](run-sap-hana-for-linux-virtual-machines.yml).
+**Architectures** - Architectures give detailed instructions on how to design SAP platforms, workloads, and applications in Azure. Some have code that lets you deploy the solution. For more information, see [Architectures](run-sap-hana-for-linux-virtual-machines.yml).
 
-**Solution ideas** - Solution ideas are conceptual. They are meant to inspire new ideas and novel approaches to architecture. For more information, see [Solution ideas](../../solution-ideas/articles/sap-netweaver-on-sql-server.yml)
+**Solution ideas** - Solution ideas are conceptual. They're meant to inspire new ideas and novel approaches to architecture. For more information, see [Solution ideas](../../solution-ideas/articles/sap-netweaver-on-sql-server.yml)
 
 ## Next Step
 
