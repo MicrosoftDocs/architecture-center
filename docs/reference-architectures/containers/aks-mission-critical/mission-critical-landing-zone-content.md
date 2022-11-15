@@ -22,7 +22,7 @@ The design strategies for mission-critical baseline still apply in this use case
     The architecture will contain resources owned by the application and the platform teams. The platform-owned components are in-scope for workload. Evaluate the reliability of those components and policies with the platform team regularly. 
 
 - **Lifecycle of the architecture**
-    Consider the lifecycle of each component as you design your deployment that's expected to have zero down time. The application team owns components that are ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral (long-lived that share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they are pre-provisioned by the platform team.  
+    Consider the lifecycle of each component as you design your deployment that's expected to have zero down time. The application team owns components that are ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral (long-lived that share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
 
 - **Maintain isolation**
     Provide segmentation in networks, production and pre-production environments through the use of subscriptions.
@@ -105,7 +105,7 @@ The application team is responsible for:
 - Applying network security groups (NSGs). 
 - Making sure the subnets are accessible after organizational policies are applied by the platform team after the deployment. 
 
-The spoke virtual network is considered to be non-epheremal. When the deployment stamp is no longer required, all stamp resources are deleted including subnets but not the pre-provisioned network. Here are some design consideration.
+The spoke virtual network is considered to be non-epheremal. When the deployment stamp is no longer required, all stamp resources are deleted including subnets but not the pre-provisioned network. Here are some design considerations.
 
 ##### IP address planning
 
@@ -139,13 +139,13 @@ In this architecture, the networking components can be categorized by stamp and 
 
 #### Regional stamp virtual network
 
-The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the  stamp. These virtual networks are non-epheremal. One serves production traffic and the other targets the vNext deployment. This gives you the ability to perform reliable and safe deployments practices. 
+The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the  stamp. These virtual networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This gives you the ability to perform reliable and safe deployments practices. 
 
 These considerations are discussed in [Zero-downtime deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone#zero-downtime-deployment).
 
 #### Regional stamp subnetting
 
-The application team is responsible for allocating subnets in the regional virtual network. The subnets and the resources in them are considered as epheremal. 
+The application team is responsible for allocating subnets in the regional virtual network. The subnets and the resources in them are considered as ephemeral. 
 
 After traffic reaches the virtual network, communication with PaaS services within the network, is locked down by using private endpoints, just like the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-endpoints-for-paas-services). These endpoints are placed in a dedicated subnet, outside the AKS node pool subnet. The address space is large enough to accommodate all private endpoints necessary for the stamp. Private IP addresses to the private endpoints are assigned from that subnet. Network Security Groups (NSGs) and firewall rules are placed on each subnet to inspect communication within the virtual network. NSGs use ServiceTags for the supported services. The platform team also enforces NGS by Azure Policies.
 
@@ -155,9 +155,9 @@ The pre-provisioned virtual network and peerings must be able to support the exp
 
 #### Regional virtual network in the Connectivity subscription
 
-The Connectivity subscription contains a hub virtual network that contains resources shared by workloads of the organization. From a mission-critical perspective, they are expected to be provisioned in each region and peered to the virtual network in the regional stamp. The resources are in-scope for the workload and are treated as non-ephemeral components: 
+The Connectivity subscription contains a hub virtual network that contains resources shared by workloads of the organization. From a mission-critical perspective, they're expected to be provisioned in each region and peered to the virtual network in the regional stamp. The resources are in-scope for the workload and are treated as non-ephemeral components: 
 
-- Azure ExpressRoute for private connectivity from on-premises to Azure infrastructure. For the workload, dual circuits and even multiple ExpressRoute instances is recommended to build redunduncy. 
+- Azure ExpressRoute for private connectivity from on-premises to Azure infrastructure. For the workload, dual circuits and even multiple ExpressRoute instances is recommended to build redundancy. 
 - Azure Firewall to control and inspect egress traffic
 - Active Directory-integrated DNS infrastructure used for cross-premises DNS name resolution for which the record is maintained by the platform team.
 - VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This can be also considered as a backup connectivity alternative adding resiliency.
@@ -171,8 +171,8 @@ This virtual network is owned by the application team and is ephemeral.
 
 TODO: This isn't peered as far as I remember in the baseline. 
 
-One long-lived build agent virtual network, this should be able peered to both target-vnet (which both?). Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
-b.	Two long-lived ops virtual networks, one per target virtual network. Every ops-vnet is peered to its counterpart target-vnet. These are not deleted along the Deployment Stamp but they are owned by the Application team. Addtionally, hosted jumpboxes enable ops team to access global resources. Singletons per regions is an option and while you could try to make them ephemeral this will overcomplicate your architecture.
+One long-lived build agent virtual network, this should be peered to both target-vnet (which both?). Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
+b.	Two long-lived ops virtual networks, one per target virtual network. Every ops-vnet is peered to its counterpart target-vnet. These aren't deleted along the Deployment Stamp but they're owned by the Application team. Addtionally, hosted jumpboxes enable ops team to access global resources. Singletons per regions is an option and while you could try to make them ephemeral this will overcomplicate your architecture.
 
 ## Deployment considerations
 
