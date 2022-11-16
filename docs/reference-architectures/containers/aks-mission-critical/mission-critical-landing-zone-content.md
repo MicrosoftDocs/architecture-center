@@ -20,7 +20,7 @@ The design strategies for mission-critical baseline still apply in this use case
 
 - **Lifecycle of the architecture components**
 
-    Consider the lifecycle of each component as your deployment is expected to have zero down time. Components can be ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral that are long-lived and share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
+    Consider the lifecycle of each component as your deployment is expected to have zero down time. Components can be, ephemeral or short-lived resources that can be created and destroyed as needed; non-ephemeral or long-lived and share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
 
 - **Network-secure topology**
     Maintain your workload's network perimeter, both public and private. Also, draw boundaries for connectivity to cloud resources as opposed to on-premises. 
@@ -31,7 +31,7 @@ The design strategies for mission-critical baseline still apply in this use case
 
 - **Subscription topology**
 
-    Azure Landing Zones does not imply a single subscription topology. Plan your subscription footprint in advance with your platform team to accommodate workload reliability and requirements and DevOps team responsibilities across all environments.
+    Azure landing zones don't imply a single subscription topology. Plan your subscription footprint in advance with your platform team to accommodate workload reliability and requirements and the DevOps team responsibilities across all environments.
 
 - **Maintain isolation**
 
@@ -97,7 +97,7 @@ To gain access to the private compute cluster, this architecture uses private bu
 
 ## Networking considerations
 
-There are fundamental changes in the networking design area the **baseline architecture**. The workload in the application landing zone will need connectivity to the federated resources in the platform landing zone for accessing on-premises resources, controlling egress traffic, and so on. 
+There are fundamental changes in the networking design area the **baseline architecture**. The workload in the application landing zone will need connectivity to the federated resources in the platform landing zone. The purpose could be for accessing on-premises resources, controlling egress traffic, and so on. 
 
 Those resources are on the critical path for the workload. The design choices that provide maximum reliability is a shared responsibility between the platform team and application team. If any shared component doesn't meet the reliability target of the workload, the application team is accountable for driving continuous evaluation and the overall change with the platform team.
 
@@ -151,7 +151,7 @@ In this architecture, the networking components can be categorized by stamp and 
 
 #### Regional stamp virtual network
 
-The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the  stamp. These virtual networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This gives you the ability to perform reliable and safe deployments practices. 
+The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the  stamp. These virtual networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This approach gives you the ability to perform reliable and safe deployments practices. 
 
 These considerations are discussed in [Zero-downtime deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone#zero-downtime-deployment).
 
@@ -163,22 +163,22 @@ After traffic reaches the virtual network, communication with PaaS services with
 
 The scalability requirements of the workload influence how much address space should be allocated for the subnets. The subnets should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
 
-The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. The application team must evaluate and communicate that growth with the platform team on a regular basis.
+The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. The application team must evaluate and communicate that growth with the platform team regularly.
 
 #### Regional virtual network in the Connectivity subscription
 
-The Connectivity subscription contains a hub virtual network that contains resources shared by workloads of the organization. From a mission-critical perspective, they're expected to be provisioned in each region and peered to the virtual network in the regional stamp. The resources are in-scope for the workload and are treated as non-ephemeral components: 
+The Connectivity subscription contains a hub virtual network that contains resources shared by workloads of the organization. From a mission-critical perspective, the resources are expected to be provisioned in each region and peered to the virtual network in the regional stamp. The resources are in-scope for the workload and are treated as non-ephemeral components: 
 
 - Azure ExpressRoute for private connectivity from on-premises to Azure infrastructure. For the workload, dual circuits and even multiple ExpressRoute instances is recommended to build redundancy. 
 - Azure Firewall to control and inspect egress traffic
 - Active Directory-integrated DNS infrastructure used for cross-premises DNS name resolution for which the record is maintained by the platform team.
-- VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This can be also considered as a backup connectivity alternative adding resiliency.
+- VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This resource can also be considered as a backup connectivity alternative adding resiliency.
 
 #### Operations virtual network
 
 This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network), where the operational traffic is isolated in a separate virtual network. This virtual network is owned by the application team and is non-ephemeral.  
 
-There's no peering between the operations network and spoke network. All communication is through Private Links. If, the operations network needs to reach on-premises resources, then the platform team needs to add peering from the hub network in the Connectivity subscription to the operations network. 
+There's no peering between the operations network and spoke network. All communication is through Private Links. If the operations network needs to reach on-premises resources, then the platform team needs to add peering from the hub network in the Connectivity subscription to the operations network. 
 
 ## Deployment considerations
 
@@ -289,7 +289,7 @@ The Azure landing zone platform provides shared observability resources as part 
 
 Mission-critical workloads need telemetry that's unique and not applicable or actionable for centralized operations team. Offloading the responsibility may cause in delays in incident response. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents the overall health.
 
-The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources, respectively and maintained separately. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload is not impacted.
+The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources, respectively and maintained separately. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of the Azure Diagnostics feature that supports multi-casting metrics and logs to various sinks. They can send data to the platform team, if reliability of the workload isn't impacted.
 
 ### Health model
 
@@ -303,7 +303,7 @@ In this architecture, the health model includes logs and metrics from resources 
 
 The deployment provisions one Azure Key Vault per region in the application landing zone subscription. The application team should be aware of the [Azure Key Vault limits](/azure/azure-resource-manager/management/azure-subscription-service-limits). The application must be designed within the [Azure Key Vault transaction limits](/azure/key-vault/general/overview-throttling) so that overwhelming requests can be throttled during rotation. 
 
-The application team depends on the centralized platform team for procurement and renewal of certificates. After that, rotation is the responsibility of the application team. The application should implement automated key and certificate rotation. The implementation is for this architecture is described in [Keys, secrets, and certification rotation](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operationskeysecretcertificate-rotations).
+The application team depends on the centralized platform team for procurement and renewal of certificates. After that, rotation is the responsibility of the application team. The application should implement automated key and certificate rotation. An example implementation is described in [Keys, secrets, and certification rotation](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operationskeysecretcertificate-rotations).
 
 ## Integration with the platform-provided policies
 
