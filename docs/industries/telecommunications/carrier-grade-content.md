@@ -7,7 +7,7 @@ This architecture provides guidance for designing a carrier-grade solution for a
 
 This reference architecture is for a voicemail solution. It offers common functionalities such as, play greeting and record voicemail, retrieve voicemail through phone or app, configure features, and much more.  
 
-Multiple clients can connect to the workload using various protocols. They can be HTTP or non-web protocols, such as Session Initiation Protocol. A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
+Multiple clients can connect to the workload using various protocols. They can be HTTP or other protocols, such as Session Initiation Protocol (SIP). A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
 
 ## Workload requirements
 - The workload is expected to have a Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
@@ -36,7 +36,7 @@ Stores application payload metadata and end-user provisioning data. Also used by
 
 **Gateway component** 
 
-Allows access to the application through a gateway outside the cloud. Before the gateway sends traffic, it determines the health of the backend endpoints from a DNS server.
+A custom solution component that that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than Http. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
 
 > [!IMPORTANT] 
 > Global routing is handled through DNS. If any global service or a foundational service, such as DNS, identity platform isn't available, the entire system will be impacted. 
