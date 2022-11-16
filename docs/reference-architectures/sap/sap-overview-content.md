@@ -2,14 +2,14 @@ The SAP on Azure architecture center provides architectural guidance for SAP wor
 
 ## SAP cloud adoption guidance
 
-We recommend using our SAP cloud adoption guidance as you start your cloud adoption journey with SAP. The guidance includes migration guidance, platform implementation details, and links to SAP resources. It outlines the process of integrating an SAP platform into your cloud adoption efforts.
+We recommend using our SAP cloud adoption guidance as you start your cloud adoption journey with SAP. The content outlines processes for preparing, migrating, and modernizing. It walks you through the process of integrating an SAP platform into your cloud adoption efforts.
 
 >[!div class="nextstepaction"]
 > [SAP adoption scenario]( /azure/cloud-adoption-framework/scenarios/sap/)
 
 ## SAP workload guidance
 
-The SAP workload guidance focuses on a single SAP workload and gives architecture design recommendations that you should follow throughout the workload lifecycle. It encourages the use of assessments and health checks to inform your design decisions and align them to best practices.
+The SAP workload guidance designed to be applied to a single SAP workload. This content gives architecture design recommendations that you should follow throughout the lifecycle of an SAP workload. It encourages the use of assessments and health checks to inform your design decisions and continuously align them to best practices.
 
 >[!div class="nextstepaction"]
 > [SAP workload best practices]( /azure/architecture/framework/sap/overview)
