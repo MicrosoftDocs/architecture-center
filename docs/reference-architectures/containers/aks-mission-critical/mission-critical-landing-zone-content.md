@@ -44,7 +44,7 @@ The design strategies for mission-critical baseline still apply in this use case
 
 ## Architecture
 
-![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-landing-zone.svg)
+:::image type="content" source="./images/mission-critical-architecture-landing-zone.svg" alt-text="Architecture diagram of a mission-critical workload in an Azure landing zone." lightbox="./images/mission-critical-architecture-landing-zone.png":::
 
 The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -139,7 +139,9 @@ The platform team must be aware that in this design, there isn't any traffic bet
 
 ##### DNS resolution
 
-Private DNS zones are hosted in the Connectivity subscription to enable cross-premises DNS name resolution. For example, Azure Front Door Premium SKU inspects and routes directly from edge nodes to application endpoints. However, if the traffic is routed to an on-premises component, it will reach central DNS records maintained by the platform team. The platform team may enforce policies on centralized DNS access.  
+Private DNS zones are hosted in the Connectivity subscription to enable cross-premises DNS name resolution. The platform team maintains the central DNS records and may enforce policies. This example shows DNS resolution for an on-premises storage account.
+
+![Diagram showing DNS resolution for an on-premises storage account.](./images/on-premises-dns-resolution.png)
 
 > The global routing design remains the same as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-ingress).
 

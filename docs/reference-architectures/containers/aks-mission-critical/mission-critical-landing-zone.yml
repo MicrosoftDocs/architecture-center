@@ -24,6 +24,6 @@ products:
   - azure-container-registry
   - azure-kubernetes-service
   - azure-rbac
-thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-thumb.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-architecture-landing-zone.svg
 content: |
    [!include[](mission-critical-landing-zone-content.md)]
