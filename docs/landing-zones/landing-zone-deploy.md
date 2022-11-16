@@ -37,7 +37,7 @@ The article begins by covering common roles and responsibilities for differing c
 
 ## Cloud operating model roles and responsibilities
 
-The Cloud Adoption Framework describes four [common cloud operating models](/azure/cloud-adoption-framework/operating-model/compare). The [Azure identity and access for landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access-landing-zones#rbac-recommendations) recommends five role definitions (Roles) you should consider if your organizations cloud operating model has customized Role Based Access Control (RBAC) requirements, if your organization has more decentralized operations utilizing the Azure [built-in](/azure/role-based-access-control/role-definitions-list) roles may be sufficient.
+The Cloud Adoption Framework describes four [common cloud operating models](/azure/cloud-adoption-framework/operating-model/compare). The [Azure identity and access for landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access-landing-zones#rbac-recommendations) recommends five role definitions (Roles) you should consider if your organizations cloud operating model requires customized Role Based Access Control (RBAC). If your organization has more decentralized operations, the Azure [built-in roles](/azure/role-based-access-control/role-definitions-list) may be sufficient.
 
 The table below outlines the key roles for each of the cloud operating models.
 
