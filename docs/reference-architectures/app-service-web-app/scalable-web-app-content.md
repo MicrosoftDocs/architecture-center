@@ -1,4 +1,4 @@
-This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
+This example architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -13,7 +13,7 @@ This reference architecture shows proven practices for improving scalability and
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
 
 - **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
-- **Front Door**. [Front Door](/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery System](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) in this solution.  
+- **Front Door**. [Front Door](/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.  
 - **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Service Bus queue][queue-storage]. The message triggers a function app. Alternatively, you can use Azure Storage queues. For a comparison, see [Storage queues and Service Bus queues - compared and contrasted][queues-compared].
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
@@ -48,7 +48,7 @@ For more detailed guidance on designing a caching strategy, see [Caching guidanc
 Use [Front Door's native CDN functionality](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an edge server that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application. Front Door additionally offers [dynamic site acceleration](/azure/cdn/cdn-dynamic-site-acceleration) allowing you to deliver a better overall user experience for your web app than would be available with only static content caching.
 
 > [!NOTE]
-> Azure CDN cannot serve content that requires authentication.
+> Front Door CDN cannot serve content that requires authentication.
 
 ### Storage
 
