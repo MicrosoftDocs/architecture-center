@@ -1209,6 +1209,8 @@ items:
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
               - name: Host a Murex MX.3 workload on Azure
                 href: example-scenario/finance/murex-mx3-azure.yml  
+              - name: Location-based conditional access control
+                href: example-scenario/financial/location-based-access.yml
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
@@ -4638,6 +4640,8 @@ items:
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: CI/CD using Jenkins and Terraform
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
+              - name: Configuration-driven data pipeline
+                href: solution-ideas/articles/configuration-driven-data-pipeline.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
               - name: DevSecOps for infrastructure as code
@@ -4942,7 +4946,7 @@ items:
               - name: Deployment guidance
                 items:
                   - name: Azure AD deployment checklist
-                    href: /azure/active-directory/fundamentals/active-directory-deployment-checklist
+                    href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
                     maintainContext: true
                   - name: Azure AD deployment plans
                     href: /azure/active-directory/fundamentals/active-directory-deployment-plans
@@ -5340,6 +5344,8 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
+                  - name: Migrate mainframe workflows to Azure with mLogica LIBER*IRIS
+                    href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
                   - name: Modernize mainframe midrange data
