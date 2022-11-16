@@ -55,7 +55,7 @@ You can use the options below to deploy and manage the core Azure platform capab
 
 | Deployment option | Description |
 | --- | ---|
-| [Azure landing zone Portal accelerator](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-accelerator) | An Azure-portal-based deployment that will provide a full implementation of the conceptual architecture, along with opinionated configurations for key components such as management groups and policies. |
+| [Azure landing zone Portal accelerator](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-accelerator) | An Azure portal-based deployment that provides a full implementation of the conceptual architecture, along with opinionated configurations for key components such as management groups and policies. |
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module, but also allows you to deploy each capability individually or in part. The terraform accelerator provides an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md)  | A modularized modular Azure Bicep accelerator that each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
