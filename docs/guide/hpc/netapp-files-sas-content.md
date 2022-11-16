@@ -42,7 +42,7 @@ For SAS 9.4 (SAS Grid or SAS Analytics Pro) deployments on Azure, Azure NetApp F
 
 A single Azure NetApp Files volume can handle up to 4,500 MiB/s of reads and 1,500 MiB/s of writes. Given an Azure instance type with sufficient egress bandwidth, a single virtual machine can consume all the write bandwidth of a single Azure NetApp Files volume. However, only the largest single virtual machine can consume all the read bandwidth of a single volume.
 
-SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The important *per volume* numbers for an 80:20 workload with 64,000 read/write are: 
+SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The important *per volume* numbers for an 80:20 workload with 64KiB read/write are: 
 
 - 2,400 MiB/s of read throughput and 600 MiB/s of write throughput running concurrently (~3,000 MiB/s combined).
 
