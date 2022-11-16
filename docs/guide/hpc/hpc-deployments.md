@@ -2,7 +2,7 @@
 title: High-performance computing (HPC) deployments
 description: Review a list of applications and solutions related to HPC deployments.
 author: EdPrice-MSFT
-ms.author: edprice
+ms.author: architectures
 ms.date: 11/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -21,7 +21,7 @@ ms.custom: fcp
 
 # High-performance computing (HPC) deployments on Azure
 
-[High-performance computing (HPC)](/azure/architecture/topics/high-performance-computing), also called "big compute", solves complex mathematical tasks using a large number of CPU or GPU-based computers. Many industries use HPC to solve some of their most difficult problems, including genomics, semiconductor design, and weather modeling.
+[High-performance computing (HPC)](/azure/architecture/topics/high-performance-computing), also called *big compute*, solves complex mathematical tasks using a large number of CPU or GPU-based computers. Many industries use HPC to solve some of their most difficult problems, including genomics, semiconductor design, and weather modeling.
 
 The articles listed here describe the steps for running various HPC applications on Azure virtual machines. They also show the performance results achieved when running each application on Azure.
 
@@ -39,22 +39,22 @@ The articles listed here describe the steps for running various HPC applications
 |[Ansys Rocky](ansys-rocky.yml)|Simulate the flow behavior of bulk materials with complex particle shapes and size distributions. Typical applications include conveyor chutes, mills, mixers, and other material-handling equipment.|
 |[Autodesk Civil 3D](civil-3d.yml)|Learn how civil engineers use Civil 3D, for design automation and production, enabling multidisciplinary team coordination.|
 |[Autodesk Inventor](autodesk-inventor.yml)|Learn how Autodesk Inventor provides professional-grade mechanical design, documentation, and product simulation tools.|
-|[Autodesk VRED for HPC on Azure](hpc-autodesk-vred.md)|See how automotive designers and engineers can use Autodesk VRED to create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing. VRED, which was previously limited to CPU, now uses GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered denoising.|
+|[Autodesk VRED for HPC on Azure](hpc-autodesk-vred.md)|See how automotive designers and engineers can use Autodesk VRED to create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing.|
 |[Barracuda Virtual Reactor](barracuda-virtual-reactor.yml)|Simulate the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions.|
 |[GROMACS](gromacs.yml)|Learn how GROMACS (GROningen MAChine for Simulations) is used primarily for dynamic simulations of biomolecules and provides a rich set of calculation types and preparation and analysis tools.|
 |[HALO AI](indica-labs-halo-ai.yml)|Decipher and assess the complex patterns of histologically stained tissues in a way that's similar to how a pathologist thinks. HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms.|
 |[Luxion KeyShot](luxion-keyshot.yml)|Use photon mapping to create 3D renderings, animations, and interactive visuals that make simulation of global illumination in complex scenes more efficient.|
 |[OpenFOAM](openfoam.yml)|See how OpenFOAM is a free, open-source computational fluid dynamics (CFD) application where users have permission to modify and compile the package based on the needs and the physics of the problem they're solving.|
-|[Remcom XFdtd](remcom-xfdtd.yml)|Learn all about XFdtd: electromagnetic simulation software that includes full-wave, static, biothermal, optimization, and circuit solvers.|
+|[Remcom XFdtd](remcom-xfdtd.yml)|Learn all about XFdtd – electromagnetic simulation software that includes full-wave, static, biothermal, optimization, and circuit solvers.|
 |[Samadii DEM](samadii-dem.yml)|Analyze and interpret large-scale particles at high speed. Samadii DEM uses a discrete element method (DEM), which is a Lagrangian method that determines the movement of particles by using the six-degrees-of-freedom equations of motion, taking into consideration all forces of individual particles.|
-|[Samadii EM](samadii-em.yml)|See how Samadii EM (electromagnetic) analyzes the electromagnetic field in three-dimensional space by using the Maxwell equation. It calculates the Maxwell equation by using the vector finite element method (FEM) and GPU computing.|
+|[Samadii EM](samadii-em.yml)|See how Samadii EM (electromagnetic) analyzes the electromagnetic field in three-dimensional space by using the Maxwell equation, using the vector finite element method (FEM) and GPU computing.|
 |[Samadii Plasma](plasma.yml)|Learn all about how Samadii Plasma is a particle-based solution for the analysis of plasma behavior. This solution is ideal for the manufacturing and electronics industries.|
 |[Samadii SCIV](samadii-sciv.yml)|Analyze fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the direct simulation Monte Carlo (DSMC) method. SCIV also provides functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarefied gas regions.|
 |[Siemens NX](siemens-nx.yml)|Use NX for design, simulation, and manufacturing solutions that enable digital twin technology. NX is used in the automotive sector and for projects ranging from supersonic cars to drones for the medical industry.|
 |[Siemens Tecnomatix](siemens-tecnomatix.yml)|Learn how Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutions that includes part manufacturing, assembly planning, resource planning, plant simulation, human performance, quality, production management, and manufacturing data management.|
-|[Turbostream](turbostream.yml)|Enable high-fidelity methods, like unsteady full-annulus simulations, to be used as part of the routine design process. Turbostream is advanced simulation software that's based on a computational fluid dynamics (CFD) solver and can run on high-speed GPUs and on conventional CPUs.|
+|[Turbostream](turbostream.yml)|Enable high-fidelity methods, like unsteady full-annulus simulations, to be used as part of the routine design process.|
 |[Visiopharm](visiopharm.yml)|Learn all about how Visiopharm is an AI-based image analysis and tissue mining tool that supports drug development research and other research.|
-|[WRF](weather-research-forecasting.yml)|See how Weather Research & Forecasting (WRF) is a mesoscale numerical weather-prediction system that's designed for atmospheric research and operational forecasting applications. WRF serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers. It provides a flexible and computationally efficient platform while reflecting recent advances in physics, numerics, and data assimilation.|
+|[WRF](weather-research-forecasting.yml)|See how Weather Research & Forecasting (WRF) is a mesoscale numerical weather-prediction system that's designed for atmospheric research and operational forecasting applications. WRF serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers.|
 
 ## Related resources
 
