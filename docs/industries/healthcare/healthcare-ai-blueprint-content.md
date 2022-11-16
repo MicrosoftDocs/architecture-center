@@ -219,7 +219,7 @@ Healthcare organizations often have mission and life-critical systems that must 
 
 For example, an application can have a memory leak. Application Insights can help find and diagnose issues like this through the rich reporting and KPIs it monitors. Application Insights is a robust APM service for application developers.
 
-This [interactive demo](https://analytics.applicationinsights.io/demo#/discover/home?WT.mc_id=ms-docs-dastarr) shows key features and capabilities of Application Insights, including a comprehensive monitoring dashboard which can be used by technologists in the health organization to monitor application state and health.
+This interactive demo shows key features and capabilities of Application Insights, including a comprehensive monitoring dashboard which can be used by technologists in the health organization to monitor application state and health.
 
 #### Microsoft Defender for Cloud
 
