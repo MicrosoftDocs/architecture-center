@@ -19,20 +19,24 @@ This architecture builds on the [**mission-critical **baseline architecture** wi
 The design strategies for mission-critical baseline still apply in this use case. Here are the considerations for this architecture:
 
 - **Shift in responsibilities that come with shared boundaries of ownership**
+
     The architecture will contain resources owned by the application and the platform teams. The platform-owned components are in-scope for workload. Evaluate the reliability of those components and policies with the platform team regularly. 
 
 - **Lifecycle of the architecture**
+
     Consider the lifecycle of each component as you design your deployment that's expected to have zero down time. The application team owns components that are ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral (long-lived that share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
 
 - **Maintain isolation**
+
     Provide segmentation in networks, production and pre-production environments through the use of subscriptions.
 
 - **Autonomous observability**
+
     Provision dedicated monitoring resources for the workload that's managed by the application team. This decision enables the team to query their data collection quickly.  
 
 ## Architecture
 
-![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-hub-spoke.png)
+![Architecture diagram of a mission-critical workload in an Azure landing zone.](./images/mission-critical-architecture-landing-zone.svg)
 
 The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
