@@ -2,7 +2,7 @@
 title: High-performance computing (HPC) deployments
 description: Review a list of applications and solutions related to HPC deployments.
 author: EdPrice-MSFT
-ms.author: architectures
+ms.author: edprice
 ms.date: 11/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
