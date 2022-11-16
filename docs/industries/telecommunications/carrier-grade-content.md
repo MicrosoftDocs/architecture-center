@@ -205,7 +205,7 @@ The operational aspect of the architecture is key to achieving high availability
 
 ### Deployment
 
-Application source code and configuration are stored in a GitHub repository. GitOps is used for version control, continuous integration/continuous deployment (CI/CD), and other DevOps practices. 
+Application source code and configuration are stored in a Git repository in Azure DevOps Repos. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
 
 Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
