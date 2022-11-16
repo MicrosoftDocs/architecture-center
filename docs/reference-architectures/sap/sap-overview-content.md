@@ -2,10 +2,10 @@ The SAP on Azure architecture center provides architectural guidance for SAP wor
 
 ## SAP cloud adoption guidance
 
-We recommend using the SAP cloud adoption guidance as you start your cloud adoption journey with SAP. The content outlines processes for preparing, migrating, and modernizing. It walks you through the process of integrating an SAP platform into your cloud adoption efforts.
+We recommend using the SAP cloud adoption guidance as you start your cloud adoption journey with SAP. The content outlines processes for preparing, migrating, and modernizing. It outlines integrating an SAP platform into your cloud adoption efforts.
 
 >[!div class="nextstepaction"]
-> [ Cloud Adoption Framework - SAP scenario]( /azure/cloud-adoption-framework/scenarios/sap/)
+> [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)
 
 ## SAP workload best practices
 
@@ -18,7 +18,7 @@ The SAP workload guidance designed to be applied to a single SAP workload. This 
 
 The Azure architecture center has guides, architectures, and solution ideas that provide several use cases that you can use as reference as you build your SAP workload.
 
-Architectures give detailed best practices on how to design SAP platforms, workloads, and applications in Azure. 
+Architectures give detailed best practices on how to design SAP platforms, workloads, and applications in Azure.
 >[!div class="nextstepaction"]
 >[Architectures](run-sap-hana-for-linux-virtual-machines.yml)
 
