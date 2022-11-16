@@ -16,7 +16,7 @@ The SAP workload guidance designed to be applied to a single SAP workload. This 
 
 ## SAP architecture guidance
 
-The Azure architecture center has guides, architectures, and solution ideas, that provide several use cases that you can use as reference as you build your SAP workload.
+The Azure architecture center has guides, architectures, and solution ideas that provide several use cases that you can use as reference as you build your SAP workload.
 
 Architectures give detailed best practices on how to design SAP platforms, workloads, and applications in Azure. 
 >[!div class="nextstepaction"]
