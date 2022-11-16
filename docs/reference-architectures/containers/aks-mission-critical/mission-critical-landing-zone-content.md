@@ -18,21 +18,29 @@ This architecture builds on the [**mission-critical **baseline architecture** wi
 ## Key design strategies
 The design strategies for mission-critical baseline still apply in this use case. Here are the considerations for this architecture:
 
-- **Shift in responsibilities that come with shared boundaries of ownership**
+- **Lifecycle of the architecture components**
 
-    The architecture will contain resources owned by the application and the platform teams. The platform-owned components are in-scope for workload. Evaluate the reliability of those components and policies with the platform team regularly. 
+    Consider the lifecycle of each component as your deployment is expected to have zero down time. Components can be ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral that are long-lived and share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
 
-- **Lifecycle of the architecture**
+- **Network-secure topology**
+    Maintain your workload's network perimeter, both public and private. Also, draw boundaries for connectivity to cloud resources as opposed to on-premises. 
 
-    Consider the lifecycle of each component as you design your deployment that's expected to have zero down time. The application team owns components that are ephemeral: short-lived resources that can be created and destroyed as need; non-ephemeral (long-lived that share the lifetime with the system or region). There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
+- **Evaluate reliability**
+
+    Minimize external dependencies on components and processes, which can introduce a point of failure in the workload. Understand and mitigate remaining risks with agreed upon configurations. The architecture has resources owned by various teams outside the application team. Those components are in-scope for workload. Evaluate the reliability of those components and policies with the platform team regularly.
+
+- **Subscription topology**
+
+    Azure Landing Zones does not imply a single subscription topology. Plan your subscription footprint in advance with your platform team to accommodate workload reliability and requirements and DevOps team responsibilities across all environments.
 
 - **Maintain isolation**
 
-    Provide segmentation in networks, production and pre-production environments through the use of subscriptions.
+    Separate use of resources based on the purpose. For example, use separate environments (and even subscriptions) for production and development. 
 
-- **Autonomous observability**
+- **Autonomous observability into the critical path**
 
-    Provision dedicated monitoring resources for the workload that's managed by the application team. This decision enables the team to query their data collection quickly.  
+    Factor in _all_ components that participate in processing of requests. The path includes components owned by the application team and the external components that the workload depends on. Have dedicated monitoring resources that enable the team to query their data collection quickly and act on remediations.  
+
 
 ## Architecture
 
@@ -155,7 +163,7 @@ After traffic reaches the virtual network, communication with PaaS services with
 
 The scalability requirements of the workload influence how much address space should be allocated for the subnets. The subnets should be large enough to accommodate the AKS nodes and pods as they scale out. Load test the workload components to determine the maximum scalability limit. Factor in all the system and user nodes and their limits. If you want to scale out by 400%, you'll need four times the addresses for the scaled-out nodes. This strategy applies to individual pods if they're reachable because each pod needs an individual address. 
 
-The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. The application team must evaluate and communicate that growth with the platform team on a regular basis. TODO: What does this have to do with UDRs. Is this the discussion that one default UDR is given and that needs to grow? UDRs to force traffic from Landing Zone subscription to Connectivity subscription are a valid option to be considered. Use UDRs to lock down communication within the virtual network to Azure services using ServiceTags.
+The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. The application team must evaluate and communicate that growth with the platform team on a regular basis.
 
 #### Regional virtual network in the Connectivity subscription
 
@@ -166,17 +174,11 @@ The Connectivity subscription contains a hub virtual network that contains resou
 - Active Directory-integrated DNS infrastructure used for cross-premises DNS name resolution for which the record is maintained by the platform team.
 - VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This can be also considered as a backup connectivity alternative adding resiliency.
 
-
 #### Operations virtual network
 
 This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network), where the operational traffic is isolated in a separate virtual network. This virtual network is owned by the application team and is non-ephemeral.  
 
-This virtual network is owned by the application team and is ephemeral. 
-
-TODO: This isn't peered as far as I remember in the baseline. 
-
-One long-lived build agent virtual network, this should be peered to both target-vnet (which both?). Private build agents can be deployed within this application virtual network to proxy access to resources secured by the target virtual network. These virtual network are considered chicken egg since the Application team need them to deploy the Deployment Stamp (workload)
-b.	Two long-lived ops virtual networks, one per target virtual network. Every ops-vnet is peered to its counterpart target-vnet. These aren't deleted along the Deployment Stamp but they're owned by the Application team. Addtionally, hosted jumpboxes enable ops team to access global resources. Singletons per regions is an option and while you could try to make them ephemeral this will overcomplicate your architecture.
+There's no peering between the operations network and spoke network. All communication is through Private Links. If, the operations network needs to reach on-premises resources, then the platform team needs to add peering from the hub network in the Connectivity subscription to the operations network. 
 
 ## Deployment considerations
 
@@ -297,6 +299,11 @@ In this architecture, the health model includes logs and metrics from resources 
 
 > Refer to: [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
+## Key and certification rotation
+
+The deployment provisions one Azure Key Vault per region in the application landing zone subscription. The application team should be aware of the [Azure Key Vault limits](/azure/azure-resource-manager/management/azure-subscription-service-limits). The application must be designed within the [Azure Key Vault transaction limits](/azure/key-vault/general/overview-throttling) so that overwhelming requests can be throttled during rotation. 
+
+The application team depends on the centralized platform team for procurement and renewal of certificates. After that, rotation is the responsibility of the application team. The application should implement automated key and certificate rotation. The implementation is for this architecture is described in [Keys, secrets, and certification rotation](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operationskeysecretcertificate-rotations).
 
 ## Integration with the platform-provided policies
 
