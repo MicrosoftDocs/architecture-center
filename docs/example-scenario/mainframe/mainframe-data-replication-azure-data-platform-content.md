@@ -12,18 +12,18 @@ The following diagram shows how mLogica LIBER*IRIS integrates with Azure compone
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlogica-mainframe-data-migration-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Workflow
 
 The steps to migrate mainframe data to Azure are as follows:
 
-1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
-2. The mLogica Liber*IRIS data migration cluster generates data extraction scripts to run on the mainframe.
-3. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
-4. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
-5. The sequential files and load scripts are transferred by using binary SFTP to Azure Blob Storage. Mainframe data is still in EBCDIC format at this point.
-6. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. To reduce costs, you can use two storage accounts: store data files on a hot access tier and log files on a cold access tier.
-7. The scripts load the ASCII converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput, as needed. Execution logs and detailed exception logs are stored in Azure Blob Storage for further analysis.
-8. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Azure Cosmos DB SQL API.
+1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools using FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
+1. The mLogica Liber*IRIS data migration cluster generates data extraction scripts to run on the mainframe.
+1. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
+1. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
+1. The sequential files and load scripts are transferred by using binary SFTP to Azure Blob Storage. Mainframe data is still in EBCDIC format at this point.
+1. The mLogica data migration service runs the load scripts to convert EBCDIC to ASCII. The scripts write errors during load to Azure Storage. To reduce costs, you can use two storage accounts: store data files on a hot access tier and log files on a cold access tier.
+1. The scripts load the ASCII converted data from sequential files into the target Azure relational database. The load scripts include DDL commands to create tables and other objects and SQL queries to load the data into those objects. Scale the load process horizontally across a cluster to maximize throughput, as needed. Execution logs and detailed exception logs are stored in Azure Blob Storage for further analysis.
+1. The mLogica Liber*IRIS data migration service runs the load scripts to transform data from relational file format to NoSQL database format. You can load this NoSQL data to Azure Cosmos DB by using the Azure Cosmos DB SQL API.
 
 ### Components
 
@@ -156,6 +156,10 @@ Principal author:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
+Review the [Azure Database Migration Guides](https://learn.microsoft.com/data-migration).
+
+For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
