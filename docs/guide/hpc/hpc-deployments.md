@@ -23,6 +23,8 @@ ms.custom: fcp
 
 [High-performance computing (HPC)](/azure/architecture/topics/high-performance-computing), also called *big compute*, solves complex mathematical tasks using a large number of CPU or GPU-based computers. Many industries use HPC to solve some of their most difficult problems, including genomics, semiconductor design, and weather modeling.
 
+## Run HPC applications on Azure VMs
+
 The articles listed here describe the steps for running various HPC applications on Azure virtual machines. They also show the performance results achieved when running each application on Azure.
 
 |Application|Summary|
