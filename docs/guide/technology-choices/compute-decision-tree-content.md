@@ -76,7 +76,7 @@ Notes
 | Service | VNet Integration | Hybrid connectivity |
 |----------|-----------------|-------------|
 | **Azure Virtual Machines** | Supported | Supported |
-| **Azure App Service** | Supported<a href="#note7"><sup>1</sup></a> | Supported <a href="#note8"><sup>2</sup></a> |
+| **Azure App Service** | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note8"><sup>2</sup></a> |
 | **Azure Functions** | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note9"><sup>3</sup></a> |
 | **Azure Kubernetes Service** | [Supported](/azure/aks/networking-overview) | Supported |
 | **Azure Container Apps** | Supported | Supported |
