@@ -107,18 +107,14 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Operational excellence
 
-- Automate the deployment of your Arc-enabled servers environment. The [reference implementation](#deploy-this-scenario) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts. You can also reuse these artifacts for your own deployments. Consult [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation] for additional Arc-enabled servers automation guidance in the Cloud Adoption Framework (CAF).
-- There are several options available in Azure to automate the [onboarding of Arc-enabled servers][Arc-agent-deployment-options]. To onboard at scale, use a service principal and deploy via your organizations existing automation platform.
-- VM extensions can be deployed to Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
-- Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
-- Review [Azure Arc Jumpstart Unified Operations Use Cases][Arc Jumpstart unifiedops scenarios] to learn about additional operational excellence scenarios for Azure Arc-enabled servers.
+- Review the Upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) fro best practices on how to keep you instances up-to-date.
+- Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/day2/) to learn about additional operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 - Other operational excellence considerations for your solution are described in the [Operational excellence design principles][waf-principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
 
 ### Performance efficiency
 
-- Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
-- A phased deployment approach as described in the [deployment guide](/azure/azure-arc/servers/plan-at-scale-deployment) can help you determine the resource capacity requirements for your implementation.
-- Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agents.
+- Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL Managed Instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment).
+- You can also leverage open source tools like [Grafana and Kibana](/azure/azure-arc/data/monitor-grafana-kibana) to monitor your instances.
 - Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles][waf-principles-performance-efficiency] section in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy this scenario
@@ -142,10 +138,10 @@ Principal author:
 ## Next steps
 
 - [Learn more about Azure Arc][Azure Arc docs]
-- [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers docs]
+- [Learn more about Azure Arc-enabled SQL Managed Instance][Azure Arc-enabled SQL Managed Instance docs]
 - [Azure Arc learning path](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
-- [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
-- [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
+- [Review Azure Arc Jumpstart scenarios][Arc Jumpstart data services scenarios] in the Arc Jumpstart
+- [Review Arc-enabled SQL Managed Instance landing zone accelerator][CAF Arc Accelerator] in CAF
 
 ## Related resources
 
@@ -154,51 +150,23 @@ Explore related architectures:
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
 
-[agent-prerequisites]: /azure/azure-arc/servers/prerequisites#azure-resource-providers
-[agent-overview]: /azure/azure-arc/servers/agent-overview
-[Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
-[arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [Arc Jumpstart]: https://azurearcjumpstart.io
-[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
-[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
-[ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
-[architectural-diagram]: ./images/azure-arc-hybrid-config.png
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
-[architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
+[architectural-diagram]: ./images/azure-arc-sql-mi-dr.png
 [Azure Arc docs]: /azure/azure-arc/
-[Azure Arc-enabled servers]: https://azure.microsoft.com/services/azure-arc/#infrastructure
-[Azure Arc-enabled servers docs]: /azure/azure-arc/servers/overview
-[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
+[Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [Azure Arc]: /azure/azure-arc
-[Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
+[Arc Jumpstart data services scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
-[Azure virtual machines]: /azure/virtual-machines/
-[Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network/
-[caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
-[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
-[microsoft-package-repo]: https://packages.microsoft.com
-[agent-overview]: /azure/azure-arc/servers/agent-overview
-[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
-[connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
-[Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
-[manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
 [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
 [Microsoft Sentinel]: https://azure.microsoft.com/services/microsoft-sentinel/
-[microsoft-package-repo]: https://packages.microsoft.com/
-[networking configuration]: /azure/azure-arc/servers/agent-overview#networking-configuration
-[onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
 [subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[supported regions]: /azure/azure-arc/servers/overview#supported-regions
-[supported operating systems]: /azure/azure-arc/servers/agent-overview#supported-operating-systems
 [waf-principles-reliability]: /azure/architecture/framework/resiliency/principles
 [waf-principles-security]: /azure/architecture/framework/security/security-principles
 [waf-principles-cost-opt]: /azure/architecture/framework/cost/principles
 [waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
 [waf-principles-performance-efficiency]: /azure/architecture/framework/scalability/principles
-[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
