@@ -45,6 +45,10 @@ A custom solution component that that exists outside of the cloud. The gateway s
 
 This set of services that are deployed each region and their lifetime is tied to the region.  
 
+**Management service**
+
+Is a custom service that delivers the management and monitoring aspects for the application. More than one management sevice instance can service a single application instance in any region.
+
 **Azure Container Registry**
 
 Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled. 
@@ -93,38 +97,19 @@ Both virtual machines and containers are used to host the workload. The technolo
 
 ## Workload design
 
-The workload has two main layers; each layer is composed of immutable service instances (SIs). They differ in their functions and lifetimes.
-
-- Application service delivers the actual application function and is intended to be short-lived. 
-- Management service only delivers the management and monitoring aspects for the application. 
-
-All SIs are interchangeable in that any SI can service any request. Any application SI can serve a client request. More than one management SI can service a single application SI.
-
-> TODO: Incorporate these RI features
-
-- making use of subscriptions as a scale unit, and more generally re-evaluating the current selection of scale units;
-- more use of event-driven processing, though in many cases synchronous processing is forced by the external protocols MVM must support;
-- explicit tabulation of concerns such as disaster recovery strategy, SLA, etc across the different MVM components and features (currently known but not tabulated).
-
+The application is part of the stamp is immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They are deployed and monitored by the management service.
 
 ### Resiliency considerations
 
 The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The SIs are stateless and long-living state is stored in an external database. 
 
-_**To increase reliability, the cluster uses AKS Uptime SLA that SLA guarantees 99.95% SLA availability of the AKS control plane.**_ SIs are deployed in multiple Availability Zones and regions in an active-active model. An application SI and its associated management and monitoring SIs are colocated in the cluster, so a local failure terminates both the application SI and all related SIs. 
-
-> TODO: Why?--> Although the diagram shows multiple AZs, the pattern does not rely on AZs. It would be perfectly acceptable to deploy multiple application SIs into a single zone. Equally, use of single-AZ regions is fully supported, subject to the overall capacity requirements of the workload.
+To build redundancy, SIs are deployed in multiple Availability Zones and regions in an active-active model. 
 
 The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special case code to handle partial failure conditions. 
 
 ### Monitoring
 
-This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management SIs probe the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management SI stops responding to the polling request and traffic isn't routed to that instance.  
-
-> TODO incoporate these RI features
-- building an explicit health model that can be used to monitor the application and drive automated remediation;
-- enhancing synthetic health probes to exercise more of the system, and adding health data from live traffic;
-- correlating and combining health data across MVM and Azure services (currently these are siloed in separate systems).
+This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
 
 
 ## Traffic management
@@ -141,7 +126,7 @@ The internal load balancer distributes incoming requests to the SI pods. The ser
 
 ### Health monitoring
 
-The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management SIs before routing traffic. 
+The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management service before routing traffic. 
 
 For Protocol A, the gateway is responsible for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
 
@@ -158,14 +143,6 @@ Traffic Manager is on the critical path for clients making their initial connect
 ### Security considerations
 
 > TODO In choosing TM, we don't get WAF. So security can bring down the reliability. Should we address that?
-
-> TODO: Incorporate these RI features
-
-- further threat modeling, regular penetration testing and other security reviews, regular automated security monitoring;
-- use of PIM for just-in-time access to systems;
-- use of Azure Policy to drive governance;
-- use of DDoS Protection;
-- and a review of other security items and considerations.
 
 
 ## Data consistency
@@ -191,9 +168,9 @@ The capacity of the individual service instance is adjusted based on load testin
 
 ## Overall observability
 
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management SIs in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management SIs in each AZ. 
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management service in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each AZ. 
 
-Alerts are set up by the application SIs or by metric threshold events in the Stats SIs are replicated across all AZs and regions so they are always available. 
+Alerts are set up by the application SIs or by metric threshold events are replicated across all zones and regions so they are always available. 
 
 In the event of issues with the Application SIs, the Stats SIs data stores are retained for several days before aging out, so that issue diagnosis can be performed after the fact, allowing fault resolution. 
 
@@ -223,22 +200,15 @@ When a new instance is created, the deployment config files are changed to indic
 
 Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it's also critical that control is not fully closed-loop, so there are explicit manual gates and fire breaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events.
 
-### TODO incorporate these RI features
-- making use of AIOps;
-- regular automated chaos and failure testing as part of CI rather than ad-hoc;
-- better usage of AAD and Managed Identities for authentication;
-- improved handling of secrets, such as automated key rotation and automated re-retrieval of failing secrets;
-- automation of capacity change processes;
-- further operational improvem
-
-
 ## Testing and validation
 
 From an availability perspective, what is important is that the failure mode analysis is extended to include all network segments between elements of the application, and between the application and the clients, since outages here will still impact availability of the application as perceived by the users. 
 
+## Alternatives
 
+- Instead of Storage Queue, you can choose another message broker that has reliability guarantees. Azure Service Bus is a good option because it has two-phase commits and features such as a built-in dead letter queue and deduplication capabilities.
 
-
+- Another option for global routing is Azure Front Door. It has built-in Web Application Firewall (WAF) capabilities applied to secure Layer 7 ingress traffic.
 
 ## Related resources
 For product documentation on the Azure services used in this architecture, see these articles.
