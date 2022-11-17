@@ -27,7 +27,7 @@ Azure Container Apps enables you to run microservices and containerized applicat
 
 ## Isolation models
 
-When working with a multitenant system that uses Azure Container Apps, you need to make a decision about the level of isolation required. Azure Container Apps supports trusted multitenancy via a shared environment and hostile multitenancy via separate environments.
+When working with a multitenant system that uses Azure Container Apps, you need to make a decision about the level of isolation required. Azure Container Apps supports different models of multitenancy via separate environments.
 
 The following table summarizes the differences between the main tenancy isolation models for Azure Container Apps:
 
