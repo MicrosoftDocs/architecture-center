@@ -38,7 +38,7 @@ The following table summarizes the differences between the main tenancy isolatio
 | **Deployment complexity** | Medium | Low-medium | Low |
 | **Operational complexity** | Medium | Low | Low |
 | **Resource cost** | High | Low | Low |
-| **Example scenario** | Running hostile multi-tenant workloads in isolated environments for security and compliance reasons |  Optimizing cost, networking resources and operations for trusted multi-tenant applications | Multitenant solution implemented at the business logic level |
+| **Example scenario** | Running hostile multitenant workloads in isolated environments for security and compliance reasons |  Optimizing cost, networking resources and operations for trusted multitenant applications | Multitenant solution implemented at the business logic level |
 
 ### Environment per tenant
 
@@ -46,18 +46,22 @@ You might consider deploying a single Container Apps environment for each of you
 
 This approach provides the strongest level of data and performance isolation, and it removes the need for your applications to be multitenancy-aware.
 
-However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas) but these [quotas can be increased by request via an Azure support ticket](https://azure.microsoft.com/support/create-ticket/). Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model.  Keep in mind, this approach comes with a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
+However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas). I some situations, these [quotas can be increased by request by opening an Azure support case](https://azure.microsoft.com/support/create-ticket/).
+
+Ensure that you understand the number of tenants that you'll grow to before you implement this isolation model.  Keep in mind that this approach often incurs a higher total cost of ownership, and higher levels of deployment and operational complexity, due to the extra resources you need to deploy and manage.
 
 ### Container apps per tenant
 
-Another approach that you might consider is to isolate your tenants by deploying tenant-specific container app solutions within a shared environment.
+Another approach that you might consider is to isolate your tenants by deploying tenant-specific container apps within a shared environment.
 
 This isolation model provides you with logical isolation between each tenant and gives you the following advantages:
 
 - **Cost efficiency**: By sharing a Container Apps environment, virtual network, and other attached resources like a Log Analytics workspace, you can generally reduce your overall cost and management complexity per tenant.
 - **Separation of upgrades and deployments**: Each tenant's application binaries can be deployed and upgraded independently from other container apps in the same environment. This approach can be helpful if you need to upgrade tenants to specific versions of your code at different times to others.
 
-However, this approach provides no hardware or network isolation between tenants. All container apps in the same environment share the same virtual network. Additionally, [there are limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the number of tenants that you'll grow to before implementing this isolation model. The workloads deployed will need to be trusted to handle the seperation of tenants.
+However, this approach provides no hardware or network isolation between tenants. All container apps in the same environment share the same virtual network. You need to trust the workloads deployed to the apps, to ensure that they don't cause misuse the shared resources.
+
+Additionally, [there are limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the number of tenants that you'll grow to before implementing this isolation model.
 
 Azure Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Azure Container Apps, Dapr components are environment-level resources. When sharing the same environment across multiple tenants, ensure that you properly scope the Dapr components to the correct tenant-specific container app to guarantee isolation and avoid the risk of data leakage issues.
 
@@ -68,9 +72,9 @@ Azure Container Apps has built-in support for Dapr, which uses a modular design 
 
 You might want to consider deploying shared container apps in a single Container Apps environment, which is used for all your tenants.
 
-This approach is generally very cost-efficient and requires the least operational overhead since there are fewer resources to manage.
+This approach is generally cost-efficient and requires the least operational overhead since there are fewer resources to manage.
 
-However, to be able to use this isolation model, your application code must be multitenancy-aware. This isolation model doesn't guarantee any isolation at the network, compute, monitoring or data level. Tenant isolation must be handled by your application code. This model is not appropriate for hostile, multi-tenant workloads. 
+However, to be able to use this isolation model, your application code must be multitenancy-aware. This isolation model doesn't guarantee any isolation at the network, compute, monitoring or data level. Tenant isolation must be handled by your application code. This model is not appropriate for hostile multitenancy workloads, where you don't trust the code that's running. 
 
 > [!NOTE]
 > The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) is useful when different tenants are on different costing models. For example, tenants might be assigned to shared or dedicated Container Apps environments depending on their pricing tier. This deployment strategy allows you to go beyond the limits of Azure Container Apps for a single subscription per region and scale linearly as the number of tenants grow.
