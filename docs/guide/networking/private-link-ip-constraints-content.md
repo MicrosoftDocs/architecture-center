@@ -8,9 +8,9 @@ This article describes how you can use [Azure Private Link](https://azure.micros
  
 Private Link enables access to Azure-hosted customer-owned, partner, and Azure PaaS services over a private endpoint from your virtual network. Traffic between your virtual network and the service is kept private inside the Azure network backbone. Exposing your service to the public internet is optional after you configure your private endpoint.
 
-You can use Private Link to expose an application that's deployed in one Azure virtual network into another virtual network. The following diagram provides an example. Assume that you want to expose an application on Network B so that it can be consumed from Network A, which shares the same IP address prefix.
+Private Link service is the reference to your own service that's powered by Private Link. You can use Private Link service to expose an application that's deployed in one Azure virtual network into another virtual network. The following diagram provides an example. Assume that you want to expose an application on Network B so that it can be consumed from Network A, which shares the same IP address prefix.
 
-:::image type="content" source="images/without-private-link.png" alt-text="Diagram that shows overlapping IP addresses without Private Link." lightbox="images/without-private-link.png" border="false":::
+:::image type="content" source="images/without-private-link.png" alt-text="Diagram that shows overlapping IP addresses without Private Link service." lightbox="images/without-private-link.png" border="false":::
 
 You want virtual machines on Network A to be able to seamlessly access the application that's running on the remote Network B. The same private endpoint should be accessible from on-premises, if required.
  
@@ -18,25 +18,25 @@ For more information about Private Link, see [What is Azure Private Link service
 
 ## How to deploy your application with Private Link
  
-Your application needs to meet some prerequisites if you want to expose it in Network A via Private Link. You can find the prerequisites in the [Details](/azure/private-link/private-link-service-overview#details) section of **What is Azure Private Link service?**. 
+Your application needs to meet some prerequisites if you want to expose it in Network A via Private Link service. You can find the prerequisites in the [Details](/azure/private-link/private-link-service-overview#details) section of **What is Azure Private Link service?**. 
 
-The most important prerequisite is that your application must be deployed in an Azure virtual network. You can't use Private Link when the application with the overlapping address space is deployed on-premises and you need to access it from Azure. 
+The most important prerequisite is that your application must be deployed in an Azure virtual network. You can't use Private Link service when the application with the overlapping address space is deployed on-premises and you need to access it from Azure. 
 
 After the prerequisites are met, you can follow the steps in one of the available quickstart guides to deploy your private link service. You can use the [Azure portal](/azure/private-link/create-private-link-service-portal#create-a-private-link-service), [PowerShell](/azure/private-link/create-private-link-service-powershell#create-a-private-link-service), [Azure CLI](/azure/private-link/create-private-link-service-cli#create-a-private-link-service), or [ARM templates](/azure/private-link/create-private-link-service-template).  
  
-After you deploy your private link service, the scenario shown in the preceding diagram evolves into an architecture that uses Private Link: 
+After you deploy your Private Link service, the scenario shown in the preceding diagram evolves into an architecture that uses Private Link: 
 
-private-link-diagram.png 
+:::image type="content" source="images/private-link-diagram.png" alt-text="Diagram that shows how to access an application that has overlapping IP addresses via Private Link service." lightbox="images/private-link-diagram.png" border="false":::
 
-Figure 2 Accessing an application with overlapping IP addresses using Private Link Service
- 
-Although both networks continue having overlapping IP address spaces, now the communication is possible between them without any software-based overlay network or customer’s NAT solution. 
+link 
+
+Although the networks have overlapping IP address spaces, communication is now possible between them. No software-based overlay network or customer NAT solution is required. 
 
 ## Operational considerations
  
 ### Networking 
 
-All traffic coming to your application would appear to originate from an IP address on the destination Virtual Network associated with the Private Link Service. Figure 3 shows the IP addresses that both customer and application would see as their respective sources and destination IP addresses. If your application requires actual source IP address of the customer initiating the connection, Private Link supports the Proxy protocol that provides a convenient way to safely transport connection information such as a client's address across multiple layers of NAT or TCP proxies. 
+All traffic coming to your application will appear to originate from an IP address on the destination virtual network that's associated with the Private Link service. Figure 3 shows the IP addresses that both customer and application would see as their respective sources and destination IP addresses. If your application requires actual source IP address of the customer initiating the connection, Private Link supports the Proxy protocol that provides a convenient way to safely transport connection information such as a client's address across multiple layers of NAT or TCP proxies. 
 
 More details about how to use Proxy protocol is available in the article [Getting connection Information using TCP Proxy v2].  
 
