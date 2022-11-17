@@ -3457,9 +3457,10 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: SAS Grid on Azure NetApp Files
                 href: guide/hpc/netapp-files-sas.yml
-              - name: HPC deployments 
-                href: guide/hpc/hpc-deployments.md 
+              - name: HPC deployments
                 items:
+                  - name: Overview
+                    href: guide/hpc/hpc-deployments.md 
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
                   - name: Altair deployments
