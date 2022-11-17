@@ -61,6 +61,10 @@ I agree to the above terms.
  > [!div class="button"]
  > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V10.zip)
 
+## Browse Easily Azure Icons
+
+[Azure Architecture Icons](https://github.com/marcomws/Azure-Architecture-Icons)
+
 ## More icon sets from Microsoft
 
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
