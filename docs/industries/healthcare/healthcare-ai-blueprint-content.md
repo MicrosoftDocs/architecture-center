@@ -352,5 +352,5 @@ Principal author:
 - [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [Predict hospital readmissions by using traditional and automated machine learning techniques](../../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
-- [Predict the length of stay in hospitals](../../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
+- [Predict the length of stay in hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Precision medicine pipeline with genomics](../../example-scenario/precision-medicine/genomic-analysis-reporting.yml)

@@ -136,5 +136,5 @@ Principal author:
 - [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 - [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.yml)
-- [Predict Length of Stay and Patient Flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+- [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
