@@ -172,7 +172,7 @@ AKS uses NTP from the underlying Azure hosts and doesn't require any outbound ne
 
 ### Requirement 10.5
 
-Limit viewing of audit trails to to only people with a job-related need.
+Limit viewing of audit trails to only people with a job-related need.
 
 - 10.5.1 Limit viewing of audit trails to people with a job-related need.
 - 10.5.2 Protect audit trail files from unauthorized modifications.

@@ -8,7 +8,7 @@ The Azure Well-Architected Framework is a set of guiding tenets that can be used
 
 > This article ends this series. Read the [introduction](aks-pci-intro.yml).
 
-This guidance provided in this series incorporate Well-Architected principles in all design choices. This article summarizes those choices. The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable.
+This guidance provided in this series incorporates Well-Architected principles in all design choices. This article summarizes those choices. The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable.
 
 PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. Although aligning the infrastructure with PCI requirements is critical, compliance doesn't stop at the hosting infrastructure. Not addressing the quality pillars, specifically security, can jeopardize compliance. Well-architected solutions combine both the infrastructure and workload perspectives to arrive at the rigor necessary for achieving compliant outcomes.
 
