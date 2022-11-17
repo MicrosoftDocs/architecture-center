@@ -5,10 +5,9 @@ The example described in this workload helps you create a sustainability model b
 
 ## Architecture
 
-> Architecture diagram goes here. Use the following format:
-
+<!--
 :::image type="content" source="[image-path]" alt-text="[Diagram of the <solution name> architecture.]" border="false":::
-
+-->
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
 ### Dataflow
@@ -22,18 +21,18 @@ The example described in this workload helps you create a sustainability model b
 ### Components
 
 - [Emissions Impact Dashboard for Azure](https://www.microsoft.com/sustainability/emissions-impact-dashboard) helps you measure your cloud-based emissions and carbon savings potential. It tracks direct and indirect greenhouse gas emissions related to your cloud usage.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor). It provides application performance monitoring (APM). Application Insights helps you gain powerful insights into how people use your application. Use this knowledge to make data-driven decisions to improve your application efficiency.
-- [Azure Table Storage](https://azure.microsoft.com/en-us/products/storage/tables) is a service that stores non-relational structured data, also known as *structured NoSQL data*. It provides a key/attribute store with a schemaless design. For many types of applications, access to Table Storage data is fast and cost-effective. It typically costs less than traditional SQL for similar volumes of data.
-- [Azure Logic Apps](https://azure.microsoft.com/en-us/products/logic-apps) is a platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, build a workflow that integrates and manages your proxy sources, data storage, and efficiency calculation systems.
-- [Azure Automation](https://azure.microsoft.com/en-us/products/automation) includes process automation with runbooks that allow you to implement complex logic using PowerShell code to improve efficiency. This service can also add business value by reducing errors and lowering operational costs.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor). It provides application performance monitoring (APM). Application Insights helps you gain powerful insights into how people use your application. Use this knowledge to make data-driven decisions to improve your application efficiency.
+- [Azure Table Storage](https://azure.microsoft.com/products/storage/tables) is a service that stores non-relational structured data, also known as *structured NoSQL data*. It provides a key/attribute store with a schemaless design. For many types of applications, access to Table Storage data is fast and cost-effective. It typically costs less than traditional SQL for similar volumes of data.
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, build a workflow that integrates and manages your proxy sources, data storage, and efficiency calculation systems.
+- [Azure Automation](https://azure.microsoft.com/products/automation) includes process automation with runbooks that allow you to implement complex logic using PowerShell code to improve efficiency. This service can also add business value by reducing errors and lowering operational costs.
 - [Power BI](/power-bi) can turn your data into analytics and reports that provide real-time insights. Whether your data is cloud-based or on-premises, Azure and Power BI have the integration and connectivity to bring visualizations and analytics to life.
 
 ### Alternatives
 
 The Azure services used in this document can be replaced with similar services. To perform the calculation with the minimum effect on your infrastructure, use Azure services or tools that are already deployed within your environment to increase density and utilization of existing resources:
 
-- Instead of Power BI dashboards, use [Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/en-us/services/managed-grafana) services.
-- For Application Insights, substitute another APM tool, such as [Elasticsearch](https://www.elastic.co/) or Open APM.
+- Instead of Power BI dashboards, use [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana) services.
+- For Application Insights, substitute another APM tool, such as [Elasticsearch](https://www.elastic.co) or Open APM.
 - Data tables can be saved by using another system of records, such as [MySQL](/products/mysql) or [MariaDB](/azure/mariadb/overview).
 - If you have a running Azure Functions or Logic Apps, consider launching the calculation regularly from your existing deployments.
 - If the application resources are distributed across multiple resource groups, use tags to correlate cost data and calculate the amount of carbon emitted by the application.
@@ -54,7 +53,7 @@ In general, try to build a proxy equation that has few variables. Choose proxy m
   - Memory usage
   - Response time (send/receive)
 
-For a tutorial about how to set up Application Insights for the metrics, see [Application Insights SDK for ASP.NET Core applications](https://learn.microsoft.com/en-us/azure/azure-monitor/app/tutorial-asp-net-core).
+For a tutorial about how to set up Application Insights for the metrics, see [Application Insights SDK for ASP.NET Core applications](https://learn.microsoft.com/azure/azure-monitor/app/tutorial-asp-net-core).
 
 You can add more variables to the equation, such as:
 
@@ -242,13 +241,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For more security, you can use [Azure Virtual Network](https://azure.microsoft.com/en-us/products/virtual-network) service endpoints to secure Azure service resources to only your virtual network. This approach closes public internet access to those resources and allows traffic only from your virtual network.
+For more security, you can use [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) service endpoints to secure Azure service resources to only your virtual network. This approach closes public internet access to those resources and allows traffic only from your virtual network.
 
 With this approach, you create a virtual network in Azure and then create private service endpoints for Azure services. Those services are then restricted to traffic from that virtual network. You can also reach them from your on-premises network through a gateway.
 
 Be aware of the following limitation:
 
-- To move data from on-premises into Azure Storage, you need to allow public IP addresses from your on-premises or [Azure ExpressRoute](https://azure.microsoft.com/en-us/products/expressroute). For details, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services).
+- To move data from on-premises into Azure Storage, you need to allow public IP addresses from your on-premises or [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute). For details, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services).
 
 For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
 
@@ -258,12 +257,12 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 This architecture can be deployed using several alternative Azure services. The example is intentionally minimal to save on cost and carbon emissions. You can use any equivalent service you already have in your application deployment. Find each architecture component pricing information:
 
-- The [Emissions Impact Dashboard](https://appsource.microsoft.com/en-us/product/power-bi/coi-sustainability.emissions_impact_dashboard) and Azure Cost Management reports are free
-- [App Insights pricing](https://azure.microsoft.com/en-us/pricing/details/monitor)
-- [Azure Table Storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/tables)
-- [Azure Logic Apps pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps)
-- [Azure Functions pricing](https://azure.microsoft.com/en-us/pricing/details/functions)
-- [Azure Automation pricing](https://azure.microsoft.com/en-us/pricing/details/automation)
+- The [Emissions Impact Dashboard](https://appsource.microsoft.com/product/power-bi/coi-sustainability.emissions_impact_dashboard) and Azure Cost Management reports are free
+- [App Insights pricing](https://azure.microsoft.com/pricing/details/monitor)
+- [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables)
+- [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
+- [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
+- [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation)
 
 ### Performance efficiency
 
@@ -274,7 +273,7 @@ The primary purpose of this architecture is to provide a sustainability score fo
 In this scenario, the dashboard and storage interface aren't intended for a massive usage and consultation. If you plan to provide them to many users,  consider these alternatives:
 
 - Decouple the extracted data by transforming it and storing it in a different system of record
-- Switch Azure Table Storage to a more scalable data structure alternative, such as [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)
+- Switch Azure Table Storage to a more scalable data structure alternative, such as [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db)
 
 ## Contributors
 
@@ -299,5 +298,5 @@ See Green-Software-Foundation/carbon-aware-sdk: Carbon-Aware SDK (github.com)
 
 ## Related resources
 
-Sustainability cloud workload guidance for the Well Architected Framework can be found here: https://learn.microsoft.com/en-us/azure/architecture/framework/sustainability
+Sustainability cloud workload guidance for the Well Architected Framework can be found here: https://learn.microsoft.com/azure/architecture/framework/sustainability
 
