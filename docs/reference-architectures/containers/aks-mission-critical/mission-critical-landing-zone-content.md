@@ -98,7 +98,7 @@ To gain access to the private compute cluster and other private resources, this 
 
 There are fundamental changes in the networking design area the **baseline architecture**. The workload in the application landing zone will need connectivity to the federated resources in the platform landing zone. The purpose could be for accessing on-premises resources, controlling egress traffic, and so on. 
 
-Be aware that some of those resources might be on the critical path for the workload. Keeping that path lean will minimize points of failure. Design choices that provide maximum reliability is a shared responsibility between the platform team and application team. If any shared component doesn't meet the reliability target of the workload, the application team is accountable for driving continuous evaluation and the overall change with the platform team.
+Some of those resources might be on the critical path for the workload. Keeping that path lean will minimize points of failure. Design choices, which provide maximum reliability, are a shared responsibility between the platform team and application team. If any shared component doesn't meet the reliability target of the workload, the application team is accountable for driving continuous evaluation and the overall change with the platform team.
 
 ### Network topology
 
@@ -107,7 +107,7 @@ The platform team decides the network topology for the entire organization. This
 - The regional hub virtual network is in the Connectivity subscription. It has federated resources such as Azure Private DNS Zones, ExpressRoute circuit. Centralized DNS is necessary for the workload; however, the application team will need to provision their Private DNS zones to handle any workload-level concerns.
 - The spoke virtual network connects with the hub resources through virtual network peering. The workload will run in that network.
 
-Make sure you understand and agree with the updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute failover to VPN Gateway, DNS infrastructure, and so on.
+Make sure you understand and agree with the updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on.
 
 > [!NOTE]
 > A key benefit in using the federated hub is that the workload can integrate with other workloads either in Azure or cross-premises by traversing the organization-managed network hubs. Another benefit is cost optimization when compared to the **baseline architecture with network controls**. This change also lowers the operational costs because of the shift in responsibility to the platform team allows the organization to amortize the cost across multiple workloads. 
@@ -130,7 +130,7 @@ When you allocate subnets, the address spaces should be right-sized. They should
 
 A basic principle of designing mission-critical workloads is removing single points of failure in the system. This architecture addresses that principle by building redundancy in layers. 
 
-A baseline expectation of this architecture is deployment in multiple regions to withstand regional outages. The platform team must networking resources per region, and that infrastructure should be reliable. The hub virtual network, Azure Firewall, and gateway are in scope of the workload's regional resources, as indicated in the architecture diagram. 
+A baseline expectation of this architecture is deployment in multiple regions to withstand regional outages. The platform team must deploy networking resources per region, and that infrastructure should be reliable. The hub virtual network, Azure Firewall, and gateway are in scope of the workload's regional resources, as indicated in the architecture diagram. 
 
 Work with the platform team to uncover hidden regional dependencies so that a degraded platform resource in one region doesn't impact workloads in another region. The mission-critical design methodology requires regional isolation.
 
@@ -226,7 +226,7 @@ Using subscriptions to contain the environments can achieve the required level o
 
 All application landing zone subscriptions inherit the same governance from the organization's management groups. That way, consistency with production is ensured for testing and validation. However, subscription topologies can become complex. Depending on the number of environments, you'll need several subscriptions for just one workload. Depending on the type of environment, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription.
 
-Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. Avoid sharing application-owned resources between environments. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will match the production enviroment.
+Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. Avoid sharing application-owned resources between environments. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will match the production environment.
 
 ##### Production subscription
 
@@ -246,7 +246,7 @@ At least one Azure landing zone subscription is required. It can run many indepe
 
 At least one Azure landing zone subscription is required. It can run many independent environments, however, having multiple environments in dedicated subscriptions is recommended. This subscription might be subject to resource limits like the production subscription, described above, which may require multiple landing zone subscriptions to contain all discrete environments.
 
-Try to match production topology as much as possible. If production is distributed across multiple landing zone subscription to avoid subscription limits, lower environments should also.
+Try to match production topology as much as possible. If production is distributed across multiple landing zone subscriptions to avoid subscription limits, lower environments should also.
 
 ### Deployment infrastructure
 
@@ -260,7 +260,7 @@ Maintaining isolation between deployment resources is highly recommended. Don't 
 
 A mission-critical workload must not experience outage caused by updates to the application. Consistent deployments must be enforced with each update. These approaches are recommended:
 - Fully automated deployment pipelines
-- New deployments must start from a _factory reset_ state and always starting in pre-production enviroments. After the stamp has been unprovisioned, it's torn down and a new deployment creates infrastructure resources. For more information, see [Mission-critical deployment and testing guidelines](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test).
+- New deployments must start from a _factory reset_ state and always starting in pre-production environments. After the stamp has been unprovisioned, it's torn down, and a new deployment creates infrastructure resources. For more information, see [Mission-critical deployment and testing guidelines](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test).
 
 In the **baseline architecture**, those strategies can be implemented as the application team has full autonomy of the workload resources. In this architecture, the platform team owns some of those resources, applies policies. So, there are some areas where you might need to adjust your approach.
 
