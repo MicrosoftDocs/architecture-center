@@ -232,7 +232,7 @@ Regardless, work with the platform team to design a topology that meets the over
 
 There might be resource limits defined on the subscription given to you as part of the application landing zone. If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
 - One application landing zone subscription that contains both Azure DevOps build agents and global resources.
-- One application landing zone subscription, per region. It contains the regional, stamp, and jump boxes for the regional stamp(s).
+- One application landing zone subscription, per region. It contains the regional resources, stamp, and jump boxes for the regional stamp(s).
 
 Here's an example subscription topology used in this architecture.
 
@@ -295,7 +295,7 @@ If you're running multiple deployments within a subscription, you should be give
 
 ## Monitoring considerations
 
-The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is recommended.  
+The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is highly recommended.  
 
 Mission-critical workloads need telemetry that's unique and not applicable or actionable for centralized operations team. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents the overall health.
 
@@ -308,12 +308,6 @@ Mission-critical design methodology requires a system [health model](mission-cri
 In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database?
 
 > Refer to: [Well-architected mission-critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
-
-## Key and certification rotation
-
-The deployment provisions one Azure Key Vault per region in the application landing zone subscription. The application team should be aware of the [Azure Key Vault limits](/azure/azure-resource-manager/management/azure-subscription-service-limits). The application must be designed within the [Azure Key Vault transaction limits](/azure/key-vault/general/overview-throttling) so that overwhelming requests can be throttled during rotation. 
-
-The application team might depend on the centralized platform team for procurement and renewal of certificates. After that, rotation is the responsibility of the application team. The application should implement automated key and certificate rotation. An example implementation is described in [Keys, secrets, and certification rotation](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-operationskeysecretcertificate-rotations).
 
 ## Integration with the platform-provided policies and rules
 
