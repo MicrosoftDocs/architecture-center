@@ -53,11 +53,11 @@ In general, there's a tradeoff between control and ease of management. IaaS give
 |----------|-----------------|-------------|---------|----------------|-----------------|
 | **Azure Virtual Machines** | Agnostic | Agnostic | 1 <a href="#note2"><sup>2</sup></a> | Stateless or Stateful | Agnostic |
 | **Azure App Service** | Applications, containers | Multiple apps per instance via app service plan | 1 | Stateless | Built in |
-| **Azure Functions** | Functions, containers | Serverless <a href="#note1"><sup>1</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | Stateless or stateful <a href="#note7"><sup>7</sup></a> | Not applicable |
+| **Azure Functions** | Functions, containers | Serverless <a href="#note1"><sup>1</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | Stateless or stateful <a href="#note6"><sup>6</sup></a> | Not applicable |
 | **Azure Kubernetes Service** | Containers | Multiple containers per node | 3 <a href="#note3"><sup>3</sup></a> | Stateless or Stateful | Agnostic |
 | **Azure Container Apps** | Containers | Serverless | Serverless | Stateless or Stateful | Agnostic |
 | **Azure Container Instances** | Containers | No dedicated instances | No dedicated nodes | Stateless | Agnostic |
-| **Azure Red Hat OpenShift** | Containers | Multiple containers per node | 6 <a href="#note6"><sup>6</sup></a> | Stateless or Stateful | Agnostic |
+| **Azure Red Hat OpenShift** | Containers | Multiple containers per node | 6 <a href="#note5"><sup>5</sup></a> | Stateless or Stateful | Agnostic |
 | **Azure Spring Apps** | Applications, microservices | Multiple apps per service instance | 2 | Stateless | Built in |
 | **Azure Service Fabric** | Services, guest executables, containers | Multiple services per VM | 5 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
 | **Azure Batch** | Scheduled jobs | Multiple apps per VM | 1 <a href="#note4"><sup>4</sup></a> | Stateless | No |
@@ -68,17 +68,16 @@ Notes
 2. <span id="note2">Higher SLA with two or more instances.</span>
 3. <span id="note3">Recommended for production environments.</span>
 4. <span id="note4">Can scale down to zero after job completes.</span>
-5. <span id="note5">Requires App Service Environment (ASE).</span>
-6. <span id="note6"> 3 for master nodes, and 3 for worker nodes.</span>
-7. <span id="note7"> When using [Durable Functions][durable-functions].</span>
+5. <span id="note6"> 3 for master nodes, and 3 for worker nodes.</span>
+6. <span id="note7"> When using [Durable Functions][durable-functions].</span>
 
 ## Networking
 
 | Service | VNet Integration | Hybrid connectivity |
 |----------|-----------------|-------------|
 | **Azure Virtual Machines** | Supported | Supported |
-| **Azure App Service** | Supported<a href="#note5"><sup>5</sup></a> | Supported <a href="#note8"><sup>6</sup></a> |
-| **Azure Functions** | Supported <a href="#note5"><sup>5</sup></a> | Supported <a href="#note9"><sup>7</sup></a> |
+| **Azure App Service** | Supported<a href="#note7"><sup>1</sup></a> | Supported <a href="#note8"><sup>2</sup></a> |
+| **Azure Functions** | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note9"><sup>3</sup></a> |
 | **Azure Kubernetes Service** | [Supported](/azure/aks/networking-overview) | Supported |
 | **Azure Container Apps** | Supported | Supported |
 | **Azure Container Instances** | [Supported](/azure/container-instances/container-instances-vnet) | [Supported](/azure/container-instances/container-instances-virtual-network-concepts#scenarios)  |
@@ -89,8 +88,9 @@ Notes
 
 Notes
 
-1. <span id="note8">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
-2. <span id="note9">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
+1. <span id="note7">Requires App Service Environment (ASE).</span>
+2. <span id="note8">Use [Azure App Service Hybrid Connections][app-service-hybrid].</span>
+3. <span id="note9">Requires App Service plan or [Azure Functions Premium plan][func-premium].</span>
 
 ## DevOps
 
