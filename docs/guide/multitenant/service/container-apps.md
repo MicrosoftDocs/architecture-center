@@ -57,7 +57,7 @@ This isolation model provides you with logical isolation between each tenant and
 - **Cost efficiency**: By sharing a Container Apps environment, virtual network, and other attached resources like a Log Analytics workspace, you can generally reduce your overall cost and management complexity per tenant.
 - **Separation of upgrades and deployments**: Each tenant's application binaries can be deployed and upgraded independently from other container apps in the same environment. This approach can be helpful if you need to upgrade tenants to specific versions of your code at different times to others.
 
-However, this approach provides no network isolation between tenants. All container apps in the same environment share the same virtual network. Additionally, [there are limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the number of tenants that you'll grow to before implementing this isolation model.
+However, this approach provides no hardware or network isolation between tenants. All container apps in the same environment share the same virtual network. Additionally, [there are limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the number of tenants that you'll grow to before implementing this isolation model. The workloads deployed will need to be trusted to handle the seperation of tenants.
 
 Azure Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Azure Container Apps, Dapr components are environment-level resources. When sharing the same environment across multiple tenants, ensure that you properly scope the Dapr components to the correct tenant-specific container app to guarantee isolation and avoid the risk of data leakage issues.
 
@@ -111,7 +111,7 @@ Principal authors:
 Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * Kendall Roden | Senior Program Manager, Azure Container Apps
+ * [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Azure Container Apps
  * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  
