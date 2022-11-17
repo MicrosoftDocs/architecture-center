@@ -68,8 +68,8 @@ Notes
 2. <span id="note2">Higher SLA with two or more instances.</span>
 3. <span id="note3">Recommended for production environments.</span>
 4. <span id="note4">Can scale down to zero after job completes.</span>
-5. <span id="note6"> 3 for master nodes, and 3 for worker nodes.</span>
-6. <span id="note7"> When using [Durable Functions][durable-functions].</span>
+5. <span id="note5"> 3 for master nodes, and 3 for worker nodes.</span>
+6. <span id="note6"> When using [Durable Functions][durable-functions].</span>
 
 ## Networking
 
