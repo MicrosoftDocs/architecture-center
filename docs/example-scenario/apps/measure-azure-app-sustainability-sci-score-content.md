@@ -5,10 +5,9 @@ The example described in this workload helps you create a sustainability model b
 
 ## Architecture
 
-<!--
-:::image type="content" source="[image-path]" alt-text="[Diagram of the <solution name> architecture.]" border="false":::
--->
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+:::image type="content" source="media/measure-app-sci-score.png" alt-text="Diagram of creating a sustainability model based on available proxies that scores the carbon impact of an application.]" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/measure-app-sci-score.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -281,22 +280,25 @@ In this scenario, the dashboard and storage interface aren't intended for a mass
 
 Principal authors:
 
-[Paola Annis](https://www.linkedin.com/in/paolaeva) | Principal SVC Engineering Manager
-[Jennifer Wagman](https://www.linkedin.com/in/jcwagman) | Service Engineer
+- [Paola Annis](https://www.linkedin.com/in/paolaeva) | Principal SVC Engineering Manager
+- [Jennifer Wagman](https://www.linkedin.com/in/jcwagman) | Service Engineer
 
 Other contributor:
 
-[Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal SDE
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal SDE
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-This work is aligned with the principles and methodology of the Green Software Foundation. The next step to building a greener application is to embed the carbon aware SDK into your application, so that triggers can be automated in real-time once specific carbon conditions are met.
-See Green-Software-Foundation/carbon-aware-sdk: Carbon-Aware SDK (github.com)
+This work is aligned with the principles and methodology of the [Green Software Foundation](https://greensoftware.foundation).
 
+The next step to building a greener application is to embed the carbon aware SDK into your application. Triggers can be automated in real-time once specific carbon conditions are met. For more information, see [Green Software Foundation Carbon Aware SDK](https://github.com/Green-Software-Foundation/carbon-aware-sdk).
+
+For sustainability cloud workload guidance in the Well Architected Framework, see [Sustainability workload documentation](/azure/architecture/framework/sustainability).
 
 ## Related resources
 
-Sustainability cloud workload guidance for the Well Architected Framework can be found here: https://learn.microsoft.com/azure/architecture/framework/sustainability
-
+- [Choose a data analytics and reporting technology in Azure](../../azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting.md)
+- [Data analysis workloads for regulated industries](../data/data-analysis-regulated-industries.yml)
+- [Power BI data write-back with Power Apps and Power Automate](../data/power-bi-write-back-power-apps.yml)
