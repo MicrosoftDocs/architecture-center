@@ -40,6 +40,16 @@ There are various approaches and platforms to put models into production. Here a
 
 When multiple models are in production, [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) may be used to compare model performance.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
