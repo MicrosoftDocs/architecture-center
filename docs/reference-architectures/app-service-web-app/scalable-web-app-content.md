@@ -129,13 +129,9 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). A key tenet of operational excellence is automating operational activities including infrastructure modifications, following DevOps practices.
 
-### DevOps
-
-#### Front-end deployment
-
-This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
+Guidance provided in the basic web application [DevOps considerations section][basic-web-app-devops] applies here as it is the basis for this architecture.
 
 ## Contributors
 
