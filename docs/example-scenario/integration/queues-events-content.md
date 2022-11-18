@@ -2,7 +2,7 @@ This example architecture is built on the [Basic enterprise integration][basic-e
 
 The backend systems referenced in this design may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-message-broker-events.png)
+![Reference architecture for enterprise integration using queues and events](./media/enterprise-integration-message-broker-events.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/queues-events-content.vsdx) of this architecture*.
 
@@ -43,15 +43,15 @@ When you create a logic app to consume Service Bus messages, we recommend using 
 
 Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
 
-### Event Grid
-
-When an Event Grid trigger fires, it means *at least one* event happened. For example, when a logic app gets an Event Grid triggers for a Service Bus message, it should assume that several messages might be available to process.
-
-## Scalability
+#### Scalability
 
 To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Refer to the [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging) documentation for a review of the Premium tier benefits and the [autoscaling feature](/azure/service-bus-messaging/automate-update-messaging-units) documentation to learn about configuring the autoscaling of messaging units.
 
 Additional recommendations for Service Bus can be found at [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements).
+
+### Event Grid
+
+When an Event Grid trigger fires, it means *at least one* event happened. For example, when a logic app gets an Event Grid triggers for a Service Bus message, it should assume that several messages might be available to process.
 
 ## Reliability
 
