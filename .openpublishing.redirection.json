@@ -2492,7 +2492,8 @@
       "redirect_url": "/azure/cloud-adoption-framework/migrate",
       "redirect_document_id": false
     },
-    {"source_path": "docs/reference-architectures/app-service-web-app/multi-region-experiment.yml",
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/multi-region-experiment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region-webapp",
       "redirect_document_id": false
   }
