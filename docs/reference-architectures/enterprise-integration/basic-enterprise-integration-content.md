@@ -181,8 +181,10 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ## Next steps
 
+For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next article in this series.
+
 > [!div class="nextstepaction"]
-> For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next article in this series: [Enterprise integration using message queues and events](../../example-scenario/integration/queues-events.yml).
+> [Enterprise integration using message queues and events](../../example-scenario/integration/queues-events.yml)
 
 <!-- links -->
 
