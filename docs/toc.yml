@@ -3467,8 +3467,10 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: SAS Grid on Azure NetApp Files
                 href: guide/hpc/netapp-files-sas.yml
-              - name: HPC deployments 
+              - name: HPC deployments
                 items:
+                  - name: Overview
+                    href: guide/hpc/hpc-deployments.md 
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
                   - name: Altair deployments
@@ -5344,7 +5346,7 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
-                  - name: Migrate mainframe workflows to Azure with mLogica LIBER*IRIS
+                  - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
                     href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
