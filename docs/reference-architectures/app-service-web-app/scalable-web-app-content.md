@@ -48,7 +48,7 @@ For more detailed guidance on designing a caching strategy, see [Caching guidanc
 Use [Front Door's native CDN functionality](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an edge server that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application. Front Door additionally offers [dynamic site acceleration](/azure/cdn/cdn-dynamic-site-acceleration) allowing you to deliver a better overall user experience for your web app than would be available with only static content caching.
 
 > [!NOTE]
-> Front Door CDN cannot serve content that requires authentication.
+> Front Door CDN is not designed to serve content that requires authentication.
 
 ### Storage
 
