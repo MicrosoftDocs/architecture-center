@@ -5,7 +5,7 @@ The example described in this workload helps you create a sustainability model b
 
 ## Architecture
 
-:::image type="content" source="media/measure-app-sci-score.png" alt-text="Diagram of creating a sustainability model based on available proxies that scores the carbon impact of an application.]" border="false":::
+:::image type="content" source="media/measure-app-sci-score-inline.png" alt-text="Diagram of creating a sustainability model based on available proxies that scores the carbon impact of an application." lightbox="media/measure-app-sci-score-expanded.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/measure-app-sci-score.vsdx) of this architecture.*
 
