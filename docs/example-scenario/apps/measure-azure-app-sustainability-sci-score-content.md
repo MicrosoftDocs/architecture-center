@@ -114,104 +114,11 @@ For more information, see [Data and storage design considerations for sustainabl
 
 A sample table describing the gathered data looks like the following example:
 
-:::row:::
-   :::column span="4":::
-      Data from reports
-   :::column-end:::
-   :::column span="4":::
-      Data from APM
-   :::column-end:::
-   :::column span="1":::
-      Calculations
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      Date
-   :::column-end:::
-   :::column span="1":::
-      Resource-group name
-   :::column-end:::
-   :::column span="1":::
-      Carbon emissions from dashboard C
-   :::column-end:::
-   :::column span="1":::
-      Cost
-   :::column-end:::
-   :::column span="1":::
-      CPU
-   :::column-end:::
-   :::column span="1":::
-      Memory
-   :::column-end:::
-   :::column span="1":::
-      Response time ratio (send/receive)
-   :::column-end:::
-   :::column span="1":::
-      Scaling factor R
-   :::column-end:::
-   :::column span="1":::
-      SCI
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-   :::column span="1":::
-      \<value>
-   :::column-end:::
-:::row-end:::
+| Data from reports | Data from APM | Calculations |
+|-------------------|---------------|------------- |
+| Date | Resource-group name | Carbon emissions from dashboard C | Cost | CPU Memory | Response time ratio (send/receive) | Scaling factor | R SCI |
+| | | | | | | | | |
+| | | | | | | | | |
 
 ### Data correlations
 
