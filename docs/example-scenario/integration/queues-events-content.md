@@ -63,7 +63,7 @@ When an Event Grid trigger fires, it means *at least one* event happened. For ex
 
 ## Operational Excellence
 
-The [Basic Enterprise Integration reference architecture](./basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
+The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
 
 Automating recovery operations as much as possible is an integral component of Operational Excellence.  With this in mind, you can combine [Azure Log Monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. Refer to the diagram in [failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow) documentation for an example of automation logic to initiate a failover.
 
@@ -115,7 +115,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ## Next steps
 
-- [Basic enterprise integration on Azure](./basic-enterprise-integration.yml)
+- [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
@@ -131,4 +131,4 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 [sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus
 [service-bus]: /azure/service-bus-messaging
 [service-bus-pricing]: https://azure.microsoft.com/pricing/details/service-bus
-[basic-enterprise-integration]: ./basic-enterprise-integration.yml
+[basic-enterprise-integration]: ../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml

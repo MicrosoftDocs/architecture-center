@@ -205,7 +205,7 @@ The following resources provide practical recommendations and information for sp
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
-[Enterprise integration using message broker and events]: ../reference-architectures/enterprise-integration/queues-events.yml
+[Enterprise integration using message broker and events]: ../../example-scenario/integration/queues-events.yml
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/modules/explore-event-grid-integration

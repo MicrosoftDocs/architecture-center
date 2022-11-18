@@ -2,7 +2,7 @@
 
 This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](./queues-events.yml) builds on this basic architecture.
+Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](../../example-scenario/integration/queues-events.yml) builds on this basic architecture.
 
 ![Architecture diagram showing Simple enterprise integration](./_images/simple-enterprise-integration.png)
 
@@ -184,7 +184,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next article in this series: [Enterprise integration using message queues and events](./queues-events.yml).
+> For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next article in this series: [Enterprise integration using message queues and events](../../example-scenario/integration/queues-events.yml).
 
 <!-- links -->
 

@@ -298,7 +298,7 @@ conceptualContent:
           url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
         - text: Enterprise integration with queues and events
           itemType: architecture
-          url: reference-architectures/enterprise-integration/queues-events.yml
+          url: example-scenario/integration/queues-events.yml
 
     - title: High performance computing (HPC)
       links:
