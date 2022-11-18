@@ -11,6 +11,8 @@ metadata:
   ms.subservice: example-scenario
 azureCategories:
   - ai-machine-learning
+  - databases
+  - storage
 products:
   - azure-application-insights
   - azure-automation
@@ -19,6 +21,6 @@ products:
   - power-bi
 name: Measure Azure app sustainability using the SCI Score
 summary: Create a sustainability model based on available proxies that scores the carbon impact of an application.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/measure-app-sci-score.png
 content: |
   [!include[](measure-azure-app-sustainability-sci-score-content.md)]
