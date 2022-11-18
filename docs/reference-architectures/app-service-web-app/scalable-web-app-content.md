@@ -69,28 +69,6 @@ See [Choose the right data store][datastore].
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Performance efficiency
-
-A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
-
-#### App Service app
-
-If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
-
-#### SQL Database
-
-Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
-
-- Better transaction throughput.
-- Queries can run faster over a subset of the data.
-
-#### Azure Front Door
-
-Front Door can perform SSL offload and also reduces the total number of TCP connections with the backend web app. This improves scalability because the web app manages a smaller volume of SSL handshakes and TCP connections. These performance gains apply even if you forward the requests to the web app as HTTPS, due to the high level of connection reuse.
-
-#### Azure Search
-
-Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
 ### Security
 
@@ -133,6 +111,29 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). A key tenet of operational excellence is automating operational activities including infrastructure modifications, following DevOps practices.
 
 Guidance provided in the basic web application [DevOps considerations section][basic-web-app-devops] applies here as it is the basis for this architecture.
+
+### Performance efficiency
+
+A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
+
+#### App Service app
+
+If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
+
+#### SQL Database
+
+Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
+
+- Better transaction throughput.
+- Queries can run faster over a subset of the data.
+
+#### Azure Front Door
+
+Front Door can perform SSL offload and also reduces the total number of TCP connections with the backend web app. This improves scalability because the web app manages a smaller volume of SSL handshakes and TCP connections. These performance gains apply even if you forward the requests to the web app as HTTPS, due to the high level of connection reuse.
+
+#### Azure Search
+
+Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
 ## Contributors
 
