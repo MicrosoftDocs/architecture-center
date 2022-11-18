@@ -64,7 +64,12 @@ Modern applications often process large amounts of data. In order to scale for t
 
 See [Choose the right data store][datastore].
 
-### Scalability
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Performance efficiency
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
 
@@ -86,10 +91,6 @@ Front Door can perform SSL offload and also reduces the total number of TCP conn
 #### Azure Search
 
 Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
