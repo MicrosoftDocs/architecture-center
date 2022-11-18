@@ -299,6 +299,6 @@ For sustainability cloud workload guidance in the Well Architected Framework, se
 
 ## Related resources
 
-- [Choose a data analytics and reporting technology in Azure](../../azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting.md)
+- [Choose a data analytics and reporting technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Data analysis workloads for regulated industries](../data/data-analysis-regulated-industries.yml)
 - [Power BI data write-back with Power Apps and Power Automate](../data/power-bi-write-back-power-apps.yml)
