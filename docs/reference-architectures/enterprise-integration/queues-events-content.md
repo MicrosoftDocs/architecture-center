@@ -1,4 +1,4 @@
-This example architecture is built on the [Basic enterprise integration][basic-enterprise-integration] architecture and extends it to  show how to integrate enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability. Ensure that you are familiar with that design and the components used in it to prepare for this article as it provides detailed information on the core components that will not be reproduced here. 
+This example architecture is built on the [Basic enterprise integration][basic-enterprise-integration] architecture and extends it to show how to integrate enterprise backend systems, using message brokers and events to decouple services for greater scalability and reliability. Ensure that you are familiar with that design and the components used in the basic integration architecture to prepare for this article as it provides foundational information on the core components that will not be reproduced here.
 
 The backend systems referenced in this design may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
@@ -69,9 +69,9 @@ Automating recovery operations as much as possible is an integral component of O
 
 ## Security
 
-To secure Service Bus,use [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure AD integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case). The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access a Service Bus resource (queue, topic, and so on).
+To secure Service Bus, use [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure AD integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case).
 
-Alternatively, you can use [shared access signature (SAS)](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas).
+Where Azure AD isn't available, you can use [shared access signature (SAS)](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature). You can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas).
 
 If you need to expose a Service Bus queue or topic as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
@@ -79,11 +79,11 @@ The Event Grid service secures event delivery through a validation code. If you 
 
 ### Network security
 
-Network should be considered throughout the design.  
+Network security should be considered throughout the design.
 
 - **[Service Bus](/azure/service-bus-messaging/network-security) Premium** can be bound to a virtual network (VNet) subnet service endpoint, securing the namespace to only accept traffic from authorized virtual networks.  Additionally, use [private endpoints](/azure/service-bus-messaging/network-security#private-endpoints) to lock your VNet traffic down to private traffic over [Private Link](/azure/private-link/private-link-overview)
 - **[Logic Apps](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint)** Standard and Premium Logic Apps can be configured to accept inbound traffic through [private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-inbound-traffic-through-private-endpoints) and to send outbound traffic through [VNet integration](/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint#set-up-outbound-traffic-using-virtual-network-integration)
-- **API Management**  API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. Please refer to the [Use a virtual network with Azure API Management](/azure/api-management/virtual-network-concepts?tabs=stv2) documentation for a thorough review of the options.  [Private endpoints](/azure/api-management/virtual-network-concepts?tabs=stv2#private-endpoint) are also supported.
+- **API Management** provides several options to secure access to your API Management instance and APIs using an Azure virtual network. Please refer to the [Use a virtual network with Azure API Management](/azure/api-management/virtual-network-concepts?tabs=stv2) documentation for a thorough review of the options. [Private endpoints](/azure/api-management/virtual-network-concepts?tabs=stv2#private-endpoint) are also supported.
 
 ## Cost Optimization
 
