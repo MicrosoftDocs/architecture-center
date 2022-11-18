@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: <Article title, which becomes the title metadata>
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-  author: <Contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
+  title: Use Private Link to access applications on networks with overlapping address spaces
+  description: Learn how to use Private Link to expose apps running in one virtual network to consumers in another virtual network that has an overlapping IP address space.
+  author: ivapplyr
   ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
   ms.date: <Publish or major update date - mm/dd/yyyy>
   ms.topic: conceptual
@@ -15,8 +15,8 @@ products:
   - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
   - <1-5 products>
   - <1-5 products>
-name: Use Private Link to consume applications on networks with overlapping address spaces
-summary: <Write a summary. Can be same as description.>
+name: Use Private Link to access applications on networks with overlapping address spaces
+summary: Learn how to use Azure Private Link to expose apps running in one virtual network to consumers in another virtual network that has an overlapping IP address space.
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
   [!include[](<guide>-content.md)]

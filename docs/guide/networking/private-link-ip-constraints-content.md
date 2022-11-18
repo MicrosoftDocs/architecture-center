@@ -12,7 +12,7 @@ Private Link service is the reference to your own service that's powered by Priv
 
 :::image type="content" source="images/without-private-link.png" alt-text="Diagram that shows overlapping IP addresses without Private Link service." lightbox="images/without-private-link.png" border="false":::
 
-link 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-ip-constraints.pptx) of the architecture diagrams in this article.* 
 
 You want virtual machines on Network A to be able to seamlessly access the application that's running on the remote Network B. The same private endpoint should be accessible from on-premises, if required.
  
@@ -30,7 +30,7 @@ After you deploy your Private Link service, the scenario shown in the preceding 
 
 :::image type="content" source="images/private-link-diagram.png" alt-text="Diagram that shows how to access an application that has overlapping IP addresses via Private Link service." lightbox="images/private-link-diagram.png" border="false":::
 
-link 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-ip-constraints.pptx) of the architecture diagrams in this article.*  
 
 Although the networks have overlapping IP address spaces, communication is now possible between them. No software-based overlay network or customer NAT solution is required. 
 
@@ -44,7 +44,7 @@ For more information, see [Getting connection Information using TCP Proxy v2](/a
 
 :::image type="content" source="images/inbound-traffic-source.png" alt-text="Diagram that shows the source NAT of inbound traffic." lightbox="images/inbound-traffic-source.png" border="false":::
 
-link? 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-ip-constraints.pptx) of the architecture diagrams in this article.* 
  
 Finally, you should review the [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits) page to check the limits associated with Private Link, and dimension your solution accordingly.
  
