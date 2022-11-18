@@ -32,13 +32,13 @@ The Azure services used in this document can be replaced with similar services. 
 
 - Instead of Power BI dashboards, use [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) or [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana) services.
 - For Application Insights, substitute another APM tool, such as [Elasticsearch](https://www.elastic.co) or Open APM.
-- Data tables can be saved by using another system of records, such as [MySQL](/products/mysql) or [MariaDB](/azure/mariadb/overview).
+- Data tables can be saved by using another system of records, such as [MySQL](https://azure.microsoft.com/products/mysql) or [MariaDB](/azure/mariadb/overview).
 - If you have a running Azure Functions or Logic Apps, consider launching the calculation regularly from your existing deployments.
 - If the application resources are distributed across multiple resource groups, use tags to correlate cost data and calculate the amount of carbon emitted by the application.
 
 ## Scenario details
 
-These sections describe the scenario details.
+These sections describe the details required to calculate a baseline for measuring changes in carbon output.
 
 ### Data sources
 
@@ -110,7 +110,7 @@ Store the monthly carbon information for your resource group along with the rest
 
 Store the carbon and carbon proxy information gathered in the previous section. Export it to dashboards or reports, so you can visualize the carbon score over time and make informed choices. For sustainable reasons, and in alignment with the best practices of the Well Architected Framework, we recommend using the minimum viable system of record, for example, [Azure Table Storage](/azure/storage/tables/table-storage-quickstart-portal).
 
-For more information, see [Data and storage design considerations for sustainable workloads on Azure](/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/framework/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads).
+For more information, see [Data and storage design considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-storage) and [Application platform considerations for sustainable workloads on Azure](/azure/architecture/framework/sustainability/sustainability-application-platform#evaluate-moving-to-paas-and-serverless-workloads).
 
 A sample table describing the gathered data looks like the following example:
 
@@ -261,6 +261,7 @@ This architecture can be deployed using several alternative Azure services. The 
 - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
 - [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation)
+- [Power BI pricing](https://powerbi.microsoft.com/pricing)
 
 ### Performance efficiency
 
@@ -300,4 +301,5 @@ For sustainability cloud workload guidance in the Well Architected Framework, se
 
 - [Choose a data analytics and reporting technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Data analysis workloads for regulated industries](../data/data-analysis-regulated-industries.yml)
+- [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
 - [Power BI data write-back with Power Apps and Power Automate](../data/power-bi-write-back-power-apps.yml)
