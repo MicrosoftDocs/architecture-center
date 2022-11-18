@@ -12,6 +12,8 @@ Private Link service is the reference to your own service that's powered by Priv
 
 :::image type="content" source="images/without-private-link.png" alt-text="Diagram that shows overlapping IP addresses without Private Link service." lightbox="images/without-private-link.png" border="false":::
 
+link 
+
 You want virtual machines on Network A to be able to seamlessly access the application that's running on the remote Network B. The same private endpoint should be accessible from on-premises, if required.
  
 For more information about Private Link, see [What is Azure Private Link service?](/azure/private-link/private-link-service-overview#details). 
@@ -62,23 +64,36 @@ You can follow the same approach of services enabled by Private Link to provide 
  
 The subscription where the application is deployed won't incur any charges for Private Link service. However, from the consumer point of view, private endpoint hourly rates and inbound/outbound data processing rates apply. If the consumer virtual network isn't in the same Azure region as the application, standard data transfer rates also apply. 
 
-More details are available in the pricing page of [Azure Private Link] and [Bandwidth]. 
+For more information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link) and [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth). 
 
-Contributors
+## Contributors
 
-Principal Authors: 
-- Ivens Applyrs  | Product Manager 2
-- Jose Angel Fernandez Rodrigues | SR Specialist GBB
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+- [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs) | Product Manager 2
+- [Jose Angel Fernandez Rodrigues](https://www.linkedin.com/in/jangelfdez) | Senior Specialist GBB
 
 
 Other contributors: 
-- Mick Alberts 
-- Shane Bala | Program Manager 2
-- Sumeet Mittal | Principal Product Manager
 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Shane Bala](https://www.linkedin.com/in/sudarshan-bala) | Program Manager 2
+- [Sumeet Mittal](https://www.linkedin.com/in/mittalsumeet) | Principal Product Manager
 
-Next Steps:
-Create a Private Link Service –-> Quickstart - Create a Private Link service by using the Azure portal - Azure Private Link | Microsoft Learn
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-Related resources:
-Referred to in the article 
+## Next steps
+
+- [What is Azure Private Link service?](/azure/private-link/private-link-service-overview)
+- [Create a Private Link service by using the Azure portal](/azure/private-link/create-private-link-service-portal)
+- [Create public DNS zone](/azure/dns/dns-getstarted-portal) 
+- [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal)
+- [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
+
+## Related resources
+
+- [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
+- [Azure DNS Private Resolver](/azure/architecture/example-scenario/networking/azure-dns-private-resolver)
