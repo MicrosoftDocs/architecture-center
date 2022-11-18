@@ -58,12 +58,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Event Grid:** Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones [(when available)](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) in the region. When there's a failure in one of the availability zones, Event Grid resources automatically failover to another availability zone without any human intervention. Please refer to the [Geo-disaster recovery across regions](/azure/event-grid/availability-zones-disaster-recovery#geo-disaster-recovery-across-regions) for guidance on designing a disaster recovery solution for failing over to another region.  Please also refer to the [SLA][event-grid-sla] for guaranteed availability details.
 - **Service Bus:** Service Bus Premium supports [Geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and [Availability Zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones). [Replication](/azure/service-bus-messaging/service-bus-outages-disasters#protecting-against-outages-and-disasters---service-bus-standard) is available for Service Bus Standard.  Please also refer to the [SLA][sb-sla] for guaranteed availability details.
 
-### Operational Excellence
-
-The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
-
-Automating recovery operations as much as possible is an integral component of Operational Excellence.  With this in mind, you can combine [Azure Log Monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. Refer to the diagram in [failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow) documentation for an example of automation logic to initiate a failover.
-
 ### Security
 
 To secure Service Bus, use [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure AD integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case).
@@ -109,6 +103,12 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 For more information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+
+### Operational Excellence
+
+The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
+
+Automating recovery operations as much as possible is an integral component of Operational Excellence.  With this in mind, you can combine [Azure Log Monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. Refer to the diagram in [failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow) documentation for an example of automation logic to initiate a failover.
 
 ### Performance efficiency
 
