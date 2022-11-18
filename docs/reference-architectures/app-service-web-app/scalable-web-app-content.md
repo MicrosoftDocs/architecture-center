@@ -64,8 +64,6 @@ Modern applications often process large amounts of data. In order to scale for t
 
 See [Choose the right data store][datastore].
 
-## Considerations
-
 ### Scalability
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
@@ -89,6 +87,10 @@ Front Door can perform SSL offload and also reduces the total number of TCP conn
 
 Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Security
 
 This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices for web applications. For additional security considerations, see [Secure an app in Azure App Service][app-service-security].
@@ -111,12 +113,6 @@ App Services has built-in support for CORS, without needing to write any applica
 
 Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
 
-### DevOps
-
-#### Front-end deployment
-
-This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
-
 ### Cost optimization
 
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
@@ -130,6 +126,16 @@ For more information, see the cost section in the [Microsoft Azure Well-Architec
 Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions and resources used, rather than hourly.
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+### DevOps
+
+#### Front-end deployment
+
+This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
 
 ## Contributors
 
