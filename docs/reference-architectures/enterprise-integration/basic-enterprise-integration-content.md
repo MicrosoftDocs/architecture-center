@@ -48,8 +48,6 @@ Logic Apps works best in scenarios that don't require low latency for a response
 
 To minimize network latency, put API Management and Logic Apps in the same region. In general, choose the region that's closest to your users (or closest to your backend services).
 
-The resource group also has a region. This region specifies where to store deployment metadata and where to execute the deployment template. To improve availability during deployment, put the resource group and resources in the same region.
-
 ## Scalability considerations
 
 To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on back-end services.
