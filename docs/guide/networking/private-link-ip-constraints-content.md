@@ -56,11 +56,11 @@ After you deploy a private endpoint in your virtual network, the application can
  
 You can use Azure DNS and private Azure DNS zones as the DNS server for your application. For more information, see [Create public DNS zone](/azure/dns/dns-getstarted-portal) or [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal).
 
-You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. You can review the article [Azure Private Endpoint DNS configuration] for more details
+You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration) for more details.
  
 ### Cost
  
-Private Link service has no charges associated with the subscription where the application is deployed. However, from the consumer point of view, both Private Endpoint hourly rate and inbound/outbound data processed would be charged. If the consumer virtual network is in a different Azure region where the application is deployed, standard data transfer rates apply on top of that. 
+The subscription where the application is deployed won't incur any charges for Private Link service. However, from the consumer point of view, private endpoint hourly rates and inbound/outbound data processing rates apply. If the consumer virtual network isn't in the same Azure region as the application, standard data transfer rates also apply. 
 
 More details are available in the pricing page of [Azure Private Link] and [Bandwidth]. 
 
