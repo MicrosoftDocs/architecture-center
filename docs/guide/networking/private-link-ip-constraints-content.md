@@ -1,6 +1,6 @@
 Overlapping IP address spaces are commonly found when connected networks are from different customers, different companies within a holding company, or companies that don't have a centralized IP address management (IPAM) methodology.
  
-Azure provides several ways to connect networks: Azure VPN Gateway and Azure ExpressRoute provide hybrid connectivity between the cloud and on-premises facilities, and you can use virtual network peering to connect two virtual networks. These solutions, however, have a common restriction: the networks on either side of the connection can't use overlapping IP addresses to establish connection. If two networks use the same address space, traffic can't be routed between them.  
+Azure provides several ways to connect networks: Azure VPN Gateway and Azure ExpressRoute provide hybrid connectivity between the cloud and customer on-premises facilities, and you can use virtual network peering to connect two virtual networks. These solutions, however, have a common restriction: the networks on either side of the connection can't use overlapping IP addresses to establish connection. If two networks use the same address space, traffic can't be routed between them.  
  
 This article describes how you can use [Azure Private Link](https://azure.microsoft.com/products/private-link) to overcome overlapping IP address space constraints. It provides general guidance on how to expose applications running in one virtual network on Azure to consumers in another virtual network that has an overlapping IP address space.
 
@@ -34,30 +34,29 @@ Although the networks have overlapping IP address spaces, communication is now p
 
 ## Operational considerations
  
-### Networking 
+### Networking
 
-All traffic coming to your application will appear to originate from an IP address on the destination virtual network that's associated with the Private Link service. Figure 3 shows the IP addresses that both customer and application would see as their respective sources and destination IP addresses. If your application requires actual source IP address of the customer initiating the connection, Private Link supports the Proxy protocol that provides a convenient way to safely transport connection information such as a client's address across multiple layers of NAT or TCP proxies. 
+All traffic coming to your application will appear to originate from an IP address on the destination virtual network that's associated with the Private Link service. The following diagram shows the IP addresses that both the customer and application will see as their source and destination IP addresses. If your application requires the actual source IP address of the customer that's initiating the connection, Private Link supports the Proxy protocol, which provides a convenient way to transport, with enhanced security, connection information like a client's address across multiple layers of NAT or TCP proxies.
 
-More details about how to use Proxy protocol is available in the article [Getting connection Information using TCP Proxy v2].  
+For more information, see [Getting connection Information using TCP Proxy v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).  
 
-image 
+:::image type="content" source="images/inbound-traffic-source.png" alt-text="Diagram that shows the source NAT of inbound traffic." lightbox="images/inbound-traffic-source.png" border="false":::
 
-Figure 3 Source NAT of inbound traffic using Azure Private Link Service
+link? 
  
+Finally, you should review the [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits) page to check the limits associated with Private Link, and dimension your solution accordingly.
  
-Finally, you should review the [Azure subscription limits and quotas] page to check the limits associated with Private Link and dimension your solution accordingly.
- 
-### Access Control 
+### Access control 
 
-Azure Private Link supports virtual networks in the same subscription, across subscriptions in the same Azure AD tenant, or across subscriptions in different Azure AD tenants. If you need to control who can create a Private Endpoint inside their virtual network to access your application, Private Link service supports a granular access through its "Visibility" setting. You can find more details on how to configure the visibility options of your Private Link Service in the article [Control service access] 
+Private Link supports virtual networks in a single subscription, across subscriptions in a single Azure Active Directory (Azure AD) tenant, and across subscriptions in different Azure AD tenants. If you need to control who can create private endpoints inside their virtual networks to access your application, Private Link service supports granular access through its **Visibility** property. For information on how to configure the visibility options of your Private Link service, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
 
 ### Name resolution
  
-After deploying a Private Endpoint in your virtual network, the application is accessible over the IP address of the Private Endpoint. However, if your application requires using a specific domain name to connect to, you will need to configure the domain name resolution. Azure Private Link doesn't automatically register the application’s domain name in a DNS. You must register its FQDN and IP address of the Private Endpoint in your DNS yourself. 
+After you deploy a private endpoint in your virtual network, the application can be accessed over the IP address of the private endpoint. However, if your application requires the use of a specific domain name, you need to configure domain name resolution. Private Link doesn't automatically register the application's domain name in a DNS. You need to register its FQDN and the IP address of the private endpoint in your DNS. 
  
-Azure DNS and Azure Private DNS Zones can be used as the DNS server for your application. You can review the following articles to know more about [how to create your public] or [private DNS Zone].
+You can use Azure DNS and private Azure DNS zones as the DNS server for your application. For more information, see [Create public DNS zone](/azure/dns/dns-getstarted-portal) or [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal).
 
-As a reference, you can follow the same approach of Azure Private Link enabled services to provide a transparent DNS resolution for your customers. You can review the article [Azure Private Endpoint DNS configuration] for more details
+You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. You can review the article [Azure Private Endpoint DNS configuration] for more details
  
 ### Cost
  
