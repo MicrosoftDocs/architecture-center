@@ -21,7 +21,9 @@ Industries that rely on knowledge mining include:
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)
+[ ![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)](../media/knowledge-mining-content-research.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-content-research.vsdx) of this architecture.*
 
 ### Dataflow
 
