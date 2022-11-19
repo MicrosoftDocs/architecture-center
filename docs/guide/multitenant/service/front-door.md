@@ -23,7 +23,7 @@ ms.custom:
 # Azure Front Door considerations for multitenancy
 On this page, we describe some of the features of Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.  It is important to note that Azure Front Door deployments can have two scenarios.  One scenario is where Azure Front Door is part of the application stamp and the second scenario is when it is outside of the application stamp.  The discussion in the guidance is geared towards the second scenario.
 
-## Features of Front Door that support multi-tenancy
+## Features of Front Door that support multitenancy
 In this section we will consider few key features of Front Door that support multi-tenancy.  Specifically we will focus on various routing scenarios that Front Door allows for multi-tenancy.  We will also discuss configuring customs domains with BYO TLS certificates.  Finally we will look at isolation models that can be used with Front Door to support multi-tenancy
 ### Routing
 A multitenant application can have one or more application stamps serving the tenants for scaling and other reasons.  The default URLs for these application stamps are not user friendly.  DNS records are the standard method to map these hard-to-remembers URLs to user friendly ones. While friendly URLs are a step in the right direction, challenges still exist  with routing traffic from a tenant user to the corresponding back-end stamp that is meant to serve the traffic for te tenant. We will more on how to overcome these challenges later in the article.
