@@ -96,27 +96,29 @@ In this design, the workload is deployed in the application landing zone and wil
 
 The platform team decides the network topology for the entire organization. This architecture assumes the [hub-spoke topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology), used for regional deployments.
 
-#### Regional hub virtual network
+##### Regional hub virtual network
 
-The Connectivity subscription contains a hub virtual network with resources, which are shared by the entire organization. From a mission-critical perspective, this network is ephemeral and the resources are in-scope for your workload. These resources are owned by maintained by the platform team. 
+The Connectivity subscription contains a hub virtual network with resources, which are shared by the entire organization. These resources are owned by maintained by the platform team. 
 
-|Purpose|Azure resource|
+From a mission-critical perspective, this network is ephemeral and these resources are in-scope for your workload. 
+
+|Azure resource|Purpose|
 |---|---|
-|Private connectivity from on-premises to Azure infrastructure.|**Azure ExpressRoute**|
-|Inspect and restrict egress traffic.|**Azure Firewal**l|
-|Cross-premises DNS name resolution|**Azure Active Directory**-integrated DNS infrastructure|.
-|Connectivity from remote organization branches over the public internet to Azure infrastructure. Also acts as a backup connectivity alternative for adding resiliency.|**VPN gateway**| 
+|**Azure ExpressRoute**|Provides private connectivity from on-premises to Azure infrastructure.
+|**Azure Firewall**|Acts as the network virtual appliance (NVA) that inspects and restricts egress traffic.|
+|**Azure Active Directory**-integrated DNS infrastructure|Cross-premises DNS name resolution.
+|**VPN gateway**|Connectivity from remote organization branches over the public internet to Azure infrastructure. Also acts as a backup connectivity alternative for adding resiliency.| 
 
 The resources are provisioned in each region and peered to the spoke virtual network (described next). Make sure you understand and agree with the updates to NVA, firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on.
 
 > [!NOTE]
 > A key benefit in using the federated hub is that the workload can integrate with other workloads either in Azure or cross-premises by traversing the organization-managed network hubs. Another benefit is cost optimization when compared to the **baseline architecture with network controls**. This change also lowers your operational costs because a part of the responsibility is shifted to the platform team. 
 
-#### Regional spoke virtual network
+##### Regional spoke virtual network
 
 The application landing zone has at least two pre-provisioned **Azure Virtual Networks**, per region, which are referenced by the mission-critical stamps. These networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This approach gives you the ability to perform [reliable and safe deployments practices](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone#zero-downtime-deployment). 
 
-#### Operations virtual network
+##### Operations virtual network
 
 Operational traffic isolated in a separate virtual network. This virtual network is non-ephemeral and you own this network. This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network).  
 
@@ -136,7 +138,7 @@ After you've estimated the size needed to run your workload, work with the platf
 
 - Allocate IP address spaces that are large enough to contain the runtime and deployments resources, handle failovers, and support scalability. 
 
-The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. You must evaluate and communicate that growth with the platform team regularly. For more information, see [Connectivity to Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
+The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. You must evaluate that growth with the platform team regularly. For more information, see [Connectivity to Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 
 ##### Regional spoke network subnetting
 
@@ -155,7 +157,9 @@ This architecture uses Network Security Groups (NSGs) to restrict traffic across
 **Platform team responsibilities**
 
 - Enforce NSGs through Azure Network Manager Policies.
-- Be aware of the workload design. There isn't any direct traffic between the stamps. Also there aren't inter-region flows. If that communication path is needed, traffic must flow through the Connectivity subscription. 
+
+- Be aware of the workload design. There isn't any direct traffic between the stamps. Also there aren't inter-region flows. If those paths are needed, traffic must flow through the Connectivity subscription. 
+
 - Minimize unnecessary hub traffic originating from other workloads into the mission-critical workload.
 
 
@@ -166,24 +170,28 @@ All outgoing traffic from each regional spoke network is routed through the cent
 **Platform team responsibilities**
 
 - Create UDRs for that custom route. 
+
 - Assign Azure policy that will block your team from creating subnets without assigning that new route table. 
-- Give the proper role-based access control (RBAC) permissions to your team to extend the routes based on the requirements of the workload.
+
+- Give proper role-based access control (RBAC) permissions to the application team so that they can extend the routes based on the requirements of the workload.
 
 
 ##### Multi-region redundancy
 
-A baseline expectation of mission-critical workloads is deployment in multiple regions to withstand regional outages. Work with the platform team to make sure the infrastructure is reliable.
+Your mission-critical workloads must be deployed in multiple regions to withstand regional outages. Work with the platform team to make sure the infrastructure is reliable.
 
 **Platform team responsibilities**
 - Deploy the centralized networking resources per region. The mission-critical design methodology requires regional isolation.
+
 - Work with the application team to uncover hidden regional dependencies so that a degraded platform resource in one region doesn't impact workloads in another region.
 
 ##### DNS resolution
 
-The Connnectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that are specific to your workload. Provision their own DNS zones and link to the regional stamp. 
+The Connnectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that are specific to your workload. Provision your own DNS zones and link to the regional stamp. 
 
 **Platform team responsibilities**
 - When possible, delegate the Azure Private DNS zones to the application team to cover their use cases. 
+
 - For the regional hub network, set the DNS servers value to Default (Azure-provided) to support private DNS zones managed by the application team. 
 
 
