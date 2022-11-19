@@ -127,6 +127,12 @@ The application team is responsible for:
 
 The spoke virtual network is non-epheremal. When the deployment stamp is no longer required, all stamp resources are deleted including subnets but not the pre-provisioned network. Here are some design considerations.
 
+##### Engress traffic from regional stamps
+
+The **baseline architecture with network controls** uses Azure Firewall in each region to inspect all outgoing traffic that originates from each regional virtual network.
+
+In this design, that point of control shifts to the Connectivity subscription. All traffic from the stamp flows through, a centralized network virtual appliance (NVA) in the regional hub virtual network of that subscription. The NVA is assumed to be Azure Firewall to maintain continuity with the baseline architecture.
+
 ##### IP address planning
 
 The virtual networks that participate in peerings must have all distinct addresses. Overlapping addresses, for example of on-premises and workload networks, can cause disruptions leading to outage.
@@ -141,8 +147,6 @@ A baseline expectation of this architecture is deployment in multiple regions to
 
 Work with the platform team to uncover hidden regional dependencies so that a degraded platform resource in one region doesn't impact workloads in another region. The mission-critical design methodology requires regional isolation.
 
-
-
 ##### Network segmentation
 
 Proper network segmentation must be maintained so that the workload's reliability isn't compromised by unauthorized access. This architecture uses network security groups (NSGs) to protect traffic across subnets and traffic from the Connectivity subscription. 
@@ -151,13 +155,11 @@ The platform team must be aware that there isn't any direct traffic between the 
 
 ##### DNS resolution
 
-Private DNS zones are hosted in the Connectivity subscription to enable cross-premises DNS name resolution. The platform team maintains the central DNS records enforced by policies. 
+The platform team provides private DNS zones in the Connectivity subscription. However, that centralized approach might not factor in the DNS failures that are specific to the mission-critical workload. When possible, the Azure Private DNS zones should be delegated to the application team to cover their use cases. The application team should provision their own DNS zones and link to the regional stamp. 
+
+The regional virtual network in the Connectivity subscription should have the DNS servers value set to Default (Azure-provided) to support private DNS zones managed by the workload team. 
 
 > The global routing design remains the same as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-ingress).
-
-The platform team should factor in potential DNS failures for mission-critical workloads. For example, does linking hub virtual networks in all regions to the same Azure Private DNS zones go over service limits? 
-
-When possible, the Azure Private DNS zones should be delegated to the application team to cover workload-specific use cases. In this architecture, private endpoint resolution from jump boxes and build agents will need the application team to provision their own Azure Private Zone.
 
 ### Networking component configuration
 
@@ -174,6 +176,8 @@ These considerations are discussed in [Zero-downtime deployment](/azure/architec
 The application team is responsible for allocating subnets in the regional virtual network. The subnets and the resources in them are ephemeral. 
 
 After traffic reaches the virtual network, communication with PaaS services within the network, is locked down by using private endpoints, just like the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-endpoints-for-paas-services). These endpoints are placed in a dedicated subnet, outside the AKS node pool subnet. The address space is large enough to accommodate all private endpoints necessary for the stamp. Private IP addresses to the private endpoints are assigned from that subnet. Network Security Groups (NSGs) are placed on each subnet to inspect communication within the virtual network. NSGs use ServiceTags for the supported services. The platform team also enforces NSG by Azure Network Manager Policies.
+
+Because all egress traffic over the internet is routed through the centralized Azure Firewall, it acts as the next hop that inspects and then allows or denies traffic. The platform team is expected to create UDRs for that custom route. They will assign Azure policy that blocks the application team from creating subnets without assigning that new route table. The platform teams is also expected to give the proper role-based access control (RBAC) permissions to the application team to extend the routes based on the requirements of the workload. 
 
 The scalability requirements of the workload influence how much address space should be allocated for the subnets. The virtual network should have enough address space to accommodate the AKS nodes and pods as they scale out. 
 
