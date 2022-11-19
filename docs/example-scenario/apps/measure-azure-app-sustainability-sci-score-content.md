@@ -114,9 +114,9 @@ For more information, see [Data and storage design considerations for sustainabl
 
 A sample table describing the gathered data looks like the following example:
 
-| Data from reports | Data from APM | Calculations |
+| Data from reports | | | | Data from APM | | | | Calculations |
 |-------------------|---------------|------------- |
-| Date | Resource-group name | Carbon emissions from dashboard C | Cost | CPU Memory | Response time ratio (send/receive) | Scaling factor | R SCI |
+| Date | Resource-group name | Carbon emissions from dashboard C | Cost | CPU Memory | Response time ratio (send/receive) | Scaling factor R | SCI |
 | | | | | | | | | |
 | | | | | | | | | |
 
