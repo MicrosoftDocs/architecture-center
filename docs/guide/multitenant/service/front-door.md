@@ -41,7 +41,7 @@ When working with a multitenant system using Front Door, you need to make a deci
 
 The following discussion through example scenarios is meant to provide answers to the above questions
 
-### Scenario 1 (wildcard provider-managed domains, single stamp)
+### Scenario 1: Provider-managed wildcard domains, single stamp
 - **Context**: Contoso is building a small multitenant solution and has a single stamp in a single region that serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.contoso.com, tenant2.contoso.com and so forth.
 - **Diagram**: Diagram that illustrates the scenario.
 - **DNS configuration**: Contoso configures one DNS entry - a wildcard CNAME record, *.contoso.com, which directs to their Front Door endpoint, contoso.z01.azurefd.net.
