@@ -111,13 +111,31 @@ Some of those resources might be on the critical path for the workload. Keeping 
 
 The platform team decides the network topology for the entire organization. This architecture assumes the [hub-spoke topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology), used for regional deployments.
 
-- The regional hub virtual network is in the Connectivity subscription. It has federated resources such as Azure Private DNS Zones, ExpressRoute circuit. Centralized DNS is necessary for the workload; however, the application team will need to provision their Private DNS zones to oversee any workload-level concerns.
-- The spoke virtual network connects with the hub resources through virtual network peering. The workload will run in that network.
+#### Regional hub virtual network
 
-Make sure you understand and agree with the updates to network virtual appliances (NVA), firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on.
+The Connectivity subscription contains a hub virtual network with resources, which are shared by the entire organization. From a mission-critical perspective, this network is ephemeral and the resources are in-scope for your workload.  
+
+- Azure ExpressRoute for private connectivity from on-premises to Azure infrastructure. 
+- Azure Firewall, or another network virtual appliances (NVA), to control and inspect egress traffic.
+- Active Directory-integrated DNS infrastructure used for cross-premises DNS name resolution for which the record is maintained by the platform team.
+- VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This resource can also be considered as a backup connectivity alternative adding resiliency.
+
+The resources are provisioned in each region and peered to the spoke virtual network (described next). Make sure you understand and agree with the updates to NVA, firewall rules, routing rules, ExpressRoute fail over to VPN Gateway, DNS infrastructure, and so on.
 
 > [!NOTE]
 > A key benefit in using the federated hub is that the workload can integrate with other workloads either in Azure or cross-premises by traversing the organization-managed network hubs. Another benefit is cost optimization when compared to the **baseline architecture with network controls**. This change also lowers the operational costs because a part of the responsibility is shifted to the platform team, which allows the organization to amortize the cost across multiple workloads. 
+
+#### Regional spoke virtual network
+
+The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the mission-critical stamps. These virtual networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This approach gives you the ability to perform [reliable and safe deployments practices](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone#zero-downtime-deployment). 
+
+#### Operations virtual network
+
+This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network), where the operational traffic is isolated in a separate virtual network. This virtual network is non-ephemeral and you own this network.  
+
+There's no peering between the operations network and spoke network. All communication is through Private Links. 
+
+
 
 The application team is responsible for:
 
@@ -127,11 +145,11 @@ The application team is responsible for:
 
 The spoke virtual network is non-epheremal. When the deployment stamp is no longer required, all stamp resources are deleted including subnets but not the pre-provisioned network. Here are some design considerations.
 
-##### Engress traffic from regional stamps
+##### Egress traffic from regional stamps
 
 The **baseline architecture with network controls** uses Azure Firewall in each region to inspect all outgoing traffic that originates from each regional virtual network.
 
-In this design, that point of control shifts to the Connectivity subscription. All traffic from the stamp flows through, a centralized network virtual appliance (NVA) in the regional hub virtual network of that subscription. The NVA is assumed to be Azure Firewall to maintain continuity with the baseline architecture.
+In this design, the control shifts to the Connectivity subscription. All traffic from the stamp flows through, a centralized network virtual appliance (NVA) in the regional hub virtual network of that subscription. The NVA is assumed to be Azure Firewall to maintain continuity with the baseline architecture.
 
 ##### IP address planning
 
@@ -161,15 +179,12 @@ The regional virtual network in the Connectivity subscription should have the DN
 
 > The global routing design remains the same as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-ingress).
 
-### Networking component configuration
+### Networking components configuration
 
 In this architecture, the networking components can be categorized by stamp and regional. Further, take into consideration the team that owns the component. 
 
-#### Regional stamp virtual network
 
-The application landing zone has at least two pre-provisioned virtual networks, per region, which are referenced by the stamps. These virtual networks are non-ephemeral. One serves production traffic and the other targets the vNext deployment. This approach gives you the ability to perform reliable and safe deployments practices. 
 
-These considerations are discussed in [Zero-downtime deployment](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone#zero-downtime-deployment).
 
 #### Regional stamp subnetting
 
@@ -177,26 +192,15 @@ The application team is responsible for allocating subnets in the regional virtu
 
 After traffic reaches the virtual network, communication with PaaS services within the network, is locked down by using private endpoints, just like the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#private-endpoints-for-paas-services). These endpoints are placed in a dedicated subnet, outside the AKS node pool subnet. The address space is large enough to accommodate all private endpoints necessary for the stamp. Private IP addresses to the private endpoints are assigned from that subnet. Network Security Groups (NSGs) are placed on each subnet to inspect communication within the virtual network. NSGs use ServiceTags for the supported services. The platform team also enforces NSG by Azure Network Manager Policies.
 
-Because all egress traffic over the internet is routed through the centralized Azure Firewall, it acts as the next hop that inspects and then allows or denies traffic. The platform team is expected to create UDRs for that custom route. They will assign Azure policy that blocks the application team from creating subnets without assigning that new route table. The platform teams is also expected to give the proper role-based access control (RBAC) permissions to the application team to extend the routes based on the requirements of the workload. 
+Because all egress traffic over the internet is routed through the centralized Azure Firewall, it acts as the next hop that inspects and then allows or denies traffic. The platform team is expected to create UDRs for that custom route. They will assign Azure policy that blocks the application team from creating subnets without assigning that new route table. The platform team is also expected to give the proper role-based access control (RBAC) permissions to the application team to extend the routes based on the requirements of the workload. 
 
 The scalability requirements of the workload influence how much address space should be allocated for the subnets. The virtual network should have enough address space to accommodate the AKS nodes and pods as they scale out. 
 
 The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. The application team must evaluate and communicate that growth with the platform team regularly. For more information, see [Connectivity to Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 
-#### Regional virtual network in the Connectivity subscription
 
-The Connectivity subscription contains a hub virtual network that contains resources shared by workloads of the organization. From a mission-critical perspective, the resources are expected to be provisioned in each region and peered to the virtual network in the regional stamp. These resources are in-scope for the workload in this architecture and are treated as non-ephemeral components: 
 
-- Azure ExpressRoute for private connectivity from on-premises to Azure infrastructure. For the workload, dual circuits and even multiple ExpressRoute instances is recommended to build redundancy. 
-- Azure Firewall, or another NVA, to control and inspect egress traffic
-- Active Directory-integrated DNS infrastructure used for cross-premises DNS name resolution for which the record is maintained by the platform team.
-- VPN gateway for connectivity to remote organization branches over the public internet to Azure infrastructure. This resource can also be considered as a backup connectivity alternative adding resiliency.
 
-#### Operations virtual network
-
-This architecture keeps the same design as the [**baseline architecture with network controls**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#operations-virtual-network), where the operational traffic is isolated in a separate virtual network. This virtual network is owned by the application team and is non-ephemeral.  
-
-There's no peering between the operations network and spoke network. All communication is through Private Links. If access to jump boxes is limited from the on-premises network, then the operations network needs to be reachable from on-premises through peering.
 
 ## Deployment considerations
 
