@@ -1,17 +1,23 @@
 ---
-title: Front Door considerations for multitenancy
+title: Azure Front Door considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: TODO
+description: This article describes the features of Azure Front Door that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Front Door in a multitenant solution.
 author: rajnemani
 ms.author: ranema
 ms.date: 11/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+ - azure
+ - azure-front-door
+categories:
+ - networking
 ms.category:
   - fcp
 ms.custom:
   - guide
+  - fcp
 ---
 
 # Azure Front Door considerations for multitenancy
