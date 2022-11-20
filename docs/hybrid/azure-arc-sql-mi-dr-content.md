@@ -6,6 +6,17 @@ This reference architecture demonstrates how to deploy an Azure Arc-enabled SQL 
 
 *Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
 
+### Workflow
+
+The following workflow corresponds to the above diagram:
+
+- Two Azure Arc-enabled Kubernetes clusters are deployed in different virtual networks representing two different sites.
+- Virtual network peering is established between the two vitual networks for communication.
+- Two domain controllers are deployed in each virtual network and Active Directory replication is configured between them.
+- An Azure Arc data controller is deployed on each Azure Arc-enabled Kubernetes cluster.
+- An Azure Arc-enabled SQL Managed Instance is deployed on the primary cluster in Business critical service tier.
+- An Azure Arc-enabled SQL Managed Instance is deployed on the secondary cluster in Business critical service tier and configured as a disaster recovery instance.
+
 ### Components
 
 The architecture consists of the following components:
