@@ -52,7 +52,7 @@ These resources live in the application landing zone subscription(s). Global res
 
 ### Regional monitoring resources
 
-These resources live in the application landing zone subscription(s). Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended because it can potentially be a single point of failure. The Azure services and their configuration remain the same as the [**baseline monitoring resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
+These resources live in the application landing zone subscription(s). Monitoring data for global resources and regional resources are stored independently. The Azure services and their configuration remain the same as the [**baseline monitoring resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#observability-resources).
 
 > For more information, see the [Monitoring considerations](#monitoring-considerations) section.
 
@@ -64,7 +64,7 @@ These resources live in both the platform landing zone subscriptions and the app
 
 ### Regional stamp resources
 
-These resources live in the application landing zone subscription(s). The resources are part of a _deployment stamp_ and intended to be ephemeral to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They share [global resources](#global-resources) between each other. 
+These resources live in the application landing zone subscription(s). These resources share nothing with other resources, except the [global resources](#global-resources). 
 
 Most Azure services and their configuration remain the same as the [**baseline stamp architecture**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources), except for the networking resources. Those resources pre-provisioned by the platform team. 
 
@@ -79,7 +79,7 @@ The workload interacts with on-premises resources. Some of them are on the criti
 Build and release pipelines for a mission-critical application must be fully automated to guarantee a consistent way of deploying a validated stamp. These resources remain the same as the [**baseline deployment pipeline**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#deployment-pipeline-resources). 
 
 ### Management resources
-To gain access to the private compute cluster and other private resources, this architecture uses private build agents and jump box virtual machines instances. Azure Bastion provides secure access to the jump box VMs. The resources inside the stamps remain the same as the [**baseline management resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
+To gain access to the private compute cluster and other resources, this architecture uses private build agents and jump box virtual machines instances. Azure Bastion provides secure access to the jump boxes. The resources inside the stamps remain the same as the [**baseline management resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture#management-resources).
 
 ## Networking considerations
 
@@ -189,21 +189,21 @@ The Connectivity subscription provides private DNS zones. However, that centrali
 
 ## Environment design considerations
 
-Start with these questions:
+Here are some key points for your application environments.
 
-**How is isolation maintained?** 
+##### How is isolation maintained?
 
 It's a general practice to place workloads in separate environments for **production**, **pre-production**, and **development**. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
 
 One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development environment should be a scaled down version of production.
 
-**What is the expected lifecycle?** 
+##### What is the expected lifecycle?
 
 Environments have different lifecycle requirements. Ephemeral environments can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
 
 Pre-production environments can be destroyed after validation tests are completed. It's recommended that development environments share the lifetime of a feature and are destroyed when development is complete. 
 
-**What are the tradeoffs?** 
+##### What are the tradeoffs?
 
 Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization.
 
@@ -293,9 +293,11 @@ If you're running multiple deployments within a single subscription, avoid using
 
 ## Monitoring considerations
 
-The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads) but for mission-critical workloads, an autonomous approach for monitoring is highly recommended.  
+The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. The centralized operations team [encourage the application teams to use federated model](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads). But for mission-critical workloads,
+a single, centralized observability store isn't recommended because it can potentially be a single point of failure. 
+Mission-critical workloads need telemetry that might not be applicable or actionable for centralized operations teams.
 
-Mission-critical workloads need telemetry that might not be applicable or actionable for centralized operations teams. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents overall health.
+So, an autonomous approach for monitoring is highly recommended. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents overall health.
 
 The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources in those scopes. Aggregating logs, creating dashboards, and alerting is in scope for your team. Take advantage of Azure Diagnostics capabilities that send metrics and logs to various sinks. 
 
