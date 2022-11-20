@@ -1,15 +1,16 @@
 This reference architecture provides guidance for deploying a mission-critical workload that uses centralized shared services, needs on-premises connectivity, and integrates with other workloads of an enterprise. This guidance is intended for a workload owner who is part of an application team in the organization.
 
-You might find yourself in this situation when your organization wants to deploy the workload in an _application Azure landing zone_ that inherits the Corp Management group. The workload is expected to integrate with the pre-provisioned shared resources that are managed by centralized teams in the _platform Azure landing zone_ that inherits the Corp Management group.  
-
-In this approach, **the centrally managed components need to be highly reliable for a mission-critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. You must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which affect the workload, are mitigated at the platform level.
+You might find yourself in this situation when your organization wants to deploy the workload in an _application Azure landing zone_ that inherits the Corp. Management group. The workload is expected to integrate with the pre-provisioned shared resources that are managed by centralized teams in the _platform Azure landing zone_ that inherits the Corp Management group.  
 
 > [!IMPORTANT]
+> [**What is an Azure landing zone?**](/azure/cloud-adoption-framework/ready/landing-zone/) 
 > An application landing zone is a pre-provisioned subscription that's connected to the organization's shared resources. It has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring capabilities. The Azure platform landing zones is a collection of various subscriptions each with specific functionality. For example, the Connectivity subscription contains Azure Private DNS Zone, ExpressRoute circuit, Firewall in a virtual network that's available for use in applicable scenarios. 
 >
 > You benefit by offloading management of shared resources to central teams and focus on workload development efforts. The organization benefits by applying consistent governance and amortizing costs across multiple workloads.
 > 
-> If you aren't familiar with the concept of landing zones, we highly recommend you start with [What is an Azure landing zone?](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
+> We highly recommend you get familiar with the concept of Azure landing zones. 
+
+In this approach, **the centrally managed components need to be highly reliable for a mission-critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. You must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which affect the workload, are mitigated at the platform level.
 
 This architecture builds on the [**mission-critical **baseline architecture** with network controls**](./mission-critical-network-architecture.yml). It's recommended that you become familiar with the **baseline architecture** before proceeding with this article. 
 
@@ -179,7 +180,7 @@ Your mission-critical workloads must be deployed in multiple regions to withstan
 
 ##### DNS resolution
 
-The Connnectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that are specific to your workload. Provision your own DNS zones and link to the regional stamp. 
+The Connectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that are specific to your workload. Provision your own DNS zones and link to the regional stamp. 
 
 **Platform team**
 - When possible, delegate the Azure Private DNS zones to the application team to cover their use cases. 
@@ -276,7 +277,7 @@ When the existing stamp is no longer required, all stamp resources are deleted b
 
 ##### DINE (deploy-if-not-exists) Azure policies
 
-Azure landing zones might have DINE (deploy-if-not-exists) Azure policies to ensure that deployed resources meet corporate standards in application landing zones, even when they're owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
+Azure application landing zones might have DINE (deploy-if-not-exists) Azure policies. Those checks ensure that deployed resources meet corporate standards in application landing zones, even when they're owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
 
 Evaluate the impact of all DINE policies that will be applied to your resources. If there are changes to the configuration, incorporate the intention of the policies into your declarative deployments early in the workload’s development cycle. Don't apply those changes through imperative approaches as they can impact overall reliability.
 
@@ -318,7 +319,7 @@ The application landing zone subscription inherits Azure policies, Azure Network
 For deployments, don't depend on the platform-provided policies exclusively:
 
 - They entirely won't cover the needs of the workload. 
-- The policies and rules might get updated or removed outside your team and consequently can impact reliability. 
+- The policies and rules might get updated or removed outside your team, and so can impact reliability. 
 
 It's highly recommended that you create and assign Azure policies within your deployments. This effort might lead to some duplication but that's acceptable, considering the potential impact on reliability of the system. If there are changes in the platform policies, the workload policies will still be in effect locally. 
 
@@ -339,7 +340,7 @@ The networking aspects of this architecture are implemented in the Mission-criti
 
 ## Next steps
 
-For details on the design decisions made in this architecture, review the networking and connectivity design area for mission-critical workloads in Azure Well-architected Framework.
+Review the networking and connectivity design area in Azure Well-architected Framework.
 
 > [!div class="nextstepaction"]
 > [Design area: Networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity)
