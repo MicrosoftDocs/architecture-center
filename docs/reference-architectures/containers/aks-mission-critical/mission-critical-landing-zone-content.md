@@ -83,7 +83,7 @@ To gain access to the private compute cluster and other resources, this architec
 
 ## Networking considerations
 
-In this design, the workload is deployed in the application landing zone and will need connectivity to the federated resources in the platform landing zone. The purpose could be for accessing on-premises resources, controlling egress traffic, and so on. 
+In this design, the workload is deployed in the application landing zone and needs connectivity to the federated resources in the platform landing zone. The purpose could be for accessing on-premises resources, controlling egress traffic, and so on. 
 
 ### Network topology
 
@@ -164,7 +164,7 @@ All outgoing traffic from each regional spoke network is routed through the cent
 
 - Create UDRs for that custom route. 
 
-- Assign Azure policy that will block your team from creating subnets without assigning that new route table. 
+- Assign Azure policy that will block the application team from creating subnets without assigning that new route table. 
 
 - Give proper role-based access control (RBAC) permissions to the application team so that they can extend the routes based on the requirements of the workload.
 
@@ -263,7 +263,7 @@ Updates to the application can cause outages. Enforcing consistent deployments w
 
 > For more information, see [Mission-critical deployment and testing guidelines](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test).
 
-In the **baseline architecture**, those strategies are implemented by unprovisioning and then tearing down the stamp with each update. In this architecture, complete unprovisioning isn't possible because the platform team owns some resources. You'll have to adjust your approach.
+In the **baseline architecture**, those strategies are implemented by unprovisioning and then tearing down the stamp with each update. In this design, complete unprovisioning isn't possible because the platform team owns some resources. So the deployment model was changed.
 
 ##### Deployment model
 
