@@ -16,6 +16,7 @@ The following workflow corresponds to the above diagram:
 - An Azure Arc data controller is deployed on each Azure Arc-enabled Kubernetes cluster.
 - An Azure Arc-enabled SQL Managed Instance is deployed on the primary cluster in Business critical service tier.
 - An Azure Arc-enabled SQL Managed Instance is deployed on the secondary cluster in Business critical service tier and configured as a disaster recovery instance.
+- Once there is a downtime in the primary site, we can failover to the Azure Arc-enabled SQL Managed Instance in the secondary site.
 
 ### Components
 
