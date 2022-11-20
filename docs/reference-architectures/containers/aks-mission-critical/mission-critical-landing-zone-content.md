@@ -186,31 +186,32 @@ The Connnectivity subscription provides private DNS zones. However, that central
 
 - For the regional hub network, set the DNS servers value to Default (Azure-provided) to support private DNS zones managed by the application team. 
 
+## Environment design considerations
 
-## Deployment considerations
+Start with these questions:
 
-Failed deployments or erroneous releases are common causes for application outages. Test your application (and new features) thoroughly as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
+**How is isolation maintained?** 
 
-> Refer to: [Well-architected mission-critical workloads: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
+It's a general practice to place workloads in separate environments for **production**, **pre-production**, and **development**. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
 
-### Deployment environments
+One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development environment should be a scaled down version of production.
 
-- **How is isolation maintained?** It's a general practice to place workloads in separate environments for **production**, **pre-production**, and **development**. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
+**What is the expected lifecycle?** 
 
-    One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development environment should be a scaled down version of production.
+Environments have different lifecycle requirements. Ephemeral environments can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
 
-- **What is the expected lifecycle?** Environments have different lifecycle requirements. Ephemeral environments can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
+Pre-production environments can be destroyed after validation tests are completed. It's recommended that development environments share the lifetime of a feature and are destroyed when development is complete. 
 
-    Pre-production environments can be destroyed after validation tests are completed. It's recommended that development environments share the lifetime of a feature and are destroyed when development is complete. 
+**What are the tradeoffs?** 
 
-- **What are the tradeoffs?** Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization.
+Consider the tradeoffs between isolation of environments, complexity of management, and cost optimization.
 
 > [!TIP]
 > All environments should take dependencies on production instances of external resources including platform resources. For example, a production regional hub in the Connectivity subscription. You'll be able to minimize the delta between pre-production and production environments.
 
-### Subscription topology for workload infrastructure
+## Subscription topology for workload infrastructure
 
-The platform team will give you an Azure landing zone subscription to run your workload. Depending on the **number of environments**, you might request several subscriptions for just one workload. Depending on the **type of environment**, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription. 
+Azure landing zone subscriptions are given to you by the platform team. Depending on the **number of environments**, you might request several subscriptions for just one workload. Depending on the **type of environment**, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription. 
 
 Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will reflect the production environment.
 
@@ -237,7 +238,13 @@ At least one subscription is required. It can run many independent environments,
 
 At least one subscription is required. This subscription might be subject to resource limits if runs all independent environments. So, you may request multiple subscriptions. Having individual environments in their dedicated subscriptions is recommended.
 
-Try to match the production topology as much as possible. 
+Try to match the production topology as much as possible.
+
+## Deployment considerations
+
+Failed deployments or erroneous releases are common causes for application outages. Test your application (and new features) thoroughly as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
+
+> Refer to: [Well-architected mission-critical workloads: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
 
 ### Deployment infrastructure
 
@@ -249,30 +256,27 @@ Maintaining isolation between deployment resources is highly recommended. A depl
 
 ### Zero-downtime deployment
 
-A mission-critical workload must not experience outage caused by updates to the application. Consistent deployments must be enforced with each update. These approaches are recommended:
-- Fully automated deployment pipelines
-- New deployments must start from a _factory reset_ state and always in pre-production environments. After the stamp has been unprovisioned, it's torn down, and a new deployment creates infrastructure resources. For more information, see [Mission-critical deployment and testing guidelines](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test).
+Updates to the application can cause outages. Enforcing consistent deployments will boost reliability. These approaches are recommended:
+- Have fully automated deployment pipelines
+- Deploy updates in pre-production environments on a clean stamp. 
 
-In the **baseline architecture**, those strategies can be implemented as the application team has full autonomy of the workload resources. In this architecture, the platform team owns some of those resources. So, there are some areas where you might need to adjust your approach.
+> For more information, see [Mission-critical deployment and testing guidelines](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test).
 
-##### Non-ephemeral resources
-
-In the application landing zone, the given pre-peered virtual network is non-ephemeral. The stamp isn't allowed to create the virtual network or peering to the regional hub. 
-
-You'll need to reuse the non-ephemeral resources in each deployment. The strategy is illustrated for networking resources in the next section.
+In the **baseline architecture**, those strategies are implemented by unprovisioning and then tearing down the stamp with each update. In this architecture, complete unprovisioning isn't possible because the platform team owns some resources. You'll have to adjust your approach.
 
 ##### Deployment model
 
 The **baseline architecture** uses Blue-Green model to deploy application updates. New stamps with changes are deployed alongside existing stamps. After traffic is moved to the new stamp, the existing stamp is destroyed. 
 
-In this case, the Canary model can achieve reliable and safe deployment with the option to roll back. First, a new stamp is deployed with code changes. The deployment pipeline references the pre-provisioned virtual network and allocates subnets, deploys resources, adds private endpoints. Then, it shifts traffic to the new subnets.
+In this case, the given peered virtual network is non-ephemeral. The stamp isn't allowed to create the virtual network or peering to the regional hub. You'll need to reuse those resources in each deployment.
 
-When the existing stamp is no longer required, all stamp resources are deleted by the pipeline, except for the platform-owned resources. The virtual network, diagnostic settings, peering, IP address space, DNS configuration, and role-based access control (RBAC) are preserved. At this point, the stamp is at a factory reset state, and ready for the next new deployment.
+Canary model can achieve safe deployment with the option to roll back. First, a new stamp is deployed with code changes. The deployment pipeline references the pre-provisioned virtual network and allocates subnets, deploys resources, adds private endpoints. Then, it shifts traffic to the new subnets.
 
+When the existing stamp is no longer required, all stamp resources are deleted by the pipeline, except for the platform-owned resources. The virtual network, diagnostic settings, peering, IP address space, DNS configuration, and role-based access control (RBAC) are preserved. At this point, the stamp is in a clean state, and ready for the next new deployment.
 
 ##### DINE (deploy-if-not-exists) Azure policies
 
-Azure landing zones might use DINE (deploy-if-not-exists) Azure policies to ensure that deployed resources meet corporate standards in application landing zones, even when they're owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
+Azure landing zones might have DINE (deploy-if-not-exists) Azure policies to ensure that deployed resources meet corporate standards in application landing zones, even when they're owned by the application team. There might be a mismatch between your deployment and the final resource configuration.
 
 Evaluate the impact of all DINE policies that will be applied to your resources. If there are changes to the configuration, incorporate the intention of the policies into your declarative deployments early in the workload’s development cycle. Don't apply those changes through imperative approaches as they can impact overall reliability.
 
@@ -280,9 +284,11 @@ Evaluate the impact of all DINE policies that will be applied to your resources.
 
 Treat subscription boundaries as your security boundaries to limit the blast radius. Threats can impact the workload's reliability. 
 
-As part of the application landing zone subscription, the platform team should give the application teams proper authorization for operations with permissions scoped to the landing zone subscription. 
+**Platform team** 
 
-If you're running multiple deployments within a single subscription, avoid using a shared service principal because a breach will impact both deployments. Using one service principal per environment is recommended. The service principals should provide autonomy over resources that your workload will need to create as part of the deployment. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
+- Give the application teams authorization for operations with permissions scoped to the application landing zone subscription. 
+
+If you're running multiple deployments within a single subscription, avoid using a shared service principal because a breach will impact both deployments. Create  service principals as needed, one per environment is recommended. It should provide autonomy over workload resources. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
 
 ## Monitoring considerations
 
@@ -290,13 +296,16 @@ The Azure landing zone platform provides shared observability resources as part 
 
 Mission-critical workloads need telemetry that might not be applicable or actionable for centralized operations teams. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents overall health.
 
-The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources in those scopes. Aggregating logs, creating dashboards, and alerting is in scope for the workload team. The workload team can take advantage of Azure Diagnostics capabilities that send metrics and logs to various sinks. 
+The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources in those scopes. Aggregating logs, creating dashboards, and alerting is in scope for your team. Take advantage of Azure Diagnostics capabilities that send metrics and logs to various sinks. 
 
 ### Health model
 
-Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When you're defining an overall health score, include the platform landing zone flows that the application depends on. Those platform resources are in-scope for this architecture. Build log, health, and alert queries to perform cross-workspace queries to factor in those resources.
+Mission-critical design methodology requires a system [health model](mission-critical-health-modeling.md). When you're defining an overall health score, include the in-scope platform landing zone flows that the application depends on. Build log, health, and alert queries to perform cross-workspace monitoring.
 
-The platform team should grant role-based access control (RBAC) to log sinks for relevant resources that are used in the critical path of your architecture. Be sure to negotiate that access to support the shared responsibility of the platform team toward the mission-critical workload.
+**Platform team** 
+- Grant role-based access control (RBAC) to log sinks for relevant platform resources that are used in the critical path of the mission-critical application. 
+
+- Support the organizational goal of reliability toward the mission-critical workload by giving the application team enough permissions to do their operations.
 
 In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database?
 
@@ -306,12 +315,17 @@ In this architecture, the health model includes logs and metrics from resources 
 
 The application landing zone subscription inherits Azure policies, Azure Network Manager rules, and other controls from its management group. The platform team provides those guardrails. 
 
-For deployments, don't depend on the platform-provided policies exclusively as they won't cover the needs of the workload. When those policies and rules changed or removed outside your workload’s control, they could impact reliability. It's highly recommended that you create and assign Azure policies within your deployments that meet the workload requirement. This effort might lead to some duplication but that's acceptable, considering the potential impact on reliability of the system. If there are changes or removals in the platform policies, the workload policies will still be in effect locally. 
+For deployments, don't depend on the platform-provided policies exclusively:
 
-As platform policies evolve, make sure you're involved in the change control process so that the reliability target of your application isn't compromised. 
+- They entirely won't cover the needs of the workload. 
+- The policies and rules might get updated or removed outside your team and consequently can impact reliability. 
 
+It's highly recommended that you create and assign Azure policies within your deployments. This effort might lead to some duplication but that's acceptable, considering the potential impact on reliability of the system. If there are changes in the platform policies, the workload policies will still be in effect locally. 
 
+**Platform team** 
 
+- Involve the application team in the change management process of policies as they evolve. 
+- Be aware of the policies used by the application team. Evaluate if they can be added to the subscription. 
 
 ## Deploy this architecture
 
@@ -321,7 +335,7 @@ The networking aspects of this architecture are implemented in the Mission-criti
 > [Implementation: Mission-critical Connected](https://github.com/Azure/Mission-Critical-Connected)
 
 > [!NOTE]
-> The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones Connectivity subscription.
+> The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. The implementation assumes that Connectivity subscription already exists.
 
 ## Next steps
 
