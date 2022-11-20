@@ -1,6 +1,6 @@
 This reference architecture provides guidance for deploying a mission-critical workload that uses centralized shared services, needs on-premises connectivity, and integrates with other workloads of an enterprise. This guidance is intended for a workload owner who is part of an application team in the organization.
 
-You might find yourself in this situation when there's a need to deploy your workload in an _application Azure landing zone_ provided by your organization. The workload is expected to integrate with the pre-provisioned shared resources that are managed by centralized teams in the _platform Azure landing zone_ that inherits the Corp Management group.  
+You might find yourself in this situation when your organization wants to deploy the workload in an _application Azure landing zone_ that inherits the Corp Management group. The workload is expected to integrate with the pre-provisioned shared resources that are managed by centralized teams in the _platform Azure landing zone_ that inherits the Corp Management group.  
 
 In this approach, **the centrally managed components need to be highly reliable for a mission-critical workload to operate as expected.** The reliability tier of the platform and the workload must be aligned. You must have a trusted relationship with the platform team so that unavailability issues in the foundational services, which affect the workload, are mitigated at the platform level.
 
@@ -21,15 +21,11 @@ The design strategies for mission-critical baseline still apply in this use case
 
 - **Critical path**
 
-    Not all components of the architecture are equally important. Critical path includes those components that must be kept functional so that the workload doesn't experience any down time or degraded performance. Keeping that path lean will minimize points of failure. Design choices, which provide maximum reliability, are a shared responsibility between the platform team and you. The application team is accountable for driving continuous evaluation and the overall change with the platform team.
+    Not all components of the architecture are equally important. Critical path includes those components that must be kept functional so that the workload doesn't experience any down time or degraded performance. Keeping that path lean will minimize points of failure. Design choices for maximum reliability, are a shared responsibility between the platform team and you. The application team is accountable for driving continuous evaluation and the overall change with the platform team.
 
 - **Lifecycle of components**
 
-    Consider the lifecycle of critical components because that aspect has an impact on your goal of achieving zero down time deployments. Components can be ephemeral or short-lived resources that can be created and destroyed as needed; non-ephemeral or long-lived resources that share the lifetime with the system or region. There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
-
-- **Network-secure topology**
-
-    Maintain your workload's network perimeter, both public and private. Also, draw boundaries for connectivity to cloud resources as opposed to on-premises. 
+    Consider the lifecycle of critical components because that aspect has an impact on your goal of achieving zero down time deployments. Components can be **ephemeral** or short-lived resources that can be created and destroyed as needed; **non-ephemeral** or long-lived resources that share the lifetime with the system or region. There are also components that used to be ephemeral in the **baseline architecture** but are now non-ephemeral because they're pre-provisioned by the platform team.  
 
 - **External dependencies**
 
@@ -38,10 +34,6 @@ The design strategies for mission-critical baseline still apply in this use case
 - **Subscription topology**
 
     Azure landing zones don't imply a single subscription topology. Plan your subscription footprint in advance with your platform team to accommodate workload reliability and requirements and the DevOps team responsibilities across all environments.
-
-- **Isolation**
-
-    Separate use of resources based on the purpose. For example, use separate environments (and subscriptions) for production and development. 
 
 - **Autonomous observability into the critical path**
 
@@ -132,7 +124,7 @@ Have a clear understanding of which team is accountable for each design element 
 
 After you've estimated the size needed to run your workload, work with the platform team so that they can provision the network properly.
 
-**Platform team responsibilities**
+**Platform team**
 
 - Provide distinct addresses for virtual networks that participate in peerings. Overlapping addresses, for example of on-premises and workload networks, can cause disruptions leading to outage.
 
@@ -154,7 +146,7 @@ Maintain proper network segmentation so that your workload's reliability isn't c
 
 This architecture uses Network Security Groups (NSGs) to restrict traffic across subnets and the Connectivity subscription. NSGs use ServiceTags for the supported services.
 
-**Platform team responsibilities**
+**Platform team**
 
 - Enforce NSGs through Azure Network Manager Policies.
 
@@ -167,7 +159,7 @@ This architecture uses Network Security Groups (NSGs) to restrict traffic across
 
 All outgoing traffic from each regional spoke network is routed through the centralized Azure Firewall in the regional hub network. It acts as the next hop that inspects and then allows or denies traffic. 
 
-**Platform team responsibilities**
+**Platform team**
 
 - Create UDRs for that custom route. 
 
@@ -180,7 +172,7 @@ All outgoing traffic from each regional spoke network is routed through the cent
 
 Your mission-critical workloads must be deployed in multiple regions to withstand regional outages. Work with the platform team to make sure the infrastructure is reliable.
 
-**Platform team responsibilities**
+**Platform team**
 - Deploy the centralized networking resources per region. The mission-critical design methodology requires regional isolation.
 
 - Work with the application team to uncover hidden regional dependencies so that a degraded platform resource in one region doesn't impact workloads in another region.
@@ -189,7 +181,7 @@ Your mission-critical workloads must be deployed in multiple regions to withstan
 
 The Connnectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that are specific to your workload. Provision your own DNS zones and link to the regional stamp. 
 
-**Platform team responsibilities**
+**Platform team**
 - When possible, delegate the Azure Private DNS zones to the application team to cover their use cases. 
 
 - For the regional hub network, set the DNS servers value to Default (Azure-provided) to support private DNS zones managed by the application team. 
@@ -197,17 +189,17 @@ The Connnectivity subscription provides private DNS zones. However, that central
 
 ## Deployment considerations
 
-Failed deployments or erroneous releases are common causes for application outages. The application (and new features) must be thoroughly tested as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
+Failed deployments or erroneous releases are common causes for application outages. Test your application (and new features) thoroughly as part of the application lifecycle. When deploying the workload in a landing zone, you'll need to integrate your design with the platform-provided resources and governance. 
 
 > Refer to: [Well-architected mission-critical workloads: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
 
 ### Deployment environments
 
-- **How is isolation maintained?** It's a general practice to place workloads in separate environments for development, pre-production, and production. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. 
+- **How is isolation maintained?** It's a general practice to place workloads in separate environments for **production**, **pre-production**, and **development**. The production environment _must_ be isolated from other environments. Lower environments should also  maintain a level of isolation. Avoid sharing application-owned resources between environments.
 
-    One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development must be done in a separate environment. This environment should be a scaled down version of production.
+    One production environment is required for global, regional, and stamp resources owned by the application team. Pre-production environments, such as staging and integration, are needed to make sure the application is tested in an environment that simulates production, as much as possible. Development environment should be a scaled down version of production.
 
-- **What is the expected lifecycle?** Environments have different lifecycle requirements. Some are ephemeral, which can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
+- **What is the expected lifecycle?** Environments have different lifecycle requirements. Ephemeral environments can be created and destroyed as needed through continuous integration/continuous deployment (CI/CD) automation.
 
     Pre-production environments can be destroyed after validation tests are completed. It's recommended that development environments share the lifetime of a feature and are destroyed when development is complete. 
 
@@ -218,17 +210,20 @@ Failed deployments or erroneous releases are common causes for application outag
 
 ### Subscription topology for workload infrastructure
 
-Using subscriptions to contain the environments can achieve the required level of isolation. Typically, the subscriptions aren't ephemeral but the deployments within them can be. The application landing zone subscription is provisioned by your platform team.
+The platform team will give you an Azure landing zone subscription to run your workload. Depending on the **number of environments**, you might request several subscriptions for just one workload. Depending on the **type of environment**, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription. 
 
-All application landing zone subscriptions inherit the same governance from the organization's management groups. That way, consistency with production is ensured for testing and validation. However, subscription topologies can become complex. Depending on the number of environments, you'll need several subscriptions for just one workload. Depending on the type of environment, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription.
+Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will reflect the production environment.
 
-Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. Avoid sharing application-owned resources between environments. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will reflect the production environment.
+> [!NOTE]
+> Using multiple subscriptions to contain the environments can achieve the required level of isolation. Landing zone subscriptions inherit from the same management group. So, consistency with production is ensured for testing and validation.
 
 ##### Production subscription
 
-There might be resource limits defined on the subscription given to you as part of the application landing zone. If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
-- One application landing zone subscription that contains both Azure DevOps build agents and global resources.
-- One application landing zone subscription, per region. It contains the regional resources, the stamp resources, and jump boxes for the regional stamp(s).
+There might be resource limits on the application landing zone subscription given to you. If you colocate all those resources in one subscription, you may reach those limits. Based on your scale units and expected scale, consider a more distributed model. For example,
+
+- One subscription that contains both Azure DevOps build agents and global resources.
+
+- One subscription, per region. It contains the regional resources, the stamp resources, and jump boxes for the regional stamp(s).
 
 Here's an example subscription topology used in this architecture.
 
@@ -236,13 +231,13 @@ Here's an example subscription topology used in this architecture.
 
 ##### Pre-production subscription
 
-At least one Azure landing zone subscription is required. It can run many independent environments, however, having multiple environments in dedicated subscriptions is recommended. This subscription may also be subject to resource limits like the production subscription, described above.
+At least one subscription is required. It can run many independent environments, however, having multiple environments in dedicated subscriptions is recommended. This subscription may also be subject to resource limits like the production subscription, described above.
 
 ##### Development subscription
 
-At least one Azure landing zone subscription is required. It can run many independent environments. This subscription might be subject to resource limits. You may require multiple landing zone subscriptions to contain all discrete environments. Having multiple environments in dedicated subscriptions is recommended.
+At least one subscription is required. This subscription might be subject to resource limits if runs all independent environments. So, you may request multiple subscriptions. Having individual environments in their dedicated subscriptions is recommended.
 
-Try to match production topology as much as possible. If production is distributed across multiple landing zone subscriptions to avoid subscription limits, lower environments should also.
+Try to match the production topology as much as possible. 
 
 ### Deployment infrastructure
 
@@ -250,7 +245,7 @@ Reliability of the deployment infrastructure, such as build agents and their net
 
 This architecture uses private build agents to prevent unauthorized access that can impact the application's availability. 
 
-Maintaining isolation between deployment resources is highly recommended. Don't share resources between your production Azure landing zone and pre-production instances. A deployment infrastructure should be bound to your application landing zone subscription. If you're using multiple environments, then create further separation by limiting access to only those individual environments. Per-region deployment resources could be considered to make the deployment more reliable.
+Maintaining isolation between deployment resources is highly recommended. A deployment infrastructure should be bound to your workload subscription. If you're using multiple environments, then create further separation by limiting access to only those individual environments. Per-region deployment resources could be considered to make the deployment more reliable.
 
 ### Zero-downtime deployment
 
