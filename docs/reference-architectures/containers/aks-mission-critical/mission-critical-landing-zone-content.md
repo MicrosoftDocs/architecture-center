@@ -22,7 +22,7 @@ The design strategies for mission-critical baseline still apply in this use case
 
 - **Critical path**
 
-    Not all components of the architecture are equally important. Critical path includes those components that must be kept functional so that the workload doesn't experience any down time or degraded performance. Keeping that path lean will minimize points of failure. Design choices for maximum reliability, are a shared responsibility between the platform team and you. The application team is accountable for driving continuous evaluation and the overall change with the platform team.
+    Not all components of the architecture are equally important. Critical path includes those components that must be kept functional so that the workload doesn't experience any down time or degraded performance. Keeping that path lean will minimize points of failure. Maximum reliability is a shared responsibility between you and the platform team. Your team is accountable for driving continuous evaluation and the overall change with the platform team.
 
 - **Lifecycle of components**
 
@@ -174,7 +174,7 @@ All outgoing traffic from each regional spoke network is routed through the cent
 Your mission-critical workloads must be deployed in multiple regions to withstand regional outages. Work with the platform team to make sure the infrastructure is reliable.
 
 **Platform team**
-- Deploy the centralized networking resources per region. The mission-critical design methodology requires regional isolation.
+- Deploy centralized networking resources per region. The mission-critical design methodology requires regional isolation.
 
 - Work with the application team to uncover hidden regional dependencies so that a degraded platform resource in one region doesn't impact workloads in another region.
 
@@ -217,7 +217,7 @@ Azure landing zone subscriptions are given to you by the platform team. Dependin
 Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will reflect the production environment.
 
 > [!NOTE]
-> Using multiple subscriptions to contain the environments can achieve the required level of isolation. Landing zone subscriptions inherit from the same management group. So, consistency with production is ensured for testing and validation.
+> Using multiple subscriptions to contain the environments can achieve the required level of isolation. Landing zone subscriptions are inherited from the same management group. So, consistency with production is ensured for testing and validation.
 
 ##### Production subscription
 
@@ -308,7 +308,7 @@ Mission-critical design methodology requires a system [health model](mission-cri
 **Platform team** 
 - Grant role-based access control (RBAC) to log sinks for relevant platform resources that are used in the critical path of the mission-critical application. 
 
-- Support the organizational goal of reliability toward the mission-critical workload by giving the application team enough permissions to do their operations.
+- Support the organizational goal of reliability toward the mission-critical workload by giving the application team enough permission to do their operations.
 
 In this architecture, the health model includes logs and metrics from resources provisioned in Connectivity subscription, such as Azure Firewall. If you extend this design to reach an on-premises database, the health model must include network connectivity to that database, including security boundaries like network virtual appliances in Azure _and_ on-premises. This information is important to quickly determine the root cause and remediate the reliability impact. For example, did the failure occur when trying to route to the database, or was there an issue with the database?
 
@@ -356,7 +356,6 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Container Registry](/azure/container-registry/)
 - [Azure Log Analytics](/azure/azure-monitor/)
 - [Azure Key Vault](/azure/key-vault/)
-- [Azure Service Bus](/azure/service-bus-messaging/)
 - [Azure Kubernetes Service](/azure/aks/)
 - [Azure Application Insights](/azure/azure-monitor/)
 - [Azure Event Hubs](/azure/event-hubs/)
