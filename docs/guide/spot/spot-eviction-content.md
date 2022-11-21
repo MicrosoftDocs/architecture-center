@@ -74,7 +74,7 @@ For more information, see:
 
 ## Design for flexibility
 
-Workloads on Spot VMs need flexibility. Your orchestration  to switch VM types, VM sizes, regions, zone, and resume work later, if possible.
+Workloads on Spot VMs need flexibility. Your orchestration to switch VM types, VM sizes, regions, zone, and resume work later, if possible.
 
 - **Deletion also removes the disks. Data disks persists with deallocation.**
 - Cost of keeping data.
@@ -86,9 +86,6 @@ Workloads on Spot VMs need flexibility. Your orchestration  to switch VM types, 
 We recommend identifying a few VM types that have the power to run the application and fit within budget constraints. It will give your orchestration more options to choose from and find spare compute capacity faster.
 
 You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find the right spot VM SKU for you that will derive in a list of possible SKUs.
-
-**DO YOU RECOMMEND DELETION EVICTION POLICY TO INCREASE FLEXIBILITY?**
-
 
 ### Prepare for immediate eviction
 
