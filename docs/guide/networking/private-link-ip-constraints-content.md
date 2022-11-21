@@ -1,12 +1,12 @@
-Overlapping IP address spaces are commonly found when connected networks are from different customers, different companies within a holding company, or companies that don't have a centralized IP address management (IPAM) methodology.
+Overlapping IP address spaces commonly occur when connected networks are from different customers, different companies within a holding company, or companies that don't have a centralized IP address management (IPAM) methodology.
  
-Azure provides several ways to connect networks: Azure VPN Gateway and Azure ExpressRoute provide hybrid connectivity between the cloud and customer on-premises facilities, and you can use virtual network peering to connect two virtual networks. These solutions, however, have a common restriction: the networks on either side of the connection can't use overlapping IP addresses to establish connection. If two networks use the same address space, traffic can't be routed between them.  
+Azure provides several ways to connect networks: Azure VPN Gateway and Azure ExpressRoute provide hybrid connectivity between the cloud and customer on-premises facilities, and you can use virtual network peering to connect two virtual networks. These solutions, however, have a common restriction: the networks being connected can't use overlapping IP addresses to establish connection. If two networks use the same address space, traffic can't be routed between them.  
  
 This article describes how you can use [Azure Private Link](https://azure.microsoft.com/products/private-link) to overcome overlapping IP address space constraints. It provides general guidance on how to expose applications running in one virtual network on Azure to consumers in another virtual network that has an overlapping IP address space.
 
 ## What is Azure Private Link?
  
-Private Link enables access to Azure-hosted customer-owned, partner, and Azure PaaS services over a private endpoint from your virtual network. Traffic between your virtual network and the service is kept private inside the Azure network backbone. Exposing your service to the public internet is optional after you configure your private endpoint.
+Private Link enables access to Azure-hosted customer-owned, partner, and Azure PaaS services over a private endpoint from your virtual network. Traffic between your virtual network and the service is kept more private inside the Azure network backbone. Exposing your service to the public internet is optional after you configure your private endpoint.
 
 Private Link service is the reference to your own service that's powered by Private Link. You can use Private Link service to expose an application that's deployed in one Azure virtual network into another virtual network. The following diagram provides an example. Assume that you want to expose an application on Network B so that it can be consumed from Network A, which shares the same IP address prefix.
 
@@ -24,7 +24,7 @@ Your application needs to meet some prerequisites if you want to expose it in Ne
 
 The most important prerequisite is that your application must be deployed in an Azure virtual network. You can't use Private Link service when the application with the overlapping address space is deployed on-premises and you need to access it from Azure. 
 
-After the prerequisites are met, you can follow the steps in one of the available quickstart guides to deploy your private link service. You can use the [Azure portal](/azure/private-link/create-private-link-service-portal#create-a-private-link-service), [PowerShell](/azure/private-link/create-private-link-service-powershell#create-a-private-link-service), [Azure CLI](/azure/private-link/create-private-link-service-cli#create-a-private-link-service), or [ARM templates](/azure/private-link/create-private-link-service-template).  
+After the prerequisites are met, you can follow the steps in one of the available quickstart guides to deploy your private link service. These quickstart guides describe how to use the [Azure portal](/azure/private-link/create-private-link-service-portal#create-a-private-link-service), [PowerShell](/azure/private-link/create-private-link-service-powershell#create-a-private-link-service), [Azure CLI](/azure/private-link/create-private-link-service-cli#create-a-private-link-service), or [ARM templates](/azure/private-link/create-private-link-service-template).  
  
 After you deploy your Private Link service, the scenario shown in the preceding diagram evolves into an architecture that uses Private Link: 
 
@@ -58,7 +58,7 @@ After you deploy a private endpoint in your virtual network, the application can
  
 You can use Azure DNS and private Azure DNS zones as the DNS server for your application. For more information, see [Create public DNS zone](/azure/dns/dns-getstarted-portal) or [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal).
 
-You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration).
+For information about providing transparent DNS resolution for your customers, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration).
  
 ### Cost
  
@@ -88,7 +88,7 @@ Other contributors:
 
 - [What is Azure Private Link service?](/azure/private-link/private-link-service-overview)
 - [Create a Private Link service by using the Azure portal](/azure/private-link/create-private-link-service-portal)
-- [Create public DNS zone](/azure/dns/dns-getstarted-portal) 
+- [Create a public DNS zone](/azure/dns/dns-getstarted-portal) 
 - [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal)
 - [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
 
