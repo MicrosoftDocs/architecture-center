@@ -129,7 +129,14 @@ For a strong identity solution, you not only have to consider *authentication*, 
 
 ## Maintenance
 
-Consider talking here about the maintenance overhead of b2c tenants. Rotating keys, certificates, etc. 
+When planning for a multitenant deployment of Azure AD B2C, it is important to consider the long term maintenance of your Azure AD B2C tenants as well. This list is not exhaustive, but you should think about things such as:  
+
+1. [User journey configuration](/azure/active-directory-b2c/user-flow-overview) - How will you deploy changes to your Azure AD B2C tenant(s)? How will you test changes to your User Journeys before deploying them?
+2. App Registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
+3. [Policy Keys](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy) - If you are using custom policies, how will you rotate the policy keys when necessary?
+4. User credentials - How will you manage user information and credentials? What if one of your users gets locked out or forgets their password and requires administrator intervention?
+
+It is also important to keep in mind that these things must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change if/when you have more than one Azure AD B2C tenant to maintain. For example: Deploying changes to custom policies to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually is extremely difficult.
 
 ### Deployments & DevOps
 
