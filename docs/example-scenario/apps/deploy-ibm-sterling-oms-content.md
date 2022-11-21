@@ -224,6 +224,6 @@ Principal authors:
 
 Other contributors:
 
-- [Vijaya Bashyam](https://www.linkedin.com/in/vijaya-bashyam-76a6837/) | Senior Technical Staff Member
+- [Vijaya Bashyam](https://www.linkedin.com/in/vijaya-bashyam-76a6837/) | Senior Technical Staff Member, IBM
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
