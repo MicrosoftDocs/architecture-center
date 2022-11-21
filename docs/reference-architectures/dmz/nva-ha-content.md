@@ -111,9 +111,10 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal author:
+Principal authors:
 
- - [Telmo Sampaio](https://www.linkedin.com/in/telmo-sampaio-172200/) | Principal Service Engineering Manager
+ - [Keith Mayer](https://www.linkedin.com/in/keithm) | Principal Cloud Solution Architect
+ - [Telmo Sampaio](https://www.linkedin.com/in/telmo-sampaio-172200) | Principal Service Engineering Manager
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
