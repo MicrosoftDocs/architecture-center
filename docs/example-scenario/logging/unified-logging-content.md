@@ -139,13 +139,13 @@ The following code shows examples of the structured logging objects:
 
 ```json
 {
-  "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f"
+  "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f",
   "Environment": "Live",
-  "StatusCode: 500,
-  "Severity: "Error",
+  "StatusCode": 500,
+  "Severity": "Error",
   "Application": "Contso Web Shop",
   "Service": "PaymentsService",
-  "EventTimeUTC:" "2020-04-27T13:19Z",
+  "EventTimeUTC": "2020-04-27T13:19Z",
   "BrowserType": "Chromium",
   "Data":{
       "Runtime":"Net Core",
