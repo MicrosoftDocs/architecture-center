@@ -59,6 +59,9 @@ The following table summarizes the differences between the main tenancy models f
 
 ### Shared Azure AD B2C tenant
 
+>[!NOTE]
+> Using a shared Azure AD B2C tenant is what we recommend for most scenarios.
+
 Using a single, shared Azure AD B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared Azure AD B2C tenant should be considered if the following apply to your scenario:
 
 - You do not have data residency or strict data isolation requirements
@@ -122,30 +125,8 @@ When provisioning a Azure AD B2C tenant, you will be asked to select a region fo
 
 ## Authorization
 
-Azure AD B2C is typically focused on the *authentication* of users. In order to perform *authorization*, there are extra considerations you must take into account. Generally speaking, you have 3 main options when it comes to *authorization*:
+For a strong identity solution, you not only have to consider *authentication*, but *authorization* as well. There are several approaches in which you can build out an authorization strategy for your application. This [sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C's [application roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in your application, but also discusses other approaches you can take as well. There is no "one size fits all" approach to authorization, and you should consider the needs of your application and your customers when deciding on an approach.
 
-1. Keep the authorization logic entirely out of Azure AD B2C and implement it in the application itself.
-   - The main benefit here is that you don't need to build it inside of your User Flows or Custom Policies, and don't need to host an additional REST API.
-   - Another benefit of this approach is that the authorization information can be refreshed at will (eg. with every user request), whereas the other options emit authorization information as claims inside the application token. Today, this token only gets refreshed when the user signs out and back in or goes through some other user flow interactively; otherwise the token contents are not re-evaluated. 
-   - The disadvantage is that if there are multiple applications that have the same authorization requirements, they have to re-implement the authorization logic across each application and cannot benefit from a central component which provides and maintains this as a service from a single place.
-
-2. Use [custom user attributes](/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow) in Azure AD B2C to store the user's roles
-     - These user attributes are easy to define and can simply be selected as Application Claims in the token, which makes them easy to use from [user flows](/azure/active-directory-b2c/user-flow-overview) (meaning you do not need to use [custom policies](/azure/active-directory-b2c/custom-policy-overview)).
-     - In this case, you would need to create a user management application that is able to perform CRUD (Create, Read, Update, Delete) operations on these attributes via the [Microsoft Graph API](/graph/use-the-api), as they are not visible in the Azure portal.
-     - You will also need to take care to never allow these user attributes to be modified by the end users themselves (e.g. through a profile edit user flow), otherwise a user could simply modify their own permissions.
-     - You should consider prefixing the user attributes with the app name to avoid conflicts, e.g. App1_AppRoles and App2_AppRoles.
-     - Also note that custom user attributes today do not allow *collections*. If there are multiple roles you must return, they must be returned as a single string using a separator. There is a [string length limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 250 characters for a single custom user attribute, so this wouldn't work well if you need a *lot* of different roles or permissions.  
-
-3. Use an external, custom REST API to return authorization claims
-      -   
-
-Talk through pros/cons of the 2 main ways to do RBAC in B2C: App Roles and build-your-own. App roles being more basic and having a limit of (?) app roles per app. Building your own is much more complex.  
-
-Link to identity approaches article here. [https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/identity#authorization)
-
-Could link to Azure SaaS Dev Kit here maybe, as it has one of these built. Could also link to SaaS Starter Web App doc [https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/saas-starter-web-app).  
-
-Also may want to discuss how this applies to different isolation models. 
 ## Maintenance
 
 Consider talking here about the maintenance overhead of b2c tenants. Rotating keys, certificates, etc. 
