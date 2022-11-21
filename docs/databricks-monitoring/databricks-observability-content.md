@@ -320,7 +320,7 @@ To diagnose these issues, you used the following metrics:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
 
