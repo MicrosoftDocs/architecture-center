@@ -45,9 +45,11 @@ Spot VMs are up to 90 percent cheaper than regular (pay-as-you-go) VMs. The disc
 - [Azure Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 - [Spot VM pricing overview](/azure/virtual-machines/spot-vms#pricing)
 
-## Understand orchestration
+## Design flexible orchestration
 
-Orchestration is the process of replacing a spot VM after an eviction. Orchestration should be as flexible as possible. We recommend building orchestration to use multiple VM sizes and several locations to improve flexibility. Below are orchestration recommendations you should consider.
+Orchestration is the process of replacing a spot VM after an eviction. Orchestration should be as flexible as possible. We recommend building orchestration to use multiple VM sizes and several locations to improve flexibility.
+
+Below we've outlined key orchestration recommendations.
 
 **(1) Use multiple VM sizes and locations** - You should identify a few VM sizes that have the power to run your workload and fit within your budget. These VM size options will give your orchestration more options to choose from and find spare compute capacity faster. You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find the right spot VM SKU for you that will derive in a list of possible SKUs.
 
