@@ -96,7 +96,7 @@ This pattern might not be useful when:
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 
@@ -120,4 +120,4 @@ The following patterns might be relevant when implementing this pattern:
 
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
 - [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
-- [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml)
+- [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml)

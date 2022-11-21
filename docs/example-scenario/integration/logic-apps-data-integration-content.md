@@ -161,7 +161,7 @@ Principal authors:
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
 [Disable or enable logic apps]: /azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-logic-apps
 [Enable Azure Active Directory Open Authentication (Azure AD OAuth)]: /azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#enable-azure-active-directory-open-authentication-azure-ad-oauth
-[Enterprise integration using queues and events]: ../../reference-architectures/enterprise-integration/queues-events.yml
+[Enterprise integration using queues and events]: ./queues-events.yml
 [Get started with Power Automate]: /power-automate/getting-started
 [Import a Logic App as an API]: /azure/api-management/import-logic-app-as-api
 [Install a gateway cluster]: /data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster
