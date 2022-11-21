@@ -38,7 +38,7 @@ Although the networks have overlapping IP address spaces, communication is now p
  
 ### Networking
 
-All traffic coming to your application will appear to originate from an IP address on the destination virtual network that's associated with the Private Link service. The following diagram shows the IP addresses that both the customer and application will see as their source and destination IP addresses. If your application requires the actual source IP address of the customer that's initiating the connection, Private Link supports the Proxy protocol, which provides a convenient way to transport, with enhanced security, connection information like a client's address across multiple layers of NAT or TCP proxies.
+All traffic coming to your application will appear to originate from an IP address on the destination virtual network that's associated with the Private Link service. The following diagram shows the IP addresses that both the customer and application will see as their source and destination IP addresses. If your application requires the actual source IP address of the customer that's initiating the connection, Private Link supports the Proxy protocol. This protocol provides a convenient way to transport, with enhanced security, connection information like a client's address across multiple layers of NAT or TCP proxies.
 
 For more information, see [Getting connection Information using TCP Proxy v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).  
 
@@ -58,7 +58,7 @@ After you deploy a private endpoint in your virtual network, the application can
  
 You can use Azure DNS and private Azure DNS zones as the DNS server for your application. For more information, see [Create public DNS zone](/azure/dns/dns-getstarted-portal) or [Create a private DNS zone](/azure/dns/private-dns-getstarted-portal).
 
-You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration) for more details.
+You can follow the same approach of services enabled by Private Link to provide a transparent DNS resolution for your customers. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration).
  
 ### Cost
  
