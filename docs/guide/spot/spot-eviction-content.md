@@ -26,15 +26,15 @@ Spot VMs are cheaper because they can be evicted. Eviction is when the VM is for
 
 Spot VMs have two configuration options that affect eviction. You set the eviction type and eviction policy when you create Spot VMs. Eviction type determines when eviction occurs. Eviction policy determines what eviction does. Let's address each in more detail.
 
-**(1) Eviction type** <br> Eviction is caused by capacity changes or price change. The way these affect spot VMs depends on the eviction type chosen when the VM was created. Eviction type defines the conditions of eviction. The eviction types are "capacity only eviction" and "price or capacity eviction".
+**(1) Eviction type** - Eviction is caused by capacity changes or price change. The way these affect spot VMs depends on the eviction type chosen when the VM was created. Eviction type defines the conditions of eviction. The eviction types are "capacity only eviction" and "price or capacity eviction".
 
-***Capacity only eviction*** - The capacity only eviction type triggers an eviction occurs when excess capacity disappears. Use the capacity only eviction type to create more reliability.
+*Capacity only eviction* <br> The capacity only eviction type triggers an eviction occurs when excess capacity disappears. Use the capacity only eviction type to create more reliability.
 
-***Price or capacity eviction*** - The price or capacity eviction type triggers an eviction when excess capacity disappears or the cost of the VM exceeds your max price. When you create spot VM, you set a maximum price. The price or capacity eviction type accounts for the maximum price and triggers and eviction even if capacity exists. Use the price or capacity eviction type to save more money.
+*Price or capacity eviction* <br>  The price or capacity eviction type triggers an eviction when excess capacity disappears or the cost of the VM exceeds your max price. When you create spot VM, you set a maximum price. The price or capacity eviction type accounts for the maximum price and triggers and eviction even if capacity exists. Use the price or capacity eviction type to save more money.
 
-**(2) Eviction policy** <br> The eviction policy chose for a spot VM affects its orchestration. By orchestration, we mean the process of handling an eviction. We cover orchestration in detail below. The eviction policies are the "Stop/Deallocate policy" and "Delete policy".
+**(2) Eviction policy** - The eviction policy chose for a spot VM affects its orchestration. By orchestration, we mean the process of handling an eviction. We cover orchestration in detail below. The eviction policies are the "Stop/Deallocate policy" and "Delete policy".
 
-***Stop/Deallocate policy*** - The Stop/Deallocate eviction policy is best when the workload can wait for release capacity within the same location and VM type.
+*Stop/Deallocate policy* <br> The Stop/Deallocate eviction policy is best when the workload can wait for release capacity within the same location and VM type.
 
 The Stop/Deallocate policy stops the VM and ends its lease with the underlying compute capacity. Stopping and deallocating a spot VM is the same as stopping and deallocating a regular VM. The VM remains accessible in Azure, and you can redeploy the same VM later.
 
@@ -42,7 +42,7 @@ The effect of the Stop/Deallocate policy is losing compute capacity and all non-
 
 VMs cannot be moved from their region or zone even when stopped and deallocated. You can simulate movement by replicating the VM, deploy it to a new location, and deleting the original VM.
 
-***Delete policy*** - Use the "Delete" policy if the workload can change location or VM size. Changing location and or VM type allows the VM to redeploy faster. The Delete policy deletes the VM and any data disk. The VM doesn't occupy cores in subscriptions. For more information on eviction policies, see [eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
+*Delete policy* <br>  Use the "Delete" policy if the workload can change location or VM size. Changing location and or VM type allows the VM to redeploy faster. The Delete policy deletes the VM and any data disk. The VM doesn't occupy cores in subscriptions. For more information on eviction policies, see [eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
 
 ## Understand spot pricing
 
