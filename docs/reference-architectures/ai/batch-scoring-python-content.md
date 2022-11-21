@@ -82,9 +82,12 @@ Automatic scaling might not be appropriate for batch jobs that occur too close t
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+- [Said Bleik](https://www.linkedin.com/in/said-bleik-34b55156) | Principal Applied Scientist Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
