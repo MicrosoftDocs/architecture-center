@@ -158,6 +158,7 @@ Principal authors:
 
  - [Mathew Salvaris](https://www.linkedin.com/in/drmathewsalvaris) | Principal Data Scientist Lead
  - [Fidan Boylu Uz](https://www.linkedin.com/in/fidan-boylu-uz-ph-d-mba-3a6b782) | Principal Data Scientist Manager
+ - [Yan Zhang](https://www.linkedin.com/in/yanzhangmicrosoft) | Senior Data Scientist
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
