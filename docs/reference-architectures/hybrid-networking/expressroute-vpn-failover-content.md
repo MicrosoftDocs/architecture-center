@@ -128,7 +128,7 @@ To deploy the solution, perform the following steps.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370/) | Senior Cloud Solution Architect
 
