@@ -55,9 +55,9 @@ Spot VMs are up to 90 percent cheaper than regular (pay-as-you-go) VMs. The disc
 
 Orchestration is the process of replacing a spot VM after an eviction. Orchestration should be as flexible as possible. We recommend building orchestration to use multiple VM sizes and several locations to improve flexibility.
 
-**(1) Use multiple VM sizes and locations** <br> You should identify a few VM sizes that have the power to run your workload and fit within your budget. These VM size options will give your orchestration more options to choose from and find spare compute capacity faster. You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find the right spot VM SKU for you that will derive in a list of possible SKUs.
+**(1) Use multiple VM sizes and locations** - You should identify a few VM sizes that have the power to run your workload and fit within your budget. These VM size options will give your orchestration more options to choose from and find spare compute capacity faster. You should filter VMs min vCPUs/Cores and/or min RAM, and max price to find the right spot VM SKU for you that will derive in a list of possible SKUs.
 
-**(2) Use the most flexible eviction policy.** The eviction policy of the evicted Spot VM affects the replacement process. A delete eviction policy is more flexible than a stopped/deallocated eviction policy.
+**(2) Use the most flexible eviction policy** - The eviction policy of the evicted Spot VM affects the replacement process. A delete eviction policy is more flexible than a stopped/deallocated eviction policy.
 
 *Consider delete policy first*<br> We recommend using a delete eviction policy if your workload can handle it. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility can help your workload find spare compute capacity faster than a stopped / deallocated VM. Stopped / deallocated VMs have to wait for spare compute capacity in the same zone it was created in. You'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
 
@@ -67,8 +67,9 @@ Orchestration is the process of replacing a spot VM after an eviction. Orchestra
 | --- | --- |
 | Delete | A Spot VM with a Delete policy will need to be recreated. |
 | Stopped/Deallocated |  |
+**WE NEED TO FILL OUT THIS TABLE?**
 
-**Continuously monitor for eviction** <br> Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is knowing in advance when they're going to be evicted. With this information, you can trigging automation for a graceful shutdown and orchestrate a replacement.
+**(3) Continuously monitor for eviction** - Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is knowing in advance when they're going to be evicted. With this information, you can trigging automation for a graceful shutdown and orchestrate a replacement.
 
 *Use Scheduled Events* <br> We recommend using the Scheduled Events service for each VM. Azure has different infrastructure maintenance types and each types generates a distinct signal. Evictions qualify as infrastructure maintenance and send out the `Preempt` signal to all affected VMs. A service called Schedule Events allows you to capture the `Preempt` signal for VM. The Scheduled Events service provide a queryable endpoint at a static, non-routable IP address `169.254.169.254`. Azure infrastructure generates the `Preempt` signal for affected VMs at a minimum 30 seconds before an eviction. You might not query the endpoint the second the `Preempt` signal arrives, so you need to build your orchestration around these constraints.
 
@@ -81,21 +82,19 @@ Orchestration is the process of replacing a spot VM after an eviction. Orchestra
 - [Endpoint querying frequency](/azure/virtual-machines/linux/scheduled-events#polling-frequency)
 - [Application Insights telemetry](/azure/azure-monitor/app/data-model)
 
-**Prepare for immediate eviction** - Your orchestration needs to account for immediate evictions. It's possible that your spot VM will be designated for eviction as soon as it's created. The `Preempt` signal will indicate still provide a minimum of 30 seconds advance notice of the eviction. We recommend building orchestration that can withstand immediate evictions. **HOW DO YOU PREPARE FOR AN IMMEDIATE EVICTION? WHERE SHOULD ORCHESTRATON LOGIC SIT?**
+**(4) Prepare for immediate eviction** - Your orchestration needs to account for immediate evictions. It's possible that your spot VM will be designated for eviction as soon as it's created. The `Preempt` signal will indicate still provide a minimum of 30 seconds advance notice of the eviction. We recommend building orchestration that can withstand immediate evictions. **HOW DO YOU PREPARE FOR AN IMMEDIATE EVICTION? WHERE SHOULD ORCHESTRATON LOGIC SIT?**
 
-**Plan for multiple simultaneous evictions** - You should architect the workload to withstand multiple simultaneous evictions. The workload could lose 10% compute capacity, and it will have a significant effect on the throughput of the application.
+**(5) Plan for multiple simultaneous evictions** - You should architect the workload to withstand multiple simultaneous evictions. The workload could lose 10% compute capacity, and it will have a significant effect on the throughput of the application.
 
-**Design graceful shutdown** - We recommend VM shutdown processes take 10 seconds or less. The shutdown process should release resources, drain connections, and flush event logs. You should regularly create and save checkpoints (**BE MORE SPECIFIC. CHECKPOINTS FOR WHAT?) to save the context and build a more efficient recovery strategy. Orchestration should recover from the latest checkpoint instead of starting all over on processing.
+**(6) Design graceful shutdown** - We recommend VM shutdown processes take 10 seconds or less. The shutdown process should release resources, drain connections, and flush event logs. You should regularly create and save checkpoints (**BE MORE SPECIFIC. CHECKPOINTS FOR WHAT?) to save the context and build a more efficient recovery strategy. Orchestration should recover from the latest checkpoint instead of starting all over on processing.
 
 There are several ways to automate a graceful shutdown You can use Azure Monitor alerts and trigger an Azure Function is one of several ways to automate the orchestration. **IS THIS APPLICABLE TO ORCHESTRATION IN GENERAL?
 
-**Build idempotency** - We recommend designing an idempotent workload. The outcome of processing an event more than once should be the same as processing it once. Evictions can lead to forced shutdowns despite efforts to ensure graceful shutdowns. Forced shutdowns can terminate processes before completion. Idempotent workloads can receive the same message more than once and the outcome remains the same. For more information, see [idempotency](/azure/architecture/serverless/event-hubs-functions/resilient-design#idempotency).
+**(7) Build idempotency** - We recommend designing an idempotent workload. The outcome of processing an event more than once should be the same as processing it once. Evictions can lead to forced shutdowns despite efforts to ensure graceful shutdowns. Forced shutdowns can terminate processes before completion. Idempotent workloads can receive the same message more than once and the outcome remains the same. For more information, see [idempotency](/azure/architecture/serverless/event-hubs-functions/resilient-design#idempotency).
 
-**Conduct health check** - It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
+**(8) Conduct health check** - It's a good idea to transition into a warmup state to ensure the workload is healthy and ready to start. After the application *warmup* state is completed, you could consider internally transitioning into the *processing* state.
 
-**Conduct testing** We recommend simulating eviction events to test orchestration in dev/test environments.
-
-For more information, see [simulate eviction](/azure/virtual-machines/linux/spot-cli#simulate-an-eviction).
+**(9) Test orchestration** We recommend simulating eviction events to test orchestration in dev/test environments. For more information, see [simulate eviction](/azure/virtual-machines/linux/spot-cli#simulate-an-eviction).
 
 ## Example scenario
 
@@ -106,13 +105,12 @@ The bicep template deploys an Ubuntu image (22_04-lts-gen2) on a Standard_D2s_v3
 ![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
-1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two . One i the `orchestrate.sh` powershell script that installs the .NET worker application.
+1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two files. One file is the `orchestrate.sh` powershell script that installs the .NET worker application.
 1. **Spot VM:** The spot VM deploys. It must be in the same region as the application version. It downloads `worker-0.1.0.tar.gz` to the VM after deployment.
 1. **Storage Queue:** The other service running in the .NET worker contains message queue logic. Azure AD grants the spot VM access to the storage queue with a user assigned identity using RBAC.
-1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services.
+1. **.Net worker application:** The orchestrate.sh script installs a .NET worker application that runs two background services. **WHAT DO THESE SERVICES DO?**
 1. **Query Scheduled Events endpoint:** An API request is sent to a static non-routable IP address 169.254.169.254. The API request queries the Scheduled Event endpoint for infrastructure maintenance signals.
-1. **Application Insights:** The listens for the preempt eviction signal. For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
-
+1. **Application Insights:** It listens for the `Preempt` signal. **WHAT ELSE DOES AI DO HERE?** For more information, see [enable live metrics from .NET application](/azure/azure-monitor/app/live-stream#enable-live-metrics-using-code-for-any-net-application).
 
 ## Deploy this scenario
 
