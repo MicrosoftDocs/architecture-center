@@ -161,7 +161,7 @@ Incorporating the preceding changes into a distributed application allows team m
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b/) | Senior Cloud Solution Architect
 
