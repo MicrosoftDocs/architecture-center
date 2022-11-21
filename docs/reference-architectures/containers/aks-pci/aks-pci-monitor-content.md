@@ -29,13 +29,13 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 10.1](#requirement-101)|Implement audit trails to link all access to system components to each individual user.|
-|[Requirement 10.2](#requirement-102)|Implement automated audit trails for all system components to reconstruct specific events.|
-|[Requirement 10.3](#requirement-103)|Record at least the audit trail entries specified in this section for all system components for specific events.|
-|[Requirement 10.4](#requirement-104)|Use time-synchronization technology and synchronize all critical system clocks and times. Verify our recommendations are implemented for acquiring, distributing, and storing time. |
-|[Requirement 10.5](#requirement-105)|Secure audit trails so they can't be altered.|
+|[Requirement 10.2](#requirement-102)|Implement automated audit trails for all system components to reconstruct the following events:|
+|[Requirement 10.3](#requirement-103)|Record at least the following audit trail entries for all system components for each event:|
+|[Requirement 10.4](#requirement-104)|Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. |
+|[Requirement 10.5](#requirement-105)|Secure audit trails so they cannot be altered.|
 |[Requirement 10.6](#requirement-106)|Review logs and security events for all system components to identify anomalies or suspicious activity.|
 |[Requirement 10.7](#requirement-107)|Retain audit trail history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from backup).|
-|[Requirement 10.8](#requirement-108)|More requirement for service providers only: Respond to failures of any critical security controls in a timely manner.|
+|[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Process for responding o failures in security controls must include|
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
 ### **Requirement 11**&mdash;Regularly test security systems and processes
@@ -55,10 +55,10 @@ AKS clusters are protected by Azure Application Gateway with Web Application Fir
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 11.1](#requirement-111)|Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.|
-|[Requirement 11.2](#requirement-112)|Run internal and external network vulnerability scans at least quarterly and after any significant network changes, like installing a new system component, changes in network topology, firewall rule modifications, etc. |
-|[Requirement 11.3](#requirement-113)|Implement a methodology for penetration testing.|
+|[Requirement 11.2](#requirement-112)|Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). |
+|[Requirement 11.3](#requirement-113)|Implement a methodology for penetration testing that includes the following:|
 |[Requirement 11.4](#requirement-114)|Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. |
-|[Requirement 11.5](#requirement-115)|Use a change tracking solution, for example, file-integrity monitoring, to alert personnel to unauthorized modification of critical system files, configuration files, or content files. |
+|[Requirement 11.5](#requirement-115)||Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. |
 |[Requirement 11.6](#requirement-116)|Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.|
 
 ### Requirement 10.1
