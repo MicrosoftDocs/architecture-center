@@ -13,7 +13,7 @@ This example workload helps you create a sustainability model based on the avail
 
 1. Configure application data sources to use to calculate the SCI score.
 2. Save data in an Azure storage account in Azure Table Storage.
-3. Use event handlers to calculate the SCI score. Event handlers include Azure Functions, Azure Logic Apps, and Azure Blob Storage. The score is the amount of carbon emitted in grams per unit, where unit refers to the application scaling factor, or an approximation of it using proxies.
+3. Use event handlers to calculate the SCI score. Event handlers might include Azure Functions, Azure Logic Apps, and Azure Blob Storage. The score is the amount of carbon emitted in grams per unit, where unit refers to the application scaling factor, or an approximation of it using proxies.
 4. Use Azure Functions, Logic Apps, and automation runbooks to trigger demand shaping on the application or to initiate the pre-defined eco-mode of the application.
 5. Use Power BI for reports and visualization of the score over time.
 
@@ -23,7 +23,7 @@ This example workload helps you create a sustainability model based on the avail
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor). It provides application performance monitoring (APM). Application Insights helps you understand how people use your application. Use this knowledge to improve application efficiency.
 - [Azure Table Storage](https://azure.microsoft.com/products/storage/tables) is a service that stores non-relational structured data, also known as *structured NoSQL data*. It provides a key/attribute store with a schemaless design. For many types of applications, access to Table Storage data is fast and cost-effective. It typically costs less than traditional SQL for similar volumes of data.
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, build a workflow that integrates and manages proxy sources, data storage, and efficiency calculation systems.
-- [Azure Automation](https://azure.microsoft.com/products/automation) includes process automation with runbooks that implement complex logic using PowerShell code to improve efficiency. This service can also add business value by reducing errors and lowering operational costs.
+- [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 - [Power BI](/power-bi) can turn data into analytics and reports that provide real-time insights. Whether your data is cloud-based or on-premises, Azure and Power BI have the integration and connectivity to bring visualizations and analytics to life.
 
 ### Alternatives
@@ -115,10 +115,10 @@ For more information, see [Data and storage design considerations for sustainabl
 A sample table describing the gathered data looks like the following example:
 
 | Data from reports | | | | Data from APM | | | | Calculations |
-|-------------------|---------------|------------- |
-| Date | Resource-group name | Carbon emissions from dashboard C | Cost | CPU Memory | Response time ratio (send/receive) | Scaling factor R | SCI |
-| | | | | | | | | |
-| | | | | | | | | |
+|-------------------|---------------|-------------|-|-|-|-|-|-|
+| Date | Resource-group name | Carbon emissions from dashboard C | Cost | CPU | Memory | Response time ratio (send/receive) | Scaling factor R | SCI |
+| \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> |
+| \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> | \<value> |
 
 ### Data correlations
 
