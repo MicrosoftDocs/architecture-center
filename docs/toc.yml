@@ -5079,7 +5079,7 @@ items:
               - name: Disaster recovery for data analytics pipelines
                 href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Enterprise integration - queues and events
-                href: reference-architectures/enterprise-integration/queues-events.yml
+                href: example-scenario/integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
               - name: Power Automate deployment at scale
