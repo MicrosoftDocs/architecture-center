@@ -61,6 +61,7 @@ Orchestration is the process of replacing a spot VM after an eviction. Orchestra
 | --- | --- |
 | Delete | ? |
 | Stopped/Deallocated | ?  |
+
 **WE NEED TO FILL OUT THIS TABLE?**
 
 **(3) Continuously monitor for eviction** - Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is knowing in advance when they're going to be evicted. With this information, you can trigger automation for a graceful shutdown and orchestrate a replacement.
