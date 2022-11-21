@@ -82,6 +82,16 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 
 * [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ashish Chauhan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 * [Anomaly Detector API Documentation](/azure/cognitive-services/anomaly-detector)
