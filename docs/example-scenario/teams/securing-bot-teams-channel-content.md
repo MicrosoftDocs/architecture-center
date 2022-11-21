@@ -96,7 +96,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE=' 52.112.0.0/14'
+    export TEAMS_IP_RANGE='52.112.0.0/14'
 
     # Create a resource group
     az group create --name ${RG_NAME} --location ${LOCATION}
