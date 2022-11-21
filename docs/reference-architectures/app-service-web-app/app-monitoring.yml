@@ -2,10 +2,10 @@
 metadata:
   title: Web application monitoring on Azure
   description: Learn about the monitoring services you can use on Azure by following a reference architecture that uses a dataflow model for use with multiple data sources.
-  author: EdPrice-MSFT
-  ms.author: architectures
+  author: shawngib
+  ms.author: shawngib
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

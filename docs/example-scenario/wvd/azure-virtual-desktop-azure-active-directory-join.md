@@ -4,7 +4,7 @@ description: Learn how to configure Azure AD domain join for Azure Virtual Deskt
 author: TomHickling
 ms.author: thhickli
 ms.date: 07/08/2022
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
@@ -102,7 +102,7 @@ Azure AD registration logs are in Event Viewer on the local client. You can view
 
 In the next step, you enable sign-in access to the VMs. These VMs are Azure objects, and the authentication mechanism is Azure AD. You can manage user sign-in permission through Azure role-based access control (RBAC).
 
-Users must be in the Azure Virtual Desktop [Desktop application group](/azure/virtual-desktop/manage-app-groups) to sign in to VMs. For Azure AD join, the same users and groups that are in the Desktop application group must also be added to the **Virtual Machine User Login** RBAC role. This role isn't a [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role with **Log in to Virtual Machine** DataAction permission.
+Users must be in the Azure Virtual Desktop [Desktop application group](/azure/virtual-desktop/manage-app-groups) to sign in to VMs. For Azure AD join, the same users and groups that are in the Desktop application group must also be added to the **Virtual Machine User Login** RBAC role. This role isn't an [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role with **Log in to Virtual Machine** DataAction permission.
 
 :::image type="content" source="images/sign-in-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop required role for V M sign-in.":::
 
@@ -178,11 +178,11 @@ Now you have an Azure Virtual Desktop host pool where session hosts are joined o
 
 Principal author:
 
- * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
+- [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
 
 Other contributor:
 
-* [Grace Picking](https://www.linkedin.com/in/grace-picking/) | Senior Product Manager, Azure Active Directory Engineering
+- [Grace Picking](https://www.linkedin.com/in/grace-picking/) | Senior Product Manager, Azure Active Directory Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

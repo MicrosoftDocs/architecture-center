@@ -139,13 +139,13 @@ The following code shows examples of the structured logging objects:
 
 ```json
 {
-  "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f"
+  "CorrelationId": "715eec8f-fefc-45e2-a352-95aa389ddb8f",
   "Environment": "Live",
-  "StatusCode: 500,
-  "Severity: "Error",
+  "StatusCode": 500,
+  "Severity": "Error",
   "Application": "Contso Web Shop",
   "Service": "PaymentsService",
-  "EventTimeUTC:" "2020-04-27T13:19Z",
+  "EventTimeUTC": "2020-04-27T13:19Z",
   "BrowserType": "Chromium",
   "Data":{
       "Runtime":"Net Core",
@@ -156,6 +156,16 @@ The following code shows examples of the structured logging objects:
 ```
 
 Incorporating the preceding changes into a distributed application allows team members to retrieve logs from the complete lifecycle of the request by using the correlation ID. Structured logging makes it easier to search through logs when issues occur, as well as allowing automated alerting.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

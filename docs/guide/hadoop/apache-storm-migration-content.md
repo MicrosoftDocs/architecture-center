@@ -630,7 +630,7 @@ Data security is a responsibility that's shared between you and the service prov
 ||Storm|Functions|
 |---|---|---|
 |**Network security**|Control traffic using security functions such as network devices.|Incoming IP restrictions, virtual network integration, hybrid connectivity, and outbound IP restrictions to Functions endpoints are available. Different Functions hosting plans have different features. For more information, see [Azure Functions networking options](/azure/azure-functions/functions-networking-options).|
-|**Identity and access control**|Storm offers pluggable authentication support through thrift and SASL. It also has an authorization mechanism for access control for jobs.|You can authenticate with the Functions key. The App Service platform can use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this method to implement custom authorization rules for your function and manipulate the user information in your function code. You can also use Azure API Management (APIM) to authenticate your request.|
+|**Identity and access control**|Storm offers pluggable authentication support through thrift and SASL. It also has an authorization mechanism for access control for jobs.|You can authenticate with the Functions key. The App Service platform can use Azure Active Directory (Azure AD) and several third-party identity providers to authenticate clients. You can use this method to implement custom authorization rules for your function and manipulate the user information in your function code. You can also use Azure API Management (APIM) to authenticate your request.|
 |**Data protection**|Storm doesn't have encryption capabilities.|Functions uses Azure Storage, which encrypts all the data in your stored storage account.|
 |**Regulatory compliance controls**|You can set policies by using security components such as Apache Ranger.|Regulatory Compliance in Azure Policy provides initiative definitions, known as built-ins, for the compliance domains and security controls related to different compliance standards. The definitions are created and managed by Microsoft. For more information, see [Regulatory Compliance in Azure Policy](/azure/governance/policy/concepts/regulatory-compliance).|
 |**Data recovery**|There's no backup feature. You need to implement data backup yourself.|Data in Azure Storage can be protected by the backup feature of Azure Storage. For Functions applications, App Service features can only be backed up if host the App Service Plan. We recommend that you manage application code by using a code repository.|
@@ -655,14 +655,14 @@ Other contributors:
 - [Ram Baskaran](https://www.linkedin.com/in/ram-baskaran) | Senior Cloud Solution Architect
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
-- [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Customer Engineer
+- [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
 - [Daman Kaur](https://www.linkedin.com/in/damankaur-architect) | Cloud Solution Architect
-- [Danny Liu](https://www.linkedin.com/in/danny-liu-6b260970) | Software Engineer II
+- [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
 - [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
-- [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Customer Engineer
+- [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

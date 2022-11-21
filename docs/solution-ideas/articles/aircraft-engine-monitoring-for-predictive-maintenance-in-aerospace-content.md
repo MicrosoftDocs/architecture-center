@@ -23,6 +23,8 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ### Potential use cases
 
+This solution is ideal for the aircraft and aerospace industries.
+
 With the right information, it's possible to determine the condition of equipment in order to predict when maintenance should be performed. Predictive maintenance can be used for the following items:
 
 * Real-time diagnostics.
@@ -49,4 +51,4 @@ Read other Azure Architecture Center articles about predictive maintenance and p
 * [Predictive maintenance](./predictive-maintenance.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
 * [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

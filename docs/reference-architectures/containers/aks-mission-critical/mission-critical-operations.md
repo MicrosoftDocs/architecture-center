@@ -5,7 +5,7 @@ author: robbagby
 categories: networking
 ms.author: allensu
 ms.date: 06/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
@@ -69,12 +69,12 @@ Rotating (renewing) keys and secrets should be a standard procedure in any workl
 
 Because expired or invalid secrets can cause outages to the application [(see Failure Analysis)](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling#failure-analysis), it's important to have a clearly defined and proven process in place. For Azure Mission-Critical, stamps are only expected to live for a few weeks. Because of that, rotating secrets of stamp resources isn't a concern. If secrets in one stamp expire, the application as a whole would continue to function.
 
-Management of secrets to access long-living global resources, however, are critical. A notable example is the Cosmos DB API keys. If Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
+Management of secrets to access long-living global resources, however, are critical. A notable example is the Azure Cosmos DB API keys. If Azure Cosmos DB API keys expire, all stamps will be affected simultaneously and cause a complete outage of the application.
 
-The following is Azure mission critical tested and documented approach for rotating Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
+The following is Azure mission critical tested and documented approach for rotating Azure Cosmos DB keys without causing downtime to services running in Azure Kubernetes Service.
 
-1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code to use the secondary Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
-2. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
+1. Update stamps with secondary key. By default, the primary API key for Azure Cosmos DB is stored as a secret in Azure Key Vault in each stamp. Create a PR that updates the IaC template code to use the secondary Azure Cosmos DB API key. Run this change through the normal PR review and update procedure to get deployed as a new release or as a hotfix.
+2. (optional) If the update was deployed as a hotfix to an existing release, the pods will automatically pick up the new secret from Azure Key Vault after a few minutes. However, the Azure Cosmos DB client code does currently not reinitialize with a changed key. To resolve this issue, restart all pods manually using the following commands on the clusters:
 
    ```bash
    kubectl rollout restart deployment/CatalogService-deploy -n workload
@@ -114,19 +114,19 @@ Services that don't have enough resources can exhibit different side effects, in
 
 Take advantage of autoscaling features of the services, where possible, to ensure you have enough resources to meet demand. The following are automatic scaling features you can take advantage of:
 
-- [Horizontal Pod Autoscaling](/docs/tasks/run-application/horizontal-pod-autoscale/) allows you to increase or decrease the number of pods running workloads, depending upon demand.
+- [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) allows you to increase or decrease the number of pods running workloads, depending upon demand.
 - The [AKS cluster autoscaler](/azure/aks/cluster-autoscaler) allows you to increase or decrease the number of nodes in the cluster, depending upon demand.
 - You can [automatically scale up Azure Event Hubs throughput units (standard tier)](/azure/event-hubs/event-hubs-auto-inflate)
 - You can [Automatically update messaging units of an Azure Service Bus namespace](/azure/service-bus-messaging/automate-update-messaging-units)
 
 ### Managing keys, secrets, and certificates
 
-Use Managed Identities where possible to avoid having to manage API keys or secrets such as passwords.
+Use managed identities where possible to avoid having to manage API keys or secrets such as passwords.
 
 When you're using keys, secrets, or certificates, use Azure-native platform capabilities whenever possible. The following are some examples of these platform-level capabilities:
 
 - Azure Front Door has built-in capabilities for TLS certificate management and renewal.
-- Key Vault supports automatic key rotation.
+- Azure Key Vault supports automatic key rotation.
 
 ## Manual operations
 
@@ -138,7 +138,7 @@ Messages that can't be processed should be routed to a dead-letter queue with an
 
 ### Azure Cosmos DB restore
 
-When Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
+When Azure Cosmos DB data is unintentionally deleted, updated, or corrupted, you need to perform a restore from a periodic backup. 
 Restoring from a periodic backup can only be accomplished via a support case. This process should be documented and periodically tested.
 
 ### Quota increases
@@ -147,6 +147,17 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 > [!IMPORTANT]
 > See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer
+ - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

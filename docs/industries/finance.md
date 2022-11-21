@@ -2,10 +2,10 @@
 title: Solutions for the finance industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable finance solutions.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 08/15/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:

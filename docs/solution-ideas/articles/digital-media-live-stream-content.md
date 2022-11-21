@@ -15,7 +15,7 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 * [Media Services Streaming Endpoint](/azure/media-services/latest/stream-streaming-endpoint-concept): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Preview monitoring](/azure/media-services/latest/live-event-outputs-concept#live-event-preview-url): Preview and validate a live stream before further processing and delivery.
+* [Preview monitoring](/azure/media-services/latest/live-event-concept#live-event-preview-url): Preview and validate a live stream before further processing and delivery.
 * [Multi-DRM content protection](/azure/media-services/previous/media-services-content-protection-overview): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
 
 ## Solution details

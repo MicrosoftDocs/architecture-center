@@ -5,7 +5,7 @@ author: splitfinity
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories: 
@@ -44,7 +44,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
-- [Introduction to Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
+- [Introduction to Azure Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
 
 - [How to use Azure Table storage from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs)
 

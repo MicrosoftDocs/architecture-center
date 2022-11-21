@@ -4,7 +4,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ## Architecture
 
-![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
+![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -14,7 +14,7 @@ The architecture defines a data flow that is entirely contained within [Azure Da
 
 **Data files**. The reference implementation uses a simulated data set contained in five static data files.
 
-**Ingestion**. The data ingestion notebook downloads the input data files into a collection of Databricks data sets. In a real-world scenario, data from IoT devices would stream onto Databricks-accessible storage such as Azure SQL Server or Azure Blob storage. Databricks supports multiple [data sources][data-sources].
+**Ingestion**. The data ingestion notebook downloads the input data files into a collection of Databricks data sets. In a real-world scenario, data from IoT devices would stream onto Databricks-accessible storage such as Azure SQL or Azure Blob storage. Databricks supports multiple [data sources][data-sources].
 
 **Training pipeline**. This notebook executes the feature engineering notebook to create an analysis data set from the ingested data. It then executes a model building notebook that trains the machine learning model using the [Apache Spark MLlib][mllib] scalable machine learning library.
 

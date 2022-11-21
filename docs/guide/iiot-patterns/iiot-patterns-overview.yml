@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Industrial IoT Patterns
+  title: Industrial IoT patterns
   description: Read an overview about the common patterns used to build, deploy, and manage Industrial IoT (IIoT) solutions.
   author: jomit
   ms.author: jovagh
@@ -15,7 +15,7 @@ products:
   - azure-iot-edge
   - azure-iot-hub
   - azure-data-explorer
-name: Industrial IoT Patterns
+name: Industrial IoT patterns
 summary: Read an overview about the common patterns used to build, deploy, and manage Industrial IoT (IIoT) solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/iiot-maturity.png
 content: |

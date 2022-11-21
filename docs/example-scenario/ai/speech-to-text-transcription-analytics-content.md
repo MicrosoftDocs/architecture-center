@@ -96,7 +96,9 @@ The batch speech API is designed for high volume, but other Cognitive Services A
 
 Principal authors:
 
-* [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Dir Specialist GBB 
+* [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content Program Manager
+* [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Dir Specialist GBB
+* [Kirpa Singh](https://www.linkedin.com/in/kirpa-singh-80676713) | Senior Software Engineer
 * [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki) | Cloud Solution Architect
 
 Other contributor:

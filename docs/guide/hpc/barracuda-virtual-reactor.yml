@@ -15,6 +15,6 @@ products:
   - azure-virtual-network
 name: Deploy Barracuda Virtual Reactor on a virtual machine
 summary: Find out how Barracuda Virtual Reactor CFD software performs on an Azure virtual machine.
-thumbnailUrl: /azure/architecture/browse/thumbs/barracuda-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/barracuda-virtual-reactor-thumb.png
 content: |
   [!include[](barracuda-virtual-reactor-content.md)]

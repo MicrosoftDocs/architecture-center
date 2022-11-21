@@ -49,6 +49,16 @@ This solution is ideal for the energy, environment, manufacturing, education, fa
 - Process industries: Monitor and control crude oil cracking process in an oil refinery. Monitor and control paint and bulk chemical manufacturing.
 - Discrete manufacturing: Monitor and control a widget inspection and packaging cell.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Hanu Kommalapati](https://www.linkedin.com/in/hanuk/) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 - [Measure and control loops](measure-control-loop.yml)

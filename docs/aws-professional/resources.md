@@ -4,7 +4,7 @@ description: Compare resource management between Azure and AWS. See the differen
 author: EdPrice-MSFT
 categories: azure
 ms.date: 05/21/2020
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:

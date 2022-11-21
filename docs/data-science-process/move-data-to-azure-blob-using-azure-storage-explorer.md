@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
@@ -54,3 +54,13 @@ The following steps document how to upload/download data using Azure Storage Exp
 ![Storage accounts](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. To download data, selecting the blob in the corresponding container to download and click **Download**. ![Download files](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

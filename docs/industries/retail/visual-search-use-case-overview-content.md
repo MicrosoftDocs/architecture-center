@@ -77,13 +77,13 @@ As you retrieve images from different sources or use several machine learning mo
 
 You might also want to require a minimum number of useful data points (such as an image identifier or key, a product sku, a description, or a tag field).
 
-[Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) offers the required flexibility and a variety of access mechanisms for applications built on top of it (which will help with your catalog search). However, one has to be careful to drive the best price/performance. CosmosDB allows document attachments to be stored, but there's a total limit per account and it may be a costly proposition. It's a common practice to store the actual image files in blobs and insert a link to them in the database. In the case of CosmosDB this implies creating a document that contains the catalog properties associated to that image (such as a SKU, tag, and so on) and an attachment that contains the URL of the image file (for example, on Azure Blob storage, OneDrive, and so on).
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=vsearchgio-article-gmarchet) offers the required flexibility and a variety of access mechanisms for applications built on top of it (which will help with your catalog search). However, one has to be careful to drive the best price/performance. Azure Cosmos DB allows document attachments to be stored, but there's a total limit per account and it may be a costly proposition. It's a common practice to store the actual image files in blobs and insert a link to them in the database. In the case of Azure Cosmos DB this implies creating a document that contains the catalog properties associated to that image (such as a SKU, tag, and so on) and an attachment that contains the URL of the image file (for example, on Azure Blob storage, OneDrive, and so on).
 
  ![](./images/visual-search-use-case-overview/cosmos-db-data-model.png)
 
-*Figure 3: CosmosDB Hierarchical Resource Model*
+*Figure 3: Azure Cosmos DB Hierarchical Resource Model*
 
-If you plan to take advantage of the global distribution of Cosmos DB, note that it will replicate the documents and attachments, but not the linked files. You may want to consider a content distribution network for those.
+If you plan to take advantage of the global distribution of Azure Cosmos DB, note that it will replicate the documents and attachments, but not the linked files. You may want to consider a content distribution network for those.
 
 Other applicable technologies are a combination of Azure SQL Database (if fixed schema is acceptable) and blobs, or even Azure Tables and blobs for inexpensive and fast storage and retrieval.
 
@@ -167,4 +167,4 @@ Implementing visual search need not be complex. You can use Bing or build your o
 - [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)
-- [Retail and e-commerce using Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
+- [Retail and e-commerce using Azure Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)

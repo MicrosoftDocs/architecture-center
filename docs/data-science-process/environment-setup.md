@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
@@ -31,3 +31,13 @@ Learn how to create:
 - [Windows DSVM](/azure/machine-learning/data-science-virtual-machine/provision-vm)
 - [Ubuntu DSVM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 - [CentOS DSVM](/azure/machine-learning/data-science-virtual-machine/release-notes)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

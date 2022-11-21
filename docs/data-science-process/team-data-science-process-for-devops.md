@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
@@ -84,6 +84,16 @@ The following table provides level-based guidance to help complete the DevOps ob
 |  |  | [This installation and explanation explains how to use Visual Studio Code with Azure assets](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.OpeninVisualStudioCode) | VSCODE | Intermediate | Software Development, familiarity with the Microsoft Azure Platform |
 |  |  | [This blog entry explains how to use R Studio with Microsoft R](https://www.r-bloggers.com/using-microsoft-r-open-with-rstudio/) | R Studio | Intermediate | R Language experience |
 |  |  | [This blog entry shows how to use continuous integration with Azure and GitHub](https://blogs.msdn.microsoft.com/microsoftimagine/2015/09/01/using-continuous-integration-with-azure-github/) | Git, GitHub | Intermediate | Software Development |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -37,7 +37,7 @@ Common serverless architecture patterns include:
         ### Web application backends Retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/web-app-backends.png" alt-text="Diagram shows a request made in a web app queued in Service Bus, then processed by a function and sent to Cosmos DB.":::
+        :::image type="content" source="./images/web-app-backends.png" alt-text="Diagram shows a request made in a web app queued in Service Bus, then processed by a function and sent to Azure Cosmos DB.":::
     :::column-end:::
 :::row-end:::
 
@@ -48,7 +48,7 @@ Common serverless architecture patterns include:
         ### Mobile application backends Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/mobile-app-backends.png" alt-text="Diagram shows an H T T P A P I call, processed by a function and sent to Cosmos DB which triggers another function to send notifications.":::
+        :::image type="content" source="./images/mobile-app-backends.png" alt-text="Diagram shows an H T T P A P I call, processed by a function and sent to Azure Cosmos DB which triggers another function to send notifications.":::
     :::column-end:::
 :::row-end:::
 
@@ -92,7 +92,7 @@ Common serverless architecture patterns include:
         ### Real-time stream processing Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/real-time-stream-processing.png" alt-text="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Cosmos DB.":::
+        :::image type="content" source="./images/real-time-stream-processing.png" alt-text="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Azure Cosmos DB.":::
     :::column-end:::
 :::row-end:::
 
@@ -148,7 +148,7 @@ The following sections list other serverless and Azure Functions-related referen
 ### General
 
 - [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
-- [Serverless apps using Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
+- [Serverless apps using Azure Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
 - [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
@@ -190,8 +190,8 @@ The following sections list other serverless and Azure Functions-related referen
 ### IoT
 
 - [Azure IoT reference (SQL DB)](../reference-architectures/iot.yml)
-- [Azure IoT reference (Cosmos DB)](../reference-architectures/iot.yml)
-- [IoT using Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [Azure IoT reference (Azure Cosmos DB)](../reference-architectures/iot.yml)
+- [IoT using Azure Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
 - [Complementary Code Pattern for Azure IoT Edge Modules & Cloud Applications](https://github.com/Azure-Samples/iot-edge-complementary-code/blob/master/csharp/cloud/README.md)
 
@@ -206,7 +206,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Content Moderation](/gaming/azure/reference-architectures/cognitive-content-moderation)
 - [Text Translation](/gaming/azure/reference-architectures/cognitive-text-translation)
 - [Text to Speech](/gaming/azure/reference-architectures/cognitive-text-to-speech)
-- [Gaming using Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
+- [Gaming using Azure Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
 
 ### Automation
 

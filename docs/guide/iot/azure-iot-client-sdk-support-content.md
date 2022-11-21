@@ -95,12 +95,6 @@ SAS token authentication implementation summary for C SDKs:
 
 3.  Implement proactive SAS token lifetime management as part of the device application's operation loop.
 
-**References:**
-
--   [IoTHubDeviceClient\_Create() reference](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-create)
-
--   [IoTHubDeviceClient\_SetConnectionStatusCallback() reference](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-setconnectionstatuscallback)
-
 ### Azure IoT Hub device SDK for .Net
 
 The Azure IoT client SDK for .Net implements support for SAS token lifetime management through the abstract DeviceAuthenticationWithTokenRefresh class. A concrete implementation of this class, adding token renewal functionality, can be provided as the authentication method to a DeviceClient.Create method. The transport implementations will automatically renew the token via the authentication method as required. A ConnectionStatusChangesHandler is required to capture connection changes and prevent exceptions being raised by the transports.

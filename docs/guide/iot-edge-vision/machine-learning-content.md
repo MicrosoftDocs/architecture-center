@@ -161,6 +161,16 @@ Here are key ML and data science deployment considerations for IoT Edge vision A
 - The chosen runtime depends on the type of device and hardware acceleration available for ML.
 - It's important to have a code, model, and data versioning system and automated testing in place.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 > [!div class="nextstepaction"]

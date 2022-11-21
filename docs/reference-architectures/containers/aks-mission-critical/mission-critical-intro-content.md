@@ -56,7 +56,9 @@ Many factors can affect the reliability of an application, such as the ability t
 
 ## Architecture
 
-![Mission critical online](./images/mission-critical-architecture-online.png)
+:::image type="content" border="false" source="./images/mission-critical-architecture-online.png" alt-text="Diagram that shows mission critical online." lightbox="./images/mission-critical-architecture-online.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-intro.vsdx) of this architecture.
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
@@ -78,7 +80,7 @@ Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. H
 
 #### Database
 
-All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
+All state related to the workload is stored in an external database, **Azure Cosmos DB for NoSQL**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
 
 > [!NOTE]
 > While a multi-region-write configuration represents the gold standard for reliability, there is a significant trade-off on cost, which should be properly considered.
@@ -178,13 +180,13 @@ Operational data from application and infrastructure must be available to allow 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-![Diagram that shows the monitoring resources.](./images/mission-critical-monitoring-resources.svg)
+:::image type="content" border="false" source="./images/mission-critical-monitoring-resources.png" alt-text="Diagram that shows the monitoring resources." lightbox="./images/mission-critical-monitoring-resources.png":::
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
 
 In this architecture, monitoring resources within a region must be independent from the stamp itself, because if you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps.
 
-Similarly, data from shared services such as, Azure Front Door, Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace. 
+Similarly, data from shared services such as, Azure Front Door, Azure Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace. 
 
 #### Data archiving and analytics
 
@@ -219,9 +221,9 @@ The description of this flow is in the following sections.
 
 6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
 
-7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Cosmos DB. The SDK determines the optimal order of available Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
+7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Azure Cosmos DB. The SDK determines the optimal order of available Azure Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
 
-8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
+8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Azure Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
 
 ## Background processor flow
 

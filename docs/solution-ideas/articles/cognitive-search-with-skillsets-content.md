@@ -69,7 +69,7 @@ The Azure Cognitive Search skills in this solution fall into the following categ
 
 - *Custom skills* extend Azure Cognitive Search to apply specific enrichment transformations to content. You [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
-## Potential use cases
+### Potential use cases
 
 - Increase the value and utility of unstructured text and image content in search and data science apps.
 - Use custom skills to integrate open-source, third-party, or first-party code into indexing pipelines.

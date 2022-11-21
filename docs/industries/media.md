@@ -2,10 +2,10 @@
 title: Solutions for the media and entertainment industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable media and entertainment solutions.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 07/26/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 keywords:
