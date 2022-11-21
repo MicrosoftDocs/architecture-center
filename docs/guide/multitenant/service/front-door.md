@@ -21,6 +21,7 @@ ms.custom:
 ---
 
 # Azure Front Door considerations for multitenancy
+
 On this page, we describe some of the features of Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
 ## Determine Front Door's deployment scope
