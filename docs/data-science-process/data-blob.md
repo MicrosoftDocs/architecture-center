@@ -231,3 +231,13 @@ After you have explored the data and created the necessary features, you can upl
 <!-- Links -->
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
