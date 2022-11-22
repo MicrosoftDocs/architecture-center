@@ -26,10 +26,10 @@ One of the most common reasons for using Azure AD B2C is to enable [Identity fed
 
 If you are brand new to this topic, please review the following recommended resources to assist in building some foundational knowledge required to understand the concept laid out in this document:
 
-  - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-  - [Identity Approaches](../approaches/identity#authorization)
-  - [Identity Considerations](../considerations/identity)
-  - [Tenancy Models](../considerations/tenancy-models)
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Identity Approaches](../approaches/identity.md#authorization)
+- [Identity Considerations](../considerations/identity.md)
+- [Tenancy Models](../considerations/tenancy-models.yml)
 
 > [!NOTE]
 > In this article, we will be discussing two very closely named topics: application tenants and Azure AD B2C tenants.
@@ -43,11 +43,12 @@ If you are brand new to this topic, please review the following recommended reso
 When working with Azure AD B2C, you need to decide how you are going to isolate your user pools from different application tenants.
 
 You need to consider things like:
-  - Do you need to federate logins to your customer's Identity Provider(s)? (SAML, Azure Active Directory, Social Logins, etc)
-  - Do you have data residency requirements?
-  - Is the user going to need to access more than one application tenant?
-  - Do you need complex permissions and/or Role Based Access Control (RBAC?)
-  - What are your user personas? (ie who is logging into your software?)
+
+- Do you need to federate logins to your customer's Identity Provider(s)? (SAML, Azure Active Directory, Social Logins, etc)
+- Do you have data residency requirements?
+- Is the user going to need to access more than one application tenant?
+- Do you need complex permissions and/or Role Based Access Control (RBAC?)
+- What are your user personas? (ie who is logging into your software?)
 
 The following table summarizes the differences between the main tenancy models for Azure AD B2C:
 
@@ -89,7 +90,7 @@ You should consider provisioning your Azure AD B2C tenants using a vertically pa
 - You need to enable your customers to bring their own custom federated identity provider via SAML or OpenID Connect for their application tenant
 - Your application is or can be "tenant aware" and knows which Azure AD B2C tenant your users will need to sign into
 - You are concerned about your larger application tenants hitting one of the Azure AD B2C [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow)
-- You have a strategy planned for deploying and [maintaining](#maintenance-overhead) a medium to large number of Azure AD B2C tenants long term
+- You have a strategy planned for deploying and [maintaining](#maintenance) a medium to large number of Azure AD B2C tenants long term
 - You have a strategy planned for sharding your application tenants between one or more Azure subscriptions to work within the 20 Azure AD B2C tenant limit per subscription if required
 
 The diagram below illustrates the vertically partitioned Azure AD B2C tenant model:
@@ -99,7 +100,7 @@ The diagram below illustrates the vertically partitioned Azure AD B2C tenant mod
 ### Azure AD B2C tenant per application tenant
 
 > [!WARNING]
-> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases. A common misconception is to assume using something like the [deployment stamp pattern](../../../patterns/deployment-stamp) means you also need to include identity in the "stamp". This is not necessarily the case, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
+> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases. A common misconception is to assume using something like the [deployment stamp pattern](../../../patterns/deployment-stamp.yml) means you also need to include identity in the "stamp". This is not necessarily the case, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
 
 Provisioning a Azure AD B2C tenant per application tenant allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 Azure AD B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your Azure AD B2C tenants onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
 
@@ -138,7 +139,7 @@ When planning for a multitenant deployment of Azure AD B2C, it is important to t
 
 1. [User journey configuration](/azure/active-directory-b2c/user-flow-overview) - How will you deploy changes to your Azure AD B2C tenant(s)? How will you test changes to your user flows or custom policies before deploying them?
 2. [Federated identity providers](#identity-federation) - Will you need to add or remove identity providers over time? If you are allowing each of your customers to bring their own identity provider, how will you manage that at scale?
-3. App registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
+3. App registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
 4. [Policy keys](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy) - If you are using custom policies, how will you rotate the policy keys when necessary?
 5. User credentials - How will you manage user information and credentials? What if one of your users gets locked out or forgets their password and requires administrator intervention?
 
@@ -157,11 +158,10 @@ Here are some additional resources to get you started:
 - [Deploy custom policies with GitHub Actions](/azure/active-directory-b2c/deploy-custom-policies-github-action)
 - [Custom policy DevOps pipeline sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
 - Graph API references:
-  - [Custom policy reference](/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta)
-  - [User flow reference](/graph/api/resources/b2cidentityuserflow?view=graph-rest-beta)
-  - [App registration reference](/graph/api/resources/application?view=graph-rest-beta)
-  - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)
-
+  - [Custom policy reference](/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true)
+  - [User flow reference](/graph/api/resources/b2cidentityuserflow?view=graph-rest-beta&preserve-view=true)
+  - [App registration reference](/graph/api/resources/application?view=graph-rest-beta&preserve-view=true)
+  - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)
 
 ## Azure AD B2B vs Azure AD B2C
 
