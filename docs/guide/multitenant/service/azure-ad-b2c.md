@@ -129,20 +129,34 @@ For a strong identity solution, you not only have to consider *authentication*, 
 
 ## Maintenance
 
-When planning for a multitenant deployment of Azure AD B2C, it is important to consider the long term maintenance of your Azure AD B2C tenants as well. This list is not exhaustive, but you should think about things such as:  
+When planning for a multitenant deployment of Azure AD B2C, it is important to consider the long term maintenance of your Azure AD B2C tenant(s) as well. This list is not exhaustive, but you should think about things such as:  
 
 1. [User journey configuration](/azure/active-directory-b2c/user-flow-overview) - How will you deploy changes to your Azure AD B2C tenant(s)? How will you test changes to your User Journeys before deploying them?
-2. App Registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
-3. [Policy Keys](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy) - If you are using custom policies, how will you rotate the policy keys when necessary?
-4. User credentials - How will you manage user information and credentials? What if one of your users gets locked out or forgets their password and requires administrator intervention?
+2. [Federated identity providers](#identity-federation) - Will you need to add or remove identity providers over time? If you are allowing each of your customers to bring their own identity provider, how will you manage that?
+3. App registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
+4. [Policy keys](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy) - If you are using custom policies, how will you rotate the policy keys when necessary?
+5. User credentials - How will you manage user information and credentials? What if one of your users gets locked out or forgets their password and requires administrator intervention?
 
-It is also important to keep in mind that these things must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change if/when you have more than one Azure AD B2C tenant to maintain. For example: Deploying changes to custom policies to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually is extremely difficult.
+It is also important to keep in mind that these things must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change if or when you have more than one Azure AD B2C tenant to maintain. For example: Deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually is extremely difficult.
 
 ### Deployments & DevOps
 
-Discuss here how a well configured DevOps pipeline should be used to manage this. Especially if configuring SSO per client. Will want to find or build other samples or resources to link here as well.
+> [!IMPORTANT]
+> As of the writing of this article, some of the endpoints used to manage Azure AD B2C programmatically are in beta. APIs under the `/beta` version in Microsoft Graph are subject to change at any time. 
 
-This is one, but we need to validate it as it's a bit old. [https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
+A well defined DevOps process can help minimize the amount of overhead involved in maintaining your Azure AD B2C tenant(s) and should be implemented as early as possible in your development process. Ideally, all or most of your maintenance tasks, including deploying changes to your custom policies or user flows, should be automated into a DevOps pipeline. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
+
+Here are some additional resources to get you started:
+
+- [Deploy custom policies with Azure Pipelines](/azure/active-directory-b2c/deploy-custom-policies-devops)
+- [Deploy custom policies with GitHub Actions](/azure/active-directory-b2c/deploy-custom-policies-github-action)
+- [Custom policy DevOps pipeline sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
+- Graph API references:
+  - [Custom policy reference](/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta)
+  - [User flow reference](/graph/api/resources/b2cidentityuserflow?view=graph-rest-beta)
+  - [App registration reference](/graph/api/resources/application?view=graph-rest-beta)
+  - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)
+
 
 ## Azure AD B2B vs Azure AD B2C
 
@@ -158,15 +172,27 @@ Here are some additional resources to review for more information on this subjec
 - [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
 - [Woodgrove Demo](https://aka.ms/CIAMdemo) - An example application that uses Azure AD B2B and Azure AD B2C.
 
-## Application Security 
-
-Probably want to call out the B2C limitation of no web-api chaining here. Documented [here](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations). Need to also document the workaround.  
-
-
 ## Contributors
 
-TBD
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-## Next Steps
+Principal author:
 
-TBD
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer
+
+Other contributors:
+
+- [Michael Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer
+- [Simran Kaur](https://www.linkedin.com/in/sjkaur/) | Customer Engineer
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+
+## Next steps and other resources
+
+- [Azure AD B2C custom policy samples](https://github.com/azure-ad-b2c/samples)
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
+- [Tutorial: Create an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
+- [Azure AD B2C Authentication protocols](/azure/active-directory-b2c/protocols-overview)
+- [Azure AD B2C limitations](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations)
