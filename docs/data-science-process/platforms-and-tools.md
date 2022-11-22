@@ -153,7 +153,7 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
