@@ -35,7 +35,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 |[Requirement 10.5](#requirement-105)|Secure audit trails so they cannot be altered.|
 |[Requirement 10.6](#requirement-106)|Review logs and security events for all system components to identify anomalies or suspicious activity.|
 |[Requirement 10.7](#requirement-107)|Retain audit trail history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from backup).|
-|[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Process for responding o failures in security controls must include|
+|[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include|
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
 ### **Requirement 11**&mdash;Regularly test security systems and processes
@@ -58,7 +58,7 @@ AKS clusters are protected by Azure Application Gateway with Web Application Fir
 |[Requirement 11.2](#requirement-112)|Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). |
 |[Requirement 11.3](#requirement-113)|Implement a methodology for penetration testing that includes the following:|
 |[Requirement 11.4](#requirement-114)|Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. |
-|[Requirement 11.5](#requirement-115)||Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. |
+|[Requirement 11.5](#requirement-115)|Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. |
 |[Requirement 11.6](#requirement-116)|Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.|
 
 ### Requirement 10.1
@@ -177,8 +177,8 @@ Limit viewing of audit trails to only people with a job-related need.
 - 10.5.1 Limit viewing of audit trails to people with a job-related need.
 - 10.5.2 Protect audit trail files from unauthorized modifications.
 - 10.5.3 Promptly back up audit trail files to a centralized log server or media that is difficult to alter.
-- 10.5.4 Write logs for external-facing technologies on to a secure, centralized, internal log server or media device.
-- 10.5.5 Use file-integrity monitoring or change-detection software on logs to ensure that existing log data can't be changed without generating alerts. New data being added shouldn't cause an alert.
+- 10.5.4 Write logs for external-facing technologies onto a secure, centralized, internal log server or media device.
+- 10.5.5 Use file-integrity monitoring or change-detection software on logs to ensure that existing log data cannot be changed without generating alerts (although new data being added should not cause an alert).
 
 #### Your responsibilities
 
@@ -336,7 +336,7 @@ Also, detect anomalies in traffic patterns by connecting NSG flow logs into a ce
 
 ## Requirement 11.5
 
-Deploy a change tracking solution (for example, [Microsoft Defender for Cloud File Integrity Monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview)) to alert personnel to unauthorized modification of critical system files, configuration files, or content files. Configure the product to perform critical file comparisons at least weekly.
+Deploy a change tracking solution (for example, a file integrity monitoring solution) to alert personnel to unauthorized modification of critical system files, configuration files, or content files. Configure the product to perform critical file comparisons at least weekly.
 
 #### Your responsibilities
 
