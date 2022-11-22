@@ -19,7 +19,9 @@ Industries that rely on knowledge mining for contract management include:
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-contract-management.png)
+[ ![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-contract-management.png)](../media/knowledge-mining-contract-management.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-contract-management.vsdx) of this architecture.*
 
 ### Dataflow
 
