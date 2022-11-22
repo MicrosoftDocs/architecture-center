@@ -45,7 +45,7 @@ Principal author:
 
 ## Next steps
 
-[Agile development of data science projects](agile-development.md) This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
+See [Agile development of data science projects](agile-development.md). This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
 
 ## Related resources
 
