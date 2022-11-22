@@ -43,8 +43,8 @@ This solution blueprint is relevant to establishing connectivity for any applica
 
 ## Related resources
 
-* [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.md)
+* [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
 * [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
-* [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking.yml)
+* [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
 * [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-* [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.md)
+* [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
