@@ -2,7 +2,7 @@ Overlapping IP address spaces commonly occur when connected networks are from di
  
 Azure provides several ways to connect networks: Azure VPN Gateway and Azure ExpressRoute provide hybrid connectivity between the cloud and customer on-premises facilities, and you can use virtual network peering to connect two virtual networks. These solutions, however, have a common restriction: the networks being connected can't use overlapping IP addresses to establish connection. If two networks use the same address space, traffic can't be routed between them.  
  
-This article describes how you can use [Azure Private Link](https://azure.microsoft.com/products/private-link) to overcome overlapping IP address space constraints. It provides general guidance on how to expose applications running in one virtual network on Azure to consumers in another virtual network that has an overlapping IP address space.
+This article describes how you can use [Azure Private Link](https://azure.microsoft.com/products/private-link) to overcome overlapping IP address space constraints. It provides general guidance on how to expose applications that run in one virtual network on Azure to consumers in another virtual network that has an overlapping IP address space.
 
 ## What is Azure Private Link?
  
@@ -14,13 +14,13 @@ Private Link service is the reference to your own service that's powered by Priv
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-ip-constraints.pptx) of the architecture diagrams in this article.* 
 
-You want virtual machines on Network A to be able to seamlessly access the application that's running on the remote Network B. The same private endpoint should be accessible from on-premises, if required.
+You want virtual machines on Network A to be able to seamlessly access the application that runs on the remote Network B. The same private endpoint should be accessible from on-premises, if required.
  
 For more information about Private Link, see [What is Azure Private Link service?](/azure/private-link/private-link-service-overview#details). 
 
 ## How to deploy your application with Private Link
  
-Your application needs to meet some prerequisites if you want to expose it in Network A via Private Link service. You can find the prerequisites in the [Details](/azure/private-link/private-link-service-overview#details) section of **What is Azure Private Link service?**. 
+Your application needs to meet some prerequisites if you want to expose it in Network A by using Private Link service. You can find the prerequisites in the [Details](/azure/private-link/private-link-service-overview#details) section of **What is Azure Private Link service?**. 
 
 The most important prerequisite is that your application must be deployed in an Azure virtual network. You can't use Private Link service when the application with the overlapping address space is deployed on-premises and you need to access it from Azure. 
 
@@ -46,7 +46,7 @@ For more information, see [Getting connection Information using TCP Proxy v2](/a
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-ip-constraints.pptx) of the architecture diagrams in this article.* 
  
-Finally, you should review the [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits) page to check the limits associated with Private Link, and dimension your solution accordingly.
+Finally, you should review [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits) to check the limits associated with Private Link, and size your solution accordingly.
  
 ### Access control 
 
