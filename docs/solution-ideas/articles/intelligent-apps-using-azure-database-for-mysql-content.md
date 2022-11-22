@@ -12,9 +12,9 @@ This solution is ideal for the finance, education, and telecommunication industr
 
 ## Architecture
 
-![Architecture diagram](../media/intelligent-apps-using-azure-database-for-mysql.png)
+![Diagram that shows data flows of an intelligent app using Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
 
-*Download a [PNG file](../media/intelligent-apps-using-azure-database-for-mysql.png) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-using-azure-database-for-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 
