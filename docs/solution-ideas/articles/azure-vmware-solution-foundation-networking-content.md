@@ -1,18 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article discusses how to use Azure native services (such as Azure ExpressRoute, Azure Traffic Manager, and Azure Application Gateway), as some key services that assist in connecting Azure VMware Solution workloads to an on-premises environment, as well as with external users.
-
-> [!Note]
-> See [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) for the latest landing zone guidance.
-
-## Potential use cases
-
-Providing network connectivity can enable the following key use cases:
-
-* Extend an on-premises VMware environment to Azure.
-* Migrate VMware workloads from on-premises to Azure.
-* Enable secure connectivity from the public internet to Azure VMware Solution workloads.
-* Set up disaster recovery (DR) processes between an on-premises environment and an Azure VMware Solution environment, or between two Azure VMware Solution environments.
+Azure native services can assist in connecting Azure VMware Solution workloads to an on-premises environment and to external users.
 
 ## Architecture
 
@@ -73,13 +61,29 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
 
 ### Components
 
- - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
- - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
- - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
- - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)
- - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
- - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
- - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+- [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
+- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+
+## Solutions details
+
+This article discusses how to use Azure native services (such as Azure ExpressRoute, Azure Traffic Manager, and Azure Application Gateway), as some key services that assist in connecting Azure VMware Solution workloads to an on-premises environment, as well as with external users.
+
+> [!NOTE]
+> See [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) for the latest landing zone guidance.
+
+## Potential use cases
+
+Providing network connectivity can enable the following key use cases:
+
+- Extend an on-premises VMware environment to Azure.
+- Migrate VMware workloads from on-premises to Azure.
+- Enable secure connectivity from the public internet to Azure VMware Solution workloads.
+- Set up disaster recovery (DR) processes between an on-premises environment and an Azure VMware Solution environment, or between two Azure VMware Solution environments.
 
 ## Contributors
 

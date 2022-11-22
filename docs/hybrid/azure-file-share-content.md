@@ -18,6 +18,14 @@ The architecture consists of the following components:
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
 
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
+- [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
+
 ## Scenario details
 
 ### Potential use cases
