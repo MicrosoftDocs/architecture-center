@@ -25,7 +25,7 @@ The data flows through the solution as follows:
 1. The Azure Function App calls the Azure Cognitive Services API to analyze the data (for example, for Sentiment Analysis).
 1. The results of the analysis are returned in JSON format from Cognitive Services API(Text Analytics in this example)
 1. The Azure Function App stores the data and results from Cognitive Services API(Text Analytics in this example) in Azure Database for MySQL.
-1. Azure Machine Learning Studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
+1. Azure Machine Learning studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
 1. The MySQL Power BI Connector provides options for data visualization and analysis in Power BI or a custom web application
 
 ### Components
@@ -36,7 +36,7 @@ The data flows through the solution as follows:
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Text Analytics API](/azure/cognitive-services/text-analytics)
 - [Azure Database for MySQL](/azure/mysql)
-- [Azure Machine Learning Studio](/azure/machine-learning)
+- [Azure Machine Learning studio](/azure/machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ### Alternatives
@@ -73,7 +73,7 @@ Read more about the following Microsoft technologies:
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Text Analytics API](/azure/cognitive-services/text-analytics)
 - [Azure Database for MySQL](/azure/mysql)
-- [Azure Machine Learning Studio](/azure/machine-learning)
+- [Azure Machine Learning studio](/azure/machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
