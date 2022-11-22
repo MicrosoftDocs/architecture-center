@@ -447,7 +447,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
 

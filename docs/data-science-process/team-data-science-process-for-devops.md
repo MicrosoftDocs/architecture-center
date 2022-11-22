@@ -97,4 +97,4 @@ Principal author:
 
 ## Next steps
 
-[Team Data Science Process for data scientists](team-data-science-process-for-data-scientists.md) This article provides guidance for implementing data science solutions with Azure.
+See [Team Data Science Process for data scientists](team-data-science-process-for-data-scientists.md). This article provides guidance for implementing data science solutions with Azure.

@@ -23,7 +23,7 @@ categories:
 
 Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.yml) (TDSP). See [Team Data Science Process roles and tasks](roles-tasks.md), for an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process.
 
-The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning).  Examples in this Azure Architecture Center may show Azure Machine Learning used with other Azure resources.  These other analytics resources available to data science teams using the TDSP include:
+The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning). Examples in Azure Architecture Center sometimes show Azure Machine Learning used with other Azure resources. These other analytics resources available to data science teams using the TDSP include:
 
 - Data Science Virtual Machines (both Windows and Linux CentOS)
 - HDInsight Spark Clusters
@@ -34,7 +34,7 @@ The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/
 - SQL Server 2019 R and Python Services
 - Azure Databricks
 
-In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages.
+In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. The articles will show you how to these resources step by step to build your intelligent applications. More information on these resources is available on their product pages.
 
 ## Data Science Virtual Machine (DSVM)
 
@@ -153,7 +153,7 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
