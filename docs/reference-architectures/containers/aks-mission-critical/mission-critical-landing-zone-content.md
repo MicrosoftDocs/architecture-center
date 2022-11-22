@@ -288,7 +288,7 @@ Treat subscription boundaries as your security boundaries to limit the blast rad
 
 - Give the application teams authorization for operations with permissions scoped to the application landing zone subscription. 
 
-If you're running multiple deployments within a single subscription, avoid using a shared service principal because a breach will impact both deployments. Running deployments in dedicated subscriptions is recommended. If you are running multiple deployments in one subscription, create service principals per environment for maintaining scope.  It should provide autonomy over workload resources. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
+If you're running multiple deployments within a single subscription, avoid using a shared service principal because a breach will impact both deployments. Running deployments in dedicated subscriptions is recommended. If you're running multiple deployments in one subscription, create service principals per environment for maintaining scope. It should provide autonomy over workload resources. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
 
 ## Monitoring considerations
 
@@ -296,7 +296,7 @@ The Azure landing zone platform provides shared observability resources as part 
 
 So, an autonomous approach for monitoring is highly recommended. Workload operators are ultimately responsible for the monitoring and must have access to all data that represents overall health.
 
-The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources in those scopes. Aggregating logs, creating dashboards, and alerting is in scope for your team. Take advantage of Azure Diagnostics capabilities that send metrics and logs to various sinks. 
+The **baseline architecture** follows that approach and is continued in this reference architecture. Azure Log Analytics and Azure Application Insights are deployed regionally and globally to monitor resources in those scopes. Aggregating logs, creating dashboards, and alerting is in scope for your team. Take advantage of Azure Diagnostics capabilities that send metrics and logs to various sinks to support platform requirements for log & metric collection. 
 
 ### Health model
 
