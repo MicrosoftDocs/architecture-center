@@ -62,7 +62,7 @@ These resources live in the application landing zone subscription(s). These reso
 
 Most Azure services and their configuration remain the same as the [**baseline stamp architecture**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources), except for the networking resources, which are pre-provisioned by the platform team. 
 
-> In this article, see the [Regional spoke virtual network](regional-spoke-virtual-network) section.
+> In this article, see the [Regional spoke virtual network](#regional-spoke-virtual-network) section.
 
 ### External resources
 
@@ -211,7 +211,7 @@ Consider the tradeoffs between isolation of environments, complexity of manageme
 
 ## Subscription topology for workload infrastructure
 
-Subscriptions are given to you by the platform team. Depending on the **number of environments**, you will request several subscriptions for just one workload. Depending on the **type of environment**, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription. 
+Subscriptions are given to you by the platform team. Depending on the **number of environments**, you'll request several subscriptions for just one workload. Depending on the **type of environment**, some environments might need dedicated subscriptions while other environments might be consolidated into one subscription. 
 
 Regardless, work with the platform team to design a topology that meets the overall reliability target for the workload. There's benefit to sharing the platform-provided resources between environments in the same subscription because it will reflect the production environment.
 
