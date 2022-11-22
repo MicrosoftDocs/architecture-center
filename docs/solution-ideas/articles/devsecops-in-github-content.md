@@ -190,7 +190,6 @@ Principal author:
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [Repository security advisories]: https://docs.github.com/en/code-security/repository-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
-[Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
 [Azure Well-Architected Framework]: /azure/architecture/framework/index
 [About billing for GitHub actions]: https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/actions/hosting-your-own-runners/about-self-hosted-runners
