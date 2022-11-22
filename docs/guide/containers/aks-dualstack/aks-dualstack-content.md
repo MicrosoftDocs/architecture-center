@@ -1,10 +1,10 @@
 Due to IPv4 address exhaustion problem, IPv6 was introduced in 1995 and made as an Internet Standard in 2017. It's estimated that more than 50% traffic of United States is over IPv6. Unfortunately, the two protocols are not compatible, it means your infrastructure either runs IPv4 network or IPv6 network. This reference architecture details several configurations to enable users to run [Dual-stack kubenet networking AKS](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) (Preview). 
 
-This architecture builds on the [AKS Baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the dual-stack content.
-
-Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` without the need of extra NAT64 proxy.
+Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` without the need of extra NAT64 proxy.
 
 Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
+
+This document only focuses on enabling dual-stack IPs for users' network infrastructure, it is recommended that users should become familiar with [AKS Baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
 # Architecture
 
@@ -24,13 +24,11 @@ This approach is leveraging NAT64 proxy of Ingress Controller to translate exter
 
   3\. AKS Ingress acts as a reverse proxy to direct traffic to Kubernetes Service.
 
-  4\. Each Kubernetes Service distributes traffic to its applications running on HPA pods.
+  4\. Each Kubernetes Service distributes traffic to its application.
 
   5\. Applications can store and retrieve data from Azure storage services securely inside Azure infrastructure.
-
-  6\. All passwords, secrets, and certificates of the system can be safely stored in and retrieved from Azure Key Vaults.
   
-  7\. Applications' images can be pulled fast and securely from Azure Container Registry.
+  6\. Applications' images can be pulled fast and securely from Azure Container Registry.
 
 - **IPv6 traffic** (orange line) is routed as following:
 
@@ -40,7 +38,7 @@ This approach is leveraging NAT64 proxy of Ingress Controller to translate exter
       
   1c. IPv6 ingress directs traffic to the IPv4 address. It is, now, IPv4 traffic with additional metadata like IPv6 source address if needed. 
   
-  2-7. The dataflow from 2 to 7 is the same in IPv4 flow.
+  2-6. The dataflow from 2 to 6 is the same in IPv4 flow.
 
 ## Option 2 - AKS Services running IPv6  
 
