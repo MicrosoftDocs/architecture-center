@@ -34,7 +34,7 @@ The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/
 - SQL Server 2019 R and Python Services
 - Azure Databricks
 
-In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages.
+In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. The articles will show you how to these resources step by step to build your intelligent applications. More information on these resources is available on their product pages.
 
 ## Data Science Virtual Machine (DSVM)
 
