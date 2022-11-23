@@ -52,21 +52,23 @@ You need to consider questions like:
 
 The following table summarizes the differences between the main tenancy models for Azure AD B2C:
 
-| Consideration | [Shared Azure AD B2C tenant](#shared-azure-ad-b2c-tenant) | [Azure AD B2C tenant per application tenant](#azure-ad-b2c-tenant-per-application-tenant) | [Vertically partitioned Azure AD B2C tenant](#vertically-partitioned-azure-ad-b2c-tenants) |
-|-|-|-|-|
-| **Data isolation** | Low | High | Medium |
-| **Deployment complexity** | Low | Very high | Medium to high, depending on your partitioning strategy |
-| [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy |
-| **Operational complexity** | Low | Very high | Medium to high, depending on your partitioning strategy |
-| **Number of Azure AD B2C tenants required** | 1 | *n*, where n is equal to the number of application tenants | Between 1 and *n*, depending on your partitioning strategy |
-| **Example scenario** | You are building a SaaS offering for consumers in one region, such as a music or video streaming service | You are building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants | You are building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or custom federated identity providers |
+| Consideration | [Shared Azure AD B2C tenant](#shared-azure-ad-b2c-tenant) | [Vertically partitioned Azure AD B2C tenant](#vertically-partitioned-azure-ad-b2c-tenants) | [Azure AD B2C tenant per application tenant](#azure-ad-b2c-tenant-per-application-tenant) |
+|---|---|---|---|
+| **Data isolation** | Low | Medium | High |
+| **Deployment complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
+| [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user |
+| **Operational complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
+| **Number of Azure AD B2C tenants required** | 1 | Between 1 and *n*, depending on your partitioning strategy | *n*, where n is equal to the number of application tenants |
+| **Example scenario** | You are building a SaaS offering for consumers in one region, such as a music or video streaming service | You are building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or custom federated identity providers | You are building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants |
 
 ### Shared Azure AD B2C tenant
+
+Using a single, shared Azure AD B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead.
 
 >[!NOTE]
 > We recommend using a shared Azure AD B2C tenant for most scenarios.
 
-Using a single, shared Azure AD B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared Azure AD B2C tenant should be considered if the following apply to your scenario:
+A shared Azure AD B2C tenant should be considered if the following apply to your scenario:
 
 - You do not have data residency or strict data isolation requirements.
 - Your application needs are within the Azure AD B2C [service limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits).
@@ -101,12 +103,14 @@ The diagram below illustrates the vertically partitioned Azure AD B2C tenant mod
 
 ### Azure AD B2C tenant per application tenant
 
+Provisioning an Azure AD B2C tenant for each application tenant allows you to customize many factors for each tenant. However, this approach comes at the cost of significantly increased overhead. You must consider how you  plan for and manage this type of deployment and upkeep long term. You need a strategy to manage policy deployments, key and certificate rotation, and many other concerns across a large number of Azure AD B2C tenants.
+
+Additionally, there are several service limits that you must keep in mind. Azure subscriptions enable you to deploy a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design pattern](../approaches/resource-organization.yml#bin-packing) to allow you to  balance your Azure AD B2C tenants across multiple subscriptions. Please also keep in mind that there are other [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: there are limits to how many directories a single user can create, and how many directories they can belong to.
+
 > [!WARNING]
 > Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases.
 >
 > A common misconception is to assume that, because you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you need to include identity within each stamp. This is not necessarily true, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
-
-Provisioning a Azure AD B2C tenant per application tenant allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 Azure AD B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your Azure AD B2C tenants onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
 
 You should only consider provisioning an Azure AD B2C tenant for every application tenant if the following statements apply to your scenario:
 
@@ -153,9 +157,6 @@ Remember that these questions must be considered for *every* Azure AD B2C tenant
 
 ### Deployments and DevOps
 
-> [!IMPORTANT]
-> As of the writing of this article, some of the endpoints used to manage Azure AD B2C programmatically are in beta. APIs under the `/beta` version in Microsoft Graph are subject to change at any time. 
-
 A well-defined DevOps process helps to minimize the amount of overhead involved in maintaining your Azure AD B2C tenants. It's a good idea to implement a DevOps practice early in your development process. Ideally, you should aim to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. Your DevOps pipelines might perform these activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
 
 For more information on automated deployments and management of Azure AD B2C, see the following resources:
@@ -168,6 +169,9 @@ For more information on automated deployments and management of Azure AD B2C, se
   - [User flow reference](/graph/api/resources/b2cidentityuserflow?view=graph-rest-beta&preserve-view=true)
   - [App registration reference](/graph/api/resources/application?view=graph-rest-beta&preserve-view=true)
   - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)
+
+> [!IMPORTANT]
+> Some of the endpoints used to manage Azure AD B2C programmatically are not generally available. APIs under the `/beta` version in Microsoft Graph are subject to change at any time, and are subject to prerelease terms of service. 
 
 ## Compare Azure AD B2B to Azure AD B2C
 
@@ -189,16 +193,16 @@ Here are some additional resources to review for more information on this subjec
 
 Principal author:
 
-- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
-- [Michael Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer
-- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer
-- [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur/) | Customer Engineer
-- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
-- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Michael Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer, FastTrack for Azure
+- [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur/) | Customer Engineer, FastTrack for Azure
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal Customer Engineering Manager, FastTrack for Azure
+- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps and other resources
 
