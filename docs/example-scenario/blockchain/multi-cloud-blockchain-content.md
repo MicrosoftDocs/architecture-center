@@ -6,6 +6,8 @@ This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. 
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 
+### Workflow
+
 - [Kubernetes](https://kubernetes.io) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters.
   - Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
   - Party B uses [GCP Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine).
