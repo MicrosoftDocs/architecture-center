@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Mission-critical baseline architecture in an Azure landing zone
+  description: Reference architecture for a mission-critical workload that takes a dependency on Azure landing zones for connectivity resources, which allows integration with other applications and shared services of an enterprise. 
+  author: hjscherer
+  ms.author: prwilk
+  ms.date: 11/30/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - networking
+    - security
+    - devops
+name: Mission-critical baseline architecture in an Azure landing zone
+azureCategories:
+  - containers
+  - networking
+  - management-and-governance
+summary: Reference architecture for a mission-critical workload that takes a dependency on Azure landing zones for connectivity resources, which allows integration with other applications and shared services of an enterprise. 
+products:
+  - azure-front-door
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-rbac
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-architecture-landing-zone.svg
+content: |
+   [!include[](mission-critical-landing-zone-content.md)]
