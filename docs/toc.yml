@@ -4294,6 +4294,8 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Measure Azure app sustainability
+                href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
@@ -5921,6 +5923,8 @@ items:
               - name: Connectivity to Oracle Cloud Infrastructure
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
                 maintainContext: true
+              - name: Resolve overlapping IP address space constraints 
+                href: guide/networking/private-link-ip-constraints.yml
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver

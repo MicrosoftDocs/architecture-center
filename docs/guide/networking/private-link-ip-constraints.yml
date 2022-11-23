@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Private Link to access applications on networks with overlapping address spaces
+  description: Learn how to use Private Link to expose apps running in one virtual network to consumers in another virtual network that has an overlapping IP address space.
+  author: ivapplyr
+  ms.author: ivapplyr
+  ms.date: 11/22/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-private-link
+  - azure-dns
+  - azure-expressroute
+name: Use Private Link to access applications on networks with overlapping address spaces
+summary: Learn how to use Azure Private Link to expose apps running in one virtual network to consumers in another virtual network that has an overlapping IP address space.
+thumbnailUrl: /azure/architecture/browse/thumbs/private-link-ip-constraints-thumb.png
+content: |
+  [!include[](private-link-ip-constraints-content.md)]

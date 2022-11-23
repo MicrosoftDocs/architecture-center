@@ -14,7 +14,9 @@ With queries using the search index, companies can discover trends about what cu
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)
+[ ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)](../media/knowledge-mining-customer-feedback-and-analytics.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-customer-feedback-and-analytics.vsdx) of this architecture.*
 
 ### Dataflow
 

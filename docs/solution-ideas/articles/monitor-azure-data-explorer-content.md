@@ -1,7 +1,5 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-## Potential use cases
-
 This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Microsoft Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem.
 
 ## Architecture

@@ -20,31 +20,7 @@ The solution described in this article demonstrates how to combine these technol
 
 [ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.png) ](../media/big-data-analytics-enterprise-grade-security-large.png#lightbox)
 
-This example solution makes use of several Azure services and features:
-
--   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
-
--   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction)  is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
-
--   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
-
--   [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview) cleanses, normalizes, and performs other processing tasks on data ingested from source locations.
-
--   [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (formerly SQL DW) provides data warehousing capabilities for data after it's been processed and normalized and is ready for use by your end users and applications.
-
--   [Serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) allows users to quickly query and analyze processed and normalized data.
-
--   [Azure Synapse Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) creates an isolated managed virtual networking environment for the Azure Synapse workspace, offloading the need for you to manage networking configuration for the workspace resources.
-
--   [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) establish private links to Azure resources and route traffic between your Azure Synapse workspaces and other Azure resources using only the Microsoft backbone network.
-
--   [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
-
--   [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) provides a private IP address from the solution's VNet to Azure managed services, effectively connecting a service to the VNet. This allows secure networking between the Azure Synapse workspace and other Azure services such as Azure Storage, Azure Cosmos DB, Azure SQL Database, or your own [Azure Private Link service](/azure/private-link/private-link-service-overview).
-
--   [Power BI](/power-bi) allows users to perform advanced analysis and share insights using the solution's processed data.
-
-### Data flow
+### Dataflow
 
 The data flows through the solution as follows:
 
@@ -71,6 +47,30 @@ The data flows through the solution as follows:
 6.  The Power BI service uses DirectQuery mode to securely fetch data from the Synapse SQL pool. A data gateway installed in a virtual machine on the private VNet acts as a connecting platform between the Power BI service and the Synapse SQL pool, using Private Endpoint in the same VNet to securely connect.
 
 7.  External applications can access data from the Synapse serverless pools or dedicated SQL pools by accessing the appropriate private endpoints connected to the VNet.
+
+This example solution makes use of several Azure services and features:
+
+-   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
+
+-   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction)  is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
+
+-   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
+
+-   [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview) cleanses, normalizes, and performs other processing tasks on data ingested from source locations.
+
+-   [Dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (formerly SQL DW) provides data warehousing capabilities for data after it's been processed and normalized and is ready for use by your end users and applications.
+
+-   [Serverless SQL pool](/azure/synapse-analytics/sql/on-demand-workspace-overview) allows users to quickly query and analyze processed and normalized data.
+
+-   [Azure Synapse Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) creates an isolated managed virtual networking environment for the Azure Synapse workspace, offloading the need for you to manage networking configuration for the workspace resources.
+
+-   [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) establish private links to Azure resources and route traffic between your Azure Synapse workspaces and other Azure resources using only the Microsoft backbone network.
+
+-   [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+
+-   [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) provides a private IP address from the solution's VNet to Azure managed services, effectively connecting a service to the VNet. This allows secure networking between the Azure Synapse workspace and other Azure services such as Azure Storage, Azure Cosmos DB, Azure SQL Database, or your own [Azure Private Link service](/azure/private-link/private-link-service-overview).
+
+-   [Power BI](/power-bi) allows users to perform advanced analysis and share insights using the solution's processed data.
 
 ### Components
 
