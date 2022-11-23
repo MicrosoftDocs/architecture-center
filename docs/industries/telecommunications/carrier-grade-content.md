@@ -21,7 +21,7 @@ Multiple clients can connect to the workload using various protocols. They can b
 - **Replicated storage**. Keep the application itself is stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
 - **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
 - **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
-**Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
+**Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This model removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
 
 ## Architecture
 
@@ -78,7 +78,7 @@ Premium SKU is used for large payload data, long-term metrics data, virtual mach
 
 **Azure Functions**
 
-Triggers special functionality of the workload, such as  delivery of messages at the indicated time and delayed notifications.
+Triggers application-specific functionality, such as  delivery of messages at the indicated time and delayed notifications.
 
 **Azure Queue Storage**
 
@@ -89,7 +89,7 @@ All regional resources are stateless except for Queue Storage that stores messag
 
 ### Regional stamp resources
 
-Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency, scale. The resources are expected to be ephemeral. They are created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
+Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency, scale. The resources are expected to be ephemeral. They're created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
 
 **Workload compute**
 
@@ -98,11 +98,11 @@ Both virtual machines and containers are used to host the workload. The technolo
 
 ## Workload design
 
-The application is part of the stamp is immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They are deployed and monitored by the management service.
+The application is part of the stamp is immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They're deployed and monitored by the management service.
 
 ### Resiliency considerations
 
-The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The SIs are stateless and long-living state is stored in an external database. 
+The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The application is stateless and long-living state is stored in an external database. 
 
 To build redundancy, SIs are deployed in multiple Availability Zones and regions in an active-active model. 
 
@@ -110,14 +110,14 @@ The components within each SI use a fate-sharing model, which simplifies logic f
 
 ### Monitoring
 
-This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application SIs at regular intervals and maintain a health status. If the health state of a particular SI is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
+This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application SIs at regular intervals and maintains a health status. If the health state of a particular SI is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
 
 
 ## Traffic management
 
 ![Diagram showing the logical architecture of a carrier-grade solution](./images/carrier-grade-traffic.svg)
 
-The application is fronted by a traffic management layer which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
+The application is fronted by a traffic management layer, which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
 
 - **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
 
@@ -145,28 +145,28 @@ For Protocol B, Azure Traffic Manager has its own active polling that minimizes 
 
 ## Data consistency
 
-For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. In case of a failure, time taken to bring up an instance in  another region should be minimized.
+For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. If there's a failure, time taken to bring up an instance in  another region should be minimized.
 
 - Data should be regionally replicated in an active-active configuration such as that it's instantly synchronized across regions. Also, all instances should be able to handle read and write requests. 
-- In case of a failure, write requests to the database should still be functional.
+- If there's a failure, write requests to the database should still be functional.
 
 Azure Cosmos DB was chosen as the global database because it meets those requirements. The architecture uses the multi-write region model. If there's a global outage, consistent data is available in multiple regions almost instantly. Also, zonal redundancy is guaranteed through availability zone redundancy support (AZRS).
 
 > Refer to [Well-Architected carrier-grade workloads](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-data-model).
 
-This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data,  application core dumps and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS), in conjunction with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot/cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
+This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data,  application core dumps and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS) with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot/cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
 
 ## Scalability considerations
 
 The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. Scale is achieved through the combination of individual service instance capacity and the total number of instances.  
 
-The capacity of the individual service instance is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation. This is discussed in 
+The capacity of the individual service instance is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation.  
 
 ## Overall observability
 
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management service in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each zone. Monitoring data is retained so that diagnosis can be performed after the fact, allowing fault resolution. 
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They're handled by the management service in each Availability Zone and not replicated outside each zone because the cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each zone. Monitoring data is retained so that diagnosis can be performed after the fact, allowing fault resolution. 
 
-Alerts are set up by the application instances. Metric threshold events are replicated across all zones and regions so they are always available. 
+Alerts are set up by the application instances. Metric threshold events are replicated across all zones and regions so they're always available. 
 
 ## Operational considerations
 
@@ -174,19 +174,19 @@ The operational aspect of the architecture is key to achieving high availability
 
 ### Deployment
 
-Application source code and configuration are stored in a Git repository in Azure DevOps Repos. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
+Application source code and configuration are stored in a Git repository in Azure DevOps. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
 
 Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
-Conversely, Flux also decommissions resources that are not required. For example, if it's determined that a particular instance shouldn't receive traffic, Flux reacts to the configuration change by triggering DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
+Conversely, Flux also decommissions resources that are not required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
 ### Upgrade, patching, and configuration updates
 
-When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. In case of errors, traffic is reverted to the old instance. Otherwise, the old instance is decommissioned. 
+When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. Traffic is reverted to the old instance if there are errors. Otherwise, the old instance is decommissioned. 
 
 ### Automation
 
-Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it's also critical that control is not fully closed-loop, so there are explicit manual gates and fire breaks within the end to end process to ensure any contagion cannot infect the complete solution via the automation pathways.  The text below looks at the specific operational steps needed for various lifecycle events.
+Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced through automation.  The text below looks at the specific operational steps needed for various lifecycle events.
 
 ## Testing and validation
 
