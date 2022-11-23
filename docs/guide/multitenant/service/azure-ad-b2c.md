@@ -108,55 +108,57 @@ The diagram below illustrates the vertically partitioned Azure AD B2C tenant mod
 
 Provisioning a Azure AD B2C tenant per application tenant allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 Azure AD B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your Azure AD B2C tenants onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
 
-Provisioning a Azure AD B2C tenant per customer should be considered if the following apply to your scenario:
+You should only consider provisioning an Azure AD B2C tenant for every application tenant if the following statements apply to your scenario:
 
-- You have very high data isolation requirements between application tenants
-- You have a strategy planned for deploying and [maintaining](#maintenance) a large number of Azure AD B2C tenants long term
-- You have a strategy planned for sharding your customers between one or more Azure subscriptions to work within the 20 Azure AD B2C tenant limit per subscription
-- Your application is or can be "tenant aware" and knows which Azure AD B2C tenant your users will need to sign into
-- You need to perform custom configuration for *every* application tenant
-- Your end users do not need access to more than one application tenant under the same account
+- You have strict data isolation requirements between application tenants.
+- You have a long-term strategy planned for deploying and [maintaining](#maintenance) a large number of Azure AD B2C tenants.
+- You have a strategy for sharding your customers between one or more Azure subscriptions to work within the Azure AD B2C tenant limit per subscription.
+- Your application is, or can be, multitenancy-aware, and knows which Azure AD B2C tenant your users will need to sign into
+- You need to perform custom configuration for *every* application tenant.
+- Your end users don't need access to more than one application tenant by using the same sign in account.
 
 The diagram below illustrates the Azure AD B2C tenant per application tenant model:
 
-![A diagram showing 3 applications, each connecting to their own Azure AD B2C tenant](media/azure-ad-b2c/TenantPerCustomerDiagram.drawio.png)
+![A diagram showing three applications, each connecting to their own Azure A D B 2 C tenant.](media/azure-ad-b2c/TenantPerCustomerDiagram.drawio.png)
 
-## Identity Federation
+## Identity federation
 
-Each unique federated identity provider must be [configured](/azure/active-directory-b2c/user-flow-overview) using either a user flow or a custom policy. When choosing an isolation model, keep in mind that there is a combined [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of either 200 user flows or custom policies allowed in a single Azure AD B2C tenant. Additionally, if you are wanting to set up a federated identity provider using SAML, you must create a dedicated policy for each one. You cannot combine it in a larger policy file in the same way you can with OpenID Connect identity providers.
+Each unique federated identity provider must be [configured](/azure/active-directory-b2c/user-flow-overview) by using either a user flow or a custom policy. When choosing an isolation model, remember that there's a [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) to the number of user flows or custom policies allowed within a single Azure AD B2C tenant. Additionally, if you want to set up a federated identity provider using SAML, you must create a dedicated policy for each federation. You can't combine SAML federations into a larger policy file in the same way you can with OpenID Connect identity federations.
 
-Additionally, something else to keep in mind, is that you can also use identity federation as a tool for managing multiple Azure AD B2C tenants by federating the Azure AD B2C tenants with each other. This allows your application to trust a single Azure AD B2C tenant instead of it having to be "tenant aware" (ie. aware that your customers are divided between *n* number of Azure AD B2C tenants). This is most commonly used in the vertically partitioned isolation model.  
+Additionally, you can also use identity federation as a tool for managing multiple Azure AD B2C tenants by federating the Azure AD B2C tenants with each other. This allows your application to trust a single Azure AD B2C tenant, and avoids it being aware that your customers are divided between *n* number of Azure AD B2C tenants. This approach is most commonly used in the vertically partitioned isolation model.  
 
-**Example**: You have customers in 3 distinct regions (Regions A, B, and C). You are employing a vertically partitioned Azure AD B2C tenant strategy and are separating your customers into a Azure AD B2C tenant per region. In this scenario, you would need *4* Azure AD B2C tenants: one each for regions A, B, and C, and a fourth to act as a "funnel" tenant. The multitenant application would trust the funnel tenant as its identity provider, and the funnel tenant would establish a trust between each of the regional tenants as an identity provider. Upon a user being directed to the funnel tenant for login, the funnel tenant would be responsible for looking up which of the regional tenants the user belongs to, and directing them to it for login.
+**Example**: Suppose you have customers in three distinct regions (regions A, B, and C). You employ a vertically partitioned Azure AD B2C tenant strategy, and separate your customers into an Azure AD B2C tenant per region. In this scenario, you would need *four* Azure AD B2C tenants: one each for regions A, B, and C, and a fourth to act as a "funnel" tenant. The multitenant application trusts the funnel tenant as its identity provider, and the funnel tenant establishes trust between each of the regional tenants as a federated identity provider. When a user is directed to the funnel tenant to sign in, the funnel tenant is responsible for looking up which regional Azure AD B2C tenant the user belongs to, and directing their sign in to that tenant.
 
-## Data Residency
+## Data residency
 
-When provisioning a Azure AD B2C tenant, you will be asked to select a region for your tenant to be deployed to for [data residency purposes](/azure/active-directory-b2c/data-residency). This selection is important as this is the region that your customer data will reside in. If you have any specific data residency requirements for a subset of your customers, this is when you should consider using the vertically partitioned strategy.
+When provisioning an Azure AD B2C tenant, you select a region for your tenant to be deployed to for [data residency purposes](/azure/active-directory-b2c/data-residency). This selection is important, because this specifies the region that your customer data resides in. If you have any specific data residency requirements for a subset of your customers, consider using the vertically partitioned strategy.
 
 ## Authorization
 
-For a strong identity solution, you not only have to consider *authentication*, but *authorization* as well. There are several approaches in which you can build out an authorization strategy for your application. This [sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C's [application roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in your application, but also discusses other approaches you can take as well. There is no "one size fits all" approach to authorization, and you should consider the needs of your application and your customers when deciding on an approach.
+For a strong identity solution, you not only have to consider *authentication*, but *authorization* as well. There are several approaches in which you can build out an authorization strategy for your application. The [AppRoles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C's [application roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in your application. It also discusses alternative authorization approaches you can take.
+
+There is no single approach to authorization, and you should consider the needs of your application and your customers when deciding on an approach.
 
 ## Maintenance
 
-When planning for a multitenant deployment of Azure AD B2C, it is important to think about the long term maintenance of your Azure AD B2C tenant(s). This list is not exhaustive, but you should consider things such as:  
+When planning a multitenant deployment of Azure AD B2C, it's important to think about the long-term maintenance of your Azure AD B2C resources. This list is not exhaustive, but you should consider maintenance of elements including the following:  
 
-1. [User journey configuration](/azure/active-directory-b2c/user-flow-overview) - How will you deploy changes to your Azure AD B2C tenant(s)? How will you test changes to your user flows or custom policies before deploying them?
-2. [Federated identity providers](#identity-federation) - Will you need to add or remove identity providers over time? If you are allowing each of your customers to bring their own identity provider, how will you manage that at scale?
-3. App registrations - Most App Registrations have a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How will you rotate these when necessary?
-4. [Policy keys](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy) - If you are using custom policies, how will you rotate the policy keys when necessary?
-5. User credentials - How will you manage user information and credentials? What if one of your users gets locked out or forgets their password and requires administrator intervention?
+- [**User journey configuration**](/azure/active-directory-b2c/user-flow-overview). How do you deploy changes to your Azure AD B2C tenant(s)? How do you test changes to your user flows or custom policies before deploying them?
+- [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you are allowing each of your customers to bring their own identity provider, how do you manage that at scale?
+- **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these when necessary?
+- [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when necessary?
+- **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets their password and requires administrator intervention?
 
-It is also important to keep in mind that these things must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change if or when you have more than one Azure AD B2C tenant to maintain. For example: Deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually is extremely difficult.
+Remember that these questions must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change when you have multiple Azure AD B2C tenants to maintain. For example, deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually becomes time-consuming.
 
-### Deployments & DevOps
+### Deployments and DevOps
 
 > [!IMPORTANT]
 > As of the writing of this article, some of the endpoints used to manage Azure AD B2C programmatically are in beta. APIs under the `/beta` version in Microsoft Graph are subject to change at any time. 
 
-A well defined DevOps process can help minimize the amount of overhead involved in maintaining your Azure AD B2C tenant(s) and should be implemented as early as possible in your development process. Ideally, all or most of your maintenance tasks, including deploying changes to your custom policies or user flows, should be automated into a DevOps pipeline. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
+A well-defined DevOps process helps to minimize the amount of overhead involved in maintaining your Azure AD B2C tenants. It's a good idea to implement a DevOps practice early in your development process. Ideally, you should aim to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. Your DevOps pipelines might perform these activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
 
-Here are some additional resources to get you started:
+For more information on automated deployments and management of Azure AD B2C, see the following resources:
 
 - [Deploy custom policies with Azure Pipelines](/azure/active-directory-b2c/deploy-custom-policies-devops)
 - [Deploy custom policies with GitHub Actions](/azure/active-directory-b2c/deploy-custom-policies-github-action)
@@ -167,13 +169,13 @@ Here are some additional resources to get you started:
   - [App registration reference](/graph/api/resources/application?view=graph-rest-beta&preserve-view=true)
   - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)
 
-## Azure AD B2B vs Azure AD B2C
+## Compare Azure AD B2B to Azure AD B2C
 
-[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature within Azure AD External Identities that allows you to invite guest users into your *organizational* Azure AD tenant for collaboration purposes. B2B collaboration is most often used when you need an external user, such as a vendor, to have access to resources within your Azure AD tenant.
+[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature within Azure AD External Identities that allows you to invite guest users into your *organizational* Azure AD tenant for collaboration purposes. Typically, you use B2B collaboration when you need to grant an external user, such as a vendor, access to resources within your Azure AD tenant.
 
-Azure AD B2C is also grouped within Azure AD External Identities, but provides a different set of features. It is specifically intended for use by customers of your product. These users are managed inside a separate Azure AD B2C tenant.
+Azure AD B2C is also grouped within Azure AD External Identities, but provides a different set of features. It's specifically intended for the customers of your product to use. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
 
-In some scenarios, depending on your user personas, you could have a need for either Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if you needed to authenticate staff users within your organization, users that work for a vendor, and customers all within the same app, you would need both Azure AD B2B and Azure AD B2C.
+Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, such as staff within your organization, users that work for a vendor, and customers, all within the same app, you could use both Azure AD B2B and Azure AD B2C to achieve this requirement.
 
 Here are some additional resources to review for more information on this subject:
 
