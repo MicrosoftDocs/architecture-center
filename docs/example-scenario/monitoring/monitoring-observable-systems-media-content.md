@@ -1,14 +1,4 @@
-Organizations often deploy varied and large-scale technologies to solve their business problems. These systems and end-user devices generate large sets of telemetry data. 
-
-This architecture highlights a use case in the media industry and showcases solutions that provide real-time monitoring and observability of systems and end-user device telemetry data. Media streaming for live and video-on-demand playback requires near real-time identification of and response to application problems. To support this real-time scenario, organizations need to collect a massive telemetry set, which requires scalable architecture. After the data is collected, additional analysis approaches, like AI and anomaly detection, are needed to efficiently identify problems across so large a data set.
-
-Problem Statement
-
-When large-scale technologies are deployed, the system and end-user devices that interact with them generate massive sets of telemetry data. In traditional scenarios, these data are analyzed via a data warehouse system to generate insights that can be used to support management decisions. This approach might work in some scenarios, but it's not responsive enough for streaming media use cases. To solve this problem, real-time insights are required for the telemetry data generated from monitoring servers, networks, and the end-user devices that interact with them. Monitoring systems that catch failures and errors are common, but to catch them in near real-time is difficult. That's the focus of this architecture.
-
-Solution Summary
-
-In a live streaming or video-on-demand setting, telemetry data is generated from systems and heterogeneous clients (mobile, desktop, and TV). The solution involves taking raw data and associating context with the data points, for example, dimensions like geography, end-user operating system, content ID, and CDN provider. The raw telemetry is collected, transformed, and saved in Azure Data Explorer for analysis. You can then use AI to make sense of the data and automate the manual processes of observation and alerting. You can use systems like Grafana and Azure Metrics Advisor to read data from Data Explorer to show interactive dashboards and trigger alerts.
+This architecture describes a solution that provides real-time monitoring and observability of systems and end-user device telemetry data. It focuses on a use case for the media industry.
 
 ## Architecture
 
@@ -16,14 +6,14 @@ diagram
 
 link
 
-In the observable system shown in the diagram, raw telemetry is streamed to Azure Blob Storage via HTTP and connectors. The raw telemetry is processed, transformed, normalized, and saved in Data Explorer for analysis. Systems like Grafana and Metrics Advisor read data from Data Explorer and provide insights to end users.
+In the observable system shown in the diagram, raw telemetry is streamed to Azure Blob Storage via HTTP and connectors. The raw telemetry is processed, transformed, normalized, and saved in Azure Data Explorer for analysis. Systems like Grafana and Azure Metrics Advisor read data from Data Explorer and provide insights to end users.
 
 More specifically, these are the elements of the system in the diagram:
 
-1.	**Instrumentation.** Instrumentation occurs via probes or agents that are installed in systems to monitor data. These agents come in a variety of forms. For example, in a video-on-demand streaming platform, a company might use open-standards [dash.js](https://github.com/Dash-Industry-Forum/dash.js) to collect Quality of Experience metrics from customers.
-2.	**Ingestion.** This raw telemetry can come directly from end clients via HTTP calls.Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blog Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
-3.	**Transformation and persistence.** You might need a transformation system to normalize your data. An Azure Functions app transforms the data as needed and then writes it to Data Explorer. Data Explorer is ideal for big data analytics because it's designed for high performance and throughput on extremely large data sets.
-4.	**Monitoring.** Azure Managed Grafana supports integration with Data Explorer. You can use the drag-and-drop features of Grafana to quickly build dashboards and charts. Grafana is a good fit for media monitoring because it provides sub-minute refreshing of dashboard tiles and can also be used for alerting.
+1.	**Instrumentation.** Instrumentation occurs via probes or agents that are installed in systems to monitor data. These agents come in various forms. For example, in a video-on-demand streaming platform, a company might use open-standards [dash.js](https://github.com/Dash-Industry-Forum/dash.js) to collect Quality of Experience metrics from customers.
+2.	**Ingestion.** This raw telemetry can come directly from end clients via HTTP calls. Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blog Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
+3.	**Transformation and persistence.** You might need a transformation system to normalize your data. An Azure Functions app transforms the data as needed and then writes it to Data Explorer. Data Explorer is ideal for big data analytics because it's designed for high performance and throughput on large data sets.
+4.	**Monitoring.** Azure Managed Grafana supports integration with Data Explorer. You can use the drag-and-drop features of Grafana to quickly build dashboards and charts. Grafana is a good fit for media monitoring because it provides subminute refreshing of dashboard tiles and can also be used for alerting.
 5.	**Anomaly detection.** The Grafana dashboard provides support for manual monitoring in the NOC. However, with a large data set and a user base spread across an array of geographies and devices, manual identification of issues via charts and alert rules with hard-coded thresholds becomes inefficient. You can use AI to address this problem. Services like Metrics Advisor use machine learning algorithms to automatically understand and detect anomalies based on time-series data. In addition, the Kusto data platform has built-in anomaly detection functions that account for seasonality and baseline trends in the data.
 
 ### Components
@@ -34,7 +24,21 @@ More specifically, these are the elements of the system in the diagram:
 - [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time data ingestion service that you can use to ingest millions of events per second from any source. Event hubs represent the front door, often called an event *ingestor*, for an event pipeline. An event ingestor is a component or service that's located between event publishers and event consumers. It decouples the production of an event stream from the consumption of the events.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that's used to parse and transform data ingested via HTTP and blob endpoints and write to the Data Explorer cluster.
 - [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana) connects easily to Data Explorer. In this architecture, it generates charts and dashboards that visualize telemetry data. Azure Managed Grafana provides deep integration with Azure Active Directory so you can implement role-based access of dashboards and views.
-- [Azure Metrics Advisor](https://azure.microsoft.com/products/metrics-advisor) is a part of Azure Applied AI Services. It uses AI to perform data monitoring and anomaly detection in time-series data. Metrics Advisor automates the process of applying models to data and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it without any knowledge of machine learning.
+- [Metrics Advisor](https://azure.microsoft.com/products/metrics-advisor) is a part of Azure Applied AI Services. It uses AI to perform data monitoring and anomaly detection in time-series data. Metrics Advisor automates the process of applying models to data and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics. You can use it without any knowledge of machine learning.
+
+### Alternatives
+
+[Azure Data Factory](https://azure.microsoft.com/products/data-factory) and [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics) provide tools and workspaces for building ETL workflows and the ability to track and retry jobs from a graphical interface. Note that Data Factory and Azure Synapse both have a minimum lag of about 5 minutes from the time of ingestion to persistence. This lag might be acceptable in your monitoring system. If it is, we recommend that you consider these alternatives.
+
+## Scenario details
+
+Organizations often deploy varied and large-scale technologies to solve business problems. These systems, and end-user devices, generate large sets of telemetry data. 
+
+This architecture is based on a use case for the media industry. Media streaming for live and video-on-demand playback requires near real-time identification of and response to application problems. To support this real-time scenario, organizations need to collect a massive telemetry set, which requires scalable architecture. After the data is collected, additional analysis approaches, like AI and anomaly detection, are needed to efficiently identify problems across so large a data set.
+
+When large-scale technologies are deployed, the system and end-user devices that interact with them generate massive sets of telemetry data. In traditional scenarios, these data are analyzed via a data warehouse system to generate insights that can be used to support management decisions. This approach might work in some scenarios, but it's not responsive enough for streaming media use cases. To solve this problem, real-time insights are required for the telemetry data generated from monitoring servers, networks, and the end-user devices that interact with them. Monitoring systems that catch failures and errors are common, but to catch them in near real-time is difficult. That's the focus of this architecture.
+
+In a live streaming or video-on-demand setting, telemetry data is generated from systems and heterogeneous clients (mobile, desktop, and TV). The solution involves taking raw data and associating context with the data points, for example, dimensions like geography, end-user operating system, content ID, and CDN provider. The raw telemetry is collected, transformed, and saved in Data Explorer for analysis. You can then use AI to make sense of the data and automate the manual processes of observation and alerting. You can use systems like Grafana and Metrics Advisor to read data from Data Explorer to show interactive dashboards and trigger alerts.
 
 ## Considerations
 
@@ -42,61 +46,72 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Your business-critical application needs to run despite a disruptive event like an Azure region or CDN outage. In this case, there are two primary strategies and one hybrid strategy for building redundancy into your system:
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- **Active/Active** – Your code and functions are operating in a duplicate manner and either system can take over in case of a failure.
-- **Active/Standby** – In this configuration, only one node is active/primary while the other one is waiting to take over in case the primary node goes down.
-- **Mixed** – In this strategy, you have some components/services in Active/Active configuration and some in Active/Standby.
+Business-critical applications need to keep running even during disruptive events like Azure region or CDN outages. There are two primary strategies and one hybrid strategy for building redundancy into your system:
 
-It is important to note that not all Azure services have built-in redundancy. For example, Azure Functions run a function app *only* in a specific region. Depending on how the Function is triggered (HTTP versus pub/sub), there are different strategies discussed in detail [here](/azure/azure-functions/functions-geo-disaster-recovery). 
+- **Active/active.** Duplicate code and functions operate. Either system can take over during a failure.
+- **Active/standby.** Only one node is active/primary. The other one is ready to take over in case the primary node goes down.
+- **Mixed.** Some components/services are in the active/active configuration, and some are in active/standby.
 
-While the ingestion and transformation Function App can run in active/active mode, for Azure Data Explorer, you can run in both [active/active and active/standby configurations](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-and-business-continuity/ba-p/1332767).
+Keep in mind that not all Azure services have built-in redundancy. For example, Azure Functions runs a function app only in a specific region. [Azure Functions geo-disaster recovery](/azure/azure-functions/functions-geo-disaster-recovery) describes various strategies that you can implement, depending on how your functions are triggered (HTTP versus pub/sub).
 
-The last piece of monitoring is Grafana. Azure Managed Grafana supports [availability zone redundancy out of the box](/AZURE/managed-grafana/how-to-enable-zone-redundancy). To build cross-region redundancy, one strategy is to set up Grafana in each region where your Azure Data Explorer cluster is deployed. 
+The ingestion and transformation function app can run in active/active mode. You can run Data Explorer in both [active/active and active/standby configurations](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-and-business-continuity/ba-p/1332767).
 
-Cost optimization
+Azure Managed Grafana supports [availability zone redundancy](/azure/managed-grafana/how-to-enable-zone-redundancy). One strategy for creating cross-region redundancy is to set up Grafana in each region where your Data Explorer cluster is deployed.
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+### Cost optimization
 
-The cost of this architecture is a function of the number of ingress telemetry events, storage of raw telemetry in Blob Storage and Azure Data Explorer, an hourly cost for managed Grafana, and a static cost for the number of time series charts in Metrics Advisor.
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Please see the [Cost Estimate](https://azure.com/e/ed90eb013b60448684b3ef40d123ff13) calculator to calculate your hourly or monthly cost of using Azure.
+The cost of this architecture depends on the number of ingress telemetry events, your storage of raw telemetry in Blob Storage and Data Explorer, an hourly cost for Azure Managed Grafana, and a static cost for the number of time-series charts in Metrics Advisor.
 
-Performance efficiency
+You can use the [Azure pricing calculator](https://azure.com/e/ed90eb013b60448684b3ef40d123ff13) to estimate your hourly or monthly costs.
 
-Depending on the scale and frequency of incoming requests, you will find the Function App to be a chokepoint. There are two major factors for this:
+### Performance efficiency
 
-1.	**Cold start** – This is a phenomenon of serverless executions and refers to the scheduling and set-up time required to spin up an environment until the function first starts to execute. In the worst case, this can be on the order of a few seconds.
-2.	**Frequency of requests** – Imagine you have 1000 HTTP requests but only a single-threaded server to handle these incoming requests. You will not be able to service all the 1000 HTTP requests concurrently. To serve these requests in a timely fashion, you need to deploy more servers, i.e., scale horizontally. 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-In both cases, it is recommended you use Premium or Dedicated SKUs to 1) eliminate cold start, and 2) handle requirements for concurrent requests by scaling up/down the number of servicing virtual machines. More details on SKUs can be found here.
+Depending on the scale and frequency of incoming requests, the function app might be a bottleneck, for two main reasons:
 
-Alternatives
+- **Cold start.** Cold start is a consequence of serverless executions. It refers to the scheduling and setup time that's required to spin up an environment before the function first starts running. At most, the required time is a few seconds.
+- **Frequency of requests.** Say you have 1,000 HTTP requests but only a single-threaded server to handle them. You won't be able to service all 1,000 HTTP requests concurrently. To serve these requests in a timely manner, you need to deploy more servers. That is, you need to scale horizontally. 
 
-Azure Data Factory and Azure Synapse
+We recommend that you use Premium or Dedicated SKUs to:
 
-*Azure Data Factory* and *Azure Synapse* provide industry-leading tools and workspaces to build ETL workflows with the ability to track and retry jobs from a graphical interface. The main thing to note here is that *Data Factory* and *Synapse* both have a minimum lag of ~5 minutes from the time of ingestion to persistence. This lag may be acceptable in your monitoring system. If so, we strongly recommend you weigh Data Factory and Synapse heavily in your decision-making process.
+- Eliminate cold start.
+- Handle requirements for concurrent requests by scaling the number of servicing virtual machines up or down.
+
+For more information, see [Select a SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors:*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- Uffaz Nathaniel | Principal Software Engineer
-- John Hauppa | Senior Technical Program Manager
+- [John Hauppa](https://www.linkedin.com/in/johnhauppa) | Senior Technical Program Manager
+- [Uffaz Nathaniel](https://www.linkedin.com/in/uffaz-nathaniel-85588935) | Principal Software Engineer
 
 Other contributors:
 
-- Dilmurod Makhamadaliev | Software Engineer
-- Omeed Musavi| Principal Software Engineer Lead
-- Ayo Mustapha | Principal Technical Program Manager
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Dilmurod Makhamadaliev](https://www.linkedin.com/in/dilmurod-makhamadaliev) | Software Engineer
+- [Omeed Musavi](https://www.linkedin.com/in/omusavi) | Principal Software Engineer Lead
+- [Ayo Mustapha](https://www.linkedin.com/in/ayo-mustapha) | Principal Technical Program Manager
 
-other line
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- Read the associated blog post: [Chrysalis (microsoft.com)](https://chrysalis.microsoft.com/assets/5a2ee1a3-5132-452a-9fa6-6098f753eb33)  
-- Code samples to bootstrap your development: https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media 
+- [Blog post: Realtime Monitoring and Observable System for Media](https://chrysalis.microsoft.com/assets/5a2ee1a3-5132-452a-9fa6-6098f753eb33)  
+- [Supplementary code samples](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media) 
+- [Azure Data Explorer documentation](/azure/data-explorer)
+- [Introduction to Azure Data Explorer - Training](/training/modules/intro-to-azure-data-explorer)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 
 ## Related resources 
+
+- [Monitor Media Services](https://learn.microsoft.com/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
+- [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
