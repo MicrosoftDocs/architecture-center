@@ -69,7 +69,7 @@ To join forces and build a blockchain network, parties that use different cloud 
 
 This article explores how the BAF and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that focuses on portability and control.
 
-## Potential use cases
+### Potential use cases
 
 This approach supports:
 
