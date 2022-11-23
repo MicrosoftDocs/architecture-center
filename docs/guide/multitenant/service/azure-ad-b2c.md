@@ -68,39 +68,43 @@ The following table summarizes the differences between the main tenancy models f
 
 Using a single, shared Azure AD B2C tenant is generally the easiest isolation model to manage if your requirements allow for it. There is only one tenant that you must maintain long term and comes with the lowest amount of overhead. A shared Azure AD B2C tenant should be considered if the following apply to your scenario:
 
-- You do not have data residency or strict data isolation requirements
-- Your application needs are within the Azure AD B2C service [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits)
-- You use local accounts or only have a finite number of identity providers or social logins you'd like to support and be shared across all your application tenants (ie you do not need to allow each of your application tenants to bring a custom identity provider)
-- You have a unified sign-in experience for all application tenants
-- Your end users need access to more than one application tenant under the same account
+- You do not have data residency or strict data isolation requirements.
+- Your application needs are within the Azure AD B2C [service limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits).
+- You don't need to allow each of your application tenants to bring a custom identity provider. This is usually the case when your application only uses local accounts, or when you have a fixed set of identity providers or social logins you'd like to support and these will be shared across all your application tenants.
+- You have a unified sign-in experience for all application tenants.
+- Your end users need access to more than one application tenant under the same account.
 
 The diagram below illustrates the shared Azure AD B2C tenant model:
 
-![A diagram showing 3 applications connecting to a single, shared Azure AD B2C tenant](media/azure-ad-b2c/SharedTenantDiagram.drawio.png)
+![A diagram showing three applications connecting to a single, shared Azure A D B 2 C tenant.](media/azure-ad-b2c/SharedTenantDiagram.drawio.png)
 
 ### Vertically partitioned Azure AD B2C tenants
 
-Provisioning vertically partitioned Azure AD B2C tenants is a strategy designed to minimize the number of Azure AD B2C tenants needed where possible. It is a "middle ground" between the other tenancy models that offers greater flexibility in customization between tenants where required, while offering a decreased level of overhead from provisioning a tenant per customer. A key note here is that, while you are minimizing the number of tenants and, thus, the overhead required to maintain them, the maintenance requirements are still higher than a single Azure AD B2C tenant. As such, you will still need a strategy for deploying and maintaining multiple tenants across your environment.
+Provisioning vertically partitioned Azure AD B2C tenants is a strategy designed to minimize the number of Azure AD B2C tenants needed where possible. It is a "middle ground" between the other tenancy models. Vertical partitioning offers greater flexibility in customization between tenants where required, while avoiding the operational overhead of provisioning an Azure AD B2C tenant for every application tenant.
 
-If you are familiar with the [data sharding pattern](/azure/architecture/patterns/sharding), this strategy should appear familiar to you. To vertically partition your Azure AD B2C tenants, you will need to figure out how to organize your application tenants into logical groupings. This grouping can be many different things: region, size, custom requirements, etc. For example, if you are aiming to solve your data residency requirements, you could choose to have one Azure AD B2C tenant for each region you have application tenants in. Or, if you are grouping by size, you could choose to have most of your application tenants reside on a single Azure AD B2C tenant, while having your largest application tenants reside on their own dedicated Azure AD B2C tenant.
+It's important to note that the maintenance requirements are still higher than when you use a single Azure AD B2C tenant. As such, you still need a strategy for deploying and maintaining multiple tenants across your environment.
 
-You should consider provisioning your Azure AD B2C tenants using a vertically partitioned strategy if the following apply to your scenario:
+Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groupings. This grouping can be based on factors like region, size, or an application tenant's custom requirements. For example, if your aim is to solve your data residency requirements, you could choose to deploy an Azure AD B2C tenant for each region that contains application tenants. Or, if you group by size, you could choose to have most of your application tenants' identities reside on a single Azure AD B2C tenant, while having your largest application tenants reside on their own dedicated Azure AD B2C tenants.
 
-- You have data residency requirements and/or need to separate your users by geography
-- You need to enable your customers to bring their own custom federated identity provider via SAML or OpenID Connect for their application tenant
-- Your application is or can be "tenant aware" and knows which Azure AD B2C tenant your users will need to sign into
-- You are concerned about your larger application tenants hitting one of the Azure AD B2C [limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow)
-- You have a strategy planned for deploying and [maintaining](#maintenance) a medium to large number of Azure AD B2C tenants long term
-- You have a strategy planned for sharding your application tenants between one or more Azure subscriptions to work within the 20 Azure AD B2C tenant limit per subscription if required
+You should consider provisioning your Azure AD B2C tenants using a vertically partitioned strategy if the following considerations apply to your scenario:
+
+- You have data residency requirements, or you need to separate your users by geography.
+- You need to enable your customers to bring their own custom federated identity providers, such as by using the SAML or OpenID Connect protocols.
+- Your application is, or can be, aware of multitenancy and knows which Azure AD B2C tenant your users will need to sign into
+- You are concerned about your larger application tenants reaching the [Azure AD B2C limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow).
+- You have a long-term strategy planned for deploying and [maintaining](#maintenance) a medium to large number of Azure AD B2C tenants.
+- You have a strategy planned for sharding your application tenants between one or more Azure subscriptions to work within the limit on the number of Azure AD B2C tenants that can be deployed within an Azure subscription.
 
 The diagram below illustrates the vertically partitioned Azure AD B2C tenant model:
 
-![A diagram showing 3 applications, with two of them connected to a shared Azure AD B2C tenant, and the third connected to a dedicated Azure AD B2C tenant](media/azure-ad-b2c/VerticallyPartitionedDiagram.drawio.png)
+![A diagram showing three applications, with two of them connected to a shared Azure A D B 2 C tenant, and the third connected to its own dedicated Azure A D B 2 C tenant.](media/azure-ad-b2c/VerticallyPartitionedDiagram.drawio.png)
 
 ### Azure AD B2C tenant per application tenant
 
 > [!WARNING]
-> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases. A common misconception is to assume using something like the [deployment stamp pattern](../../../patterns/deployment-stamp.yml) means you also need to include identity in the "stamp". This is not necessarily the case, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
+> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases.
+>
+> A common misconception is to assume that, because you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you need to include identity within each stamp. This is not necessarily true, and often another isolation model can be used instead. Please proceed with caution if you use this isolation model, as the maintenance overhead is *significant*.
 
 Provisioning a Azure AD B2C tenant per application tenant allows for more customization per tenant to be done, but comes at the cost of significantly increased overhead. You must consider how you will plan for and manage this type of deployment and upkeep long term. You will need a strategy to manage things such as policy deployments, key and certificate rotation, and more across a large number of tenants. Additionally, there are several service limits that you must keep in mind. Azure subscriptions have a default [limit](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of 20 Azure AD B2C tenants per subscription. If you have more than this, you will also need to consider an appropriate [subscription design pattern](/azure/cloud-adoption-framework/decision-guides/subscriptions/) to allow you to "load balance" your Azure AD B2C tenants onto more than one subscription. Please also keep in mind that there are 2 important [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well: A single user can only create up to 200 directories, and can only belong to 500 directories.
 
