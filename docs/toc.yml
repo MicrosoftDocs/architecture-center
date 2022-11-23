@@ -5497,8 +5497,6 @@ items:
               - name: Dynamic encryption
                 href: /azure/media-services/latest/drm-content-protection-concept
                 maintainContext: true
-              - name: Real-time monitoring and observable systems for media
-                href: example-scenario/monitoring/monitoring-observable-systems-media.yml
               - name: Security baseline for Media Services
                 href: /security/benchmark/azure/baselines/media-services-security-baseline
                 maintainContext: true
@@ -5548,6 +5546,8 @@ items:
                         href: reference-architectures/media-services/maintain-keys.yml
                       - name: Test Media Services V3 encoding
                         href: reference-architectures/media-services/test-encoding.yml
+              - name: Real-time monitoring and observable systems for media
+                href: example-scenario/monitoring/monitoring-observable-systems-media.yml
           - name: Solution ideas
             items:
               - name: HPC media rendering
