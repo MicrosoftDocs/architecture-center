@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for your application. Identity federation is the concept of establishing a trust between two identity providers for the purpose of allowing your users to sign in with a pre-existing account. In the case of Azure AD B2C, you often choose to do this to enable your users to sign in by using their social or enterprise accounts. Federation removes the need for users to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) specific for your application.
 
-If you are new to this topic, we suggest you review the following recommended resources:
+If you're new to this topic, we suggest you review the following recommended resources:
 
 - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
 - [Multitenant identity considerations](../considerations/identity.md)
@@ -59,7 +59,7 @@ The following table summarizes the differences between the main tenancy models f
 | [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user |
 | **Operational complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
 | **Number of Azure AD B2C tenants required** | 1 | Between 1 and *n*, depending on your partitioning strategy | *n*, where n is equal to the number of application tenants |
-| **Example scenario** | You are building a SaaS offering for consumers in one region, such as a music or video streaming service | You are building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or custom federated identity providers | You are building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants |
+| **Example scenario** | You're building a SaaS offering for consumers in one region, such as a music or video streaming service | You're building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or custom federated identity providers | You're building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants |
 
 ### Shared Azure AD B2C tenant
 
@@ -70,7 +70,7 @@ Using a single, shared Azure AD B2C tenant is generally the easiest isolation mo
 
 A shared Azure AD B2C tenant should be considered if the following apply to your scenario:
 
-- You do not have data residency or strict data isolation requirements.
+- You don't have data residency or strict data isolation requirements.
 - Your application needs are within the Azure AD B2C [service limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits).
 - You don't need to allow each of your application tenants to bring a custom identity provider. This is usually the case when your application only uses local accounts, or when you have a fixed set of identity providers or social logins you'd like to support and these will be shared across all your application tenants.
 - You have a unified sign-in experience for all application tenants.
@@ -93,7 +93,7 @@ You should consider provisioning your Azure AD B2C tenants using a vertically pa
 - You have data residency requirements, or you need to separate your users by geography.
 - You need to enable your customers to bring their own custom federated identity providers, such as by using the SAML or OpenID Connect protocols.
 - Your application is, or can be, aware of multitenancy and knows which Azure AD B2C tenant your users will need to sign into
-- You are concerned about your larger application tenants reaching the [Azure AD B2C limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow).
+- You're concerned about your larger application tenants reaching the [Azure AD B2C limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow).
 - You have a long-term strategy planned for deploying and [maintaining](#maintenance) a medium to large number of Azure AD B2C tenants.
 - You have a strategy planned for sharding your application tenants between one or more Azure subscriptions to work within the limit on the number of Azure AD B2C tenants that can be deployed within an Azure subscription.
 
@@ -148,7 +148,7 @@ There is no single approach to authorization, and you should consider the needs 
 When planning a multitenant deployment of Azure AD B2C, it's important to think about the long-term maintenance of your Azure AD B2C resources. This list is not exhaustive, but you should consider maintenance of elements including the following:  
 
 - [**User journey configuration**](/azure/active-directory-b2c/user-flow-overview). How do you deploy changes to your Azure AD B2C tenant(s)? How do you test changes to your user flows or custom policies before deploying them?
-- [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you are allowing each of your customers to bring their own identity provider, how do you manage that at scale?
+- [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you're allowing each of your customers to bring their own identity provider, how do you manage that at scale?
 - **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these when necessary?
 - [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when necessary?
 - **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets their password and requires administrator intervention?
