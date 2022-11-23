@@ -38,7 +38,9 @@ This solution is ideal for the media and entertainment industry. The scenario is
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
-## Pricing
+## Considerations
+
+### Cost optimization
 
 * [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
 

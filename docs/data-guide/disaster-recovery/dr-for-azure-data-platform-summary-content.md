@@ -51,6 +51,7 @@ WRT|Work Recovery Time|The maximum acceptable amount of time that is required to
 ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy)
 
 ## Contributors
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
@@ -59,8 +60,10 @@ Principal authors:
 - [Justice Zisanhi](https://www.linkedin.com/in/justice-zisanhi/) | Cloud Solution Architect
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83) | Cloud Solution Architect
 
-Other contributors
+Other contributors:
 
 - [Ananth Prakash](https://www.linkedin.com/in/ananthprakashj/) | Senior CSA Manager
 - [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Chief Architect – Customer Success
 - [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

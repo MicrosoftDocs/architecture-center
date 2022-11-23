@@ -374,6 +374,8 @@ items:
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
             - name: Mission-critical baseline with network controls
               href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
+            - name: Mission-critical baseline architecture in Azure landing zones
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
             - name: Design areas
               items:
                 - name: Application platform
@@ -2801,9 +2803,6 @@ items:
                   - name: Fan Engagement solution
                     href: /dynamics365/industry/accelerators/fan-engagement
                     maintainContext: true
-                  - name: Analyze sports with vision AI
-                    href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
-                    maintainContext: true
               - name: Architectures
                 items: 
                     - name: All sports architectures
@@ -4297,6 +4296,8 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Measure Azure app sustainability
+                href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
@@ -5924,6 +5925,8 @@ items:
               - name: Connectivity to Oracle Cloud Infrastructure
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
                 maintainContext: true
+              - name: Resolve overlapping IP address space constraints 
+                href: guide/networking/private-link-ip-constraints.yml
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver

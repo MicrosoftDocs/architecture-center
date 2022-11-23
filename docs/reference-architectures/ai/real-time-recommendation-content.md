@@ -108,6 +108,18 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 1. Open the notebook within Azure Databricks and attach the configured cluster.
 1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Miguel Fierro](https://www.linkedin.com/in/miguelgfierro) | Principal Data Scientist Manager
+- [Nikhil Joglekar](https://www.linkedin.com/in/nrjoglekar) | Product Manager, Azure algorithms and data science
+- [Le Zhang](https://www.linkedin.com/in/yueguoguo1024) | Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Building a Real-time Recommendation API][als-example]

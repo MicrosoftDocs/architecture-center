@@ -83,9 +83,9 @@ The ledger system of the QBS helps organizations get the history of low-level co
 
 ### Components
 
-- [Azure App Service](/azure/app-service/overview) is an HTTP-based service to host web applications, REST APIs, and mobile back ends. The App Service is a web application/API that allows interactive use of the data by users in the supply chain. In this article, App Services are used to read or reference the data in Input/Intake stage and all other stages.
+- [Azure App Service](https://azure.microsoft.com/products/app-service) is an HTTP-based service to host web applications, REST APIs, and mobile back ends. The App Service is a web application/API that allows interactive use of the data by users in the supply chain. In this article, App Services are used to read or reference the data in Input/Intake stage and all other stages.
 
-- [Service bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
+- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
 
 - [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications) enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   - Publish a managed application to the Azure market place to be available for all the customers.
@@ -112,8 +112,11 @@ Other contributor:
 
 - [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
+- [Azure App Service overview](/azure/app-service/overview)
 - [Create a network - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/Get-Started/Create-a-Network/)
 - [Monitor nodes - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Metrics/)
 - [Create, build, and deploy smart contracts tutorial](https://consensys.net/docs/qbs/en/latest/Tutorials/Deploy-Smart-Contract/VSCode/)

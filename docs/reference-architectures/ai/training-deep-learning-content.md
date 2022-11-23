@@ -151,6 +151,17 @@ One way to increase scaling efficiency is to increase the batch size. But make t
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to conduct distributed training of deep learning models across clusters of GPU-enabled VMs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Ilia Karmanov](https://www.linkedin.com/in/ilia-karmanov-09aa588b) | Senior Applied Scientist
+- [Mathew Salvaris](https://www.linkedin.com/in/drmathewsalvaris) | Principal Data Scientist Lead
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Machine Learning Cheat Sheet - distributed GPU training][distr-training]
