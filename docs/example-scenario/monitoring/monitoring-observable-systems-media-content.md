@@ -2,9 +2,9 @@ This architecture describes a solution that provides real-time monitoring and ob
 
 ## Architecture
 
-diagram 
+:::image type="content" source="media/monitor-media.png" alt-text="Diagram that shows an architecture that provides real-time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.png" border="false":::
 
-link
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-monitoring.vsdx) of this architecture.*
 
 ### Dataflow
 
