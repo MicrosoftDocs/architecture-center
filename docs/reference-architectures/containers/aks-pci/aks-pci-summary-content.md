@@ -8,7 +8,7 @@ The Azure Well-Architected Framework is a set of guiding tenets that can be used
 
 > This article ends this series. Read the [introduction](aks-pci-intro.yml).
 
-This guidance provided in this series incorporate Well-Architected principles in all design choices. This article summarizes those choices. The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable.
+This guidance provided in this series incorporates Well-Architected principles in all design choices. This article summarizes those choices. The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable.
 
 PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. Although aligning the infrastructure with PCI requirements is critical, compliance doesn't stop at the hosting infrastructure. Not addressing the quality pillars, specifically security, can jeopardize compliance. Well-architected solutions combine both the infrastructure and workload perspectives to arrive at the rigor necessary for achieving compliant outcomes.
 
@@ -145,7 +145,7 @@ Maintain information about approved solutions that are part of the infrastructur
 
 ### Observability
 
-To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year for in storage accounts for long-term archival and auditing.
+To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year by configuring [data retention and archive policies](/azure/azure-monitor/logs/data-retention-archive) in Azure Monitor Logs.
 
 Make sure logs are only accessed by roles that need them. Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access.
 
