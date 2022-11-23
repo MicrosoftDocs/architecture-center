@@ -6,6 +6,8 @@ diagram
 
 link
 
+### Dataflow
+
 In the observable system shown in the diagram, raw telemetry is streamed to Azure Blob Storage via HTTP and connectors. The raw telemetry is processed, transformed, normalized, and saved in Azure Data Explorer for analysis. Systems like Grafana and Azure Metrics Advisor read data from Data Explorer and provide insights to end users.
 
 More specifically, these are the elements of the system in the diagram:
@@ -28,7 +30,7 @@ More specifically, these are the elements of the system in the diagram:
 
 ### Alternatives
 
-[Azure Data Factory](https://azure.microsoft.com/products/data-factory) and [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics) provide tools and workspaces for building ETL workflows and the ability to track and retry jobs from a graphical interface. Note that Data Factory and Azure Synapse both have a minimum lag of about 5 minutes from the time of ingestion to persistence. This lag might be acceptable in your monitoring system. If it is, we recommend that you consider these alternatives.
+[Azure Data Factory](https://azure.microsoft.com/products/data-factory) and [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) provide tools and workspaces for building ETL workflows and the ability to track and retry jobs from a graphical interface. Note that Data Factory and Azure Synapse both have a minimum lag of about 5 minutes from the time of ingestion to persistence. This lag might be acceptable in your monitoring system. If it is, we recommend that you consider these alternatives.
 
 ## Scenario details
 
@@ -112,6 +114,6 @@ Other contributors:
 
 ## Related resources 
 
-- [Monitor Media Services](https://learn.microsoft.com/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
-- [Big data analytics with Azure Data Explorer](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer)
+- [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
