@@ -38,7 +38,9 @@ Organizations can use Event Grid to assist with:
 * [Power Automate](https://flow.microsoft.com): Easily create automated workflows.
 * [Email](/azure/connectors/connectors-create-api-office365-outlook): Create automated task and workflows with Azure Logic Apps and O365 Outlook Connector to send an email.
 
-## Pricing
+## Considerations
+
+### Cost optimization
 
 * [Customize and get pricing estimates](https://azure.com/e/e146fd5535974f1dae5e32a06efb424d)
 
