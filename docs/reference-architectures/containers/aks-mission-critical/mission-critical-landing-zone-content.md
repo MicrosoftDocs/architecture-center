@@ -42,7 +42,7 @@ Apply these strategies on top of the [mission-critical baseline](/azure/architec
 
 ## Architecture
 
-:::image type="content" source="./images/mission-critical-architecture-landing-zone.svg" alt-text="Architecture diagram of a mission-critical workload in an Azure landing zone." lightbox="./images/mission-critical-architecture-landing-zone.png":::
+:::image type="content" source="./images/mission-critical-architecture-landing-zone.svg" alt-text="Architecture diagram of a mission-critical workload in an Azure landing zone." lightbox="./images/mission-critical-architecture-landing-zone-high-res.png":::
 
 The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -228,7 +228,8 @@ There might be resource limits on the subscription given to you. If you colocate
 
 Here's an example subscription topology used in this architecture.
 
-![Diagram of an example subscription layout for a mission-critical workload in an Azure landing zone.](./images/connected-subscription.png)
+:::image type="content" source="./images/connected-subscription.png" alt-text="Diagram of an example subscription layout for a mission-critical workload in an Azure landing zone." lightbox="./images/connected-subscription.png":::
+
 
 ##### Pre-production subscription
 
