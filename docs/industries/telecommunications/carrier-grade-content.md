@@ -15,6 +15,14 @@ Multiple clients can connect to the workload using various protocols. They can b
 - Replication of write operations on subscriber data must be instantaneous across regions. Any service instance reading data always gets served the latest and most up to date version of the subscriber data.
 - If a failure occurs in the middle of an active subscriber voice mail session, the caller will need to reconnect. The application isn't required to maintain active session state for in-flight messages.
 
+## Key design strategies
+
+- **Active-active muti-region deployment**. Deploy 12 application instances across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
+- **Replicated storage**. Keep the application itself is stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
+- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
+- **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
+**Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
+
 ## Architecture
 
 ![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.png)
@@ -47,7 +55,7 @@ This set of services that are deployed each region and their lifetime is tied to
 
 **Management service**
 
-Is a custom service that delivers the management and monitoring aspects for the application. More than one management sevice instance can service a single application instance in any region.
+Is a custom service that delivers the management, deployment, and monitoring aspects for the application. More than one management service instance can service a single application instance in any region.
 
 **Azure Container Registry**
 
@@ -87,13 +95,6 @@ Within each region, a set of resources are deployed as part of a deployment stam
 
 Both virtual machines and containers are used to host the workload. The technology choices are the standard Azure Virtual Machine and Azure Kubernetes Service (AKS), respectively. AKS was chosen as the container orchestrator because it's widely adopted and supports advanced scalability and deployment topologies. 
 
-## Key design strategies
-
-- **Active-active muti-region deployment**. 12 service instances are deployed across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
-- **Replicated storage**. The application itself is stateless. Any data that's shared between regions is replicated. For example, data stored in Cosmos DB is  replicated between regions. Another component used is Blob Storage, which is replicated into just two regions for cost efficiency.
-- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Application logic uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
-- **Shared fate within each stamp**. TODO
-- **Avoid correlated failure modes**. Take independent elements, which aren't highly available, and combine them so that they remain independent entities. (e.g., 99.9% \/ 99.9% = 99.9999% if indep, 99.9% if not). TODO
 
 ## Workload design
 
@@ -120,9 +121,19 @@ The application is fronted by a traffic management layer which provides load bal
 
 - **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
 
-- **Protocol B** routes internet traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
+- **Protocol B** routes HTTP traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
 
 The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
+
+### Reliability considerations 
+
+Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
+
+Like Traffic Manager, the gateway is also a single point of failure. Failure will impact new client connections and existing clients after the cached DNS entry expires.
+
+If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. Clients will continue to reach the last-known address. Use Azure policies to enforce terminating long-running calls or connections that still exist.
+
+Because both routers depend on Azure DNS, as a foundational service, to reduce complexity and higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage. 
 
 ### Health monitoring
 
@@ -131,19 +142,6 @@ The health model makes sure client requests aren't routed to unhealthy instances
 For Protocol A, the gateway is responsible for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
 
 For Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
-
-### Reliability considerations 
-
-In the Protocol A routing pattern, the gateway can be a single point of failure. Azure Global DNS is chosen to reduce complexity and higher Service Level Agreement (SLA). 
-
-> TODO Is the gateway single point of failure then? What fault tolerance capabilities are in place to avoid this situation.
-
-Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
-
-### Security considerations
-
-> TODO In choosing TM, we don't get WAF. So security can bring down the reliability. Should we address that?
-
 
 ## Data consistency
 
@@ -158,8 +156,6 @@ Azure Cosmos DB was chosen as the global database because it meets those require
 
 This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data,  application core dumps and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS), in conjunction with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot/cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
 
-> TODO why isn't metrics data stored in log analytics workspace
-
 ## Scalability considerations
 
 The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. Scale is achieved through the combination of individual service instance capacity and the total number of instances.  
@@ -168,13 +164,9 @@ The capacity of the individual service instance is adjusted based on load testin
 
 ## Overall observability
 
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management service in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each AZ. 
+Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management service in each Availability Zone and not replicated outside each zone because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each zone. Monitoring data is retained so that diagnosis can be performed after the fact, allowing fault resolution. 
 
-Alerts are set up by the application SIs or by metric threshold events are replicated across all zones and regions so they are always available. 
-
-In the event of issues with the Application SIs, the Stats SIs data stores are retained for several days before aging out, so that issue diagnosis can be performed after the fact, allowing fault resolution. 
-
-> TODO understand what the Stats SIs are doing here. 
+Alerts are set up by the application instances. Metric threshold events are replicated across all zones and regions so they are always available. 
 
 ## Operational considerations
 
@@ -187,10 +179,6 @@ Application source code and configuration are stored in a Git repository in Azur
 Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
 Conversely, Flux also decommissions resources that are not required. For example, if it's determined that a particular instance shouldn't receive traffic, Flux reacts to the configuration change by triggering DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
-
-> TODO: Understand this: Wait for DNS TTL to expire and in-progress calls to end (or make policy decision to forcibly proceed and terminate long-running calls/connections that still exist). 
-
-> TODO: Talk about the reliability guarantees.
 
 ### Upgrade, patching, and configuration updates
 
@@ -211,13 +199,13 @@ From an availability perspective, what is important is that the failure mode ana
 - Another option for global routing is Azure Front Door. It has built-in Web Application Firewall (WAF) capabilities applied to secure Layer 7 ingress traffic.
 
 ## Related resources
+
 For product documentation on the Azure services used in this architecture, see these articles.
 
-Azure Traffic Manager
-Azure Cosmos DB
-Azure Container Registry
-Azure Key Vault
-Azure Kubernetes Service
-Azure Application Insights
-Azure Event Hubs
-Azure Blob Storage
+- [Azure Traffic Manager](/azure/traffic-manager/)
+- [Azure Cosmos DB](/azure/cosmos-db/)
+- [Azure Container Registry](/azure/container-registry/)
+- [Azure Key Vault](/azure/key-vault/)
+- [Azure Kubernetes Service](/azure/aks/)
+- [Azure Application Insights](/azure/azure-monitor/)
+- [Azure Blob Storage](/azure/storage/blobs/)
