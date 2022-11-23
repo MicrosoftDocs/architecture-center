@@ -181,7 +181,7 @@ Your mission-critical workloads must be deployed in multiple regions to withstan
 
 ##### DNS resolution
 
-The Connectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS failures that might be specific to your use case. Provision your own DNS zones and link to the regional stamp. In this architecture, without that configuration, global resources, such as Azure Cosmos DB won't function as expected. 
+The Connectivity subscription provides private DNS zones. However, that centralized approach might not factor in the DNS needs that might be specific to your use case. Provision your own DNS zones and link to the regional stamp. If the application team doesn't own DNS, then management of private links becomes challenging for global resources, such as Azure Cosmos DB. 
 
 **Platform team**
 - Delegate the Azure Private DNS zones to the application team to cover their use cases. 
@@ -288,7 +288,9 @@ Treat subscription boundaries as your security boundaries to limit the blast rad
 
 - Give the application teams authorization for operations with permissions scoped to the application landing zone subscription. 
 
-If you're running multiple deployments within a single subscription, avoid using a shared service principal because a breach will impact both deployments. Running deployments in dedicated subscriptions is recommended. If you're running multiple deployments in one subscription, create service principals per environment for maintaining scope. It should provide autonomy over workload resources. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
+If you're running multiple deployments within a single subscription, a breach will impact both deployments. Running deployments in dedicated subscriptions is recommended. Create service principals per environment for maintaining logical separation.
+
+The service principal should provide autonomy over workload resources. Also, it should have restrictions in place that will prevent excessive manipulation of the platform resources within the subscription.
 
 ## Monitoring considerations
 
