@@ -1,30 +1,12 @@
-This article provides guidelines for running SAS analytics workloads on Azure. It covers various deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
+This solution runs SAS analytics workloads on Azure. The guidance covers various deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
 
-Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
-
-[As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
-
-## Introduction to SAS
-
-SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support its solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms, which Microsoft has validated:
-
-- SAS Grid 9.4
-- SAS Viya
-
-The following architectures have been tested:
-
-- SAS Grid 9.4 on Linux
-- SAS 9 Foundation
-- SAS Viya 3.5 with symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures on Linux
-- SAS Viya 2020 and up with an MPP architecture on AKS
-
-This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. For more information on the Azure hosting and management services that SAS provides, see [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html).
-
-## Architectural overview
+## Architecture
 
 :::image type="complex" source="./images/sas-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label M G S and M D S servers. The lower row has the label O S Ts and O S S servers.
 :::image-end:::
+
+### Workflow
 
 SAS Azure deployments typically contain three layers:
 
@@ -45,7 +27,7 @@ An Azure Virtual Network isolates the system in the cloud. Within that network:
 - A proximity placement group reduces latency between VMs.
 - Network security groups protect SAS resources from unwanted traffic.
 
-## Prerequisites
+### Prerequisites
 
 Before deploying a SAS workload, ensure the following components are in place:
 
@@ -54,6 +36,28 @@ Before deploying a SAS workload, ensure the following components are in place:
 - Access to a resource group for deploying your resources
 - A [virtual central processing unit (vCPU) subscription quota](/azure/virtual-machines/windows/quotas) that takes into account your sizing document and VM choice
 - Access to a secure Lightweight Directory Access Protocol (LDAP) server
+
+## Scenario details
+
+Along with discussing different implementations, this guide also aligns with [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) tenets for achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, consult with a SAS team for additional validation of your particular use case.
+
+[As partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/), Microsoft and SAS are working to develop a roadmap for organizations that innovate in the cloud. Both companies are committed to ensuring high-quality deployments of SAS products and solutions on Azure.
+
+### Introduction to SAS
+
+SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support its solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms, which Microsoft has validated:
+
+- SAS Grid 9.4
+- SAS Viya
+
+The following architectures have been tested:
+
+- SAS Grid 9.4 on Linux
+- SAS 9 Foundation
+- SAS Viya 3.5 with symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures on Linux
+- SAS Viya 2020 and up with an MPP architecture on AKS
+
+This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. For more information on the Azure hosting and management services that SAS provides, see [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html).
 
 ## Recommendations
 
@@ -215,7 +219,7 @@ SAS platforms can use local user accounts. They can also use a secure LDAP serve
 >
 > The Azure AD DS forest creates users that can authenticate against Azure AD devices but not on-premises resources and vice versa.
 
-## Data sources
+### Data sources
 
 SAS solutions often access data from multiple systems. These data sources fall into two categories:
 
@@ -230,7 +234,7 @@ For best performance:
 > [!NOTE]
 > If you can't move data sources close to SAS infrastructure, avoid running analytics on them. Instead, run extract, transform, load (ETL) processes first and analytics later. Take the same approach with data sources that are under stress.
 
-### Permanent remote storage for SAS Data
+#### Permanent remote storage for SAS Data
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
@@ -240,7 +244,7 @@ SAS and Microsoft have tested a series of data platforms that you can use to hos
 
 SAS offers performance-testing scripts for the Viya and Grid architectures. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with scripts on these platforms.
 
-#### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
+##### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
 
 For information about how Sycomp Storage Fueled by IBM Spectrum Scale meets performance expectations, see [SAS review of Sycomp for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Sycomp-Storage-Fueled-by-IBM-Spectrum-Scale-A-new-shared-file/m-p/701508#M20810).
 
@@ -249,7 +253,7 @@ For sizing, Sycomp makes the following recommendations:
 - Provide one GPFS scale node per eight cores with a configuration of 150 MBps per core.
 - Use a minimum of five P30 drives per instance.
 
-#### DDN EXAScaler Cloud (Lustre)
+##### DDN EXAScaler Cloud (Lustre)
 
 DDN, which acquired Intel's Lustre business, provides EXAScaler Cloud, which is based on the Lustre parallel file system. The solution is available in the Azure Marketplace as part of the DDN EXAScaler Cloud umbrella. Designed for data-intensive deployment, it provides high throughput at low cost.
 
@@ -259,7 +263,7 @@ DDN, which acquired Intel's Lustre business, provides EXAScaler Cloud, which is 
 lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.max_rpcs_in_flight=16 osc.*.max_dirty_mb=1024 llite.*.max_read_ahead_mb=2048 osc.*.checksums=0  llite.*.max_read_ahead_per_file_mb=256
 ```
 
-#### Azure NetApp Files (NFS)
+##### Azure NetApp Files (NFS)
 
 SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
@@ -270,7 +274,7 @@ Consider the following points when using this service:
 - To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
 
-### Other data sources
+#### Other data sources
 
 SAS platforms support various data sources:
 
@@ -281,6 +285,8 @@ SAS platforms support various data sources:
 - SQL Server using Open Database Connectivity (ODBC)
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
