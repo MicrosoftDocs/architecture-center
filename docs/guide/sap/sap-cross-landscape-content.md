@@ -192,8 +192,8 @@ Other contributors: ...
 
 ## Next steps
 
-- [SAP S/4HANA in Linux on Azure](./sap-s4hana)
-- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [Run SAP NetWeaver in Windows on Azure](./sap-netweaver.yml)
 - [Run SAP HANA in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
 - [Cloud Adoption Framework - SAP scenario](/azure/cloud-adoption-framework/scenarios/sap/)
 - [In- and Outbound intennet connections for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound)
