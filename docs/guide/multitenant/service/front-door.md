@@ -39,7 +39,7 @@ In this section, we consider several key features of Front Door that are useful 
 \
 ### Routing
 \
-A multitenant application can have one or more application stamps serving the tenants for scaling and other reasons.  The default URLs for these application stamps are not user friendly.  DNS records are the standard method to map these hard-to-remembers URLs to user friendly ones. While friendly URLs are a step in the right direction, challenges still exist  with routing traffic from a tenant user to the corresponding back-end stamp that is meant to serve the traffic for te tenant. We will more on how to overcome these challenges later in the article.
+A multitenant application can have one or more application stamps serving the tenants for scaling and other reasons.  The default URLs for these application stamps are not user friendly.  DNS records are the standard method to map these hard-to-remembers URLs to user friendly ones. While friendly URLs are a step in the right direction, challenges still exist  with routing traffic from a tenant user to the corresponding back-end stamp that is meant to serve the traffic for the tenant. Review [guidance on domain names](../considerations/domain-names.yml), and be aware of CAA restrictions on your tenants' domain names. Visit [Routing architecture](/azure/frontdoor/front-door-routing-architecture) for a qquick review of Front Door's routing architecture.  We will more on how to overcome these challenges later in the article.
 \
 ### Rules engine
 \
