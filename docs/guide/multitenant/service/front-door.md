@@ -35,7 +35,7 @@ In this article, we focus on the first scenario - deploying a single, global Fro
 \
 ## Features of Front Door that support multitenancy
 \
-In this section we will consider few key features of Front Door that support multi-tenancy.  Specifically we will focus on various routing scenarios that Front Door allows for multi-tenancy.  We will also discuss configuring customs domains with BYO TLS certificates.  Finally we will look at isolation models that can be used with Front Door to support multi-tenancy
+In this section, we consider several key features of Front Door that are useful for multitenant solutions. Specifically, we focus on several routing scenarios that Front Door enables. We also discuss how to configure customs domains, including both Front Door-managed and customer-provided TLS certificates. 
 \
 ### Routing
 \
