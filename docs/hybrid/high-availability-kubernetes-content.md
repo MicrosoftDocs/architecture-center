@@ -1,69 +1,50 @@
----
-title: High availability Kubernetes pattern using Azure and Azure Stack Hub
-description: Learn how a Kubernetes cluster solution provides high availability using Azure and Azure Stack Hub.
-author: ronmiab 
-ms.topic: article
-ms.date: 12/03/2020
-ms.author: robess
-ms.reviewer: bryanla
-ms.lastreviewed: 12/03/2020
-
-# Intent: As an Azure Stack Hub user, I want to learn how to use a Kubernetes cluster to Azure Stack Hub so I can support high availability.
-# Keyword: kubernetes cluster high availability pattern azure stack hub
----
-
-# High availability Kubernetes cluster pattern
-
-This article describes how to architect and operate a highly available Kubernetes-based infrastructure using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub. This scenario is common for organizations with critical workloads in highly restricted and regulated environments. Organizations in domains such as finance, defense, and government.
+This article describes how to architect and operate a highly available Kubernetes-based infrastructure by using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub. This scenario is common for organizations with critical workloads in highly restricted and regulated environments. It's applicable in domains like finance, defense, and government.
 
 ## Context and problem
 
-Many organizations are developing cloud-native solutions that leverage state-of-the-art services and technologies like Kubernetes. Although Azure provides datacenters in most regions of the world, sometimes there are edge use-cases and scenarios where business critical applications must run in a specific location. Considerations include:
+Many organizations are developing cloud-native solutions that take advantage of state-of-the-art services and technologies like Kubernetes. Although Azure provides datacenters in most regions of the world, sometimes there are edge cases and scenarios in which business-critical applications must run in a specific location. Potential concerns include:
 
-- Location sensitivity
-- Latency between the application and on-premises systems
-- Bandwidth conservation
-- Connectivity
-- Regulatory or statutory requirements
+- Location sensitivity.
+- Latency between the application and on-premises systems.
+- Bandwidth conservation.
+- Connectivity.
+- Regulatory or statutory requirements.
 
-Azure, in combination with Azure Stack Hub, addresses most of these concerns. A broad set of options, decisions, and considerations for a successful implementation of Kubernetes running on Azure Stack Hub is described below.
+Azure, in combination with Azure Stack Hub, addresses most of these concerns. This article provides a broad set of options, decisions, and considerations to help you successfully implement Kubernetes on Azure Stack Hub.
 
 ## Solution
 
-This pattern assumes that we have to deal with a strict set of constraints. The application must run on-premises and all personal data must not reach public cloud services. Monitoring and other non-PII data can be sent to Azure and be processed there. External services like a public Container Registry or others can be accessed but might be filtered through a firewall or proxy server.
+This solution is based on a scenario that has a strict set of constraints. The application must run on-premises, and personal data must not reach public cloud services. You can send monitoring and other non-PII data to Azure and process it there. External services like a public container registry can be accessed but might be filtered through a firewall or proxy server.
 
-The sample application shown here is designed to use Kubernetes-native solutions whenever possible. This design avoids vendor lock-in, instead of using platform-native services. As an example, the application uses a self-hosted MongoDB database backend instead of a PaaS service or external database service. For more information see the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
+The sample application shown here is designed to use Kubernetes-native solutions rather than platform-native services whenever possible. This design avoids vendor lock-in. For example, the application uses a self-hosted MongoDB database back end instead of a PaaS service or external database service. For more information see the [Introduction to Kubernetes on Azure learning path](/training/paths/intro-to-kubernetes-on-azure).
 
-[![Application Pattern Hybrid](media/pattern-highly-available-kubernetes/application-architecture.png)](media/pattern-highly-available-kubernetes/application-architecture.png#lightbox)
+Application Pattern Hybrid image
 
-The preceding diagram illustrates the application architecture of the sample application running on Kubernetes on Azure Stack Hub. The app consists of several components, including:
+The preceding diagram shows the application architecture of the sample application running on Kubernetes on Azure Stack Hub. The app consists of several components, including:
 
- 1) An AKS Engine based Kubernetes cluster on Azure Stack Hub.
- 2) [cert-manager](https://www.jetstack.io/cert-manager/), which provides a suite of tools for certificate management in Kubernetes, used to automatically request certificates from Let's Encrypt.
- 3) A Kubernetes namespace that contains the application components for the front end (ratings-web), api (ratings-api), and database (ratings-mongodb).
- 4) The Ingress Controller that routes HTTP/HTTPS traffic to endpoints within the Kubernetes cluster.
+1. A Kubernetes cluster, based on AKS Engine, on Azure Stack Hub.
+2. [cert-manager](https://www.jetstack.io/cert-manager), which provides a suite of tools for certificate management in Kubernetes. It's used to automatically request certificates from Let's Encrypt.
+3. A Kubernetes namespace that contains the application components for the front end (ratings-web), API (ratings-api), and database (ratings-mongodb).
+4. An ingress controller that routes HTTP/HTTPS traffic to endpoints within the Kubernetes cluster.
 
-The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability (HA), we'll run the deployment at least twice on two different Azure Stack Hub instances - they can run either in the same location or in two (or more) different sites:
+The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability, we'll run the deployment at least twice on two Azure Stack Hub instances. They can run either in a single location or in two (or more) different sites:
 
-![Infrastructure Architecture](media/pattern-highly-available-kubernetes/aks-azure-architecture.png)
+Infrastructure Architecture image
 
-Services like Azure Container Registry, Azure Monitor, and others, are hosted outside Azure Stack Hub in Azure or on-premises. This hybrid design protects the solution against outage of a single Azure Stack Hub instance.
+Services like Azure Container Registry and Azure Monitor are hosted outside of Azure Stack Hub in Azure or on-premises. This hybrid design protects the solution against outage of a single Azure Stack Hub instance.
 
 ## Components
 
-The overall architecture consists of the following components:
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter.
+- [AKS Engine](https://github.com/Azure/aks-engine) is the engine behind the managed Kubernetes service, AKS, that's available in Azure. On Azure Stack Hub, you can use AKS Engine to deploy, scale, and upgrade fully featured, self-managed Kubernetes clusters using Azure Stack Hub IaaS capabilities.
 
-**Azure Stack Hub** is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter. Go to [Azure Stack Hub overview](/azure-stack/operator/azure-stack-overview) to learn more.
+   To learn more about the differences between AKS Engine on Azure and AKS Engine on Azure Stack Hub, see [Known Issues and Limitations](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#known-issues-and-limitations).
 
-**Azure Kubernetes Service Engine (AKS Engine)** is the engine behind the managed Kubernetes service offering, Azure Kubernetes Service (AKS), that is available in Azure today. For Azure Stack Hub, AKS Engine allows us to deploy, scale, and upgrade fully featured, self-managed Kubernetes clusters using Azure Stack Hub's IaaS capabilities. Go to [AKS Engine Overview](https://github.com/Azure/aks-engine) to learn more.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides the network infrastructure on each Azure Stack Hub instance for the virtual machines (VMs) that host the Kubernetes cluster infrastructure.
 
-Go to [Known Issues and Limitations](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#known-issues-and-limitations) to learn more about the differences between AKS Engine on Azure and AKS Engine on Azure Stack Hub.
+- [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is used for the Kubernetes API endpoint and the Nginx Ingress Controller. The load balancer routes external (for example, internet) traffic to nodes and VMs that provide a specific service.
 
-**Azure Virtual Network (VNet)** is used to provide the network infrastructure on each Azure Stack Hub for the Virtual Machines (VMs) hosting the Kubernetes cluster infrastructure.
-
-**Azure Load Balancer** is used for the Kubernetes API Endpoint and the Nginx Ingress Controller. The load balancer routes external (for example, Internet) traffic to nodes and VMs offering a specific service.
-
-**Azure Container Registry (ACR)** is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the Container Registry using an Azure AD identity. Kubernetes doesn't require ACR. You can use other container registries, such as Docker Hub.
+- [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using an Azure Active Directory (Azure AD) identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
 
 **Azure Repos** is a set of version control tools that you can use to manage your code. You can also use GitHub or other git-based repositories. Go to [Azure Repos Overview](/azure/devops/repos/get-started/what-is-repos) to learn more.
 
@@ -386,6 +367,9 @@ As described in [Data and storage considerations](#data-and-storage-consideratio
 [Cloudian](https://www.cloudian.com/) simplifies enterprise storage with limitless scalable storage that consolidates massive data sets to a single, easily managed environment.
 
 ## Next steps
+
+moved 
+- [Azure Stack Hub overview](/azure-stack/operator/azure-stack-overview)
 
 To learn more about concepts introduced in this article:
 
