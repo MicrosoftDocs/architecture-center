@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAP overall cross-landscape architecture
+  title: SAP whole landscape architecture
   description: Best practices large SAP environments deployment in Azure. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
   author: msftrobiro
   ms.date: 10/23/2022
@@ -16,8 +16,8 @@ products:
   - azure-virtual-network
   - azure-files
   - azure-load-balancer
-name: SAP overall cross-landscape architecture
+name: SAP whole landscape architecture
 summary: Best practices large SAP environments deployment in Azure. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-cross-landscape-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-whole-landscape-architecture.png
 content: |
-  [!include[](sap-cross-landscape-content.md)]
+  [!include[](sap-whole-landscape-content.md)]

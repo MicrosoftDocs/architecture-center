@@ -1,10 +1,10 @@
 This article provides an architecture of a sample SAP deployment, showing the best practices when it comes to multiple SAP systems and environments. It does not go into detail on individual SAP system, instead the focus is showing the interconnected requirements and deployment placement of a whole SAP landscape in Azure.
 
-[Visio file]:https://arch-center.azureedge.net/sap-cross-landscape.vsdx
+[Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
 ## Architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure](media/sap-cross-landscape.png)](media/sap-cross-landscape.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure](media/sap-whole-landscape.png)](media/sap-whole-landscape.png#lightbox)
 
 _Download a [Visio file] of the architectures in this article._
 
@@ -141,7 +141,7 @@ This article shows a typical large SAP landscape and best practices. There are m
 
 ### Secured perimeter architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter vnet](media/sap-cross-landscape-secured-perimeter.png)](media/sap-cross-landscape-secured-perimeter.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter vnet](media/sap-whole-landscape-secured-perimeter.png)](media/sap-whole-landscape-secured-perimeter.png#lightbox)
 
 _Same [Visio file] contains all the architecture, including the alternatives._
 
@@ -177,7 +177,7 @@ Consolidation on SAP application level is not in scope for this overall SAP arch
 
 The following diagram is an example reference architecture that's an extension of the main architecture shown at start of this article. The diagram describes an example use case of three SAP environment - SAP S/4HANA, SAP BW and SAP PI/PO. While S/4HANA environment is 4-tier, including sandbox workload zone, SAP PI/PO is only a 2-tier environment with production and development only. The diagram shows visually how different SAP environments run together in an overall Azure architecture.
 
-[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter vnet](media/sap-cross-landscape-three-sap-example.png)](media/sap-cross-landscape-three-sap-example.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter vnet](media/sap-whole-landscape-three-sap-example.png)](media/sap-whole-landscape-three-sap-example.png#lightbox)
 
 ## Contributors
   
