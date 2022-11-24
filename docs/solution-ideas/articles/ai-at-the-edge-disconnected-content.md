@@ -14,8 +14,9 @@ You might need to deploy as disconnected if you have the following concerns or c
 
 ## Architecture
 
-![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity).](../media/ai-at-the-edge-disconnected.png)
-*Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
+[ ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity.](../media/ai-at-the-edge-disconnected.png)](../media/ai-at-the-edge-disconnected.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/../media/../media/ai-at-the-edge-disconnected.vsdx) of this architecture.*
 
 ### Dataflow
 
