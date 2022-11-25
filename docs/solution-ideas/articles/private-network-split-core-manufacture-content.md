@@ -1,13 +1,5 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Manufacturing businesses often create a shop floor network that's separate from the corporate network. A shop floor network has stricter security and reliability requirements than a corporate network. An unreliable network on the shop floor can affect the production line. These requirements are typical for a shop floor network:
-
-- Ability to handle future use cases
-- Consistency in throughput and latency
-- Easy scalability
-- High reliability
-- High security
-
 A split 5G/LTE core architecture is suited for large enterprises with multiple sites. It has control functions that affect all sites, and data plane functions for each site.
 
 ## Architecture
@@ -50,6 +42,14 @@ This solution uses the following Azure components:
 
 ## Scenario details
 
+Manufacturing businesses often create a shop floor network that's separate from the corporate network. A shop floor network has stricter security and reliability requirements than a corporate network. An unreliable network on the shop floor can affect the production line. These requirements are typical for a shop floor network:
+
+- Ability to handle future use cases
+- Consistency in throughput and latency
+- Easy scalability
+- High reliability
+- High security
+
 Although you can implement this architecture at any manufacturing site, it's especially useful for large enterprises that have multiple production sites or research and development labs. You can consolidate data from different sites into one Azure database. Users can create reports from this consolidated data.
 
 With a single control plane connected to multiple data plane sites, your enterprise can benefit from easier network operations. This architecture makes it easier for IT to push software upgrades, implement network policies, manage networks and devices, and add new sites.
@@ -74,6 +74,8 @@ Some of the use cases for manufacturing are:
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*
+
+Principle author:
 
 - [Shobhit Jain](https://www.linkedin.com/in/sjshobhitjain) | Technical Program Manager
 
