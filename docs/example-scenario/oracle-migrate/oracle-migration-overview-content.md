@@ -38,7 +38,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ## Oracle database discoveries
 
-The Microsoft Data Migration Jumpstart Engineering team maintains an inventory of Oracle scripts. You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
+You can create and run scripts on your Oracle databases to evaluate how many tables, stored procedures, views, and packages exist in the environment. This table shows an example of the assessment principles:
 
 | Category | Simple | Medium | Large | Complex | Custom |
 | ---------| ------ | ------ | ----- | ------- | ------ |
@@ -60,7 +60,7 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
 
