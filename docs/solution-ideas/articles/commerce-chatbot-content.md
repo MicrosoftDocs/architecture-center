@@ -4,7 +4,7 @@
 
 ## Architecture
 
-[ ![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.png)](../media/commerce-chatbot-customer-service.png#lightbox)
+![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/commerce-chatbot-customer-service.vsdx) of this architecture.*
 
