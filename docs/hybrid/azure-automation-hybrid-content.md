@@ -77,7 +77,7 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 - To execute Azure Automation runbooks directly on an existing Azure virtual machine (VM) or on-premises Arc-enabled server.
 - To overcome the Azure Automation sandbox limitation. The common scenarios include executing long-running operations beyond the three-hour limit for cloud jobs, performing resource-intensive automation operations, interacting with local services that run on-premises or in hybrid environments, running scripts that require elevated permissions, and so on.
 - To overcome organizational restrictions on keeping data in Azure for governance and security reasons. Even though you can't execute Automation jobs in the cloud, you can run them on an on-premises machine that's onboarded as a Hybrid Runbook Worker.
-- To automate operations on multiple non-Azure resources that run in on-premises, hybrid, or multi-cloud environments. You can onboard one of those machines as a Hybrid Runbook Worker and target automation on the remaining on-premises machines.
+- To automate operations on multiple non-Azure resources that run in on-premises, hybrid, or multicloud environments. You can onboard one of those machines as a Hybrid Runbook Worker and target automation on the remaining on-premises machines.
 - To access other services privately from the Azure Virtual Network (VNet) without having to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure virtual network.
 
 ## Considerations
