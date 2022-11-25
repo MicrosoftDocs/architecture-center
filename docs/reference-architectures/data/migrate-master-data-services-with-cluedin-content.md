@@ -165,6 +165,16 @@ To deploy CluedIn for development and evaluation purposes using Docker, see [Clu
 
 To install CluedIn in production, CluedIn instances can be directly installed from the Azure Marketplace in your own Azure tenant.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Oliver Kaae Vinter](https://www.linkedin.com/in/oliverkaaevinter) | Senior Partner Development Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com).
