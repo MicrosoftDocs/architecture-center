@@ -45,10 +45,6 @@ The focus of this document is on the core Azure operations needed to support Jen
 - Automate CI/CD pipelines
 - Ensure high availability (HA) for mission-critical services
 
-## Recommendations
-
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
