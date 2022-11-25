@@ -58,7 +58,7 @@ The solution takes advantage of the compliance benefits of the private cloud and
 
 This solution allows you to deploy an identical web app to a public and private cloud. You can also access a non-internet routable network that's hosted on the private cloud.
 
-## Potential use cases
+### Potential use cases
 
 This solution is applicable in scenarios like these:
 
@@ -138,6 +138,8 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 Principal author:
 
 - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 ## Next steps
 
