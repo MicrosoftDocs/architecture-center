@@ -362,7 +362,7 @@ It's critical that you maintain thorough documentation about the processes and p
 
 This is important for people who are part of the approval process from a policy perspective.
 
-## Next
+## Next steps
 
 Maintain a policy that addresses information security for all personnel.
 
