@@ -2,7 +2,7 @@
 title: Azure icons
 titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
-author: EdPrice-MSFT
+author: RobBagby
 ms.author: robbag
 ms.date: 11/9/2022
 ms.service: architecture-center
@@ -63,6 +63,7 @@ I agree to the above terms.
 
 ## More icon sets from Microsoft
 
+- [Build Azure icons and diagrams with Visio for Microsoft 365](https://aka.ms/AzureDiagrams)
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
 - [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)
