@@ -172,7 +172,7 @@ For detailed information and additional deployment options, see the ARM template
 
 - [Azure Automation documentation](/azure/automation)
 - [Azure Monitor documentation](/azure/azure-monitor)
-- [Powershell documentation](/powershell)
+- [PowerShell documentation](/powershell)
 
 ## Related resources
 

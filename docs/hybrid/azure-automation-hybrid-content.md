@@ -44,7 +44,7 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 
 ### Components
 
-- [Azure Automation](https://azure.microsoft.com/products/automation) is an Azure service for automating cloud management tasks. The **Hybrid Runbook Worker** features makes it possible to run runbooks on machines that are located in your datacenter in order to manage local resources.
+- [Azure Automation](https://azure.microsoft.com/products/automation) is an Azure service for automating cloud management tasks. The **Hybrid Runbook Worker** feature makes it possible to run runbooks on machines that are located in your datacenter in order to manage local resources.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) gives you full observability into applications, infrastructure, and network. **Azure Monitor Logs** is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. **Log Analytics** is a tool in the Azure portal for querying logs and for analyzing the results
 
 ## Scenario details
