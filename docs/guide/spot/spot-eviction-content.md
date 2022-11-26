@@ -1,14 +1,16 @@
-Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. In this article, you'll find recommendations for architecting interruptible workloads with Azure Spot virtual machines (VMs) and a sample implementation you can deploy. The goal is to give you the knowledge to make the right design decisions. It's important to understand what Spot VMs are and identify the right workload candidates. Spots VMs are only recommended for workloads that can be interrupted and have no time constraints. Hosting interruptible workloads on Spot VMs requires knowledge of eviction, pricing, and orchestration best practices.
+Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. Spots VMs are only recommended for workloads that can be interrupted and have no time constraints. In this article, you'll find recommendations for architecting interruptible workloads with Azure Spot virtual machines (VMs) and a sample implementation you can deploy.
 
-## Understand Spot VMs
+Before using spot VMs, it's important to understand spot VM features, pricing, interruptible workloads, eviction, and orchestration.
 
-A spot VM and a regular, pay-as-you-go VM use the same images, hardware, and disks. They provide the same performance as regular VMs when running. The difference between spot and regular VMs is priority and availability. Spot VMs have a lower priority than regular VMs and no availability guarantees after creation.
+## Understand spot virtual machines features
+
+A spot VM and a regular, pay-as-you-go VM use the same images, hardware, and disks. They provide the same performance as regular VMs when running. The difference between spot and regular VMs is priority and availability. Spot VMs have a lower priority access to compute capacity than regular VMs and no availability guarantees after creation.
 
 **(1) Low priority** - Spot VMs have low-priority access to compute capacity. Regular VMs have high-priority access. High-priority access means regular VMs can access compute capacity whenever they need it. Low-priority access means spot VMs can only deploy when there's spare compute capacity. They only stay running when a higher-priority, regular VM doesn't need the underlying hardware.
 
 **(2) No availability guarantee** - Spot VMs don't have any availability or up-time guarantees after you create them. They have no service-level agreements (SLAs). Spot VMs can lose access to compute capacity at any time. The loss of compute capacity is called an eviction. Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the capacity back, an eviction notice will be sent and evict the VM based on the eviction policy selected for the spot VM at the time of creation. The minimum notice for an eviction notification is 30 seconds.
 
-## Understand spot pricing
+## Understand pricing
 
 Spot VMs are up to 90 percent cheaper than regular (pay-as-you-go) VMs. The discount varies based on demand, VM size, region of deployment, and operating system. We recommend you use the Azure Spot VM pricing tool to get an estimate of the cost savings. For more information, see:
 
