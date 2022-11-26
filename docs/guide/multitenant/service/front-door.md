@@ -59,7 +59,7 @@ Azure Front Door supports two types of domains, non-Azure validated domains and 
 \
 ## Example scenarios
 \
-When working with a multitenant system using Front Door, you need to make a decision about the level of isolation that you want to use. The choice of isolation models you use depends on the following factors:
+When working with a multitenant system using Front Door, you need to make a decision about the level of isolation that you want to use. The choice of isolation models you use depends on the following factors
 
 - How many tenants do you plan to have?
 - Do you share your application tier between multiple tenants, do you deploy single-tenant application instances, or do you deploy separate deployment stamps for each tenant?
