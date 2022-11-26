@@ -1,6 +1,4 @@
-Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. Spots VMs are only recommended for workloads that can be interrupted and have no time constraints. In this article, you'll find recommendations for architecting interruptible workloads with Azure Spot virtual machines (VMs) and a sample implementation you can deploy.
-
-Before using spot VMs, it's important to understand spot VM features, pricing, interruptible workloads, eviction, and orchestration.
+Spot VMs provide access to compute capacity at significant discounts and are an attractive solution for cost savings. Spots VMs are only recommended for workloads that can be interrupted and have no time constraints. In this article, you'll find recommendations for architecting interruptible workloads with Azure Spot virtual machines (VMs) and a sample implementation you can deploy. Before using spot VMs, it's important to understand spot VM features, pricing, interruptible workloads, eviction, and orchestration.
 
 ## Understand spot virtual machines features
 
