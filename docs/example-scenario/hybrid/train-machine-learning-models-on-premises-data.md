@@ -1,33 +1,26 @@
 ---
 title: Train machine learning models at the edge
-description: Learn how to do machine learning model training at the edge with Azure and Azure Stack Hub.
+description: Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.
 author: ronmiab 
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/30/2022
 ms.author: robess
 ms.reviewer: anajod
-ms.lastreviewed: 11/05/2019
 ---
 
-# Train machine learning model at the edge
+# Train machine learning models at the edge
 
-Generate portable machine learning (ML) models from data that only exists on-premises.
-
-## Context and problem
-
-Many organizations would like to unlock insights from their on-premises or legacy data using tools that their data scientists understand. [Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy ML and deep learning models.  
-
-However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this architecture, data scientists can use Azure Machine Learning to train models using on-premises data and compute.
+Many organizations want to unlock insights from their on-premises or legacy data by using the familiar tools of their data scientists. [Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this architecture, data scientists can use Azure Machine Learning to train models by using on-premises data and compute resources.
 
 ## Solution
 
-This architecture uses a virtual machine (VM) running on Azure Stack Hub. The VM is registered as a compute target in Azure ML, letting it access data only available on-premises. In this case, the data is stored in Azure Stack Hub's blob storage.
-
-Once the model is trained, it's registered with Azure ML, containerized, and added to an Azure Container Registry for deployment. For this iteration of the solution, the Azure Stack Hub training VM must be reachable over the public internet.
-
 :::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.png" lightbox="media/train-machine-learning-on-premises-data-architecture.png":::
 
-Here's how the solution works:
+This architecture uses a virtual machine (VM) running on Azure Stack Hub. The VM is registered as a compute target in Azure Machine Learning, which allows it to access data that is only available on premises. In this case, Azure Stack Hub's blob storage contains the data.
+
+After the model is trained, it's registered with Azure Machine Learning, containerized, and added to an Azure Container Registry for deployment. For this iteration of the solution, the Azure Stack Hub training VM must be reachable over the public internet.
+
+## Dataflow
 
 1. The Azure Stack Hub VM is deployed and registered as a compute target with Azure ML.
 2. An experiment is created in Azure ML that uses the Azure Stack Hub VM as a compute target.
@@ -45,6 +38,8 @@ This solution uses the following components:
 | Azure Stack Hub | App Service | [Azure Stack Hub with App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge. |
 | | Compute | An Azure Stack Hub VM running Ubuntu with Docker is used to train the ML model. |
 | | Storage | Private data can be hosted in Azure Stack Hub blob storage. |
+
+
 
 ## Issues and considerations
 
