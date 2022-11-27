@@ -1,4 +1,4 @@
-Spot virtual machines (VMs) provide access to compute capacity at significant discounts and are an attractive solution for workloads that can be interrupted and have no time constraints, known as interruptible workloads. In this article, you'll find recommendations for architecting interruptible workloads with spot VMs and a sample implementation you can deploy. Here are key recommendations to consider before using spot virtual machines.
+Spot virtual machines (VMs) provide access to compute capacity at significant discounts and are an attractive solution for workloads that can be interrupted and have no time constraints, known as interruptible workloads. In this article, you'll find recommendations for architecting interruptible workloads with spot VMs and a sample implementation you can deploy. Here are key recommendations to consider when using spot virtual machines.
 
 ## Understand spot virtual machines distinctions
 
