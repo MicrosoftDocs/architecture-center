@@ -1,15 +1,3 @@
----
-title: Train machine learning models at the edge
-description: Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.
-author: ronmiab 
-ms.topic: article
-ms.date: 11/30/2022
-ms.author: robess
-ms.reviewer: anajod
----
-
-# Train machine learning models at the edge
-
 Many organizations want to unlock insights from their on-premises or legacy data by using the familiar tools of their data scientists. [Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this architecture, data scientists can use Azure Machine Learning to train models by using on-premises data and compute resources.
 
 ## Architecture
@@ -95,10 +83,10 @@ To learn more about topics introduced in this article:
 - See the [Azure Machine Learning documentation](/azure/machine-learning) for an overview of machine learning and related topics.
 - See [Azure Container Registry](/azure/container-registry/) to learn how to build, store, and manage images for container deployments.
 - Refer to [App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) to learn more about the resource provider and how to deploy.
-- See [Hybrid application design considerations](overview-app-design-considerations.md) to learn more about best practices and to get any additional questions answered.
+- See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices and to get any additional questions answered.
 - See the [Azure Stack family of products and solutions](/azure-stack) to learn more about the entire portfolio of products and solutions.
 
-When you're ready to test the solution example, continue with [Deploy an Edge Training Solution](https://aka.ms/edgetrainingdeploy). This deployment guide provides step-by-step instructions for deploying and testing its components.
+When you're ready to test the solution example, continue with [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). This deployment guide provides step-by-step instructions for deploying and testing its components.
 
 ## Related resources
 
