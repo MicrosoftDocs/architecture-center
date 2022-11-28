@@ -32,7 +32,7 @@ This is a solution to create new applications while integrating and preserving l
 * [Virtual Network documentation](/azure/virtual-network/virtual-networks-overview)
 * [VPN Gateway documentation](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
-## Related Resources
+## Related resources
 
 * [Baseline architecture for AKS on Azure Stack HCI](../../example-scenario/hybrid/aks-baseline.yml)
 * [Cross-cloud scaling with Azure Functions](../../solution-ideas/articles/cross-cloud-scaling.yml)

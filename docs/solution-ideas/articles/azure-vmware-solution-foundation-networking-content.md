@@ -69,14 +69,14 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
 - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 
-## Solutions details
+## Scenario details
 
 This article discusses how to use Azure native services (such as Azure ExpressRoute, Azure Traffic Manager, and Azure Application Gateway), as some key services that assist in connecting Azure VMware Solution workloads to an on-premises environment, as well as with external users.
 
 > [!NOTE]
 > See [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) for the latest landing zone guidance.
 
-## Potential use cases
+### Potential use cases
 
 Providing network connectivity can enable the following key use cases:
 
