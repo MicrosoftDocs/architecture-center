@@ -106,7 +106,6 @@ Other contributors:
 
 ## Next steps
 
-- [Blog post: Realtime Monitoring and Observable System for Media](https://chrysalis.microsoft.com/assets/5a2ee1a3-5132-452a-9fa6-6098f753eb33)  
 - [Supplementary code samples](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media) 
 - [Azure Data Explorer documentation](/azure/data-explorer)
 - [Introduction to Azure Data Explorer - Training](/training/modules/intro-to-azure-data-explorer)
