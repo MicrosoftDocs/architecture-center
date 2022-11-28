@@ -1,6 +1,6 @@
 Due to IPv4 address exhaustion problem, IPv6 was introduced in 1995 and made as an Internet Standard in 2017. It's estimated that more than 50% traffic of United States is over IPv6. Unfortunately, the two protocols are not compatible, it means your infrastructure either runs IPv4 network or IPv6 network. This reference architecture details several configurations to enable users to run [Dual-stack kubenet networking AKS](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) (Preview). 
 
-Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` without the need of extra NAT64 proxy.
+Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` or `PreferDualStack` without the need of extra NAT64 proxy.
 
 Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
 
@@ -13,6 +13,8 @@ This document only focuses on enabling dual-stack IPs for users' network infrast
 # Dataflow
 
 This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6.
+
+When establishing connection to the service, clients retrieve services' IP address from the closest DNS server where IPv6 is mapped with the AAAA record and IPv4 is mapped with the A record of the domain name. Closest DNS server can be Global DNS servers if clients are from the Internet, or Azure Private DNS Zone if clients are inside an Azure VNet with custom DNS resolution rule.
 
 ## Option 1 - AKS Services running IPv4
 
@@ -65,6 +67,10 @@ The architecture consists of the following components:
 # Alternatives
 
 Another approach is for each functional service, there should be 1 IPv6 AKS Service listening to IPv6 Ingress, and 1 IPv4 AKS Service listening o IPv4 Ingress. This helps avoid a NAT64 hop for IPv6 traffic and vice versa.
+
+This approach feels more like natural K8S and better performance. However, when using in a microservice architecture with lots of services, it doesn't provide good code maintenance since each service is duplicated while the first approach can armotize the performance hit via persistent connections. 
+
+And when AKS can fully support dual-stack at service layer, users just need to remap only IPv6 ingress in the first approach while the latter approach will need more maintenance effort.
 
 # Considerations
 
