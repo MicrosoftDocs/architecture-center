@@ -12,7 +12,7 @@ This document only focuses on enabling dual-stack IPs for users' network infrast
 
 # Dataflow
 
-This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6 since it can be easily added to or removed from an existing infrastruture with minimum change (only IPv6 ingress needs to be updated).
+This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6 since it can be easily added to or removed from an existing infrastructure with minimum change (only IPv6 ingress needs to be updated).
 
 When establishing connection to the service, clients retrieve services' IP address from the closest DNS server where IPv6 is mapped with the AAAA record and IPv4 is mapped with the A record of the domain name. Closest DNS server can be Global DNS servers if clients are from the Internet, or Azure Private DNS Zone if clients are inside an Azure VNet with custom DNS resolution rule.
 
