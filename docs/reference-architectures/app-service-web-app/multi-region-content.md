@@ -18,7 +18,21 @@ This architecture builds on the one shown in [Scalable web application][guidance
 
 ### Components
 
-Refer to the [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app#workflow) article that this design is based on for a detailed description of the components in scope for this design.
+Key technologies used to implement this architecture:
+
+- [Azure Active Directory][Azure-Active-Directory]
+- [Azure DNS][Azure-DNS]
+- [Azure Content Delivery Network][Azure-Content-Delivery-Network]
+- [Azure Front Door][Azure-Front-Door]
+- [Azure AppService][Azure-AppService]
+- [Azure Function][Azure-Function]
+- [Azure Storage][Azure-Storage]
+- [Azure Redis Cache][Azure-Redis-Cache]
+- [Azure SQL Database][Azure-SQL-Database]
+- [Azure Cosmos DB][Azure-Cosmos-DB]
+- [Azure Search][Azure-Search]
+
+For a detailed description of the components in scope for this design, refer to the [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app#workflow) article that this design is based on.
 
 ## Scenario details
 
@@ -245,17 +259,17 @@ Principal authors:
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [system-managed-identities]: /azure/active-directory/managed-identities-azure-resources/overview
 [visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-multi-region-webapp.vsdx
-[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory/
-[Azure-DNS]: https://azure.microsoft.com/services/dns/#overview
-[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn/#overview
-[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor/#overview
-[Azure-AppService]: https://azure.microsoft.com/services/app-service/#overview 
-[Azure-Function]: https://azure.microsoft.com/services/functions/#overview
-[Azure-Storage]: https://azure.microsoft.com/product-categories/storage/
-[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache/#overview
-[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database/#overview
-[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db/#overview
-[Azure-Search]: https://azure.microsoft.com/services/search/#overview
+[Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory
+[Azure-DNS]: https://azure.microsoft.com/services/dns
+[Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
+[Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
+[Azure-AppService]: https://azure.microsoft.com/services/app-service
+[Azure-Function]: https://azure.microsoft.com/services/functions
+[Azure-Storage]: https://azure.microsoft.com/product-categories/storage
+[Azure-Redis-Cache]: https://azure.microsoft.com/services/cache
+[Azure-SQL-Database]: https://azure.microsoft.com/products/azure-sql/database
+[Azure-Cosmos-DB]: https://azure.microsoft.com/services/cosmos-db
+[Azure-Search]: https://azure.microsoft.com/services/search
 [front-door-routing]: /azure/frontdoor/front-door-routing-methods
 [front-door-tier]: /azure/frontdoor/standard-premium/tier-comparison
 [endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
