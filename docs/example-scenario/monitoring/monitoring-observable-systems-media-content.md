@@ -88,7 +88,7 @@ For more information, see [Select a SKU for your Azure Data Explorer cluster](/a
 
 ## Deploy this scenario
 
-For information about deploying this scenario, see  [real-time-monitoring-and-observability-for-media](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media) on GitHub. This code sample includes the necessary infrastructure as code (IaC) to bootstrap development and Azure functions to ingest and transform the data from HTTP and blob endpoints.
+For information about deploying this scenario, see  [real-time-monitoring-and-observability-for-media](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media) on GitHub. This code sample includes the necessary infrastructure-as-code (IaC) to bootstrap development and Azure functions to ingest and transform the data from HTTP and blob endpoints.
 
 ## Contributors
 
