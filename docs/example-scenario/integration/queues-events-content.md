@@ -1,12 +1,14 @@
 This example architecture is built on the [Basic enterprise integration][basic-enterprise-integration] architecture and extends it to show how to integrate enterprise backend systems, using message brokers and events to decouple services for greater scalability and reliability. Ensure that you are familiar with that design and the components used in the basic integration architecture to prepare for this article as it provides foundational information on the core components that will not be reproduced here.
 
+## Architecture
+
 The backend systems referenced in this design may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
 ![Reference architecture for enterprise integration using queues and events](./media/enterprise-integration-message-broker-events.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/queues-events-content.vsdx) of this architecture*.
 
-## Architecture
+### Workflow
 
 The architecture shown here builds on a simpler architecture that is shown in [Basic enterprise integration][basic-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows directly with backend systems and [API Management][apim] to create catalogs of APIs.
 
@@ -45,12 +47,13 @@ Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queue
 
 When an Event Grid trigger fires, it means *at least one* event happened. For example, when a logic app gets an Event Grid triggers for a Service Bus message, it should assume that several messages might be available to process.
 
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - **Azure AD:** Azure AD is a globally distributed, highly available SaaS platform.  Please refer to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) for guaranteed availability details.
 - **API Management:** API Management can be deployed in a variety of highly available configurations, according to business requirements and cost tolerance.  Refer to the [Ensure API Management availability and reliability](/azure/api-management/high-availability) for a full review of options.  Please also refer to the [SLA][apim-sla] for guaranteed availability details.
@@ -59,6 +62,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Service Bus:** Service Bus Premium supports [Geo-disaster recovery](/azure/service-bus-messaging/service-bus-outages-disasters#geo-disaster-recovery) and [Availability Zones](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones). [Replication](/azure/service-bus-messaging/service-bus-outages-disasters#protecting-against-outages-and-disasters---service-bus-standard) is available for Service Bus Standard.  Please also refer to the [SLA][sb-sla] for guaranteed availability details.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 To secure Service Bus, use [Azure Active Directory (Azure AD) authentication](/azure/service-bus-messaging/service-bus-authentication-and-authorization#azure-active-directory) paired with [managed identities](/azure/service-bus-messaging/service-bus-managed-service-identity). Azure AD integration for Service Bus resources provides Azure role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal (a managed identity in this case).
 
@@ -77,6 +82,8 @@ Network security should be considered throughout the design.
 - **API Management** provides several options to secure access to your API Management instance and APIs using an Azure virtual network. Please refer to the [Use a virtual network with Azure API Management](/azure/api-management/virtual-network-concepts?tabs=stv2) documentation for a thorough review of the options. [Private endpoints](/azure/api-management/virtual-network-concepts?tabs=stv2#private-endpoint) are also supported.
 
 ### Cost Optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
@@ -112,11 +119,22 @@ Automating recovery operations as much as possible is an integral component of O
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Refer to the [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging) documentation for a review of the Premium tier benefits and the [autoscaling feature](/azure/service-bus-messaging/automate-update-messaging-units) documentation to learn about configuring the autoscaling of messaging units.
 
 Additional recommendations for Service Bus can be found at [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements).
 
 ## Next steps
+
+For further information, see the Service Bus documentation:
+
+- [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept)
+- [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging)
+- [Service Bus autoscaling feature](/azure/service-bus-messaging/automate-update-messaging-units)
+- [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements)
+
+## Related resources
 
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
