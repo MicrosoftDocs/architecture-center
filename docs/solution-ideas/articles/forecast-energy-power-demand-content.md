@@ -10,8 +10,9 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 
 ## Architecture
 
-![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)
-*Download an [SVG](../media/forecast-energy-power-demand.svg) of this architecture.*
+[ ![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)](../media/forecast-energy-power-demand.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/forecast-energy-power-demand.vsdx) of this architecture.*
 
 ### Dataflow
 
