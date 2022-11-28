@@ -46,41 +46,41 @@ Services like Azure Container Registry and Azure Monitor are hosted outside of A
 
 - [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using an Azure Active Directory (Azure AD) identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
 
-**Azure Repos** is a set of version control tools that you can use to manage your code. You can also use GitHub or other git-based repositories. Go to [Azure Repos Overview](/azure/devops/repos/get-started/what-is-repos) to learn more.
+- [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools that you can use to manage your code. You can also use GitHub or other Git-based repositories.
 
-**Azure Pipelines** is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins. Go to [Azure Pipeline Overview](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to learn more.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is part of Azure DevOps Services. It runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions like Jenkins.
 
-**Azure Monitor** collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs. Go to [Azure Monitor Overview](/azure/azure-monitor/overview) to learn more.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, containers, container logs, and master node logs.
 
-**Azure Traffic Manager** is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across different Azure regions or Azure Stack Hub deployments. Traffic Manager also provides high availability and responsiveness. The application endpoints must be accessible from the outside. There are other on-premises solutions available as well.
+- [Azure Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer that you can use to distribute traffic optimally to services across different Azure regions or Azure Stack Hub deployments. Traffic Manager also provides high availability and responsiveness. The application endpoints must be accessible from the outside. Other on-premises solutions are also available.
 
-**Kubernetes Ingress Controller** exposes HTTP(S) routes to services in a Kubernetes cluster. Nginx or any suitable ingress controller can be used for this purpose.
+- A Kubernetes ingress controller exposes HTTP(S) routes to services in a Kubernetes cluster. You can use [NGINX](https://www.nginx.com/products/nginx-ingress-controller) or any suitable ingress controller.
 
-**Helm** is a package manager for Kubernetes deployment, providing a way to bundle different Kubernetes objects like Deployments, Services, Secrets, into a single "chart". You can publish, deploy, control version management, and update a chart  object. Azure Container Registry can be used as a repository to store packaged Helm Charts.
+- [Helm](https://helm.sh) is a package manager for Kubernetes deployment. It provides a way to bundle different Kubernetes objects, like `Deployments`, `Services`, and `Secrets`, into a single "chart." You can publish, deploy, version, and update a chart object. You can use Azure Container Registry as a repository to store packaged Helm charts.
 
 ## Design considerations
 
-This pattern follows a few high-level considerations explained in more detail in the next sections of this article:
+This solution incorporates a few high-level recommendations that are explained in more detail in the next sections of this article:
 
-- The application uses Kubernetes-native solutions, to avoid vendor lock-in.
+- To avoid vendor lock-in, the application uses Kubernetes-native solutions.
 - The application uses a microservices architecture.
-- Azure Stack Hub doesn't need inbound but allows outbound Internet connectivity.
+- Azure Stack Hub doesn't need inbound internet connectivity. It allows outbound internet connectivity.
 
-These recommended practices will apply to real-world workloads and scenarios as well.
+These recommended practices also apply to real-world workloads and scenarios.
 
 ## Scalability considerations
 
-Scalability is important to provide users consistent, reliable, and well-performing access to the application.
+Scalability helps provide consistent, reliable, and well-performing access to the application.
 
-The sample scenario covers scalability on multiple layers of the application stack. Here's a high-level overview of the different layers:
+The sample scenario implements scalability in multiple layers of the application stack. Here's a high-level overview of the layers:
 
 | Architecture level | Affects | How? |
 | --- | --- | ---
-| Application | Application | Horizontal scaling based on the number of Pods/Replicas/Container Instances* |
-| Cluster | Kubernetes cluster | Number of Nodes (between 1 and 50), VM-SKU-sizes, and Node Pools (AKS Engine on Azure Stack Hub currently supports only a single node pool); using AKS Engine's scale command (manual) |
-| Infrastructure | Azure Stack Hub | Number of nodes, capacity, and scale units within an Azure Stack Hub deployment |
+| Application | Application | Horizontal scaling based on the number of pods / replicas / container instances.* |
+| Cluster | Kubernetes cluster | Number of nodes (between 1 and 50), VM SKU sizes, and, by using the AKS Engine manual `scale` command, node pools. (AKS Engine on Azure Stack Hub currently supports only a single node pool.)  |
+| Infrastructure | Azure Stack Hub | Number of nodes, capacity, and scale units within an Azure Stack Hub deployment. |
 
-\* Using Kubernetes' Horizontal Pod Autoscaler (HPA); automated metric-based scaling or vertical scaling by sizing the container instances (cpu/memory).
+\* Using Kubernetes' Horizontal Pod Autoscaler; automated metric-based scaling or vertical scaling by sizing the container instances (cpu/memory).
 
 **Azure Stack Hub (infrastructure level)**
 
@@ -370,6 +370,9 @@ As described in [Data and storage considerations](#data-and-storage-consideratio
 
 moved 
 - [Azure Stack Hub overview](/azure-stack/operator/azure-stack-overview)
+- [Azure Repos Overview](/azure/devops/repos/get-started/what-is-repos)
+- [Azure Pipeline Overview](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- [Azure Monitor Overview](/azure/azure-monitor/overview)
 
 To learn more about concepts introduced in this article:
 
