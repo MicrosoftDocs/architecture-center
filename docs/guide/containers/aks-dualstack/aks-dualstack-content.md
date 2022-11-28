@@ -1,6 +1,6 @@
 Due to IPv4 address exhaustion problem, IPv6 was introduced in 1995 and made as an Internet Standard in 2017. It's estimated that more than 50% traffic of United States is over IPv6. Unfortunately, the two protocols are not compatible, it means your infrastructure either runs IPv4 network or IPv6 network. This reference architecture details several configurations to enable users to run [Dual-stack kubenet networking AKS](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) (Preview). 
 
-Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` or `PreferDualStack` without the need of extra NAT64 proxy.
+Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` or `PreferDualStack` where each kubernetes service can handle dual-stack traffic.
 
 Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
 
@@ -12,7 +12,7 @@ This document only focuses on enabling dual-stack IPs for users' network infrast
 
 # Dataflow
 
-This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6.
+This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6 since it can be easily added to or removed from an existing infrastruture with minimum change (only IPv6 ingress needs to be updated).
 
 When establishing connection to the service, clients retrieve services' IP address from the closest DNS server where IPv6 is mapped with the AAAA record and IPv4 is mapped with the A record of the domain name. Closest DNS server can be Global DNS servers if clients are from the Internet, or Azure Private DNS Zone if clients are inside an Azure VNet with custom DNS resolution rule.
 
