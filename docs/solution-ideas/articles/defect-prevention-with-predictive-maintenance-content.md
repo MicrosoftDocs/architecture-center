@@ -15,7 +15,7 @@ Industries that benefit from this solution include:
 
 :::image type="content" alt-text="Architecture diagram: defect prevention with predictive maintenance." source="../media/defect-prevention-with-predictive-maintenance.png" lightbox="../media/defect-prevention-with-predictive-maintenance.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/../media/defect-prevention-with-predictive-maintenance.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/defect-prevention-with-predictive-maintenance.vsdx) of this architecture.*
 
 ### Components
 
