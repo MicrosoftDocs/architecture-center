@@ -15,12 +15,12 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 
 ### Components
 
-- [Virtual networks](/azure/virtual-network/virtual-networks-overview) are the basis of network communication within Azure.
-- [Azure Virtual Machines](/azure/virtual-machines/windows/overview) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers.
-- [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection, which is facilitated by a connectivity provider.
-- [Network security groups](/azure/virtual-network/security-overview) limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic. The security rules are based on source or destination IP address, port, and protocol.
-- [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
-- [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) are recommended solutions to provide the storage for the SAP executables and HANA data and logs.
+- [Virtual networks](https://azure.microsoft.com/products/virtual-network) are the basis of network communication within Azure.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection, which is facilitated by a connectivity provider.
+- Network security groups limit network traffic to specific resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic. The security rules are based on source or destination IP address, port, and protocol.
+- Resource groups act as logical containers for Azure resources.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) or [Azure NetApp Files](https://azure.microsoft.com/products/netapp) are recommended solutions to provide the storage for the SAP executables and HANA data and logs.
 
 ## Scenario details
 
@@ -122,6 +122,8 @@ Learn more about the component technologies:
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Manage Azure Resource Manager resource groups by using Azure CLI](/azure/azure-resource-manager/management/manage-resource-groups-cli)
 - [High-availability architecture and scenarios for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [What is Azure Files](/azure/storage/files/storage-files-introduction)
+- [What is Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 
 ## Related resources
 

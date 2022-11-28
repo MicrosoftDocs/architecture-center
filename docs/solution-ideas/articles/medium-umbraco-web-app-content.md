@@ -48,3 +48,11 @@ Use the following pre-built template to deploy this architecture to Azure:
    * [Quickstart: Use Azure Cache for Redis in .NET Core](/azure/azure-cache-for-redis/cache-dotnet-core-quickstart)
    * [Create a Web App plus Azure Cache for Redis using a template](/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision)
    * [Tutorial: Create a cache-aside leaderboard on ASP.NET](/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard)
+
+## Related resources
+
+* [Web applications architecture design](../../guide/web/web-start-here.yml)
+* [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+* [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
+* [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
+* [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
