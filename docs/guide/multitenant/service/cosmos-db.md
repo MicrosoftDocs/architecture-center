@@ -68,23 +68,26 @@ More information:
 
 When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Azure Cosmos DB supports several isolation models:
 
-
 - **Partition key per tenant**
-  - Share throughput across tenants grouped by container to mitigate noisy neighbor blast radius.
   - Enables easy queries across tenants (containers act as boundary for queries).
   - Provides highest tenant density (lowest cost per tenant).
 - **Container per tenant (shared throughput)**
-  - Share throughput across tenants that are grouped by database to mitigate noisy neighbor blast radius.
+  - Small amount of guaranteed throughput per tenant (100RU), but with higher density than dedicated throughput.
   - Easy management of tenants (drop the container when the tenant leaves).
   - Data access security isolation via RBAC.
+  - Group tenants within database account(s), based on geo-replication requirements.
 - **Container per tenant (dedicated throughput)**
-  - Independent throughput options (dedicated throughput eliminates noisy neighbors).
+  - Independent throughput options per tenant (eliminates noisy neighbors).
+  - Easy management of tenants (drop the container when the tenant leaves).
+  - Data access security isolation via RBAC.
   - Group tenants within database account(s), based on geo-replication requirements.
   - Data access security isolation via RBAC.
 - **Database per tenant**
   - Faster creation of tenant than with tenant-per-account.
-  - Data modeling advantages over container-per-tenant (use multiple containers to model tenent entities).
-  - Application framework advantages - some database frameworks only support isolation at the database logical level natively.
+  - Data modeling advantages over container-per-tenant (use multiple containers to model tenant entities).
+  - Independent throughput options per tenant (eliminates noisy neighbors).
+  - Use shared database throughput where tenant data model is complex and requires more than one container.
+  - Application framework advantages - some database frameworks only natively support isolation at the database logical level.
   - Group tenants within database account(s), based on geo-replication requirements.
   - Data access security isolation via RBAC.
 - **Database account per tenant**
