@@ -2,8 +2,6 @@
 
 Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 
-This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Storage Accounts](https://azure.microsoft.com/services/storage), Application Insights and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
-
 ## Architecture
 
 ![Architecture Diagram](../media/medium-umbraco-web-app.png)
@@ -18,6 +16,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache) to improve performance and reduce the load on your web front ends.
 
 ## Scenario details
+
+This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Storage Accounts](https://azure.microsoft.com/services/storage), Application Insights and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
 
 ### Potential use cases
 
