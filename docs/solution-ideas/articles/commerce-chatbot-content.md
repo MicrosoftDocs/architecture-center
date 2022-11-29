@@ -4,9 +4,9 @@
 
 ## Architecture
 
-![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.svg)
+![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.png)
 
-*Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/commerce-chatbot-customer-service.vsdx) of this architecture.*
 
 ### Dataflow
 
