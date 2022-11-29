@@ -190,10 +190,10 @@ Here are some solutions for implementing a highly available database on Azure St
 - [Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
 - [Deploy a highly available MongoDB solution to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
 
-Considerations when working with data across multiple locations is an even more complex consideration for a highly available and resilient solution. Consider:
+If you're working with data across multiple locations, implementing a highly available and resilient solution is even more complex. Consider:
 
-- Latency and network connectivity between Azure Stack Hubs.
-- Availability of identities for services and permissions. Each Azure Stack Hub instance integrates with an external directory. During deployment, you choose to use either Azure Active Directory (Azure AD) or Active Directory Federation Services (ADFS). As such, there's potential to use a single identity that can interact with multiple independent Azure Stack Hub instances.
+- Latency and network connectivity between Azure Stack Hub instances.
+- The availability of identities for services and permissions. Each Azure Stack Hub instance integrates with an external directory. During deployment, you choose to use either Azure AD or Active Directory Federation Services (AD FS). So you have the option to use a single identity that can interact with multiple independent Azure Stack Hub instances.
 
 ## Business continuity and disaster recovery
 
