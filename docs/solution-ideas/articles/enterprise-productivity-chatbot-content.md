@@ -12,8 +12,9 @@ This solution is ideal for the HR, sales, and manufacturing industries. Some org
 
 ## Architecture
 
-![Architecture diagram: enterprise bot working with Office 365 and Dynamics CRM to streamline common employee tasks.](../media/enterprise-productivity-chatbot.png)
-*Download an [SVG](../media/enterprise-productivity-chatbot.svg) of this architecture.*
+[ ![Architecture diagram: enterprise bot working with Office 365 and Dynamics CRM to streamline common employee tasks.](../media/enterprise-productivity-chatbot.png)](../media/enterprise-productivity-chatbot.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/enterprise-productivity-chatbot.vsdx) of this architecture.*
 
 ### Dataflow
 
