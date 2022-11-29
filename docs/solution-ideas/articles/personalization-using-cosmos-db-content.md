@@ -13,7 +13,7 @@ Generate personalized recommendations for customers in real time, using low-late
 1. Shopper/User places the order and order goes to Azure API Apps.
 1. Data gets stored in Azure Cosmos DB (Customer Order).
 1. The change feed is enabled on the Azure Cosmos DB and processes all the changes for available events.
-1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Azure Cosmos DB (Product+ User Vectors)
+1. By using Apache Spark on Azure Databricks, data is trained and stored in Azure Cosmos DB (Product+ User Vectors)
 1. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 ### Components
@@ -61,4 +61,4 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 ## Related resources
 
 * [Basic Web App Azure Reference Architecture](../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli)
-* [Stream Processing with Azure DataBricks](../../reference-architectures/data/stream-processing-databricks.yml)
+* [Stream Processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
