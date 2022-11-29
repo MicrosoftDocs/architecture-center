@@ -1,29 +1,29 @@
-Azure offers many ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application.
-
-If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
+Azure offers many ways to host your application code. The term *compute* refers to the hosting model for the resources that your application runs on. This article helps choose a compute service for your application.
 
 ## Choose a candidate service
 
 Use the following flowchart to select a candidate compute service.
 
-![Decision tree for Azure compute services.](./images/compute-choices.png)
+:::image type="content" source="./images/compute-choices.png" alt-text="Decision tree for Azure compute services." border="false":::
+
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
 
 Definitions:
 
-- **"Lift and shift"** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
-- **Cloud optimized** is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
+- *Lift and shift* is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
+- *Cloud optimized* is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
-The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
+The output from this flowchart is your starting point. Next, evaluate the service in more detail to see if it meets your needs.
 
-This article includes several tables that can help you to make these tradeoff decisions. You might find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
+This article includes several tables that can help you to make these tradeoff decisions. The initial candidate might be unsuitable for your application or workload. In that case, expand your analysis to include other compute services.
 
 ## Understand the basic features
 
-If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
+If you're not familiar with the Azure service selected in the previous section, see this overview documentation:
 
-- [Azure Virtual machines](/azure/virtual-machines). Deploy and manage VMs inside an Azure virtual network.
+- [Azure virtual machines](/azure/virtual-machines). Deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
+- [Azure Functions](/azure/azure-functions/functions-overview). A managed function as a service (FaaS) service.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps). A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 - [Azure Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
@@ -34,46 +34,46 @@ If you're not familiar with the Azure service selected in the previous step, rea
 
 ## Understand the hosting models
 
-Cloud services, including Azure services, generally fall into three categories: IaaS, PaaS, or FaaS. (There's also SaaS, software-as-a-service, which is out of scope for this article.) It's useful to understand the differences.
+For hosting models, cloud services fall into three categories:
 
-**Infrastructure-as-a-Service** (IaaS) lets you provision individual VMs along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
+- **Infrastructure-as-a-Service** (IaaS) lets you provision individual VMs along with the associated networking and storage components. Then deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the individual VMs.
 
-**Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. Azure App Service and Azure Container Apps are PaaS services.
+- **Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. Azure App Service and Azure Container Apps are PaaS services.
 
-**Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. In a FaaS model, you deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
+- **Functions-as-a-Service** (FaaS) lets you deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
 
 > [!NOTE]
-> Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. You may read [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs) to know how this service compares with other Azure serverless offerings, such as Logic Apps which provides serverless workflows.
+> Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
 There's a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
 
-In general, there's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
+There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |----------|-----------------|-------------|---------|----------------|-----------------|
-| **Azure Virtual Machines** | Agnostic | Agnostic | 1 <a href="#note2"><sup>2</sup></a> | Stateless or Stateful | Agnostic |
-| **Azure App Service** | Applications, containers | Multiple apps per instance via app service plan | 1 | Stateless | Built in |
+| **Azure Virtual Machines** | Agnostic | Agnostic | 1 <a href="#note2"><sup>2</sup></a> | Stateless or stateful | Agnostic |
+| **Azure App Service** | Applications, containers | Multiple apps per instance by using app service plan | 1 | Stateless | Built in |
 | **Azure Functions** | Functions, containers | Serverless <a href="#note1"><sup>1</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | Stateless or stateful <a href="#note6"><sup>6</sup></a> | Not applicable |
-| **Azure Kubernetes Service** | Containers | Multiple containers per node | 3 <a href="#note3"><sup>3</sup></a> | Stateless or Stateful | Agnostic |
-| **Azure Container Apps** | Containers | Serverless | Serverless | Stateless or Stateful | Agnostic |
+| **Azure Kubernetes Service** | Containers | Multiple containers per node | 3 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
+| **Azure Container Apps** | Containers | Serverless | Serverless | Stateless or stateful | Agnostic |
 | **Azure Container Instances** | Containers | No dedicated instances | No dedicated nodes | Stateless | Agnostic |
-| **Azure Red Hat OpenShift** | Containers | Multiple containers per node | 6 <a href="#note5"><sup>5</sup></a> | Stateless or Stateful | Agnostic |
+| **Azure Red Hat OpenShift** | Containers | Multiple containers per node | 6 <a href="#note5"><sup>5</sup></a> | Stateless or stateful | Agnostic |
 | **Azure Spring Apps** | Applications, microservices | Multiple apps per service instance | 2 | Stateless | Built in |
 | **Azure Service Fabric** | Services, guest executables, containers | Multiple services per VM | 5 <a href="#note3"><sup>3</sup></a> | Stateless or stateful | Agnostic |
 | **Azure Batch** | Scheduled jobs | Multiple apps per VM | 1 <a href="#note4"><sup>4</sup></a> | Stateless | No |
 
 Notes
 
-1. <span id="note1">If using Consumption plan. If using App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+1. <span id="note1">If using a Consumption plan. If using an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
 2. <span id="note2">Higher SLA with two or more instances.</span>
 3. <span id="note3">Recommended for production environments.</span>
 4. <span id="note4">Can scale down to zero after job completes.</span>
-5. <span id="note5"> 3 for master nodes, and 3 for worker nodes.</span>
-6. <span id="note6"> When using [Durable Functions][durable-functions].</span>
+5. <span id="note5">3 for primary nodes, and 3 for worker nodes.</span>
+6. <span id="note6">When using [Durable Functions][durable-functions].</span>
 
 ## Networking
 
-| Service | VNet Integration | Hybrid connectivity |
+| Service | VNet integration | Hybrid connectivity |
 |----------|-----------------|-------------|
 | **Azure Virtual Machines** | Supported | Supported |
 | **Azure App Service** | Supported <a href="#note7"><sup>1</sup></a> | Supported <a href="#note8"><sup>2</sup></a> |
@@ -118,13 +118,13 @@ Notes
 | **Azure Virtual Machines** | Virtual machine scale sets | Azure Load Balancer | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set |
 | **Azure App Service** | Built-in service | Integrated | 30 instances, 100 with App Service Environment |
 | **Azure Functions** | Built-in service | Integrated | 200 instances per Function app |
-| **Azure Kubernetes Service** | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Azure Load Balancer or Application Gateway | 5,000 nodes when using [Uptime SLA][uptime-sla] |
-| **Azure Container Apps** | Scaling rules<a href="#note4c"><sup>4</sip></a> | Integrated | 5 Environments per region, 20 Container apps per environment, 30 Replicas per container app |
+| **Azure Kubernetes Service** | Pod auto-scaling<a href="#note1c"><sup>1</sup></a>, cluster auto-scaling<a href="#note2c"><sup>2</sup></a> | Azure Load Balancer or Application Gateway | 5,000 nodes when using [Uptime SLA][uptime-sla] |
+| **Azure Container Apps** | Scaling rules<a href="#note4c"><sup>4</sup></a> | Integrated | 5 environments per region, 20 container apps per environment, 30 replicas per container app |
 | **Azure Container Instances** | Not supported | No built-in support | 20 container groups per subscription (default limit) |
 | **Azure Red Hat OpenShift** | Pod auto-scaling, cluster auto-scaling | Azure Load Balancer or Application Gateway | 60 nodes per cluster (default limit) |
 | **Azure Spring Apps** | Built-in service | Integrated | 500 app instances in Standard |
 | **Azure Service Fabric** | Virtual machine scale sets | Azure Load Balancer | 100 nodes per virtual machine scale set |
-| **Azure Batch** | N/A | Azure Load Balancer | 20 core limit (default limit) |
+| **Azure Batch** | Not applicable | Azure Load Balancer | 20 core limit (default limit) |
 
 Notes
 
@@ -139,20 +139,20 @@ Notes
 |----------|-----------------|-----------------|
 | **Azure Virtual Machines** | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | **Azure App Service** | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
-| **Azure Functions** | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door** |
+| **Azure Functions** | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
 | **Azure Kubernetes Service** | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multi-Region Cluster |
 | **Azure Container Apps** | [SLA for Azure Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
-| **Azure Container Instances** | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | Azure Traffic Manager and Azure Front Door |
+| **Azure Container Instances** | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
 | **Azure Red Hat OpenShift** | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
 | **Azure Spring Apps** | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multi-Region Cluster |
 | **Azure Service Fabric** | [SLA for Service Fabric][sla-sf] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
-| **Azure Batch** | [SLA for Azure Batch][sla-batch] | N/A |
+| **Azure Batch** | [SLA for Azure Batch][sla-batch] | Not applicable |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/training/modules/explore-azure-infrastructure).
 
 ## Security
 
-Review and understand the available security controls and visibility for each service
+Review and understand the available security controls and visibility for each service:
 
 - [Azure Windows Virtual machine](/azure/virtual-machines/windows/security-baseline)
 - [Azure Linux Virtual machine](/azure/virtual-machines/linux/security-baseline)
@@ -166,47 +166,46 @@ Review and understand the available security controls and visibility for each se
 
 ## Other criteria
 
-| Service | SSL | Cost | Suitable architecture styles|
+| Service | TLS | Cost | Suitable architecture styles|
 |----------|-----------------|-----------------|-----------------|
 | **Azure Virtual Machines** | Configured in VM | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [N-Tier][n-tier], [Big compute][big-compute] (HPC) |
 | **Azure App Service** | Supported | [App Service pricing][cost-app-service] | [Web-Queue-Worker][w-q-w] |
 | **Azure Functions** | Supported | [Azure Functions pricing][cost-functions] | [Microservices][microservices], [Event-driven architecture][event-driven] |
 | **Azure Kubernetes Service** | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [Event-driven architecture][event-driven] |
 | **Azure Container Apps** |  [Ingress controller](/azure/container-apps/ingress) | [Azure Container Apps pricing][cost-container-apps] | [Microservices][microservices], [Event-driven architecture][event-driven] |
-| **Azure Container Instances** | Use [sidecar](../../patterns/sidecar.yml) container | [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Microservices][microservices], task automation, batch jobs |
+| **Azure Container Instances** | Use [sidecar](../../patterns/sidecar.yml) container | [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
 | **Azure Red Hat OpenShift** | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Microservices][microservices], [Event-driven architecture][event-driven] |
 | **Azure Spring Apps** | Supported | [Azure Spring Apps pricing][cost-azure-spring-apps] | Spring Boot, [Microservices][microservices] |
 | **Azure Service Fabric** | Supported | [Azure Service Fabric pricing][cost-service-fabric] | [Microservices][microservices], [Event-driven architecture][event-driven] |
 | **Azure Batch** | Supported | [Azure Batch pricing][cost-batch] | [Big compute][big-compute] (HPC) |
 
-The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
-
 ## Consider limits and cost
 
-Perform a more detailed evaluation looking at the following aspects of the service:
+Along with the previous comparison tables, do a more detailed evaluation of following aspects of the candidate service:
 
 - [Service limits](/azure/azure-subscription-service-limits)
-- [Cost](https://azure.microsoft.com/pricing/)
-- [SLA](https://azure.microsoft.com/support/legal/sla/)
-- [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-- [Compute comparison tables](./compute-decision-tree.yml)
+- [Cost](https://azure.microsoft.com/pricing)
+- [SLA](https://azure.microsoft.com/support/legal/sla)
+- [Regional availability](https://azure.microsoft.com/global-infrastructure/services)
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Other contributors:
+Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Julie Ng](https://www.linkedin.com/in/julie-io) | Senior Service Engineer
+- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Service Engineer
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 - [Phil Huang](https://www.linkedin.com/in/phil-huang-09b09895) | Senior Cloud Solution Architect
-- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
+- [Julie Ng](https://www.linkedin.com/in/julie-io) | Senior Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute/). This Microsoft Learn module explores how compute services can solve common business needs.
+- [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute). This Microsoft Learn module explores how compute services can solve common business needs.
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
