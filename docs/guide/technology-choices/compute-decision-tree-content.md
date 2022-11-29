@@ -21,12 +21,12 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 If you're not familiar with the Azure service selected in the previous section, see this overview documentation:
 
-- [Azure Virtual Machines](/azure/virtual-machines). Deploy and manage virtual machines (VMs) inside an Azure virtual network.
+- [Azure Virtual Machines](/azure/virtual-machines). A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Azure Functions](/azure/azure-functions/functions-overview). A managed function as a service (FaaS) service.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps). A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
-- [Azure Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview). This service is a fast and simple way to run a container in Azure. You don't have to provision any virtual machines or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes.
 - [Azure Spring Apps](/azure/spring-apps). A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
@@ -206,6 +206,12 @@ Principal authors:
 ## Next steps
 
 - [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute). This Microsoft Learn module explores how compute services can solve common business needs.
+
+## Related resources
+
+- [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)
+- [Lift and shift to containers with Azure App Service](../../solution-ideas/articles/migrate-existing-applications-to-container-apps.md)
+- [Technology choices for Azure solutions](technology-choices-overview.md)
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
