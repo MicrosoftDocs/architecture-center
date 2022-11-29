@@ -2571,6 +2571,8 @@ items:
                         href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
                   - name: Movie recommendations on Azure
                     href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+                  - name: Real-time monitoring and observable systems for media
+                    href: example-scenario/monitoring/monitoring-observable-systems-media.yml
               - name: Datasets
                 items:
                   - name: Microsoft News recommendation
@@ -5546,6 +5548,8 @@ items:
                         href: reference-architectures/media-services/maintain-keys.yml
                       - name: Test Media Services V3 encoding
                         href: reference-architectures/media-services/test-encoding.yml
+              - name: Real-time monitoring and observable systems for media
+                href: example-scenario/monitoring/monitoring-observable-systems-media.yml
           - name: Solution ideas
             items:
               - name: HPC media rendering
