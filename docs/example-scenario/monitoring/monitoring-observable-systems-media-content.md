@@ -1,5 +1,7 @@
 This architecture describes a solution that provides real-time monitoring and observability of systems and end-user device telemetry data. It focuses on a use case for the media industry.
 
+*[Grafana](https://grafana.com) is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+
 ## Architecture
 
 :::image type="content" source="media/monitor-media.png" alt-text="Diagram that shows an architecture that provides real-time monitoring and observability of systems and end-user device telemetry data." lightbox="media/monitor-media.png" border="false":::
