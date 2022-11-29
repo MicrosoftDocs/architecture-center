@@ -69,13 +69,37 @@ More information:
 When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Azure Cosmos DB supports several isolation models:
 
 
-|                         | Partition key per tenant                                                                                                                                                                                                      | Container per tenant (shared throughput)                                                                                                                                                                        | Container per tenant (dedicated throughput)                                                                                                           | Database per tenant                                                                                           | Database account per tenant |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| Isolation options       | <ul><li>Share throughput across tenants grouped by container to mitigate noisy neighbor blast radius.</li> <li>Enables easy queries across tenants (containers act as boundary for queries).</li> <li>Provides highest tenant density (lowest cost per tenant).</li></ul>| <ul><li>Share throughput across tenants that are grouped by database to  mitigate noisy neighbor blast radius.</li> <li>Easy management of tenants (drop the container when the tenant leaves).</li><li>Data access security isolation via RBAC.</il></ul> | <ul><li>Independent throughput options (dedicated throughput eliminates noisy neighbors).</li> <li>Group tenants within database account(s), based on geo-replication requirements.</li><li>Data access security isolation via RBAC.</il></ul> |<ul><li>Faster creation of tenant than with tenant-per-account.</il><li>Data modeling advantages over container-per-tenant (use multiple containers to model tenent entities).</il><li>Application framework advantages - some database frameworks only support isolation at the database logical level natively.</il><li>Group tenants within database account(s), based on geo-replication requirements.</li><li>Data access security isolation via RBAC.</il></ul>  | <ul><li>Independent geo-replication knobs.</il><li>Data modeling advantages for complex tenants over container-per-tenant or database-per-tenant (use multiple containers and databases to model tenant).</il><li>Data access security isolation via RBAC.</il><li>Database encryption security isolation via customer managed key.</il><li>Multiple throughput options (dedicated throughput eliminates noisy neighbors).</il></ul>                        |
-| Throughput requirements | >0 RUs per tenant                                                                                                                                                                                                                                     | >100 RUs per tenant                                                                                                                                                                                                                                            | >400 RUs per tenant                                                                                                                                      | >400 RUs per tenant                                                                                                   | >400 RUs per tenant                        |
-| Example use case        | B2C apps                                                                                                                                                                                                                                              | Standard offer for B2B apps                                                                                                                                                                                                                                    | Premium offer for B2B apps                                                                                                                               | Premium offer for B2B apps                                                                                            | Premium offer for B2B apps                        |
+- **Partition key per tenant**
+  - Share throughput across tenants grouped by container to mitigate noisy neighbor blast radius.
+  - Enables easy queries across tenants (containers act as boundary for queries).
+  - Provides highest tenant density (lowest cost per tenant).
+- **Container per tenant (shared throughput)**
+  - Share throughput across tenants that are grouped by database to mitigate noisy neighbor blast radius.
+  - Easy management of tenants (drop the container when the tenant leaves).
+  - Data access security isolation via RBAC.
+- **Container per tenant (dedicated throughput)**
+  - Independent throughput options (dedicated throughput eliminates noisy neighbors).
+  - Group tenants within database account(s), based on geo-replication requirements.
+  - Data access security isolation via RBAC.
+- **Database per tenant**
+  - Faster creation of tenant than with tenant-per-account.
+  - Data modeling advantages over container-per-tenant (use multiple containers to model tenent entities).
+  - Application framework advantages - some database frameworks only support isolation at the database logical level natively.
+  - Group tenants within database account(s), based on geo-replication requirements.
+  - Data access security isolation via RBAC.
+- **Database account per tenant**
+  - Independent geo-replication knobs.
+  - Data modeling advantages for complex tenants over container-per-tenant or database-per-tenant (use multiple containers and databases to model tenant).
+  - Data access security isolation via RBAC.
+  - Database encryption security isolation via customer managed key.
+  - Multiple throughput options (dedicated throughput eliminates noisy neighbors).
 
+For each isolation model, here are throughput requirements and example use cases.
 
+| | Partition key per tenant | Container per tenant (shared throughput) | Container per tenant (dedicated throughput) | Database per tenant | Database account per tenant |
+| --- | --- | --- | --- | --- | --- |
+| **Throughput requirements** | >0 RUs per tenant | >100 RUs per tenant | >400 RUs per tenant | >400 RUs per tenant | >400 RUs per tenant |
+| **Example use case\[s\]** | B2C apps | Standard offer for B2B apps | Premium offer for B2B apps | Premium offer for B2B apps | Premium offer for B2B apps |
 ### Partition key per tenant
 
 When you use a single container for multiple tenants, you can make use of Azure Cosmos DB partitioning support. By using separate partition keys for each tenant, you can easily query the data for a single tenant. You can also query across multiple tenants, even if they are in separate partitions. However, [cross-partition queries](/azure/cosmos-db/sql/how-to-query-container#cross-partition-query) have a higher request unit (RU) cost than single-partition queries.
