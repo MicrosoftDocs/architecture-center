@@ -6,22 +6,22 @@ Use the following flowchart to select a candidate compute service.
 
 :::image type="content" source="./images/compute-choices.png" alt-text="Decision tree for Azure compute services." border="false":::
 
-If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
-
-Definitions:
+This diagram refers to these two migration strategies:
 
 - *Lift and shift* is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. It's also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
 - *Cloud optimized* is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
 The output from this flowchart is your starting point. Next, evaluate the service in more detail to see if it meets your needs.
 
-This article includes several tables that can help you to make these tradeoff decisions. The initial candidate might be unsuitable for your application or workload. In that case, expand your analysis to include other compute services.
+This article includes several tables that can help you choose a service. The initial candidate might be unsuitable for your application or workload. In that case, expand your analysis to include other compute services.
+
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
 
 ## Understand the basic features
 
 If you're not familiar with the Azure service selected in the previous section, see this overview documentation:
 
-- [Azure virtual machines](/azure/virtual-machines). Deploy and manage virtual machines (VMs) inside an Azure virtual network.
+- [Azure Virtual Machines](/azure/virtual-machines). Deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Azure Functions](/azure/azure-functions/functions-overview). A managed function as a service (FaaS) service.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
@@ -36,18 +36,18 @@ If you're not familiar with the Azure service selected in the previous section, 
 
 For hosting models, cloud services fall into three categories:
 
-- **Infrastructure-as-a-Service** (IaaS) lets you provision individual VMs along with the associated networking and storage components. Then deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the individual VMs.
+- **Infrastructure-as-a-Service** (IaaS) lets you provision virtual machines along with the associated networking and storage components. Then deploy whatever software and applications you want onto those virtual machines. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the virtual machines.
 
-- **Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. Azure App Service and Azure Container Apps are PaaS services.
+- **Platform-as-a-Service** (PaaS) provides a managed hosting environment where you can deploy your application without needing to manage virtual machines or networking resources. Azure App Service and Azure Container Apps are PaaS services.
 
-- **Functions-as-a-Service** (FaaS) lets you deploy your code and the service automatically runs it. Azure Functions is a FaaS service.
+- **Functions-as-a-Service** (FaaS) lets you deploy your code to the service, which automatically runs it. Azure Functions is a FaaS service.
 
-> [!NOTE]
-> Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
+  > [!NOTE]
+  > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
-There's a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
+There's a spectrum from IaaS to pure PaaS. For example, Azure virtual machines can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
 
-There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
+There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the virtual machines and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |----------|-----------------|-------------|---------|----------------|-----------------|
