@@ -197,55 +197,58 @@ If you're working with data across multiple locations, implementing a highly ava
 
 ## Business continuity and disaster recovery
 
-Business continuity and disaster recovery (BCDR) is an important topic in both Azure Stack Hub and Azure. The main difference is that in Azure Stack Hub, the operator must manage the whole BCDR process. In Azure, parts of BCDR are automatically managed by Microsoft.
+Business continuity and disaster recovery (BCDR) is an important consideration for both Azure Stack Hub and Azure. The main difference is that for Azure Stack Hub, the operator must manage the whole BCDR process. For Azure, parts of BCDR are automatically managed by Microsoft.
 
-BCDR affects the same areas mentioned in the previous section [Data and storage considerations](#data-and-storage-considerations):
+BCDR affects the same areas discussed in the previous section:
 
-- Infrastructure / Configuration
-- Application Availability
-- Application Data
+- Infrastructure and configuration
+- Application availability
+- Application data
 
-And as mentioned in the previous section, these areas are the responsibility of the Azure Stack Hub operator and can vary between organizations. Plan BCDR according to your available tools and processes.
+These areas are the responsibility of the Azure Stack Hub operator. The details can vary, depending on the organization. Plan BCDR according to your available tools and processes.
 
-**Infrastructure and configuration**
+### Infrastructure and configuration
 
 This section covers the physical and logical infrastructure and the configuration of Azure Stack Hub. It covers actions in the admin and the tenant spaces.
 
-The Azure Stack Hub operator (or administrator) is responsible for maintenance of the Azure Stack Hub instances. Including components such as the network, storage, identity, and other topics that are outside the scope of this article. To learn more about the specifics of Azure Stack Hub operations, see the following resources:
+The Azure Stack Hub operator (or administrator) is responsible for the maintenance of the Azure Stack Hub instances. This includes the network, storage, identity, and other topics that are outside the scope of this article. To learn more about the specifics of Azure Stack Hub operations, see these resources:
 
 - [Recover data in Azure Stack Hub with the Infrastructure Backup Service](/azure-stack/operator/azure-stack-backup-infrastructure-backup)
 - [Enable backup for Azure Stack Hub from the administrator portal](/azure-stack/operator/azure-stack-backup-enable-backup-console)
 - [Recover from catastrophic data loss](/azure-stack/operator/azure-stack-backup-recover-data)
 - [Infrastructure Backup Service best practices](/azure-stack/operator/azure-stack-backup-best-practices)
 
-Azure Stack Hub is the platform and fabric on which Kubernetes applications will be deployed. The application owner for the Kubernetes application will be a user of Azure Stack Hub, with access granted to deploy the application infrastructure needed for the solution. Application infrastructure in this case means the Kubernetes cluster, deployed using AKS Engine, and the surrounding services. These components will be deployed into Azure Stack Hub, constrained by an Azure Stack Hub offer. Make sure the offer accepted by the Kubernetes application owner has sufficient capacity (expressed in Azure Stack Hub quotas) to deploy the entire solution. As recommended in the previous section, the application deployment should be automated using Infrastructure-as-Code and deployment pipelines like Azure DevOps Azure Pipelines.
+Azure Stack Hub is the platform and fabric on which Kubernetes applications are deployed. The application owner for the Kubernetes application is a user of Azure Stack Hub who has access to deploy the application infrastructure needed for the solution. Application infrastructure, in this case, is the Kubernetes cluster, deployed via AKS Engine, and the surrounding services. 
 
-For more information on Azure Stack Hub offers and quotas, see [Azure Stack Hub services, plans, offers, and subscriptions overview](/azure-stack/operator/service-plan-offer-subscription-overview)
+These components are deployed into Azure Stack Hub. The components are constrained by the Azure Stack Hub offer. Make sure the offer accepted by the Kubernetes application owner has sufficient capacity, expressed in Azure Stack Hub quotas, to deploy the entire solution. As recommended in the previous section, you should automate the application deployment by using infrastructure-as-code and deployment pipelines like Azure Pipelines.
 
-It's important to securely save and store the AKS Engine configuration including its outputs. These files contain confidential information used to access the Kubernetes cluster, so it must be protected from being exposed to non-administrators.
+For more information on Azure Stack Hub offers and quotas, see [Azure Stack Hub services, plans, offers, and subscriptions overview](/azure-stack/operator/service-plan-offer-subscription-overview).
 
-**Application availability**
+It's important to securely save and store the AKS Engine configuration, including its outputs. These files contain confidential information that's used to access the Kubernetes cluster, so they must be protected from exposure to non-administrators.
 
-The application shouldn't rely on backups of a deployed instance. As a standard practice, redeploy the application completely following Infrastructure-as-Code patterns. For example, redeploy using Azure DevOps Azure Pipelines. The BCDR procedure should involve the redeployment of the application to the same or another Kubernetes cluster.
+### Application availability
 
-**Application data**
+The application shouldn't rely on backups of a deployed instance. As a standard practice, redeploy the application completely, following infrastructure-as-code patterns. For example, redeploy by using Azure Pipelines. The BCDR procedure should involve the redeployment of the application to the same or another Kubernetes cluster.
 
-Application data is the critical part to minimize data loss. In the previous section, techniques to replicate and synchronize data between two (or more) instances of the application were described. Depending on the database infrastructure (MySQL, MongoDB, MSSQL or others) used to store the data, there will be different database availability and backup techniques available to choose from.
+### Application data
 
-The recommended ways to achieve integrity are to use either:
+Application data is the critical component of BCDR. In the previous section, techniques for replicating and synchronizing data between two or more instances of an application are described. Depending on the database infrastructure (like MySQL, MongoDB, or Microsoft SQL Server) used to store the data, there are different database availability and backup techniques available.
+
+To achieve integrity, we recommend that you use one of the following solutions:
+
 - A native backup solution for the specific database.
-- A backup solution that officially supports backup and recovery of the database type used by your application.
+- A backup solution that officially supports backup and recovery of the database type that's used by your application.
 
 > [!IMPORTANT]
-> Do not store your backup data on the same Azure Stack Hub instance where your application data resides. A complete outage of the Azure Stack Hub instance would also compromise your backups.
+> Don't store your backup data on and your application data on the same Azure Stack Hub instance. A complete outage of the Azure Stack Hub instance would also compromise your backups.
 
 ## Availability considerations
 
-Kubernetes on Azure Stack Hub deployed via AKS Engine isn't a managed service. It's an automated deployment and configuration of a Kubernetes cluster using Azure Infrastructure-as-a-Service (IaaS). As such, it provides the same availability as the underlying infrastructure.
+Kubernetes on Azure Stack Hub, when deployed via AKS Engine, isn't a managed service. It's an automated deployment and configuration of a Kubernetes cluster that uses Azure infrastructure as a service (IaaS). So it provides the same availability as the underlying infrastructure.
 
-Azure Stack Hub infrastructure is already resilient to failures, and provides capabilities like Availability Sets to distribute components across multiple [fault and update domains](/azure-stack/user/azure-stack-vm-considerations#high-availability). But the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server, if there's a hardware failure.
+Azure Stack Hub infrastructure is already resilient to failures, and it provides capabilities like availability sets to distribute components across multiple [fault and update domains](/azure-stack/user/azure-stack-vm-considerations#high-availability). But the underlying technology (failover clustering) still incurs some downtime for VMs on an affected physical server, if there's a hardware failure.
 
-It's a good practice to deploy your production Kubernetes cluster as well as the workload to two (or more) clusters. These clusters should be hosted in different locations or datacenters, and use technologies like Azure Traffic Manager to route users based on cluster response time or based on geography.
+It's a good practice to deploy your production Kubernetes cluster, and also the workload, to two or more clusters. These clusters should be hosted in different locations or datacenters and use technologies like Traffic Manager to route users based on cluster response time or geography.
 
 ![Using Traffic Manager to control traffic flows](media/pattern-highly-available-kubernetes/aks-azure-traffic-manager.png)
 
@@ -254,42 +257,42 @@ Customers who have a single Kubernetes cluster typically connect to the service 
 ![Using Traffic Manager to route to on-premises cluster](media/pattern-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.png)
 
 > [!NOTE]
-> This pattern is also a [best practice for (managed) AKS clusters in Azure](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment).
+> This architecture is also a [best practice for managed AKS clusters on Azure](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment).
 
 The Kubernetes cluster itself, deployed via AKS Engine, should consist of at least three control plane nodes and two worker nodes.
 
 ## Identity and security considerations
 
-Identity and security are important topics. Especially when the solution spans independent Azure Stack Hub instances. Kubernetes and Azure (including Azure Stack Hub) both have distinct mechanisms for role-based access control (RBAC):
+Identity and security are especially important when the solution spans independent Azure Stack Hub instances. Kubernetes and Azure, including Azure Stack Hub, have distinct mechanisms for role-based access control (RBAC):
 
-- Azure RBAC controls access to resources in Azure (and Azure Stack Hub), including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. (A service principal is a security identity used by applications.)
-- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create roles and role bindings.
+- Azure RBAC controls access to Azure and Azure Stack Hub, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. (A service principal is a security identity that's used by applications.)
+- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be granted or denied to a user via RBAC. To assign Kubernetes permissions to users, you create roles and role bindings.
 
-**Azure Stack Hub identity and RBAC**
+### Azure Stack Hub identity and RBAC
 
-Azure Stack Hub provides two identity provider choices. The provider you use depends on the environment and whether running in a connected or disconnected environment:
+Azure Stack Hub provides two identity provider choices. The provider you use depends on the environment and whether you're running in a connected or disconnected environment:
 
-- Azure AD - can only be used in a connected environment.
-- ADFS to a traditional Active Directory forest - can be used in both a connected or disconnected environment.
+- Azure AD can be used only in a connected environment.
+- AD FS to a traditional Active Directory forest can be used in a connected or disconnected environment.
 
-The identity provider manages users and groups, including authentication and authorization for accessing resources. Access can be granted to Azure Stack Hub resources like subscriptions, resource groups, and individual resources like VMs or load balancers. To have a consistent access model, you should consider using the same groups (either direct or nested) for all Azure Stack Hubs. Here's a configuration example:
+The identity provider manages users and groups, including authentication and authorization for accessing resources. Access can be granted to Azure Stack Hub resources like subscriptions, resource groups, and individual resources like VMs and load balancers. For consistency, consider using the same groups, either direct or nested, for all Azure Stack Hub instances. Here's a configuration example:
 
-![nested aad groups with azure stack hub](media/pattern-highly-available-kubernetes/azure-stack-azure-ad-nested-groups.png)
+![nested Azure AD groups with Azure Stack Hub](media/pattern-highly-available-kubernetes/azure-stack-azure-ad-nested-groups.png)
 
-The example contains a dedicated group (using AAD or ADFS) for a specific purpose. For example, to provide Contributor permissions for the Resource Group that contains our Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the "subgroups" for each Azure Stack Hub.
+The example contains a dedicated group (using Azure AD or AD FS) for a specific purpose. For example, to provide Contributor permissions for the resource group that contains our Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the "subgroups" for each Azure Stack Hub.
 
 Our sample user will now have "Contributor" permissions to both Resources Groups that contain the entire set of Kubernetes infrastructure resources. The user will have access to resources on both Azure Stack Hub instances, because the instances share the same identity provider.
 
 > [!IMPORTANT]
 > These permissions affect only Azure Stack Hub and some of the resources deployed on top of it. A user who has this level of access can do a lot of harm, but cannot access the Kubernetes IaaS VMs nor the Kubernetes API without additional access to the Kubernetes deployment.
 
-**Kubernetes identity and RBAC**
+### Kubernetes identity and RBAC
 
 A Kubernetes cluster, by default, doesn't use the same Identity Provider as the underlaying Azure Stack Hub. The VMs hosting the Kubernetes cluster, the control plane, and worker nodes, use the SSH Key that is specified during the deployment of the cluster. This SSH key is required to connect to these nodes using SSH.
 
 The Kubernetes API (for example, accessed by using `kubectl`) is also protected by service accounts including a default "cluster admin" service account. The credentials for this service account are initially stored in the `.kube/config` file on your Kubernetes control plane nodes.
 
-**Secrets management and application credentials**
+### Secrets management and application credentials
 
 To store secrets like connection strings or database credentials there are several choices, including:
 
