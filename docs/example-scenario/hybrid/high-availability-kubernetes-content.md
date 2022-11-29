@@ -185,7 +185,7 @@ You should store the application in a Git-based repository. Whenever there's a n
 
 Data is the most important consideration in most application designs. Application data must stay in sync between the different instances of the application. You also need a backup and disaster recovery strategy for data in case there's an outage.
 
-This design depends heavily on technology choices. Here are some solution examples for implementing a database in a highly available fashion on Azure Stack Hub:
+Here are some solutions for implementing a highly available database on Azure Stack Hub:
 
 - [Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
 - [Deploy a highly available MongoDB solution to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
