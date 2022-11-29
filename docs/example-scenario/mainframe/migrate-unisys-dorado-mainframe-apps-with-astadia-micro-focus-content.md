@@ -114,7 +114,7 @@ This architecture uses the following components:
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-- Virtual network interface cards provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
+  Virtual network interface cards provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
@@ -134,11 +134,11 @@ This architecture uses the following components:
 
 - [Azure Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
 
-- Azure network security groups filter traffic in an Azure virtual network. Security rules determine the type of traffic that can flow to and from Azure resources in the network.
+- [Azure network security groups](/azure/virtual-network/network-security-groups-overview) filter traffic in an Azure virtual network. Security rules determine the type of traffic that can flow to and from Azure resources in the network.
 
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) keeps applications and workloads running during outages. This service works by replicating VMs from a primary site to a secondary location.
 
-- An autofailover group manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
+- An [autofailover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
 
 ## Scenario details
 

@@ -73,7 +73,7 @@ Azure offers many managed data storage solutions (5):
 - Databases:
 
   - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-  - [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/single-server/overview)
+  - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
   - [Azure Cosmos DB][Welcome to Azure Cosmos DB]
   - [Azure Database for MySQL][What is Azure Database for MySQL?]
   - [Azure Database for MariaDB][Azure Database for MariaDB documentation]
@@ -200,8 +200,10 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 
 ## Next steps
 
-- Contact [Azure Data Engineering - Mainframe &amp; Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
-- Read the [Migration guide][Migration guide].
+Read the [Migration guide][Migration guide]. Contact [Azure Data Engineering - Mainframe &amp; Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
+
+The following articles might be useful:
+
 - [IBM workloads on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/ibm/get-started)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)

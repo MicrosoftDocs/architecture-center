@@ -70,7 +70,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 - [Azure Virtual Networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional on-premises network, but with the benefits of Azure infrastructure scalability, availability, and isolation.
 
-- Virtual network interfaces let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
+  Virtual network interfaces let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
@@ -84,7 +84,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
-- Azure managed disks are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture works best with Premium SSDs or Ultra Disk SSDs.
+- [Azure managed disks](https://azure.microsoft.com/products/storage/disks) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture works best with Premium SSDs or Ultra Disk SSDs.
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale.
 
