@@ -62,7 +62,7 @@ When working with a multitenant system using Front Door, you need to make a deci
 - How many tenants do you plan to have?
 - Do you share your application tier between multiple tenants, do you deploy single-tenant application instances, or do you deploy separate deployment stamps that are shared by tenant?
 - Do your tenants want to use custom domains, want certificates issued or bring their own?
-- How do you plan to deploy Front Door?  Note that It is possible to deploy a single shared Front Door following the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern) pattern as discussed below in detail. There are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) with each Front Door profile and if you suspect that you are going to approach these limits, consider using a new Front Door profile associated with it or change the way you're using Front Door to avoid the limits, if that's possible.  Also watch for tenant-specific requirements e.g. IP filtering, WAF rule customization.
+- How do you plan to deploy Front Door?  Note that It is possible to deploy a single shared Front Door following the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern) pattern as discussed below in detail. There are [limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) with each Front Door profile and if you suspect that you are going to approach these limits, consider using a new Front Door profile associated with it or change the way you're using Front Door to avoid the limits, if that's possible.  Also watch for tenant-specific requirements e.g. IP filtering, WAF rule customization.
 
 The following discussion through example scenarios is meant to provide answers to the above questions.
 
@@ -144,7 +144,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 ##### Drawbacks
 
 - This approach requires that Prosware reconfigures Front Door every time a new tenant is onboarded.
-- Prosware has to pay attention to Front Door subscription limits, especially on the number of routes, custom domains, and the composite routing limit (TODO links).
+- Prosware has to pay attention to [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes, custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
 - Prosware has to purchase a wildcard TLS certificate.
 - Prosware is responsible for renewing and installing the certificate when it expires.
 
@@ -229,7 +229,7 @@ AdventureWorks and their tenants need to decide who issues TLS certificates:
 - This approach requires that AdventureWorks reconfigures Front Door every time a new tenant is onboarded.
 - The approach also requires that tenants are involved within the onboarding process, including making DNS changes and potentially issuing TLS certificates.
 - Tenants are in control of their DNS records, and changes to DNS records might render them unable to access the AdventureWorks solution.
-- AventureWorks has to pay attention to Front Door subscription limits, especially on the number of routes, custom domains, and the composite routing limit (TODO links).
+- AventureWorks has to pay attention to [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes, custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
 
 ## Contributors
 
