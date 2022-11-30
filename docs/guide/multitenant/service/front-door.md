@@ -76,7 +76,10 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ##### DNS configuration
 
-**One-time configuration:** Contoso configures one DNS entry - a wildcard CNAME record, `*.contoso.com`, which aliases to their Front Door endpoint, `contoso.z01.azurefd.net`.
+**One-time configuration:** Contoso configures two DNS entries:
+
+- A wildcard TXT record for `*.contoso.com`, and sets it to the value specified by Front Door during the custom domain onboarding process.
+- A wildcard CNAME record, `*.contoso.com`, which aliases to their Front Door endpoint, `contoso.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -114,7 +117,10 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ##### DNS configuration
 
-**One-time configuration:** Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
+**One-time configuration:** Prosware configures two DNS entries:
+
+- A wildcard TXT record for `*.prosware.com`, and sets it to the value specified by Front Door during the custom domain onboarding process.
+- A wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -152,7 +158,10 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 #### DNS configuration
 
-**One-time configuration:** Fabrikam configures one wildcard DNS entry per stamp, and maps it to their Front Door endpoint. For example, they create a record named `*.australia.fabrikam.com`, and another named `*.us.fabrikam.com`. Both records are aliased to `fabrikam.z01.azurefd.net`.
+**One-time configuration:** Fabrikam configures two wildcard DNS entries for each stamp:
+
+- A wildcard TXT record for each stamp, such as `*.australia.fabrikam.com` and `*.us.fabrikam.com`, and sets them to the values specified by Front Door during the custom domain onboarding process.
+- A wildcard CNAME record for each stamp, such as `*.australia.fabrikam.com` and `*.us.fabrikam.com`, which both alias to their Front Door endpoint, `fabrikam.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -192,7 +201,10 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 **One-time configuration:** None.
 
-**When a new tenant is onboarded:** The tenant needs to create a record in their own DNS server and alias it to the AdventureWorks Front Door endpoint. For example, Tenant 1 needs to configure a DNS record named `tenant1app.tenant1.com` and map it to `adventureworks.z01.azurefd.net`. <!-- TODO txt records -->
+**When a new tenant is onboarded:** The tenant needs to create two records in their own DNS server:
+
+- A TXT record for domain validation purposes. For example, tenant 1 needs to configure a TXT record named `tenant1app.tenant1.com` and sets it to the value specified by Front Door during the custom domain onboarding process.
+- A CNAME record that is aliased to the AdventureWorks Front Door endpoint. For example, tenant 1 needs to configure a CNAME record named `tenant1app.tenant1.com` and map it to `adventureworks.z01.azurefd.net`.
 
 #### TLS configuration
 
