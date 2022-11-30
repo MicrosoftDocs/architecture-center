@@ -51,7 +51,7 @@ The default Front Door profile URL containing azurefd.net subdomain is not frien
 
 ### Wildcard domains
 
-Azure Front Door provides support for mapping wildcard domains to front end hosts.  Wildcard domains simplify the configuration of traffic routing for each shared tenant's subdomain. Same routing rule can be specified for routing for multiple subdomains tenant1.app.contoso.com, tenant2.app.contoso.com, and tenant2.app.contoso.com by adding the wildcard domain *.app.contoso.com.  There is no additional complexity associated with onboarding of each subdomain to enable HTTPS and bind a certificate or the need to change Front Door configuration whenever a new subdomain is added.  It is important to note that wildcards work well if you're sending all your traffic to a single origin group. But if you have separate stamps of your solution, then a single-level wildcard domain isn't sufficient. You need to either use multi-level stem domains, or supply extra config (e.g. override routes for each tenant, which minimises many of the advantages of wildcards).  Also, Azure Frondoor does not issue Wildcard TLS certificates and requires you to supply your own.  Visit [Wildcard Domains](/azure/frontdoor/front-door-wildcard-domain?pivots=front-door-standard-premium) to learn more.
+Azure Front Door provides support for mapping wildcard domains to front end hosts.  Wildcard domains simplify the configuration of traffic routing for each shared tenant's subdomain. Same routing rule can be specified for routing for multiple subdomains tenant1.app.contoso.com, tenant2.app.contoso.com, and tenant2.app.contoso.com by adding the wildcard domain *.app.contoso.com.  There is no additional complexity associated with onboarding of each subdomain to enable HTTPS and bind a certificate or the need to change Front Door configuration whenever a new subdomain is added.  It is important to note that wildcards work well if you're sending all your traffic to a single origin group. But if you have separate stamps of your solution, then a single-level wildcard domain isn't sufficient. You need to either use multi-level stem domains, or supply extra config (e.g. override routes for each tenant, which minimises many of the advantages of wildcards).  Also, Azure Front Door does not issue Wildcard TLS certificates and requires you to supply your own.  Visit [Wildcard Domains](/azure/frontdoor/front-door-wildcard-domain?pivots=front-door-standard-premium) to learn more.
 
 ### Managed TLS certificates
 
@@ -86,8 +86,7 @@ Contoso is building a small multitenant solution and has a single stamp in a sin
 
 Prosware is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.prosware.com, tenant2.prosware.com and so forth.
 
-![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault
-](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
 
 **DNS configuration**: Prosware configures one DNS entry - a wildcard CNAME record, *.prosware.com, which directs to their Front Door endpoint, prosware.z01.azurefd.net.
 
@@ -95,14 +94,13 @@ Prosware is building a multitenant solution and  has multiple stamps in multiple
 
 **Front Door configuration**: They create a Front Door profile, and add one custom domain with the name *.prosware.com, and associate their wildcard TLS certificate with the custom domain resource. Then, they configure multiple origin groups one per application stamp/server in each region. Finally, each tenant will be configured to have a route defined to the corresponding origin group. As an example, tenant1.prosware.com routes to the origin group in Australia region and tenant2.prosware.com routes to the origin group in Europe region etc. 
 
-**Benefits and drawbacks**: The benefits of this type of configuration include being able to use a single instance of Azure Frond Door to route traffic to multiple stamps/regions.  The downside is that it requires configuring routing for Azure Front Door each time a new tenant is on-boarded.  Another downside is that in this scenario, you have to pay attention to Azure Front Door subscription limits specifically for routes, custom domains, and the composite limit (need clarification here). Other downsides include the extra cost for wild card certificates and the need to renew the wildcard certificates and upload them to Key Vault before they expire.
+**Benefits and drawbacks**: The benefits of this type of configuration include being able to use a single instance of Azure Front Door to route traffic to multiple stamps/regions.  The downside is that it requires configuring routing for Azure Front Door each time a new tenant is on-boarded.  Another downside is that in this scenario, you have to pay attention to Azure Front Door subscription limits specifically for routes, custom domains, and the composite limit (need clarification here). Other downsides include the extra cost for wild card certificates and the need to renew the wildcard certificates and upload them to Key Vault before they expire.
 
 ### Scenario 3: Customer and stamp-based, provider-managed subdomains
 
 Fabrikam is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, e.g. tenant1.australia.fabrikam.com, tenant2.us.fabrikam.com, tenant3.europe.fabrikam.com, etc.  
 
-![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault
-](media/front-door/provider-managed-wildcard-domains-multiple-stem-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stem-stamps.png)
 
 **DNS configuration**: Fabrikam configures one DNS entry per stamp by mapping *.australia.fabrikam.com with CNAME to AFD-Profile-Name.z01.azurefd.net, and mapping *.us.fabrikam.com with CNAME to AFD-Profile-Name.z01.azurefd.net etc.    
 
@@ -114,12 +112,9 @@ Fabrikam is building a multitenant solution and  has multiple stamps in multiple
 
 ### Scenario 4: Vanity domains
 
-Here, the tenants of the multitenant solution want to use vanity domain names and don’t want to see solution vendor's branding anywhere.  Solution has multiple stamps in different regions, e.g. Australia, US, Europe.  The tenants will need to configure a DNS entry for their vanity domain and alias it to Azure Front Door profile, e.g. myapp.tenant1.com CNAME adventureworks.z01.azurefd.net, mayapp.tenant2.com CNAME adventureworks.z01.azurefd.net.  For TLS configuration, the solution provider and the tenants need to be decide on who issues the certificates.  If everyone agrees, the easiest route is for Azure Front Door to issue and manage the certificates. But tenants must ensure not to configure a CCA record in their DNS server which will block Azure Front Door (Digicert) from issuing the certificates.  Alternately, tenants can provide their own certificate to the solution provided to be uploaded to KeyVault and configure it in Azure Front Door.  Azure Front Door configuration will have one custom domain per tenant, e.g. crm.tenant1.com, tenants.tenant2.com etc. The certificates are either Azure Front Door managed or a Bring-Your-Own certificate supplied by the tenant. 
+AdventureWorks is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to allow tenants of the multitenant solution to use vanity domain names.
 
-**Context**: AdventureWorks is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to allow tenants of the multitenant solution to use vanity domain names
-
-![Diagram showing Front Door configuration, with multiple custom vanity domains, routes, and origin groups, and a combination of TLS certificates in Key Vault and Front door managed TLS certificates
-](media/front-door/provider-and-AFD-managed-vanity-domains-multiple-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom vanity domains, routes, and origin groups, and a combination of TLS certificates in Key Vault and Front door managed TLS certificates](media/front-door/provider-and-AFD-managed-vanity-domains-multiple-stamps.png)
 
 **DNS configuration**: AdventureWorks configures one DNS entry for each vanity domain and alias it to Azure Front Door profile, e.g. crm.tenant1.com CNAME AFD-Profile-Name.z01.azurefd.net, tenants.tenant2.com CNAME AFD-Profile-Name.z01.azurefd.net.     
 
@@ -147,7 +142,3 @@ Other contributors:
 ## Next steps
 
 Links to other relevant pages within our section.
-
-## Related resources
-
-If appropriate, include links to Microsoft videos, case studies, blog posts, etc.
