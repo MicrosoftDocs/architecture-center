@@ -2,7 +2,7 @@ This solution shows how to use Azure Traffic Manager to extend an app that's loc
 
 ## Architecture
 
-![Diagram that shows an architecture for hybrid cross-cloud scaling.](../hybrid/media/hybrid-cross-cloud-scaling.png))
+![Diagram that shows an architecture for hybrid cross-cloud scaling.](../hybrid/media/hybrid-cross-cloud-scaling.png)
 *Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.svg) of this architecture.*
 
 ### Dataflow
