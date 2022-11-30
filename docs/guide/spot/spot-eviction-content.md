@@ -10,7 +10,7 @@ A spot VM and a regular, pay-as-you-go VM use the same images, hardware, and dis
 
 ## Understand pricing
 
-Spot VMs are up to 90 percent cheaper than regular (pay-as-you-go) VMs. The discount varies based on demand, VM size, region of deployment, and operating system. We recommend you use the Azure Spot VM pricing tool to get an estimate of the cost savings. For more information, see:
+Spot VMs can be up to 90 percent cheaper than regular (pay-as-you-go) VMs. The discount varies based on demand, VM size, region of deployment, and operating system. We recommend you use the Azure Spot VM pricing tool to get an estimate of the cost savings. For more information, see:
 
 - [Azure Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 - [Spot VM pricing overview](/azure/virtual-machines/spot-vms#pricing)
