@@ -27,7 +27,7 @@ For web applications, you can use [Azure Front Door](https://azure.microsoft.com
 
 This solution illustrates geographic traffic routing, a process for implementing geo-distributed apps. The solution directs traffic to specific endpoints based on various metrics. It uses Azure Traffic Manager to route traffic to endpoints to satisfy regional requirements, corporate and international regulations, and data needs.
 
-## Potential use cases
+### Potential use cases
 
 Organizations that have wide-reaching geographies strive to distribute data and make it accessible. At the same time, they must meet the required levels of security, compliance, and performance per user, location, and device across borders.
 
@@ -58,7 +58,7 @@ For comprehensive guidance about security principles, see [Security documentatio
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-For information about applying reliable, predictable, and automated operations processes to your architecture to keep an application running in production, see [Operational excellence documentation](/azure/architecture/framework/devops). For guidance about monitoring in hybrid scenarios, see [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml).
+For guidance about monitoring in hybrid scenarios, see [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml).
 
 ### Performance efficiency
 
@@ -73,6 +73,8 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 Principal author:
 
 * [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 ## Next steps
 
