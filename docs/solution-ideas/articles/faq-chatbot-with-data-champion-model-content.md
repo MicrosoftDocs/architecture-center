@@ -10,8 +10,9 @@ This solution is optimized for the retail industry.
 
 ## Architecture
 
-![Architecture diagram: answer employee questions using internal knowledge bases and QnA Maker.](../media/faq-chatbot-with-data-champion-model.png)
-*Download an [SVG](../media/faq-chatbot-with-data-champion-model.svg) of this architecture.*
+[ ![Architecture diagram: answer employee questions using internal knowledge bases and QnA Maker.](../media/faq-chatbot-with-data-champion-model.png)](../media/faq-chatbot-with-data-champion-model.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/faq-chatbot-with-data-champion-model.vsdx) of this architecture.*
 
 ### Dataflow
 
