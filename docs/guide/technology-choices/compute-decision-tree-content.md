@@ -13,7 +13,7 @@ This diagram refers to these two migration strategies:
 
 The output from this flowchart is your starting point. Next, evaluate the service in more detail to see if it meets your needs.
 
-This article includes several tables that can help you choose a service. The initial candidate might be unsuitable for your application or workload. In that case, expand your analysis to include other compute services.
+This article includes several tables that can help you choose a service. The initial candidate from the flowchart might be unsuitable for your application or workload. In that case, expand your analysis to include other compute services.
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution can incorporate two or more compute services.
 
@@ -45,9 +45,9 @@ For hosting models, cloud services fall into three categories:
   > [!NOTE]
   > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
-There's a spectrum from IaaS to pure PaaS. For example, Azure virtual machines can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
+There's a spectrum from IaaS to pure PaaS. For example, Azure virtual machines can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
 
-There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the virtual machines and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
+There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the virtual machines and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS falls somewhere in between.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |----------|-----------------|-------------|---------|----------------|-----------------|
@@ -64,11 +64,11 @@ There's a tradeoff between control and ease of management. IaaS gives the most c
 
 Notes
 
-1. <span id="note1">If using a Consumption plan. If using an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+1. <span id="note1">If you're using a Consumption plan. For an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
 2. <span id="note2">Higher SLA with two or more instances.</span>
 3. <span id="note3">Recommended for production environments.</span>
 4. <span id="note4">Can scale down to zero after job completes.</span>
-5. <span id="note5">3 for primary nodes, and 3 for worker nodes.</span>
+5. <span id="note5">Three for primary nodes, and three for worker nodes.</span>
 6. <span id="note6">When using [Durable Functions][durable-functions].</span>
 
 ## Networking
@@ -181,7 +181,7 @@ Review and understand the available security controls and visibility for each se
 
 ## Consider limits and cost
 
-Along with the previous comparison tables, do a more detailed evaluation of following aspects of the candidate service:
+Along with the previous comparison tables, do a more detailed evaluation of the following aspects of the candidate service:
 
 - [Service limits](/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing)
@@ -210,7 +210,7 @@ Principal authors:
 ## Related resources
 
 - [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)
-- [Lift and shift to containers with Azure App Service](../../solution-ideas/articles/migrate-existing-applications-to-container-apps.md)
+- [Lift and shift to containers with Azure App Service](../../solution-ideas/articles/migrate-existing-applications-to-container-apps.yml)
 - [Technology choices for Azure solutions](technology-choices-overview.md)
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
