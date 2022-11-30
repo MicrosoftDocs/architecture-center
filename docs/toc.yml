@@ -11,14 +11,18 @@ items:
     items:
       - name: Design guides
         items:
-          - name: Bicep landing zone implementation
-            href: landing-zones/bicep/landing-zone-bicep.md
-          - name: Terraform landing zone implementation
-            href: landing-zones/terraform/landing-zone-terraform.md
-          - name: Bicep subscription vending implementation
-            href: landing-zones/bicep/subscription-vending-bicep.md
-          - name: Terraform subscription vending implementation
-            href: landing-zones/bicep/subscription-vending-terraform.md
+        - name: Landing zone implementations
+          items: 
+            - name: Bicep landing zone implementation
+              href: landing-zones/bicep/landing-zone-bicep.md
+            - name: Terraform landing zone implementation
+              href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Subscription vending implementations
+          items: 
+            - name: Bicep subscription vending implementation
+              href: landing-zones/bicep/subscription-vending-bicep.md
+            - name: Terraform subscription vending implementation
+              href: landing-zones/bicep/subscription-vending-terraform.md
   - name: Application architecture fundamentals
     items:
       - name: Introduction
