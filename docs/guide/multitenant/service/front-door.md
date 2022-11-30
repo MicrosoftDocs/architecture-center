@@ -26,7 +26,7 @@ On this page, we describe some of the features of Front Door that are useful whe
 
 ## Determine Front Door's deployment scope
 
-In a multitenant solution where you follow the [Deployment Stamps pattern](TODO link), you might choose to deploy Front Door in two different ways:
+In a multitenant solution where you follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you might choose to deploy Front Door in two different ways:
 
 - Deploy a single Front Door profile, and use Front Door to route traffic to the appropriate stamp.
 - Deploy a Front Door profile in each stamp. If you have ten stamps,  you deploy ten instances of Front Door.
