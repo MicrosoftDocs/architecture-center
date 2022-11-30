@@ -70,7 +70,7 @@ The following discussion through example scenarios is meant to provide answers t
 
 ### Scenario 1: Provider-managed wildcard domains, single stamp
 
-**Context**: Contoso is building a small multitenant solution and has a single stamp in a single region that serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.contoso.com, tenant2.contoso.com and so forth.
+Contoso is building a small multitenant solution and has a single stamp in a single region that serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.contoso.com, tenant2.contoso.com and so forth.
 
 ![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-managed-wildcard-domain-single-stamp.png)
 
@@ -84,7 +84,7 @@ The following discussion through example scenarios is meant to provide answers t
 
 ### Scenario 2: Individual provider-managed domains, multiple stamps
 
-**Context**: Prosware is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.prosware.com, tenant2.prosware.com and so forth.
+Prosware is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.prosware.com, tenant2.prosware.com and so forth.
 
 ![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault
 ](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
@@ -99,7 +99,7 @@ The following discussion through example scenarios is meant to provide answers t
 
 ### Scenario 3: Customer and stamp-based, provider-managed subdomains
 
-**Context**: Fabrikam is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, e.g. tenant1.australia.fabrikam.com, tenant2.us.fabrikam.com, tenant3.europe.fabrikam.com, etc.  
+Fabrikam is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, e.g. tenant1.australia.fabrikam.com, tenant2.us.fabrikam.com, tenant3.europe.fabrikam.com, etc.  
 
 ![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault
 ](media/front-door/provider-managed-wildcard-domains-multiple-stem-stamps.png)
