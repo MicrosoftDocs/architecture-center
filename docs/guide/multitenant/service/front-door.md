@@ -112,19 +112,31 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
 
-**DNS configuration**: Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
+#### DNS configuration
 
-**TLS configuration**: Prosware purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
+**One-time configuration:** Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
 
-**One-time Front Door configuration**: Prosware creates a Front Door profile and a single endpoint. They configure multiple origin groups one per application stamp/server in each region.
+**When a new tenant is onboarded:** No additional configuration is required.
 
-**Front Door configuration when they onboard a new tenant:** Whenever they onboard a new tenant, Prosware adds a custom domain resource to Front Door. They use the name `*.prosware.com`, and associate their wildcard TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in Europe region.
+#### TLS configuration
 
-**Benefits**: 
+**One-time configuration:** Prosware purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
+
+**When a new tenant is onboarded:** No additional configuration is required.
+
+#### Front Door configuration
+
+**One-time configuration**: Prosware creates a Front Door profile and a single endpoint. They configure multiple origin groups one per application stamp/server in each region.
+
+**When a new tenant is onboarded:** Prosware adds a custom domain resource to Front Door. They use the name `*.prosware.com`, and associate their wildcard TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in Europe region.
+
+#### Benefits
+
 - When new tenants are onboarded, no DNS or TLS configuration changes are required.
 - Prosware maintains single instance of Front Door to route traffic to multiple stamps across multiple regions.
 
-**Drawbacks:**
+#### Drawbacks
+
 - This approach requires reconfiguring Front Door each time a new tenant is onboarded, to add a custom domain and a route.
 - Prosware has to pay attention to Front Door subscription limits, especially on the number of routes, custom domains, and the composite routing limit (TODO links).
 - Prosware has to purchase a wildcard TLS certificate.
