@@ -2,7 +2,7 @@ This architecture shows how legacy mainframe, midrange-based terminal-based appl
 
 ## Source IBM z/OS Architecture
 
-:::image type="content" source="media/extend-mainframe-source-zos-architecture.png" alt-text="Diagram that shows the source IBM z/OS architecture." lightbox="media/source-zos-architecture.png" border="false":::
+:::image type="content" source="media/extend-mainframe-source-zos-architecture.png" alt-text="Diagram that shows the source IBM z/OS architecture." lightbox="media/extend-mainframe-source-zos-architecture.png" border="false":::
 
 ### Mainframe Architecture Annotations
 
