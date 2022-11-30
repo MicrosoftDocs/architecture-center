@@ -2,7 +2,7 @@
 title: Open-source scenarios on Azure
 description: Review a list of architectures and solutions that use open-source technologies.
 author: EdPrice-MSFT
-ms.author: architectures
+ms.author: edprice
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -56,7 +56,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Building blocks for autonomous-driving simulation environments](../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)|Simulate the behavior of autonomous-driving vehicles. Chef is used to create reusable images that serve as building blocks in the simulation.|Containers|
-|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)|Build a continuous integration and deployment pipeline for a two-tier .NET web application. In this scenario, you can use Chef to implement infrastructure as code or infrastructure as a service.|DevOps
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-baseline.yml)|Build a continuous integration and deployment pipeline for a two-tier .NET web application. In this scenario, you can use Chef to implement infrastructure as code or infrastructure as a service.|DevOps
 |[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)|When you use CI/CD pipelines to automate deployments, apply RBAC not just on the Azure Resource Manager side but also earlier in the process when developers check in code. In this scenario, you can use Chef to implement infrastructure as code.|Management|
 
 ## CNCF
@@ -122,7 +122,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Building blocks for autonomous-driving simulation environments](../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)|Simulate the behavior of autonomous-driving vehicles. Jenkins can be used for CI/CD.|Compute|
 |[CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)|Build a DevOps CI/CD pipeline for a Node.js web app with Jenkins, Azure Container Registry, AKS, Azure Cosmos DB, and Grafana.|Containers|
 |[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)|Get replicable, manageable clusters of containers by orchestrating the deployment of containers with AKS.|DevOps|
-|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)|Build a continuous integration and deployment pipeline for a two-tier .NET web application. This article focuses on Azure DevOps, but you can use Jenkins as an alternative.|DevOps|
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-baseline.yml)|Build a continuous integration and deployment pipeline for an application. This article focuses on Azure DevOps, but you can use Jenkins as an alternative.|DevOps|
 |[DevTest Image Factory](../solution-ideas/articles/dev-test-image-factory.yml)|Create, maintain, and distribute custom images by using Image Factory, an automated image development and management solution in Azure DevTest Labs. Jenkins is used with GitHub for source code control.|DevOps|
 |[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)|When you use CI/CD pipelines to automate deployments, apply RBAC not just on the Azure Resource Manager side but also earlier in the process when developers check in code. This article focuses on Azure DevOps, but you can use Jenkins as an alternative.|Management|
 |[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)|When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.|DevOps|
@@ -369,7 +369,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Automated guided vehicles fleet control](../example-scenario/iot/automated-guided-vehicles-fleet-control.yml)|Learn about an end-to-end approach for an automotive original equipment manufacturer (OEM). Includes a reference architecture and several published open-source libraries that you can reuse. Terraform is used to deploy Azure instances. |Web|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Terraform is used for load testing.|Migration|
 |[Deployment Stamps pattern](../patterns/deployment-stamp.yml)|Learn about the Deployment Stamps pattern, which deploys many independent copies of application components. Terraform is recommended for deployment.|Networking|
-|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-webapp.yml)|Build a continuous integration and deployment pipeline for a two-tier .NET web application. In this architecture, Terraform can be used for deployment.|DevOps|
+|[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-baseline.yml)|Build a continuous integration and deployment pipeline for an application. In this architecture, Terraform can be used for deployment.|DevOps|
 |[DevOps in a hybrid environment](../solution-ideas/articles/devops-in-a-hybrid-environment.yml)|Learn about an implementation of DevOps that manages cloud and on-premises environments in tandem. Terraform is used to manage infrastructure as code.|DevOps|
 |[DevSecOps in Azure](../solution-ideas/articles/devsecops-in-azure.yml)|Learn about DevSecOps, a solution that incorporates security best practices from the beginning of development. Terraform is used to manage infrastructure as code.|DevOps|
 |[DevTest and DevOps for PaaS solutions](../solution-ideas/articles/dev-test-paas.yml)|Combine Azure PaaS resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead. Terraform provisions and modifies resources for the environments.|DevOps|

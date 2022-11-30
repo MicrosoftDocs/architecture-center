@@ -91,6 +91,6 @@ Principal author:
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 - [DevOps Checklist](../../checklist/dev-ops.md)

@@ -4614,7 +4614,7 @@ items:
               - name: CI/CD pipeline for chatbots with ARM
                 href: example-scenario/apps/devops-cicd-chatbot.yml
               - name: CI/CD pipeline using Azure DevOps
-                href: example-scenario/apps/devops-dotnet-webapp.yml
+                href: example-scenario/apps/devops-dotnet-baseline.yml
               - name: DevSecOps in GitHub
                 href: solution-ideas/articles/devsecops-in-github.yml
               - name: Enterprise monitoring with Azure Monitor
