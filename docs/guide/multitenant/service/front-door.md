@@ -74,7 +74,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-managed-wildcard-domain-single-stamp.png)
 
-**DNS configuration**: Contoso configures one DNS entry - a wildcard CNAME record, `*.contoso.com`, which directs to their Front Door endpoint, `contoso.z01.azurefd.net`.
+**DNS configuration**: Contoso configures one DNS entry - a wildcard CNAME record, `*.contoso.com`, which aliases to their Front Door endpoint, `contoso.z01.azurefd.net`.
 
 **TLS configuration**: Contoso purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
 
@@ -92,17 +92,19 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ### Scenario 2: Individual provider-managed domains, multiple stamps
 
-Prosware is building a multitenant solution across multiple stamps, which are deployed into multiple regions - Australia, the United States, and Europe. All requests within a single region are served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as `tenant1.prosware.com`, `tenant2.prosware.com`, and so forth.
+Prosware is building a multitenant solution across multiple stamps, which are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as `tenant1.prosware.com`, `tenant2.prosware.com`, and so forth.
+
+They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
 
-**DNS configuration**: Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which directs to their Front Door endpoint, `prosware.z01.azurefd.net`.
+**DNS configuration**: Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
 
 **TLS configuration**: Prosware purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
 
 **One-time Front Door configuration**: Prosware creates a Front Door profile and a single endpoint. They configure multiple origin groups one per application stamp/server in each region.
 
-**Front Door configuration when they onboard a new tenant:** Whenever they onboard a new tenant, Prosware add a custom domain resource to Front Door. They use the name `*.prosware.com`, and associate their wildcard TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in Europe region.
+**Front Door configuration when they onboard a new tenant:** Whenever they onboard a new tenant, Prosware adds a custom domain resource to Front Door. They use the name `*.prosware.com`, and associate their wildcard TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in Europe region.
 
 **Benefits**: 
 - When new tenants are onboarded, no DNS or TLS configuration changes are required.
@@ -116,7 +118,9 @@ Prosware is building a multitenant solution across multiple stamps, which are de
 
 ### Scenario 3: Customer and stamp-based, provider-managed subdomains
 
-Fabrikam is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, e.g. tenant1.australia.fabrikam.com, tenant2.us.fabrikam.com, tenant3.europe.fabrikam.com, etc.  
+Fabrikam is building a multitenant solution. They deploy stamps in Australia and the United States. All requests within a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, such as `tenant1.australia.fabrikam.com`, `tenant2.australia.fabrikam.com`, `tenant3.us.fabrikam.com`, and so forth.
+
+They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stem-stamps.png)
 
@@ -130,17 +134,35 @@ Fabrikam is building a multitenant solution and  has multiple stamps in multiple
 
 ### Scenario 4: Vanity domains
 
-AdventureWorks is building a multitenant solution and  has multiple stamps in multiple regions e.g. Australia, US, Europe. All requests with in a single region will be served by the stamp in that region. They made a business decision to allow tenants of the multitenant solution to use vanity domain names.
+AdventureWorks is building a multitenant solution. They deploy stamps in multiple regions, such as Australia and the United States. All requests within a single region will be served by the stamp in that region. They made a business decision to allow their tenantsbring their own domain names. For example, Tenant 1 might configure a custom domain name like `tenant1app.tenant1.com`.
+
+They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with multiple custom vanity domains, routes, and origin groups, and a combination of TLS certificates in Key Vault and Front door managed TLS certificates](media/front-door/provider-and-AFD-managed-vanity-domains-multiple-stamps.png)
 
-**DNS configuration**: AdventureWorks configures one DNS entry for each vanity domain and alias it to Front Door profile, e.g. crm.tenant1.com CNAME AFD-Profile-Name.z01.azurefd.net, tenants.tenant2.com CNAME AFD-Profile-Name.z01.azurefd.net.     
+#### DNS configuration
 
-**TLS configuration**: For TLS configuration, the solution provider and the tenants need to decide on who issues the certificates.  If everyone agrees, the easiest route is for Front Door to issue and manage the certificates. But tenants must ensure not to configure a CCA record in their DNS server which will block Front Door (Digicert) from issuing the certificates.  Alternately, tenants can provide their own certificate to the solution provider to be uploaded to KeyVault and configure it in Front Door.  
+**When a new tenant is onboarded:** The tenant needs to create a record in their own DNS server and alias it to the AdventureWorks Front Door endpoint. For example, Tenant 1 needs to configure a DNS record named `tenant1app.tenant1.com` and map it to `adventureworks.z01.azurefd.net`.
 
-**Front Door configuration**: Front Door configuration will have one custom domain per tenant, e.g. crm.tenant1.com, tenants.tenant2.com etc. The certificates are either Front Door managed or BYO certificates supplied by the tenant. 
+#### TLS configuration
 
-**Benefits and drawbacks**:  Same benefits and drawbacks discussed in scenario 2 also exist here. 
+AdventureWorks and their tenants need to decide who issues TLS certificates:
+- The easiest option is for Front Door to issue and manage the certificates, but tenants must ensure not to configure a CCA record in their DNS server because this might Front Door's certification authority from issuing certificates.
+- Alternately, tenants can provide their own certificate. They must work with AdventureWorks to upload the certificate to a key vault, and provide access to Front Door.
+
+#### Front Door configuration
+
+**One-time configuration:** TODO
+
+**When a new tenant is onboarded:** AdventureWorks adds a custom domain resource to Front Door. They use the tenant-provided domain name, and they associate the appropiate TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1app.tenant1.com` routes to the origin group in the Australia region, and `tenant2app.tenant2.com` routes to the origin group in the US region.
+
+#### Benefits
+
+TODO scenario 2
+
+#### Drawbacks
+
+TODO scenario 2
 
 ## Contributors
 
