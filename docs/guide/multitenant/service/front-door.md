@@ -24,12 +24,10 @@ ms.custom:
 
 On this page, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
-## Determine Front Door's deployment scope
-
 In a multitenant solution where you follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you might choose to deploy Front Door in two different ways:
 
 - Deploy a single Front Door profile, and use Front Door to route traffic to the appropriate stamp.
-- Deploy a Front Door profile in each stamp. If you have ten stamps,  you deploy ten instances of Front Door.
+- Deploy a Front Door profile in each stamp. If you have ten stamps, you deploy ten instances of Front Door.
 
 In this article, we focus on the first scenario - deploying a single, global Front Door profile.
 
@@ -70,17 +68,26 @@ The following discussion through example scenarios is meant to provide answers t
 
 ### Scenario 1: Provider-managed wildcard domains, single stamp
 
-Contoso is building a small multitenant solution and has a single stamp in a single region that serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as tenant1.contoso.com, tenant2.contoso.com and so forth.
+Contoso is building a small multitenant solution. They deploy a single stamp in a single region, and that stamp serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as `tenant1.contoso.com`, `tenant2.contoso.com`, and so forth.
+
+They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-managed-wildcard-domain-single-stamp.png)
 
-**DNS configuration**: Contoso configures one DNS entry - a wildcard CNAME record, *.contoso.com, which directs to their Front Door endpoint, contoso.z01.azurefd.net.
+**DNS configuration**: Contoso configures one DNS entry - a wildcard CNAME record, `*.contoso.com`, which directs to their Front Door endpoint, `contoso.z01.azurefd.net`.
 
-**TLS configuration**: Contoso purchases a wildcard TLS certificate and add it to a key vault.
+**TLS configuration**: Contoso purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
 
-**Front Door configuration**: They create a Front Door profile, and add one custom domain with the name *.contoso.com, and associate their wildcard TLS certificate with the custom domain resource. Then, they configure a single origin group, which contains a single origin for their application server. Finally, they configure a route to connect their custom domain to the origin group.
+**Front Door configuration**: Contoso creates a Front Door profile and a single endpoint. They add one custom domain, with the name `*.contoso.com`, and tey associate their wildcard TLS certificate with the custom domain resource. Then, they configure a single origin group, which contains a single origin for their application server. Finally, they configure a route to connect their custom domain to the origin group.
 
-**Benefits and drawbacks**: This configuration is relatively simple to configure, and provides customers with Contoso-branded URLs. It also supports a very high number of tenants, and when a new tenant is onboarded, they don't need to make any configuration changes in Front Door. However, this approach doesn't easily scale beyond a single application stamp or region. There is also additional cost to acquire a wildcard TLS certificate, and Contoso is responsible for renewing and installing those certificates when they expire.
+**Benefits**:
+- This configuration is relatively simple to configure, and provides customers with Contoso-branded URLs.
+- The approach supports a very high number of tenants, and when a new tenant is onboarded, they don't need to make any configuration changes in Front Door.
+
+**Drawbacks:**
+- This approach doesn't easily scale beyond a single application stamp or region.
+- Contoso has to purchase a wildcard TLS certificate.
+- Contoso is responsible for renewing and installing the certificate when it expires.
 
 ### Scenario 2: Individual provider-managed domains, multiple stamps
 
