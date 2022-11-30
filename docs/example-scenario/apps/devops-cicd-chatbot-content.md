@@ -125,7 +125,7 @@ Here are some ways to further enhance the scenario:
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
 - [What is source control?](/azure/devops/user-guide/source-control)
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)

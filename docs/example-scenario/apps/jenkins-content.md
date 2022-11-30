@@ -122,7 +122,7 @@ The following online communities can answer questions and help you configure a s
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-webapp.yml)
+- [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-baseline.yml)
 - [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](../../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)
 - [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)
 - [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)

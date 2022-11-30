@@ -34,4 +34,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-devops-ci-cd-architecture.png
 content: |
-   [!include[](devops-dotnet-webapp-content.md)]
+   [!include[](devops-dotnet-baseline-content.md)]
