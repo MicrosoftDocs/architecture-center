@@ -2,11 +2,13 @@ This architecture is for a high-availability solution that handles massive amoun
 
 ## Architecture
 
-The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake, for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
-
 :::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-logical-data-classification.vsdx) of this architecture.*
+
+### Workflow
+
+The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake, for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region if there is a regional outage.
@@ -62,6 +64,8 @@ The following architecture can be appropriate for any application that uses mass
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 - Azure Data Factory or a third-party tool can migrate data from Azure Cosmos DB to Azure Table storage.
 - If you're migrating data from an old storage system, you need to write routines to copy old data to Azure Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
 
@@ -69,7 +73,11 @@ The following architecture can be appropriate for any application that uses mass
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+Principal author:
+
 - [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

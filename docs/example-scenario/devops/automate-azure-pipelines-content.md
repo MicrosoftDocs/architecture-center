@@ -89,7 +89,7 @@ You can find the source code, deployment files, and instructions to test this sc
 ## Next steps
 
 - Besides .NET Angular workloads, there are several other types of workloads that can be deployed based on similar principles. Read how chatbots can be deployed using ARM templates and CI/CD pipelines. For more information, see [Build a CI/CD pipeline for chatbots with ARM templates](../apps/devops-cicd-chatbot.yml).
-- Deploying a two tier .NET application using Azure DevOps CI/CD pipelines. For more information, see [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.yml).
+- Deploying an application using Azure DevOps CI/CD pipelines. For more information, see [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml).
 - Read about the [DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft/).
 
 ## Related resources

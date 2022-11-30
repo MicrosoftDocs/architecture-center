@@ -228,7 +228,7 @@ There might be resource limits on the subscription given to you. If you colocate
 
 Here's an example subscription topology used in this architecture.
 
-:::image type="content" source="./images/connected-subscription.png" alt-text="Diagram of an example subscription layout for a mission-critical workload in an Azure landing zone." lightbox="./images/connected-subscription.png":::
+:::image type="content" source="./images/connected-subscription.svg" alt-text="Diagram of an example subscription layout for a mission-critical workload in an Azure landing zone." lightbox="./images/connected-subscription-high-res.png":::
 
 
 ##### Pre-production subscription

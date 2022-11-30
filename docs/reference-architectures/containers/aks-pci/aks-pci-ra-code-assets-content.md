@@ -237,7 +237,7 @@ Here are links to feature documentation of some key components of this architect
 - [Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 
-## Next
+## Next steps
 
 Install and maintain a firewall configuration to protect cardholder data. Do not use vendor-supplied defaults for system passwords and other security parameters.
 

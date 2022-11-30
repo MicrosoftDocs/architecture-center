@@ -1,10 +1,44 @@
-Organizations occasionally find the need to keep two or more Power Platform instances in sync, more specifically, usually a subset of Dataverse entities. This can happen when an organization has intentionally added new instances for geographic isolation but needs a common data set across all geos. Or it can happen when two organizations merge before Power Platform consolidation is complete.
+This article outlines a scenario in which a hypothetical US-based customer, Contoso, has recently acquired another company based in Europe and is in the process of CRM and ERP systems between the two companies.  As part of this integration, they must keep a portion of their Dynamics 365 Dataverse entities in sync until they can be fully integrated.  A Conotso proprietary line-of-business (LOB) app consumes data from both systems and must be able to accept requests when the data is awaiting synchronization or when it's missing. The following guide shows how to account for eventual consistency between Power Platform instances.
 
-When the syncing process works as designed, line of business applications that consume from both instances do not have issues. However, syncing mechanisms are never error proof, outages or unexpected issues will likely arise. In that case, your line of business application that consumes data from both instances must be built to handle incomplete data.
+## Architecture
 
-This article outlines a scenario in which a hypothetical US-based customer, Contoso, has recently acquired another company based in Europe and is in the process of CRM and ERP systems between the two companies.  As part of this integration, they must keep a portion of their Dynamics 365 Dataverse entities in sync until they can be fully integrated.  A Conotso proprietary line-of-business (LOB) app consumes data from both systems and must be able to accept requests when the data is awaiting synchronization or when it is missing. The following guide shows how to account for eventual consistency between Power Platform instances.
+### Plugin/flow to always upsert based on the GUID or alternate key
 
-## Potential use cases
+![Diagram showing a dataverse plug-in providing the solution to a failed multi-system synchronization.](./_images/solution.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
+
+### Workflow
+
+This solution can be built with several [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you're creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). **PreValidation** happens before any database transactions are started. It's the preferred option, if the field is mandatory. However, in some scenarios, a **PreCreate** plugin step will suffice.
+
+1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
+2. The Contoso LOB app reads the main account entities from the **US Instance**. It intends to submit an API call that references an account entity that wasn't replicated to the **Europe Instance**. As it stands, the API call would fail because the record doesn't exist, due to the sync not working.
+3. However, a **PreValidation**/**PreCreate** plugin first performs an _upsert_ based on the provided entity GUID and provided reference data. If it exists already, then nothing is changed. If it doesn't exist, a new account is created, with most of the fields blank.
+4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report from the LOB application is generated successfully.
+
+>[!NOTE]
+> Microsoft recommends introducing a circuit breaker pattern in your custom code to back off and retry as part of this solution to handle platform outages when referencing either instance. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
+
+### Alternatives
+
+The scenario described above uses a custom Logic App as the replication method. However, there are multiple ways to replicate data between Dataverse instances, which include, but aren't limited to:
+
+- Logic Apps
+- Function apps in Azure Functions
+- Azure Data Factory
+- Azure Synapse Analytics
+- Power Automate
+
+## Scenario details
+
+Organizations occasionally find the need to keep two or more Power Platform instances in sync, more specifically, usually a subset of Dataverse entities. This requirement can happen when an organization has intentionally added new instances for geographic isolation but needs a common data set across all geos. Or it can happen when two organizations merge before Power Platform consolidation is complete.
+
+When the syncing process works as designed, line of business applications that consume from both instances don't have issues. However, syncing mechanisms are never error proof, outages or unexpected issues will likely arise. In that case, your line of business application that consumes data from both instances must be built to handle incomplete data.
+
+In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform syncs a daily batch of reference data via a custom Logic App to the European instance. A proprietary Contoso LOB app generates reporting on problem tickets that users have created. To complete this task, the LOB app reads user data from both Dataverse instances to pull the relevant data, the primary reference keys from the US instance and the ticket data from the Europe instance. If the synchronization process hasn't been completed due to downtime, maintenance, or another communications issue, the request will produce an error due to entities missing from the Europe instance.
+
+### Potential use cases
 
 This pattern can be useful in the following situations:
 
@@ -12,9 +46,18 @@ This pattern can be useful in the following situations:
 - The synchronization of data takes a long time or the process is delayed.
 - Consuming systems have no logic on the creation of the entity being created.
 
-## Scenario details
+#### When to use this approach
 
-In order for Contoso's new European subsidiary to be integrated into Contoso's business structure, they must synchronize accounts and contacts from one instance of Power Platform to another. In this scenario, the US instance of Power Platform syncs a daily batch of reference data via a custom Logic App to the European instance. A proprietary Contoso LOB app generates reporting on problem tickets that users have created. To do this, the LOB app reads user data from both dataverse instances to pull the relevant data, the primary reference keys from the US instance and the ticket data from the Europe instance. If the synchronization process has not been completed due to downtime, maintenance, or another communications issue, the request will produce an error due to entities missing from the Europe instance.
+Use this approach in the following scenarios:
+
+- You want to guarantee a record with a given key exists, and you don't care that the record isn't fully hydrated.
+- You must accept creation, even if the data is still not synchronized.
+
+This pattern may not be suitable in the following scenario:
+
+- Logic is applied when the record is created. Because the data won't be hydrated, it's not safe to rely on certain properties being available.
+
+### Examples
 
 The following examples show the potential journeys and the result of synchronization delays.
 
@@ -34,50 +77,11 @@ The following examples show the potential journeys and the result of synchroniza
 *Download a [Visio file](https://arch-center.azureedge.net/data-dependent-example-fails.vsdx) of this architecture.*
 
 1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime, maintenance or another communications issue.
-2. The Contoso LOB app reads the main account entities from the **US Instance** and intends to submit an API call that references an account entity that was not replicated to the **Europe Instance**. The API call fails because the account with the given identifier was not created in the **Europe Instance** and the report is not generated.
+2. The Contoso LOB app reads the main account entities from the **US Instance** and intends to submit an API call that references an account entity that wasn't replicated to the **Europe Instance**. The API call fails because the account with the given identifier wasn't created in the **Europe Instance** and the report isn't generated.
 
-## Solution
+## Considerations
 
-### Plugin/flow to always upsert based on the GUID or alternate key
-
-This can be performed in a number of [plugin](/power-apps/developer/data-platform/plug-ins) steps, within the plugin lifecycle. When the entity that you are creating is mandatory, use the [PreValidation step](/power-apps/developer/data-platform/event-framework#event-execution-pipeline). **PreValidation** happens before any database transactions are started. It is the preferred option, if the field is mandatory. However, in some scenarios, a **PreCreate** plugin step will suffice.
-
-![Diagram showing a dataverse plug-in providing the solution to a failed multi-system synchronization.](./_images/solution.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/solution.vsdx) of this architecture.*
-
-1. The **US Instance** attempts to synchronize a new account to the **Europe Instance** via a Logic App. The **Europe Instance** is unreachable, due to downtime or upgrade.
-2. The Contoso LOB app reads the main account entities from the **US Instance**. It intends to submit an API call that references an account entity that was not replicated to the **Europe Instance**. As it stands, the API call would fail because the record does not exist, due to the sync not working.
-3. However, a **PreValidation**/**PreCreate** plugin first performs an _upsert_ based on the provided entity GUID and provided reference data. If it exists already, then nothing is changed. If it does not exist, a new account is created, with most of the fields blank.
-4. The API call succeeds because the account with the given ID exists in the system. The plugin intercepted the operation and handled the missing record gracefully. The report from the LOB application is generated successfully.
-
->[!NOTE]
-> Microsoft recommends introducing a circuit breaker pattern in your custom code to back off and retry as part of this solution to handle platform outages when referencing either instance. For more information about using a circuit breaker, see [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
-
-## Replication technologies
-
-The scenario described above utilizes a custom Logic App as the replication method, but there are multiple ways to replicate data between Dataverse instances, which include, but are not limited to:
-
-- Logic Apps
-- Function apps in Azure Functions
-- Azure Data Factory
-- Azure Synapse Analytics
-- Power Automate
-
-## Issues and considerations
-
-Consider the impact of any business logic on an entity that is not hydrated yet. Consider a scenario where the entity is not fully hydrated and synchronized yet. Some of the properties will be null, so you need to ensure that any decisions on the data are factored in when using this approach.
-
-## When to use this approach
-
-Use this approach in the following scenarios:
-
-- You want to guarantee a record with a given key exists and do not care that the record is not fully hydrated.
-- You must accept creation, even if the data is still not synchronized.
-
-This pattern may not be suitable in the following scenario:
-
-- Logic is applied when the record is created. Because the data won't be hydrated, it's not safe to rely on certain properties being available.
+Consider the impact of any business logic on an entity that isn't hydrated yet. Consider a scenario where the entity isn't fully hydrated and synchronized yet. Some of the properties will be null, so you need to ensure that any decisions on the data are factored in when using this approach.
 
 ## Next steps
 

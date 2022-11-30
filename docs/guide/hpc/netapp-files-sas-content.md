@@ -325,7 +325,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure NetApp Files provides a standard [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
+Azure NetApp Files provides a standard 99.99% availability [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
 For improved RPO/RTO SLAs, integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.	
 

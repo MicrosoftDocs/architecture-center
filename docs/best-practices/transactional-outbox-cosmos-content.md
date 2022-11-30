@@ -1,4 +1,3 @@
-
 Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
 
 ## Overview 
@@ -572,9 +571,12 @@ Principal authors:
 Review these articles to learn more:
 
 - [Domain-driven design](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns)
-- [Use tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd)
-- [CQRS pattern](/azure/architecture/patterns/cqrs)
-- [Materialized View pattern](/azure/architecture/patterns/materialized-view)
 - [Azure Service Bus: Message de-duplication](/azure/service-bus-messaging/duplicate-detection)
 - [Change feed processor library](/azure/cosmos-db/sql/change-feed-processor)
 - [Jimmy Bogard: A better domain events pattern](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern)
+
+## Related resources
+
+- [Use tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd)
+- [CQRS pattern](/azure/architecture/patterns/cqrs)
+- [Materialized View pattern](/azure/architecture/patterns/materialized-view)

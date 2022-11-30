@@ -12,8 +12,9 @@ This solution demonstrates the ability of Azure to accommodate external tools, s
 
 ## Architecture
 
-![Architecture Diagram](../media/energy-supply-optimization.png)
-*Download an [SVG](../media/energy-supply-optimization.svg) of this architecture.*
+[ ![Architecture diagram that shows energy supply optimization.](../media/energy-supply-optimization.png)](../media/energy-supply-optimization.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/energy-supply-optimization.vsdx) of this architecture.*
 
 ### Dataflow
 
