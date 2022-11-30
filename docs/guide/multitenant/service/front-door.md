@@ -74,31 +74,31 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-managed-wildcard-domain-single-stamp.png)
 
-#### DNS configuration
+##### DNS configuration
 
 **One-time configuration:** Contoso configures one DNS entry - a wildcard CNAME record, `*.contoso.com`, which aliases to their Front Door endpoint, `contoso.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-#### TLS configuration
+##### TLS configuration
 
 **One-time configuration:** Contoso purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-#### Front Door configuration
+##### Front Door configuration
 
 **One-time configuration**: Contoso creates a Front Door profile and a single endpoint. They add one custom domain, with the name `*.contoso.com`, and they associate their wildcard TLS certificate with the custom domain resource. Then, they configure a single origin group, which contains a single origin for their application server. Finally, they configure a route to connect their custom domain to the origin group.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-#### Benefits
+##### Benefits
 
 - This configuration is relatively simple to configure, and provides customers with Contoso-branded URLs.
 - The approach supports a very high number of tenants.
 - When a new tenant is onboarded, Contoso doesn't need to make any changes to Front Door, DNS, or TLS certificates.
 
-#### Drawbacks
+##### Drawbacks
 
 - This approach doesn't easily scale beyond a single application stamp or region.
 - Contoso has to purchase a wildcard TLS certificate.
@@ -142,7 +142,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 - Prosware has to purchase a wildcard TLS certificate.
 - Prosware is responsible for renewing and installing the certificate when it expires.
 
-### Scenario 3: Customer and stamp-based, provider-managed subdomains
+### Scenario 3: Provider-managed stamp-based wildcard subdomains
 
 Fabrikam is building a multitenant solution. They deploy stamps in Australia and the United States. All requests within a single region will be served by the stamp in that region. They made a business decision to use stamp-based stem domains, such as `tenant1.australia.fabrikam.com`, `tenant2.australia.fabrikam.com`, `tenant3.us.fabrikam.com`, and so forth.
 
@@ -154,23 +154,27 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 **One-time configuration:** Fabrikam configures one wildcard DNS entry per stamp, and maps it to their Front Door endpoint. For example, they create a record named `*.australia.fabrikam.com`, and another named `*.us.fabrikam.com`. Both records are aliased to `fabrikam.z01.azurefd.net`.
 
+**When a new tenant is onboarded:** No additional configuration is required.
+
 #### TLS configuration
 
 **One-time configuration:** Fabrikam purchases a wildcard TLS certificate for each stamp, adds them to a key vault, and grants Front Door access to the vault.
 
+**When a new tenant is onboarded:** No additional configuration is required.
+
 #### Front Door configuration
 
-**One-time configuration:** TODO
+**One-time configuration:** Fabrikam creates a Front Door profile and a single endpoint. They configure an origin group for each stamp. They create a custom domain using the wildcard for each stamp-based subdomain, including `*.australia.fabrikam.com` and `*.us.fabrikam.com`. They create a route for stamp's custom domain to send traffic to the appropriate origin group.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
 <!--
-**Front Door configuration**: The final Front Door configuration will have one origin group per stamp.  Each stamp is configured with one custom domain with a matching wildcard certificate for the stamp/origin group, e.g. *.us.fabrikam.com custom domain will be mapped to the US origin group with one route per stamp.  As an example tenant2.us.fabrikam.com custom domain will be connected to the US origin group.  The configuration in this scenario scales very well as new tenants are on-boarded. 
+The configuration in this scenario scales very well as new tenants are on-boarded. 
 -->
 
 #### Benefits
 
-TODO scenario 2
+TODO scenario 2 and mauybe 1?
 
 #### Drawbacks
 
