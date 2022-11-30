@@ -54,7 +54,7 @@ Use this architecture when you want to deploy workloads in active/standby mode t
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### SLA
-Microsoft supports SLAs for larger size infrastructure such as Azure and Azure regions. Azure public MEC is a smaller footprint extension of Azure and thus does not have SLA support.
+Microsoft supports service-level agreements (SLAs) for larger size infrastructure such as Azure and Azure regions. Azure public MEC is a smaller footprint extension of Azure and thus does not have SLA support.
 
 ### Performance
 
