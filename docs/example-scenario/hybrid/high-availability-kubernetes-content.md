@@ -13,7 +13,7 @@ The preceding diagram shows the architecture of the sample application running o
 3. A Kubernetes namespace that contains the application components for the front end (ratings-web), API (ratings-api), and database (ratings-mongodb).
 4. An ingress controller that routes HTTP/HTTPS traffic to endpoints within the Kubernetes cluster.
 
-The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability, the deployment is run at least twice on two Azure Stack Hub instances. They can run either in a single location or in two or more sites:
+The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability, the deployment runs at least twice on two Azure Stack Hub instances. They can run either in a single location or in two or more sites:
 
 :::image type="content" source="media/aks-azure-architecture.png" alt-text="Diagram that shows the infrastructure architecture." lightbox="media/aks-azure-architecture.png" border="false":::
 
@@ -41,7 +41,7 @@ The sample application shown here is designed to use Kubernetes-native solutions
 
 ### Potential use cases 
 
-Many organizations are developing cloud-native solutions that take advantage of state-of-the-art services and technologies like Kubernetes. Although Azure provides datacenters in most regions of the world, sometimes there are edge cases and scenarios in which business-critical applications must run in a specific location. Potential concerns include:
+Many organizations are developing cloud-native solutions that take advantage of state-of-the-art services and technologies like Kubernetes. Although Azure provides datacenters in most regions of the world, sometimes business-critical applications must run in a specific location. Potential concerns include:
 
 - Location sensitivity.
 - Latency between the application and on-premises systems.
@@ -71,7 +71,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Scalability helps provide consistent, reliable, and well-performing access to the application.
 
-The sample scenario implements scalability in multiple layers of the application stack. Here's a high-level overview of the layers:
+The sample scenario implements scalability in three layers of the application stack. Here's a high-level overview of the layers:
 
 | Architecture level | Affects | How? |
 | --- | --- | ---
@@ -97,13 +97,13 @@ The Kubernetes cluster itself consists of and is built on top of Azure and Azure
 
 When you choose VM sizes for your initial deployment, take the following into consideration:  
 
-- **Cost.** When you plan your worker nodes, consider the overall cost per VM that you'll incur. For example, if your application workloads require limited resources, you should plan to deploy smaller VMs. Azure Stack Hub, like Azure, is normally billed on a consumption basis, so appropriately sizing the VMs for Kubernetes roles is crucial to optimizing consumption costs. 
+- **Cost.** When you plan your worker nodes, consider the overall cost per VM. For example, if your application workloads require limited resources, you should plan to deploy smaller VMs. Azure Stack Hub, like Azure, is normally billed on a consumption basis, so appropriately sizing the VMs for Kubernetes roles is crucial to optimizing consumption costs. 
 
 - **Scalability.** You achieve scalability of the cluster by scaling in and out the number of control plane and worker nodes, or by adding node pools. (You can't currently add node pools on Azure Stack Hub.) You can scale the cluster based on performance data collected with Container insights (Azure Monitor and Log Analytics). 
 
-    If your application needs more or fewer resources, you can scale the number of nodes out or in horizontally (between 1 and 50 nodes). If you need more than 50 nodes, you can create another cluster in a separate subscription. You can't scale up the actual VMs vertically to another VM size without redeploying the cluster.
+    If your application needs more or fewer resources, you can scale the number of nodes out or in horizontally, between 1 and 50 nodes. If you need more than 50 nodes, you can create another cluster in a separate subscription. You can't scale up the actual VMs vertically to another VM size without redeploying the cluster.
 
-    You implement scaling manually by using the AKS Engine helper VM that you used to deploy the Kubernetes cluster. For more information, see [Scaling Kubernetes clusters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md).
+    Implement scaling manually by using the AKS Engine helper VM that you used to deploy the Kubernetes cluster. For more information, see [Scaling Kubernetes clusters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md).
 
 - **Quotas.** Consider the [quotas](/azure-stack/operator/azure-stack-quota-types) that you've configured when you plan an AKS deployment on Azure Stack Hub. Make sure each [subscription](/azure-stack/operator/service-plan-offer-subscription-overview) has the proper plans and quotas configured. The subscription will need to accommodate the amount of compute, storage, and other services required for your clusters as they scale out.
 
@@ -130,11 +130,11 @@ Networking and connectivity also affect the three layers discussed previously. T
 On the application layer, the most important consideration is whether the application is exposed to the internet and can be accessed from the internet. From a Kubernetes perspective, internet access requires exposing a deployment or pod by using a Kubernetes Service or an ingress controller.
 
 > [!NOTE]
-> We recommend that you use ingress controllers to expose Kubernetes Services because the number of front-end public IPs on Azure Stack Hub is limited to 5. That also limits the number of Kubernetes Services of type `LoadBalancer` to 5, which is too small for many deployments. For more information, see the [AKS Engine documentation](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#limited-number-of-frontend-public-ips).
+> We recommend that you use ingress controllers to expose Kubernetes Services because the number of front-end public IPs on Azure Stack Hub is limited to five. That also limits the number of Kubernetes Services of type `LoadBalancer` to five, which is too small for many deployments. For more information, see the [AKS Engine documentation](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#limited-number-of-frontend-public-ips).
 
 An application can be exposed with a public IP via a load balancer or an ingress controller without being accessible via the internet. Azure Stack Hub can have a public IP address that's visible only on the local intranet. Not all public IPs are truly internet-facing.
 
-So far we've covered ingress traffic to the application. You also need to consider outbound, or egress, traffic. Here are a few use cases that require egress traffic:
+Besides ingress traffic to the application, you also need to consider outbound, or egress, traffic. Here are a few use cases that require egress traffic:
 
 - Pulling container images that are stored in Docker Hub or Container Registry
 - Retrieving Helm charts
@@ -166,7 +166,7 @@ Before you deploy your Kubernetes cluster by using AKS Engine, plan for the fina
 
 Two instances of the application are deployed, on two individual Kubernetes clusters, across two Azure Stack Hub instances. For this design, you need to consider how to replicate and synchronize data between the instances.
 
-Azure provides the built-in capability to replicate storage across multiple regions and zones within the cloud. Currently, there's no native way to replicate storage across two Azure Stack Hub instances. They form two independent clouds, and there's no overarching way to manage them as a set. When you plan for the resiliency of applications that run across Azure Stack Hub, you need to consider this independence in your application design and deployments.
+Azure provides the built-in capability to replicate storage across multiple regions and zones within the cloud. Currently, there's no native way to replicate storage across two Azure Stack Hub instances. They form two independent clouds, and there's no overarching way to manage them as a set. When you plan for the resiliency of applications that run across Azure Stack Hub, consider this independence in your application design and deployments.
 
 In most cases, storage replication isn't necessary for a resilient and highly available application deployed on AKS. But you should consider independent storage per Azure Stack Hub instance in your application design. If this design is a concern, consider storage attachment solutions offered by Microsoft partners. Storage attachments provide a storage replication solution across multiple Azure Stack Hub instances and Azure. For more information, see the [Partner solutions](#partner-solutions) section of this article.
 
@@ -174,7 +174,7 @@ This architecture takes these elements into consideration:
 
 #### Configuration
 
-This category includes the configuration of Azure Stack Hub, AKS Engine, and the Kubernetes cluster itself. You should automate the configuration as much as possible and store it as infrastructure-as-code in a Git-based version control system like Azure DevOps or GitHub. You can't easily synchronize these settings across multiple deployments. Therefore, we recommend that you store and apply configuration from the outside, and use DevOps pipeline.
+This category includes the configuration of Azure Stack Hub, AKS Engine, and the Kubernetes cluster itself. You should automate the configuration as much as possible and store it as infrastructure-as-code in a Git-based version control system like Azure DevOps or GitHub. You can't easily synchronize these settings across multiple deployments. We recommend that you store and apply configuration from the outside, and use DevOps pipeline.
 
 #### Application
 
@@ -210,14 +210,14 @@ These areas are the responsibility of the Azure Stack Hub operator. The details 
 
 This section covers the physical and logical infrastructure and the configuration of Azure Stack Hub. It covers actions in the admin and tenant spaces.
 
-The Azure Stack Hub operator (or administrator) is responsible for the maintenance of the Azure Stack Hub instances. This includes the network, storage, identity, and other elements that are outside the scope of this article. To learn more about the specifics of Azure Stack Hub operations, see these resources:
+The Azure Stack Hub operator (or administrator) is responsible for the maintenance of the Azure Stack Hub instances. This maintenance includes the network, storage, identity, and other elements that are outside the scope of this article. To learn more about the specifics of Azure Stack Hub operations, see these resources:
 
 - [Recover data in Azure Stack Hub with the Infrastructure Backup Service](/azure-stack/operator/azure-stack-backup-infrastructure-backup)
 - [Enable backup for Azure Stack Hub from the administrator portal](/azure-stack/operator/azure-stack-backup-enable-backup-console)
 - [Recover from catastrophic data loss](/azure-stack/operator/azure-stack-backup-recover-data)
 - [Infrastructure Backup Service best practices](/azure-stack/operator/azure-stack-backup-best-practices)
 
-Azure Stack Hub is the platform and fabric on which Kubernetes applications are deployed. The application owner for the Kubernetes application is a user of Azure Stack Hub who has access to deploy the application infrastructure needed for the solution. Application infrastructure, in this case, is the Kubernetes cluster, deployed via AKS Engine, and the surrounding services. 
+Azure Stack Hub is the platform and fabric on which Kubernetes applications are deployed. The application owner for the Kubernetes application is a user of Azure Stack Hub who has access to deploy the application infrastructure needed for the solution. The application infrastructure, in this case, is the Kubernetes cluster, deployed via AKS Engine, and the surrounding services. 
 
 These components are deployed into Azure Stack Hub. The components are constrained by the Azure Stack Hub offer. Make sure the offer accepted by the Kubernetes application owner has sufficient capacity, expressed in Azure Stack Hub quotas, to deploy the entire solution. As recommended in the previous section, you should automate the application deployment by using infrastructure-as-code and deployment pipelines like Azure pipelines.
 
@@ -231,12 +231,12 @@ The application shouldn't rely on backups of a deployed instance. As a standard 
 
 #### Application data
 
-Application data is the critical component of BCDR. In the previous section, techniques for replicating and synchronizing data between two or more instances of an application are described. Depending on the database infrastructure (like MySQL, MongoDB, or SQL Server) used to store the data, there are various database availability and backup techniques available.
+Application data is the critical component of BCDR. The previous sections describe techniques for replicating and synchronizing data between two or more instances of an application. Depending on the database infrastructure (like MySQL, MongoDB, or SQL Server) used to store the data, there are various database availability and backup techniques available.
 
 To achieve integrity, we recommend that you use one of the following solutions:
 
 - A native backup solution for the specific database.
-- A backup solution that officially supports backup and recovery of the database type that's used by your application.
+- A backup solution that supports backup and recovery of the database type that's used by your application.
 
 > [!IMPORTANT]
 > Don't store your backup data on and your application data on the same Azure Stack Hub instance. A complete outage of the Azure Stack Hub instance would also compromise your backups.
@@ -301,7 +301,7 @@ You have several options for storing secrets like connection strings and databas
 - Kubernetes secrets
 - Third-party solutions like HashiCorp Vault (running on Kubernetes)
 
-Don't store secrets or credentials in plain text in your configuration files, application code, or scripts. Also, don't store them in a version control system. Instead, the deployment automation should retrieve the secrets as needed.
+Don't store secrets or credentials in plain text in your configuration files, application code, or scripts. And don't store them in a version control system. Instead, the deployment automation should retrieve the secrets as needed.
 
 ### Patch and upgrade
 
@@ -345,7 +345,7 @@ If the Azure Stack Hub management endpoints and Kubernetes API can be accessed v
 
 :::image type="content" source="media/aks-azure-stack.png" alt-text="Diagram that provides an overview of the architecture that can be accessed via the internet." lightbox="media/aks-azure-stack.png" border="false":::
 
-If the Resource Manager endpoints, Kubernetes API, or both can't be accessed directly via the Internet, you can use a self-hosted build agent to run the pipeline steps. This design requires less connectivity. It can be deployed with only on-premises network connectivity to Resource Manager endpoints and the Kubernetes API:
+If the Resource Manager endpoints, Kubernetes API, or both can't be accessed directly via the internet, you can use a self-hosted build agent to run the pipeline steps. This design requires less connectivity. It can be deployed with only on-premises network connectivity to Resource Manager endpoints and the Kubernetes API:
 
 :::image type="content" source="media/aks-self-hosted.png" alt-text="Diagram that shows a self-hosted architecture." lightbox="media/aks-self-hosted.png" border="false":::
 
