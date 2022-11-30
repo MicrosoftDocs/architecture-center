@@ -92,6 +92,8 @@ Principal author:
 
 - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - See the [Azure DevOps documentation](/azure/devops) to learn more about Azure DevOps and related tools, including Azure Repos and Azure Pipelines.
