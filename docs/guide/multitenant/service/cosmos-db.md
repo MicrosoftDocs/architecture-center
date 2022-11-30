@@ -117,7 +117,7 @@ Consider the operational aspects of your solution, and the different phases of t
 
 ### Container per tenant
 
-You can provision dedicated containers for each tenant. This can work well when the data you store for your tenant can be combined into a single container. This model provides greater performance isolation than the container-per-partition key model above, and also provides additional data access security isolation via [Azure RBAC](/azure/cosmos-db/role-based-access-control). 
+You can provision dedicated containers for each tenant. This can work well when the data you store for your tenant can be combined into a single container. This model provides greater performance isolation than the partition-key-per-tenant model above, and also provides additional data access security isolation via [Azure RBAC](/azure/cosmos-db/role-based-access-control). 
 
 When using a container for each tenant, you can consider sharing throughput with other tenants by provisioning throughput at the database level. Consider the restrictions and limits around the [minimum number of request units for your database](/azure/cosmos-db/concepts-limits#minimum-throughput-limits) and the [maximum number of containers in the database](/azure/cosmos-db/concepts-limits#provisioned-throughput-1). Also, consider whether your tenants require a guaranteed level of performance, and whether they're susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). If necessary, plan to group tenants into different databases that are based on workload patterns.
 
