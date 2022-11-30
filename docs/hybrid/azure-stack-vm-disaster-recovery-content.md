@@ -2,7 +2,7 @@ This article describes the architecture and design considerations of a solution 
 
 ## Architecture
 
-![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution that's based on Azure Site Recovery. The solution consists of a configuration server and process server components that run on an Azure Stack Hub VM. These components are capable of protecting Windows Server VMs that run such workloads as SQL Server and Sharepoint Server. they can also protect CentOS and Ubuntu Linux VMs. The Azure components of the solution include a geo-redundant Azure Recovery Services vault that handles orchestration tasks and an Azure Storage account that serves as the destination of the replication traffic that originates from the Azure Stack Hub VMs.][architectural-diagram]
+![The diagram illustrates the architecture of an Azure Stack Hub disaster recovery solution that's based on Azure Site Recovery. The solution consists of a configuration server and process server components that run on an Azure Stack Hub VM. These components are capable of protecting Windows Server VMs that run such workloads as SQL Server and Sharepoint Server. They can also protect CentOS and Ubuntu Linux VMs. The Azure components of the solution include a geo-redundant Azure Recovery Services vault that handles orchestration tasks and an Azure Storage account that serves as the destination of the replication traffic that originates from the Azure Stack Hub VMs.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -57,12 +57,12 @@ The recommended solution that's described in this article isn't the only way to 
   > As of July 2020, Site Recovery doesn't support this scenario, which means that the implementation has to use a partner or in-house solution.
 
 - Back up and restore. Backing up your applications and datasets makes it possible for you to recover quickly from downtime that results from data corruption, accidental deletions, or localized outages. For Azure Stack Hub VM-based applications, you can use an in-guest agent to protect application data, operating system configurations, and data that's stored on volumes. Backing up a VM by using a guest OS agent typically includes capturing operating system configurations, files, folders, volumes, application binaries, and application data. Recovering an application from an agent requires recreation of the VM, followed by installation of the operating system and the guest agent. At that point, you can restore data into the guest OS.
-- Backup of disk snapshots. It's possible to use snapshots to capture an Azure Stack Hub VM configuration and the disks that are attached to a stopped VM. Doing this requires backup products that integrate with Azure Stack Hub APIs to capture VM configuration and create disk snapshots.
+- Backup of disk snapshots. It's possible to use snapshots to capture an Azure Stack Hub VM configuration and the disks that are attached to a stopped VM. This process requires backup products that integrate with Azure Stack Hub APIs to capture VM configuration and create disk snapshots.
 
   > [!NOTE]
   > As of July 2020, using disk snapshots for a running VM isn't supported. Creating a snapshot of a disk that's attached to a running VM might degrade the performance or affect the availability of the operating system or of the application in the VM.
 
-- Back up and restore VMs by using an external backup solution in the same datacenter, and then replicate the backups to another location. In this way you can restore Azure Stack Hub VMs to the same Azure Stack Hub instance, or to a different one, or to Azure.
+- Back up and restore VMs by using an external backup solution in the same datacenter, and then replicate the backups to another location. In this way, you can restore Azure Stack Hub VMs to the same Azure Stack Hub instance, or to a different one, or to Azure.
 
 ## Scenario details
 
