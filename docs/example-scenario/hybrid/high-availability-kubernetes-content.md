@@ -6,7 +6,7 @@ This article describes how to architect and operate a highly available Kubernete
 
 ### Workflow
 
-The preceding diagram shows the application architecture of the sample application running on Kubernetes on Azure Stack Hub. The app consists of these components:
+The preceding diagram shows the architecture of the sample application running on Kubernetes on Azure Stack Hub. The app consists of these components:
 
 1. A Kubernetes cluster, based on AKS Engine, on Azure Stack Hub.
 2. [cert-manager](https://www.jetstack.io/cert-manager), which provides a suite of tools for certificate management in Kubernetes. It's used to automatically request certificates from Let's Encrypt.
@@ -30,7 +30,7 @@ Services like Azure Container Registry and Azure Monitor are hosted outside of A
 - [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using an Azure Active Directory (Azure AD) identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools that you can use to manage your code. You can also use GitHub or other Git-based repositories.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is part of Azure DevOps Services. It runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions like Jenkins.
-- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, containers, container logs, and master node logs.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, containers, container logs, and control plane node logs.
 - [Azure Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer that you can use to distribute traffic optimally to services across different Azure regions or Azure Stack Hub deployments. Traffic Manager also provides high availability and responsiveness. The application endpoints must be accessible from the outside. Other on-premises solutions are also available.
 - A Kubernetes ingress controller exposes HTTP(S) routes to services in a Kubernetes cluster. You can use [NGINX](https://www.nginx.com/products/nginx-ingress-controller) or any suitable ingress controller.
 - [Helm](https://helm.sh) is a package manager for Kubernetes deployment. It provides a way to bundle different Kubernetes objects, like `Deployments`, `Services`, and `Secrets`, into a single "chart." You can publish, deploy, version, and update a chart object. You can use Container Registry as a repository to store packaged Helm charts.
@@ -79,7 +79,7 @@ The sample scenario implements scalability in multiple layers of the application
 | Cluster | Kubernetes cluster | Number of nodes (between 1 and 50), VM SKU sizes, and, via the AKS Engine manual `scale` command, node pools. (AKS Engine on Azure Stack Hub currently supports only a single node pool.)  |
 | Infrastructure | Azure Stack Hub | Number of nodes, capacity, and scale units within an Azure Stack Hub deployment. |
 
-\* Via the Kubernetes HorizontalPodAutoscaler, which provides automated metric-based scaling, or vertical scaling by sizing the container instances (CPU or memory).
+\* *Via the Kubernetes HorizontalPodAutoscaler, which provides automated metric-based scaling, or vertical scaling by sizing the container instances (CPU or memory).*
 
 #### Azure Stack Hub (infrastructure level)
 
@@ -148,7 +148,7 @@ Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The 
 
 #### Cluster
 
-The Kubernetes cluster doesn't necessarily need to be accessible via the internet. The relevant part is the Kubernetes API that's used to operate a cluster, for example, via `kubectl`. Everyone who operates the cluster or deploys applications and services on top of it must be able to access the Kubernetes API endpoint. This topic is covered in more detail from a DevOps-perspective in the [Deployment (CI/CD)](#deployment-cicd) section of this article.
+The Kubernetes cluster doesn't necessarily need to be accessible via the internet. The relevant part is the Kubernetes API that's used to operate a cluster, for example, via `kubectl`. Everyone who operates the cluster or deploys applications and services on top of it must be able to access the Kubernetes API endpoint. This topic is covered in more detail from a DevOps perspective in the [Deployment (CI/CD)](#deployment-cicd) section of this article.
 
 On the cluster level, there are also a few considerations for egress traffic:
 
@@ -196,7 +196,7 @@ If you're working with data across multiple locations, implementing a highly ava
 
 ### Business continuity and disaster recovery
 
-Business continuity and disaster recovery (BCDR) is an important consideration for both Azure Stack Hub and Azure. The main difference is that for Azure Stack Hub, the operator must manage the whole BCDR process. For Azure, parts of BCDR are automatically managed by Microsoft.
+Business continuity and disaster recovery (BCDR) is an important consideration for both Azure Stack Hub and Azure. The main difference is that, for Azure Stack Hub, the operator must manage the whole BCDR process. For Azure, parts of BCDR are automatically managed by Microsoft.
 
 BCDR affects the same areas discussed in the previous section:
 
@@ -377,5 +377,5 @@ As noted earlier, unlike Azure, Azure Stack Hub doesn't currently have a native 
 
 ## Related resources
 
-- [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/microservices/aks).
+- [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/microservices/aks)
 - [High availability Kubernetes cluster deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes)
