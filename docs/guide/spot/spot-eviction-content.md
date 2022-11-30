@@ -10,7 +10,7 @@ A spot VM and a regular, pay-as-you-go VM use the same images, hardware, and dis
 
 ## Understand spot virtual machine pricing
 
-Spot VMs are up to 90 percent cheaper than regular (pay-as-you-go) VMs. The discount varies based on demand, VM size, region of deployment, and operating system. We recommend you use the Azure Spot VM pricing tool to get an estimate of the cost savings. For more information, see:
+Spot VMs can be up to 90 percent cheaper than regular (pay-as-you-go) VMs. The discount varies based on demand, VM size, region of deployment, and operating system. We recommend you use the Azure Spot VM pricing tool to get an estimate of the cost savings. For more information, see:
 
 - [Azure Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 - [Spot VM pricing overview](/azure/virtual-machines/spot-vms#pricing)
@@ -85,7 +85,7 @@ For more information, see:
 
 For a delete policy, we recommend building a pipeline that uses different VM sizes and deploys to different regions. For a stop/deallocated policy, the deployment pipeline will need two distinct actions. For the initial creation of a VM, the pipeline needs to deploy the right size VMs to the right location. For an evicted VM, the pipeline needs to try to restart the VM until it works. A combination of Azure Monitor alerts and Azure Functions is one of several ways to automate a deployment system.
 
-**(5) Prepare for immediate eviction** - It's possible that your spot VM will be designated for eviction as soon as it's created. Just because there was capacity to create a spot VM, doesn't mean it will persist. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal will still provide a minimum of 30-seconds advance notice of the eviction.
+**(5) Prepare for immediate eviction** - It's possible that your spot VM will be designated for eviction as soon as it's created and even before your workload is executed. Just because there was capacity to create a spot VM, doesn't mean it will persist. Spot VMs have no availability guarantees (SLAs) after creation. Your orchestration needs to account for immediate evictions. The `Preempt` signal will still provide a minimum of 30-seconds advance notice of the eviction.
 
 We recommend incorporating VM health checks into your orchestration to prepare for immediate evictions. Orchestration for immediate evictions can't rely on the Schedule Events `Preempt` signal. It needs to be outside the workload infrastructure. There's not enough time to start an application, query the Schedule Events endpoint, and gracefully shutdown. The health checks need to watch the status of the spot VM and start the deployment pipeline to replace the spot VM when the status changes to deallocating or stopping.  It can't use the `Preempt` signal. The `Preempt` signal can only be queried from the VM itself.
 
