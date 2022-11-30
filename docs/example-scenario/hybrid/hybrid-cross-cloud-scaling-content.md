@@ -1,4 +1,4 @@
-This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources.)
+This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources.
 
 ## Architecture
 
@@ -13,10 +13,10 @@ This solution shows how to use Azure Traffic Manager to extend an app that's loc
 
 ### Components
 
-- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure. Azure Stack Hub brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.)
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure. Azure Stack Hub brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.
 - [Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) enables you to scale virtual machines. In this architecture, you can use it to enable app resources to scale in and out.)
-- [Azure Container Instances](https://azure.microsoft.com/products/container-instances) enables you to run containers in Azure. In this architecture, it can be used as an alternative to Virtual Machine Scale Sets to provide scaling.)
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) enables you to scale virtual machines. In this architecture, you can use it to enable app resources to scale in and out.
+- [Azure Container Instances](https://azure.microsoft.com/products/container-instances) enables you to run containers in Azure. In this architecture, it can be used as an alternative to Virtual Machine Scale Sets to provide scaling.
 - **Domain Name System (DNS)** translates (or resolves) a website or service name to its IP address.
 - **The hosted build server** is an environment for hosting your build pipeline.
 - **Public IP addresses** are used to route the incoming traffic through Traffic Manager to the endpoint for the public cloud app resources.
@@ -36,7 +36,7 @@ Global enterprises need their apps to be secure, reliable, and available. They n
 
 When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
 
-However, sometimes it's not economically feasible for a business to maintain the capacity that's required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud to scale your on-premises solution.)
+However, sometimes it's not economically feasible for a business to maintain the capacity that's required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud to scale your on-premises solution.
 
 Use this solution when:
 
@@ -69,7 +69,7 @@ For comprehensive guidance about security principles, see [Security documentatio
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-For information about applying reliable, predictable, and automated operations processes to your architecture to keep an application running in production, see [Operational excellence documentation](/azure/architecture/framework/devops). For guidance about monitoring in hybrid scenarios, see [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml).
+For guidance about monitoring in hybrid scenarios, see [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml).
 
 ### Performance efficiency
 
@@ -79,12 +79,12 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*)
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
 - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
-)
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
