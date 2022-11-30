@@ -95,7 +95,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 ##### Benefits
 
 - This configuration is relatively simple to configure, and provides customers with Contoso-branded URLs.
-- The approach supports a very high number of tenants.
+- The approach supports a very large number of tenants.
 - When a new tenant is onboarded, Contoso doesn't need to make any changes to Front Door, DNS, or TLS certificates.
 
 ##### Drawbacks
@@ -106,38 +106,38 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ### Scenario 2: Individual provider-managed domains, multiple stamps
 
-Prosware is building a multitenant solution across multiple stamps, which are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. They made a business decision to use wildcard domains for all of their tenants, such as `tenant1.prosware.com`, `tenant2.prosware.com`, and so forth.
+Prosware is building a multitenant solution across multiple stamps, which are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. Similarly to Contoso, Prosware made a business decision to use wildcard domains for all of their tenants, such as `tenant1.prosware.com`, `tenant2.prosware.com`, and so forth.
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
 ![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
 
-#### DNS configuration
+##### DNS configuration
 
 **One-time configuration:** Prosware configures one DNS entry - a wildcard CNAME record, `*.prosware.com`, which aliases to their Front Door endpoint, `prosware.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-#### TLS configuration
+##### TLS configuration
 
 **One-time configuration:** Prosware purchases a wildcard TLS certificate, adds it to a key vault, and grants Front Door access to the vault.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-#### Front Door configuration
+##### Front Door configuration
 
 **One-time configuration**: Prosware creates a Front Door profile and a single endpoint. They configure multiple origin groups one per application stamp/server in each region.
 
 **When a new tenant is onboarded:** Prosware adds a custom domain resource to Front Door. They use the name `*.prosware.com`, and associate their wildcard TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in Europe region.
 
-#### Benefits
+##### Benefits
 
 - When new tenants are onboarded, no DNS or TLS configuration changes are required.
 - Prosware maintains single instance of Front Door to route traffic to multiple stamps across multiple regions.
 
-#### Drawbacks
+##### Drawbacks
 
-- This approach requires reconfiguring Front Door each time a new tenant is onboarded, to add a custom domain and a route.
+- This approach requires that Prosware reconfigures Front Door every time a new tenant is onboarded.
 - Prosware has to pay attention to Front Door subscription limits, especially on the number of routes, custom domains, and the composite routing limit (TODO links).
 - Prosware has to purchase a wildcard TLS certificate.
 - Prosware is responsible for renewing and installing the certificate when it expires.
@@ -168,18 +168,17 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
-<!--
-The configuration in this scenario scales very well as new tenants are on-boarded. 
--->
-
 #### Benefits
 
-TODO scenario 2 and mauybe 1?
+- This approach enables Fabrikam to scale to large numbers of tenants across multiple stamps.
+- When new tenants are onboarded, no DNS or TLS configuration changes are required.
+- Fabrikam maintains single instance of Front Door to route traffic to multiple stamps across multiple regions.
 
 #### Drawbacks
 
-- TODO scenario 2
 - Because URLs use a multipart stem domain structure, URLs can be more complex for users to work with.
+- Fabrikam has to purchase mulitiple wildcard TLS certificates.
+- Fabrikam is responsible for renewing and installing the TLS certificates when they expire.
 
 ### Scenario 4: Vanity domains
 
@@ -191,7 +190,9 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 #### DNS configuration
 
-**When a new tenant is onboarded:** The tenant needs to create a record in their own DNS server and alias it to the AdventureWorks Front Door endpoint. For example, Tenant 1 needs to configure a DNS record named `tenant1app.tenant1.com` and map it to `adventureworks.z01.azurefd.net`.
+**One-time configuration:** None.
+
+**When a new tenant is onboarded:** The tenant needs to create a record in their own DNS server and alias it to the AdventureWorks Front Door endpoint. For example, Tenant 1 needs to configure a DNS record named `tenant1app.tenant1.com` and map it to `adventureworks.z01.azurefd.net`. <!-- TODO txt records -->
 
 #### TLS configuration
 
@@ -202,17 +203,21 @@ AdventureWorks and their tenants need to decide who issues TLS certificates:
 
 #### Front Door configuration
 
-**One-time configuration:** TODO
+**One-time configuration:** Fabrikam creates a Front Door profile and a single endpoint. They configure an origin group for each stamp. They do not create custom domain resources or routes.
 
 **When a new tenant is onboarded:** AdventureWorks adds a custom domain resource to Front Door. They use the tenant-provided domain name, and they associate the appropiate TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1app.tenant1.com` routes to the origin group in the Australia region, and `tenant2app.tenant2.com` routes to the origin group in the US region.
 
 #### Benefits
 
-TODO scenario 2
+- Customers can provide their own domain names and Front Door transparently routes requests to the multitenant solution.
+- AdventureWorks maintains single instance of Front Door to route traffic to multiple stamps across multiple regions.
 
 #### Drawbacks
 
-TODO scenario 2
+- This approach requires that AdventureWorks reconfigures Front Door every time a new tenant is onboarded.
+- The approach also requires that tenants are involved within the onboarding process, including making DNS changes and potentially issuing TLS certificates.
+- Tenants are in control of their DNS records, and changes to DNS records might render them unable to access the AdventureWorks solution.
+- AventureWorks has to pay attention to Front Door subscription limits, especially on the number of routes, custom domains, and the composite routing limit (TODO links).
 
 ## Contributors
 
