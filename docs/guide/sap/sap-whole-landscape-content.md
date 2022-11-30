@@ -19,9 +19,9 @@ An alternative secured perimeter architecture, addressing heightened network sec
 The following workflow corresponds to the above diagram:
 1. Azure subscriptions containing the SAP workload within a region pair.
 1. Virtual networks for the SAP workload, separated by environment, peered with central hub network.
-1. SAP workload infrastructure, showing a sample highly available architecture.
+1. SAP workload infrastructure, showing one SAP system per environment / tier.
 1. Azure services connected to the SAP landscape.
-1. SAP Business Technology Platform, accessed through private link by the SAP environment.
+1. SAP Business Technology Platform, a PaaS platform by SAP, accessed through private link by the SAP environment.
 
 ### Basic architectural principles
 
