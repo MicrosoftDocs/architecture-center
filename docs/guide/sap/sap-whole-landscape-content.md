@@ -14,6 +14,15 @@ Customer requirements, driven by business policies, will necessitate adaptations
 
 An alternative secured perimeter architecture, addressing heightened network security requirements, is shown later in this document in [chapter network design alternatives](#network-design-alternatives). Unless noted otherwise, details in this document cover the architecture shown above.
 
+### Workflow
+
+The following workflow corresponds to the above diagram:
+1. Azure subscriptions containing the SAP workload within a region pair.
+1. Virtual networks for the SAP workload, separated by environment, peered with central hub network.
+1. SAP workload infrastructure, showing a sample highly available architecture.
+1. Azure services connected to the SAP landscape.
+1. SAP Business Technology Platform, accessed through private link by the SAP environment.
+
 ### Basic architectural principles
 
 Main principles driving this architecture are
@@ -154,6 +163,10 @@ This article shows a typical large SAP landscape and best practices. There are m
 
 _You might be able to zoom multiple time to see full resolution and details. Same [Visio file] contains all the architecture, including the alternatives._
 
+The following changes highlight the differences in the diagram
+1. SAP perimeter network as own spoke virtual network, separated from the SAP production virtual network.
+1. Peering to hub virtual network as means to communicate between perimeter and SAP workload virtual networks.
+
 This alternative architecture uses two discrete virtual networks in the production subscription, both spoke virtual networks that are peered to the central hub virtual network. There's no spoke-to-spoke peering. A star topology is used, in which communication passes through the hub. The separation of networks helps to protect the applications from breaches.
 
 An application-specific [perimeter network](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks) (also known as a DMZ) contains the internet-facing applications, like SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. In the architecture diagram, the perimeter network is named _SAP perimeter spoke virtual network_. Because of dependencies on SAP systems, the SAP team typically does the deployment, configuration, and management of these services. That's why these SAP perimeter services frequently aren't located in a central hub subscription and network, where they would need to be managed by the central IT team. This constraint causes organizational challenges. Application Gateway always requires its own designated subnet, which is best placed in the SAP perimeter virtual network. Application Gateway uses public IP addresses for its front end and HTTPS listener.
@@ -187,6 +200,11 @@ Consolidation on SAP application level is not in scope for this overall SAP arch
 The following diagram is an example reference architecture that's an extension of the main architecture shown at start of this article. The diagram describes an example use case of three SAP environment - SAP S/4HANA, SAP BW and SAP PI/PO. While S/4HANA environment is 4-tier, including sandbox workload zone, SAP PI/PO is only a 2-tier environment with production and development only. The diagram shows visually how different SAP environments run together in an overall Azure architecture.
 
 [![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter vnet](media/sap-whole-landscape-three-sap-example.png)](media/sap-whole-landscape-three-sap-example.png#lightbox)
+
+The following workflow corresponds to the above diagram:
+1. Sample SAP S/4 HANA application and database VMs, highlighting the workload in both production and pre-production environments.
+1. Sample SAP BW/4 application and database VMs, highlighting the workload in both production and pre-production environments.
+1. Sample SAP PI or SAP PO workload, highlighting it exists in production but not in pre-production.
 
 ## Contributors
   
