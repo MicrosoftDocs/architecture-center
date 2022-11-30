@@ -36,6 +36,7 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
   - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to their deployed Azure virtual network, the customer could directly address the back-end service through private IP addresses.
   - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making this a [hybrid Azure and on-premises scenario][azure-hybrid].
 - The API Management instance can be kept private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Connecting APIM in internal mode to a VNet][apim-vnet-internal].
+- If the organization decided to host their APIs on-premises - one reason for this might be because downstream database dependencies in scope for this project could not be moved to the cloud - they could still leverage API Management locally by utilising the [self-hosted gateway][apim-sh-gw]. The self-hosted gateway is a containerized deployment of the API Management gateway which connects back to Azure on an outbound socket. Prerequisites: Self-hosted gateways cannot be deployed without a parent resource in Azure and carry an additional charge. The Premium tier of API Management is required. 
 
 > [!NOTE]
 > For general information on connecting API Management to a VNet, [see here][apim-vnet].
@@ -151,3 +152,4 @@ Learn modules:
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
 [visio-download]: https://arch-center.azureedge.net/architecture-apim-api-scenario.vsdx
+[apim-sh-gw]: /azure/api-management/self-hosted-gateway-overview
