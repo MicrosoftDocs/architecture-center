@@ -144,7 +144,7 @@ Some enterprise environments might require the use of _transparent_ or _non-tran
 
 Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The solution described here consists of individual Kubernetes clusters that run on individual Azure Stack Hub instances. Traffic between them, like the replication traffic between two databases, is considered external traffic. External traffic must be routed through either a site-to-site VPN or Azure Stack Hub public IP addresses:
 
-:::image type="content" source="media/aks-cluster-traffic.png" alt-text="Diagram that shows how traffic is routed." lightbox="media/aks-cluster-traffic.png" border="false":::
+:::image type="content" source="media/aks-cluster-traffic.png" alt-text="Diagram that shows how traffic is routed." border="false":::
 
 #### Cluster
 
@@ -249,7 +249,7 @@ Azure Stack Hub infrastructure is already resilient to failures, and it provides
 
 It's a good practice to deploy your production Kubernetes cluster, and also the workload, to two or more clusters. These clusters should be hosted in different locations or datacenters and use technologies like Traffic Manager to route users based on cluster response time or geography.
 
-:::image type="content" source="media/aks-azure-traffic-manager.png" alt-text="Diagram that shows how Traffic Manager is used to control traffic flows." lightbox="media/aks-azure-traffic-manager.png" border="false":::
+:::image type="content" source="media/aks-azure-traffic-manager.png" alt-text="Diagram that shows how Traffic Manager is used to control traffic flows." border="false":::
 
 Customers who have a single Kubernetes cluster typically connect to the service IP or DNS name of a given application. In a multi-cluster deployment, customers should connect to a Traffic Manager DNS name that points to the services/ingress on each Kubernetes cluster.
 
