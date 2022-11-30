@@ -148,7 +148,7 @@ Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The 
 
 #### Cluster
 
-The Kubernetes cluster doesn't necessarily need to be accessible via the internet. The relevant part is the Kubernetes API that's used to operate a cluster, for example, via `kubectl`. Everyone who operates the cluster or deploys applications and services on top of it must be able to access the Kubernetes API endpoint. This topic is covered in more detail from a DevOps-perspective in the [Deployment (CI/CD) considerations](#deployment-cicd-considerations) section of this article.
+The Kubernetes cluster doesn't necessarily need to be accessible via the internet. The relevant part is the Kubernetes API that's used to operate a cluster, for example, via `kubectl`. Everyone who operates the cluster or deploys applications and services on top of it must be able to access the Kubernetes API endpoint. This topic is covered in more detail from a DevOps-perspective in the [Deployment (CI/CD)](#deployment-cicd) section of this article.
 
 On the cluster level, there are also a few considerations for egress traffic:
 
@@ -347,7 +347,7 @@ If the Azure Stack Hub management endpoints and Kubernetes API can be accessed v
 
 If the Resource Manager endpoints, Kubernetes API, or both can't be accessed directly via the Internet, you can use a self-hosted build agent to run the pipeline steps. This design requires less connectivity. It can be deployed with only on-premises network connectivity to Resource Manager endpoints and the Kubernetes API:
 
-:::image type="content" source="media/aks-self-hosted.png" alt-text="Diagram that shows a self-hosted architecture." lightbox="media/article-folder-name/aks-self-hosted.png" border="false":::
+:::image type="content" source="media/aks-self-hosted.png" alt-text="Diagram that shows a self-hosted architecture." lightbox="media/aks-self-hosted.png" border="false":::
 
 > [!NOTE]
 > In scenarios where Azure Stack Hub, Kubernetes, or both of them don't have internet-facing management endpoints, you can still use Azure DevOps for your deployments. You can use a self-hosted agent pool, which is an Azure DevOps agent that runs on-premises or on Azure Stack Hub itself. Or you can use a completely self-hosted Azure DevOps server on-premises. The self-hosted agent needs only outbound HTTPS (TCP 443) internet connectivity.
