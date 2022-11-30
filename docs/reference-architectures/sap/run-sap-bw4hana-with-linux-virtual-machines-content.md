@@ -245,7 +245,7 @@ The [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4han
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
  
