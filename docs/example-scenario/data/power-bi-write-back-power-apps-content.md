@@ -2,13 +2,13 @@ This solution implements a Power Apps canvas app via the native Power Apps visua
 
 ## Architecture
 
-Core components of this solution incorporate the ability to pass pre-filtered data from Power BI into a Power Apps and/or Power Automate funnel for any updates in a supporting back end. It's important to refresh the Power BI data set (or dataflow) to ensure updates are visible to all users. 
-
 :::image type="content" border="false" source="media/power-platform-write-backs.png" alt-text="Diagram that shows an architecture for Power BI data write-back." lightbox="media/power-platform-write-backs.png"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/power-platform-write-backs.vsdx) of this architecture.*
 
-### Dataflow 
+### Dataflow
+
+Core components of this solution incorporate the ability to pass pre-filtered data from Power BI into a Power Apps and/or Power Automate funnel for any updates in a supporting back end. It's important to refresh the Power BI data set (or dataflow) to ensure updates are visible to all users. 
 
 #### Deployment
 
@@ -104,6 +104,8 @@ For more information on how to implement a well-architected framework, see the [
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 [Power Apps](https://powerapps.microsoft.com/pricing) and [Power Automate](https://powerautomate.microsoft.com/pricing) are software as a service (SaaS) applications that have flexible pricing models. You can license Power Apps with per-app or per-user plans that fit your business needs. Similarly, you can license Power Automate with either per-user or per-flow (single automation) plans. 
 
 Several versions of [Power BI](https://powerbi.microsoft.com/pricing) are available. Your choice depends on the volume of data ingested. For Power BI Pro, only a per-user plan is available. Power BI Premium provides per-user and per-capacity plans. 
@@ -127,8 +129,10 @@ Principal authors:
 - [Tom Berzok](https://www.linkedin.com/in/thomas-berzok) | Consultant, Data & Analytics at [Slalom](https://www.slalom.com)
 - [Thomas Edmondson](https://www.linkedin.com/in/thomas-edmondson-7a2b9a2) | Principal at [Slalom](https://www.slalom.com)
 
-Other contributors:
+Other contributor:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -138,7 +142,7 @@ Product documentation:
 - [Embed a Power Apps visual in a Power BI report](/power-bi/visuals/power-bi-visualization-powerapp)
 - [Use a flow to update a row in Dataverse](/power-automate/dataverse/update)
 
-Microsoft Learn:
+Microsoft Learn Training modules:
 - [Create tables in Dataverse](/training/modules/get-started-with-powerapps-common-data-service)
 - [Get started with Power Apps canvas apps](/training/modules/get-started-with-powerapps)
 - [Manage solutions in Power Apps and Power Automate](/training/modules/manage-solutions-power-automate)
