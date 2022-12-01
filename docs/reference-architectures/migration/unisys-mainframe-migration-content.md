@@ -127,7 +127,7 @@ You can scale out the server sets to provide more throughput. For more informati
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: 
+Principal author: 
 
  - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
 
