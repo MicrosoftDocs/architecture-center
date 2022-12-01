@@ -60,6 +60,7 @@ This solution applies to large multi-branch manufacturing and logistics organiza
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Storage
+
 Blob Storage can hold any type of text or binary data, like documents, media files, and app installers. Every blob is organized in a container. Containers provide a useful way to assign security policies to groups of objects. A storage account can have any number of containers. A container can contain any number of blobs, up to the 500-TB capacity limit of the storage account.
 
 You can use low-cost Blob Storage to archive cool data. Examples of cool data include backups, media content, scientific data, compliance data, and archival data. In general, any data that you access infrequently is considered cool storage. Data tiering is based on attributes like frequency of access and retention period. Customer data is infrequently accessed, but it requires latency and performance that's similar to what's required for hot data.
