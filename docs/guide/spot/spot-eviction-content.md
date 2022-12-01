@@ -111,9 +111,9 @@ With system-assigned managed identities, a new spot VM might get a different acc
 
 ## Example scenario
 
-The example scenario deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. Below we is an diagram of the architecture and details about its components.
+The example scenario deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. Below is a diagram of the architecture and details about its components.
 
-[![Diagram of the example scenario architecture](./media/spot-vm-arch.png)](./media/spot-vm-arch.png)
+:::image type="content" source="./media/spot-vm-arch.png" alt-text="Diagram of the example scenario architecture." border="false" lightbox="./media/spot-vm-arch.png":::
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
 1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two files. One file is the `orchestrate.sh` bash script that installs the .NET worker application.
