@@ -86,7 +86,7 @@ To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPat
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior TPM
 
