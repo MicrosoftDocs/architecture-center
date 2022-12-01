@@ -191,7 +191,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: 
+Principal author: 
 
  - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
  
