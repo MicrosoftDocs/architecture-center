@@ -1,4 +1,8 @@
-Spot virtual machines (VMs) provide access to compute capacity at significant discounts and are an attractive solution for workloads that can be interrupted and have no time constraints, known as interruptible workloads. In this article, you'll find recommendations for architecting interruptible workloads with spot VMs and a sample implementation you can deploy. Here are key recommendations to consider when using spot virtual machines.
+Spot virtual machines (VMs) provide access to compute capacity at significant discounts compared to regular VMs. They're an attractive solution for organizations looking to optimize costs, but there's a tradeoff. Spot VMs can lose their compute capacity at any time. We call this process an eviction. Workloads running on spot VMs must be able to handle interruptions in compute and maintain reliability. The best candidates for spot VMs are "interruptible workloads." Interruptible workloads run processes that can stop suddenly and anytime after without harming essential organizational processes.
+
+This article shows you how to pick the right workload and orchestrate reliability with spot VMs. We discuss how to handle compute interruptions and best practices for replacing lost compute capacity. At the end, you'll find a sample implementation of an interruptible workload that you can see how spot VMs work.
+
+Here are our recommendations for architecting reliably interruptible workloads on spot VMs.
 
 ## Understand spot virtual machines
 
