@@ -121,7 +121,7 @@ When you deploy this solution, keep in mind the following prerequisites and limi
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Muazma Zahid](https://www.linkedin.com/in/muazmazahid/) | Principal PM Manager
  
