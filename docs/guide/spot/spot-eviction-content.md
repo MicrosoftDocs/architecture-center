@@ -68,10 +68,10 @@ Below we've outlined recommendations to help you create a flexible orchestration
 
 *Understand the stopped/deallocated policy* - The stopped/deallocated policy has less flexibility than the delete policy. The spot VMs must stay in the same region and zone. You can't move a stopped/deallocated VM to another location. Because the VMs have a fixed location, you'll need something in place to reallocate the VM when compute capacity becomes available. There's no way to predict when compute capacity will be available. So we recommend using an automated schedule pipeline to attempt a redeployment after an eviction. An eviction should trigger the schedule pipeline, and the redeployment attempts should continuously check for compute capacity until it becomes available.
 
-| Policy | When |
-| --- | --- |
-| Delete | Ephemeral compute and data <br> Don't want to pay for data disks <br> Minimal budget|
-| Stopped/Deallocated | Need a specific VM size        Indefinite wait time <br> Can't change locationN        Not driven by cost savings alone <br> Long application installation process |
+| Policy | When | |
+| --- | --- | --- |
+| Delete | Ephemeral compute and data <br> Don't want to pay for data disks <br> Minimal budget| |
+| Stopped/Deallocated | Need a specific VM size <br> Can't change locationN <br> Long application installation process | Indefinite wait time <br> Not driven by cost savings alone
 
 **(4) Continuously monitor for eviction.** Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is to anticipate when they're going to be evicted. With this information, you could attempt a workload graceful shutdown and trigger automation that orchestrates the replacement.
 
