@@ -1,126 +1,166 @@
-Due to IPv4 address exhaustion problem, IPv6 was introduced in 1995 and made as an Internet Standard in 2017. It's estimated that more than 50% traffic of United States is over IPv6. Unfortunately, the two protocols are not compatible, it means your infrastructure either runs IPv4 network or IPv6 network. This reference architecture details several configurations to enable users to run [Dual-stack kubenet networking AKS](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) (Preview). 
+This example baseline infrastructure deploys an Azure Kubernetes Service cluster to multiple regions on a dual-stack network using both IPv4 and IPv6 addresses.
 
-Due to current [limitations](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing, and ingress must be configured as `externalTrafficPolicy: Local`. Once the limitations are removed, AKS Service can be created with mode `RequireDualStack` or `PreferDualStack` where each kubernetes service can handle dual-stack traffic.
-
-Once [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2) supports dual-stack networking, HTTP client can use it in place of Standard Load Balancer to benefit from its WAF and simplify deployment model.
-
-This document only focuses on enabling dual-stack IPs for users' network infrastructure, it is recommended that users should become familiar with [AKS Baseline architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
-
-# Architecture
+## Architecture
 
 ![Dual-stack network topology](images/dual-stack.svg)
 
-# Dataflow
+## Dataflow
 
-This approach is leveraging NAT64 proxy of Ingress Controller to translate external traffic to either IPv4 or IPv6 since it can be easily added to or removed from an existing infrastructure with minimum change (only one ingress needs to be updated).
+This example uses a NAT64 proxy for the ingress controller to translate external traffic to either IPv4 or IPv6. It can be added to or removed from an existing infrastructure with minimum changes. Only one ingress needs to be updated.
 
-When establishing connection to the service, clients retrieve services' IP address from the closest DNS server where IPv6 is mapped with the AAAA record and IPv4 is mapped with the A record of the domain name. Closest DNS server can be Global DNS servers if clients are from the Internet, or Azure Private DNS Zone if clients are inside an Azure VNet with custom DNS resolution rule.
+When clients establish connections to the service, they get service IP addresses from the closest DNS server. The IPv6 value is mapped by using the AAAA record of the domain name. The IPv4 value is mapped by using the A record of the domain name. The closest DNS server can be Global DNS servers for clients from the internet. For clients inside an Azure virtual network with a custom DNS resolution rule, the closest server can be an Azure private DNS server.
 
-## Option 1 - AKS Services running IPv4
+### Option 1 - AKS Services running IPv4
 
-- **IPv4 traffic** (blue line) is directed to the corresponding services in the backend as following:
+- **IPv4 traffic** (blue line) is directed to the corresponding services in the virtual network as follows:
 
-  1\. Traffic from public internet or external network reaches IPv4 on Azure Standard Load Balancer.
+  1. Traffic from the public internet or external network reaches IPv4 on Azure Standard Load Balancer.
 
-  2\. Load Balancer forwards traffic to AKS ingress dedicated for IPv4 traffic.
+  2. The Load Balancer forwards traffic to the AKS ingress dedicated for IPv4 traffic.
 
-  3\. AKS Ingress acts as a reverse proxy to direct traffic to Kubernetes Service.
+  3. The AKS ingress acts as a reverse proxy to direct traffic to a Kubernetes service.
 
-  4\. Each Kubernetes Service distributes traffic to its application.
+  4. Each Kubernetes service distributes traffic to its application.
 
-  5\. Applications can store and retrieve data from Azure storage services securely inside Azure infrastructure.
+  5. Applications can store and retrieve data from Azure storage services securely in the Azure infrastructure.
   
-  6\. Applications' images can be pulled fast and securely from Azure Container Registry.
+  6. Application images can be pulled quickly and securely from an Azure Container Registry.
 
-- **IPv6 traffic** (orange line) is routed as following:
+- **IPv6 traffic** (orange line) is routed as follows:
 
-  1a. IPv6 reached IPv6 on Azure Standard Load Balancer.
+  1a. IPv6 reaches the IPv6 option on the Azure Standard Load Balancer.
 
-  1b. Load Balancer forwards traffic to IPv6 Ingress where it is translated to IPv4 through NAT64. This can be done with ingress like Nginx.
-      
-  1c. IPv6 ingress directs traffic to the IPv4 address. It is, now, IPv4 traffic with additional metadata like IPv6 source address if needed. 
+  1b. The Load Balancer forwards traffic to the IPv6 ingress where it's translated to IPv4 through NAT64. You can use a server like Nginx for this translation.
+
+  1c. The IPv6 ingress directs traffic to the IPv4 address. It's now IPv4 traffic with more metadata, including thee IPv6 source address.
   
   2-6. The dataflow from 2 to 6 is the same in IPv4 flow.
 
-## Option 2 - AKS Services running IPv6  
+### Option 2 - AKS Services running IPv6  
 
 Alternatively, AKS main traffic can run on top of IPv6, and IPv4 ingress serves as NAT46 proxy.
 
 # Components
 
-The architecture consists of the following components:
+The example consists of the following components:
 
-**Dual-stack** [Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service, and you only need to manage the agent nodes. Dual-stack AKS needs to run on Dual-stack Azure Virtual Network.
+- **Dual-stack** [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service. You only manage the agent nodes. Dual-stack AKS needs to run on a dual-stack Azure Virtual Network.
 
-**Dual-stack** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides highly secure virtual network environments on top of Azure infrastructure. By default, Azure Virtual Network supports IPv4 only, users need to enable IPv6 as one step in the deployment process.
+- **Dual-stack** [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides highly secure virtual network environments on Azure infrastructure. By default, Azure Virtual Network supports IPv4 only. Enable IPv6 in the deployment process.
 
-[Azure Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) filters traffic between Azure resources in an Azure virtual network.
+- [Azure Network Security Group](/azure/virtual-network/network-security-groups-overview) filters traffic between Azure resources in an Azure virtual network.
 
-[Azure DNS Zone](https://learn.microsoft.com/en-us/azure/dns/dns-zones-records) provides domain name resolution service for clients. Either IPv4 or IPv6 clients can connect to the same domain name without noticing any difference.
+- [Azure DNS](https://azure.microsoft.com/products/dns) zones provide domain name resolution service for clients. Both IPv4 or IPv6 clients can connect to the same domain name without noticing any difference.
 
-[Azure Standard Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) and [Azure Network Interface](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal) are automatically created by AKS after Kubernetes's ingresses are deployed.
+- [Azure Standard Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) and [Azure Network Interface](/azure/virtual-network/virtual-network-network-interface) are automatically created by AKS after Kubernetes's ingresses are deployed.
 
-[Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro) stores private container images that can be run in the AKS cluster.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores private container images that can be run in the AKS cluster.
 
-[Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and manages security keys for AKS services.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and manages security keys for AKS services.
 
-# Alternatives
+## Alternatives
 
-Another approach is for each functional service, there should be 1 IPv6 AKS Service listening to IPv6 Ingress, and 1 IPv4 AKS Service listening o IPv4 Ingress. This helps avoid a NAT64 hop for IPv6 traffic and vice versa.
+Another approach is to separate each functional service. There's one IPv6 AKS service listening to IPv6 ingress and one IPv4 AKS Service listening to IPv4 ingress. This approach helps avoid a NAT64 hop for IPv6 traffic and vice versa.
 
-This approach feels more like natural K8S and better performance. However, when using in a microservice architecture with lots of services, it doesn't provide good code maintenance since each service is duplicated while the first approach can armotize the performance hit via persistent connections. 
+This approach seems more like a natural Kubernetes approach that offers better performance. However, if you use this approach in a microservice architecture with lots of services, it doesn't provide good code maintenance. Each service is duplicated. The main approach can distribute the performance hit by using persistent connections.
 
-And when AKS can fully support dual-stack at service layer, users just need to remap only IPv6 ingress in the first approach while the latter approach will need more maintenance effort.
+And when AKS can fully support dual-stack at the service layer, you can just remap only IPv6 ingress in the main approach while the alternative approach needs more maintenance.
 
-# Considerations
+## Potential use cases
 
-[Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/) should be incorporated while designing your own solution. 
+IPv6 enables direct node-to-node addressing, which improves connectivity, eases connection management, and reduces routing overhead. These capabilities are useful to enable Internet of Things in the following industries:
 
-## Reliability
+- Automotive
+- Energy
+- Healthcare
+- Manufacturing
+- Telecommunications
 
-[Reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview) of a system is the capability to recover from failures while ensuring system availability.
+## Scenario details
 
-Consider having AKS deployed across [availability zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones), which help protect applications against planned maintenance events and unplanned outages.
+Due to IPv4 address exhaustion, IPv6 was introduced in 1995 and became an Internet Standard in 2017. It's estimated that more than 50 percent of traffic in the United States is over IPv6. The IPv4 and IPv6 protocols aren't compatible. Your infrastructure runs on either an IPv4 network or an IPv6 network. This example workload describes several configurations to run dual-stack networking in the Azure Kubernetes Service (AKS). For more information, see [Dual-stack kubenet networking](/azure/aks/configure-kubenet-dual-stack).
 
-Azure offers 3 availability zones for each supported region. Running AKS in at least 2 of them, and each application has at least 2 pods spreading across zones will ensure if one zone is offline, the other can still serve end-users without any disruption.
+Due to current [limitations](/azure/aks/configure-kubenet-dual-stack#expose-the-workload-via-a-loadbalancer-type-service), traffic has to be proxied to the same IP version before processing. Configure ingress as `externalTrafficPolicy: Local`. Once the limitations are addressed, an AKS service can be created with the mode `RequireDualStack` or `PreferDualStack`. Each Kubernetes service can handle dual-stack traffic.
 
-If customer want to have even better resilience, [multi-regions AKS can be considered](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster), where each region will also support dual-stack networking.
+After your [Azure Application Gateway](/azure/application-gateway/overview-v2) supports dual-stack networking, an HTTP client can use it in place of a standard load balancer. This configuration benefits from the gateway's [Azure Web Application Firewall](/azure/web-application-firewall/afds/waf-front-door-create-portal) and simplifies the deployment.
 
-## Security
+This article focuses on enabling dual-stack IP addresses for your network infrastructure. You should be familiar with the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), a starting point for AKS infrastructure. The AKS baseline describes features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/security/overview).
+## Considerations
 
-Azure also provides [end-to-end secure pipeline](https://learn.microsoft.com/en-us/azure/aks/concepts-security) from build to application workloads running AKS.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Besides, users can leverage Azure Firewall, Azure Network Security Group, and Azure WAF to enhance network security across network layers.
+### Reliability
 
-## Cost Optimization
+The *reliability* of a system is the ability to recover from failures while ensuring system availability.
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/cost/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This dualstack-network AKS architecture helps to absorb the cost of handling IPv6 traffic to the existing infrastructure by having IPv6 ingress deployed on the same AKS without any changes to current setup. It means customers do not pay extra money for IPv6 traffic handler. This shows significant impact when customer's workloads run in multi availability zones or multi regions.
+Consider deploying AKS across [availability zones](/azure/aks/availability-zones), which help protect applications against planned maintenance events and unplanned outages.
 
-## Operational Excellence
+Azure offers three availability zones for each supported region. Run AKS in at least two of them. If each application has at least two pods across zones, the solution ensures that, if one zone is offline, the other still serves end-users without disruption.
 
-Following guidance from [Operational Excellence](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/overview) pillar, the solution also works as a plugin to existing system. It means customer can add this change to support IPv6 traffic or disable it without affecting existing system. Last but not least, it can also be monitored by the existing mechanism applied to AKS without having extra infrastructure components to manage.
+If you want better resilience, consider [multi-regions AKS](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster), where each region also supports dual-stack networking.
 
-## Performance Efficiency
+### Security
 
-There are two advantages that the solution brings:
-- IPv6 and IPv4 traffic shares the same computing resources. Great resource resuability enables customers to scale the computing resources easier instead of dealing with IPv6 and IPv4 resources separately.
-- IPv6 and IPv4 ingresses are the gate to computing infrastructure. Each of them can scale independently which maximizes performance with optimal cost.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-# Potential Use Cases
+Azure also provides an [end-to-end security pipeline](/azure/aks/concepts-security) from build to application workloads running AKS.
 
-IPv6 enables direct node-to-node address which improves connectivity, eases connection management, and reduces routing overhead. These are extremely useful to enable Internet of Things in healthcare, manufacturing, energy, automotive, or telecommunication industries.
+You can also use [Azure Firewall](/azure/firewall/overview), [Azure Network Security Group](/azure/virtual-network/network-security-groups-overview), and [Azure Web Application Firewall](/azure/web-application-firewall/afds/waf-front-door-create-portal) to enhance network security across network layers.
 
-# Related Resources
-Microsoft learning:
-- [Protect AKS with Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service)
+### Cost optimization
 
-Relevant architectures:
-- [AKS baseline cluster](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [Microservices architecture on AKS](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
-- [Advanced microservices on AKS](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
-- [AKS baseline for multi-region cluster](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
-- [Build and deploy apps on AKS](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/devops-with-aks)
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+This dual-stack network AKS architecture helps to absorb the cost of handling IPv6 traffic to the existing infrastructure. IPv6 ingress is deployed on the same AKS without any changes to current configuration. You don't pay more for the IPv6 traffic handler. This approach has a significant effect when your workloads run in multiple availability zones or multiple regions.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+Following guidance from operational excellence pillar, the solution also works as a plugin to existing systems. You can add this solution to support IPv6 traffic or disable it without affecting your existing system. You can also monitor the solution by using the existing mechanism for AKS without managing extra infrastructure components.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+This solution offers two performance advantages:
+
+- IPv6 traffic and IPv4 traffic share the same computing resources. Resource reuse helps you scale the computing resources instead of dealing with IPv6 and IPv4 resources separately.
+- IPv6 and IPv4 ingresses can scale independently, which maximizes performance.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+[Andy Nguyen](https://www.linkedin.com/in/anh-nguyen-37150465) | Senior Software Engineer
+
+Other contributor:
+
+[Senthil Chandran](https://www.linkedin.com/in/senthilchandran) | Principal Software Engineering Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
+- [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro)
+- [Network security groups](/azure/virtual-network/network-security-groups-overview)
+- [Overview of DNS zones and records](/azure/dns/dns-zones-records)
+- [Protect AKS with Azure Firewall](/azure/firewall/protect-azure-kubernetes-service)
+- [Use dual-stack kubenet networking in Azure Kubernetes Service](/azure/aks/configure-kubenet-dual-stack)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+
+## Related resources
+
+- [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [AKS baseline for multi-region cluster](../../architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [Build and deploy apps on AKS](../apps/devops-with-aks.yml)
