@@ -57,7 +57,7 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 
 Alliance Access is one of the messaging interfaces that SWIFT offers for secure financial messaging.
 
-## Potential use cases
+### Potential use cases
 
 This solution is optimal for the finance industry.
 

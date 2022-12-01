@@ -41,7 +41,7 @@ You use RDP, with one of the preceding three connectivity approaches, to connect
 
 This solution requires two Azure subscriptions. One subscription contains the Alliance Lite2 AutoClient resources. The other subscription contains the resources to connect to SWIFT's network.
 
-## Potential use cases
+### Potential use cases
 
 This solution applies to:
 

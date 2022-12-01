@@ -79,7 +79,7 @@ This solution runs Alliance Connect Virtual in Azure for SWIFT's AMH. It's also 
 
 SWIFT's AMH is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. With [AMH](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-messaging-hub), financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT's AMH meets security and compliance standards that financial messaging requires.
 
-## Potential use cases
+### Potential use cases
 
 This solution is optimal for the finance industry.
 

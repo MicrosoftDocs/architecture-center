@@ -3,13 +3,6 @@
 
 This article provides an overview of deploying Alliance Cloud connectivity stack in Azure. 
 
-## Potential use cases
-
-This solution is targeted to:
-
-* Existing SWIFT customers who run SIL on premises and want to run Alliance Cloud in Azure.
-* New SWIFT customers who can benefit by deploying directly to Azure.
-
 ## Architecture
 
 :::image type="content" alt-text="Diagram that shows how to deploy Azure resources in a SWIFT Alliance Cloud solution." source="./media/swift-alliance-cloud-on-azure-architecture.png" lightbox="./media/swift-alliance-cloud-on-azure-architecture.png":::
@@ -74,7 +67,7 @@ This approach can be used for:
 * Migrating SWIFT connectivity from on-premises to Azure.
 * Establishing new SWIFT connectivity by using Azure.
 
-## Potential use cases
+### Potential use cases
 
 This solution is targeted to:
 

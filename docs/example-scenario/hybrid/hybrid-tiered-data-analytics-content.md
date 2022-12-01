@@ -48,7 +48,7 @@ The architecture described here is best exemplified by a distributed manufacturi
 
 This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
 
-## Potential use cases
+### Potential use cases
 
 This solution applies to large multi-branch manufacturing and logistics organizations that require:
 
