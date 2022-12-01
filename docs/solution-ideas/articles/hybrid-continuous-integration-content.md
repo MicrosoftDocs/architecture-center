@@ -26,7 +26,7 @@ This solution shows you how to build, test, and deploy an app that runs on multi
 
 Application deployment continuity, security, and reliability are essential to organizations and critical to development teams.
 
-Traditional apps often require refactored code to run in each target environment. For example, code that's written for a development environment must be rewritten for the test environment and then rewritten again for the production environment. The app must be updated, tested, and validated as it moves through each environment, which increases the cost and complexity of maintaining the app. The increased complexity and duplication also increases the risk of security issues and poor code quality.
+Traditional apps often require refactored code to run in each target environment. For example, code that's written for a development environment must be rewritten for the test environment and then rewritten again for the production environment. The app must be updated, tested, and validated as it moves through each environment, which increases the cost and complexity of maintaining the app. The increased complexity and duplication also increase the risk of security issues and poor code quality.
 
 This DevOps solution is intended to ensure consistency across deployments, regardless of the target environment. It shows you how to build, test, and deploy an app that runs on multiple clouds. The code for the app comes from a single location and deploys to multiple targets in development, test, and production environments in your local datacenter, private clouds, or the public cloud. Differences in environment are handled by changes to a configuration file, not by changes to the code.
 
