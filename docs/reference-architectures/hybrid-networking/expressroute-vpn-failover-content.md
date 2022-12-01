@@ -15,19 +15,12 @@ Note that if the ExpressRoute circuit is unavailable, the VPN route will only ha
 The architecture consists of the following components.
 
 - **On-premises network**. A private local-area network running within an organization.
-
-- **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
-
+- **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance can be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 - **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
-
 - **ExpressRoute virtual network gateway**. The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
-
 - **VPN virtual network gateway**. The VPN virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
-
 - **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
-
 - **Azure Virtual Network (VNet)**. Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet.
-
 - **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
 ## Recommendations
@@ -70,9 +63,9 @@ Follow the instructions in [Configure a hybrid network architecture with Azure a
 After you've established the virtual network gateway connections, test the environment as follows:
 
 1. Make sure you can connect from your on-premises network to your Azure VNet.
-2. Contact your provider to stop ExpressRoute connectivity for testing.
-3. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
-4. Contact your provider to reestablish ExpressRoute connectivity.
+1. Contact your provider to stop ExpressRoute connectivity for testing.
+1. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
+1. Contact your provider to reestablish ExpressRoute connectivity.
 
 ## Considerations
 
@@ -100,51 +93,43 @@ To deploy the solution, perform the following steps.
 
 1. Select the link below.
 
-    [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
-
+   [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
 1. Wait for the link to open in the Azure portal, then select the **Resource group** you would like to deploy these resources into or create a new resource group. The **Region** and **Location** will automatically change to match the resource group.
-
 1. Update the remaining fields if you would like to change the resource names, providers, SKU, or network IP addresses for your environment.
-
 1. Select **Review + create** and then **Create** to deploy these resources.
-
 1. Wait for the deployment to complete.
 
-    > [!NOTE]
-    > This template deployment only deploys the following resources:
-    >
-    > - Resource Group (if you create new)
-    > - ExpressRoute circuit
-    > - Virtual Network
-    > - ExpressRoute Virtual Network Gateway
-    >
-    > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration](/azure/expressroute/expressroute-howto-routing-portal-resource-manager). Once you have configured private peering successfully you can link the ExpressRoute Virtual Network Gateway to the circuit, see [Link virtual network to an ExpressRoute circuit](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
-
+   > [!NOTE]
+   > This template deployment only deploys the following resources:
+   >
+   > - Resource Group (if you create new)
+   > - ExpressRoute circuit
+   > - Virtual Network
+   > - ExpressRoute Virtual Network Gateway
+   >
+   > In order for you to successfully establish private peering connectivity from on-premises to the ExpressRoute circuit, you'll need to engage your service provider with the circuit service key. The service key can be found on the overview page of the ExpressRoute circuit resource. For more information on configuring your ExpressRoute circuit, see [Create or modify peering configuration](/azure/expressroute/expressroute-howto-routing-portal-resource-manager). Once you have configured private peering successfully you can link the ExpressRoute Virtual Network Gateway to the circuit, see [Link virtual network to an ExpressRoute circuit](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
-
 1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there's total failure at the peering location.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370/) | Senior Cloud Solution Architect
+- [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [ExpressRoute Documentation](/azure/expressroute/)
-* [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
-* [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking)
+- [ExpressRoute Documentation](/azure/expressroute)
+- [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
+- [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+- [Azure Networking Blog](https://azure.microsoft.com/blog/topics/networking)
 
 <!-- links -->
 
-[windows-vm-ra]: ../n-tier/n-tier-sql-server.yml
-[linux-vm-ra]: ../n-tier/n-tier-cassandra.yml
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [expressroute-prereq]: /azure/expressroute/expressroute-prerequisites

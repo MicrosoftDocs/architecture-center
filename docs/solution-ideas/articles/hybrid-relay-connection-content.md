@@ -2,8 +2,8 @@ This architecture uses Azure Relay Hybrid Connections to connect from Azure to e
 
 ## Architecture
 
-![Architecture diagram that demonstrates Azure Relay Hybrid Connections.](../media/hybrid-relay-connection.png)  
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-relay-connection.vsdx) of this architecture._
+![Architecture diagram that demonstrates Azure Relay Hybrid Connections.](../media/hybrid-relay-connection.png)
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-relay-connection.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -14,18 +14,18 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-relay-connecti
 
 ### Components
 
-* [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) broadens Azure to let you run apps in an on-premises environment and to deliver Azure services in your datacenter.
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Relay](/azure/azure-relay) enables you to securely expose services that run in your corporate network to the public cloud, without opening a port on your firewall, or making intrusive changes to your corporate network infrastructure.
-* [Azure Stack Hub Storage](/azure-stack/user/azure-stack-storage-overview) is a set of cloud storage services that are consistent with the services provided by Azure Storage. These services include blobs, tables, and queues.
-* [SQL databases on Azure Stack Hub](/azure-stack/operator/azure-stack-sql-resource-provider) is a SQL resource provider that offers SQL databases on Azure Stack Hub. First, you must install the resource provider and connect it to one or more SQL Server instances.
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) broadens Azure to let you run apps in an on-premises environment and to deliver Azure services in your datacenter.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)
+- [Azure Relay](/azure/azure-relay) enables you to securely expose services that run in your corporate network to the public cloud, without opening a port on your firewall, or making intrusive changes to your corporate network infrastructure.
+- [Azure Stack Hub Storage](/azure-stack/user/azure-stack-storage-overview) is a set of cloud storage services that are consistent with the services provided by Azure Storage. These services include blobs, tables, and queues.
+- [SQL databases on Azure Stack Hub](/azure-stack/operator/azure-stack-sql-resource-provider) is a SQL resource provider that offers SQL databases on Azure Stack Hub. First, you must install the resource provider and connect it to one or more SQL Server instances.
 
 ### Alternatives
 
 You need a secure integration between solution components in Azure and components hosted in Azure Stack Hub. This integration could be implemented using network-level integration technologies, such as VPN (Virtual Private Network) and Azure ExpressRoute. Azure Relay is less intrusive and can be scoped to a single application endpoint on a single machine.
 
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
-* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute)
+- [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway)
 
 ## Scenario details
 
@@ -55,15 +55,15 @@ This solution only allows for 1:1 port mappings on the client and server. For ex
 
 ## Next steps
 
-* See [Azure Relay](/azure/azure-relay) to learn more about the Azure Relay service.
-* See [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections).
-* See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about the recommended best practices.
-* See the [Azure Stack family of products and solutions](/azure-stack) to learn more about the entire portfolio of products and solutions.
-* See the [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/development-kit) (ASDK). The ASDK is a single-node deployment of Azure Stack Hub that you can download and use for free. All ASDK components are installed in virtual machines (VMs) that run on a single host computer that must meet or exceed the minimum hardware requirements. The ASDK is meant to provide an environment in which you can evaluate Azure Stack Hub and develop modern apps, by using APIs and tooling that are consistent with Azure in a non-production environment. When you're ready to test the solution example, continue with the [Hybrid relay solution deployment guide](https://aka.ms/hybridrelaydeployment). The deployment guide provides step-by-step instructions for deploying and testing its components.
+- See [Azure Relay](/azure/azure-relay) to learn more about the Azure Relay service.
+- See [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections).
+- See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about the recommended best practices.
+- See the [Azure Stack family of products and solutions](/azure-stack) to learn more about the entire portfolio of products and solutions.
+- See the [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/development-kit) (ASDK). The ASDK is a single-node deployment of Azure Stack Hub that you can download and use for free. All ASDK components are installed in virtual machines (VMs) that run on a single host computer that must meet or exceed the minimum hardware requirements. The ASDK is meant to provide an environment in which you can evaluate Azure Stack Hub and develop modern apps, by using APIs and tooling that are consistent with Azure in a non-production environment. When you're ready to test the solution example, continue with the [Hybrid relay solution deployment guide](https://aka.ms/hybridrelaydeployment). The deployment guide provides step-by-step instructions for deploying and testing its components.
 
 ## Related resources
 
-* [Security in a hybrid workload](/azure/architecture/framework/hybrid/hybrid-security)
-* [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-* [Hybrid connections](hybrid-connectivity.yml)
-* [Network topology and connectivity overview in Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)
+- [Security in a hybrid workload](/azure/architecture/framework/hybrid/hybrid-security)
+- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
+- [Hybrid connections](hybrid-connectivity.yml)
+- [Network topology and connectivity overview in Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)
