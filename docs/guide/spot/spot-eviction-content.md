@@ -111,7 +111,7 @@ With system-assigned managed identities, a new spot VM might get a different acc
 
 ## Example scenario
 
-We built an example scenario for Spot VMs. It deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. Below we is an diagram of the architecture and details about its components.
+The example scenario deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. Below we is an diagram of the architecture and details about its components.
 
 [![Diagram of the example scenario architecture](./media/spot-vm-arch.png)](./media/spot-vm-arch.png)
 
