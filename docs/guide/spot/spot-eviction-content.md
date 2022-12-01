@@ -70,8 +70,8 @@ Below we've outlined recommendations to help you create a flexible orchestration
 
 | Policy | When |
 | --- | --- |
-| Delete | - ephemeral compute and data <br> - don't want to pay for data disks <br> - minimal budget|
-| Stopped/Deallocated | - need a specific VM size <br> - infinite wait time <br> - can't change location <br> - not driven by cost savings alone <br> - long installation process |
+| Delete | Ephemeral compute and data <br> - Don't want to pay for data disks <br> - Minimal budget|
+| Stopped/Deallocated | - Need a specific VM size <br> - Indefinite wait time <br> - Can't change location <br> - Not driven by cost savings alone <br> - Long application installation process |
 
 **(4) Continuously monitor for eviction.** Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is to anticipate when they're going to be evicted. With this information, you could attempt a workload graceful shutdown and trigger automation that orchestrates the replacement.
 
