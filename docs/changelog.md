@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 11/14/2022
+ms.date: 11/28/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,7 +26,15 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Enterprise integration with message broker and events](./example-scenario/integration/queues-events.yml)
 - [Eventual consistency between multiple Power Apps instances](./guide/power-platform/eventual-consistency.yml)
+- [Mission-critical baseline architecture in an Azure landing zone](./reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml)
+- [Use Private Link to access applications on networks with overlapping address spaces](./guide/networking/private-link-ip-constraints.yml)
+- [Measure Azure app sustainability by using the SCI score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml)
+- [High-performance computing (HPC) deployments](./guide/hpc/hpc-deployments.md)
+- [Create an Azure private 5G split core shop floor network](./solution-ideas/articles/private-network-split-core-manufacture.yml)
+- [Location-based access control for FSI applications](./example-scenario/financial/location-based-access.yml)
+- [Migrate mainframe data tier to Azure with mLogica LIBER*IRIS](./example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml)
 - [Azure Service Bus considerations for multitenancy](./guide/multitenant/service/service-bus.md)
 - [IoT solution to Azure IoT migration best practices](./guide/iot/azure-iot-migration-best-practices.md)
 - [Migrate your IoT solutions to Azure](./guide/iot/migrate-iot-solution-azure.yml)
@@ -49,6 +57,61 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region.yml)  ([#035b9c0c8](https://github.com/MicrosoftDocs/architecture-center/commit/035b9c0c8))
+- [SQL Managed Instance with CMK](./example-scenario/data/sql-managed-instance-cmk.yml)  ([#672c83edb](https://github.com/MicrosoftDocs/architecture-center/commit/672c83edb))
+- [Migrate master data services to Azure with CluedIn and Azure Purview](./reference-architectures/data/migrate-master-data-services-with-cluedin.yml)  ([#b7ec0479c](https://github.com/MicrosoftDocs/architecture-center/commit/b7ec0479c))
+- [IaaS: Web app with relational database](./high-availability/ref-arch-iaas-web-and-db.yml)  ([#661983d44](https://github.com/MicrosoftDocs/architecture-center/commit/661983d44))
+- [Optimized storage with logical data classification](./solution-ideas/articles/optimized-storage-logical-data-classification.yml)  ([#c10e1741f](https://github.com/MicrosoftDocs/architecture-center/commit/c10e1741f))
+- [Azure Files secured by AD DS](./example-scenario/hybrid/azure-files-on-premises-authentication.yml)  ([#4b64dddf0](https://github.com/MicrosoftDocs/architecture-center/commit/4b64dddf0))
+- [Cross-cloud scaling - on-premises data](./example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml)  ([#4b64dddf0](https://github.com/MicrosoftDocs/architecture-center/commit/4b64dddf0))
+- [Run a Jenkins server on Azure](./example-scenario/apps/jenkins.yml)  ([#c06269477](https://github.com/MicrosoftDocs/architecture-center/commit/c06269477))
+- [Retail and e-commerce using Azure Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#25722ea26](https://github.com/MicrosoftDocs/architecture-center/commit/25722ea26))
+- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#59c4fda51](https://github.com/MicrosoftDocs/architecture-center/commit/59c4fda51))
+- [Computer-aided engineering](./example-scenario/apps/hpc-saas.yml)  ([#194a15b5c](https://github.com/MicrosoftDocs/architecture-center/commit/194a15b5c))
+- [Run a Windows VM on Azure](./reference-architectures/n-tier/windows-vm.yml)  ([#3b49acff9](https://github.com/MicrosoftDocs/architecture-center/commit/3b49acff9))
+- [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#4604d1c3a](https://github.com/MicrosoftDocs/architecture-center/commit/4604d1c3a))
+- [SAS on Azure architecture](./guide/sas/sas-overview.yml)  ([#0ac04d035](https://github.com/MicrosoftDocs/architecture-center/commit/0ac04d035))
+- [Multicloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)  ([#710b8d066](https://github.com/MicrosoftDocs/architecture-center/commit/710b8d066))
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)  ([#6f12c7244](https://github.com/MicrosoftDocs/architecture-center/commit/6f12c7244))
+- [Batch scoring with R models to forecast sales](./reference-architectures/ai/batch-scoring-R-models.yml)  ([#83e769b13](https://github.com/MicrosoftDocs/architecture-center/commit/83e769b13))
+- [Batch scoring of Spark models on Azure Databricks](./reference-architectures/ai/batch-scoring-databricks.yml)  ([#c458af10e](https://github.com/MicrosoftDocs/architecture-center/commit/c458af10e))
+- [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#cb6f85663](https://github.com/MicrosoftDocs/architecture-center/commit/cb6f85663))
+- [Build a real-time recommendation API on Azure](./reference-architectures/ai/real-time-recommendation.yml)  ([#6029a318a](https://github.com/MicrosoftDocs/architecture-center/commit/6029a318a))
+- [Real-time scoring of R ML models](./reference-architectures/ai/realtime-scoring-r.yml)  ([#3a6d1de4d](https://github.com/MicrosoftDocs/architecture-center/commit/3a6d1de4d))
+- [Real-time scoring of machine learning models](./reference-architectures/ai/real-time-scoring-machine-learning-models.yml)  ([#839671ff7](https://github.com/MicrosoftDocs/architecture-center/commit/839671ff7))
+- [Manage and deploy Kubernetes in Azure Arc](./hybrid/arc-hybrid-kubernetes.yml)  ([#9a75bdc11](https://github.com/MicrosoftDocs/architecture-center/commit/9a75bdc11))
+- [Back up files and apps on Azure Stack Hub](./hybrid/azure-stack-backup.yml)  ([#9a75bdc11](https://github.com/MicrosoftDocs/architecture-center/commit/9a75bdc11))
+- [Run containers in a hybrid environment](./hybrid/hybrid-containers.yml)  ([#9a75bdc11](https://github.com/MicrosoftDocs/architecture-center/commit/9a75bdc11))
+- [Hybrid file services](./hybrid/hybrid-file-services.yml)  ([#9a75bdc11](https://github.com/MicrosoftDocs/architecture-center/commit/9a75bdc11))
+- [Data science using Spark on Azure HDInsight](./data-science-process/spark-overview.md)  ([#16100b582](https://github.com/MicrosoftDocs/architecture-center/commit/16100b582))
+- [Feature engineering in machine learning](./data-science-process/create-features.md)  ([#e804b6a8c](https://github.com/MicrosoftDocs/architecture-center/commit/e804b6a8c))
+- [Extract actionable insights from IoT data](./industries/manufacturing/extract-insights-iot-data.yml)  ([#dc41086aa](https://github.com/MicrosoftDocs/architecture-center/commit/dc41086aa))
+- [Anomaly detector process in near-real-time](./solution-ideas/articles/anomaly-detector-process.yml)  ([#fa1676475](https://github.com/MicrosoftDocs/architecture-center/commit/fa1676475))
+- [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)  ([#1130f08dc](https://github.com/MicrosoftDocs/architecture-center/commit/1130f08dc))
+- [Scalable data science with Azure Data Lake](./data-science-process/data-lake-walkthrough.md)  ([#20f37dd54](https://github.com/MicrosoftDocs/architecture-center/commit/20f37dd54))
+- [Deploy ML models in production](./data-science-process/deploy-models-in-production.md)  ([#553bde3e3](https://github.com/MicrosoftDocs/architecture-center/commit/553bde3e3))
+- [Create features for data in an Azure HDInsight Hadoop cluster](./data-science-process/create-features-hive.md)  ([#56a275ac9](https://github.com/MicrosoftDocs/architecture-center/commit/56a275ac9))
+- [Process Azure Blob Storage data with advanced analytics](./data-science-process/data-blob.md)  ([#b8b0f57fd](https://github.com/MicrosoftDocs/architecture-center/commit/b8b0f57fd))
+- [Process data in a SQL Server virtual machine on Azure](./data-science-process/sql-server-virtual-machine.md)  ([#0a4d6729f](https://github.com/MicrosoftDocs/architecture-center/commit/0a4d6729f))
+- [Azure Machine Learning data pipeline cheat sheet](./data-science-process/automated-data-pipeline-cheat-sheet.md)  ([#8897597be](https://github.com/MicrosoftDocs/architecture-center/commit/8897597be))
+- [Data Science using Scala and Spark on Azure](./data-science-process/scala-walkthrough.md)  ([#26f86875c](https://github.com/MicrosoftDocs/architecture-center/commit/26f86875c))
+- [Create features in SQL Server using SQL and Python](./data-science-process/create-features-sql-server.md)  ([#711138249](https://github.com/MicrosoftDocs/architecture-center/commit/711138249))
+- [Feature selection in the Team Data Science Process](./data-science-process/select-features.md)  ([#5156fa00d](https://github.com/MicrosoftDocs/architecture-center/commit/5156fa00d))
+- [Edge Workload Configuration pattern](./patterns/edge-workload-configuration.md)  ([#116868aa9](https://github.com/MicrosoftDocs/architecture-center/commit/116868aa9))
+- [Operations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-operations.md)  ([#56add1b43](https://github.com/MicrosoftDocs/architecture-center/commit/56add1b43))
+- [Azure API Management landing zone accelerator](./example-scenario/integration/app-gateway-internal-api-management-function.yml)  ([#5f1e9190f](https://github.com/MicrosoftDocs/architecture-center/commit/5f1e9190f))
+- [Access datasets with Python client library](./data-science-process/python-data-access.md)  ([#2c945894b](https://github.com/MicrosoftDocs/architecture-center/commit/2c945894b))
+- [Web application monitoring on Azure](./reference-architectures/app-service-web-app/app-monitoring.yml)  ([#5cf17feef](https://github.com/MicrosoftDocs/architecture-center/commit/5cf17feef))
+- [Explore data in the Team Data Science Process](./data-science-process/explore-data.md)  ([#6e9bb2998](https://github.com/MicrosoftDocs/architecture-center/commit/6e9bb2998))
+- [Sample data in different Azure Storage locations](./data-science-process/sample-data.md)  ([#071c4a48d](https://github.com/MicrosoftDocs/architecture-center/commit/071c4a48d))
+- [Explore data in Azure Blob storage with pandas](./data-science-process/explore-data-blob.md)  ([#b52a29f4f](https://github.com/MicrosoftDocs/architecture-center/commit/b52a29f4f))
+- [SQL Server data to SQL Database with Azure Data Factory](./data-science-process/move-sql-azure-adf.md)  ([#8ee449474](https://github.com/MicrosoftDocs/architecture-center/commit/8ee449474))
+- [Sample data in Azure Blob storage](./data-science-process/sample-data-blob.md)  ([#c174f8287](https://github.com/MicrosoftDocs/architecture-center/commit/c174f8287))
+- [Prepare data for ML Studio (classic)](./data-science-process/prepare-data.md)  ([#088ac5c5a](https://github.com/MicrosoftDocs/architecture-center/commit/088ac5c5a))
+- [Explore data in a SQL Server virtual machine](./data-science-process/explore-data-sql-server.md)  ([#0a877a134](https://github.com/MicrosoftDocs/architecture-center/commit/0a877a134))
+- [Explore data in Hive tables with Hive queries](./data-science-process/explore-data-hive-tables.md)  ([#3a62e4955](https://github.com/MicrosoftDocs/architecture-center/commit/3a62e4955))
+- [Sample data in SQL Server on Azure](./data-science-process/sample-data-sql-server.md)  ([#72d303ba7](https://github.com/MicrosoftDocs/architecture-center/commit/72d303ba7))
+- [Sample data in Azure HDInsight Hive tables](./data-science-process/sample-data-hive.md)  ([#79f5128aa](https://github.com/MicrosoftDocs/architecture-center/commit/79f5128aa))
 - [Set up data science environments in Azure](./data-science-process/environment-setup.md)  ([#7aa65d565](https://github.com/MicrosoftDocs/architecture-center/commit/7aa65d565))
 - [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#91b452e05](https://github.com/MicrosoftDocs/architecture-center/commit/91b452e05))
 - [Create Hive tables and load data from Blob storage](./data-science-process/move-hive-tables.md)  ([#34cec9e85](https://github.com/MicrosoftDocs/architecture-center/commit/34cec9e85))
@@ -107,7 +170,6 @@ The following new and updated articles have recently been published in the Azure
 - [Machine learning in IoT Edge Vision](./guide/iot-edge-vision/machine-learning.yml)  ([#8dcc28ed8](https://github.com/MicrosoftDocs/architecture-center/commit/8dcc28ed8))
 - [Image storage in IoT Edge vision AI](./guide/iot-edge-vision/image-storage.md)  ([#2036d8a4f](https://github.com/MicrosoftDocs/architecture-center/commit/2036d8a4f))
 - [Azure industrial IoT guidance](./guide/iiot-guidance/iiot-architecture.yml)  ([#3c75a6eab](https://github.com/MicrosoftDocs/architecture-center/commit/3c75a6eab))
-- [SAS on Azure architecture](./guide/sas/sas-overview.yml)  ([#fe39488ff](https://github.com/MicrosoftDocs/architecture-center/commit/fe39488ff))
 
 ## October 2022
 
@@ -477,6 +539,8 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
 - [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
 - [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Rehost IMS workloads to virtual machines by using IMSql](./example-scenario/mainframe/imsql-rehost-ims.yml)
+- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)
 
 ### Updated articles
 
@@ -499,4 +563,6 @@ The following new and updated articles have recently been published in the Azure
 - [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
 - [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
+- [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
+- [Secure your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
 

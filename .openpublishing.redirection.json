@@ -2492,9 +2492,20 @@
       "redirect_url": "/azure/cloud-adoption-framework/migrate",
       "redirect_document_id": false
     },
-    {"source_path": "docs/reference-architectures/app-service-web-app/multi-region-experiment.yml",
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/multi-region-experiment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region-webapp",
       "redirect_document_id": false
-  }
+  },
+  {
+    "source_path": "docs/reference-architectures/enterprise-integration/queues-events.yml",
+    "redirect_url": "/azure/architecture/example-scenario/integration/queues-events",
+    "redirect_document_id": true
+  },
+  {
+    "source_path": "docs/example-scenario/apps/devops-dotnet-webapp.yml",
+    "redirect_url": "/azure/architecture/example-scenario/apps/devops-dotnet-baseline",
+    "redirect_document_id": false
+  }   
   ]
 }

@@ -72,17 +72,17 @@ Azure offers many managed data storage solutions (5):
 
 - Databases:
 
-  - Azure SQL Database
-  - Azure Database for PostgreSQL
-  - Azure Cosmos DB
-  - Azure Database for MySQL
-  - Azure Database for MariaDB
-  - Azure SQL Managed Instance
+  - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+  - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
+  - [Azure Cosmos DB][Welcome to Azure Cosmos DB]
+  - [Azure Database for MySQL][What is Azure Database for MySQL?]
+  - [Azure Database for MariaDB][Azure Database for MariaDB documentation]
+  - [Azure SQL Managed Instance][What is Azure SQL Managed Instance?]
 
 - Storage:
 
-  - Azure Data Lake Storage
-  - Azure Storage
+  - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+  - [Azure Storage][Azure Storage]
 
 #### Data tier
 
@@ -93,6 +93,42 @@ Azure offers many managed data storage solutions (5):
 ### Components
 
 The solution uses the following components.
+
+#### Data store
+
+- [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL family][Azure SQL] and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
+
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
+
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a globally distributed, [multi-model][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
+
+- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
+
+- [Azure Database for MariaDB](https://azure.microsoft.com/products/mariadb) is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
+
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance)  is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
+
+- [Azure Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
+
+- [Azure Storage](https://azure.microsoft.com/products/category/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
+
+#### Networking
+
+- An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
+
+- [Azure VMs][Azure virtual machines] are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+
+#### Data integrators
+
+- [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
+
+- [AzCopy][Get started with AzCopy] is a command-line utility that moves blobs or files into and out of storage accounts.
+
+- [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to solve complex business problems by:
+  - Copying or downloading files
+  - Loading data warehouses
+  - Cleansing and mining data
+  - Managing SQL Server objects and data
 
 #### Tools
 
@@ -112,42 +148,6 @@ The solution uses the following components.
   - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM z series Mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
 
 - [Azure Services][Azure Services overview] provide environments, tools, and processes for developing and scaling new applications in the public cloud.
-
-#### Data integrators
-
-- [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
-
-- [AzCopy][Get started with AzCopy] is a command-line utility that moves blobs or files into and out of storage accounts.
-
-- [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to solve complex business problems by:
-  - Copying or downloading files
-  - Loading data warehouses
-  - Cleansing and mining data
-  - Managing SQL Server objects and data
-
-#### Data store
-
-- [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL family][Azure SQL] and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
-
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
-
-- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a globally distributed, [multi-model][The rise of the multimodel database] database. With Azure Cosmos DB, your solutions can elastically and independently scale throughput and storage across any number of geographic regions. This fully managed [NoSQL][What is NoSQL? Databases for a cloud-scale future] database service guarantees single-digit millisecond latencies at the ninety-ninth percentile anywhere in the world.
-
-- [Azure Database for MySQL][What is Azure Database for MySQL?] is a fully managed relational database service based on the [community edition of the open-source MySQL database engine][MySQL Community Edition].
-
-- [Azure Database for MariaDB][Azure Database for MariaDB documentation] is a cloud-based relational database service. This service is based on the [MariaDB][MariaDB] community edition database engine.
-
-- [Azure SQL Managed Instance][What is Azure SQL Managed Instance?] is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
-
-- [Azure Data Lake Storage][Azure Data Lake Storage] is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
-
-- [Azure Storage][Azure Storage] is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
-
-#### Networking
-
-- An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
-
-- [Azure VMs][Azure virtual machines] are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 ## Recommendations
 
@@ -200,8 +200,14 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 
 ## Next steps
 
-- Contact [Azure Data Engineering - Mainframe &amp; Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
-- Read the [Migration guide][Migration guide].
+Read the [Migration guide][Migration guide]. Contact [Azure Data Engineering - Mainframe &amp; Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
+
+The following articles might be useful:
+
+- [IBM workloads on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/ibm/get-started)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Mainframe workloads supported on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/partner-workloads)
+- [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
 ## Related resources
 

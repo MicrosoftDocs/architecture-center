@@ -61,6 +61,8 @@ items:
             href: guide/design-principles/design-for-evolution.md
           - name: Build for the needs of business
             href: guide/design-principles/build-for-business.md
+          - name: Resiliency checklist for services
+            href: checklist/resiliency-per-service.md
       - name: Technology choices
         items:
           - name: Overview
@@ -374,6 +376,8 @@ items:
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
             - name: Mission-critical baseline with network controls
               href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
+            - name: Mission-critical baseline architecture in Azure landing zones
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
             - name: Design areas
               items:
                 - name: Application platform
@@ -1935,6 +1939,10 @@ items:
               - name: ITAR
                 href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
+          - name: Solution ideas
+            items:
+              - name: Azure 5G split core shop floor network
+                href: solution-ideas/articles/private-network-split-core-manufacture.yml
       - name: Energy and Environment
         items:
           - name: Overview
@@ -2563,6 +2571,8 @@ items:
                         href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
                   - name: Movie recommendations on Azure
                     href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+                  - name: Real-time monitoring and observable systems for media
+                    href: example-scenario/monitoring/monitoring-observable-systems-media.yml
               - name: Datasets
                 items:
                   - name: Microsoft News recommendation
@@ -2796,9 +2806,6 @@ items:
                 items:
                   - name: Fan Engagement solution
                     href: /dynamics365/industry/accelerators/fan-engagement
-                    maintainContext: true
-                  - name: Analyze sports with vision AI
-                    href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
                     maintainContext: true
               - name: Architectures
                 items: 
@@ -3463,8 +3470,10 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: SAS Grid on Azure NetApp Files
                 href: guide/hpc/netapp-files-sas.yml
-              - name: HPC deployments 
+              - name: HPC deployments
                 items:
+                  - name: Overview
+                    href: guide/hpc/hpc-deployments.md 
                   - name: ADS CFD Code Leo
                     href: guide/hpc/hpc-ads-cfd.yml 
                   - name: Altair deployments
@@ -4291,6 +4300,8 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Measure Azure app sustainability
+                href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
@@ -4603,7 +4614,7 @@ items:
               - name: CI/CD pipeline for chatbots with ARM
                 href: example-scenario/apps/devops-cicd-chatbot.yml
               - name: CI/CD pipeline using Azure DevOps
-                href: example-scenario/apps/devops-dotnet-webapp.yml
+                href: example-scenario/apps/devops-dotnet-baseline.yml
               - name: DevSecOps in GitHub
                 href: solution-ideas/articles/devsecops-in-github.yml
               - name: Enterprise monitoring with Azure Monitor
@@ -5073,7 +5084,7 @@ items:
               - name: Disaster recovery for data analytics pipelines
                 href: example-scenario/analytics/pipelines-disaster-recovery.yml
               - name: Enterprise integration - queues and events
-                href: reference-architectures/enterprise-integration/queues-events.yml
+                href: example-scenario/integration/queues-events.yml
               - name: On-premises data gateway for Logic Apps
                 href: hybrid/gateway-logic-apps.yml
               - name: Power Automate deployment at scale
@@ -5340,7 +5351,7 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
-                  - name: Migrate mainframe workflows to Azure with mLogica LIBER*IRIS
+                  - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
                     href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
@@ -5537,6 +5548,8 @@ items:
                         href: reference-architectures/media-services/maintain-keys.yml
                       - name: Test Media Services V3 encoding
                         href: reference-architectures/media-services/test-encoding.yml
+              - name: Real-time monitoring and observable systems for media
+                href: example-scenario/monitoring/monitoring-observable-systems-media.yml
           - name: Solution ideas
             items:
               - name: HPC media rendering
@@ -5918,6 +5931,8 @@ items:
               - name: Connectivity to Oracle Cloud Infrastructure
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
                 maintainContext: true
+              - name: Resolve overlapping IP address space constraints 
+                href: guide/networking/private-link-ip-constraints.yml
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver

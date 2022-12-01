@@ -8,6 +8,8 @@ This reference architecture shows a microservices architecture deployed to Azure
 
 ![Diagram showing the Service Fabric reference architecture.](./_images/ra-sf-arch.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-service-fabric.vsdx) of this architecture.*
+
 > [!NOTE]
 > This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
 
@@ -447,7 +449,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
 

@@ -227,11 +227,10 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Resources
+## Next steps
 
-[Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
-
-[SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+- [Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
+- [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
 [2]: ./media/move-sql-server-virtual-machine/addsql-aud.png

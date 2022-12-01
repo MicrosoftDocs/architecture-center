@@ -19,6 +19,8 @@ Consider this scenario for the following use case:
 
 [![Diagram of Virtual Desktop Infrastructure architecture](./media/azure-citrix-sample-diagram.png "Architecture Diagram")](./media/azure-citrix-sample-diagram.png#lightbox)
 
+### Workflow
+
 This example scenario demonstrates allowing the corporate network to access the Linux Virtual Desktops:
 
 - An ExpressRoute is established between the on-premises environment and Azure, for fast and reliable connectivity to the cloud.
@@ -96,6 +98,8 @@ For deployment information, see the official [Citrix documentation](https://docs
 Principal author:
 
 * Miguel Angelo Pereira Dos Santos | Partner CCO HC Portugal
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

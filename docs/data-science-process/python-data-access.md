@@ -367,3 +367,13 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 <!-- Module References -->
 [convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
 [split]: /azure/machine-learning/studio-module-reference/split-data
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

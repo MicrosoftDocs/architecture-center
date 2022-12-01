@@ -24,7 +24,8 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
    Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
-*Download an [SVG file][DevSecOps in GitHub svg] of this architecture.*
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs that are equipped with required security scanning extensions.
@@ -70,7 +71,8 @@ When GitHub identifies a vulnerability, it takes the steps illustrated in the fo
 :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
     Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
 :::image-end:::
-*Download an [.svg][Vulnerability management in GitHub svg] of this diagram.*
+
+*Download a [Visio file][visio-download] of this diagram.*
 
 1. GitHub sends an email alert to the organization owners and repository administrators.
 1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:
@@ -158,7 +160,7 @@ Principal author:
 
 [Shift left]: https://devops.com/devops-shift-left-avoid-failure
 [Fail fast]: https://whatis.techtarget.com/definition/fail-fast
-[DevSecOps in GitHub svg]: ../media/devsecops-in-github.svg
+[visio-download]: https://arch-center.azureedge.net/devsecops-in-github.vsdx
 [Microsoft Authenticator]: /azure/active-directory/user-help/user-help-auth-app-overview
 [FIDO2 security keys]: /azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys
 [FIDO Alliance]: https://fidoalliance.org
@@ -188,7 +190,6 @@ Principal author:
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [Repository security advisories]: https://docs.github.com/en/code-security/repository-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
-[Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
 [Azure Well-Architected Framework]: /azure/architecture/framework/index
 [About billing for GitHub actions]: https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/actions/hosting-your-own-runners/about-self-hosted-runners

@@ -8,15 +8,15 @@ Migrating workloads from mainframe to Azure as a part of application replatformi
 
 The following diagram shows how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data to Azure at scale.
 
-:::image type="content" source="media/mlogica-mainframe-data-migration-architecture-inline.png" alt-text="Diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data." lightbox="media/mlogica-mainframe-data-migration-architecture-expanded.png" border="false":::
+[ ![Architecture diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data.](media/mlogica-mainframe-data-migration-architecture-inline.png)](media/mlogica-mainframe-data-migration-architecture-inline.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlogica-mainframe-data-migration-architecture.vsdx) of this architecture.*
 
-### Dataflow
+### Workflow
 
 The steps to migrate mainframe data to Azure are as follows:
 
-1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools. Use FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
+1. Copy data definition language (DDL) files, database description (DBD) files, copybooks, data layouts, and other data description artifacts to an Azure Linux virtual machine configured with the mLogica data migration service tools using FTPS over a secure Azure site-to-site virtual private network (VPN) or Azure ExpressRoute.
 2. The mLogica Liber*IRIS data migration cluster generates data extraction scripts to run on the mainframe.
 3. Use FTPS over the VPN to transfer the data extraction scripts to the mainframe. The FTPS connection converts ASCII to the mainframe EBCDIC format.
 4. The extracted scripts run on the mainframe. They export data from multiple sources into *sequential files*, where all packed decimal data is unpacked. They generate the SQL *load scripts* used to load the data into the target database.
@@ -156,6 +156,10 @@ Principal author:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
+Review the [Azure Database Migration Guides](https://learn.microsoft.com/data-migration).
+
+For more information, contact [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com).
 
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)

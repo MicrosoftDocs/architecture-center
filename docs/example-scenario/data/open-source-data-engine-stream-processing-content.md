@@ -29,6 +29,8 @@ This solution applies to various scenarios:
 
 Download a [Visio file][Visio version of architecture diagram] of this architecture.
 
+### Workflow
+
 1. The Event Hubs for Apache Kafka feature streams events from Kafka producers.
 
 1. Apache Spark consumes events. AKS provides a managed environment for the Apache Spark jobs.
