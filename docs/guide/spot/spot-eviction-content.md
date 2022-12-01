@@ -6,11 +6,11 @@ Here are our recommendations for architecting reliably interruptible workloads o
 
 ## Understand spot virtual machines
 
-At a technical level, spot VMs are the same as regular VMs. They use the same images, hardware, and disks that translate to the same performance. The difference between spot and regular VMs comes down to priority and availability. Spot VMs have a lower priority than regular VMs when it comes to access compute capacity and no availability guarantees after their creation. Let's discuss priority and availability in more detail.
+At a technical level, spot VMs are the same as regular VMs. They use the same images, hardware, and disks that translate to the same performance. The difference between spot and regular VMs comes down to priority and availability. Spot VMs have a lower priority than regular VMs when it comes to accessing compute capacity and no availability guarantees after their creation. Let's discuss priority and availability in more detail.
 
 **Low priority.** Spot VMs have low-priority access to compute capacity. Regular VMs have high-priority access to compute capacity. High-priority access means regular VMs can get compute capacity whenever they need it. Low-priority access means spot VMs only deploy when there's spare compute capacity, and they only stay running when a higher-priority VM doesn't need the underlying hardware.
 
-**No availability guarantee.** Spot VMs don't have any availability or up-time guarantees after you create them. They have no service-level agreements (SLAs). Spot VMs can lose access to compute capacity at any time (eviction). Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30 seconds advance notice before the actual eviction takes place. For more information, see continuously monitor for eviction below.
+**No availability guarantee.** Spot VMs don't have any availability or up-time guarantees after you create them. They have no service-level agreements (SLAs). Spot VMs can lose access to compute capacity at any time (eviction). Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30-seconds advance notice before the actual eviction takes place. For more information, see continuously monitor for eviction below.
 
 ## Understand spot virtual machine pricing
 
