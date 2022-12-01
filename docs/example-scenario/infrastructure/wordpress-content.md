@@ -1,15 +1,6 @@
 <!-- cSpell:ignore wordpress rsync CDNs -->
 
-This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Media events that cause traffic surges.
-- Blogs that use WordPress as their content management system.
-- Business or e-commerce websites that use WordPress.
-- Web sites built using other content management systems.
+Use [Azure Content Delivery Network](/azure/cdn/cdn-overview) and other Azure services to deploy a highly scalable and secure installation of WordPress.
 
 ## Architecture
 
@@ -20,10 +11,10 @@ Other relevant use cases include:
 This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
 
 1. Users access the front-end website through a CDN.
-2. The CDN uses an Azure load balancer as the origin, and pulls any data that isn't cached from there.
-3. The Azure load balancer distributes requests to the virtual machine scale sets of web servers.
-4. The WordPress application pulls any dynamic information out of the Maria DB clusters, all static content is hosted in Azure Files.
-5. SSL keys are stored Azure Key Vault.
+2. The CDN uses an [Azure load balancer](/azure/load-balancer/load-balancer-overview) as the origin, and pulls any data that isn't cached from there.
+3. The Azure load balancer distributes requests to the [virtual machine scale sets][docs-vmss] of web servers.
+4. The WordPress application pulls any dynamic information out of the Maria DB clusters, all static content is hosted in [Azure Files](/azure/storage/files/storage-files-introduction).
+5. SSL keys are stored [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 The second workflow is how authors contribute new content:
 
@@ -37,14 +28,27 @@ The second workflow is how authors contribute new content:
 
 ### Components
 
-- [Azure Content Delivery Network (CDN)](/azure/cdn/cdn-overview) is a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](/azure/virtual-network/virtual-networks-overview) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
+- [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) is a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
-- [Load balancers](/azure/load-balancer/load-balancer-overview) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-- [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
-- [Azure Files](/azure/storage/files/storage-files-introduction) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
-- [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store and tightly control access to passwords, certificates, and keys.
+- [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
+- [Virtual machine scale sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
+- [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
+
+## Scenario details
+
+This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Media events that cause traffic surges.
+- Blogs that use WordPress as their content management system.
+- Business or e-commerce websites that use WordPress.
+- Web sites built using other content management systems.
 
 ### Alternatives
 
@@ -52,6 +56,8 @@ The second workflow is how authors contribute new content:
 - [Azure database for MySQL](/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -67,6 +73,8 @@ For more resiliency and scalability guidance, see the [resiliency checklist](/az
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 All the virtual network traffic into the front-end application tier and protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][docs-nsg].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
@@ -78,6 +86,8 @@ In combination with the use of multiple regions, data replication and virtual ma
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
