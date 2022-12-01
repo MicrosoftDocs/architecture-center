@@ -160,6 +160,13 @@ This table adds scheduling options to the triggers.
 | Azure Monitor | Application Insights<br>Azure Dashboards |
 | Power BI | Analytics and Reports |
 
+## Next steps
+
+- [Training: Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Tutorial: Azure Machine Learning in a day](/azure/machine-learning/tutorial-azure-ml-in-a-day)
+
 ## Related resources
 
 * [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
