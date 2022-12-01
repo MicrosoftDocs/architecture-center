@@ -155,7 +155,7 @@ Principal authors:
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
-## Related reources
+## Related resources
 
 Explore related resources:
 
