@@ -118,7 +118,7 @@ Azure Cosmos DB enables you to provision separate database accounts for each ten
 
 A single database account is dedicated to a tenant, which means they are not subject to the noisy neighbor problem. You can also configure the location of the database account according to the tenant's requirements, and you can tune the configuration of Azure Cosmos DB features, such as geo-replication and customer-managed encryption keys, to suit each tenant's requirements. When using a dedicated Azure Cosmos DB account per tenant, consider the [maximum number of Azure Cosmos DB accounts per Azure subscription](/azure/cosmos-db/concepts-limits#control-plane-operations). 
 
-If using this model, you should consider how fast your application needs to be able to generate new tenants - account creation in Azure Cosmos DB can take up to 15 minutes, so it may be required to create accounts up-front. If this is not feasible, consider the database per tenant model.
+If using this model, you should consider how fast your application needs to be able to generate new tenants - account creation in Azure Cosmos DB can take a few minutes, so it may be required to create accounts up-front. If this is not feasible, consider the database per tenant model.
 
 If you allow tenants to migrate from a shared account to a dedicated Azure Cosmos DB account, consider the migration approach you'll use to move a tenant's data between the old and new accounts.
 
