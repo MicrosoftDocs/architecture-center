@@ -162,5 +162,5 @@ Other contributor:
 - [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [AKS baseline for multi-region cluster](../../architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [AKS baseline for multi-region cluster](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Build and deploy apps on AKS](../apps/devops-with-aks.yml)
