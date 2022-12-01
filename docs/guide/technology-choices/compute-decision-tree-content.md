@@ -4,7 +4,7 @@ Azure offers many ways to host your application code. The term *compute* refers 
 
 Use the following flowchart to select a candidate compute service.
 
-:::image type="content" source="./images/compute-choices.png" alt-text="Decision tree for Azure compute services." border="false":::
+:::image type="content" source="./images/compute-choices.png" alt-text="Diagram of decision tree for Azure compute services." border="false":::
 
 This diagram refers to these two migration strategies:
 
